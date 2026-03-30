@@ -589,7 +589,7 @@ h3 {
 
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(16px);
   transition: opacity 700ms ease, transform 700ms ease;
 }
 
