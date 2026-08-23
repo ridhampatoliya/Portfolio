@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — The Pentagon's Four-Month Magnet Problem</title>
+<meta name="description" content="Starting January 1, 2027, no U.S. weapons system can contain a rare-earth magnet that touched China at any stage. The compliant supply doesn't exist yet." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f6e9dc;
+    --accent-b: #2f6690;
+    --accent-b-tint: #dfeaf2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e0954f;
+      --accent-a-tint: #2c2013;
+      --accent-b: #6fa8cf;
+      --accent-b-tint: #142530;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e0954f;
+    --accent-a-tint: #2c2013;
+    --accent-b: #6fa8cf;
+    --accent-b-tint: #142530;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f6e9dc;
+    --accent-b: #2f6690;
+    --accent-b-tint: #dfeaf2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(28px, 4.4vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  .chart-wrap {
+    margin: 26px 0;
+  }
+  .chart-title {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 130px 1fr 70px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 13px;
+  }
+  .bar-label { color: var(--muted); }
+  .bar-track {
+    background: var(--border);
+    border-radius: 6px;
+    height: 14px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 6px;
+  }
+  .bar-fill.demand { background: var(--accent-a); width: 100%; }
+  .bar-fill.supply { background: var(--accent-b); width: 20%; }
+  .bar-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>August 23, 2026</span>
+    <span class="category-chip">CRITICAL MINERALS</span>
+  </div>
+  <h1>America's Weapons Run on Chinese Magnets. The Pentagon Gave Itself Four Months to Quit.</h1>
+  <p class="lede">On January 1, 2027, no U.S. weapons system can contain a rare-earth magnet that touched China at any stage of its life. The problem: the compliant supply to replace it barely exists yet.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    The Pentagon's own numbers show it needs roughly five times more DFARS-compliant heavy rare earth material than currently exists outside China — with the ban taking effect in under five months.
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Every F-35, guided missile, and EV motor needs a few ounces of rare-earth magnet — an alloy of metals like neodymium, samarium, and dysprosium that's stronger for its size than almost anything else on earth. It's a tiny, cheap-looking part. But like the pin in a door hinge, nothing swings without it.</p>
+      <p>Here's the catch: China doesn't just mine most of the world's rare earths — it <em>processes</em> nearly all of them. Think of it like coffee. Plenty of countries grow the beans, but almost all of the world's roasting happens in one place. Turning raw ore into the ultra-pure, separated elements a magnet factory can use takes specialized chemical plants that took China decades to build, and almost nobody else has.</p>
+      <p>A 2023 law gave the Pentagon a deadline: starting January 1, 2027, no U.S. weapons program can use a rare-earth magnet that was mined, refined, melted, or shaped in China, Russia, Iran, or North Korea — at <em>any</em> step, not just the final one. It closes an old loophole where a magnet could be "finished" in the U.S. using Chinese ore and still count as compliant.</p>
+      <p>The trouble is timing. The Pentagon's own estimates say it will need far more of the hardest-to-substitute rare earths than the non-Chinese world can currently supply — and for a few of them, essentially zero alternative supply exists at all. Meanwhile, China tightened its own export licensing in 2025, requiring approval before shipping rare earth materials abroad, even in small quantities embedded in other products.</p>
+      <p>In response, Washington has started doing something it hasn't done in decades: buying equity in a mining company. The Pentagon took a direct ownership stake in MP Materials and locked in a price floor, betting billions that a "mine-to-magnet" supply chain can be rebuilt inside the U.S. before the deadline bites.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The rule is DFARS 252.225-7052, implementing 10 U.S.C. §4872 from the FY2023 NDAA. Effective January 1, 2027, it bars Department of Defense contractors from delivering systems containing samarium-cobalt or neodymium-iron-boron (NdFeB) permanent magnets — plus tantalum metals/alloys and tungsten powders/heavy alloys — if any stage of production (mining, refining, separation, melting, or fabrication) occurred in a "covered country" (China, Russia, Iran, North Korea). This closes the earlier compliance loophole of sourcing Chinese oxide or metal and merely finishing the magnet domestically.</p>
+      <p>The supply gap is concentrated in heavy rare earths — elements like dysprosium and terbium that let NdFeB magnets retain their magnetism at the high operating temperatures inside jet engines and missile actuators. DoD's own assessments put annual heavy rare earth demand above 100 tonnes, against roughly 20 tonnes of DFARS-qualifying non-Chinese supply — and no compliant separated supply currently exists at all for erbium, thulium, ytterbium, or lutetium.</p>
+      <p>China's leverage isn't primarily mining share (it accounts for roughly 60–70% of mined ore, with Australia, the U.S., and Myanmar contributing the rest) — it's separation and refining capacity, where China holds an estimated 85–90% share globally. Solvent-extraction separation of the 17 rare earth elements is capital-intensive and environmentally punishing, and Beijing has spent 30+ years building it out largely unchallenged. Beijing tightened the screws further in 2025: an April 4 licensing regime required case-by-case export approval for seven rare earth elements and related magnets; an October 9 expansion added a 0.1% de minimis rule, requiring a MOFCOM license (roughly a 45-day process) for any foreign-made product containing 0.1% or more Chinese-origin rare earth content, or made using Chinese processing technology. A planned second wave of controls has been suspended until November 2026 under the current U.S.–China trade truce, but the April 2025 licensing system remains active.</p>
+      <p>The principal U.S. countermove is MP Materials: the DoD took a roughly 15% equity stake and signed a 10-year offtake agreement at a guaranteed price floor of $110/kg, alongside a separate $500M Apple supply deal. MP is now building a $1.25B "10X" magnet campus in Northlake, Texas — adjacent to its existing Fort Worth facility — aiming to become the first vertically integrated mine-to-magnet producer in the U.S. in decades. Whether it, and peers like Energy Fuels and Neo Performance Materials, can scale fast enough to clear the 2027 bar for heavy rare earths specifically remains the open question.</p>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-title mono">DoD heavy rare-earth demand vs. DFARS-compliant supply (annual, indexed to demand)</div>
+      <div class="bar-row">
+        <div class="bar-label">Demand</div>
+        <div class="bar-track"><div class="bar-fill demand"></div></div>
+        <div class="bar-value">~100t</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Compliant supply</div>
+        <div class="bar-track"><div class="bar-fill supply"></div></div>
+        <div class="bar-value">~20t</div>
+      </div>
+    </div>
+
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> this isn't just a defense story — the same magnets, and the same Chinese processing bottleneck, sit inside EV motors, wind turbines, and hard drives. Whatever reshoring the Pentagon forces into existence, the rest of the economy inherits.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> DFARS compliance is a defense-specific rule, but the refining bottleneck it's forcing capital into — separation capacity for heavy rare earths — is the same chokepoint constraining EV, wind, and electronics supply chains broadly. Watch DFARS compliance investment as a leading indicator for civilian-sector rare earth capacity.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.csis.org/analysis/chinas-new-rare-earth-and-magnet-restrictions-threaten-us-defense-supply-chains" target="_blank" rel="noopener">CSIS — China's New Rare Earth and Magnet Restrictions Threaten U.S. Defense Supply Chains</a></li>
+    <li><a href="https://rareearthexchanges.com/news/us-rare-earth-magnet-dfars-deadlines/" target="_blank" rel="noopener">Rare Earth Exchanges — U.S. Rare Earth Magnet Policy: DFARS Deadlines 2027</a></li>
+    <li><a href="https://mpmaterials.com/news/mp-materials-announces-transformational-public-private-partnership-with-the-department-of-defense-to-accelerate-u-s-rare-earth-magnet-independence/" target="_blank" rel="noopener">MP Materials — Transformational Public-Private Partnership with the Department of Defense</a></li>
+    <li><a href="https://cset.georgetown.edu/publication/mofcom-notice-2025-61/" target="_blank" rel="noopener">CSET Georgetown — MOFCOM Notice 2025 No. 61: Rare Earth Export Controls</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+</body>
+</html>

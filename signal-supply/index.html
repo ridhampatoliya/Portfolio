@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Archive</title>
+<meta name="description" content="A daily tech + supply-chain brief. Every edition, newest first." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f6e9dc;
+    --accent-b: #2f6690;
+    --accent-b-tint: #dfeaf2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e0954f;
+      --accent-a-tint: #2c2013;
+      --accent-b: #6fa8cf;
+      --accent-b-tint: #142530;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e0954f;
+    --accent-a-tint: #2c2013;
+    --accent-b: #6fa8cf;
+    --accent-b-tint: #142530;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f6e9dc;
+    --accent-b: #2f6690;
+    --accent-b-tint: #dfeaf2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: clamp(30px, 5vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+    font-weight: 800;
+  }
+  .tagline {
+    font-size: 18px;
+    color: var(--muted);
+    margin: 0 0 40px;
+    max-width: 55ch;
+  }
+
+  ul.editions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .edition-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 16px 20px;
+    text-decoration: none;
+    color: var(--ink);
+    flex-wrap: wrap;
+  }
+  .edition-row:hover {
+    border-color: var(--accent-b);
+  }
+  .edition-date {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    color: var(--muted);
+    min-width: 92px;
+    font-variant-numeric: tabular-nums;
+  }
+  .edition-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .edition-headline {
+    font-weight: 600;
+    font-size: 15.5px;
+    flex: 1;
+    min-width: 200px;
+  }
+  .empty-state {
+    color: var(--muted);
+    font-size: 15px;
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+</div>
+
+<main>
+  <div class="eyebrow">Archive</div>
+  <h1>Signal &amp; Supply — Archive</h1>
+  <p class="tagline">A daily tech + supply-chain brief.</p>
+
+  <ul class="editions">
+    <li>
+      <a class="edition-row" href="/signal-supply/2026-08-23">
+        <span class="edition-date mono">2026-08-23</span>
+        <span class="edition-chip">CRITICAL MINERALS</span>
+        <span class="edition-headline">America's Weapons Run on Chinese Magnets. The Pentagon Gave Itself Four Months to Quit.</span>
+      </a>
+    </li>
+  </ul>
+</main>
+
+<script>
+  (function () {
+    var themeBtn = document.getElementById('theme-toggle');
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+</body>
+</html>
