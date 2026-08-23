@@ -303,6 +303,103 @@
     font-size: 12px;
     color: var(--muted);
   }
+
+  .sv-header { margin-bottom: 18px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0;
+  }
+  .sv-control { margin: 20px 0 26px; }
+  .sv-label {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .sv-label strong { color: var(--ink); }
+  .sv-range {
+    width: 100%;
+    accent-color: var(--accent-a);
+    height: 20px;
+  }
+  .sv-scale-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .sv-chart-wrap { margin: 24px 0; }
+  .sv-chart-title {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .sv-legend {
+    display: flex;
+    gap: 18px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .sv-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+  }
+  .sv-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .sv-swatch-b { background: var(--accent-b); }
+  .sv-swatch-a { background: var(--accent-a); }
+  .sv-alloc-canvas {
+    width: 100%;
+    height: 34px;
+    display: block;
+    border-radius: 17px;
+  }
+  .sv-alloc-values {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: 8px;
+    font-variant-numeric: tabular-nums;
+  }
+  .sv-alloc-values span:first-child { color: var(--accent-b); font-weight: 700; }
+  .sv-alloc-values span:last-child { color: var(--accent-a); font-weight: 700; }
+  .sv-readout-row { margin: 24px 0; }
+  .sv-readout-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .sv-readout-value {
+    font-size: 28px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+  }
+  .sv-status {
+    margin-top: 20px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: var(--border);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .sv-status { transition: background 0.2s ease, color 0.2s ease; }
+  }
+  .sv-status-alert {
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+  }
 </style>
 </head>
 <body data-view="layman">
@@ -329,6 +426,42 @@
   <div class="callout">
     <span class="label">Key takeaway</span>
     Hyperscaler AI spending drove memory and storage prices up roughly fourfold, pushing costs Apple called "unsustainable" to absorb. Its response — testing DRAM from China's state-backed CXMT — collides with U.S. restrictions on a company flagged for military links.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Drag: how AI demand reshapes the memory market</h2>
+      <p class="sv-caption mono">Illustrative model — numbers are approximate, meant to show the mechanism, not a forecast.</p>
+    </div>
+
+    <div class="sv-control">
+      <label class="sv-label" for="sv-slider">AI data-center memory demand: <strong id="sv-level-label">Elevated</strong></label>
+      <input type="range" id="sv-slider" class="sv-range" min="0" max="100" value="50" step="1" aria-valuetext="Elevated" />
+      <div class="sv-scale-labels mono">
+        <span>Low</span>
+        <span>Extreme</span>
+      </div>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <div class="sv-chart-title">Fab capacity allocation</div>
+      <div class="sv-legend">
+        <span class="sv-legend-item"><span class="sv-swatch sv-swatch-b"></span>Commodity DRAM/NAND</span>
+        <span class="sv-legend-item"><span class="sv-swatch sv-swatch-a"></span>HBM for AI data centers</span>
+      </div>
+      <canvas id="sv-alloc-canvas" class="sv-alloc-canvas" role="img" aria-label="Bar showing fab capacity split between commodity memory and HBM for AI"></canvas>
+      <div class="sv-alloc-values mono">
+        <span id="sv-commodity-pct">57%</span>
+        <span id="sv-hbm-pct">43%</span>
+      </div>
+    </div>
+
+    <div class="sv-readout-row">
+      <div class="sv-readout-label">Commodity memory price <span class="mono" style="font-size: 11px;">(indexed, illustrative)</span></div>
+      <div class="sv-readout-value mono" id="sv-price-value">2.5x</div>
+    </div>
+
+    <div class="sv-status mono" id="sv-status">Apple sourced comfortably from Samsung / SK Hynix / Micron</div>
   </div>
 
   <div class="card snippet">
@@ -416,6 +549,97 @@
       var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
       applyTheme(isDark ? 'light' : 'dark');
     });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+    var slider = document.getElementById('sv-slider');
+    var levelLabel = document.getElementById('sv-level-label');
+    var commodityPct = document.getElementById('sv-commodity-pct');
+    var hbmPct = document.getElementById('sv-hbm-pct');
+    var priceValue = document.getElementById('sv-price-value');
+    var statusEl = document.getElementById('sv-status');
+    var canvas = document.getElementById('sv-alloc-canvas');
+    var ctx = canvas.getContext('2d');
+    if (!slider || !ctx) return;
+
+    var LEVELS = ['Low', 'Modest', 'Elevated', 'High', 'Extreme'];
+    var lastT = 0.5;
+
+    function levelName(t) {
+      var idx = Math.min(LEVELS.length - 1, Math.floor(t * LEVELS.length));
+      return LEVELS[idx];
+    }
+
+    function drawRounded(x, y, w, h, r) {
+      ctx.beginPath();
+      if (ctx.roundRect) { ctx.roundRect(x, y, w, h, r); }
+      else { ctx.rect(x, y, w, h); }
+    }
+
+    function sizeCanvas() {
+      var rect = canvas.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.round(rect.width * dpr));
+      canvas.height = Math.max(1, Math.round(rect.height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function draw(t) {
+      sizeCanvas();
+      var rect = canvas.getBoundingClientRect();
+      var w = rect.width, h = rect.height;
+      var cs = getComputedStyle(document.documentElement);
+      var accentA = cs.getPropertyValue('--accent-a').trim();
+      var accentB = cs.getPropertyValue('--accent-b').trim();
+      var commodity = 0.90 - 0.65 * t;
+      var hbm = 1 - commodity;
+
+      ctx.clearRect(0, 0, w, h);
+      ctx.save();
+      drawRounded(0, 0, w, h, h / 2);
+      ctx.clip();
+      ctx.fillStyle = accentB;
+      ctx.fillRect(0, 0, w * commodity, h);
+      ctx.fillStyle = accentA;
+      ctx.fillRect(w * commodity, 0, w * hbm + 1, h);
+      ctx.restore();
+
+      commodityPct.textContent = Math.round(commodity * 100) + '%';
+      hbmPct.textContent = Math.round(hbm * 100) + '%';
+    }
+
+    function update() {
+      var v = Number(slider.value);
+      var t = v / 100;
+      lastT = t;
+      var name = levelName(t);
+      levelLabel.textContent = name;
+      slider.setAttribute('aria-valuetext', name);
+
+      draw(t);
+
+      var price = 1 + t * 3;
+      priceValue.textContent = price.toFixed(1) + 'x';
+
+      if (t >= 0.7) {
+        statusEl.textContent = 'Apple starts qualifying CXMT chips to cope';
+        statusEl.classList.add('sv-status-alert');
+      } else {
+        statusEl.textContent = 'Apple sourced comfortably from Samsung / SK Hynix / Micron';
+        statusEl.classList.remove('sv-status-alert');
+      }
+    }
+
+    slider.addEventListener('input', update);
+    window.addEventListener('resize', function () { draw(lastT); });
+    new MutationObserver(function () { draw(lastT); }).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
+    update();
   })();
 </script>
 </body>

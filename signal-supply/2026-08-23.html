@@ -303,6 +303,176 @@
     font-size: 12px;
     color: var(--muted);
   }
+
+  .sv2-header { margin-bottom: 18px; }
+  .sv2-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv2-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 22px;
+  }
+  .sv2-stage-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding: 10px 2px 4px;
+  }
+  .sv2-stage {
+    flex: 1 1 0;
+    min-width: 78px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    position: relative;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .sv2-stage { transition: border-color 0.15s ease, background 0.15s ease; }
+  }
+  .sv2-stage.sv2-active {
+    border-color: var(--accent-b);
+    background: var(--accent-b-tint);
+    box-shadow: 0 0 0 1px var(--accent-b) inset;
+  }
+  .sv2-stage-bartrack {
+    width: 100%;
+    height: 54px;
+    display: flex;
+    align-items: flex-end;
+    background: var(--bg);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .sv2-stage-barfill {
+    width: 100%;
+    background: var(--accent-a);
+    border-radius: 6px 6px 0 0;
+  }
+  .sv2-stage.sv2-active .sv2-stage-barfill { background: var(--accent-b); }
+  .sv2-stage-num { font-size: 11px; color: var(--muted); }
+  .sv2-stage-name {
+    font-size: 11.5px;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .sv2-chokepoint-badge {
+    position: absolute;
+    top: -9px;
+    right: -6px;
+    background: var(--accent-a);
+    color: var(--surface);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 2px 6px;
+    border-radius: 999px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .sv2-arrow {
+    color: var(--muted);
+    font-size: 16px;
+    padding-bottom: 26px;
+    flex: 0 0 auto;
+  }
+  .sv2-detail {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    min-height: 88px;
+  }
+  .sv2-detail-share {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-b);
+    margin-bottom: 6px;
+  }
+  .sv2-detail-share.sv2-detail-hot { color: var(--accent-a); }
+  .sv2-detail-text { margin: 0; font-size: 14px; color: var(--ink); }
+  .sv2-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+  .sv2-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .sv2-btn:disabled { opacity: 0.4; cursor: default; }
+  .sv2-dots { display: flex; gap: 6px; }
+  .sv2-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    border: none;
+    background: var(--border);
+    padding: 0;
+    cursor: pointer;
+  }
+  .sv2-dot-active { background: var(--accent-b); }
+  .sv2-gap-chart {
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+  }
+  .sv2-gap-title { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+  .sv2-gap-legend {
+    display: flex;
+    gap: 18px;
+    font-size: 12px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .sv2-gap-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .sv2-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .sv2-swatch-a { background: var(--accent-a); }
+  .sv2-swatch-b { background: var(--accent-b); }
+  .sv2-gap-canvas {
+    width: 100%;
+    height: 64px;
+    display: block;
+  }
+  .sv2-gap-note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+  @media (max-width: 560px) {
+    .sv2-stage-name { font-size: 10px; }
+    .sv2-stage { min-width: 62px; }
+  }
 </style>
 </head>
 <body data-view="layman">
@@ -329,6 +499,67 @@
   <div class="callout">
     <span class="label">Key takeaway</span>
     The Pentagon's own numbers show it needs roughly five times more DFARS-compliant heavy rare earth material than currently exists outside China — with the ban taking effect in under five months.
+  </div>
+
+  <div class="card sv2-card">
+    <div class="sv2-header">
+      <h2 class="sv2-title">Walk the magnet supply chain — where does China control it?</h2>
+      <p class="sv2-caption mono">Step through five stages to see where the real chokepoint sits.</p>
+    </div>
+
+    <div class="sv2-stage-row" id="sv2-stage-row">
+      <div class="sv2-stage" data-idx="0">
+        <div class="sv2-stage-bartrack"><div class="sv2-stage-barfill" data-share="65"></div></div>
+        <div class="sv2-stage-num mono">1</div>
+        <div class="sv2-stage-name">Mine Ore</div>
+      </div>
+      <div class="sv2-arrow" aria-hidden="true">→</div>
+      <div class="sv2-stage" data-idx="1">
+        <div class="sv2-chokepoint-badge mono">Bottleneck</div>
+        <div class="sv2-stage-bartrack"><div class="sv2-stage-barfill" data-share="88"></div></div>
+        <div class="sv2-stage-num mono">2</div>
+        <div class="sv2-stage-name">Separate / Refine</div>
+      </div>
+      <div class="sv2-arrow" aria-hidden="true">→</div>
+      <div class="sv2-stage" data-idx="2">
+        <div class="sv2-stage-bartrack"><div class="sv2-stage-barfill" data-share="75"></div></div>
+        <div class="sv2-stage-num mono">3</div>
+        <div class="sv2-stage-name">Metal &amp; Alloy</div>
+      </div>
+      <div class="sv2-arrow" aria-hidden="true">→</div>
+      <div class="sv2-stage" data-idx="3">
+        <div class="sv2-stage-bartrack"><div class="sv2-stage-barfill" data-share="70"></div></div>
+        <div class="sv2-stage-num mono">4</div>
+        <div class="sv2-stage-name">Sinter Magnet</div>
+      </div>
+      <div class="sv2-arrow" aria-hidden="true">→</div>
+      <div class="sv2-stage" data-idx="4">
+        <div class="sv2-stage-bartrack"><div class="sv2-stage-barfill" data-share="0"></div></div>
+        <div class="sv2-stage-num mono">5</div>
+        <div class="sv2-stage-name">Into Weapon System</div>
+      </div>
+    </div>
+
+    <div class="sv2-detail" aria-live="polite">
+      <div class="sv2-detail-share mono" id="sv2-detail-share">China share of this step: ~65%</div>
+      <p class="sv2-detail-text" id="sv2-detail-text">China mines roughly 60–70% of global rare-earth ore — significant, but Australia, the U.S., and Myanmar contribute real volume here.</p>
+    </div>
+
+    <div class="sv2-controls">
+      <button type="button" class="sv2-btn" id="sv2-prev">← Prev</button>
+      <div class="sv2-dots" id="sv2-dots" aria-hidden="true"></div>
+      <button type="button" class="sv2-btn" id="sv2-next">Next →</button>
+    </div>
+
+    <div class="sv2-gap-chart">
+      <div class="sv2-gap-title mono">DoD heavy rare-earth demand vs. DFARS-compliant supply (annual)</div>
+      <div class="sv2-gap-legend mono">
+        <span class="sv2-gap-legend-item"><span class="sv2-swatch sv2-swatch-a"></span>Demand ~100t</span>
+        <span class="sv2-gap-legend-item"><span class="sv2-swatch sv2-swatch-b"></span>Compliant supply ~20t</span>
+      </div>
+      <canvas id="sv2-gap-canvas" class="sv2-gap-canvas" role="img" aria-label="Bar chart: demand about 100 tonnes versus DFARS-compliant supply about 20 tonnes"></canvas>
+      <div class="sv2-gap-note mono">Compliant ban takes effect Jan 1, 2027</div>
+    </div>
   </div>
 
   <div class="card snippet">
@@ -417,6 +648,124 @@
       var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
       applyTheme(isDark ? 'light' : 'dark');
     });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    function sizeCanvas(canvas, ctx) {
+      var rect = canvas.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.round(rect.width * dpr));
+      canvas.height = Math.max(1, Math.round(rect.height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function drawRounded(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      if (ctx.roundRect) { ctx.roundRect(x, y, w, h, r); }
+      else { ctx.rect(x, y, w, h); }
+    }
+
+    var STAGES = [
+      { name: 'Mine Ore', share: 65, text: 'China mines roughly 60–70% of global rare-earth ore — significant, but Australia, the U.S., and Myanmar contribute real volume here.' },
+      { name: 'Separate / Refine', share: 88, text: 'The real chokepoint. Solvent-extraction separation into pure elements is capital-intensive and environmentally punishing — China built this out over 30+ years and holds an estimated 85–90% share. This is the bottleneck DFARS must replace.' },
+      { name: 'Metal & Alloy', share: 75, text: 'Converting refined oxides into rare-earth metal and alloy stays concentrated wherever the refining already happened.' },
+      { name: 'Sinter Magnet', share: 70, text: 'Pressing and sintering the alloy into a finished magnet — still China-dominated, though Japan and a few others hold some capacity.' },
+      { name: 'Into Weapon System', share: 0, text: 'DFARS 252.225-7052: from Jan 1, 2027, none of the four prior steps may have touched China, Russia, Iran, or North Korea for a magnet in a DoD weapons system.' }
+    ];
+
+    var row = document.getElementById('sv2-stage-row');
+    var detailShare = document.getElementById('sv2-detail-share');
+    var detailText = document.getElementById('sv2-detail-text');
+    var prevBtn = document.getElementById('sv2-prev');
+    var nextBtn = document.getElementById('sv2-next');
+    var dotsWrap = document.getElementById('sv2-dots');
+    var gapCanvas = document.getElementById('sv2-gap-canvas');
+    var gapCtx = gapCanvas ? gapCanvas.getContext('2d') : null;
+    if (!row || !prevBtn || !nextBtn || !gapCtx) return;
+
+    var stages = Array.prototype.slice.call(row.querySelectorAll('.sv2-stage'));
+    var current = 0;
+
+    stages.forEach(function (el, i) {
+      var fill = el.querySelector('.sv2-stage-barfill');
+      var share = Number(fill.getAttribute('data-share'));
+      fill.style.height = Math.max(6, share) + '%';
+
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'sv2-dot';
+      dot.setAttribute('aria-label', 'Go to stage ' + (i + 1) + ': ' + STAGES[i].name);
+      dot.addEventListener('click', function () { goTo(i); });
+      dotsWrap.appendChild(dot);
+    });
+    var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.sv2-dot'));
+
+    function drawGap() {
+      sizeCanvas(gapCanvas, gapCtx);
+      var rect = gapCanvas.getBoundingClientRect();
+      var w = rect.width, h = rect.height;
+      var cs = getComputedStyle(document.documentElement);
+      var accentA = cs.getPropertyValue('--accent-a').trim();
+      var accentB = cs.getPropertyValue('--accent-b').trim();
+      var border = cs.getPropertyValue('--border').trim();
+
+      gapCtx.clearRect(0, 0, w, h);
+
+      var barH = 14;
+      var gapY = 16;
+      var totalH = barH * 2 + gapY;
+      var y1 = (h - totalH) / 2;
+      var y2 = y1 + barH + gapY;
+
+      function bar(y, frac, color) {
+        gapCtx.fillStyle = border;
+        drawRounded(gapCtx, 0, y, w, barH, barH / 2);
+        gapCtx.fill();
+        gapCtx.fillStyle = color;
+        drawRounded(gapCtx, 0, y, Math.max(w * frac, barH), barH, barH / 2);
+        gapCtx.fill();
+      }
+
+      bar(y1, 1, accentA);
+      bar(y2, 0.2, accentB);
+    }
+
+    function render() {
+      stages.forEach(function (el, i) {
+        var active = i === current;
+        el.classList.toggle('sv2-active', active);
+        el.setAttribute('aria-current', active ? 'step' : 'false');
+      });
+      dots.forEach(function (d, i) { d.classList.toggle('sv2-dot-active', i === current); });
+
+      var stage = STAGES[current];
+      detailShare.textContent = stage.share > 0 ? 'China share of this step: ~' + stage.share + '%' : 'Compliance checkpoint';
+      detailShare.classList.toggle('sv2-detail-hot', stage.share >= 85);
+      detailText.textContent = stage.text;
+
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === STAGES.length - 1;
+    }
+
+    function goTo(i) {
+      current = Math.max(0, Math.min(STAGES.length - 1, i));
+      render();
+    }
+
+    prevBtn.addEventListener('click', function () { goTo(current - 1); });
+    nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+    window.addEventListener('resize', drawGap);
+    new MutationObserver(drawGap).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
+    render();
+    drawGap();
   })();
 </script>
 </body>
