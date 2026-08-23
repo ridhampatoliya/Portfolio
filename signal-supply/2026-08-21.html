@@ -331,6 +331,123 @@
     A CPU is a few strong workers optimized to finish one hard task fast (latency). A GPU is a swarm of simple workers optimized to finish a mountain of identical tasks together (throughput). AI is a mountain of identical tasks — so the building fills with GPUs.
   </div>
 
+  <div class="card ss-race">
+    <style>
+      .ss-race h2 {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin: 0 0 10px;
+        font-weight: 700;
+      }
+      .ss-race-caption {
+        color: var(--muted);
+        font-size: 13px;
+        margin: 0 0 20px;
+      }
+      .ss-race-controls {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      .ss-race-btn {
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 10px 20px;
+        min-height: 40px;
+        cursor: pointer;
+      }
+      .ss-race-btn-run {
+        background: var(--ink);
+        color: var(--bg);
+        border: 1px solid var(--ink);
+      }
+      .ss-race-btn-run:disabled {
+        opacity: 0.5;
+        cursor: default;
+      }
+      .ss-race-btn-reset {
+        background: transparent;
+        color: var(--ink);
+        border: 1px solid var(--border);
+      }
+      .ss-race-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      @media (max-width: 560px) {
+        .ss-race-grid { grid-template-columns: 1fr; }
+      }
+      .ss-race-lane-title {
+        font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        color: var(--muted);
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .ss-race-lane-title strong { color: var(--ink); }
+      .ss-race-canvas {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        display: block;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--bg);
+      }
+      .ss-race-stats {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        font-variant-numeric: tabular-nums;
+        font-size: 13px;
+      }
+      .ss-race-stats .ss-race-cpu-ticks { color: var(--accent-a); font-weight: 700; }
+      .ss-race-stats .ss-race-gpu-ticks { color: var(--accent-b); font-weight: 700; }
+      .ss-race-verdict {
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 14px;
+        min-height: 1.4em;
+      }
+    </style>
+    <h2>Watch the race</h2>
+    <p class="ss-race-caption mono">1,024 identical tasks · CPU: 4 fast lanes vs GPU: 64 slower lanes · same total work — press Run</p>
+    <div class="ss-race-controls">
+      <button type="button" class="ss-race-btn ss-race-btn-run" id="race-run">▶ Run the race</button>
+      <button type="button" class="ss-race-btn ss-race-btn-reset" id="race-reset">Reset</button>
+    </div>
+    <div class="ss-race-grid">
+      <div class="ss-race-lane">
+        <div class="ss-race-lane-title"><strong>CPU</strong><span>4 cores</span></div>
+        <canvas class="ss-race-canvas" id="race-cpu-canvas" width="320" height="320" aria-hidden="true"></canvas>
+        <div class="ss-race-stats">
+          <span>Done: <span id="race-cpu-done">0%</span></span>
+          <span>Ticks: <span class="ss-race-cpu-ticks" id="race-cpu-ticks">0</span></span>
+        </div>
+      </div>
+      <div class="ss-race-lane">
+        <div class="ss-race-lane-title"><strong>GPU</strong><span>64 cores</span></div>
+        <canvas class="ss-race-canvas" id="race-gpu-canvas" width="320" height="320" aria-hidden="true"></canvas>
+        <div class="ss-race-stats">
+          <span>Done: <span id="race-gpu-done">0%</span></span>
+          <span>Ticks: <span class="ss-race-gpu-ticks" id="race-gpu-ticks">0</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="ss-race-verdict mono" id="race-verdict" aria-live="polite"></div>
+  </div>
+
   <div class="card snippet">
     <div class="lay-only">
       <h2>The plain version</h2>
@@ -413,6 +530,190 @@
       var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
       applyTheme(isDark ? 'light' : 'dark');
     });
+  })();
+</script>
+<script>
+  (function () {
+    var COLS = 32, ROWS = 32, TILE_COUNT = COLS * ROWS;
+    var CPU_CORES = 4, CPU_TICKS = 1;
+    var GPU_CORES = 64, GPU_TICKS = 3;
+    var TICKS_PER_FRAME = 4;
+
+    var cpuCanvas = document.getElementById('race-cpu-canvas');
+    var gpuCanvas = document.getElementById('race-gpu-canvas');
+    var runBtn = document.getElementById('race-run');
+    var resetBtn = document.getElementById('race-reset');
+    var cpuDoneEl = document.getElementById('race-cpu-done');
+    var gpuDoneEl = document.getElementById('race-gpu-done');
+    var cpuTicksEl = document.getElementById('race-cpu-ticks');
+    var gpuTicksEl = document.getElementById('race-gpu-ticks');
+    var verdictEl = document.getElementById('race-verdict');
+
+    var rafId = null;
+
+    function createLane(cores) {
+      var coreList = [];
+      for (var i = 0; i < cores; i++) coreList.push({ idx: -1, remaining: 0 });
+      return {
+        tiles: new Uint8Array(TILE_COUNT),
+        cores: coreList,
+        nextTile: 0,
+        doneCount: 0,
+        tick: 0,
+        finished: false
+      };
+    }
+
+    var cpuLane = createLane(CPU_CORES);
+    var gpuLane = createLane(GPU_CORES);
+
+    function step(lane, ticksPerTile) {
+      if (lane.finished) return;
+      lane.tick++;
+      for (var i = 0; i < lane.cores.length; i++) {
+        var core = lane.cores[i];
+        if (core.idx === -1) {
+          if (lane.nextTile < TILE_COUNT) {
+            core.idx = lane.nextTile++;
+            core.remaining = ticksPerTile;
+            lane.tiles[core.idx] = 1;
+          } else {
+            continue;
+          }
+        }
+        core.remaining--;
+        if (core.remaining <= 0) {
+          lane.tiles[core.idx] = 2;
+          lane.doneCount++;
+          core.idx = -1;
+        }
+      }
+      if (lane.doneCount >= TILE_COUNT) lane.finished = true;
+    }
+
+    function finishLaneInstantly(lane, ticksPerTile) {
+      while (!lane.finished) step(lane, ticksPerTile);
+    }
+
+    function getColors() {
+      var cs = getComputedStyle(document.documentElement);
+      return {
+        bg: cs.getPropertyValue('--bg').trim(),
+        border: cs.getPropertyValue('--border').trim(),
+        accentA: cs.getPropertyValue('--accent-a').trim(),
+        accentATint: cs.getPropertyValue('--accent-a-tint').trim(),
+        accentB: cs.getPropertyValue('--accent-b').trim(),
+        accentBTint: cs.getPropertyValue('--accent-b-tint').trim()
+      };
+    }
+
+    function drawLane(canvas, lane, colorDone, colorProgress, colors) {
+      var ctx = canvas.getContext('2d');
+      var w = canvas.width, h = canvas.height;
+      ctx.fillStyle = colors.bg;
+      ctx.fillRect(0, 0, w, h);
+      var cell = w / COLS;
+      for (var idx = 0; idx < TILE_COUNT; idx++) {
+        var col = idx % COLS;
+        var row = Math.floor(idx / COLS);
+        var x = col * cell, y = row * cell;
+        var state = lane.tiles[idx];
+        if (state === 2) {
+          ctx.fillStyle = colorDone;
+          ctx.fillRect(x + 1, y + 1, cell - 2, cell - 2);
+        } else if (state === 1) {
+          ctx.fillStyle = colorProgress;
+          ctx.fillRect(x + 1, y + 1, cell - 2, cell - 2);
+        }
+        ctx.strokeStyle = colors.border;
+        ctx.lineWidth = 1;
+        ctx.strokeRect(x + 0.5, y + 0.5, cell - 1, cell - 1);
+      }
+    }
+
+    function render() {
+      var colors = getColors();
+      drawLane(cpuCanvas, cpuLane, colors.accentA, colors.accentATint, colors);
+      drawLane(gpuCanvas, gpuLane, colors.accentB, colors.accentBTint, colors);
+      cpuDoneEl.textContent = Math.round((cpuLane.doneCount / TILE_COUNT) * 100) + '%';
+      gpuDoneEl.textContent = Math.round((gpuLane.doneCount / TILE_COUNT) * 100) + '%';
+      cpuTicksEl.textContent = String(cpuLane.tick);
+      gpuTicksEl.textContent = String(gpuLane.tick);
+    }
+
+    function showVerdict() {
+      var speedup = (cpuLane.tick / gpuLane.tick).toFixed(1);
+      verdictEl.textContent = 'CPU finished in ' + cpuLane.tick + ' ticks. GPU finished in ' + gpuLane.tick +
+        ' ticks — the GPU was ~' + speedup + 'x faster, even though each of its cores is 3x slower than a CPU core, purely because 64 of them ran at once instead of 4.';
+    }
+
+    function clearVerdict() {
+      verdictEl.textContent = '';
+    }
+
+    function prefersReducedMotion() {
+      return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function resetState() {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      cpuLane = createLane(CPU_CORES);
+      gpuLane = createLane(GPU_CORES);
+      clearVerdict();
+      runBtn.disabled = false;
+    }
+
+    function runAnimated() {
+      runBtn.disabled = true;
+      function frame() {
+        for (var i = 0; i < TICKS_PER_FRAME; i++) {
+          if (!cpuLane.finished) step(cpuLane, CPU_TICKS);
+          if (!gpuLane.finished) step(gpuLane, GPU_TICKS);
+          if (cpuLane.finished && gpuLane.finished) break;
+        }
+        render();
+        if (cpuLane.finished && gpuLane.finished) {
+          rafId = null;
+          runBtn.disabled = false;
+          showVerdict();
+          return;
+        }
+        rafId = requestAnimationFrame(frame);
+      }
+      rafId = requestAnimationFrame(frame);
+    }
+
+    function runInstant() {
+      finishLaneInstantly(cpuLane, CPU_TICKS);
+      finishLaneInstantly(gpuLane, GPU_TICKS);
+      render();
+      showVerdict();
+    }
+
+    runBtn.addEventListener('click', function () {
+      resetState();
+      if (prefersReducedMotion()) {
+        runInstant();
+      } else {
+        runAnimated();
+      }
+    });
+
+    resetBtn.addEventListener('click', function () {
+      resetState();
+      render();
+    });
+
+    if (prefersReducedMotion()) {
+      runInstant();
+    } else {
+      render();
+    }
+
+    var themeObserver = new MutationObserver(function () {
+      render();
+    });
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   })();
 </script>
 </body>
