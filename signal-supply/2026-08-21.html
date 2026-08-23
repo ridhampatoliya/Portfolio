@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Why AI Runs on GPUs, Not CPUs</title>
+<meta name="description" content="Both are chips that do math. But a modern AI model does one kind of math, repeated billions of times, all at once — and that single fact decides the layout of the entire data center." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c26a2b;
+    --accent-a-tint: #f7e9dc;
+    --accent-b: #0e8a86;
+    --accent-b-tint: #d6efed;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e8975a;
+      --accent-a-tint: #2b2013;
+      --accent-b: #3fc4bf;
+      --accent-b-tint: #0c2625;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e8975a;
+    --accent-a-tint: #2b2013;
+    --accent-b: #3fc4bf;
+    --accent-b-tint: #0c2625;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c26a2b;
+    --accent-a-tint: #f7e9dc;
+    --accent-b: #0e8a86;
+    --accent-b-tint: #d6efed;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(28px, 4.4vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  .chart-wrap {
+    margin: 26px 0;
+  }
+  .chart-title {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 130px 1fr 70px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 13px;
+  }
+  .bar-label { color: var(--muted); }
+  .bar-track {
+    background: var(--border);
+    border-radius: 6px;
+    height: 14px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 6px;
+  }
+  .bar-fill.cpu { background: var(--accent-a); width: 7%; }
+  .bar-fill.gpu { background: var(--accent-b); width: 100%; }
+  .bar-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>August 21, 2026</span>
+    <span class="category-chip">COMPUTE</span>
+  </div>
+  <h1>Why AI Runs on GPUs, Not CPUs.</h1>
+  <p class="lede">Both are chips that do math. But a modern AI model does one kind of math — the same small operation, repeated billions of times, all at once. That single fact decides the layout of the entire data center.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    A CPU is a few strong workers optimized to finish one hard task fast (latency). A GPU is a swarm of simple workers optimized to finish a mountain of identical tasks together (throughput). AI is a mountain of identical tasks — so the building fills with GPUs.
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Think of a CPU as four master chefs. Each one can cook almost any dish — sear, braise, plate a dessert — fast and well, switching between totally different tasks without missing a beat. That flexibility is exactly what you want for running an operating system, a web browser, a spreadsheet: a grab-bag of different jobs arriving in no particular order.</p>
+      <p>A GPU is a different bet: a thousand line cooks, each trained to do exactly one thing — flip a burger. Ask any single line cook to plate a tasting menu and they're useless. But ask all thousand to flip a thousand identical burgers at once, and nothing beats them. AI is the stadium crowd, not the tasting menu: training and running a model is mostly one boring operation — multiply two grids of numbers together and add up the results — repeated billions of times per second. Crucially, each of those multiplications doesn't depend on the others, so all thousand line cooks can work at once instead of waiting in line.</p>
+      <p>That's why a modern AI data center is racks and racks of GPUs, with a much smaller number of CPUs acting as traffic cops — loading data, scheduling jobs, and handing work off to the GPU swarm. Once you've committed to that layout, the real bottleneck stops being "how many chips can we buy" and becomes power and cooling: a thousand line cooks all working flat-out generate a lot of heat and draw a lot of electricity.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>A CPU spends its transistor budget on control: deep pipelines, branch prediction, out-of-order execution, and large caches, all in service of minimizing the latency of a single instruction stream. A GPU spends roughly the same die area on the opposite bet — thousands of simple ALUs executing in SIMT (single-instruction, multiple-thread) lockstep, trading per-thread latency for aggregate throughput across many threads at once.</p>
+      <p>The AI workload matches the GPU's bet almost exactly. The core primitive of both the forward and backward pass through a transformer is dense matrix multiplication (GEMM), dominated by independent multiply-accumulate operations — ideal for massive parallelism. Modern accelerators add Tensor Cores, units that compute a small matrix tile (e.g., 16×16) per instruction in reduced precision (FP16, BF16, or FP8), which is the source of most of the headline TFLOPS figures vendors quote. GPUs hide memory latency not through caching but through thread oversubscription — when one warp stalls on a memory fetch, the scheduler simply switches to another warp that's ready to run — which is why performance is frequently memory-bound rather than compute-bound, and why GPUs pair their ALUs with wide, fast HBM instead of large caches.</p>
+      <p>At frontier scale, a single model no longer fits on one GPU's memory, so training spans thousands of GPUs and the bottleneck shifts from the chip itself to the interconnect — NVLink within a node, InfiniBand or equivalent across nodes — that keeps thousands of parallel workers synchronized.</p>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-title mono">Memory bandwidth, to scale — how fast each chip can feed its own math units</div>
+      <div class="bar-row">
+        <div class="bar-label">Server CPU</div>
+        <div class="bar-track"><div class="bar-fill cpu"></div></div>
+        <div class="bar-value">~0.4 TB/s</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Data-center GPU</div>
+        <div class="bar-track"><div class="bar-fill gpu"></div></div>
+        <div class="bar-value">~6 TB/s</div>
+      </div>
+    </div>
+
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> how much AI you can run is really how many GPUs you can power and cool, which is why constraints moved from chips to megawatts, land, and memory.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> the throughput-over-latency bet at the chip propagates into HBM demand, power delivery, network topology, and cost per token; downstream shortages trace back to it.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://blogs.nvidia.com/blog/whats-the-difference-between-a-cpu-and-a-gpu/" target="_blank" rel="noopener">NVIDIA — What's the Difference Between a CPU and a GPU?</a></li>
+    <li><a href="https://docs.nvidia.com/deeplearning/performance/dl-performance-gpu-background/index.html" target="_blank" rel="noopener">NVIDIA — GPU Performance Background</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/High_Bandwidth_Memory" target="_blank" rel="noopener">Wikipedia — High Bandwidth Memory</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+</body>
+</html>
