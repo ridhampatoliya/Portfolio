@@ -95,6 +95,31 @@ body::before {
   font-size: 0.9rem;
 }
 
+.site-nav a.nav-blog {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(15, 95, 75, 0.1);
+  color: var(--accent);
+  font-weight: 600;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.nav-blog::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.nav-blog:hover {
+  background: rgba(15, 95, 75, 0.16);
+  transform: translateY(-1px);
+}
+
 .header-socials {
   display: flex;
   gap: 10px;
