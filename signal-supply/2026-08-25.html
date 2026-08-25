@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — It Starts as Sand. It Just Became a $21-a-Kilo Trade War.</title>
+<meta name="description" content="On August 6, Washington set a 15% tariff and a hard price floor on polysilicon — the ultra-purified silicon behind both solar panels and computer chips — to counter China's grip on its production." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a8631b;
+    --accent-a-tint: #f5e7d3;
+    --accent-b: #1c7f8c;
+    --accent-b-tint: #dcf0f2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #dba062;
+      --accent-a-tint: #2c2013;
+      --accent-b: #4fc4d1;
+      --accent-b-tint: #0f2b2e;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #dba062;
+    --accent-a-tint: #2c2013;
+    --accent-b: #4fc4d1;
+    --accent-b-tint: #0f2b2e;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a8631b;
+    --accent-a-tint: #f5e7d3;
+    --accent-b: #1c7f8c;
+    --accent-b-tint: #dcf0f2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(28px, 4.4vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: polysilicon purity ladder --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+  .sv-canvas-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .sv-canvas {
+    width: 100%;
+    height: 210px;
+    display: block;
+  }
+  .sv-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .sv-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 220px;
+  }
+  .sv-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-b);
+    min-width: 100px;
+  }
+  .sv-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .sv-btn:hover { border-color: var(--accent-b); }
+  .sv-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .sv-preset {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .sv-preset:hover { color: var(--ink); border-color: var(--accent-b); }
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .sv-stat-value.sv-hit { color: var(--accent-b); }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>August 25, 2026</span>
+    <span class="category-chip">MATERIALS</span>
+  </div>
+  <h1>It Starts as Sand. It Just Became a $21-a-Kilo Trade War.</h1>
+  <p class="lede">On August 6, the Trump administration signed an order setting a 15% tariff and a hard price floor on polysilicon — the ultra-purified silicon that becomes both solar panels and computer chips — aimed at a supply chain China has come to dominate almost completely.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Solar-grade and chip-grade polysilicon start from the same sand and the same refining process — they just stop at different purity levels. China's near-monopoly sits mostly in the cheaper, lower tier; the new tariff and price floor reach across both, from $21/kg for raw polysilicon up to $100/kg for the ingots and wafers made from it.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Drag the purity ladder — watch cost climb as sand becomes chip-grade silicon</h2>
+      <p class="sv-caption mono">Simplified model: each rung removes another "nine" of impurity. Purity and price figures are illustrative, built to match commonly cited industry benchmarks (6N solar grade, 9–11N chip grade) — not a real plant's cost curve. Press Run to climb the ladder, or drag the slider yourself.</p>
+    </div>
+
+    <div class="sv-canvas-wrap">
+      <canvas id="sv-canvas" class="sv-canvas" role="img" aria-label="Ladder diagram showing silicon purity rising and cost multiplier rising as purification passes increase"></canvas>
+    </div>
+
+    <div class="sv-controls">
+      <div class="sv-slider-row">
+        <label for="sv-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">Purification</label>
+        <input type="range" id="sv-slider" min="0" max="9" step="0.1" value="0" aria-label="Purification passes, from raw metallurgical silicon to leading-edge chip grade" />
+      </div>
+      <button type="button" class="sv-btn" id="sv-run">▶ Run</button>
+      <button type="button" class="sv-btn" id="sv-reset">Reset</button>
+    </div>
+
+    <div class="sv-presets">
+      <button type="button" class="sv-preset" data-pass="0">Raw silicon · 2N</button>
+      <button type="button" class="sv-preset" data-pass="4">Solar grade · 6N</button>
+      <button type="button" class="sv-preset" data-pass="7">Chip grade · 9N</button>
+      <button type="button" class="sv-preset" data-pass="9">Leading-edge logic · 11N</button>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Purity</div>
+        <div class="sv-stat-value mono" id="sv-stat-purity">2N · 99%</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Impurity level</div>
+        <div class="sv-stat-value mono" id="sv-stat-impurity">10,000,000 ppb</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Relative cost</div>
+        <div class="sv-stat-value mono" id="sv-stat-cost">1.0×</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Grade reached</div>
+        <div class="sv-stat-value mono" id="sv-stat-grade">Below solar</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Quartz sand is mostly silicon. Melt it with carbon in a furnace and you get "metallurgical-grade" silicon — about 98-99% pure, good enough for steel alloys, useless for electronics. Getting from there to something a solar cell or a computer chip can use takes a brutal, energy-hungry purification process invented by Siemens in the 1950s: turn the silicon into a gas, distill it over and over to strip out foreign atoms, then deposit it back into solid, ultra-pure rods called polysilicon.</p>
+      <p>How pure you need to go depends on what you're building. Solar panels need "six nines" — 99.9999% pure, or about one stray atom per million. Computer chips need far more: nine to eleven nines, meaning fewer than one impurity atom per billion (sometimes per trillion). Each additional nine costs dramatically more to reach, which is why chip-grade polysilicon is a far smaller, pricier, and more exclusive club than solar-grade.</p>
+      <p>China has spent two decades building factories that crank out the cheaper, solar-grade tier at massive scale, and now makes roughly four out of every five kilograms of the world's polysilicon. On August 6, the White House decided that dominance was a national-security risk, not just a trade dispute, and signed an order putting a 15% tariff and a strict price floor — $21 per kilogram, no matter how cheap Chinese suppliers make it — on polysilicon imports, plus higher floors on the wafers, cells, and panels made from it. The rules take effect December 4.</p>
+      <p>China didn't announce a matching tariff. Instead, several of its polysilicon producers simply pulled cheap supply off the market, and futures prices jumped nearly 9% in a single day. That's the quieter, more common way today's material trade wars actually play out.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Metallurgical-grade silicon (MG-Si, roughly 98-99% pure, "2N-3N") comes from carbothermic reduction of quartzite in an arc furnace. Getting to electronics-grade polysilicon requires the Siemens process: MG-Si reacts with hydrogen chloride to form trichlorosilane (SiHCl3) gas, which is fractionally distilled to remove boron, phosphorus, and metallic contaminants, then thermally decomposed via chemical vapor deposition onto heated silicon rods inside a Siemens reactor. A cheaper, less energy-intensive alternative — fluidized-bed reactor (FBR) granular polysilicon — has gained share in solar but historically trails Siemens-process material on the purity ceiling. Solar-grade polysilicon typically targets ~6N (99.9999%) purity; semiconductor-grade, especially for leading-edge logic, requires 9N-11N, with dopant-level control down to parts-per-trillion. Each additional "nine" requires materially more distillation cycles and yield loss, which is the structural reason semiconductor-grade polysilicon supply is so much more concentrated than solar-grade: Wacker (Germany) and Hemlock Semiconductor (Michigan) together account for roughly three-quarters of the non-Chinese semiconductor-grade market, while Chinese producers — Tongwei, GCL, Daqo, and Xinte accounted for a combined 65% of global (mostly solar-grade) output in 2024 — supply roughly 75-80% of total world polysilicon and consume about 80% of it domestically.</p>
+      <p>On August 6, 2026, President Trump signed Proclamation 11052 under Section 232 of the Trade Expansion Act, following a Commerce Department finding that import volumes of polysilicon and derivative products threaten national security. The order imposes a 15% ad valorem tariff and sets minimum import prices — $21/kg for polysilicon, $100/kg for ingots and wafers, $0.22/watt for solar cells, and $0.38/watt for solar modules — effective December 4, 2026. Rather than announce a symmetric retaliatory tariff, Chinese regulators pursued market intervention: producers reportedly suspended quotations and withdrew lower-priced material over the weekend following the announcement, and the most-traded polysilicon futures contract on the Guangzhou Futures Exchange hit its daily limit, closing 8.99% higher. Roth Capital estimates the U.S. price floor adds roughly $0.10/watt to imported solar cells — an estimated $600-800 per residential system. Separately, Beijing had already extended anti-dumping duties (53.3%-57%) on solar-grade polysilicon imports from the U.S. and South Korea for five more years starting January 2026, underscoring that this material's trade friction runs in both directions.</p>
+    </div>
+
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> the same purification chemistry underlies both the solar panel on your roof and the chip in your GPU — a policy aimed at cheap Chinese solar silicon reaches, by construction, into the raw-material chain behind every chip too.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> semiconductor-grade polysilicon capacity outside China is thin and concentrated in two firms; a Section 232 action framed around solar dumping still touches the upstream feedstock tier that logic and memory fabs ultimately depend on.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.datacenterdynamics.com/en/news/trump-signs-eo-imposing-15-tariff-on-chip-and-solar-panel-material-polysilicon/" target="_blank" rel="noopener">Data Center Dynamics — Trump signs EO imposing 15% tariff on chip and solar panel material polysilicon</a></li>
+    <li><a href="https://www.supplychaindive.com/news/trump-imposes-15-tariff-on-polysilicon-imports-for-chips-solar-power/827302/" target="_blank" rel="noopener">Supply Chain Dive — Trump imposes 15% tariff on polysilicon imports for chips, solar power</a></li>
+    <li><a href="https://pv-magazine-usa.com/2026/08/07/us-announces-tariffs-minimum-import-price-on-polysilicon-imports/" target="_blank" rel="noopener">pv magazine USA — US announces tariffs, minimum import price on polysilicon imports</a></li>
+    <li><a href="https://www.cnbc.com/2026/08/07/polysilicon-solar-tariffs-donald-trump-us-china-trade-war-energy-semiconductors.html" target="_blank" rel="noopener">CNBC — Solar stocks shine after Trump extends China tariffs to polysilicon products</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    // pass 0..9 maps to "nines" of purity 2..11 (illustrative, matches standard industry grade labels)
+    var SOLAR_PASS = 4;   // 6N
+    var CHIP_PASS = 7;    // 9N
+
+    function nines(pass) { return 2 + pass; }
+    function impurityPpb(pass) { return Math.pow(10, 9 - nines(pass)); }
+    function costMultiplier(pass) { return Math.pow(1.6, pass); }
+
+    function fmtPpb(ppb) {
+      if (ppb >= 1) return Math.round(ppb).toLocaleString() + ' ppb';
+      if (ppb >= 0.001) return (ppb * 1000).toFixed(ppb < 0.01 ? 2 : 1) + ' ppt';
+      return (ppb * 1e6).toFixed(2) + ' ppq';
+    }
+
+    var canvas = document.getElementById('sv-canvas');
+    var ctx = canvas ? canvas.getContext('2d') : null;
+    var slider = document.getElementById('sv-slider');
+    var runBtn = document.getElementById('sv-run');
+    var resetBtn = document.getElementById('sv-reset');
+    var presets = Array.prototype.slice.call(document.querySelectorAll('.sv-preset'));
+    var statPurity = document.getElementById('sv-stat-purity');
+    var statImpurity = document.getElementById('sv-stat-impurity');
+    var statCost = document.getElementById('sv-stat-cost');
+    var statGrade = document.getElementById('sv-stat-grade');
+    if (!canvas || !ctx || !slider) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var animHandle = null;
+
+    function sizeCanvas() {
+      var rect = canvas.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.round(rect.width * dpr));
+      canvas.height = Math.max(1, Math.round(rect.height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function drawRounded(x, y, w, h, r) {
+      ctx.beginPath();
+      if (ctx.roundRect) { ctx.roundRect(x, y, w, h, r); }
+      else { ctx.rect(x, y, w, h); }
+    }
+
+    function draw(pass) {
+      sizeCanvas();
+      var rect = canvas.getBoundingClientRect();
+      var w = rect.width, h = rect.height;
+      var cs = getComputedStyle(document.documentElement);
+      var accentA = cs.getPropertyValue('--accent-a').trim();
+      var accentB = cs.getPropertyValue('--accent-b').trim();
+      var border = cs.getPropertyValue('--border').trim();
+      var muted = cs.getPropertyValue('--muted').trim();
+      var surface = cs.getPropertyValue('--surface').trim();
+
+      ctx.clearRect(0, 0, w, h);
+
+      var topPad = 16, baseY = h - 26;
+      var plotH = baseY - topPad;
+      var maxLogPpb = 7; // 10,000,000 ppb at pass 0
+      var maxCost = costMultiplier(9);
+
+      // two bar columns: impurity (shrinks) and cost (grows)
+      var gap = 26;
+      var barW = Math.min(64, (w - gap * 3) / 2);
+      var leftX = w / 2 - gap / 2 - barW;
+      var rightX = w / 2 + gap / 2;
+
+      // baseline
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(0, baseY);
+      ctx.lineTo(w, baseY);
+      ctx.stroke();
+
+      // impurity bar (log scale, shrinks toward top as purity rises)
+      var logPpb = Math.log10(Math.max(impurityPpb(pass), 1e-6));
+      var impFrac = Math.max(0, Math.min(1, (logPpb + 6) / (maxLogPpb + 6)));
+      var impH = plotH * impFrac;
+      ctx.fillStyle = accentA + '33';
+      drawRounded(leftX, baseY - impH, barW, impH, 6);
+      ctx.fill();
+      ctx.strokeStyle = accentA;
+      ctx.lineWidth = 2;
+      drawRounded(leftX, baseY - impH, barW, Math.max(impH, 2), 6);
+      ctx.stroke();
+
+      // cost bar (log scale, grows toward top)
+      var logCost = Math.log10(costMultiplier(pass));
+      var costFrac = Math.max(0, Math.min(1, logCost / Math.log10(maxCost)));
+      var costH = plotH * costFrac;
+      ctx.fillStyle = accentB + '33';
+      drawRounded(rightX, baseY - costH, barW, Math.max(costH, 2), 6);
+      ctx.fill();
+      ctx.strokeStyle = accentB;
+      ctx.lineWidth = 2;
+      drawRounded(rightX, baseY - costH, barW, Math.max(costH, 2), 6);
+      ctx.stroke();
+
+      // threshold markers on the impurity column
+      [SOLAR_PASS, CHIP_PASS].forEach(function (p, i) {
+        var lp = Math.log10(impurityPpb(p));
+        var f = Math.max(0, Math.min(1, (lp + 6) / (maxLogPpb + 6)));
+        var y = baseY - plotH * f;
+        ctx.strokeStyle = muted;
+        ctx.setLineDash([3, 3]);
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(leftX - 8, y);
+        ctx.lineTo(rightX + barW + 8, y);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = muted;
+        ctx.font = '9px ui-monospace, SF Mono, Menlo, monospace';
+        ctx.textAlign = 'left';
+        ctx.fillText(i === 0 ? 'SOLAR · 6N' : 'CHIP · 9N', rightX + barW + 10 > w - 4 ? leftX - 8 : rightX + barW + 10, y - 3 > 10 ? y - 3 : y + 11);
+      });
+
+      // labels under bars
+      ctx.fillStyle = muted;
+      ctx.font = '700 10px ui-monospace, SF Mono, Menlo, monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('IMPURITY', leftX + barW / 2, baseY + 15);
+      ctx.fillText('COST', rightX + barW / 2, baseY + 15);
+
+      // rung markers along top
+      ctx.fillStyle = surface;
+      ctx.strokeStyle = border;
+      ctx.font = '9px ui-monospace, SF Mono, Menlo, monospace';
+      ctx.textAlign = 'left';
+      ctx.fillStyle = muted;
+      ctx.fillText('sand →', 6, 13);
+    }
+
+    function updateStats(pass) {
+      var n = nines(Math.round(pass * 10) / 10);
+      var wholeNines = Math.max(0, Math.floor(n) - 2);
+      var purityPct = wholeNines > 0 ? '99.' + '9'.repeat(wholeNines) : '99';
+      statPurity.textContent = n.toFixed(1) + 'N · ' + purityPct + '%';
+      statImpurity.textContent = fmtPpb(impurityPpb(pass));
+      statCost.textContent = costMultiplier(pass).toFixed(1) + '×';
+
+      var grade = 'Below solar', hit = false;
+      if (pass >= CHIP_PASS) { grade = '✓ Chip grade'; hit = true; }
+      else if (pass >= SOLAR_PASS) { grade = '✓ Solar grade'; hit = true; }
+      statGrade.textContent = grade;
+      [statPurity, statImpurity, statCost, statGrade].forEach(function (el) {
+        el.classList.toggle('sv-hit', hit);
+      });
+    }
+
+    function render() {
+      var pass = Number(slider.value);
+      draw(pass);
+      updateStats(pass);
+    }
+
+    slider.addEventListener('input', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      render();
+    });
+
+    presets.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+        slider.value = btn.getAttribute('data-pass');
+        render();
+      });
+    });
+
+    resetBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      slider.value = 0;
+      render();
+    });
+
+    runBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      var start = 0, end = 9;
+      if (reduceMotion) {
+        slider.value = end;
+        render();
+        return;
+      }
+      var duration = 3400;
+      var t0 = null;
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var p = Math.min(1, (ts - t0) / duration);
+        var eased = 1 - Math.pow(1 - p, 2);
+        var pass = start + (end - start) * eased;
+        slider.value = pass;
+        render();
+        if (p < 1) {
+          animHandle = requestAnimationFrame(step);
+        } else {
+          animHandle = null;
+        }
+      }
+      animHandle = requestAnimationFrame(step);
+    });
+
+    window.addEventListener('resize', render);
+    new MutationObserver(render).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
