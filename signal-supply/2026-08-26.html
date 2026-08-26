@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — The 93-Day Countdown on Your Battery</title>
+<meta name="description" content="China's one-year truce easing graphite export controls — the material that makes up most of a lithium-ion battery's anode by weight — expires November 27, 2026. That's 93 days from today, and Western alternatives are nowhere near ready." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #bf5a2e;
+    --accent-a-tint: #f8e2d6;
+    --accent-b: #2f6fbf;
+    --accent-b-tint: #dde9fa;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e2895c;
+      --accent-a-tint: #2d1e15;
+      --accent-b: #6ea3e8;
+      --accent-b-tint: #14233a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e2895c;
+    --accent-a-tint: #2d1e15;
+    --accent-b: #6ea3e8;
+    --accent-b-tint: #14233a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #bf5a2e;
+    --accent-a-tint: #f8e2d6;
+    --accent-b: #2f6fbf;
+    --accent-b-tint: #dde9fa;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(28px, 4.4vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: graphite funnel + truce countdown --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+  .sv-canvas-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .sv-canvas {
+    width: 100%;
+    height: 244px;
+    display: block;
+  }
+  .sv-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .sv-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 220px;
+  }
+  .sv-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-b);
+    min-width: 100px;
+  }
+  .sv-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .sv-btn:hover { border-color: var(--accent-b); }
+  .sv-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .sv-preset {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .sv-preset:hover { color: var(--ink); border-color: var(--accent-b); }
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .sv-stat-value.sv-hit { color: var(--accent-b); }
+  .sv-stat-value.sv-alert { color: var(--accent-a); }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>August 26, 2026</span>
+    <span class="category-chip">CRITICAL MINERALS</span>
+  </div>
+  <h1>Your Battery Is Mostly Graphite, Not Lithium. China's Export Truce on It Expires in 93 Days.</h1>
+  <p class="lede">Lithium-ion batteries are named for their rarest ingredient. Their heaviest one — cheap, unglamorous graphite — comes almost entirely from one country, and the one-year truce that's kept it flowing to the US quietly started its final countdown weeks ago.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Graphite makes up nearly all of a lithium-ion battery's anode by weight — about 20-30 times more than the lithium itself. China mines roughly 78% of the world's raw graphite and processes over 99% of the "spherical" form batteries actually need. A truce that eased 2023's export curbs on it expires November 27, 2026 — 93 days from today — and the Western plants meant to hedge against that are still years from meaningful scale.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">The funnel that concentrates China's grip, and the clock now running on it</h2>
+      <p class="sv-caption mono">Top three bars: China's share at each stage of turning raw graphite into battery-ready anode material, per USGS and Benchmark Mineral Intelligence estimates — this doesn't move day to day. The 2030 bar is an industry forecast that already accounts for every announced Western plant, not a measured figure today. Bottom track: how many of the 93 days are left before China's truce on graphite export controls expires. Drag the slider or press Run to move the clock forward; the lead-time figure is a rounded, commonly cited industry estimate for qualifying new battery-grade graphite, not one company's number.</p>
+    </div>
+
+    <div class="sv-canvas-wrap">
+      <canvas id="sv-canvas" class="sv-canvas" role="img" aria-label="Chart showing China's share of graphite mining at 78%, spherical graphite purification at over 99%, and projected 2030 finished anode material at 85%, plus a countdown track from today to November 27, 2026, when China's graphite export truce is due to expire"></canvas>
+    </div>
+
+    <div class="sv-controls">
+      <div class="sv-slider-row">
+        <label for="sv-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">Day</label>
+        <input type="range" id="sv-slider" min="0" max="93" step="1" value="0" aria-label="Days elapsed from today toward November 27, 2026, when China's graphite export truce expires" />
+      </div>
+      <button type="button" class="sv-btn" id="sv-run">▶ Run</button>
+      <button type="button" class="sv-btn" id="sv-reset">Reset</button>
+    </div>
+
+    <div class="sv-presets">
+      <button type="button" class="sv-preset" data-day="0">Today · Day 0</button>
+      <button type="button" class="sv-preset" data-day="46">Halfway · Day 46</button>
+      <button type="button" class="sv-preset" data-day="93">Truce expires · Day 93</button>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Date</div>
+        <div class="sv-stat-value mono" id="sv-stat-date">Aug 26, 2026</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Days remaining</div>
+        <div class="sv-stat-value mono" id="sv-stat-remaining">93</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Truce status</div>
+        <div class="sv-stat-value mono" id="sv-stat-status">Active</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Alt-supply ramp needs</div>
+        <div class="sv-stat-value mono" id="sv-stat-ramp">~2-3 yrs</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Pop the hood on any lithium-ion battery — the one in your phone, your laptop, or an EV — and here's the twist: lithium is the least of it by weight. The negative electrode, called the anode, is made almost entirely of graphite, the same soft, slippery carbon that's in pencil lead. A typical 50-kWh EV battery pack carries roughly 50-100 kg of graphite and only about 6 kg of lithium — twenty to thirty times more graphite than the metal that gives the battery its name. Every time you charge, lithium ions slide into and out of stacked layers of graphite, like mail sliding into a filing cabinet's drawers; more orderly "drawers" mean faster charging and a longer-lasting battery.</p>
+      <p>Here's the catch: almost all of that graphite, and nearly all of the specialized "spherical" version that's actually pure and round enough for a battery, comes from one place. China mines about 78% of the world's raw graphite and, more importantly, runs over 99% of the purification plants that turn it into battery-grade material — a dirty, energy-hungry process that took decades to build at scale.</p>
+      <p>In December 2023, China started requiring export licenses for graphite headed abroad, then tightened the rules further the following year. After Presidents Trump and Xi met in Busan, South Korea last October, China temporarily eased those rules — a truce that's kept graphite shipments to the US flowing smoothly. That truce expires November 27, 2026. As of today, that's 93 days away. Companies in Louisiana, Tennessee, and Quebec are racing to build alternative supply, but qualifying new graphite for a battery can take years, and none of it comes close to China's scale yet. The countdown is real. The backup plan isn't ready.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>In a conventional lithium-ion cell, the anode is graphite because its layered hexagonal carbon lattice intercalates lithium ions reversibly: on charge, Li⁺ ions migrate from the cathode through the electrolyte and insert between graphite's stacked basal planes, forming LiC₆ at full capacity — one lithium atom for every six carbon atoms. That intercalation gives graphite its roughly 372 mAh/g theoretical capacity, cycle stability, and a flat discharge plateau that silicon and other higher-capacity anode candidates still can't match cheaply at scale. By mass, graphite dominates the cell: roughly 1 kg per kWh of pack energy versus about 0.12 kg of lithium, a 20-30x disparity that goes unnoticed because the chemistry is branded "lithium-ion," not "graphite-ion."</p>
+      <p>The supply chain doesn't concentrate evenly. USGS estimates China supplied about 78% of 2024's mined natural graphite — meaningful, but not a monopoly; Mozambique, Madagascar, Brazil, and Canada all mine some. The chokepoint sits downstream: raw flake graphite has to be micronized, acid- or thermally purified to 99.9%+ carbon, and spheronized into rounded particles dense enough to coat and pack into an anode. Benchmark Mineral Intelligence estimates less than 1% of that spherical-graphite processing capacity exists outside China today. Even after every currently announced Western anode plant ramps up, Benchmark projects China will still hold roughly 85% of finished natural-anode-material supply by 2030 — a funnel that narrows hardest exactly at the value-added step, and only loosens modestly even after years of subsidized investment elsewhere.</p>
+      <p>The near-term policy variable: China's Ministry of Commerce imposed graphite export licensing in December 2023, then added stricter end-user verification in 2024's Announcement No. 46. Announcement No. 72 suspended those stricter provisions following the October 30, 2025 Trump-Xi meeting in Busan, running through November 27, 2026. Washington, meanwhile, raised the tariff on imported Chinese natural graphite from 0% to 25% effective 2026, incentivizing capacity such as Syrah Resources' Vidalia, Louisiana anode-material plant, NOVONIX's synthetic-graphite line in Chattanooga, Tennessee, and Nouveau Monde Graphite's $645M-backed Matawinie mine expansion in Québec — collectively still a rounding error against China's multi-million-tonne base.</p>
+    </div>
+
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> every EV, phone, laptop, and grid-battery order placed today assumes graphite keeps flowing freely — and the paperwork that makes that possible already has a hard expiration date on the calendar.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> because concentration compounds downstream — mining is diffuse, purification is not — licensing shocks at the spheronization stage, not the mine, are what actually set anode lead times and cell costs when a truce like this one lapses.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://pubs.usgs.gov/periodicals/mcs2025/mcs2025-graphite.pdf" target="_blank" rel="noopener">USGS — Mineral Commodity Summaries 2025: Graphite (Natural)</a></li>
+    <li><a href="https://source.benchmarkminerals.com/article/infographic-china-controls-three-quarters-of-graphite-anode-supply-chain" target="_blank" rel="noopener">Benchmark Mineral Intelligence — Infographic: China controls three-quarters of the graphite anode supply chain</a></li>
+    <li><a href="https://www.cnbc.com/2025/11/10/china-suspends-some-critical-mineral-export-curbs-to-the-us-as-trade-truce-takes-hold.html" target="_blank" rel="noopener">CNBC — China suspends some critical mineral export curbs to the US as trade truce takes hold</a></li>
+    <li><a href="https://www.metaltechnews.com/story/2026/08/25/critical-minerals-alliances-2026/loosening-beijings-global-graphite-grip/2902.html" target="_blank" rel="noopener">Metal Tech News — Loosening Beijing's global graphite grip</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var DAYS_TOTAL = 93;
+    var START_YEAR = 2026, START_MONTH = 7, START_DAY = 26; // August 26, 2026 (0-indexed month)
+    var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var STAGES = [
+      { name: 'MINED GRAPHITE (2024)', china: 78 },
+      { name: 'PURIFIED SPHERICAL GRAPHITE', china: 99 },
+      { name: 'FINISHED ANODE MATERIAL (2030 EST.)', china: 85 }
+    ];
+
+    function fmtDate(offsetDays) {
+      var d = new Date(START_YEAR, START_MONTH, START_DAY);
+      d.setDate(d.getDate() + offsetDays);
+      return MONTHS[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+    }
+    function pctLabel(v) { return (v >= 99 ? '>' : '') + v + '%'; }
+
+    var canvas = document.getElementById('sv-canvas');
+    var ctx = canvas ? canvas.getContext('2d') : null;
+    var slider = document.getElementById('sv-slider');
+    var runBtn = document.getElementById('sv-run');
+    var resetBtn = document.getElementById('sv-reset');
+    var presets = Array.prototype.slice.call(document.querySelectorAll('.sv-preset'));
+    var statDate = document.getElementById('sv-stat-date');
+    var statRemaining = document.getElementById('sv-stat-remaining');
+    var statStatus = document.getElementById('sv-stat-status');
+    var statRamp = document.getElementById('sv-stat-ramp');
+    if (!canvas || !ctx || !slider) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var animHandle = null;
+
+    if (reduceMotion) { slider.value = DAYS_TOTAL; }
+
+    function sizeCanvas() {
+      var rect = canvas.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.round(rect.width * dpr));
+      canvas.height = Math.max(1, Math.round(rect.height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function drawRounded(x, y, w, h, r) {
+      ctx.beginPath();
+      if (ctx.roundRect) { ctx.roundRect(x, y, w, Math.max(h, 0.001), r); }
+      else { ctx.rect(x, y, w, h); }
+    }
+
+    function draw(days) {
+      sizeCanvas();
+      var rect = canvas.getBoundingClientRect();
+      var w = rect.width, h = rect.height;
+      var cs = getComputedStyle(document.documentElement);
+      var accentA = cs.getPropertyValue('--accent-a').trim();
+      var accentB = cs.getPropertyValue('--accent-b').trim();
+      var border = cs.getPropertyValue('--border').trim();
+      var muted = cs.getPropertyValue('--muted').trim();
+      var ink = cs.getPropertyValue('--ink').trim();
+
+      ctx.clearRect(0, 0, w, h);
+
+      var padX = 14;
+      var trackW = w - padX * 2;
+      var rowH = 40;
+      var topPad = 8;
+
+      // funnel: three concentration bars
+      STAGES.forEach(function (stage, i) {
+        var y0 = topPad + i * rowH;
+        ctx.textBaseline = 'alphabetic';
+        ctx.font = '700 10px ui-monospace, SF Mono, Menlo, monospace';
+        ctx.fillStyle = muted;
+        ctx.textAlign = 'left';
+        ctx.fillText(stage.name, padX, y0 + 9);
+        ctx.textAlign = 'right';
+        ctx.fillStyle = accentA;
+        ctx.fillText(pctLabel(stage.china) + ' CHINA', w - padX, y0 + 9);
+
+        var barY = y0 + 15, barH = 12;
+        ctx.fillStyle = border;
+        drawRounded(padX, barY, trackW, barH, 5);
+        ctx.fill();
+        var chinaW = trackW * (stage.china / 100);
+        ctx.fillStyle = accentA;
+        drawRounded(padX, barY, chinaW, barH, 5);
+        ctx.fill();
+      });
+
+      // countdown track
+      var ctY0 = topPad + STAGES.length * rowH + 8;
+      var frac = Math.max(0, Math.min(1, days / DAYS_TOTAL));
+      var expired = days >= DAYS_TOTAL;
+
+      ctx.textAlign = 'left';
+      ctx.font = '700 10px ui-monospace, SF Mono, Menlo, monospace';
+      ctx.fillStyle = muted;
+      ctx.fillText('DAYS UNTIL TRUCE EXPIRES', padX, ctY0 + 9);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = expired ? accentA : accentB;
+      ctx.fillText(expired ? 'TRUCE EXPIRES' : 'TRUCE ACTIVE', w - padX, ctY0 + 9);
+
+      var trackY = ctY0 + 34;
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 3;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(padX, trackY);
+      ctx.lineTo(w - padX, trackY);
+      ctx.stroke();
+
+      var markerX = padX + trackW * frac;
+      ctx.strokeStyle = expired ? accentA : accentB;
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.moveTo(padX, trackY);
+      ctx.lineTo(markerX, trackY);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(markerX, trackY, 7, 0, Math.PI * 2);
+      ctx.fillStyle = expired ? accentA : accentB;
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = cs.getPropertyValue('--surface').trim();
+      ctx.stroke();
+
+      ctx.font = '9px ui-monospace, SF Mono, Menlo, monospace';
+      ctx.fillStyle = muted;
+      ctx.textAlign = 'left';
+      ctx.fillText('TODAY · ' + fmtDate(0), padX, trackY + 20);
+      ctx.textAlign = 'right';
+      ctx.fillText('NOV 27, 2026', w - padX, trackY + 20);
+    }
+
+    function updateStats(days) {
+      var remaining = DAYS_TOTAL - days;
+      var expired = days >= DAYS_TOTAL;
+      statDate.textContent = fmtDate(days);
+      statRemaining.textContent = String(remaining);
+      statStatus.textContent = expired ? 'Expired' : 'Active';
+      statStatus.classList.toggle('sv-alert', expired);
+      statStatus.classList.toggle('sv-hit', !expired);
+      statRemaining.classList.toggle('sv-alert', remaining <= 14);
+    }
+
+    function render() {
+      var days = Number(slider.value);
+      draw(days);
+      updateStats(days);
+    }
+
+    slider.addEventListener('input', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      render();
+    });
+
+    presets.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+        slider.value = btn.getAttribute('data-day');
+        render();
+      });
+    });
+
+    resetBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      slider.value = 0;
+      render();
+    });
+
+    runBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      if (reduceMotion) {
+        slider.value = DAYS_TOTAL;
+        render();
+        return;
+      }
+      var start = 0, end = DAYS_TOTAL;
+      var duration = 3400;
+      var t0 = null;
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var p = Math.min(1, (ts - t0) / duration);
+        var eased = 1 - Math.pow(1 - p, 2);
+        var days = start + (end - start) * eased;
+        slider.value = days;
+        render();
+        if (p < 1) {
+          animHandle = requestAnimationFrame(step);
+        } else {
+          animHandle = null;
+        }
+      }
+      animHandle = requestAnimationFrame(step);
+    });
+
+    window.addEventListener('resize', render);
+    new MutationObserver(render).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
