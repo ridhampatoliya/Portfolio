@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — The AI Boom's Bottleneck Isn't Chips. It's a Steel Box With a 3-Year Waiting List.</title>
+<meta name="description" content="Hyperscalers can buy all the GPUs money can buy. What they can't buy quickly is the power transformer that connects a data center to the grid — lead times have stretched to 3-5 years, gated by a handful of steel mills and a shrinking pool of skilled coil-winders." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5601f;
+    --accent-a-tint: #f7e5d3;
+    --accent-b: #2a6e63;
+    --accent-b-tint: #dcece8;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e2965c;
+      --accent-a-tint: #2d2015;
+      --accent-b: #5cb8a4;
+      --accent-b-tint: #123028;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e2965c;
+    --accent-a-tint: #2d2015;
+    --accent-b: #5cb8a4;
+    --accent-b-tint: #123028;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5601f;
+    --accent-a-tint: #f7e5d3;
+    --accent-b: #2a6e63;
+    --accent-b-tint: #dcece8;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(28px, 4.4vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: GPU-ready vs transformer-delivered race --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+  .sv-canvas-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .sv-canvas {
+    width: 100%;
+    height: 264px;
+    display: block;
+  }
+  .sv-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .sv-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 220px;
+  }
+  .sv-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-b);
+    min-width: 100px;
+  }
+  .sv-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .sv-btn:hover { border-color: var(--accent-b); }
+  .sv-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .sv-preset {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .sv-preset:hover { color: var(--ink); border-color: var(--accent-b); }
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .sv-stat-value.sv-hit { color: var(--accent-b); }
+  .sv-stat-value.sv-alert { color: var(--accent-a); }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>August 27, 2026</span>
+    <span class="category-chip">GRID INFRASTRUCTURE</span>
+  </div>
+  <h1>The AI Boom's Bottleneck Isn't Chips. It's a Steel Box With a 3-Year Waiting List.</h1>
+  <p class="lede">Hyperscalers can buy all the GPUs money can buy. What they can't buy quickly is the machine that steps grid power down to something a data center can use — and the wait for one just stretched past three years.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Power transformers — the custom-built machines that connect a data center to the grid — now take 3 to 5 years to deliver, up from roughly 2 years as recently as 2019. Wood Mackenzie's mid-2025 survey put average lead times at 128 weeks for standard units and 144 weeks for the largest grid-scale transformers, with a projected 30% national supply shortfall. The constraint isn't assembly lines; it's a handful of mills worldwide that make the specialized steel each core needs, and a shrinking pool of workers who hand-wind the copper coils inside.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Two build timelines for the same AI campus, run side by side</h2>
+      <p class="sv-caption mono">Illustrative, rounded timeline for a hypothetical large AI campus: GPU cluster procurement and installation in ~9 months (a commonly cited hyperscaler build cadence), against a custom high-voltage grid transformer delivered in ~42 months (the middle of Wood Mackenzie's 3-5-year range for large custom units). Real projects vary by vendor, region, and grid queue position — this is one plausible case, not a specific company's numbers. Drag the slider or press Run to move both timelines forward and watch the idle-GPU gap grow.</p>
+    </div>
+
+    <div class="sv-canvas-wrap">
+      <canvas id="sv-canvas" class="sv-canvas" role="img" aria-label="Two horizontal progress bars: GPU cluster procurement and installation reaching ready at month 9, and grid transformer delivery reaching ready at month 42, with a shaded band showing GPUs sitting idle and unpowered between month 9 and whenever the transformer arrives"></canvas>
+    </div>
+
+    <div class="sv-controls">
+      <div class="sv-slider-row">
+        <label for="sv-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">Month</label>
+        <input type="range" id="sv-slider" min="0" max="48" step="1" value="0" aria-label="Months elapsed since the AI campus placed its GPU and transformer orders" />
+      </div>
+      <button type="button" class="sv-btn" id="sv-run">▶ Run</button>
+      <button type="button" class="sv-btn" id="sv-reset">Reset</button>
+    </div>
+
+    <div class="sv-presets">
+      <button type="button" class="sv-preset" data-month="0">Orders placed · Mo. 0</button>
+      <button type="button" class="sv-preset" data-month="9">GPUs ready, idle · Mo. 9</button>
+      <button type="button" class="sv-preset" data-month="42">Transformer arrives · Mo. 42</button>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Elapsed</div>
+        <div class="sv-stat-value mono" id="sv-stat-month">Month 0</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">GPU cluster</div>
+        <div class="sv-stat-value mono" id="sv-stat-gpu">Installing</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Grid transformer</div>
+        <div class="sv-stat-value mono" id="sv-stat-xfmr">In production</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">GPUs idle, unpowered</div>
+        <div class="sv-stat-value mono" id="sv-stat-idle">0 months</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Think about everything an AI data center needs: land, chips, cooling — and, easy to forget, a way to actually get power from the grid into the building. That job belongs to a transformer: a giant steel-and-copper machine, sometimes the size of a house, that takes electricity from high-voltage transmission lines and steps it down to a voltage the building's equipment can use. Every data center, every new factory, every wind farm needs one to connect to the grid.</p>
+      <p>Here's the problem: these machines used to take about a year or two to order and build. Now the wait is three to five years, sometimes longer for the biggest, most customized units — longer than it takes some companies to plan, build, and fully stock an AI data center with chips. So you get a strange picture: a company with billions of dollars of GPUs sitting in a warehouse or an unpowered building, unable to turn anything on, because the one part that connects them to the grid isn't ready yet.</p>
+      <p>Why can't manufacturers just build more, faster? Two reasons. First, the steel: transformers use a special magnetic steel, precisely engineered so it doesn't waste energy as heat, and only a handful of mills on Earth — mostly in Japan, South Korea, and a few other countries — know how to make it well. Second, the labor: winding the copper coils inside a transformer's core is still largely a hand-built, highly skilled trade, and there simply aren't many people trained to do it. Neither constraint can be solved by throwing money at a factory overnight.</p>
+      <p>Manufacturers are racing to catch up — Hitachi Energy alone is putting over $1 billion into new U.S. transformer plants — but new factories take years to come fully online too. Until then, the AI boom's real speed limit isn't how fast Nvidia can ship chips. It's how fast the world can make steel boxes.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>A power transformer changes AC voltage between circuits via electromagnetic induction, letting electricity travel efficiently over long transmission lines and then step down to usable voltage. The units that matter here — large power transformers (LPTs) above roughly 100 MVA, and generator step-up (GSU) transformers that connect new generation and large loads to the grid — are custom-engineered to a utility's exact voltage, impedance, and cooling spec, not stocked as interchangeable inventory. There is no warehouse of spares to draw down when demand spikes.</p>
+      <p>Two structural constraints set the ceiling on output. The core requires grain-oriented electrical steel (GOES): silicon steel processed via secondary recrystallization so its magnetic domains align along the rolling direction, minimizing eddy-current and hysteresis losses. That metallurgy is mastered by only a handful of integrated steelmakers worldwide — POSCO, Nippon Steel, Baowu/Baosteel, ArcelorMittal, and JFE Steel account for the large majority of global GOES capacity — and adding capacity means multi-year furnace and rolling-mill investment, not a new assembly line. Separately, the copper windings inside an LPT core are still wound largely by hand by specialized coil-winders, a trade with a thin, aging workforce across the US and Europe.</p>
+      <p>The result shows up directly in delivery times. Wood Mackenzie's Q2 2025 survey put average lead times at 128 weeks for standard power transformers and 144 weeks for GSU units, with custom high-voltage orders running 3 to 5 years — up from roughly 24-30 months as recently as 2019 — and modeled a 30% national supply deficit for power transformers.</p>
+      <p>Demand is compounding the shortage: AI data center power draw is pulling GSU and substation-transformer orders up sharply, on top of renewable-interconnection and grid-modernization backlogs already in the queue. In June 2026, FERC issued show-cause orders directing all six major US grid operators — PJM, MISO, SPP, CAISO, ISO-NE, and NYISO — to justify or overhaul how they interconnect large loads like data centers, a tacit admission that interconnection queues, not generation, are now the binding constraint in several regions. Manufacturers are responding with real capital: Hitachi Energy's $1 billion US buildout includes a $457 million large-power-transformer plant in South Boston, Virginia, set to become the country's largest such facility when it opens in 2028 — supply that lands years after this generation of AI campuses needs it.</p>
+    </div>
+
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> the constraint on the next wave of AI infrastructure isn't semiconductor fabs anymore — it's 100-year-old steel-and-copper hardware with a design-and-build cycle measured in years, not quarters.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> it reframes AI capex risk — GPU procurement is a chip-supply problem with multiple sourcing paths, but grid interconnection is a single-supplier-per-region, multi-year-lead-time problem that capital alone can't compress, which is why hyperscalers are increasingly building or buying on-site generation rather than waiting in the interconnection queue.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://pv-magazine-usa.com/2026/05/11/u-s-transformer-market-faces-severe-supply-constraints-as-lead-times-extend-to-four-years/" target="_blank" rel="noopener">PV Magazine USA — U.S. transformer market faces severe supply constraints as lead times extend to four years</a></li>
+    <li><a href="https://www.hitachienergy.com/us/en/news-and-events/press-releases/2025/09/hitachi-announces-historic-1-billion-usd-manufacturing-investment-to-power-america-s-energy-future-through-production-of-critical-grid-infrastructure" target="_blank" rel="noopener">Hitachi Energy — Historic $1 billion USD manufacturing investment in critical grid infrastructure</a></li>
+    <li><a href="https://www.utilitydive.com/news/hitachi-unveils-1b-grid-manufacturing-investment-including-virginia-trans/759219/" target="_blank" rel="noopener">Utility Dive — Hitachi unveils $1B grid manufacturing investment, including Virginia transformer plant</a></li>
+    <li><a href="https://www.ferc.gov/news-events/news/ferc-launches-aggressive-targeted-action-speed-large-load-integration" target="_blank" rel="noopener">FERC — FERC launches aggressive targeted action to speed large load integration</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var GPU_MONTHS = 9;
+    var XFMR_MONTHS = 42;
+    var TOTAL_MONTHS = 48;
+
+    var canvas = document.getElementById('sv-canvas');
+    var ctx = canvas ? canvas.getContext('2d') : null;
+    var slider = document.getElementById('sv-slider');
+    var runBtn = document.getElementById('sv-run');
+    var resetBtn = document.getElementById('sv-reset');
+    var presets = Array.prototype.slice.call(document.querySelectorAll('.sv-preset'));
+    var statMonth = document.getElementById('sv-stat-month');
+    var statGpu = document.getElementById('sv-stat-gpu');
+    var statXfmr = document.getElementById('sv-stat-xfmr');
+    var statIdle = document.getElementById('sv-stat-idle');
+    if (!canvas || !ctx || !slider) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var animHandle = null;
+
+    if (reduceMotion) { slider.value = XFMR_MONTHS; }
+
+    function sizeCanvas() {
+      var rect = canvas.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.round(rect.width * dpr));
+      canvas.height = Math.max(1, Math.round(rect.height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function drawRounded(x, y, w, h, r) {
+      ctx.beginPath();
+      if (ctx.roundRect) { ctx.roundRect(x, y, Math.max(w, 0.001), Math.max(h, 0.001), r); }
+      else { ctx.rect(x, y, w, h); }
+    }
+
+    function draw(month) {
+      sizeCanvas();
+      var rect = canvas.getBoundingClientRect();
+      var w = rect.width, h = rect.height;
+      var cs = getComputedStyle(document.documentElement);
+      var accentA = cs.getPropertyValue('--accent-a').trim();
+      var accentB = cs.getPropertyValue('--accent-b').trim();
+      var border = cs.getPropertyValue('--border').trim();
+      var muted = cs.getPropertyValue('--muted').trim();
+      var surface = cs.getPropertyValue('--surface').trim();
+
+      ctx.clearRect(0, 0, w, h);
+
+      var padX = 14;
+      var trackW = w - padX * 2;
+      var rowH = 46;
+      var topPad = 10;
+
+      function monthX(m) { return padX + trackW * (Math.min(m, TOTAL_MONTHS) / TOTAL_MONTHS); }
+
+      // GPU cluster bar
+      var y0g = topPad;
+      ctx.textAlign = 'left';
+      ctx.font = '700 10px ui-monospace, SF Mono, Menlo, monospace';
+      ctx.fillStyle = muted;
+      ctx.fillText('GPU CLUSTER (READY MO. ' + GPU_MONTHS + ')', padX, y0g + 9);
+      var gpuReady = month >= GPU_MONTHS;
+      ctx.textAlign = 'right';
+      ctx.fillStyle = gpuReady ? accentB : muted;
+      ctx.fillText(gpuReady ? 'READY' : 'INSTALLING', w - padX, y0g + 9);
+
+      var barYg = y0g + 15, barH = 14;
+      ctx.fillStyle = border;
+      drawRounded(padX, barYg, trackW, barH, 6);
+      ctx.fill();
+      var gpuW = trackW * (Math.min(month, GPU_MONTHS) / TOTAL_MONTHS);
+      ctx.fillStyle = accentB;
+      drawRounded(padX, barYg, gpuW, barH, 6);
+      ctx.fill();
+
+      // Transformer bar
+      var y0t = topPad + rowH;
+      ctx.textAlign = 'left';
+      ctx.fillStyle = muted;
+      ctx.fillText('GRID TRANSFORMER (READY MO. ' + XFMR_MONTHS + ')', padX, y0t + 9);
+      var xfmrReady = month >= XFMR_MONTHS;
+      ctx.textAlign = 'right';
+      ctx.fillStyle = xfmrReady ? accentB : accentA;
+      ctx.fillText(xfmrReady ? 'DELIVERED' : 'IN PRODUCTION', w - padX, y0t + 9);
+
+      var barYt = y0t + 15;
+      ctx.fillStyle = border;
+      drawRounded(padX, barYt, trackW, barH, 6);
+      ctx.fill();
+      var xfmrW = trackW * (Math.min(month, XFMR_MONTHS) / TOTAL_MONTHS);
+      ctx.fillStyle = accentA;
+      drawRounded(padX, barYt, xfmrW, barH, 6);
+      ctx.fill();
+
+      // idle band beneath both bars
+      var idleY0 = topPad + rowH * 2 + 6;
+      var idleStart = GPU_MONTHS;
+      var idleEnd = Math.min(month, XFMR_MONTHS);
+      var idleMonths = Math.max(0, idleEnd - idleStart);
+
+      ctx.textAlign = 'left';
+      ctx.fillStyle = muted;
+      ctx.fillText('GPUS SITTING IDLE, UNPOWERED', padX, idleY0 + 9);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = idleMonths > 0 ? accentA : muted;
+      ctx.fillText(idleMonths + ' MO.', w - padX, idleY0 + 9);
+
+      var idleBarY = idleY0 + 15;
+      ctx.fillStyle = border;
+      drawRounded(padX, idleBarY, trackW, barH, 6);
+      ctx.fill();
+      if (idleMonths > 0) {
+        var x1 = monthX(idleStart);
+        var x2 = monthX(idleStart + idleMonths);
+        ctx.save();
+        drawRounded(padX, idleBarY, trackW, barH, 6);
+        ctx.clip();
+        ctx.fillStyle = accentA;
+        ctx.globalAlpha = 0.55;
+        ctx.fillRect(x1, idleBarY, x2 - x1, barH);
+        ctx.globalAlpha = 1;
+        ctx.restore();
+      }
+
+      // month axis
+      var axisY = idleBarY + barH + 22;
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(padX, axisY);
+      ctx.lineTo(w - padX, axisY);
+      ctx.stroke();
+
+      var ticks = [0, 12, 24, 36, 48];
+      ctx.font = '9px ui-monospace, SF Mono, Menlo, monospace';
+      ticks.forEach(function (t) {
+        var x = monthX(t);
+        ctx.strokeStyle = border;
+        ctx.beginPath();
+        ctx.moveTo(x, axisY - 4);
+        ctx.lineTo(x, axisY + 4);
+        ctx.stroke();
+        ctx.fillStyle = muted;
+        ctx.textAlign = t === 0 ? 'left' : (t === 48 ? 'right' : 'center');
+        ctx.fillText('MO ' + t, x, axisY + 16);
+      });
+
+      // current-month marker
+      var markerX = monthX(month);
+      ctx.strokeStyle = accentB;
+      ctx.lineWidth = 2;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(markerX, topPad - 2);
+      ctx.lineTo(markerX, axisY + 4);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.beginPath();
+      ctx.arc(markerX, axisY, 5, 0, Math.PI * 2);
+      ctx.fillStyle = accentB;
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = surface;
+      ctx.stroke();
+    }
+
+    function updateStats(month) {
+      var gpuReady = month >= GPU_MONTHS;
+      var xfmrReady = month >= XFMR_MONTHS;
+      var idleMonths = Math.max(0, Math.min(month, XFMR_MONTHS) - GPU_MONTHS);
+
+      statMonth.textContent = 'Month ' + month;
+      statGpu.textContent = gpuReady ? 'Ready' : 'Installing';
+      statGpu.classList.toggle('sv-hit', gpuReady);
+      statXfmr.textContent = xfmrReady ? 'Delivered' : 'In production';
+      statXfmr.classList.toggle('sv-hit', xfmrReady);
+      statXfmr.classList.toggle('sv-alert', !xfmrReady && gpuReady);
+      statIdle.textContent = idleMonths + ' months';
+      statIdle.classList.toggle('sv-alert', idleMonths > 0);
+    }
+
+    function render() {
+      var month = Number(slider.value);
+      draw(month);
+      updateStats(month);
+    }
+
+    slider.addEventListener('input', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      render();
+    });
+
+    presets.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+        slider.value = btn.getAttribute('data-month');
+        render();
+      });
+    });
+
+    resetBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      slider.value = 0;
+      render();
+    });
+
+    runBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      if (reduceMotion) {
+        slider.value = XFMR_MONTHS;
+        render();
+        return;
+      }
+      var start = 0, end = TOTAL_MONTHS;
+      var duration = 3800;
+      var t0 = null;
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var p = Math.min(1, (ts - t0) / duration);
+        var eased = 1 - Math.pow(1 - p, 2);
+        var month = start + (end - start) * eased;
+        slider.value = month;
+        render();
+        if (p < 1) {
+          animHandle = requestAnimationFrame(step);
+        } else {
+          animHandle = null;
+        }
+      }
+      animHandle = requestAnimationFrame(step);
+    });
+
+    window.addEventListener('resize', render);
+    new MutationObserver(render).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
