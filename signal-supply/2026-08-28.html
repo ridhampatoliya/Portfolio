@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — The 74-Day Countdown on China's 0.1% Chip Rule</title>
+<meta name="description" content="China's toughest rare-earth export rule doesn't measure kilograms — it measures value. Any product made anywhere, containing Chinese-refined rare earth worth just 0.1% of its price tag, can need Beijing's export license. The suspension on that rule ends November 10, 2026." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b23a2e;
+    --accent-a-tint: #f6e0dc;
+    --accent-b: #2f5d8a;
+    --accent-b-tint: #dde8f2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e2795f;
+      --accent-a-tint: #2f1f19;
+      --accent-b: #6fa3cf;
+      --accent-b-tint: #142530;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e2795f;
+    --accent-a-tint: #2f1f19;
+    --accent-b: #6fa3cf;
+    --accent-b-tint: #142530;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b23a2e;
+    --accent-a-tint: #f6e0dc;
+    --accent-b: #2f5d8a;
+    --accent-b-tint: #dde8f2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: the 0.1%-of-value license trigger --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+  .sv-canvas-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .sv-canvas {
+    width: 100%;
+    height: 200px;
+    display: block;
+  }
+  .sv-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .sv-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 220px;
+  }
+  .sv-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-b);
+    min-width: 100px;
+  }
+  .sv-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .sv-btn:hover { border-color: var(--accent-b); }
+  .sv-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .sv-preset {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .sv-preset:hover { color: var(--ink); border-color: var(--accent-b); }
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .sv-stat-value.sv-hit { color: var(--accent-b); }
+  .sv-stat-value.sv-alert { color: var(--accent-a); }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>August 28, 2026</span>
+    <span class="category-chip">EXPORT CONTROLS</span>
+  </div>
+  <h1>A Chip Needs Just 0.1% Chinese Rare Earth, By Value, to Need Beijing's Permission. The Truce Expires in 74 Days.</h1>
+  <p class="lede">China's toughest rare-earth export rule doesn't measure kilograms — it measures dollars. Any product, made anywhere, containing Chinese-refined rare earth worth just 0.1% of its price tag can need a Chinese export license. That rule is paused today. The pause ends November 10.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    China's MOFCOM Notice 61 (October 9, 2025) can require a Chinese export license for a product made anywhere in the world if it contains Chinese-refined rare-earth material worth 0.1% or more of the product's value — not weight, value — and it names rare-earth magnets and certain sputtering targets specifically. That extraterritorial trigger is suspended under the one-year US-China trade truce, through November 10, 2026. A narrower rule covering seven other medium/heavy rare earths, including yttrium and scandium, was never suspended: yttrium shipments to the US reportedly fell roughly 95% after the original October 2025 controls took hold.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">The trigger isn't how much rare earth is in a product. It's what share of its value.</h2>
+      <p class="sv-caption mono">Illustrative scenario, not a real company's disclosure: drag the slider to set a hypothetical product's Chinese-refined rare-earth content as a share of total value (0.00%–6.00%). Watch the status flip the instant it crosses 0.1% — China's actual licensing threshold under Notice 61. Preset percentages are rounded, illustrative approximations of typical component-value shares, chosen to show how small the trigger is, not disclosed figures.</p>
+    </div>
+
+    <div class="sv-canvas-wrap">
+      <canvas id="sv-canvas" class="sv-canvas" role="img" aria-label="A horizontal bar from 0 percent to 6 percent of a product's value, with a threshold marker at 0.1 percent. A fill shows the current rare-earth value share, colored green below the threshold and red at or above it, alongside a status readout of whether a Chinese export license would be required"></canvas>
+    </div>
+
+    <div class="sv-controls">
+      <div class="sv-slider-row">
+        <label for="sv-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">Value share</label>
+        <input type="range" id="sv-slider" min="0" max="6" step="0.01" value="0" aria-label="Rare-earth content as a percent of the product's total value" />
+      </div>
+      <button type="button" class="sv-btn" id="sv-run">▶ Run</button>
+      <button type="button" class="sv-btn" id="sv-reset">Reset</button>
+    </div>
+
+    <div class="sv-presets">
+      <button type="button" class="sv-preset" data-pct="0.02">Consumer electronics assembly · ~0.02%</button>
+      <button type="button" class="sv-preset" data-pct="0.15">Chip-fab tool w/ yttrium target · ~0.15%</button>
+      <button type="button" class="sv-preset" data-pct="4">EV drivetrain magnet motor · ~4%</button>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Value share</div>
+        <div class="sv-stat-value mono" id="sv-stat-pct">0.00%</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">License threshold</div>
+        <div class="sv-stat-value mono">0.10%</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">License required?</div>
+        <div class="sv-stat-value mono" id="sv-stat-status">No</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Days to Nov 10 reset</div>
+        <div class="sv-stat-value mono" id="sv-stat-days">—</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Somewhere inside the machines that make an advanced computer chip, there's a wafer-thin disc of a metal you've probably never heard of: yttrium. It isn't part of the chip — it's ammunition for the equipment that builds the chip, sputtered onto silicon in a vacuum chamber to lay down microscopic film layers. China refines something like 90% of the world's yttrium, along with dozens of other "rare earth" elements used in small amounts across chipmaking, batteries, jet engines, and electric motors.</p>
+      <p>In October 2025, Beijing wrote a new export rule, and it's a strange one. It doesn't care how much yttrium, by weight, ends up in your product. It cares about value. If a product — built anywhere in the world, by any company — contains Chinese-refined rare-earth material worth 0.1% or more of that product's total value, China can require its own government's permission before that product can be shipped onward. A sliver of metal worth a few dollars, buried inside a $50,000 piece of chipmaking equipment, could be enough to clear that bar.</p>
+      <p>That toughest version of the rule is currently on pause, part of a one-year trade truce Washington and Beijing struck last November. The pause ends November 10, 2026 — 74 days from today. Meanwhile, a narrower slice of controls covering yttrium and six other elements never paused at all: yttrium shipments into the US reportedly collapsed by roughly 95% after the original rule took effect.</p>
+      <p>Chipmakers, equipment makers, and the AI data centers that depend on both are now racing to either qualify rare-earth suppliers outside China's refining monopoly, or find out what happens when the pause runs out.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>On October 9, 2025, China's Ministry of Commerce issued Notice 61, one of the most aggressive extraterritorial export-control mechanisms applied to a raw material to date. It mirrors the logic of the US Foreign Direct Product Rule but flips it: any foreign-manufactured item — regardless of where it was produced — becomes subject to Chinese export licensing if it incorporates or is commingled with PRC-origin rare-earth material at or above 0.1% of the item's value. The notice explicitly names rare-earth permanent magnets and certain sputtering targets, and the trigger applies at the component level, not only the finished-product level.</p>
+      <p>Yttrium and yttrium-oxide sputtering targets matter here because they deposit high-k dielectric and diffusion-barrier thin films — including yttria-stabilized zirconia layers — in advanced logic and memory fabrication. Scandium plays an analogous role in aluminum-scandium alloys and specialty ceramics used in aerospace and RF hardware. Both were added, along with five other medium/heavy rare earths, to China's standing Category 3 dual-use control list in April 2025 — a control that predates, and survives, the November trade truce.</p>
+      <p>The November 2025 trade framework suspended Notice 61's extraterritorial 0.1%-value trigger for one year, through November 10, 2026, while leaving the April 2025 elemental controls in force. That partial carve-out still produced a measurable shock: yttrium shipment volumes into the US reportedly fell by roughly 95% after the October 2025 controls took hold. Because China holds an estimated 90% of global rare-earth separation and refining capacity, qualifying alternative, semiconductor-grade yttrium and scandium sources outside that system remains a multi-year undertaking, not a matter of opening a new mine.</p>
+      <p>What happens on November 10 is binary, not gradual: Beijing can extend the suspension, let Notice 61's extraterritorial scope snap back into force, or expand it further. Any of those outcomes functions as a discrete policy event for every company shipping a component that clears the 0.1% value line.</p>
+    </div>
+
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> if Beijing lets the toughest version of this rule snap back on November 10, almost any advanced chip tool, server, or component with even a sliver of Chinese-refined rare earth in it could need a permission slip from Beijing before it can ship — anywhere in the world.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> a value-based, extraterritorial licensing trigger converts rare-earth exposure into a customs-classification and compliance problem for nearly the entire semiconductor and AI-hardware supply chain, not just mines and magnet makers — and it turns November 10 into a discrete, binary risk event rather than a gradual one.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.whitecase.com/insight-alert/china-imposes-extraterritorial-jurisdiction-and-50-rule-export-controls-rare-earth" target="_blank" rel="noopener">White &amp; Case — China imposes extraterritorial jurisdiction and a 50% rule for export controls on rare earth elements</a></li>
+    <li><a href="https://www.mayerbrown.com/en/insights/publications/2025/10/prc-announces-new-export-controls-on-rare-earth-and-battery-materials-and-technology" target="_blank" rel="noopener">Mayer Brown — PRC announces new export controls on rare earth and battery materials and technology</a></li>
+    <li><a href="https://cms.law/en/chn/legal-updates/china-tightens-export-controls-on-rare-earths-takeaways-for-global-businesses" target="_blank" rel="noopener">CMS Law — China tightens export controls on rare earths: takeaways for global businesses</a></li>
+    <li><a href="https://www.pillsburylaw.com/en/news-and-insights/china-suspends-export-controls-certain-critical-minerals-related-items.html" target="_blank" rel="noopener">Pillsbury Law — China suspends export controls on certain critical minerals and related items</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var SCALE_MAX = 6;
+    var THRESHOLD = 0.1;
+    var RESET_DATE = new Date('2026-11-10T00:00:00');
+
+    var canvas = document.getElementById('sv-canvas');
+    var ctx = canvas ? canvas.getContext('2d') : null;
+    var slider = document.getElementById('sv-slider');
+    var runBtn = document.getElementById('sv-run');
+    var resetBtn = document.getElementById('sv-reset');
+    var presets = Array.prototype.slice.call(document.querySelectorAll('.sv-preset'));
+    var statPct = document.getElementById('sv-stat-pct');
+    var statStatus = document.getElementById('sv-stat-status');
+    var statDays = document.getElementById('sv-stat-days');
+    if (!canvas || !ctx || !slider) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var animHandle = null;
+
+    if (reduceMotion) { slider.value = 0.15; }
+
+    function daysToReset() {
+      var now = new Date();
+      var diff = Math.ceil((RESET_DATE - now) / 86400000);
+      return diff;
+    }
+
+    function sizeCanvas() {
+      var rect = canvas.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.round(rect.width * dpr));
+      canvas.height = Math.max(1, Math.round(rect.height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function drawRounded(x, y, w, h, r) {
+      ctx.beginPath();
+      if (ctx.roundRect) { ctx.roundRect(x, y, Math.max(w, 0.001), Math.max(h, 0.001), r); }
+      else { ctx.rect(x, y, w, h); }
+    }
+
+    function draw(pct) {
+      sizeCanvas();
+      var rect = canvas.getBoundingClientRect();
+      var w = rect.width, h = rect.height;
+      var cs = getComputedStyle(document.documentElement);
+      var accentA = cs.getPropertyValue('--accent-a').trim();
+      var accentB = cs.getPropertyValue('--accent-b').trim();
+      var border = cs.getPropertyValue('--border').trim();
+      var muted = cs.getPropertyValue('--muted').trim();
+      var ink = cs.getPropertyValue('--ink').trim();
+      var surface = cs.getPropertyValue('--surface').trim();
+
+      ctx.clearRect(0, 0, w, h);
+
+      var padX = 14;
+      var trackW = w - padX * 2;
+      var triggered = pct >= THRESHOLD;
+
+      function pctX(p) { return padX + trackW * (Math.min(p, SCALE_MAX) / SCALE_MAX); }
+
+      var topPad = 12;
+      ctx.textAlign = 'left';
+      ctx.font = '700 10px ui-monospace, SF Mono, Menlo, monospace';
+      ctx.fillStyle = muted;
+      ctx.fillText('RARE-EARTH SHARE OF PRODUCT VALUE', padX, topPad + 9);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = triggered ? accentA : accentB;
+      ctx.fillText(triggered ? 'LICENSE REQUIRED' : 'EXEMPT', w - padX, topPad + 9);
+
+      var barY = topPad + 18, barH = 26;
+      ctx.fillStyle = border;
+      drawRounded(padX, barY, trackW, barH, 8);
+      ctx.fill();
+      var fillW = pctX(pct) - padX;
+      ctx.fillStyle = triggered ? accentA : accentB;
+      drawRounded(padX, barY, fillW, barH, 8);
+      ctx.fill();
+
+      // threshold marker
+      var tx = pctX(THRESHOLD);
+      ctx.strokeStyle = ink;
+      ctx.lineWidth = 2;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(tx, barY - 10);
+      ctx.lineTo(tx, barY + barH + 10);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.textAlign = 'left';
+      ctx.font = '700 9.5px ui-monospace, SF Mono, Menlo, monospace';
+      ctx.fillStyle = ink;
+      var labelX = Math.min(tx + 6, w - padX - 120);
+      ctx.fillText('0.1% LICENSE THRESHOLD', labelX, barY - 14);
+
+      // current value marker
+      var mx = pctX(pct);
+      ctx.beginPath();
+      ctx.arc(mx, barY + barH / 2, 7, 0, Math.PI * 2);
+      ctx.fillStyle = triggered ? accentA : accentB;
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = surface;
+      ctx.stroke();
+
+      // axis
+      var axisY = barY + barH + 30;
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(padX, axisY);
+      ctx.lineTo(w - padX, axisY);
+      ctx.stroke();
+
+      var ticks = [0, 1, 2, 3, 4, 5, 6];
+      ctx.font = '9px ui-monospace, SF Mono, Menlo, monospace';
+      ticks.forEach(function (t) {
+        var x = pctX(t);
+        ctx.strokeStyle = border;
+        ctx.beginPath();
+        ctx.moveTo(x, axisY - 4);
+        ctx.lineTo(x, axisY + 4);
+        ctx.stroke();
+        ctx.fillStyle = muted;
+        ctx.textAlign = t === 0 ? 'left' : (t === 6 ? 'right' : 'center');
+        ctx.fillText(t + '%', x, axisY + 16);
+      });
+    }
+
+    function updateStats(pct) {
+      var triggered = pct >= THRESHOLD;
+      statPct.textContent = pct.toFixed(2) + '%';
+      statStatus.textContent = triggered ? 'Yes' : 'No';
+      statStatus.classList.toggle('sv-alert', triggered);
+      statStatus.classList.toggle('sv-hit', !triggered);
+      var d = daysToReset();
+      statDays.textContent = d > 0 ? d + ' days' : 'Reset date passed';
+    }
+
+    function render() {
+      var pct = Number(slider.value);
+      draw(pct);
+      updateStats(pct);
+    }
+
+    slider.addEventListener('input', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      render();
+    });
+
+    presets.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+        slider.value = btn.getAttribute('data-pct');
+        render();
+      });
+    });
+
+    resetBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      slider.value = 0;
+      render();
+    });
+
+    runBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      if (reduceMotion) {
+        slider.value = 0.15;
+        render();
+        return;
+      }
+      var start = 0, end = SCALE_MAX;
+      var duration = 3600;
+      var t0 = null;
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var p = Math.min(1, (ts - t0) / duration);
+        var eased = 1 - Math.pow(1 - p, 2);
+        var pct = start + (end - start) * eased;
+        slider.value = pct;
+        render();
+        if (p < 1) {
+          animHandle = requestAnimationFrame(step);
+        } else {
+          animHandle = null;
+        }
+      }
+      animHandle = requestAnimationFrame(step);
+    });
+
+    window.addEventListener('resize', render);
+    new MutationObserver(render).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
