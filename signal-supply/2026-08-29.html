@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — The AI Boom Has a Glue Problem</title>
+<meta name="description" content="TSMC can fabricate more raw AI-chip dies than the world needs. The real chokepoint is CoWoS, the packaging step that stitches each GPU to its memory — and Nvidia has already reserved more than half of it for 2026." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c17817;
+    --accent-a-tint: #faecd2;
+    --accent-b: #3a5a9c;
+    --accent-b-tint: #e0e6f4;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e5a94c;
+      --accent-a-tint: #332510;
+      --accent-b: #8fa8dc;
+      --accent-b-tint: #1a2338;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e5a94c;
+    --accent-a-tint: #332510;
+    --accent-b: #8fa8dc;
+    --accent-b-tint: #1a2338;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c17817;
+    --accent-a-tint: #faecd2;
+    --accent-b: #3a5a9c;
+    --accent-b-tint: #e0e6f4;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(28px, 4.4vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: CoWoS demand vs. capacity gap, 2026 --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+  .sv-canvas-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .sv-canvas {
+    width: 100%;
+    height: 264px;
+    display: block;
+  }
+  .sv-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .sv-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 220px;
+  }
+  .sv-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-b);
+    min-width: 100px;
+  }
+  .sv-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .sv-btn:hover { border-color: var(--accent-b); }
+  .sv-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .sv-preset {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .sv-preset:hover { color: var(--ink); border-color: var(--accent-b); }
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .sv-stat-value.sv-hit { color: var(--accent-b); }
+  .sv-stat-value.sv-alert { color: var(--accent-a); }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>August 29, 2026</span>
+    <span class="category-chip">ADVANCED PACKAGING</span>
+  </div>
+  <h1>The AI Boom Has a Glue Problem</h1>
+  <p class="lede">TSMC can fabricate more raw GPU dies than the world currently needs. The actual chokepoint sits one step later — stitching each chip to its memory — and Nvidia has already reserved more than half the world's capacity to do it.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    CoWoS — TSMC's chip-on-wafer-on-substrate packaging process — is the real ceiling on 2026 AI-hardware supply, not raw silicon. Industry-wide demand for CoWoS packaging is on pace to hit roughly 1 million wafers in 2026, nearly triple 2024's 370,000, per TrendForce. TSMC's own capacity reaches only about 120,000–140,000 wafers a month by year's end. Nvidia alone has reportedly locked in 800,000–850,000 of those wafers — over half of TSMC's total supply for the year — leaving everyone else to fight over the rest.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Why the shortage doesn't close even as capacity doubles</h2>
+      <p class="sv-caption mono">Indexed model, not real wafer counts: both lines are normalized so industry CoWoS demand reaches 100 in December 2026. Capacity is modeled shrinking the reported shortfall linearly from ~20% in January to ~10% in December, matching TrendForce's reported gap-narrowing trend for 2026 — the real month-to-month path is uneven. Drag the slider or press Run to move through the year and watch the gap persist even as both lines climb.</p>
+    </div>
+
+    <div class="sv-canvas-wrap">
+      <canvas id="sv-canvas" class="sv-canvas" role="img" aria-label="Two rising bars across the twelve months of 2026: CoWoS demand climbing to an indexed value of 100 by December, and CoWoS capacity climbing more slowly beneath it, with a shaded shortfall band between them that narrows from about 20 percent in January to about 10 percent in December but never closes"></canvas>
+    </div>
+
+    <div class="sv-controls">
+      <div class="sv-slider-row">
+        <label for="sv-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">Month</label>
+        <input type="range" id="sv-slider" min="1" max="12" step="1" value="1" aria-label="Month of 2026, January through December" />
+      </div>
+      <button type="button" class="sv-btn" id="sv-run">▶ Run</button>
+      <button type="button" class="sv-btn" id="sv-reset">Reset</button>
+    </div>
+
+    <div class="sv-presets">
+      <button type="button" class="sv-preset" data-month="1">Jan · ~20% short</button>
+      <button type="button" class="sv-preset" data-month="6">Jun · ~15% short</button>
+      <button type="button" class="sv-preset" data-month="12">Dec · ~10% short</button>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Month</div>
+        <div class="sv-stat-value mono" id="sv-stat-month">Jan</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Demand (index)</div>
+        <div class="sv-stat-value mono" id="sv-stat-demand">8</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Capacity (index)</div>
+        <div class="sv-stat-value mono" id="sv-stat-capacity">7</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Shortfall</div>
+        <div class="sv-stat-value mono sv-alert" id="sv-stat-gap">20%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Here's a strange fact about the AI chip shortage: the chip itself usually isn't the scarce part. TSMC, the company that actually manufactures the silicon inside an Nvidia GPU, can already produce more raw chips than the world currently needs. The real wait happens one step later, during a process almost nobody outside the industry has heard of, called CoWoS.</p>
+      <p>Think of it like this: making the chip is like baking thousands of identical cakes — TSMC's factories are extremely good at that part, and fast. But a finished AI chip on its own is useless. It has to sit right next to a stack of ultra-fast memory chips so the two can trade data billions of times a second, and wiring that connection together is delicate, precision work — closer to a jeweler setting a watch than a factory stamping parts. Only a handful of facilities on Earth know how to do it at the scale the AI boom needs. That gluing-and-wiring step is CoWoS, and it's where the entire industry gets stuck in line.</p>
+      <p>The scale of the squeeze: the whole industry wants roughly a million of these packaging "seats" in 2026 — nearly three times what it wanted just two years ago. TSMC is racing to add capacity, doubling its output over the year, but even by December it's expected to still fall short by around 10%. And Nvidia alone has already reserved more than half of everything TSMC can produce, leaving AMD, Google, Amazon, and every startup building its own AI chip to fight over what's left.</p>
+      <p>So next time you hear "chip shortage," picture less a shortage of silicon and more a shortage of the world's most precise glue gun.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>CoWoS — Chip-on-Wafer-on-Substrate — is TSMC's 2.5D advanced-packaging platform, and in 2026 it is the binding constraint on AI accelerator supply, not front-end logic fabrication. The problem is physical: an HBM stack needs thousands of I/O connections crammed into a footprint far too small for standard PCB or even organic-substrate trace pitches (roughly 100+ microns) to route. CoWoS solves this by placing the GPU logic die and multiple HBM stacks side-by-side on a passive silicon interposer carrying tens of thousands of micron-scale routing traces and through-silicon vias (TSVs) — effectively an ultra-dense circuit board etched directly into silicon. That interposer-plus-dies assembly is then mounted onto an organic substrate and soldered to the board. It remains the only economical way to deliver the multi-terabyte-per-second bandwidth HBM3E and HBM4 require.</p>
+      <p>The bottleneck is capacity, not know-how. TrendForce estimates total CoWoS demand rose from roughly 370,000 wafers in 2024 to about 670,000 in 2025 and will approach 1 million in 2026 — nearly tripling in two years, driven almost entirely by AI accelerators. TSMC's own monthly capacity is projected to reach 120,000–140,000 wafers by end-2026, roughly double where it started the year, with outsourced assembly and test (OSAT) partners such as Amkor and ASE now taking on front-end CoWoS steps TSMC has begun subcontracting to add another 50,000–60,000 wafers a month. Even combined, TrendForce projects the supply-demand gap only narrows from about 20% to roughly 10% by December 2026 — it does not close.</p>
+      <p>Allocation compounds the squeeze. Nvidia has reportedly locked in 800,000–850,000 CoWoS wafers for 2026, over half of TSMC's total, leaving AMD, hyperscalers' in-house silicon (Google TPU, Amazon Trainium, Microsoft Maia), and merchant AI-chip startups to compete for what remains. TSMC has responded by lifting its 2027 capex guidance to roughly $85 billion, with a large share aimed at packaging and interposer capacity — but hybrid-bonding and thermal-compression-bonding tool sets take years to qualify at volume, so the structural constraint persists well past this capex cycle.</p>
+    </div>
+
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> the gating factor on who ships AI servers in 2026-27 isn't how many chips a company can order — it's how much packaging capacity it locked down months ago, which is why Nvidia's early reservations are as strategically important as its chip designs.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> it reframes AI capex risk — wafer starts are a multi-fab, multi-node problem with real substitution options, but CoWoS allocation is a single-vendor-plus-a-few-OSATs problem with a multi-year tooling ramp, which is pulling serious capital and M&A interest into advanced-packaging and OSAT players (Amkor, ASE) that used to be an afterthought in the AI supply chain.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.trendforce.com/news/2026/06/15/news-tsmc-cowos-supply-demand-gap-reportedly-seen-narrowing-from-20-to-10-by-end-2026-as-capacity-expands/" target="_blank" rel="noopener">TrendForce — TSMC CoWoS Supply-Demand Gap Reportedly Seen Narrowing from 20% to 10% by End-2026</a></li>
+    <li><a href="https://www.trendforce.com/news/2026/08/05/news-tsmc-reportedly-expands-outsourcing-of-key-cowos-front-end-step-to-osats-amid-rising-nvidia-asic-demand/" target="_blank" rel="noopener">TrendForce — TSMC Reportedly Expands Outsourcing of Key CoWoS Front-End Step to OSATs Amid Rising Nvidia, ASIC Demand</a></li>
+    <li><a href="https://www.digitimes.com/news/a20251210PD218/tsmc-cowos-capacity-nvidia-equipment.html" target="_blank" rel="noopener">DigiTimes — TSMC expands CoWoS capacity with Nvidia booking over half for 2026-27</a></li>
+    <li><a href="https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm" target="_blank" rel="noopener">TSMC — CoWoS® advanced packaging technology (3DFabric)</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var TOTAL_MONTHS = 12;
+    var GAP_START = 0.20;
+    var GAP_END = 0.10;
+    var MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    var canvas = document.getElementById('sv-canvas');
+    var ctx = canvas ? canvas.getContext('2d') : null;
+    var slider = document.getElementById('sv-slider');
+    var runBtn = document.getElementById('sv-run');
+    var resetBtn = document.getElementById('sv-reset');
+    var presets = Array.prototype.slice.call(document.querySelectorAll('.sv-preset'));
+    var statMonth = document.getElementById('sv-stat-month');
+    var statDemand = document.getElementById('sv-stat-demand');
+    var statCapacity = document.getElementById('sv-stat-capacity');
+    var statGap = document.getElementById('sv-stat-gap');
+    if (!canvas || !ctx || !slider) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var animHandle = null;
+
+    if (reduceMotion) { slider.value = TOTAL_MONTHS; }
+
+    function demandAt(m) { return 100 * (m / TOTAL_MONTHS); }
+    function gapAt(m) { return GAP_START + (GAP_END - GAP_START) * ((m - 1) / (TOTAL_MONTHS - 1)); }
+    function capacityAt(m) { return demandAt(m) * (1 - gapAt(m)); }
+
+    function sizeCanvas() {
+      var rect = canvas.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.round(rect.width * dpr));
+      canvas.height = Math.max(1, Math.round(rect.height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function drawRounded(x, y, w, h, r) {
+      ctx.beginPath();
+      if (ctx.roundRect) { ctx.roundRect(x, y, Math.max(w, 0.001), Math.max(h, 0.001), r); }
+      else { ctx.rect(x, y, w, h); }
+    }
+
+    function draw(month) {
+      sizeCanvas();
+      var rect = canvas.getBoundingClientRect();
+      var w = rect.width, h = rect.height;
+      var cs = getComputedStyle(document.documentElement);
+      var accentA = cs.getPropertyValue('--accent-a').trim();
+      var accentB = cs.getPropertyValue('--accent-b').trim();
+      var border = cs.getPropertyValue('--border').trim();
+      var muted = cs.getPropertyValue('--muted').trim();
+      var surface = cs.getPropertyValue('--surface').trim();
+
+      ctx.clearRect(0, 0, w, h);
+
+      var padX = 14;
+      var trackW = w - padX * 2;
+      var rowH = 46;
+      var topPad = 10;
+      var maxIndex = 105;
+
+      function monthX(m) { return padX + trackW * (Math.min(m, TOTAL_MONTHS) / TOTAL_MONTHS); }
+      function indexW(v) { return trackW * (Math.min(v, maxIndex) / maxIndex); }
+
+      var demand = demandAt(month);
+      var capacity = capacityAt(month);
+      var gapPct = gapAt(month) * 100;
+
+      // Demand bar
+      var y0d = topPad;
+      ctx.textAlign = 'left';
+      ctx.font = '700 10px ui-monospace, SF Mono, Menlo, monospace';
+      ctx.fillStyle = muted;
+      ctx.fillText('COWOS DEMAND (INDEX)', padX, y0d + 9);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = accentB;
+      ctx.fillText(Math.round(demand) + ' / 100', w - padX, y0d + 9);
+
+      var barYd = y0d + 15, barH = 14;
+      ctx.fillStyle = border;
+      drawRounded(padX, barYd, trackW, barH, 6);
+      ctx.fill();
+      ctx.fillStyle = accentB;
+      drawRounded(padX, barYd, indexW(demand), barH, 6);
+      ctx.fill();
+
+      // Capacity bar
+      var y0c = topPad + rowH;
+      ctx.textAlign = 'left';
+      ctx.fillStyle = muted;
+      ctx.fillText('COWOS CAPACITY (INDEX)', padX, y0c + 9);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = accentA;
+      ctx.fillText(Math.round(capacity) + ' / 100', w - padX, y0c + 9);
+
+      var barYc = y0c + 15;
+      ctx.fillStyle = border;
+      drawRounded(padX, barYc, trackW, barH, 6);
+      ctx.fill();
+      ctx.fillStyle = accentA;
+      drawRounded(padX, barYc, indexW(capacity), barH, 6);
+      ctx.fill();
+
+      // Shortfall band
+      var y0s = topPad + rowH * 2 + 6;
+      ctx.textAlign = 'left';
+      ctx.fillStyle = muted;
+      ctx.fillText('SHORTFALL vs. DEMAND', padX, y0s + 9);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = accentA;
+      ctx.fillText(Math.round(gapPct) + '% SHORT', w - padX, y0s + 9);
+
+      var barYs = y0s + 15;
+      ctx.fillStyle = border;
+      drawRounded(padX, barYs, trackW, barH, 6);
+      ctx.fill();
+      var x1 = padX + indexW(capacity);
+      var x2 = padX + indexW(demand);
+      if (x2 > x1) {
+        ctx.save();
+        drawRounded(padX, barYs, trackW, barH, 6);
+        ctx.clip();
+        ctx.fillStyle = accentA;
+        ctx.globalAlpha = 0.55;
+        ctx.fillRect(x1, barYs, x2 - x1, barH);
+        ctx.globalAlpha = 1;
+        ctx.restore();
+      }
+
+      // month axis
+      var axisY = barYs + barH + 22;
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(padX, axisY);
+      ctx.lineTo(w - padX, axisY);
+      ctx.stroke();
+
+      var ticks = [1, 3, 6, 9, 12];
+      ctx.font = '9px ui-monospace, SF Mono, Menlo, monospace';
+      ticks.forEach(function (t) {
+        var x = monthX(t);
+        ctx.strokeStyle = border;
+        ctx.beginPath();
+        ctx.moveTo(x, axisY - 4);
+        ctx.lineTo(x, axisY + 4);
+        ctx.stroke();
+        ctx.fillStyle = muted;
+        ctx.textAlign = t === 1 ? 'left' : (t === 12 ? 'right' : 'center');
+        ctx.fillText(MONTH_NAMES[t - 1].toUpperCase(), x, axisY + 16);
+      });
+
+      // current-month marker
+      var markerX = monthX(month);
+      ctx.strokeStyle = accentB;
+      ctx.lineWidth = 2;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(markerX, topPad - 2);
+      ctx.lineTo(markerX, axisY + 4);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.beginPath();
+      ctx.arc(markerX, axisY, 5, 0, Math.PI * 2);
+      ctx.fillStyle = accentB;
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = surface;
+      ctx.stroke();
+    }
+
+    function updateStats(month) {
+      var demand = demandAt(month);
+      var capacity = capacityAt(month);
+      var gapPct = gapAt(month) * 100;
+
+      statMonth.textContent = MONTH_NAMES[Math.round(month) - 1];
+      statDemand.textContent = Math.round(demand);
+      statCapacity.textContent = Math.round(capacity);
+      statGap.textContent = Math.round(gapPct) + '%';
+    }
+
+    function render() {
+      var month = Number(slider.value);
+      draw(month);
+      updateStats(month);
+    }
+
+    slider.addEventListener('input', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      render();
+    });
+
+    presets.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+        slider.value = btn.getAttribute('data-month');
+        render();
+      });
+    });
+
+    resetBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      slider.value = 1;
+      render();
+    });
+
+    runBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      if (reduceMotion) {
+        slider.value = TOTAL_MONTHS;
+        render();
+        return;
+      }
+      var start = 1, end = TOTAL_MONTHS;
+      var duration = 3800;
+      var t0 = null;
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var p = Math.min(1, (ts - t0) / duration);
+        var eased = 1 - Math.pow(1 - p, 2);
+        var month = start + (end - start) * eased;
+        slider.value = month;
+        render();
+        if (p < 1) {
+          animHandle = requestAnimationFrame(step);
+        } else {
+          animHandle = null;
+        }
+      }
+      animHandle = requestAnimationFrame(step);
+    });
+
+    window.addEventListener('resize', render);
+    new MutationObserver(render).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
