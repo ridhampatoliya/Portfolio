@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — You Can Buy an AI Chip Tomorrow. The Turbine to Power It Ships in 2031.</title>
+<meta name="description" content="AI data centers can get a chip in months. The gas turbine to power them is booked out to 2031. Inside the forging bottleneck now setting the pace of the AI buildout." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c4571f;
+    --accent-a-tint: #fbe3d3;
+    --accent-b: #2f6fa8;
+    --accent-b-tint: #dbe8f2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #f0935c;
+      --accent-a-tint: #3a2415;
+      --accent-b: #7fb3e0;
+      --accent-b-tint: #16283a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #f0935c;
+    --accent-a-tint: #3a2415;
+    --accent-b: #7fb3e0;
+    --accent-b-tint: #16283a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c4571f;
+    --accent-a-tint: #fbe3d3;
+    --accent-b: #2f6fa8;
+    --accent-b-tint: #dbe8f2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(28px, 4.4vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: turbine order backlog vs. delivery capacity, 2026-2034 --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+  .sv-canvas-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .sv-canvas {
+    width: 100%;
+    height: 300px;
+    display: block;
+  }
+  .sv-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .sv-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 220px;
+  }
+  .sv-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-b);
+    min-width: 100px;
+  }
+  .sv-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .sv-btn:hover { border-color: var(--accent-b); }
+  .sv-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .sv-preset {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .sv-preset:hover { color: var(--ink); border-color: var(--accent-b); }
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .sv-stat-value.sv-hit { color: var(--accent-b); }
+  .sv-stat-value.sv-alert { color: var(--accent-a); }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>August 30, 2026</span>
+    <span class="category-chip">ENERGY</span>
+  </div>
+  <h1>You Can Buy an AI Chip Tomorrow. The Turbine to Power It Ships in 2031.</h1>
+  <p class="lede">The newest constraint on the AI buildout isn't silicon — it's a 300-ton spinning machine that only three factories on Earth know how to forge, and their order books are already full for years.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    GE Vernova's gas-turbine backlog hit 116 gigawatts at the end of Q2 2026, up from 83 GW at the close of 2025, and it's chasing 125 GW under contract by year-end. Siemens Energy's backlog is near 70 GW, with total commitments (orders plus reserved slots) expected to reach 90–100 GW by the end of its fiscal year. Mitsubishi Power's lead times now stretch past five years, with contracts being signed for delivery in 2031–2034. It's already colliding with the grid: Texas's operator has over 474 GW of data-center connection requests queued — more than five times the state's record peak demand — which pushed Governor Abbott to freeze new approvals on August 3 pending an audit.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Order a turbine in 2026 vs. 2034 — same factories, very different wait</h2>
+      <p class="sv-caption mono">Illustrative model, not a forecast: bars are indexed (0–100), not real gigawatt counts. "Backlog" tracks the reported industry pattern of roughly tripling since 2024 then leveling off as OEMs work it down; "delivery capacity" tracks GE Vernova's and Siemens Energy's own stated capacity-expansion targets through 2028–2030. The wait-time line is derived from that gap and simplified to move smoothly — real wait times shift in steps as specific factory expansions come online. Drag the slider or press Run to move from 2026 to 2034.</p>
+    </div>
+
+    <div class="sv-canvas-wrap">
+      <canvas id="sv-canvas" class="sv-canvas" role="img" aria-label="Two rising bars across the years 2026 to 2034: turbine order backlog climbing from an indexed value of 70 to 100 and leveling off, and annual delivery capacity climbing more slowly from 30 to 75, with a shaded gap between them; a third bar below shows the estimated wait time for a new order shrinking from about 4.5 years to about 2.2 years"></canvas>
+    </div>
+
+    <div class="sv-controls">
+      <div class="sv-slider-row">
+        <label for="sv-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">Order year</label>
+        <input type="range" id="sv-slider" min="1" max="9" step="1" value="1" aria-label="Year you place the order, 2026 through 2034" />
+      </div>
+      <button type="button" class="sv-btn" id="sv-run">▶ Run</button>
+      <button type="button" class="sv-btn" id="sv-reset">Reset</button>
+    </div>
+
+    <div class="sv-presets">
+      <button type="button" class="sv-preset" data-step="1">2026 · ~4.5-yr wait</button>
+      <button type="button" class="sv-preset" data-step="5">2030 · ~3.4-yr wait</button>
+      <button type="button" class="sv-preset" data-step="9">2034 · ~2.2-yr wait</button>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Order year</div>
+        <div class="sv-stat-value mono" id="sv-stat-year">2026</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Backlog (index)</div>
+        <div class="sv-stat-value mono" id="sv-stat-backlog">70</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Capacity (index)</div>
+        <div class="sv-stat-value mono" id="sv-stat-capacity">30</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Wait if ordering now</div>
+        <div class="sv-stat-value mono sv-alert" id="sv-stat-wait">4.5 yrs</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Here's the twist in the AI power story nobody saw coming two years ago: the problem isn't building enough chips, or even enough data centers. It's building enough power plants to run them.</p>
+      <p>A big AI data center can pull as much electricity as a mid-sized city. The fastest way to get that much reliable power on-site is a natural gas power plant, and the heart of a gas power plant is the turbine: a jet-engine-sized machine spinning thousands of times a minute, built from parts forged and machined to tolerances measured in microns. Only three companies on the planet make the large ones — GE Vernova, Siemens Energy, and Mitsubishi Power — and between them they run just a handful of factories capable of casting the giant metal blades and rotors involved.</p>
+      <p>Demand has exploded so fast that all three are effectively sold out for years. GE Vernova's order book jumped from 83 gigawatts of turbines at the end of 2025 to 116 gigawatts by mid-2026, and it's chasing 125 gigawatts by December. Mitsubishi Power is already booking delivery slots for 2031 through 2034. Put plainly: you can buy a state-of-the-art AI chip and have it running within months. Order the power plant to run the data center around it, and you could be waiting the better part of a decade.</p>
+      <p>It's already colliding with the real world — Texas froze new data-center grid hookups on August 3 because pending requests topped 474 gigawatts, more than five times the state's entire record power demand. The line for a turbine, not the line for a chip, is now setting the pace of the AI buildout.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The binding constraint on new AI data-center capacity has shifted from semiconductor fabrication to heavy-frame gas-turbine manufacturing — a forged-metal industry whose production economics differ fundamentally from silicon's.</p>
+      <p>Utility-scale combined-cycle plants sized for hyperscale campuses use F-class and H-class gas turbines (roughly 300–600+ MW per unit), which require single-crystal nickel-superalloy blades cast in vacuum furnaces, precision-forged rotor discs, and combustion sections qualified through yearslong test cycles. Unlike a chip fab, where a new line can in principle be replicated by procuring more lithography tools, large-frame turbine output is gated by a small number of forging presses and single-crystal casting facilities worldwide, owned almost exclusively by three OEMs: GE Vernova, Siemens Energy, and Mitsubishi Power. Expanding forging capacity itself takes years and heavy capex, making turbine supply structurally inelastic on the 3–5 year horizon that matters for the current buildout.</p>
+      <p>The order books show it. GE Vernova's gas-turbine backlog rose from 83 GW (end of 2025) to 100 GW (Q1 2026) to 116 GW (Q2 2026), and the company is guiding to at least 125 GW under contract by year-end 2026; annualized output is ramping from roughly 20 GW/year in Q3 2026 toward 24 GW by 2028 and 30 GW by 2030. Siemens Energy's backlog stands near 69 GW, with 90–100 GW of total commitments (orders plus slot reservations) expected by the close of fiscal 2026, and quoted lead times of three-plus years. Mitsubishi Power lead times now exceed five years, with contracts being signed for 2031–2034 delivery slots.</p>
+      <p>This has turned power hardware, not compute hardware, into the pacing item for AI infrastructure — and it's propagating into grid operations. ERCOT is tracking more than 1,800 large-load interconnection requests totaling over 474 GW, more than 5x its record peak demand, which prompted Texas Governor Greg Abbott's August 3 directive pausing new data-center interconnection approvals pending a state audit covering power sourcing, on-site generation, and water use.</p>
+    </div>
+
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> chip supply used to set the pace of the AI race. Now it's whoever locked in a turbine order first — because the wait for the power plant is longer than the wait for the chip.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> it reframes AI capex risk — wafer capacity is a multi-fab problem with real substitution paths, but heavy-frame turbine supply is a three-vendor, forging-limited problem on a multi-year capital cycle, pulling serious strategic weight toward whoever secured turbine slots and grid interconnection earliest.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.utilitydive.com/news/ge-vernova-gas-turbine-backlog-climbs-to-116-gw/826039/" target="_blank" rel="noopener">Utility Dive — GE Vernova gas turbine backlog climbs to 116 GW</a></li>
+    <li><a href="https://www.utilitydive.com/news/siemens-gas-turbine-backlog-nears-70-gw-as-company-expands-manufacturing/827390/" target="_blank" rel="noopener">Utility Dive — Siemens Energy's gas turbine backlog nears 70 GW as company expands manufacturing</a></li>
+    <li><a href="https://www.utilitydive.com/news/texas-hits-pause-data-center-interconnections/827046/" target="_blank" rel="noopener">Utility Dive — Facing an estimated 474 GW of interconnection requests, Texas hits pause on data centers</a></li>
+    <li><a href="https://oilprice.com/Energy/Energy-General/The-Gas-Turbine-Shortage-Just-Became-AIs-Biggest-Constraint.amp.html" target="_blank" rel="noopener">OilPrice.com — The Gas Turbine Shortage Just Became AI's Biggest Constraint</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var TOTAL_STEPS = 9;
+    var YEARS = ['2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2034'];
+    var BACKLOG_START = 70, BACKLOG_END = 100, BACKLOG_PLATEAU_STEP = 5;
+    var CAPACITY_START = 30, CAPACITY_END = 75;
+    var WAIT_START = 4.5, WAIT_END = 2.2;
+    var WAIT_MAX = 5;
+
+    var canvas = document.getElementById('sv-canvas');
+    var ctx = canvas ? canvas.getContext('2d') : null;
+    var slider = document.getElementById('sv-slider');
+    var runBtn = document.getElementById('sv-run');
+    var resetBtn = document.getElementById('sv-reset');
+    var presets = Array.prototype.slice.call(document.querySelectorAll('.sv-preset'));
+    var statYear = document.getElementById('sv-stat-year');
+    var statBacklog = document.getElementById('sv-stat-backlog');
+    var statCapacity = document.getElementById('sv-stat-capacity');
+    var statWait = document.getElementById('sv-stat-wait');
+    if (!canvas || !ctx || !slider) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var animHandle = null;
+
+    if (reduceMotion) { slider.value = TOTAL_STEPS; }
+
+    function backlogAt(s) {
+      var t = Math.min(1, (s - 1) / (BACKLOG_PLATEAU_STEP - 1));
+      return BACKLOG_START + (BACKLOG_END - BACKLOG_START) * t;
+    }
+    function capacityAt(s) {
+      var t = (s - 1) / (TOTAL_STEPS - 1);
+      return CAPACITY_START + (CAPACITY_END - CAPACITY_START) * t;
+    }
+    function waitAt(s) {
+      var t = (s - 1) / (TOTAL_STEPS - 1);
+      return WAIT_START + (WAIT_END - WAIT_START) * t;
+    }
+
+    function sizeCanvas() {
+      var rect = canvas.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.round(rect.width * dpr));
+      canvas.height = Math.max(1, Math.round(rect.height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function drawRounded(x, y, w, h, r) {
+      ctx.beginPath();
+      if (ctx.roundRect) { ctx.roundRect(x, y, Math.max(w, 0.001), Math.max(h, 0.001), r); }
+      else { ctx.rect(x, y, w, h); }
+    }
+
+    function draw(step) {
+      sizeCanvas();
+      var rect = canvas.getBoundingClientRect();
+      var w = rect.width, h = rect.height;
+      var cs = getComputedStyle(document.documentElement);
+      var accentA = cs.getPropertyValue('--accent-a').trim();
+      var accentB = cs.getPropertyValue('--accent-b').trim();
+      var border = cs.getPropertyValue('--border').trim();
+      var muted = cs.getPropertyValue('--muted').trim();
+      var surface = cs.getPropertyValue('--surface').trim();
+
+      ctx.clearRect(0, 0, w, h);
+
+      var padX = 14;
+      var trackW = w - padX * 2;
+      var rowH = 46;
+      var topPad = 10;
+      var maxIndex = 105;
+
+      function stepX(s) { return padX + trackW * (Math.min(s, TOTAL_STEPS) / TOTAL_STEPS); }
+      function indexW(v, max) { return trackW * (Math.min(v, max) / max); }
+
+      var backlog = backlogAt(step);
+      var capacity = capacityAt(step);
+      var wait = waitAt(step);
+
+      // Backlog bar
+      var y0d = topPad;
+      ctx.textAlign = 'left';
+      ctx.font = '700 10px ui-monospace, SF Mono, Menlo, monospace';
+      ctx.fillStyle = muted;
+      ctx.fillText('ORDER BACKLOG (INDEX)', padX, y0d + 9);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = accentB;
+      ctx.fillText(Math.round(backlog) + ' / 100', w - padX, y0d + 9);
+
+      var barYd = y0d + 15, barH = 14;
+      ctx.fillStyle = border;
+      drawRounded(padX, barYd, trackW, barH, 6);
+      ctx.fill();
+      ctx.fillStyle = accentB;
+      drawRounded(padX, barYd, indexW(backlog, maxIndex), barH, 6);
+      ctx.fill();
+
+      // Capacity bar
+      var y0c = topPad + rowH;
+      ctx.textAlign = 'left';
+      ctx.fillStyle = muted;
+      ctx.fillText('ANNUAL DELIVERY CAPACITY (INDEX)', padX, y0c + 9);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = accentA;
+      ctx.fillText(Math.round(capacity) + ' / 100', w - padX, y0c + 9);
+
+      var barYc = y0c + 15;
+      ctx.fillStyle = border;
+      drawRounded(padX, barYc, trackW, barH, 6);
+      ctx.fill();
+      ctx.fillStyle = accentA;
+      drawRounded(padX, barYc, indexW(capacity, maxIndex), barH, 6);
+      ctx.fill();
+
+      // gap band between capacity and backlog
+      var x1 = padX + indexW(capacity, maxIndex);
+      var x2 = padX + indexW(backlog, maxIndex);
+      if (x2 > x1) {
+        ctx.save();
+        drawRounded(padX, barYc, trackW, barH, 6);
+        ctx.clip();
+        ctx.fillStyle = accentB;
+        ctx.globalAlpha = 0.35;
+        ctx.fillRect(x1, barYc, x2 - x1, barH);
+        ctx.globalAlpha = 1;
+        ctx.restore();
+      }
+
+      // Wait-time bar
+      var y0w = topPad + rowH * 2 + 6;
+      ctx.textAlign = 'left';
+      ctx.fillStyle = muted;
+      ctx.fillText('WAIT IF ORDERING NOW (YEARS)', padX, y0w + 9);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = accentA;
+      ctx.fillText(wait.toFixed(1) + ' YRS', w - padX, y0w + 9);
+
+      var barYw = y0w + 15;
+      ctx.fillStyle = border;
+      drawRounded(padX, barYw, trackW, barH, 6);
+      ctx.fill();
+      ctx.fillStyle = accentA;
+      drawRounded(padX, barYw, indexW(wait, WAIT_MAX), barH, 6);
+      ctx.fill();
+
+      // year axis
+      var axisY = barYw + barH + 22;
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(padX, axisY);
+      ctx.lineTo(w - padX, axisY);
+      ctx.stroke();
+
+      var ticks = [1, 3, 5, 7, 9];
+      ctx.font = '9px ui-monospace, SF Mono, Menlo, monospace';
+      ticks.forEach(function (t) {
+        var x = stepX(t);
+        ctx.strokeStyle = border;
+        ctx.beginPath();
+        ctx.moveTo(x, axisY - 4);
+        ctx.lineTo(x, axisY + 4);
+        ctx.stroke();
+        ctx.fillStyle = muted;
+        ctx.textAlign = t === 1 ? 'left' : (t === 9 ? 'right' : 'center');
+        ctx.fillText(YEARS[t - 1], x, axisY + 16);
+      });
+
+      // current-step marker
+      var markerX = stepX(step);
+      ctx.strokeStyle = accentB;
+      ctx.lineWidth = 2;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(markerX, topPad - 2);
+      ctx.lineTo(markerX, axisY + 4);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.beginPath();
+      ctx.arc(markerX, axisY, 5, 0, Math.PI * 2);
+      ctx.fillStyle = accentB;
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = surface;
+      ctx.stroke();
+    }
+
+    function updateStats(step) {
+      var backlog = backlogAt(step);
+      var capacity = capacityAt(step);
+      var wait = waitAt(step);
+
+      statYear.textContent = YEARS[Math.round(step) - 1];
+      statBacklog.textContent = Math.round(backlog);
+      statCapacity.textContent = Math.round(capacity);
+      statWait.textContent = wait.toFixed(1) + ' yrs';
+    }
+
+    function render() {
+      var step = Number(slider.value);
+      draw(step);
+      updateStats(step);
+    }
+
+    slider.addEventListener('input', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      render();
+    });
+
+    presets.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+        slider.value = btn.getAttribute('data-step');
+        render();
+      });
+    });
+
+    resetBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      slider.value = 1;
+      render();
+    });
+
+    runBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      if (reduceMotion) {
+        slider.value = TOTAL_STEPS;
+        render();
+        return;
+      }
+      var start = 1, end = TOTAL_STEPS;
+      var duration = 3800;
+      var t0 = null;
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var p = Math.min(1, (ts - t0) / duration);
+        var eased = 1 - Math.pow(1 - p, 2);
+        var val = start + (end - start) * eased;
+        slider.value = val;
+        render();
+        if (p < 1) {
+          animHandle = requestAnimationFrame(step);
+        } else {
+          animHandle = null;
+        }
+      }
+      animHandle = requestAnimationFrame(step);
+    });
+
+    window.addEventListener('resize', render);
+    new MutationObserver(render).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
