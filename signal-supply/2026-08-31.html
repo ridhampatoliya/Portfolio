@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — The Chip Never Crossed the Border. The Compute Did Anyway.</title>
+<meta name="description" content="US export controls block shipping Nvidia's top AI chips to China. They say nothing about renting the same chips by the hour from a data center next door — and Chinese AI labs have reportedly used exactly that gap." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a8660b;
+    --accent-a-tint: #f7e6c8;
+    --accent-b: #1f7a9c;
+    --accent-b-tint: #d9edf2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e4a44f;
+      --accent-a-tint: #332510;
+      --accent-b: #63c1e0;
+      --accent-b-tint: #0f2a33;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e4a44f;
+    --accent-a-tint: #332510;
+    --accent-b: #63c1e0;
+    --accent-b-tint: #0f2a33;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a8660b;
+    --accent-a-tint: #f7e6c8;
+    --accent-b: #1f7a9c;
+    --accent-b-tint: #d9edf2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(28px, 4.4vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: chip export vs. remote-access loophole --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+  .sv-canvas-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .sv-canvas {
+    width: 100%;
+    height: 320px;
+    display: block;
+  }
+  @media (max-width: 480px) {
+    .sv-canvas { height: 430px; }
+  }
+  .sv-regime {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--bg);
+    gap: 2px;
+    margin-bottom: 14px;
+  }
+  .sv-regime button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+    padding: 7px 13px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .sv-regime button[aria-pressed="true"] {
+    background: var(--accent-b);
+    color: #fff;
+  }
+  .sv-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .sv-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .sv-btn:hover { border-color: var(--accent-b); }
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .sv-stat-value.sv-hit { color: var(--accent-b); }
+  .sv-stat-value.sv-alert { color: var(--accent-a); }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>August 31, 2026</span>
+    <span class="category-chip">AI POLICY</span>
+  </div>
+  <h1>The Chip Never Crossed the Border. The Compute Did Anyway.</h1>
+  <p class="lede">Washington's rules stop a Nvidia chip from shipping to China. They say nothing about a Chinese company renting time on that same chip from a data center next door — and for the better part of a year, that's reportedly exactly what's been happening.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    US export controls govern who can own a controlled Nvidia GPU — not who can rent compute time on one. Chinese AI labs including ByteDance, Alibaba, Tencent, and Moonshot AI have reportedly trained frontier models using Nvidia chips housed in Southeast Asian and Japanese data centers, per CNBC and Asia Times reporting, without a single restricted chip crossing into China. The gap widened after Commerce rescinded Biden's AI Diffusion Rule and its cloud know-your-customer checks in May 2025; BIS is now compiling watch lists and drafting a new rule to close it, per Tech Times. Congress's fix, the Remote Access Security Act (RASA), passed the House in January 2026 and remains stalled in the Senate.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Trace a compute request from Southeast Asia to China</h2>
+      <p class="sv-caption mono">Simplified model of the mechanism, not a live tracker: node positions and the "request" animation are illustrative. Path 1 (chip shipment) is always licensed and legal because the destination isn't China. Path 2 (remote login) is the loophole — toggle the regime, then send a request to see whether it completes.</p>
+    </div>
+
+    <div class="sv-regime" role="group" aria-label="Legal regime">
+      <button type="button" id="regime-current" aria-pressed="true">Current Law</button>
+      <button type="button" id="regime-rasa" aria-pressed="false">If RASA Passes</button>
+    </div>
+
+    <div class="sv-canvas-wrap">
+      <canvas id="sv-canvas" class="sv-canvas" role="img" aria-label="A diagram with three boxes: Nvidia in the USA, a data center in Southeast Asia, and an AI lab in China. An arrow from the USA box to the Southeast Asia box shows a licensed chip shipment. A second path from the Southeast Asia box to the China box shows a remote compute request; under current law it completes and reaches the China box, and if the Remote Access Security Act passes it is stopped at a barrier partway along the path."></canvas>
+    </div>
+
+    <div class="sv-controls">
+      <button type="button" class="sv-btn" id="sv-run">▶ Send Compute Request</button>
+      <button type="button" class="sv-btn" id="sv-reset">Reset</button>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Regime</div>
+        <div class="sv-stat-value mono" id="sv-stat-regime">Current Law</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Chip shipment (USA→SEA)</div>
+        <div class="sv-stat-value mono sv-hit" id="sv-stat-ship">Licensed &amp; Allowed</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Remote access (SEA→China)</div>
+        <div class="sv-stat-value mono sv-alert" id="sv-stat-remote">Unregulated</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Requests delivered to China</div>
+        <div class="sv-stat-value mono" id="sv-stat-count">0</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Imagine a customs agent stationed at the factory door, checking every truck that leaves with a shipment of advanced Nvidia AI chips, making sure none of them heads for China. That part of the system works: it's illegal to ship the physical chip there, and the rule is enforced.</p>
+      <p>But here's the workaround. Instead of shipping the chip to China, you ship it to a data center in Malaysia, Thailand, or Japan — completely legal, since the destination isn't China. Then a company in Beijing logs in over the internet and rents computing time on it, the same way anyone rents a server from Amazon or Google. No chip ever crosses a border. No truck for the customs agent to check.</p>
+      <p>Reportedly, that's exactly what's been happening. Chinese AI labs — including ByteDance, Alibaba, Tencent, and the startup Moonshot AI — have used rented compute in Southeast Asian and Japanese data centers to train frontier AI models on America's most advanced chips, without a single restricted GPU ever touching Chinese soil.</p>
+      <p>Washington built its rulebook around the wrong verb. It restricts shipping, when the thing that actually matters is using. A chip sitting in a rack in Johor does the exact same AI training work whether the login comes from San Francisco or Shenzhen — geography stopped being the gatekeeper the moment the cloud got involved.</p>
+      <p>There's a fix waiting in Congress. A bill called the Remote Access Security Act would legally treat "renting the chip remotely" the same as "shipping the chip" — requiring the same export license either way. It passed the House back in January. Half a year later, it's still stuck in the Senate, while the workaround keeps running.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>US export controls on advanced AI accelerators — Nvidia's A100/H100/H200/B200-class GPUs, gated by processing-performance and interconnect-bandwidth thresholds under the Export Administration Regulations — are administered by the Commerce Department's Bureau of Industry and Security through an End-Use/End-User and Entity List framework. The controls trigger on an "export," "reexport," or "transfer (in-country)" of a controlled item: legal terms of art built around the physical or technical transfer of a commodity, source code, or technology. The framework assumes the compute and the chip travel together — that using an H100 requires physical custody of one.</p>
+      <p>Cloud infrastructure breaks that assumption. A hyperscale facility in Johor, Bangkok, or Tokyo can lease GPU-hours over the public internet to a customer anywhere on Earth, and the silicon itself never leaves the rack. BIS has historically applied "deemed export" treatment mainly to narrower technology-transfer scenarios, such as handing controlled source code to a foreign national — not to pure compute-as-a-service. That gray zone widened further after Commerce rescinded the Biden-era AI Diffusion Rule and its cloud-provider know-your-customer due-diligence requirements in May 2025.</p>
+      <p>Reporting from CNBC and Asia Times, corroborated across multiple outlets, describes Chinese labs — ByteDance, Alibaba, Tencent, and Moonshot AI among them — leasing or installing compute capacity inside Southeast Asian and Japanese facilities, running training workloads there, then deploying the resulting model weights domestically. Only the trained model — software, not a controlled commodity — crosses back into China, and model weights sit outside the commodity-licensing regime entirely.</p>
+      <p>BIS is now compiling two separate watch lists — one for physical transshipment routes, one for remote-access arrangements — and drafting a rule to close the gap Commerce itself widened, per Tech Times. Legislatively, the Remote Access Security Act would amend the Export Control Reform Act to define remote or cloud access to a controlled item as an export event in its own right, subjecting GPU rental to the same licensing regime as physical shipment. It passed the House on a bipartisan vote in January 2026 and remains unpassed in the Senate, with the FY2027 NDAA floated as a possible legislative vehicle.</p>
+    </div>
+
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> chip supply used to be the whole story in the AI race. Now the real chokepoint is a legal definition — and whoever exploits it fastest trains competitive models regardless of where the silicon physically sits.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> it turns export compliance from a shipping-manifest problem into a jurisdiction-and-billing problem — cloud providers, not just chip makers, become the enforcement point, and "export" now has to be defined in software terms, not customs terms.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.cnbc.com/2026/08/19/china-ai-nvidia-chips-us-export-controls.html" target="_blank" rel="noopener">CNBC — The U.S. banned Nvidia's best chips from going to China. Now it's trying to close a crucial loophole</a></li>
+    <li><a href="https://asiatimes.com/2026/03/nvidia-chip-curbs-turn-singapore-into-ai-hub-for-china/" target="_blank" rel="noopener">Asia Times — Nvidia chip curbs turn Singapore into AI hub for China</a></li>
+    <li><a href="https://www.techtimes.com/articles/325957/20260829/commerce-drafts-ai-chip-rule-loophole-it-created-rescinding-biden-know-your-customer.htm" target="_blank" rel="noopener">Tech Times — Commerce Drafts AI Chip Rule for Loophole It Created by Rescinding Biden Know-Your-Customer</a></li>
+    <li><a href="https://www.iaps.ai/research/remote-access-security-act" target="_blank" rel="noopener">Institute for AI Policy and Strategy — Remote Access Security Act (RASA)</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var canvas = document.getElementById('sv-canvas');
+    var ctx = canvas ? canvas.getContext('2d') : null;
+    var regimeCurrentBtn = document.getElementById('regime-current');
+    var regimeRasaBtn = document.getElementById('regime-rasa');
+    var runBtn = document.getElementById('sv-run');
+    var resetBtn = document.getElementById('sv-reset');
+    var statRegime = document.getElementById('sv-stat-regime');
+    var statRemote = document.getElementById('sv-stat-remote');
+    var statCount = document.getElementById('sv-stat-count');
+    if (!canvas || !ctx) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var regime = 'current'; // 'current' | 'rasa'
+    var progress = 0; // 0..1 along path 2
+    var barrierAt = 0.58;
+    var delivered = 0;
+    var animHandle = null;
+    var blockedFlash = false;
+
+    function setRegime(r) {
+      regime = r;
+      regimeCurrentBtn.setAttribute('aria-pressed', String(r === 'current'));
+      regimeRasaBtn.setAttribute('aria-pressed', String(r === 'rasa'));
+      statRegime.textContent = r === 'current' ? 'Current Law' : 'RASA Enacted';
+      if (r === 'current') {
+        statRemote.textContent = 'Unregulated';
+        statRemote.classList.remove('sv-hit');
+        statRemote.classList.add('sv-alert');
+      } else {
+        statRemote.textContent = 'Blocked — License Req.';
+        statRemote.classList.remove('sv-alert');
+        statRemote.classList.add('sv-hit');
+      }
+    }
+
+    function sizeCanvas() {
+      var rect = canvas.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.round(rect.width * dpr));
+      canvas.height = Math.max(1, Math.round(rect.height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function drawRounded(x, y, w, h, r) {
+      ctx.beginPath();
+      if (ctx.roundRect) { ctx.roundRect(x, y, Math.max(w, 0.001), Math.max(h, 0.001), r); }
+      else { ctx.rect(x, y, w, h); }
+    }
+
+    function nodeBoxes(w, h, vertical) {
+      if (vertical) {
+        var vBoxW = Math.min(240, w - 32);
+        var vBoxH = 56;
+        var vx = w / 2 - vBoxW / 2;
+        var vGap = (h - vBoxH * 3) / 4;
+        return {
+          a: { x: vx, y: vGap, w: vBoxW, h: vBoxH },
+          b: { x: vx, y: vGap * 2 + vBoxH, w: vBoxW, h: vBoxH },
+          c: { x: vx, y: vGap * 3 + vBoxH * 2, w: vBoxW, h: vBoxH },
+          vertical: true
+        };
+      }
+      var boxW = Math.min(150, w * 0.27);
+      var boxH = 58;
+      var y = h * 0.36;
+      var pad = 10;
+      return {
+        a: { x: pad, y: y, w: boxW, h: boxH },
+        b: { x: w / 2 - boxW / 2, y: y, w: boxW, h: boxH },
+        c: { x: w - pad - boxW, y: y, w: boxW, h: boxH },
+        vertical: false
+      };
+    }
+
+    function drawNode(box, title, sub, accent) {
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--surface').trim();
+      drawRounded(box.x, box.y, box.w, box.h, 10);
+      ctx.fill();
+      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = accent;
+      drawRounded(box.x, box.y, box.w, box.h, 10);
+      ctx.stroke();
+
+      ctx.textAlign = 'center';
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--ink').trim();
+      ctx.font = '700 12px system-ui, -apple-system, sans-serif';
+      ctx.fillText(title, box.x + box.w / 2, box.y + box.h / 2 - 3);
+      ctx.font = '10px ui-monospace, SF Mono, Menlo, monospace';
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--muted').trim();
+      ctx.fillText(sub, box.x + box.w / 2, box.y + box.h / 2 + 13);
+    }
+
+    function draw() {
+      sizeCanvas();
+      var rect = canvas.getBoundingClientRect();
+      var w = rect.width, h = rect.height;
+      var vertical = w < 480;
+      var cs = getComputedStyle(document.documentElement);
+      var accentA = cs.getPropertyValue('--accent-a').trim();
+      var accentB = cs.getPropertyValue('--accent-b').trim();
+      var border = cs.getPropertyValue('--border').trim();
+      var muted = cs.getPropertyValue('--muted').trim();
+
+      ctx.clearRect(0, 0, w, h);
+
+      var boxes = nodeBoxes(w, h, vertical);
+      var isBlocked = regime === 'rasa' && progress >= barrierAt;
+
+      if (!vertical) {
+        // Path 1: A -> B, licensed shipment, always allowed
+        var p1y = boxes.a.y + boxes.a.h / 2;
+        ctx.strokeStyle = accentB;
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(boxes.a.x + boxes.a.w, p1y);
+        ctx.lineTo(boxes.b.x, p1y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(boxes.b.x, p1y);
+        ctx.lineTo(boxes.b.x - 7, p1y - 5);
+        ctx.lineTo(boxes.b.x - 7, p1y + 5);
+        ctx.closePath();
+        ctx.fillStyle = accentB;
+        ctx.fill();
+        ctx.font = '700 13px system-ui, sans-serif';
+        ctx.fillStyle = accentB;
+        ctx.textAlign = 'center';
+        ctx.fillText('✓', (boxes.a.x + boxes.a.w + boxes.b.x) / 2, p1y - 9);
+
+        // Path 2: B -> C, the loophole
+        var p2y = boxes.b.y + boxes.b.h / 2;
+        var startX = boxes.b.x + boxes.b.w;
+        var endX = boxes.c.x;
+        var pathLen = endX - startX;
+        var barrierX = startX + pathLen * barrierAt;
+
+        ctx.strokeStyle = border;
+        ctx.lineWidth = 2.5;
+        ctx.setLineDash([5, 5]);
+        ctx.beginPath();
+        ctx.moveTo(startX, p2y);
+        ctx.lineTo(endX, p2y);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        var fillEndX = startX + pathLen * Math.min(progress, regime === 'rasa' ? barrierAt : 1);
+        ctx.strokeStyle = accentA;
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(startX, p2y);
+        ctx.lineTo(fillEndX, p2y);
+        ctx.stroke();
+
+        if (regime === 'rasa') {
+          ctx.strokeStyle = accentA;
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.moveTo(barrierX, p2y - 16);
+          ctx.lineTo(barrierX, p2y + 16);
+          ctx.stroke();
+          ctx.font = '700 12px system-ui, sans-serif';
+          ctx.fillStyle = accentA;
+          ctx.textAlign = 'center';
+          ctx.fillText('✕', barrierX, p2y - 22);
+        }
+
+        var dotX = (regime === 'rasa' && isBlocked) ? barrierX : startX + pathLen * progress;
+        if (progress > 0) {
+          ctx.beginPath();
+          ctx.arc(dotX, p2y, 6, 0, Math.PI * 2);
+          ctx.fillStyle = (regime === 'rasa' && isBlocked) ? accentA : accentB;
+          ctx.fill();
+        }
+      } else {
+        // Path 1: A -> B, licensed shipment, always allowed (vertical)
+        var p1x = boxes.a.x + boxes.a.w / 2;
+        ctx.strokeStyle = accentB;
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(p1x, boxes.a.y + boxes.a.h);
+        ctx.lineTo(p1x, boxes.b.y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(p1x, boxes.b.y);
+        ctx.lineTo(p1x - 5, boxes.b.y - 7);
+        ctx.lineTo(p1x + 5, boxes.b.y - 7);
+        ctx.closePath();
+        ctx.fillStyle = accentB;
+        ctx.fill();
+        ctx.font = '700 13px system-ui, sans-serif';
+        ctx.fillStyle = accentB;
+        ctx.textAlign = 'center';
+        ctx.fillText('✓', p1x + 18, (boxes.a.y + boxes.a.h + boxes.b.y) / 2 + 4);
+
+        // Path 2: B -> C, the loophole (vertical)
+        var p2x = boxes.b.x + boxes.b.w / 2;
+        var startY = boxes.b.y + boxes.b.h;
+        var endY = boxes.c.y;
+        var pathLenV = endY - startY;
+        var barrierY = startY + pathLenV * barrierAt;
+
+        ctx.strokeStyle = border;
+        ctx.lineWidth = 2.5;
+        ctx.setLineDash([5, 5]);
+        ctx.beginPath();
+        ctx.moveTo(p2x, startY);
+        ctx.lineTo(p2x, endY);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        var fillEndY = startY + pathLenV * Math.min(progress, regime === 'rasa' ? barrierAt : 1);
+        ctx.strokeStyle = accentA;
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(p2x, startY);
+        ctx.lineTo(p2x, fillEndY);
+        ctx.stroke();
+
+        if (regime === 'rasa') {
+          ctx.strokeStyle = accentA;
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.moveTo(p2x - 16, barrierY);
+          ctx.lineTo(p2x + 16, barrierY);
+          ctx.stroke();
+          ctx.font = '700 12px system-ui, sans-serif';
+          ctx.fillStyle = accentA;
+          ctx.textAlign = 'center';
+          ctx.fillText('✕', p2x + 28, barrierY + 4);
+        }
+
+        var dotY = (regime === 'rasa' && isBlocked) ? barrierY : startY + pathLenV * progress;
+        if (progress > 0) {
+          ctx.beginPath();
+          ctx.arc(p2x, dotY, 6, 0, Math.PI * 2);
+          ctx.fillStyle = (regime === 'rasa' && isBlocked) ? accentA : accentB;
+          ctx.fill();
+        }
+      }
+
+      // draw nodes on top of lines
+      drawNode(boxes.a, 'NVIDIA · USA', 'fabricates chip', muted);
+      drawNode(boxes.b, 'DATA CENTER', 'SE Asia / Japan', accentB);
+      drawNode(boxes.c, 'AI LAB · CHINA', 'trains via login', regime === 'rasa' ? muted : accentA);
+    }
+
+    function runOnce() {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      if (reduceMotion) {
+        progress = regime === 'rasa' ? barrierAt : 1;
+        if (regime === 'current') { delivered++; statCount.textContent = String(delivered); }
+        draw();
+        return;
+      }
+      var duration = 1400;
+      var t0 = null;
+      var target = regime === 'rasa' ? barrierAt : 1;
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var p = Math.min(1, (ts - t0) / duration);
+        var eased = 1 - Math.pow(1 - p, 2);
+        progress = target * eased;
+        draw();
+        if (p < 1) {
+          animHandle = requestAnimationFrame(step);
+        } else {
+          animHandle = null;
+          if (regime === 'current') { delivered++; statCount.textContent = String(delivered); }
+        }
+      }
+      animHandle = requestAnimationFrame(step);
+    }
+
+    regimeCurrentBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      setRegime('current');
+      progress = 0;
+      draw();
+    });
+    regimeRasaBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      setRegime('rasa');
+      progress = 0;
+      draw();
+    });
+
+    runBtn.addEventListener('click', runOnce);
+
+    resetBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      progress = 0;
+      delivered = 0;
+      statCount.textContent = '0';
+      draw();
+    });
+
+    window.addEventListener('resize', draw);
+    new MutationObserver(draw).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
+    setRegime('current');
+    draw();
+  })();
+</script>
+</body>
+</html>
