@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Google Just Announced Three New Undersea Cables. The Ships That Fix a Broken One Are Running Out.</title>
+<meta name="description" content="Google just unveiled three new undersea cables as AI drives record subsea investment. But over 99% of the internet still rides on a repair fleet of just 62 ships, a quarter of them over 40 years old." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c2540c;
+    --accent-a-tint: #f8dfc9;
+    --accent-b: #0f6e82;
+    --accent-b-tint: #d7ecef;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e8935a;
+      --accent-a-tint: #3a2413;
+      --accent-b: #4cb8ce;
+      --accent-b-tint: #10333a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e8935a;
+    --accent-a-tint: #3a2413;
+    --accent-b: #4cb8ce;
+    --accent-b-tint: #10333a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c2540c;
+    --accent-a-tint: #f8dfc9;
+    --accent-b: #0f6e82;
+    --accent-b-tint: #d7ecef;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: cable-break repair-fleet simulator --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+  .sv-body {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  @media (max-width: 560px) {
+    .sv-body { grid-template-columns: 1fr; }
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px 6px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; }
+  .sv-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .sv-slider-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+  }
+  .sv-slider-label strong {
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent-b);
+  }
+  .sv-note {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 2px 0 0;
+    min-height: 42px;
+  }
+  .sv-btn-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .sv-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .sv-btn:hover { border-color: var(--accent-b); }
+  .sv-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .sv-btn.sv-primary {
+    background: var(--accent-b);
+    border-color: var(--accent-b);
+    color: #fff;
+  }
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 20px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .sv-stat-value.sv-hit { color: var(--accent-b); }
+  .sv-stat-value.sv-alert { color: var(--accent-a); }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 2, 2026</span>
+    <span class="category-chip">SUBSEA INFRASTRUCTURE</span>
+  </div>
+  <h1>Google Just Announced Three New Undersea Cables. The Ships That Fix a Broken One Are Running Out.</h1>
+  <p class="lede">On August 12, Google unveiled three new subsea cable systems linking the Americas — the latest move in an AI-driven wave of Big Tech cable investment now running at its highest level in over two decades. But more than 99% of the internet's intercontinental traffic already rides on a network whose entire global repair fleet numbers about 62 ships, a quarter of them over 40 years old.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Undersea fiber-optic cables carry over 99% of the internet's intercontinental traffic — satellites handle under 1%. AI's appetite for cross-continent bandwidth has pushed Google, Amazon, and Meta to fund and own private cables outright: Google announced three new systems (Alisios, Canoa, OlaLuz) on August 12 under its "Americas Connect" initiative; Amazon's Fastnet and Meta's "Project Waterworth" follow the same pattern. Meanwhile the roughly 62 specialized ships that repair a damaged cable anywhere in the world are aging — about a quarter are over 40 years old — industry groups estimate a $3B shortfall in fleet investment is needed just to keep pace, and cables break somewhere in the world roughly 150 to 200 times a year. That baseline is now compounded by suspected deliberate cable-cutting incidents near Taiwan and in the Baltic Sea since 2022.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Simulate a bad month for the regional repair fleet</h2>
+      <p class="sv-caption mono">Illustrative model, not live cable data: 8 lanes stand in for equal shares of a region's undersea capacity. 8 breaks land over 40 simulated days — about one every five days, roughly matching the ~150-200 real cable faults logged worldwide each year. Each repair takes 14-24 simulated days, in line with industry-reported repair-time averages. Set how many repair ships are on call, then press Run.</p>
+    </div>
+
+    <div class="sv-body">
+      <div class="sv-chart-wrap">
+        <svg class="sv-svg" id="sv-svg" viewBox="0 0 260 230" role="img" aria-label="Eight horizontal lanes representing shares of a region's undersea cable capacity. As the simulation runs, lanes turn from online to broken to under repair, showing how many ships are needed to keep up with a month of cable faults.">
+          <g id="sv-lanes"></g>
+          <g class="mono" style="font-size:9px;">
+            <rect x="30" y="207" width="8" height="8" style="fill:var(--accent-b)"></rect>
+            <text x="42" y="214" style="fill:var(--muted)">Online</text>
+            <rect x="95" y="207" width="8" height="8" style="fill:var(--accent-a-tint);stroke:var(--accent-a);stroke-width:1"></rect>
+            <text x="107" y="214" style="fill:var(--muted)">Repairing</text>
+            <rect x="175" y="207" width="8" height="8" style="fill:var(--accent-a)"></rect>
+            <text x="187" y="214" style="fill:var(--muted)">Waiting</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="sv-controls">
+        <label class="sv-slider-label" for="sv-ships">Repair ships on call <strong id="sv-ships-val" class="mono">2 ships</strong></label>
+        <input type="range" id="sv-ships" min="1" max="4" step="1" value="2" />
+        <p class="sv-note mono" id="sv-note">2 ships assigned. Press Run to play out 40 days of cable faults against this fleet.</p>
+        <div class="sv-btn-row">
+          <button type="button" class="sv-btn sv-primary" id="sv-run">Run</button>
+          <button type="button" class="sv-btn" id="sv-reset">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Day</div>
+        <div class="sv-stat-value mono" id="sv-stat-day">0 / 40</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Capacity online</div>
+        <div class="sv-stat-value mono sv-hit" id="sv-stat-online">100%</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Ships busy</div>
+        <div class="sv-stat-value mono" id="sv-stat-busy">0 / 2</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Cables down</div>
+        <div class="sv-stat-value mono sv-hit" id="sv-stat-down">0</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Nearly everything you do online — a video call, a bank transfer, an AI prompt routed to a data center on another continent — travels through a cable roughly the width of a garden hose, lying on the ocean floor. Over 99% of intercontinental internet traffic moves this way. Satellites, for all the buzz around systems like Starlink, carry less than 1%.</p>
+      <p>For decades, undersea cables were mostly the business of telecom consortiums quietly laying shared pipes. That's changing. AI needs so much cross-continent bandwidth — training data, inference traffic, workloads mirrored between data centers — that Google, Amazon, and Meta are now paying to build and own private cables outright. On August 12, Google announced three new cables linking the Americas. Amazon is building one that runs from Maryland to Ireland. Meta is wrapping one around the entire globe.</p>
+      <p>Here's the catch: laying a new cable is the glamorous part. Fixing a broken one is not, and almost nobody is investing in that side of the business. Only about 62 specialized ships worldwide can repair a damaged cable, a quarter of them over 40 years old, and industry analysts say a $3 billion investment is needed just to keep the fleet from shrinking. Meanwhile, cables break somewhere in the world roughly 150 to 200 times a year — mostly ordinary stuff, a dragged anchor or a trawling net — and a single repair can take anywhere from two weeks to over a month.</p>
+      <p>Add a newer wrinkle: since 2022, cables near Taiwan and in the Baltic Sea have been severed by vessels investigators suspect were dragging anchors on purpose, not by accident. So the internet's backbone is getting more of itself built, faster than ever — while the unglamorous fleet that keeps the whole thing running quietly falls further behind.</p>
+      <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> the AI boom is pouring record money into new subsea cable while the boring maintenance capacity that keeps the existing network alive keeps aging out — a gap that one bad anchor drag can expose in hours.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Submarine fiber-optic systems carry an estimated 97-99%+ of intercontinental internet traffic, versus roughly 1% for satellite constellations including LEO systems. Industry trackers put the active commercial cable count in the mid-hundreds, spanning well over a million kilometers of seabed; each system typically bundles a handful of fiber pairs inside a jacket no wider than a garden hose, armored near shore and largely unarmored in deep water.</p>
+      <p>Hyperscaler demand is restructuring cable ownership. Historically, consortiums of telecoms co-funded shared systems; increasingly, Meta, Google, Amazon, and Microsoft finance and wholly own cables sized to their own AI and cloud traffic. On August 12, 2026, Google announced three new systems — Alisios, Canoa, and OlaLuz — under its "Americas Connect" initiative; Amazon's Fastnet, a transatlantic link exceeding 320 Tbps between Maryland and County Cork, and Meta's 24-pair global "Project Waterworth" ring are both advancing toward service. Submarine cable capital expenditure in 2026 is tracking toward its highest level in more than two decades.</p>
+      <p>Maintenance capacity hasn't scaled with it. The global cable-laying-and-repair fleet numbers roughly 62 vessels; about a quarter exceed 40 years of service, with average fleet age around 20 years. Industry analysts project nearly half the fleet will reach end-of-life by 2040, even as total cable-kilometers in service are forecast to grow roughly 48% over the same period — a widening gap absent an estimated $3B in fleet reinvestment (on the order of 15 replacement vessels plus 5 net-new). Cable-repair operation is a low-margin business, which has historically discouraged private capital from funding new ships.</p>
+      <p>Cable faults run an estimated 150-200 per year globally, with 70-80% attributed to fishing gear and dragged anchors rather than deliberate sabotage. Reported average repair durations vary by source, from roughly two to six weeks depending on weather, permitting, and ship availability. Layered onto this baseline is a rising count of suspected deliberate incidents — Taiwan's February 2025 detention of the Chinese-crewed vessel Hong Tai 58 after a cable break near the Penghu Islands, and at least ten Baltic Sea cable and pipeline incidents since 2022 attributed to anchor-dragging vessels — which prompted NATO's "Baltic Sentry" patrol mission and a multi-hundred-million-euro EU cable-security package funding sensor-equipped "SMART" cables designed to detect anchor drags in real time.</p>
+      <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> capital is flowing into new subsea capacity at a record pace while the repair fleet that keeps the existing 99%-of-the-internet network resilient is under-invested and aging — turning ordinary fishing-fleet accidents, and a rising tail of suspected sabotage, into a capacity-planning risk for every hyperscaler betting on cross-continent AI infrastructure.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.submarinenetworks.com/en/systems/brazil-us/alisios/google-unveils-americas-connect" target="_blank" rel="noopener">Submarine Networks — Google Unveils Americas Connect and Three New Subsea Cables</a></li>
+    <li><a href="https://www.datacenterdynamics.com/en/analysis/the-cable-ship-capacity-crunch/" target="_blank" rel="noopener">Data Center Dynamics — The cable ship capacity crunch</a></li>
+    <li><a href="https://resources.telegeography.com/youve-read-a-lot-on-cable-breaks-lately.-have-you-read-about-the-repairs" target="_blank" rel="noopener">TeleGeography — You've Read About Submarine Cable Breaks. Now Read About the Repairs.</a></li>
+    <li><a href="https://www.submarinenetworks.com/en/nv/insights/eu-adopts-team-europe-strategy-on-subsea-cable-security-and-resilience" target="_blank" rel="noopener">Submarine Networks — EU Adopts Team Europe Strategy on Subsea Cable Security and Resilience</a></li>
+    <li><a href="https://www.foxnews.com/world/taiwan-coast-guard-detains-chinese-crewed-vessel-suspected-cutting-undersea-cable.amp" target="_blank" rel="noopener">Fox News — Taiwan coast guard detains Chinese-crewed vessel suspected of cutting undersea cable</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var LANES = 8;
+    var TOTAL_DAYS = 40;
+    var REPAIR_TIME = [16, 20, 14, 22, 18, 24, 15, 19];
+    var SCHEDULE = { 3: [1], 6: [4], 9: [6], 13: [0], 17: [3], 22: [7], 27: [2], 32: [5] };
+
+    var svgLanes = document.getElementById('sv-lanes');
+    var slider = document.getElementById('sv-ships');
+    var shipsVal = document.getElementById('sv-ships-val');
+    var note = document.getElementById('sv-note');
+    var runBtn = document.getElementById('sv-run');
+    var resetBtn = document.getElementById('sv-reset');
+    var statDay = document.getElementById('sv-stat-day');
+    var statOnline = document.getElementById('sv-stat-online');
+    var statBusy = document.getElementById('sv-stat-busy');
+    var statDown = document.getElementById('sv-stat-down');
+
+    if (!svgLanes || !slider) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var timer = null;
+    var laneY = [];
+    var laneRects = [];
+
+    for (var i = 0; i < LANES; i++) {
+      var y = 15 + i * 22;
+      laneY.push(y);
+      var label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('x', 52);
+      label.setAttribute('y', y + 11);
+      label.setAttribute('text-anchor', 'end');
+      label.setAttribute('class', 'mono');
+      label.setAttribute('style', 'fill:var(--muted);font-size:9px;');
+      label.textContent = 'L' + (i + 1);
+      svgLanes.appendChild(label);
+
+      var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      rect.setAttribute('x', 60);
+      rect.setAttribute('y', y);
+      rect.setAttribute('width', 168);
+      rect.setAttribute('height', 14);
+      rect.setAttribute('rx', 3);
+      svgLanes.appendChild(rect);
+      laneRects.push(rect);
+    }
+
+    function simulate(shipCount, uptoDay) {
+      var lanes = [];
+      for (var i = 0; i < LANES; i++) lanes.push({ status: 'ok', repairLeft: 0 });
+      var ships = [];
+      for (var s = 0; s < shipCount; s++) ships.push({ status: 'idle', lane: null, daysLeft: 0 });
+
+      for (var day = 1; day <= uptoDay; day++) {
+        var todays = SCHEDULE[day];
+        if (todays) {
+          for (var b = 0; b < todays.length; b++) {
+            if (lanes[todays[b]].status === 'ok') lanes[todays[b]].status = 'broken';
+          }
+        }
+        for (var s2 = 0; s2 < ships.length; s2++) {
+          var ship = ships[s2];
+          if (ship.status === 'idle') {
+            var target = -1;
+            for (var l = 0; l < lanes.length; l++) {
+              if (lanes[l].status === 'broken') { target = l; break; }
+            }
+            if (target >= 0) {
+              ship.status = 'repairing';
+              ship.lane = target;
+              ship.daysLeft = REPAIR_TIME[target];
+              lanes[target].status = 'repairing';
+            }
+          }
+        }
+        for (var s3 = 0; s3 < ships.length; s3++) {
+          var ship2 = ships[s3];
+          if (ship2.status === 'repairing') {
+            ship2.daysLeft -= 1;
+            if (ship2.daysLeft <= 0) {
+              lanes[ship2.lane].status = 'ok';
+              ship2.status = 'idle';
+              ship2.lane = null;
+              ship2.daysLeft = 0;
+            }
+          }
+        }
+      }
+      return { lanes: lanes, ships: ships, day: uptoDay };
+    }
+
+    function paint(result, shipCount) {
+      var okCount = 0, repairingCount = 0, brokenCount = 0, busyCount = 0;
+      for (var i = 0; i < LANES; i++) {
+        var st = result.lanes[i].status;
+        var rect = laneRects[i];
+        if (st === 'ok') {
+          okCount++;
+          rect.setAttribute('style', 'fill:var(--accent-b);stroke:none;');
+        } else if (st === 'repairing') {
+          repairingCount++;
+          rect.setAttribute('style', 'fill:var(--accent-a-tint);stroke:var(--accent-a);stroke-width:1.5;');
+        } else {
+          brokenCount++;
+          rect.setAttribute('style', 'fill:var(--accent-a);stroke:none;');
+        }
+      }
+      for (var s = 0; s < result.ships.length; s++) {
+        if (result.ships[s].status === 'repairing') busyCount++;
+      }
+
+      statDay.textContent = result.day + ' / ' + TOTAL_DAYS;
+      var pct = Math.round((okCount / LANES) * 100);
+      statOnline.textContent = pct + '%';
+      statOnline.classList.toggle('sv-hit', pct === 100);
+      statOnline.classList.toggle('sv-alert', pct < 100);
+      statBusy.textContent = busyCount + ' / ' + shipCount;
+      var down = repairingCount + brokenCount;
+      statDown.textContent = String(down);
+      statDown.classList.toggle('sv-hit', down === 0);
+      statDown.classList.toggle('sv-alert', down > 0);
+
+      note.textContent = shipCount + ' ship' + (shipCount === 1 ? '' : 's') + ' assigned. At day ' + result.day +
+        ': ' + okCount + ' lane' + (okCount === 1 ? '' : 's') + ' online, ' + repairingCount +
+        ' under repair, ' + brokenCount + ' still waiting for a ship.';
+    }
+
+    function setControlsDisabled(disabled) {
+      slider.disabled = disabled;
+      runBtn.disabled = disabled;
+    }
+
+    function stopTimer() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+
+    function runAnimated(shipCount) {
+      stopTimer();
+      setControlsDisabled(true);
+      var day = 0;
+      paint(simulate(shipCount, day), shipCount);
+      timer = setInterval(function () {
+        day++;
+        paint(simulate(shipCount, day), shipCount);
+        if (day >= TOTAL_DAYS) {
+          stopTimer();
+          setControlsDisabled(false);
+        }
+      }, 90);
+    }
+
+    function runInstant(shipCount) {
+      stopTimer();
+      paint(simulate(shipCount, TOTAL_DAYS), shipCount);
+    }
+
+    function reset() {
+      stopTimer();
+      setControlsDisabled(false);
+      var shipCount = Number(slider.value);
+      paint(simulate(shipCount, 0), shipCount);
+    }
+
+    slider.addEventListener('input', function () {
+      shipsVal.textContent = slider.value + ' ship' + (slider.value === '1' ? '' : 's');
+      reset();
+    });
+
+    runBtn.addEventListener('click', function () {
+      var shipCount = Number(slider.value);
+      if (reduceMotion) {
+        runInstant(shipCount);
+      } else {
+        runAnimated(shipCount);
+      }
+    });
+
+    resetBtn.addEventListener('click', reset);
+
+    shipsVal.textContent = slider.value + ' ships';
+    if (reduceMotion) {
+      runInstant(Number(slider.value));
+    } else {
+      reset();
+    }
+  })();
+</script>
+</body>
+</html>
