@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Two Companies Make the Gas That Wires Every Advanced Chip. Both Just Announced They're Shutting Down.</title>
+<meta name="description" content="Tungsten hexafluoride gas deposits the microscopic tungsten wiring inside every advanced chip. China now controls ~80% of the powder it's made from — and Japan's two purest producers are permanently halting output on July 1, 2026." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5451c;
+    --accent-a-tint: #f7ddce;
+    --accent-b: #205d8f;
+    --accent-b-tint: #d9e7f1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e8834f;
+      --accent-a-tint: #3a2313;
+      --accent-b: #5aa8d8;
+      --accent-b-tint: #12283a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e8834f;
+    --accent-a-tint: #3a2313;
+    --accent-b: #5aa8d8;
+    --accent-b-tint: #12283a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5451c;
+    --accent-a-tint: #f7ddce;
+    --accent-b: #205d8f;
+    --accent-b-tint: #d9e7f1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: WF6 chokepoint simulator --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.5;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 8px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; }
+  .sv-node { fill: var(--surface); stroke: var(--border); stroke-width: 1; transition: fill 0.2s, stroke 0.2s, opacity 0.2s; }
+  .sv-node-lit { stroke: var(--accent-b); stroke-width: 1.5; }
+  .sv-node-off { fill: var(--accent-a-tint); stroke: var(--accent-a); stroke-width: 1.5; opacity: 0.75; }
+  .sv-node-title { font-size: 9px; font-weight: 700; fill: var(--ink); }
+  .sv-node-sub { font-size: 7.3px; fill: var(--muted); }
+  .sv-arrow { stroke: var(--accent-b); stroke-width: 2; transition: stroke 0.2s; }
+  .sv-arrow.sv-arrow-cut { stroke: var(--accent-a); stroke-dasharray: 3 3; }
+  .sv-arrowhead { fill: var(--accent-b); }
+  .sv-cut-mark { font-size: 9px; font-weight: 800; fill: var(--accent-a); }
+  .sv-btn-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .sv-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .sv-btn:hover { border-color: var(--accent-a); }
+  .sv-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .sv-btn.sv-primary {
+    background: var(--accent-a);
+    border-color: var(--accent-a);
+    color: #fff;
+  }
+  .sv-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 12px 0 0;
+    line-height: 1.5;
+    min-height: 36px;
+  }
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 18px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .sv-stat-value.sv-hit { color: var(--accent-b); }
+  .sv-stat-value.sv-alert { color: var(--accent-a); }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 3, 2026</span>
+    <span class="category-chip">SEMICONDUCTORS</span>
+  </div>
+  <h1>Two Companies Make the Gas That Wires Every Advanced Chip. Both Just Announced They're Shutting Down.</h1>
+  <p class="lede">On July 1, 2026, Kanto Denka and Central Glass — the only two Japanese producers of ultra-pure tungsten hexafluoride, the gas chipmakers use to wire together every advanced logic and memory chip — will permanently halt production. The reason: China, which refines roughly 80% of the world's high-purity tungsten powder, cut their raw-material shipments to effectively zero.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Tungsten hexafluoride (WF6) is the gas that deposits the microscopic tungsten "plugs" connecting each layer of wiring inside a chip — used in every advanced logic and 3D NAND fab, including TSMC, Samsung, and SK Hynix. China controls roughly 80% of the world's high-purity tungsten powder, WF6's raw feedstock. Early in 2026, Beijing tightened tungsten export licensing, and powder shipments to Japan's two purest WF6 producers reportedly fell to zero — both are now permanently halting production on July 1, cutting an estimated quarter of global WF6 supply. Spot prices have already risen more than 200%. It's a case study in a narrower kind of chokepoint than "China controls a mineral": losing two specific companies, not an entire material, was enough to shake the chip supply chain.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">The chokepoint, in two supply paths</h2>
+      <p class="sv-caption mono">Simplified model of 2026 WF6 gas supply, based on industry-estimated shares: Japan's high-purity route (~25% of global output) runs entirely on Chinese tungsten powder; the rest of the world's producers (~75%) draw on more diversified feedstock. Numbers are rounded industry estimates, not exact figures. Press the button to see what China's 2026 export tightening actually did to the Japan path.</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 300 150" role="img" aria-label="Diagram of two supply paths feeding the world's tungsten hexafluoride gas supply: China's tungsten powder feeding Japan's two high-purity producers, about a quarter of global gas supply, and other tungsten sources feeding other producers, about three quarters of supply. A button simulates China cutting off the Japan path, as happened in 2026.">
+        <rect id="node-china" x="6" y="10" width="112" height="58" rx="8" class="sv-node sv-node-lit"></rect>
+        <text x="62" y="30" text-anchor="middle" class="mono sv-node-title">CHINA</text>
+        <text x="62" y="43" text-anchor="middle" class="mono sv-node-sub">tungsten powder</text>
+        <text x="62" y="56" text-anchor="middle" class="mono sv-node-sub">~80% of world supply</text>
+
+        <line id="arrow-china-japan" x1="120" y1="39" x2="176" y2="39" class="sv-arrow" marker-end="url(#sv-arrowhead)"></line>
+        <text id="mark-cut" x="148" y="28" text-anchor="middle" class="mono sv-cut-mark" opacity="0">✕ CUT</text>
+
+        <rect id="node-japan" x="182" y="10" width="112" height="58" rx="8" class="sv-node sv-node-lit"></rect>
+        <text x="238" y="27" text-anchor="middle" class="mono sv-node-title">JAPAN WF6</text>
+        <text x="238" y="39" text-anchor="middle" class="mono sv-node-sub">Kanto Denka +</text>
+        <text x="238" y="50" text-anchor="middle" class="mono sv-node-sub">Central Glass</text>
+        <text id="japan-share-label" x="238" y="62" text-anchor="middle" class="mono sv-node-sub">~25% of global WF6</text>
+
+        <rect x="6" y="84" width="112" height="58" rx="8" class="sv-node sv-node-lit"></rect>
+        <text x="62" y="104" text-anchor="middle" class="mono sv-node-title">OTHER SOURCES</text>
+        <text x="62" y="117" text-anchor="middle" class="mono sv-node-sub">tungsten powder</text>
+        <text x="62" y="130" text-anchor="middle" class="mono sv-node-sub">~20% of world supply</text>
+
+        <line x1="120" y1="113" x2="176" y2="113" class="sv-arrow" marker-end="url(#sv-arrowhead)"></line>
+
+        <rect x="182" y="84" width="112" height="58" rx="8" class="sv-node sv-node-lit"></rect>
+        <text x="238" y="104" text-anchor="middle" class="mono sv-node-title">OTHER WF6</text>
+        <text x="238" y="116" text-anchor="middle" class="mono sv-node-sub">PRODUCERS</text>
+        <text x="238" y="130" text-anchor="middle" class="mono sv-node-sub">~75% of global WF6</text>
+
+        <defs>
+          <marker id="sv-arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" class="sv-arrowhead"></path>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="sv-btn-row">
+      <button type="button" class="sv-btn sv-primary" id="sv-cut">Cut Japan's powder supply</button>
+      <button type="button" class="sv-btn" id="sv-reset">Reset</button>
+    </div>
+    <p class="sv-note mono" id="sv-note">Both supply paths are flowing normally. Press "Cut Japan's powder supply" to simulate China's 2026 tungsten export tightening.</p>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">WF6 supply online</div>
+        <div class="sv-stat-value mono sv-hit" id="sv-stat-supply">100%</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Price index (base 100)</div>
+        <div class="sv-stat-value mono sv-hit" id="sv-stat-price">100</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Japan producers</div>
+        <div class="sv-stat-value mono sv-hit" id="sv-stat-japan">Producing</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Fabs exposed</div>
+        <div class="sv-stat-value mono" id="sv-stat-fabs">TSMC · Samsung · SK Hynix</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Open up any advanced chip — the AI accelerator in a data center, the processor in your phone — and what you'd find under a microscope looks less like a wafer and more like a 200-story skyscraper of wiring squeezed onto a sliver of silicon. To connect one floor to the next, chipmakers drill millions of microscopic shafts through insulating layers and fill each one with tungsten, a metal that conducts well, doesn't melt during processing, and packs evenly into holes narrower than a virus. You can't pour solid tungsten into a hole that small. Instead, engineers pump in a gas called tungsten hexafluoride (WF6), which reacts and deposits a perfect plug of solid tungsten, one microscopic shaft at a time. In today's 3D memory chips, stacked over 200 layers high, that deposition step repeats for every single layer.</p>
+      <p>Here's the chokepoint: China refines roughly 80% of the world's ultra-pure tungsten powder, the raw ingredient WF6 is made from. Only two companies on Earth — Japan's Kanto Denka and Central Glass — turn that powder into the highest-grade WF6 that TSMC, Samsung, and SK Hynix actually use in production, together about a quarter of global WF6 supply. Early this year, China tightened tungsten export controls, and powder shipments to those two firms effectively dropped to zero. Both have now told their chip-making customers they're permanently shutting down WF6 production on July 1, 2026. Prices for the gas have already more than doubled.</p>
+      <p>It's a preview of a pattern AI-chip buyers are learning to watch for: a supply chain doesn't need to lose an entire material to break. It just needs to lose whichever single company happens to make the purest version of it.</p>
+      <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> it's a reminder that a chip's supply chain can bottleneck on a two-company gas plant nobody's heard of — not just on lithography tools or GPU allocations.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Interconnect fabrication follows a set sequence: after transistors and an interlayer dielectric are laid down, vias and contacts are etched to the silicon or lower metal layer below, a thin Ti/TiN barrier is deposited to block diffusion and aid adhesion, and the via is filled by chemical vapor deposition — WF6(g) + 3H2(g) → W(s) + 6HF(g), around 300-400°C. The reaction conformally fills nanometer-scale openings at extreme aspect ratios that sputtering can't reach; a CMP step then removes the excess tungsten, isolating each plug. This tungsten-plug process, standard since sub-half-micron CMOS, still dominates the hottest, smallest tier of the interconnect stack — contacts and lower vias — because tungsten's high melting point (3,422°C) and strong electromigration resistance beat copper at that scale. In 3D NAND, where stacks now exceed 200 word-line layers, each layer needs its own tungsten-fill step, so WF6 consumption scales with stack height — one reason memory fabs are especially exposed.</p>
+      <p>WF6 is made by fluorinating high-purity (6N-grade) tungsten powder, itself refined mostly in China — an estimated 80% of global capacity. Kanto Denka and Central Glass are the only two Japanese suppliers of electronic-grade WF6 at that purity, and both source their powder from China. After Beijing tightened dual-use tungsten export licensing in early 2026, powder shipments to Japan reportedly fell to effectively zero; both firms have told TSMC, Samsung, and SK Hynix they will permanently halt WF6 production on July 1, 2026. Combined, their output is roughly 2,000-2,200 of the 8,000-9,000 metric tons produced worldwide each year — about a quarter of global supply concentrated in two production lines. Spot WF6 prices have risen over 200% since early 2026; exact levels vary by tracker, but the direction and the July 1 shutdown date are well corroborated across industry reporting.</p>
+      <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> it's a reminder that a chip's supply chain can bottleneck on a two-company gas plant nobody's heard of — not just on lithography tools or GPU allocations.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.trendforce.com/news/2026/06/12/news-key-semiconductor-gas-wf%E2%82%86-prices-reportedly-surge-over-200-in-china-as-supply-tightens-ahead-of-japan-output-cuts/" target="_blank" rel="noopener">TrendForce — Key Semiconductor Gas WF6 Prices Reportedly Surge Over 200% as Supply Tightens Ahead of Japan Output Cuts</a></li>
+    <li><a href="https://www.scmp.com/economy/global-economy/article/3356921/do-chinas-export-curbs-tungsten-threaten-japans-ai-chip-supply-chain" target="_blank" rel="noopener">South China Morning Post — Do China's Export Curbs on Tungsten Threaten Japan's AI Chip Supply Chain?</a></li>
+    <li><a href="https://sinolytics.de/global-business-news/blog/geopolitics/china-japan-tungsten-chip-supply/" target="_blank" rel="noopener">Sinolytics — China's Tungsten Cutoff Threatens Chip Supply</a></li>
+    <li><a href="https://wccftech.com/japan-semiconductor-gas-production-collapses-to-zero-after-china-cuts-off-tungsten-tsmc-sk-hynix-samsung/" target="_blank" rel="noopener">Wccftech — Japan's Semiconductor Gas Production Collapses to Zero After China Cuts Off Tungsten</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var japanNode = document.getElementById('node-japan');
+    var arrow = document.getElementById('arrow-china-japan');
+    var cutMark = document.getElementById('mark-cut');
+    var japanShareLabel = document.getElementById('japan-share-label');
+    var cutBtn = document.getElementById('sv-cut');
+    var resetBtn = document.getElementById('sv-reset');
+    var note = document.getElementById('sv-note');
+    var statSupply = document.getElementById('sv-stat-supply');
+    var statPrice = document.getElementById('sv-stat-price');
+    var statJapan = document.getElementById('sv-stat-japan');
+
+    if (!japanNode || !arrow) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var timer = null;
+
+    var BASE_SUPPLY = 100, CUT_SUPPLY = 75;
+    var BASE_PRICE = 100, CUT_PRICE = 310;
+
+    var NOTE_BASE = 'Both supply paths are flowing normally. Press "Cut Japan’s powder supply" to simulate China’s 2026 tungsten export tightening.';
+    var NOTE_CUT = 'China’s tungsten powder shipments to Japan effectively dropped to zero in 2026. Kanto Denka and Central Glass now plan to permanently halt WF6 production on July 1 — cutting global supply by roughly a quarter and pushing spot prices up sharply.';
+
+    function setNodesCut(cut) {
+      if (cut) {
+        japanNode.classList.remove('sv-node-lit');
+        japanNode.classList.add('sv-node-off');
+        arrow.classList.add('sv-arrow-cut');
+        arrow.setAttribute('marker-end', 'none');
+        cutMark.setAttribute('opacity', '1');
+        japanShareLabel.textContent = 'Halted July 1, 2026';
+        statJapan.textContent = 'Halted 7/1/26';
+        statJapan.classList.remove('sv-hit');
+        statJapan.classList.add('sv-alert');
+      } else {
+        japanNode.classList.add('sv-node-lit');
+        japanNode.classList.remove('sv-node-off');
+        arrow.classList.remove('sv-arrow-cut');
+        arrow.setAttribute('marker-end', 'url(#sv-arrowhead)');
+        cutMark.setAttribute('opacity', '0');
+        japanShareLabel.textContent = '~25% of global WF6';
+        statJapan.textContent = 'Producing';
+        statJapan.classList.add('sv-hit');
+        statJapan.classList.remove('sv-alert');
+      }
+    }
+
+    function setNumbers(supply, price) {
+      statSupply.textContent = supply + '%';
+      statSupply.classList.toggle('sv-hit', supply >= 100);
+      statSupply.classList.toggle('sv-alert', supply < 100);
+      statPrice.textContent = String(price);
+      statPrice.classList.toggle('sv-hit', price <= 100);
+      statPrice.classList.toggle('sv-alert', price > 100);
+    }
+
+    function setControlsDisabled(disabled) {
+      cutBtn.disabled = disabled;
+    }
+
+    function stopTimer() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+
+    function runCut() {
+      stopTimer();
+      setNodesCut(true);
+      note.textContent = NOTE_CUT;
+
+      if (reduceMotion) {
+        setNumbers(CUT_SUPPLY, CUT_PRICE);
+        return;
+      }
+
+      setControlsDisabled(true);
+      var steps = 20, i = 0;
+      timer = setInterval(function () {
+        i++;
+        var t = i / steps;
+        var supply = Math.round(BASE_SUPPLY - t * (BASE_SUPPLY - CUT_SUPPLY));
+        var price = Math.round(BASE_PRICE + t * (CUT_PRICE - BASE_PRICE));
+        setNumbers(supply, price);
+        if (i >= steps) {
+          stopTimer();
+          setControlsDisabled(false);
+        }
+      }, 70);
+    }
+
+    function reset() {
+      stopTimer();
+      setControlsDisabled(false);
+      setNodesCut(false);
+      setNumbers(BASE_SUPPLY, BASE_PRICE);
+      note.textContent = NOTE_BASE;
+    }
+
+    cutBtn.addEventListener('click', runCut);
+    resetBtn.addEventListener('click', reset);
+
+    reset();
+  })();
+</script>
+</body>
+</html>
