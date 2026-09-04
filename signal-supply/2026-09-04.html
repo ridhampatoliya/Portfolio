@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — ASML Built a Machine That Shrinks Transistors 40% Further. TSMC and Samsung Just Said "Not Yet."</title>
+<meta name="description" content="ASML is the only company on Earth that makes EUV chip-printing machines. Its new $400M High-NA scanner resolves features roughly 40% smaller — but TSMC and Samsung, who make almost every advanced chip that isn't Intel's, just declined to buy in." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a85d00;
+    --accent-a-tint: #f6e3c8;
+    --accent-b: #1f5c8a;
+    --accent-b-tint: #d9e7f1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e8a23f;
+      --accent-a-tint: #3a2a10;
+      --accent-b: #5aa8d8;
+      --accent-b-tint: #12283a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e8a23f;
+    --accent-a-tint: #3a2a10;
+    --accent-b: #5aa8d8;
+    --accent-b-tint: #12283a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a85d00;
+    --accent-a-tint: #f6e3c8;
+    --accent-b: #1f5c8a;
+    --accent-b-tint: #d9e7f1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: aperture / resolution simulator --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.5;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 8px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; }
+  .sv-bar { fill: var(--accent-b); transition: opacity 0.15s; }
+  .sv-track-label { font-size: 8px; fill: var(--muted); }
+  .sv-slice-label { font-size: 9px; font-weight: 700; fill: var(--ink); }
+
+  .sv-control-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .sv-slider {
+    flex: 1 1 180px;
+    min-width: 140px;
+    accent-color: var(--accent-b);
+    height: 22px;
+    cursor: pointer;
+  }
+  .sv-slider-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+    min-width: 64px;
+    text-align: right;
+  }
+  .sv-btn-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .sv-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .sv-btn:hover { border-color: var(--accent-a); }
+  .sv-btn.sv-active {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+  .sv-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 12px 0 0;
+    line-height: 1.5;
+    min-height: 36px;
+  }
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 18px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .sv-stat-value.sv-hit { color: var(--accent-b); }
+  .sv-stat-value.sv-alert { color: var(--accent-a); }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 4, 2026</span>
+    <span class="category-chip">SEMICONDUCTORS</span>
+  </div>
+  <h1>ASML Built a Machine That Shrinks Transistors 40% Further. TSMC and Samsung Just Said "Not Yet."</h1>
+  <p class="lede">One Dutch company makes the only machine on Earth capable of printing an advanced chip. It just shipped a better one — for roughly $400 million a unit. Intel bought in immediately. TSMC and Samsung, who together make almost every advanced chip that isn't Intel's, both said no.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    ASML holds a complete, decade-long monopoly on extreme ultraviolet (EUV) lithography — the only technology that can print the smallest features on advanced chips. Its new "High-NA" scanner resolves roughly 40% smaller features than today's standard EUV tool, but costs more than double. Intel installed the industry's first unit in December 2025. TSMC says it won't adopt High-NA before 2029; Samsung is deferring to around 2027. It's a rare case where the supplier with total pricing power over a critical technology still can't make its biggest customers buy the newest version of it.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Open the aperture, shrink the pattern</h2>
+      <p class="sv-caption mono">Drag the slider to change the scanner's numerical aperture (NA) — how wide its lens opens. Each bar below is one printable line in a fixed 260-nanometer slice of chip pattern. Simplified model: minimum half-pitch ≈ k1 × λ / NA, using EUV wavelength λ = 13.5nm and k1 = 0.3 (a typical value with modern resolution-enhancement techniques). Price is a straight-line estimate between publicly reported ranges for standard EUV (~$150-200M) and High-NA EUV (~$350-400M) — illustrative, not an official price list.</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 260 90" role="img" aria-label="Bar diagram showing how many printable lines fit in a fixed 260 nanometer slice of chip pattern, as numerical aperture increases from 0.33 to 0.55 and line pitch shrinks.">
+        <text x="4" y="12" class="sv-slice-label mono">260nm slice of chip pattern</text>
+        <g id="sv-bars"></g>
+        <line x1="4" y1="78" x2="256" y2="78" stroke="var(--border)" stroke-width="1"></line>
+        <text x="4" y="88" class="sv-track-label mono">0nm</text>
+        <text x="230" y="88" class="sv-track-label mono">260nm</text>
+      </svg>
+    </div>
+
+    <div class="sv-control-row">
+      <label class="mono sv-track-label" for="sv-na" style="font-size:11px;">NA</label>
+      <input type="range" id="sv-na" class="sv-slider" min="0.33" max="0.55" step="0.01" value="0.33" aria-label="Numerical aperture, from 0.33 (standard EUV) to 0.55 (High-NA EUV)" />
+      <span class="sv-slider-value mono" id="sv-na-value">0.33</span>
+    </div>
+    <div class="sv-btn-row">
+      <button type="button" class="sv-btn sv-active" id="sv-preset-std">Standard EUV (0.33)</button>
+      <button type="button" class="sv-btn" id="sv-preset-high">High-NA (0.55)</button>
+      <button type="button" class="sv-btn" id="sv-reset">Reset</button>
+    </div>
+    <p class="sv-note mono" id="sv-note">This is today's mainstream tool — the one TSMC and Samsung plan to keep using into the 2027-2029 window.</p>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Min. half-pitch</div>
+        <div class="sv-stat-value mono sv-hit" id="sv-stat-pitch">12.3 nm</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Lines per 260nm</div>
+        <div class="sv-stat-value mono sv-hit" id="sv-stat-lines">10</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Est. scanner price</div>
+        <div class="sv-stat-value mono" id="sv-stat-price">~$175M</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Who's buying</div>
+        <div class="sv-stat-value mono" id="sv-stat-buyer">TSMC · Samsung</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Every advanced chip on Earth — the processor in your phone, the accelerator training an AI model — is printed by a beam of light so precise it starts with a laser vaporizing droplets of molten tin into plasma. Only one company builds the machine that does this printing: ASML, a Dutch firm that has held an absolute monopoly on extreme ultraviolet (EUV) lithography for more than a decade, ever since its two rivals, Nikon and Canon, gave up trying to compete. No ASML scanner, no modern chip. It's arguably the single most concentrated chokepoint in all of technology.</p>
+      <p>This year ASML rolled out its next machine, called High-NA EUV. Think of a camera lens: open it wider and it captures finer detail. High-NA works the same way — a larger, heavier lens inside the scanner lets it print features roughly 40% smaller than today's tool, which is what chipmakers need to keep shrinking transistors toward 2 nanometers and beyond. The catch: it costs somewhere around $350-400 million per unit, more than double a standard EUV machine, and its optics alone weigh about seven times as much.</p>
+      <p>Intel didn't hesitate — it installed the industry's first High-NA machine at its Oregon site in December. TSMC and Samsung, who between them make almost every advanced chip that isn't Intel's, both said not yet. TSMC has ruled it out before 2029; Samsung is holding off until around 2027. Their bet: squeezing more out of cheaper, existing tools beats paying triple for a machine before its economics are proven. It's a rare moment where a company with total control over a technology can't simply dictate what its biggest customers buy next.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>EUV lithography patterns wafers with 13.5nm-wavelength light, generated by firing a high-power CO<sub>2</sub> laser at tin droplets to create a plasma that emits in the extreme ultraviolet. Because no material transmits 13.5nm light without heavy absorption, the beam is steered entirely by reflection, through a chain of multilayer molybdenum-silicon mirrors (supplied by Zeiss) onto the wafer inside a vacuum chamber. ASML is the sole commercial supplier of EUV scanners — Nikon and Canon exited EUV development over a decade ago — leaving ASML with 100% of the EUV market and roughly 83-94% of the broader lithography equipment market, depending on the measure.</p>
+      <p>Resolution in projection lithography follows the Rayleigh criterion: minimum half-pitch ≈ k1 × λ / NA, where NA is the numerical aperture of the projection optics and k1 is a process-dependent constant, commonly modeled around 0.3 with modern resolution-enhancement techniques. Today's standard EUV scanners run NA 0.33, resolving roughly 12-13nm half-pitch features. ASML's High-NA system (the Twinscan EXE series) raises NA to 0.55 — a substantially larger, heavier lens assembly, with the projection optics alone roughly seven times the mass of the standard system — pushing resolvable half-pitch to roughly 8nm in a single exposure, reducing the multi-patterning passes otherwise needed at the smallest layers. List price runs roughly $350-400 million per tool versus roughly $150-200 million for standard EUV.</p>
+      <p>Intel installed the first commercial High-NA unit (Twinscan EXE:5200B) at its Oregon site in December 2025 and is positioning it for its most advanced nodes. TSMC has stated it has no plans to adopt High-NA before 2029, judging that extending multi-patterning on existing 0.33 NA tools remains more cost-effective through its 1.4nm-class (A14) node. Samsung has signed purchase agreements but is deferring deployment to roughly 2027, reportedly targeting its 1nm-class process. ASML has said it expects the first High-NA-fabricated memory and logic chips within months despite the delays — the tool functions as designed; the holdup is purely capex-per-transistor economics at the leading foundries.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.trendforce.com/news/2026/05/20/news-asml-expects-first-high-na-euv-memory-logic-products-within-months-amid-tsmcs-cost-driven-delay/" target="_blank" rel="noopener">TrendForce — ASML Expects First High-NA EUV Memory, Logic Products Within Months Amid TSMC's Cost-Driven Delay</a></li>
+    <li><a href="https://wccftech.com/samsung-joins-tsmc-in-stalling-asmls-high-na-euv-rollout-pushing-the-costly-machines-to-1nm-chips/" target="_blank" rel="noopener">Wccftech — Samsung Joins TSMC in Stalling ASML's High-NA EUV Rollout, Pushing the Costly Machines to 1nm Chips</a></li>
+    <li><a href="https://semiwiki.com/forum/threads/tsmcs-refusal-of-asmls-expensive-high-na-euv-equipment-explained.25001/" target="_blank" rel="noopener">SemiWiki — TSMC's Refusal of ASML's Expensive High-NA EUV Equipment, Explained</a></li>
+    <li><a href="https://www.cnbc.com/2026/01/29/-ai-boom-nvidia-asml-dutch-chip-equipment-maker-lithography-.html" target="_blank" rel="noopener">CNBC — Why Nvidia's AI Boom Needs Dutch Chip Equipment Maker ASML</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var slider = document.getElementById('sv-na');
+    var naValue = document.getElementById('sv-na-value');
+    var barsGroup = document.getElementById('sv-bars');
+    var presetStd = document.getElementById('sv-preset-std');
+    var presetHigh = document.getElementById('sv-preset-high');
+    var resetBtn = document.getElementById('sv-reset');
+    var note = document.getElementById('sv-note');
+    var statPitch = document.getElementById('sv-stat-pitch');
+    var statLines = document.getElementById('sv-stat-lines');
+    var statPrice = document.getElementById('sv-stat-price');
+    var statBuyer = document.getElementById('sv-stat-buyer');
+
+    if (!slider || !barsGroup) return;
+
+    var LAMBDA = 13.5;
+    var K1 = 0.3;
+    var SLICE = 260;
+    var CHART_LEFT = 4;
+    var CHART_TOP = 18;
+    var CHART_HEIGHT = 58;
+
+    var NOTE_STD = 'This is today’s mainstream tool — the one TSMC and Samsung plan to keep using into the 2027-2029 window.';
+    var NOTE_HIGH = 'This is High-NA EUV — the tool Intel already installed, and the one TSMC and Samsung are still declining to buy.';
+    var NOTE_MID = 'Between the two: a wider lens resolves finer lines, but every step up the price curve makes the trade-off harder to justify.';
+
+    function render(na) {
+      naValue.textContent = na.toFixed(2);
+
+      var halfPitch = K1 * LAMBDA / na;
+      var pitch = 2 * halfPitch;
+      var lines = Math.max(1, Math.floor(SLICE / pitch));
+      var t = (na - 0.33) / (0.55 - 0.33);
+      var price = 175 + t * (390 - 175);
+
+      statPitch.textContent = halfPitch.toFixed(1) + ' nm';
+      statLines.textContent = String(lines);
+      statPrice.textContent = '~$' + Math.round(price) + 'M';
+
+      barsGroup.innerHTML = '';
+      var barWidth = Math.max(1.4, pitch * 0.4);
+      for (var i = 0; i < lines; i++) {
+        var x = CHART_LEFT + i * pitch;
+        if (x + barWidth > SLICE) break;
+        var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        rect.setAttribute('x', x.toFixed(2));
+        rect.setAttribute('y', String(CHART_TOP));
+        rect.setAttribute('width', barWidth.toFixed(2));
+        rect.setAttribute('height', String(CHART_HEIGHT));
+        rect.setAttribute('rx', '0.6');
+        rect.setAttribute('class', 'sv-bar');
+        barsGroup.appendChild(rect);
+      }
+
+      if (na <= 0.331) {
+        note.textContent = NOTE_STD;
+        statBuyer.textContent = 'TSMC · Samsung';
+        statBuyer.classList.remove('sv-alert');
+        presetStd.classList.add('sv-active');
+        presetHigh.classList.remove('sv-active');
+      } else if (na >= 0.549) {
+        note.textContent = NOTE_HIGH;
+        statBuyer.textContent = 'Intel only';
+        statBuyer.classList.add('sv-alert');
+        presetStd.classList.remove('sv-active');
+        presetHigh.classList.add('sv-active');
+      } else {
+        note.textContent = NOTE_MID;
+        statBuyer.textContent = 'Deciding…';
+        statBuyer.classList.remove('sv-alert');
+        presetStd.classList.remove('sv-active');
+        presetHigh.classList.remove('sv-active');
+      }
+    }
+
+    slider.addEventListener('input', function () {
+      render(parseFloat(slider.value));
+    });
+    presetStd.addEventListener('click', function () {
+      slider.value = '0.33';
+      render(0.33);
+    });
+    presetHigh.addEventListener('click', function () {
+      slider.value = '0.55';
+      render(0.55);
+    });
+    resetBtn.addEventListener('click', function () {
+      slider.value = '0.33';
+      render(0.33);
+    });
+
+    render(parseFloat(slider.value));
+  })();
+</script>
+</body>
+</html>
