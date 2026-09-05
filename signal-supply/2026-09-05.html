@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — An AI Data Center Takes 2 Years to Build. The Copper Mine to Supply It Takes 17.</title>
+<meta name="description" content="Hyperscale AI campuses go from groundbreaking to fully powered in about two years. The copper that wires them comes from mines that take nearly eighteen years, on average, to open. That mismatch just helped push copper to record prices." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5622a;
+    --accent-a-tint: #f6e2d2;
+    --accent-b: #2f6690;
+    --accent-b-tint: #dfeaf2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e0894f;
+      --accent-a-tint: #2f2013;
+      --accent-b: #6fa8cf;
+      --accent-b-tint: #142530;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e0894f;
+    --accent-a-tint: #2f2013;
+    --accent-b: #6fa8cf;
+    --accent-b-tint: #142530;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5622a;
+    --accent-a-tint: #f6e2d2;
+    --accent-b: #2f6690;
+    --accent-b-tint: #dfeaf2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: the copper clock (build-time race) --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.5;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 16px 10px 10px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; }
+  .sv-track-bg { stroke: var(--border); stroke-width: 6; stroke-linecap: round; }
+  .sv-track-fill-dc { stroke: var(--accent-a); stroke-width: 6; stroke-linecap: round; }
+  .sv-track-fill-mine { stroke: var(--accent-b); stroke-width: 6; stroke-linecap: round; }
+  .sv-marker-dc { fill: var(--accent-a); }
+  .sv-marker-mine { fill: var(--accent-b); }
+  .sv-lane-label { font-size: 9px; font-weight: 700; fill: var(--ink); }
+  .sv-tick-label { font-size: 7.5px; fill: var(--muted); }
+  .sv-online-badge { font-size: 8px; font-weight: 700; }
+  .sv-online-badge.dc { fill: var(--accent-a); }
+  .sv-online-badge.mine { fill: var(--accent-b); }
+
+  .sv-year-readout {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sv-year-big {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .sv-year-status {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: right;
+    min-height: 16px;
+  }
+
+  .sv-btn-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .sv-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .sv-btn:hover { border-color: var(--accent-a); }
+  .sv-btn.sv-primary {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+
+  .sv-divider {
+    border-top: 1px solid var(--border);
+    margin: 22px 0 18px;
+  }
+
+  .sv-calc-label {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  .sv-control-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .sv-slider {
+    flex: 1 1 180px;
+    min-width: 140px;
+    accent-color: var(--accent-a);
+    height: 22px;
+    cursor: pointer;
+  }
+  .sv-slider-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+    min-width: 54px;
+    text-align: right;
+  }
+  .sv-calc-result {
+    font-size: 13.5px;
+    margin: 12px 0 0;
+    line-height: 1.5;
+  }
+  .sv-calc-result .sv-num {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent-a);
+  }
+
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 18px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 5, 2026</span>
+    <span class="category-chip">COMMODITIES</span>
+  </div>
+  <h1>An AI Data Center Takes 2 Years to Build. The Copper Mine to Supply It Takes 17.</h1>
+  <p class="lede">Hyperscale AI campuses are going from empty field to fully powered in about two years. The copper wiring every watt of that power — from grid substation to server rack — comes from mines that take nearly eighteen years, on average, to go from discovery to first shipment. That mismatch just helped push copper to record prices.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    AI's binding constraint isn't only chips anymore — it's the copper that connects them to the grid. A single hyperscale, 1-gigawatt AI data center can require on the order of 50,000 metric tons of copper for power distribution and cooling, industry analysts estimate. Copper just traded near record highs above $14,000 a ton, and forecasters see a global supply deficit of 400,000-plus tons this year. Data centers can be built in about two years. Opening a major new copper mine takes almost eighteen, on average — and that gap is not closing.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">The copper clock</h2>
+      <p class="sv-caption mono">Press Run to race a hyperscale AI data center against a brand-new copper mine, from groundbreaking to "online," scaled to real average build times. Data-center timeline (~2 years) and copper-per-gigawatt (~50,000 t, full facility — power, cooling, grounding, not chips) are industry-cited estimates. Mine timeline (17.9 years, ~9 of them permitting) is S&amp;P Global's average discovery-to-production figure for copper mines that entered production 2020-2023. Simplified for illustration — real projects vary widely.</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 400 128" role="img" aria-label="Two horizontal timeline tracks from year 0 to year 18. The data center track reaches online status at year 2. The copper mine track reaches online status at year 17.9.">
+        <text x="30" y="16" class="sv-lane-label mono">AI DATA CENTER</text>
+        <line x1="30" y1="30" x2="380" y2="30" class="sv-track-bg"></line>
+        <line id="sv-fill-dc" x1="30" y1="30" x2="30" y2="30" class="sv-track-fill-dc"></line>
+        <circle id="sv-marker-dc" cx="30" cy="30" r="6" class="sv-marker-dc"></circle>
+        <text id="sv-badge-dc" x="45" y="34" class="sv-online-badge dc mono" opacity="0">ONLINE ▸</text>
+
+        <text x="30" y="68" class="sv-lane-label mono">NEW COPPER MINE</text>
+        <line x1="30" y1="82" x2="380" y2="82" class="sv-track-bg"></line>
+        <line id="sv-fill-mine" x1="30" y1="82" x2="30" y2="82" class="sv-track-fill-mine"></line>
+        <circle id="sv-marker-mine" cx="30" cy="82" r="6" class="sv-marker-mine"></circle>
+        <text id="sv-badge-mine" x="45" y="86" class="sv-online-badge mine mono" opacity="0">ONLINE ▸</text>
+
+        <line x1="30" y1="104" x2="380" y2="104" stroke="var(--border)" stroke-width="1"></line>
+        <text x="26" y="118" class="sv-tick-label mono" text-anchor="middle">0y</text>
+        <text x="88" y="118" class="sv-tick-label mono" text-anchor="middle">3y</text>
+        <text x="146" y="118" class="sv-tick-label mono" text-anchor="middle">6y</text>
+        <text x="205" y="118" class="sv-tick-label mono" text-anchor="middle">9y</text>
+        <text x="263" y="118" class="sv-tick-label mono" text-anchor="middle">12y</text>
+        <text x="321" y="118" class="sv-tick-label mono" text-anchor="middle">15y</text>
+        <text x="380" y="118" class="sv-tick-label mono" text-anchor="middle">18y</text>
+      </svg>
+    </div>
+
+    <div class="sv-year-readout">
+      <div class="sv-year-big mono" id="sv-year">Year 0.0</div>
+      <div class="sv-year-status mono" id="sv-status">Press Run to start the clock.</div>
+    </div>
+    <div class="sv-btn-row">
+      <button type="button" class="sv-btn sv-primary" id="sv-run">▸ Run</button>
+      <button type="button" class="sv-btn" id="sv-reset">Reset</button>
+    </div>
+
+    <div class="sv-divider"></div>
+
+    <p class="sv-calc-label">If the industry breaks ground on new AI capacity right now, how much copper does that call for?</p>
+    <div class="sv-control-row">
+      <label class="mono sv-tick-label" for="sv-gw" style="font-size:11px;">NEW CAPACITY (GW)</label>
+      <input type="range" id="sv-gw" class="sv-slider" min="1" max="30" step="1" value="8" aria-label="New AI data center capacity being planned, in gigawatts" />
+      <span class="sv-slider-value mono" id="sv-gw-value">8 GW</span>
+    </div>
+    <p class="sv-calc-result mono" id="sv-calc-text">≈ <span class="sv-num" id="sv-calc-tons">400,000</span> tons of copper needed — about <span class="sv-num" id="sv-calc-pct">89%</span> of UBS's entire forecast 2026 global supply deficit.</p>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Data center build</div>
+        <div class="sv-stat-value mono">~2 yrs</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">New mine, avg.</div>
+        <div class="sv-stat-value mono">17.9 yrs</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Copper per 1GW</div>
+        <div class="sv-stat-value mono">~50,000 t</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">2026 global deficit</div>
+        <div class="sv-stat-value mono">400-520k t</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture an AI data center as a small industrial city plugged straight into the power grid: rows of GPU racks, backup generators, chillers, and — running through all of it — miles of thick copper cable and busbar carrying electricity from the substation to every last server. Copper is uniquely good at this job because it conducts electricity better than almost anything else that isn't silver, and cheaper. Add it all up and a single large, 1-gigawatt AI campus — roughly the scale the biggest tech companies are now racing to build — can call for somewhere around 50,000 tons of copper, mostly buried in power and cooling infrastructure you'll never see, according to industry estimates.</p>
+      <p>That demand is slamming into a supply problem that has nothing to do with software and everything to do with geology and paperwork. You can't mine copper out of a spreadsheet. Opening a new mine means years of exploration, environmental review, community negotiation, and construction — a process that now averages nearly eighteen years from discovery to first ore, and often far longer in the United States. A data center, by contrast, can go from empty field to fully online in roughly two years.</p>
+      <p>That mismatch is a big part of why copper just touched record prices — north of $14,000 a ton — even as mining companies insist they're trying to expand. You can raise billions of dollars for a chip cluster in a single funding round. You cannot legislate a copper deposit into existence, or fast-forward the seventeen-plus years it takes one to become a usable wire. The AI boom is discovering that some of its bottlenecks aren't measured in chip nanometers — they're measured in decades underground.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Copper's advantage is electrical: its resistivity at room temperature is about 1.68 × 10⁻⁸ Ω·m, second only to silver among practical conductors, at a fraction of the cost. That property puts it at every stage of an AI data center's power chain — utility interconnects, medium-voltage switchgear, step-down transformers, busway distribution to rack PDUs, generator and UPS windings — plus cooling-loop plumbing in liquid-cooled GPU racks. Industry estimates for a hyperscale 1-gigawatt AI campus's total copper intake (power distribution, grounding, and cooling combined — not the chips themselves) run as high as roughly 50,000 metric tons. Note the scale carefully: a widely circulated figure of 500,000 tons per gigawatt, attributed to Nvidia, was later acknowledged as a unit-conversion error and corrected down by roughly three orders of magnitude for the specific busbar component it described.</p>
+      <p>The aggregate numbers are the real story. S&amp;P Global projects data-center copper demand alone could reach on the order of 2.5 million tonnes annually by 2040, inside a total refined-copper market growing from roughly 28 million to 42 million tonnes a year — driven jointly by AI infrastructure, grid modernization, and EV adoption. Supply is structurally lagging that curve. S&amp;P Global's mining-project database puts the average discovery-to-production timeline for copper mines entering production in 2020-2023 at 17.9 years, up from 12.7 years for the 2005-2009 cohort; permitting alone now typically consumes seven to ten years, longer in the U.S. Compounding this, 2026 has brought real supply disruptions: a fatal incident curtailed output at Freeport-McMoRan's Grasberg complex in Indonesia, Chilean production has been slow to recover, and Peruvian mine protests persist. UBS has raised its 2026 global refined-copper deficit forecast across successive revisions this year, from roughly 90,000 tonnes to a range now cited between 400,000 and 520,000 tonnes. LME copper set a fresh all-time high of $14,527.50/tonne in January 2026 and has traded near those levels into August, with COMEX copper separately touching a record $6.77/lb intraday on August 7.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.bloomberg.com/news/articles/2026-08-28/ai-data-center-boom-power-grids-strengthen-investment-case-for-copper" target="_blank" rel="noopener">Bloomberg — AI Data Center Boom, Power Grids Strengthen Investment Case for Copper</a></li>
+    <li><a href="https://www.spglobal.com/market-intelligence/en/news-insights/research/average-lead-time-almost-18-years-for-mines-started-in-2020-23" target="_blank" rel="noopener">S&amp;P Global Market Intelligence — Average Lead Time Almost 18 Years for Mines Started in 2020-23</a></li>
+    <li><a href="https://www.mining.com/ubs-raises-copper-price-forecasts-on-supply-concerns/" target="_blank" rel="noopener">MINING.COM — UBS Raises Copper Price Forecasts on Supply Concerns</a></li>
+    <li><a href="https://www.indexbox.io/blog/copper-prices-hit-record-highs-amid-ai-demand-and-supply-constraints/" target="_blank" rel="noopener">IndexBox — Copper Prices Surge to Record Highs on AI and Power Grid Demand</a></li>
+    <li><a href="https://www.comnen.com/nvidia-corrects-data-center-copper-usage-error-500000-tons-to-200-tons-per-gigawatt/" target="_blank" rel="noopener">Comnen — Nvidia Corrects Data Center Copper Usage Error: 500,000 Tons to 200 Tons Per Gigawatt</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var TOTAL_YEARS = 18;
+    var DC_YEARS = 2;
+    var MINE_YEARS = 17.9;
+    var X0 = 30, X1 = 380;
+    var DURATION_MS = 7000;
+
+    var runBtn = document.getElementById('sv-run');
+    var resetBtn = document.getElementById('sv-reset');
+    var yearEl = document.getElementById('sv-year');
+    var statusEl = document.getElementById('sv-status');
+    var fillDc = document.getElementById('sv-fill-dc');
+    var fillMine = document.getElementById('sv-fill-mine');
+    var markerDc = document.getElementById('sv-marker-dc');
+    var markerMine = document.getElementById('sv-marker-mine');
+    var badgeDc = document.getElementById('sv-badge-dc');
+    var badgeMine = document.getElementById('sv-badge-mine');
+
+    if (!runBtn) return;
+
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var rafId = null;
+    var startTime = null;
+    var dcOnlineShown = false;
+    var mineOnlineShown = false;
+
+    function yearToX(years) {
+      var t = Math.min(years, TOTAL_YEARS) / TOTAL_YEARS;
+      return X0 + t * (X1 - X0);
+    }
+
+    function paint(years) {
+      var dcYears = Math.min(years, DC_YEARS);
+      var mineYears = Math.min(years, MINE_YEARS);
+      var xDc = yearToX(dcYears);
+      var xMine = yearToX(mineYears);
+
+      fillDc.setAttribute('x2', xDc.toFixed(1));
+      markerDc.setAttribute('cx', xDc.toFixed(1));
+      fillMine.setAttribute('x2', xMine.toFixed(1));
+      markerMine.setAttribute('cx', xMine.toFixed(1));
+
+      yearEl.textContent = 'Year ' + years.toFixed(1);
+
+      if (years >= DC_YEARS - 0.001) {
+        badgeDc.setAttribute('opacity', '1');
+        badgeDc.setAttribute('x', (xDc + 12).toFixed(1));
+      } else {
+        badgeDc.setAttribute('opacity', '0');
+      }
+      if (years >= MINE_YEARS - 0.001) {
+        badgeMine.setAttribute('opacity', '1');
+        badgeMine.setAttribute('x', (xMine + 12).toFixed(1));
+      } else {
+        badgeMine.setAttribute('opacity', '0');
+      }
+
+      if (years < DC_YEARS) {
+        statusEl.textContent = 'Data center under construction. Mine still in permitting.';
+      } else if (years < 9) {
+        statusEl.textContent = 'Data center has been online for ' + (years - DC_YEARS).toFixed(1) + ' years. Mine still in permitting.';
+      } else if (years < MINE_YEARS) {
+        statusEl.textContent = 'Data center has been online for ' + (years - DC_YEARS).toFixed(1) + ' years. Mine now under construction.';
+      } else {
+        statusEl.textContent = 'Mine finally online. The data center got there ' + (MINE_YEARS - DC_YEARS).toFixed(1) + ' years earlier.';
+      }
+    }
+
+    function reset() {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = null;
+      startTime = null;
+      dcOnlineShown = false;
+      mineOnlineShown = false;
+      paint(0);
+      statusEl.textContent = 'Press Run to start the clock.';
+      runBtn.textContent = '▸ Run';
+    }
+
+    function step(ts) {
+      if (startTime === null) startTime = ts;
+      var elapsed = ts - startTime;
+      var years = Math.min(TOTAL_YEARS, (elapsed / DURATION_MS) * TOTAL_YEARS);
+      paint(years);
+      if (elapsed < DURATION_MS) {
+        rafId = requestAnimationFrame(step);
+      } else {
+        rafId = null;
+        runBtn.textContent = '▸ Run again';
+      }
+    }
+
+    function run() {
+      if (reduced) {
+        if (yearEl.textContent === 'Year ' + TOTAL_YEARS.toFixed(1)) {
+          reset();
+        } else {
+          paint(TOTAL_YEARS);
+          runBtn.textContent = '▸ Run again';
+        }
+        return;
+      }
+      if (rafId) return;
+      startTime = null;
+      rafId = requestAnimationFrame(step);
+    }
+
+    runBtn.addEventListener('click', run);
+    resetBtn.addEventListener('click', reset);
+
+    if (reduced) {
+      paint(TOTAL_YEARS);
+      runBtn.textContent = '▸ Run again';
+    } else {
+      paint(0);
+    }
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+    var slider = document.getElementById('sv-gw');
+    var valueEl = document.getElementById('sv-gw-value');
+    var tonsEl = document.getElementById('sv-calc-tons');
+    var pctEl = document.getElementById('sv-calc-pct');
+    if (!slider) return;
+
+    var TONS_PER_GW = 50000;
+    var DEFICIT_TONS = 450000;
+
+    function render(gw) {
+      valueEl.textContent = gw + ' GW';
+      var tons = gw * TONS_PER_GW;
+      tonsEl.textContent = tons.toLocaleString('en-US');
+      var pct = Math.round((tons / DEFICIT_TONS) * 100);
+      pctEl.textContent = pct + '%';
+    }
+
+    slider.addEventListener('input', function () {
+      render(parseInt(slider.value, 10));
+    });
+
+    render(parseInt(slider.value, 10));
+  })();
+</script>
+</body>
+</html>
