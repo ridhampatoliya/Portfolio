@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — AI's Memory Chips Eat 3× the Factory Space of Yours. Your Laptop Just Noticed.</title>
+<meta name="description" content="A 32GB RAM kit cost about $90 in early 2025. By late 2025 it was near $530, and it's still around $400 today. The cause: AI's stacked HBM memory consumes roughly three times the wafer capacity of ordinary RAM per gigabyte, and the fabs chose AI." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c1440e;
+    --accent-a-tint: #f8ddd0;
+    --accent-b: #1f7a72;
+    --accent-b-tint: #d9efec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e2793f;
+      --accent-a-tint: #2e1c12;
+      --accent-b: #4bbbb0;
+      --accent-b-tint: #12302c;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e2793f;
+    --accent-a-tint: #2e1c12;
+    --accent-b: #4bbbb0;
+    --accent-b-tint: #12302c;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c1440e;
+    --accent-a-tint: #f8ddd0;
+    --accent-b: #1f7a72;
+    --accent-b-tint: #d9efec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: the wafer trade-off --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.5;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 18px 10px 14px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; }
+  .sv-track-bg { fill: none; stroke: var(--border); stroke-width: 14; }
+  .sv-lane-label { font-size: 9px; font-weight: 700; fill: var(--muted); }
+  .sv-seg-label { font-size: 9.5px; font-weight: 700; }
+  .sv-tick-label { font-size: 7.5px; fill: var(--muted); }
+  .sv-bar-num { font-size: 10.5px; font-weight: 700; }
+  @media (prefers-reduced-motion: no-preference) {
+    #sv-rect-ddr5, #sv-rect-hbm, #sv-rect-ddrout, #sv-rect-hbmout {
+      transition: width 0.25s ease, x 0.25s ease;
+    }
+  }
+
+  .sv-legend {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    font-size: 11.5px;
+  }
+  .sv-legend-item { display: inline-flex; align-items: center; gap: 6px; }
+  .sv-swatch {
+    width: 10px; height: 10px; border-radius: 3px; display: inline-block;
+  }
+
+  .sv-divider {
+    border-top: 1px solid var(--border);
+    margin: 22px 0 18px;
+  }
+
+  .sv-calc-label {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  .sv-control-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .sv-slider {
+    flex: 1 1 180px;
+    min-width: 140px;
+    accent-color: var(--accent-a);
+    height: 22px;
+    cursor: pointer;
+  }
+  .sv-slider-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+    min-width: 54px;
+    text-align: right;
+  }
+  .sv-calc-result {
+    font-size: 13.5px;
+    margin: 12px 0 0;
+    line-height: 1.5;
+  }
+  .sv-calc-result .sv-num {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent-a);
+  }
+
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 18px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 6, 2026</span>
+    <span class="category-chip">MEMORY</span>
+  </div>
+  <h1>AI's Memory Chips Eat 3× the Factory Space of Yours. Your Laptop Just Noticed.</h1>
+  <p class="lede">A 32GB RAM kit that cost about $90 in early 2025 was fetching roughly $530 by that December, and still runs $375-400 today. Factories aren't short on capacity — they're spending it on Nvidia's memory instead of yours.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    High-bandwidth memory (HBM) — the stacked chips sitting next to every AI GPU — consumes roughly three times the wafer capacity of ordinary DDR5 per gigabyte, because of the 3D stacking and connectors it needs. Samsung and SK Hynix, who make about 90% of the world's HBM, signed multi-year supply deals with Meta, Google, Microsoft and Amazon that lock up that capacity. Every wafer diverted to HBM removes far more than one wafer's worth of consumer RAM. Analysts don't expect relief before 2028.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">The wafer trade-off</h2>
+      <p class="sv-caption mono">Drag the slider to shift a fab's wafer starts toward AI's HBM. Top bar: how capacity is split. Bottom two bars: the resulting memory output, on one shared scale — because HBM costs ~3x the wafer capacity per gigabyte, moving fabs toward it produces less total memory, not more. Illustrative model: the 3x cost ratio and the $90→price scaling are grounded in real reporting; the exact allocation split is simplified for illustration, calibrated to land near today's real ~$400 kit price at the default position.</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 400 190" role="img" aria-label="Two-part chart. Top: a bar split between DDR5 and HBM wafer allocation. Bottom: two bars on the same scale showing resulting DDR5 and HBM memory output, with HBM output always far smaller because it costs three times the wafer capacity per gigabyte.">
+        <text x="30" y="14" class="sv-lane-label mono">WAFER ALLOCATION</text>
+        <rect x="30" y="20" width="350" height="20" rx="6" class="sv-track-bg"></rect>
+        <rect id="sv-rect-ddr5" x="30" y="20" width="77" height="20" rx="6" fill="var(--accent-b)"></rect>
+        <rect id="sv-rect-hbm" x="107" y="20" width="273" height="20" rx="6" fill="var(--accent-a)"></rect>
+        <text id="sv-label-ddr5" x="45" y="34" class="sv-seg-label mono" fill="#fff">DDR5</text>
+        <text id="sv-label-hbm" x="350" y="34" class="sv-seg-label mono" fill="#fff" text-anchor="end">HBM</text>
+
+        <text x="30" y="70" class="sv-lane-label mono">MEMORY OUTPUT (shared GB-equivalent scale)</text>
+        <text x="30" y="84" class="sv-lane-label mono" style="font-size:8px;">DDR5</text>
+        <rect x="60" y="76" width="320" height="16" rx="5" class="sv-track-bg"></rect>
+        <rect id="sv-rect-ddrout" x="60" y="76" width="70" height="16" rx="5" fill="var(--accent-b)"></rect>
+        <text id="sv-num-ddrout" x="386" y="88" class="sv-bar-num mono" text-anchor="end" fill="var(--accent-b)">22.0</text>
+
+        <text x="30" y="110" class="sv-lane-label mono" style="font-size:8px;">HBM</text>
+        <rect x="60" y="102" width="320" height="16" rx="5" class="sv-track-bg"></rect>
+        <rect id="sv-rect-hbmout" x="60" y="102" width="83" height="16" rx="5" fill="var(--accent-a)"></rect>
+        <text id="sv-num-hbmout" x="386" y="114" class="sv-bar-num mono" text-anchor="end" fill="var(--accent-a)">26.0</text>
+
+        <line x1="30" y1="134" x2="380" y2="134" stroke="var(--border)" stroke-width="1"></line>
+        <text x="60" y="148" class="sv-tick-label mono" text-anchor="middle">0</text>
+        <text x="220" y="148" class="sv-tick-label mono" text-anchor="middle">50</text>
+        <text x="380" y="148" class="sv-tick-label mono" text-anchor="middle">100</text>
+        <text x="220" y="162" class="sv-tick-label mono" text-anchor="middle">GB-equivalent output index (max = 100, all fab capacity making DDR5)</text>
+      </svg>
+      <div class="sv-legend">
+        <span class="sv-legend-item"><span class="sv-swatch" style="background:var(--accent-b);"></span>DDR5 (ordinary RAM)</span>
+        <span class="sv-legend-item"><span class="sv-swatch" style="background:var(--accent-a);"></span>HBM (AI accelerator memory)</span>
+      </div>
+    </div>
+
+    <div class="sv-divider"></div>
+
+    <p class="sv-calc-label">Shift a fab's wafer starts toward HBM:</p>
+    <div class="sv-control-row">
+      <label class="mono sv-tick-label" for="sv-hbm-share" style="font-size:11px;">% OF WAFERS TO HBM</label>
+      <input type="range" id="sv-hbm-share" class="sv-slider" min="0" max="95" step="1" value="78" aria-label="Percent of a fab's wafer starts allocated to HBM instead of DDR5" />
+      <span class="sv-slider-value mono" id="sv-hbm-share-value">78%</span>
+    </div>
+    <p class="sv-calc-result mono" id="sv-calc-text">A 32GB kit priced near <span class="sv-num">$90</span> at 0% HBM allocation would cost roughly <span class="sv-num" id="sv-calc-price">$409</span> at this split — in the range of today's real street price.</p>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">HBM wafer cost</div>
+        <div class="sv-stat-value mono">~3× DDR5/GB</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">SK Hynix + Samsung HBM share</div>
+        <div class="sv-stat-value mono">~90%</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">32GB kit, early 2025</div>
+        <div class="sv-stat-value mono">~$90</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">32GB kit, Sep 2026</div>
+        <div class="sv-stat-value mono">~$375-400</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Something strange happened to computer memory this year: a 32-gigabyte RAM kit that cost about $90 in early 2025 was selling for roughly $530 by that December, and even after prices cooled slightly, a basic kit still runs $375 to $400 today. This isn't a normal chip shortage — the factories are running flat out. The problem is what they're running flat out to build.</p>
+      <p>Picture a memory factory as a bakery with one oven. For years that oven turned out standard loaves: the ordinary RAM chips that go into every laptop, phone and PC. Then AI companies started ordering a fancier product — HBM, "high-bandwidth memory," the special stacked chips that sit right next to GPUs like Nvidia's so they can feed them data fast enough. HBM isn't just pricier to make, it's dramatically more wasteful of the same oven space: each stack needs larger, more failure-prone dies threaded with thousands of microscopic vertical wires, so one gigabyte of HBM eats up roughly three gigabytes' worth of an ordinary RAM chip's factory time.</p>
+      <p>Meta, Google, Microsoft and Amazon signed years-long contracts to lock in that oven space. Samsung and SK Hynix, who together make about 90% of the world's HBM, happily obliged — and normal RAM production got squeezed. Laptop makers responded by quietly shrinking base memory, with 16GB defaults becoming 8GB, or soldering RAM in to control costs. Analysts don't expect real relief before 2028, when new factories are expected to finally catch up. The AI boom isn't just buying up chips anymore. It's buying the memory that used to be yours.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>This is a wafer-capacity allocation problem, not a raw fab shortage. High-bandwidth memory (HBM) stacks 8 to 16 DRAM dies, connected by through-silicon vias (TSVs), then bonds the stack above a GPU or accelerator on an interposer, trading areal bit density for bandwidth and proximity to compute. TSVs, redundancy circuitry, and thicker inter-die bonding pads consume die area that would otherwise store bits: SK Hynix's D1z-node DDR4 reaches roughly 0.296 Gb/mm², about 85% denser than its HBM3 die at ~0.16 Gb/mm². Add stacking yield loss — one bad die can scrap an entire multi-die stack — and the widely cited industry rule of thumb holds: a gigabyte of HBM output consumes roughly three gigabytes' worth of equivalent DDR5 wafer capacity from the same fab.</p>
+      <p>Because DRAM fabs are largely fungible between HBM and commodity DDR4/DDR5 at the front-end process level, every wafer hyperscalers redirect toward HBM is a wafer that doesn't become conventional DRAM — and a worse trade than 1:1. SK Hynix (roughly 50% HBM share as of Q2 2026), Samsung (32%), and a fast-scaling Micron (18%, racing toward ~100,000 wafers a month by year-end from a much smaller base) have signed multi-year HBM supply agreements with Meta, Google, Microsoft and Amazon that lock in capacity years ahead, leaving commodity DRAM and NAND to absorb the residual demand.</p>
+      <p>Pricing reflects that squeeze. Contract DRAM prices rose as much as 89% in a single 2026 quarter; spot 16Gb DDR5 die pricing rose roughly 298% between September and December 2025 alone. Gartner projects a combined 130% DRAM-plus-NAND price increase for full-year 2026 versus 2025, pushing memory's share of PC bill-of-materials from roughly 16% to 23% and finished-device prices up 17% for PCs and 13% for smartphones. Intel and Silicon Motion both peg normalization at 2028, when new fab capacity is expected online; SK Hynix has said HBM demand could outrun its own supply through 2030.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.tomshardware.com/pc-components/ram/hbm-is-eating-your-ram" target="_blank" rel="noopener">Tom's Hardware — Here's Why HBM Is Coming for Your PC's RAM</a></li>
+    <li><a href="https://www.tomshardware.com/pc-components/ram/memory-price-surge-begins-to-cool-as-consumers-hit-affordability-limit-ai-demand-still-keeps-dram-and-nand-prices-climbing-through-q3-2026" target="_blank" rel="noopener">Tom's Hardware — Memory Price Surge Begins to Cool as AI Demand Keeps DRAM and NAND Prices Climbing Through Q3 2026</a></li>
+    <li><a href="https://www.techtimes.com/articles/317872/20260605/ram-prices-2026-buy-now-wait-gartner-forecasts-130-memory-cost-surge.htm" target="_blank" rel="noopener">Tech Times — RAM Prices 2026: Gartner Forecasts 130% Memory Cost Surge</a></li>
+    <li><a href="https://presenc.ai/research/hbm-market-share-samsung-skhynix-micron-2026" target="_blank" rel="noopener">Presenc AI — HBM Market Share 2026: SK Hynix, Samsung, Micron</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var slider = document.getElementById('sv-hbm-share');
+    var valueEl = document.getElementById('sv-hbm-share-value');
+    var priceEl = document.getElementById('sv-calc-price');
+    if (!slider) return;
+
+    var TRACK_X = 30, TRACK_W = 350;
+    var OUT_X = 60, OUT_W = 320;
+    var HBM_COST_FACTOR = 3;
+    var BASE_PRICE = 90;
+
+    var rectDdr5 = document.getElementById('sv-rect-ddr5');
+    var rectHbm = document.getElementById('sv-rect-hbm');
+    var labelDdr5 = document.getElementById('sv-label-ddr5');
+    var labelHbm = document.getElementById('sv-label-hbm');
+    var rectDdrOut = document.getElementById('sv-rect-ddrout');
+    var rectHbmOut = document.getElementById('sv-rect-hbmout');
+    var numDdrOut = document.getElementById('sv-num-ddrout');
+    var numHbmOut = document.getElementById('sv-num-hbmout');
+
+    function render(h) {
+      valueEl.textContent = h + '%';
+
+      var ddr5W = TRACK_W * (100 - h) / 100;
+      var hbmW = TRACK_W - ddr5W;
+      rectDdr5.setAttribute('width', ddr5W.toFixed(1));
+      rectHbm.setAttribute('x', (TRACK_X + ddr5W).toFixed(1));
+      rectHbm.setAttribute('width', hbmW.toFixed(1));
+      labelDdr5.setAttribute('opacity', ddr5W > 34 ? '1' : '0');
+      labelHbm.setAttribute('x', (TRACK_X + ddr5W + hbmW - 8).toFixed(1));
+      labelHbm.setAttribute('opacity', hbmW > 34 ? '1' : '0');
+
+      var ddrOutIndex = 100 - h;
+      var hbmOutIndex = h / HBM_COST_FACTOR;
+
+      rectDdrOut.setAttribute('width', (OUT_W * ddrOutIndex / 100).toFixed(1));
+      rectHbmOut.setAttribute('width', (OUT_W * hbmOutIndex / 100).toFixed(1));
+      numDdrOut.textContent = ddrOutIndex.toFixed(1);
+      numHbmOut.textContent = hbmOutIndex.toFixed(1);
+
+      var price = BASE_PRICE * 100 / Math.max(5, ddrOutIndex);
+      priceEl.textContent = '$' + Math.round(price).toLocaleString('en-US');
+    }
+
+    slider.addEventListener('input', function () {
+      render(parseInt(slider.value, 10));
+    });
+
+    render(parseInt(slider.value, 10));
+  })();
+</script>
+</body>
+</html>
