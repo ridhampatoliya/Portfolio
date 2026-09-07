@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — An AI GPU Cluster Talks to Itself in Light. The Chip That Makes the Light Is Sold Out Through 2027.</title>
+<meta name="description" content="AI GPUs now exchange training data over laser light, not copper. The indium phosphide laser chips that generate it are running about 30% short of demand, with lead times past 40 weeks — and Lumentum's CEO says the shortage will be worse than last year's memory-chip crunch." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c23b2e;
+    --accent-a-tint: #fbdedb;
+    --accent-b: #1c6fb0;
+    --accent-b-tint: #dbe9f5;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e8695a;
+      --accent-a-tint: #35201c;
+      --accent-b: #5aa8e8;
+      --accent-b-tint: #16283a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e8695a;
+    --accent-a-tint: #35201c;
+    --accent-b: #5aa8e8;
+    --accent-b-tint: #16283a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c23b2e;
+    --accent-a-tint: #fbdedb;
+    --accent-b: #1c6fb0;
+    --accent-b-tint: #dbe9f5;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: the fabric multiplier --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.5;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 18px 10px 14px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; }
+  .sv-track-bg { fill: none; stroke: var(--border); stroke-width: 14; }
+  .sv-lane-label { font-size: 9px; font-weight: 700; fill: var(--muted); }
+  .sv-seg-label { font-size: 9.5px; font-weight: 700; }
+  .sv-tick-label { font-size: 7.5px; fill: var(--muted); }
+  .sv-bar-num { font-size: 10.5px; font-weight: 700; }
+  .sv-node-label { font-size: 8.5px; font-weight: 700; }
+  @media (prefers-reduced-motion: no-preference) {
+    #sv-rect-trx, #sv-num-trx {
+      transition: width 0.25s ease, x 0.25s ease;
+    }
+    .sv-node, .sv-link {
+      transition: fill 0.2s ease, stroke 0.2s ease, opacity 0.2s ease;
+    }
+  }
+
+  .sv-divider {
+    border-top: 1px solid var(--border);
+    margin: 22px 0 18px;
+  }
+
+  .sv-calc-label {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  .sv-control-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .sv-slider {
+    flex: 1 1 180px;
+    min-width: 140px;
+    accent-color: var(--accent-a);
+    height: 22px;
+    cursor: pointer;
+  }
+  .sv-slider-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: right;
+  }
+  .sv-calc-result {
+    font-size: 13.5px;
+    margin: 12px 0 0;
+    line-height: 1.5;
+  }
+  .sv-calc-result .sv-num {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent-a);
+  }
+
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 18px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 7, 2026</span>
+    <span class="category-chip">PHOTONICS</span>
+  </div>
+  <h1>An AI GPU Cluster Talks to Itself in Light. The Chip That Makes the Light Is Sold Out Through 2027.</h1>
+  <p class="lede">Every GPU in a modern AI cluster is wired to its neighbors with pulses of laser light, not copper. The compound-semiconductor material that generates that light, indium phosphide, is now scarcer than the memory chips everyone panicked about a year ago.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Optical-transceiver demand is running roughly 30% ahead of what indium phosphide (InP) laser fabs can supply, and lead times on the fastest modules have stretched past 40 weeks. Lumentum's CEO said in July the shortage would be worse than the HBM memory crunch. Nvidia has already spent $4 billion locking up two of the world's few InP laser suppliers — a bet that whoever secures capacity first sets the pace for everyone else's AI buildout through at least 2027.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">The fabric multiplier</h2>
+      <p class="sv-caption mono">Drag the slider to scale an AI training cluster. Top row: the network layers a fabric needs at that scale — each extra layer (Leaf → Spine → Core → Superspine) is another full stage of switch-to-switch optical links stacked on top of the GPU links. Bottom bars: GPU count, held as a fixed 1× reference, versus optical transceivers needed per GPU at that scale. Simplified, illustrative model: real topologies and multipliers vary by vendor, but the core relationship — links growing faster than GPU count as clusters add layers — is a real, widely reported property of AI network fabrics. "Laser chips needed" is treated as 1-per-transceiver here for simplicity; real high-speed modules often use several lasers per transceiver, so actual chip demand runs higher than shown.</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 400 210" role="img" aria-label="Diagram of network layers active at a given AI cluster size, and two bars comparing GPU count (fixed 1x reference) against optical transceivers needed per GPU, which grows from 2x to 8x as cluster size and layer count increase.">
+        <text x="30" y="14" class="sv-lane-label mono">NETWORK LAYERS AT THIS SCALE</text>
+        <line id="sv-link-0" class="sv-link" x1="42" y1="34" x2="123" y2="34" stroke="var(--border)" stroke-width="2"></line>
+        <line id="sv-link-1" class="sv-link" x1="123" y1="34" x2="204" y2="34" stroke="var(--border)" stroke-width="2"></line>
+        <line id="sv-link-2" class="sv-link" x1="204" y1="34" x2="285" y2="34" stroke="var(--border)" stroke-width="2"></line>
+        <line id="sv-link-3" class="sv-link" x1="285" y1="34" x2="366" y2="34" stroke="var(--border)" stroke-width="2"></line>
+
+        <circle id="sv-node-0" class="sv-node" cx="35" cy="34" r="9" fill="var(--accent-a)"></circle>
+        <text x="35" y="52" class="sv-node-label mono" text-anchor="middle" fill="var(--ink)">GPU</text>
+        <circle id="sv-node-1" class="sv-node" cx="116" cy="34" r="9" fill="var(--border)"></circle>
+        <text x="116" y="52" class="sv-node-label mono" text-anchor="middle" fill="var(--muted)">LEAF</text>
+        <circle id="sv-node-2" class="sv-node" cx="197" cy="34" r="9" fill="var(--border)"></circle>
+        <text x="197" y="52" class="sv-node-label mono" text-anchor="middle" fill="var(--muted)">SPINE</text>
+        <circle id="sv-node-3" class="sv-node" cx="278" cy="34" r="9" fill="var(--border)"></circle>
+        <text x="278" y="52" class="sv-node-label mono" text-anchor="middle" fill="var(--muted)">CORE</text>
+        <circle id="sv-node-4" class="sv-node" cx="359" cy="34" r="9" fill="var(--border)"></circle>
+        <text x="359" y="52" class="sv-node-label mono" text-anchor="middle" fill="var(--muted)">SUPER&#8209;SPINE</text>
+
+        <text x="30" y="86" class="sv-lane-label mono">GPU COUNT (reference)</text>
+        <rect x="60" y="92" width="320" height="16" rx="5" class="sv-track-bg"></rect>
+        <rect x="60" y="92" width="320" height="16" rx="5" fill="var(--accent-b)"></rect>
+        <text x="372" y="104" class="sv-bar-num mono" text-anchor="end" fill="#fff">1&#215;</text>
+
+        <text x="30" y="130" class="sv-lane-label mono">OPTICAL TRANSCEIVERS NEEDED, PER GPU</text>
+        <rect x="60" y="136" width="320" height="16" rx="5" class="sv-track-bg"></rect>
+        <rect id="sv-rect-trx" x="60" y="136" width="240" height="16" rx="5" fill="var(--accent-a)"></rect>
+        <text id="sv-num-trx" x="294" y="148" class="sv-bar-num mono" text-anchor="end" fill="#fff">6&#215;</text>
+
+        <line x1="30" y1="168" x2="380" y2="168" stroke="var(--border)" stroke-width="1"></line>
+        <text x="60" y="182" class="sv-tick-label mono" text-anchor="middle">0&#215;</text>
+        <text x="220" y="182" class="sv-tick-label mono" text-anchor="middle">4&#215;</text>
+        <text x="380" y="182" class="sv-tick-label mono" text-anchor="middle">8&#215;</text>
+        <text x="220" y="196" class="sv-tick-label mono" text-anchor="middle">optical transceivers needed per GPU, indexed to a 0&#8211;8&#215; scale</text>
+      </svg>
+    </div>
+
+    <div class="sv-divider"></div>
+
+    <p class="sv-calc-label">Scale the cluster:</p>
+    <div class="sv-control-row">
+      <label class="mono sv-tick-label" for="sv-scale" style="font-size:11px;">CLUSTER SIZE</label>
+      <input type="range" id="sv-scale" class="sv-slider" min="0" max="4" step="1" value="3" aria-label="AI training cluster size, from a single pod to a frontier mega-cluster" />
+      <span class="sv-slider-value mono" id="sv-scale-value">131,072 GPUs</span>
+    </div>
+    <p class="sv-calc-result mono" id="sv-calc-text">A <span class="sv-num" id="sv-calc-label-text">large training cluster</span> of <span class="sv-num" id="sv-calc-gpus">131,072</span> GPUs needs roughly <span class="sv-num" id="sv-calc-trx">786,432</span> optical transceivers — about <span class="sv-num" id="sv-calc-share">1.25%</span> of all 800G+ transceivers expected to ship worldwide in 2026.</p>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">GPUs in cluster</div>
+        <div class="sv-stat-value mono" id="sv-stat-gpus">131,072</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Network layers active</div>
+        <div class="sv-stat-value mono" id="sv-stat-layers">4</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Transceivers needed</div>
+        <div class="sv-stat-value mono" id="sv-stat-trx">786,432</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Share of 2026 global supply</div>
+        <div class="sv-stat-value mono" id="sv-stat-share">1.25%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Think of a giant AI data center as a stadium full of GPUs that all need to talk to each other constantly, trading enormous amounts of data as they train one model together. Ordinary copper wires can't carry a signal far or fast enough at that scale, so engineers switched to fiber optics — the same technology that carries the internet across oceans. Every optical cable needs a small device called a transceiver, and every transceiver needs a laser to actually generate the light. Those lasers aren't made from ordinary silicon; they're grown from a rarer, trickier material called indium phosphide, on wafers a fraction of the size of a normal chip wafer, in a handful of highly specialized factories.</p>
+      <p>For years, indium phosphide lasers were a modest business, sold by the thousands to phone and internet companies. Then AI happened. Hyperscalers now need them by the millions, partly because every extra layer of switches added to scale a cluster up multiplies how many optical links — and therefore how many lasers — the whole system needs. Demand for these transceivers is running about 30% ahead of what suppliers can produce, and delivery times have stretched past 40 weeks for the fastest modules, four to five times longer than ordinary networking gear. Lumentum's CEO, whose company runs five of these specialty wafer fabs, said in July the shortage would end up worse than the memory-chip crunch that doubled RAM prices last year.</p>
+      <p>Nvidia isn't waiting around: in March it committed $4 billion to two laser suppliers, Lumentum and Coherent, buying up years of future capacity before its rivals could get in line. The long-term fix — soldering the lasers directly onto the switch chip instead of onto separate cable ends, called co-packaged optics — won't ship at real scale until 2027 at the earliest. Until then, the thing throttling how fast AI factories can grow isn't the GPU. It's the light that connects them.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Modern AI training clusters connect thousands to hundreds of thousands of GPUs over non-blocking, multi-tier network fabrics — commonly leaf-spine at modest scale, extending to leaf-spine-core-superspine at frontier scale. Because copper's reach is limited to roughly 2-3 meters at 800Gb/s-class signaling, nearly every inter-rack and scale-out link runs over pluggable optical transceivers (currently 800G, migrating to 1.6T) built around PAM4-modulated lasers. Each additional switching tier a cluster crosses adds a full stage of switch-to-switch optical links on top of GPU-to-leaf links, so transceiver — and laser-chip — demand scales faster than GPU count as clusters grow, not linearly with it.</p>
+      <p>The laser die itself is grown from indium phosphide (InP), a III-V compound semiconductor, on wafers typically 4 or 6 inches in diameter — far smaller and lower-yielding than silicon's 12-inch standard, and concentrated in a handful of specialty fabs (Lumentum alone runs five). Global shipments of 800G+ transceivers are projected to jump roughly 2.6x year over year in 2026, toward the tens of millions of units, but InP laser output isn't keeping pace: industry estimates put transceiver demand running about 30% ahead of supply, with 800G/1.6T lead times exceeding 40 weeks versus 8-14 weeks for mature 100G parts. Lumentum CEO Michael Hurlston said in July, at the RAISE Summit in Paris, that the InP supply-demand gap has now overtaken DRAM's, calling it a bigger risk than the HBM memory shortage.</p>
+      <p>Nvidia responded by directly securing upstream capacity: in March it invested $2 billion each into Lumentum and Coherent — a combined $4 billion — paired with multi-year, multibillion-dollar purchase commitments and future capacity rights, effectively pre-buying laser output as both build new U.S. fabs. The structural fix is co-packaged optics (CPO): integrating silicon-photonic engines directly into the switch package (Nvidia's Quantum-X/Spectrum-X, Broadcom's 51.2Tbps CPO switch) to cut the number of discrete lasers and connectors per bit moved. Broadcom's CPO switch isn't shipping in volume until late 2027, and analysts expect the InP supply-demand imbalance to persist into 2027-2028.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.cnbc.com/2026/03/02/nvidia-investment-coherent-lumentum.html" target="_blank" rel="noopener">CNBC — Nvidia to invest $4 billion into photonics companies Coherent and Lumentum</a></li>
+    <li><a href="https://nvidianews.nvidia.com/news/nvidia-announces-strategic-partnership-with-lumentum-to-develop-state-of-the-art-optics-technology" target="_blank" rel="noopener">NVIDIA Newsroom — Strategic Partnership With Lumentum to Develop State-of-the-Art Optics Technology</a></li>
+    <li><a href="https://www.trendforce.com/news/2026/08/06/news-inp-shortage-emerges-as-ai-optical-interconnect-bottleneck/" target="_blank" rel="noopener">TrendForce — InP Shortage Emerges as AI Optical Interconnect Bottleneck</a></li>
+    <li><a href="https://finance.biggo.com/news/dc8d3d0d-46e8-47ec-91f6-ffa947128b35" target="_blank" rel="noopener">BigGo Finance — Lumentum CEO Warns Indium Phosphide Shortage Could Be Worse Than Memory Chips</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var slider = document.getElementById('sv-scale');
+    if (!slider) return;
+
+    var STEPS = [
+      { gpus: 128,     tiers: 2, mult: 2, label: 'single pod' },
+      { gpus: 2048,    tiers: 2, mult: 3, label: 'training pod' },
+      { gpus: 16384,   tiers: 3, mult: 5, label: 'multi-pod cluster' },
+      { gpus: 131072,  tiers: 3, mult: 6, label: 'large training cluster' },
+      { gpus: 524288,  tiers: 4, mult: 8, label: 'frontier mega-cluster' }
+    ];
+    var GLOBAL_ANNUAL_TRX = 63000000;
+    var TRACK_X = 60, TRACK_W = 320;
+    var MAX_MULT = 8;
+
+    var nodes = [0, 1, 2, 3, 4].map(function (i) { return document.getElementById('sv-node-' + i); });
+    var links = [0, 1, 2, 3].map(function (i) { return document.getElementById('sv-link-' + i); });
+    var rectTrx = document.getElementById('sv-rect-trx');
+    var numTrx = document.getElementById('sv-num-trx');
+    var scaleValue = document.getElementById('sv-scale-value');
+    var calcLabelText = document.getElementById('sv-calc-label-text');
+    var calcGpus = document.getElementById('sv-calc-gpus');
+    var calcTrx = document.getElementById('sv-calc-trx');
+    var calcShare = document.getElementById('sv-calc-share');
+    var statGpus = document.getElementById('sv-stat-gpus');
+    var statLayers = document.getElementById('sv-stat-layers');
+    var statTrx = document.getElementById('sv-stat-trx');
+    var statShare = document.getElementById('sv-stat-share');
+
+    function fmtPct(x) {
+      if (x < 0.01) return x.toFixed(4) + '%';
+      if (x < 1) return x.toFixed(3) + '%';
+      return x.toFixed(2) + '%';
+    }
+    function fmtInt(x) {
+      return x.toLocaleString('en-US');
+    }
+
+    function render(idx) {
+      var s = STEPS[idx];
+      var transceivers = s.gpus * s.mult;
+      var share = transceivers / GLOBAL_ANNUAL_TRX * 100;
+      var activeLayers = s.tiers + 1;
+
+      for (var i = 0; i < nodes.length; i++) {
+        var active = i < activeLayers;
+        nodes[i].setAttribute('fill', active ? 'var(--accent-a)' : 'var(--border)');
+      }
+      for (var j = 0; j < links.length; j++) {
+        var linkActive = (j + 1) < activeLayers;
+        links[j].setAttribute('stroke', linkActive ? 'var(--accent-a)' : 'var(--border)');
+        links[j].setAttribute('stroke-width', linkActive ? '3' : '2');
+      }
+
+      var w = TRACK_W * s.mult / MAX_MULT;
+      rectTrx.setAttribute('width', w.toFixed(1));
+      var numX = TRACK_X + w - 6;
+      numTrx.setAttribute('x', numX.toFixed(1));
+      numTrx.textContent = s.mult + '×';
+
+      scaleValue.textContent = fmtInt(s.gpus) + ' GPUs';
+      calcLabelText.textContent = s.label;
+      calcGpus.textContent = fmtInt(s.gpus);
+      calcTrx.textContent = fmtInt(transceivers);
+      calcShare.textContent = fmtPct(share);
+
+      statGpus.textContent = fmtInt(s.gpus);
+      statLayers.textContent = String(activeLayers);
+      statTrx.textContent = fmtInt(transceivers);
+      statShare.textContent = fmtPct(share);
+    }
+
+    slider.addEventListener('input', function () {
+      render(parseInt(slider.value, 10));
+    });
+
+    render(parseInt(slider.value, 10));
+  })();
+</script>
+</body>
+</html>
