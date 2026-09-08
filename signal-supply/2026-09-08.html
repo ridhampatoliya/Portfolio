@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — FERC Gave the Grid 60 Days to Get Ready for AI. The Deadline Just Quietly Passed.</title>
+<meta name="description" content="In June, FERC ordered America's six biggest grid operators to fix or justify their rules for connecting AI data centers to the power grid, on a 30- and 60-day clock. Both deadlines have passed — but full compliance is still trickling in through November, while data-center demand keeps outpacing new grid supply roughly 2-to-1 every year." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #bd4726;
+    --accent-a-tint: #fbe0d5;
+    --accent-b: #1c7a6e;
+    --accent-b-tint: #d9efeb;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e8815c;
+      --accent-a-tint: #3a2116;
+      --accent-b: #4bb3a3;
+      --accent-b-tint: #14322d;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e8815c;
+    --accent-a-tint: #3a2116;
+    --accent-b: #4bb3a3;
+    --accent-b-tint: #14322d;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #bd4726;
+    --accent-a-tint: #fbe0d5;
+    --accent-b: #1c7a6e;
+    --accent-b-tint: #d9efeb;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: the widening gap --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.5;
+  }
+  .sv-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 10px;
+    font-size: 11px;
+  }
+  .sv-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+  }
+  .sv-legend-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 10px 10px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; }
+  .sv-grid { stroke: var(--border); stroke-width: 1; }
+  .sv-axis-label { font-size: 8px; fill: var(--muted); }
+  .sv-demand-line { stroke: var(--accent-a); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+  .sv-supply-line { stroke: var(--accent-b); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+  .sv-gap-area { fill: var(--accent-a-tint); opacity: 0.75; }
+  .sv-playhead { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+  .sv-end-label { font-size: 9.5px; font-weight: 700; }
+  @media (prefers-reduced-motion: no-preference) {
+    .sv-demand-line, .sv-supply-line, .sv-gap-area, .sv-playhead, .sv-dot, .sv-end-label {
+      transition: all 0.15s linear;
+    }
+  }
+
+  .sv-divider {
+    border-top: 1px solid var(--border);
+    margin: 18px 0 16px;
+  }
+
+  .sv-calc-label {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  .sv-control-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .sv-slider {
+    flex: 1 1 160px;
+    min-width: 130px;
+    accent-color: var(--accent-a);
+    height: 22px;
+    cursor: pointer;
+  }
+  .sv-slider-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: right;
+    min-width: 58px;
+  }
+  .sv-play-btn {
+    border: 1px solid var(--accent-a);
+    background: var(--accent-a);
+    color: #fff;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 7px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .sv-play-btn:active { opacity: 0.85; }
+  .sv-pace-toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .sv-pace-toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    padding: 6px 11px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .sv-pace-toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .sv-calc-result {
+    font-size: 13.5px;
+    margin: 12px 0 0;
+    line-height: 1.5;
+  }
+  .sv-calc-result .sv-num {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent-a);
+  }
+
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 18px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 8, 2026</span>
+    <span class="category-chip">GRID POLICY</span>
+  </div>
+  <h1>FERC Gave the Grid 60 Days to Get Ready for AI. The Deadline Just Quietly Passed.</h1>
+  <p class="lede">Before a data center can draw a single watt, its grid operator has to certify the local wires can take it — a process that now runs slower than building the data center itself. In June, federal regulators gave the operators a strict clock to fix it. That clock just ran out, and the fixes are still trickling in.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    On June 18, FERC ordered America's six biggest grid operators — PJM, MISO, SPP, CAISO, ISO-NE, and NYISO — to justify or reform their rules for connecting massive new power users like AI data centers, on a 30-day report deadline and a 60-day fix-or-justify deadline. Both had elapsed by early September, but full compliance is still rolling in past the original clock — MISO's isn't due until November 16 — while data-center demand keeps growing an estimated 5-7 GW a year against only 2-3 GW a year of newly connected supply.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">The widening gap</h2>
+      <p class="sv-caption mono">Drag the year slider (or press Play) to watch two paces diverge: how much new AI data-center demand shows up each year, versus how much new grid supply actually gets connected. Toggle "if connections matched demand" to see what closing the gap would take. Simplified national model using industry-reported order-of-magnitude rates (demand +5-7 GW/yr, supply +2-3 GW/yr) — illustrative, not an official FERC or NERC projection, and it excludes the multi-year backlog that already existed before year zero.</p>
+    </div>
+
+    <div class="sv-legend">
+      <span class="sv-legend-item"><span class="sv-legend-dot" style="background:var(--accent-a);"></span>Demand requested (cumulative GW)</span>
+      <span class="sv-legend-item"><span class="sv-legend-dot" style="background:var(--accent-b);"></span>Supply connected (cumulative GW)</span>
+      <span class="sv-legend-item"><span class="sv-legend-dot" style="background:var(--accent-a-tint); border:1px solid var(--accent-a);"></span>Backlog (the gap)</span>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 400 210" role="img" aria-label="Line chart of cumulative new data-center demand versus cumulative new grid supply connected, from year 0 to year 10, with the gap between the two lines shaded as backlog.">
+        <line x1="60" y1="170" x2="380" y2="170" class="sv-grid"></line>
+        <line x1="60" y1="120" x2="380" y2="120" class="sv-grid"></line>
+        <line x1="60" y1="70" x2="380" y2="70" class="sv-grid"></line>
+        <line x1="60" y1="20" x2="380" y2="20" class="sv-grid"></line>
+        <text x="54" y="173" class="sv-axis-label mono" text-anchor="end">0</text>
+        <text x="54" y="123" class="sv-axis-label mono" text-anchor="end">20</text>
+        <text x="54" y="73" class="sv-axis-label mono" text-anchor="end">40</text>
+        <text x="54" y="23" class="sv-axis-label mono" text-anchor="end">60</text>
+        <text x="20" y="96" class="sv-axis-label mono" transform="rotate(-90 20 96)" text-anchor="middle">CUMULATIVE GW</text>
+
+        <polygon id="sv-gap" class="sv-gap-area" points="60,170 380,20 380,70"></polygon>
+        <line id="sv-demand-line" class="sv-demand-line" x1="60" y1="170" x2="380" y2="20"></line>
+        <line id="sv-supply-line" class="sv-supply-line" x1="60" y1="170" x2="380" y2="70"></line>
+        <line id="sv-playhead" class="sv-playhead" x1="380" y1="20" x2="380" y2="170"></line>
+        <circle id="sv-dot-demand" class="sv-dot" cx="380" cy="20" r="4" fill="var(--accent-a)"></circle>
+        <circle id="sv-dot-supply" class="sv-dot" cx="380" cy="70" r="4" fill="var(--accent-b)"></circle>
+        <text id="sv-label-demand" x="356" y="14" class="sv-end-label mono" text-anchor="end" fill="var(--accent-a)">60 GW</text>
+        <text id="sv-label-supply" x="356" y="84" class="sv-end-label mono" text-anchor="end" fill="var(--accent-b)">25 GW</text>
+
+        <text x="60" y="184" class="sv-axis-label mono" text-anchor="middle">YR 0</text>
+        <text x="220" y="184" class="sv-axis-label mono" text-anchor="middle">YR 5</text>
+        <text x="380" y="184" class="sv-axis-label mono" text-anchor="middle">YR 10</text>
+        <text x="220" y="198" class="sv-axis-label mono" text-anchor="middle">years since interconnection pace set at these rates</text>
+      </svg>
+    </div>
+
+    <div class="sv-divider"></div>
+
+    <p class="sv-calc-label">Scrub the years, or race the two paces:</p>
+    <div class="sv-control-row">
+      <button type="button" class="sv-play-btn" id="sv-play">▶ Play from Yr 0</button>
+      <input type="range" id="sv-year" class="sv-slider" min="0" max="10" step="1" value="10" aria-label="Years elapsed" />
+      <span class="sv-slider-value mono" id="sv-year-value">Year 10</span>
+    </div>
+    <div class="sv-control-row">
+      <div class="sv-pace-toggle" role="group" aria-label="Supply connection pace">
+        <button type="button" id="sv-pace-current" aria-pressed="true">Current pace</button>
+        <button type="button" id="sv-pace-matched" aria-pressed="false">If matched demand</button>
+      </div>
+    </div>
+    <p class="sv-calc-result mono" id="sv-calc-text">By <span class="sv-num" id="sv-calc-year">year 10</span>, data centers have requested about <span class="sv-num" id="sv-calc-demand">60</span> GW of new grid capacity, while only about <span class="sv-num" id="sv-calc-supply">25</span> GW of new supply has actually been connected — a backlog of <span class="sv-num" id="sv-calc-backlog">35</span> GW on top of whatever the queue already held.</p>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Year</div>
+        <div class="sv-stat-value mono" id="sv-stat-year">10</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Demand requested</div>
+        <div class="sv-stat-value mono" id="sv-stat-demand">60 GW</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Supply connected</div>
+        <div class="sv-stat-value mono" id="sv-stat-supply">25 GW</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Backlog added</div>
+        <div class="sv-stat-value mono" id="sv-stat-backlog">35 GW</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Building an AI data center is the easy part. The hard part is getting permission to draw power from the grid — and that permission process is its own long, opaque bottleneck, separate from and often slower than actually building anything.</p>
+      <p>Here's the mechanism: before a data center, or any huge new electricity user, can flip the switch, the regional grid operator has to study whether the local wires, substations, and transformers can handle that much extra load without breaking something for everyone else nearby. That study, plus whatever fixes it identifies, plus a signed agreement, can take years — often five, and up to seven in Northern Virginia, the world's biggest data-center market. A related but separate queue governs new power plants trying to connect their supply to that same grid, and it's even more clogged: roughly 8,200 projects, representing more new electricity than the entire U.S. grid currently generates, are sitting in line.</p>
+      <p>In June, the U.S. energy regulator, FERC, did something unusually blunt: it told the six organizations that run most of the country's power grid — covering the Mid-Atlantic, the Midwest, California, Texas's neighbors on the Plains, New England, and New York — that their rules for connecting giant new customers like data centers looked outdated or unfair, and gave them a strict 30-and-60-day clock to prove otherwise or fix them. That kind of aggressive, all-at-once order is rare for FERC.</p>
+      <p>Both deadlines have now quietly passed. Some grid operators are still filing their fixes months late — one isn't due until mid-November. It's a reminder that even when Washington moves fast by its own standards, "fast" is still slower than the AI buildout it's trying to keep pace with.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>On June 18, 2026, the Federal Energy Regulatory Commission issued show-cause orders under Section 206 of the Federal Power Act to all six FERC-jurisdictional RTOs/ISOs — PJM, MISO, SPP, CAISO, ISO-NE, and NYISO — and their transmission owners. Each was directed to do two things: file an informational report within 30 days on how it will secure sufficient generation capacity for existing and new large loads, and within 60 days either justify that its current open-access transmission tariff (OATT) provisions for interconnecting large loads — data centers, manufacturing plants, and similar demand — remain just and reasonable, or propose reforms. Both windows, roughly July 18 and August 17, had elapsed by early September. The action follows an October 2025 directive from Energy Secretary Chris Wright asking FERC to pursue reforms for "timely and orderly" large-load interconnection, and sits alongside a separate December 2025 FERC ruling that found PJM's tariff for co-located generation-and-load arrangements unjust and unreasonable — which PJM addressed through its own compliance filings in January and April 2026, exempting it from the June order's large-load provisions.</p>
+      <p>Compliance is arriving on a staggered timeline that outruns the original clock: MISO, for instance, expected to file its Large Load Interconnection Reliability Requirements Tariff by the end of August 2026, but committed to a full response to the show-cause order only by November 16, 2026.</p>
+      <p>This large-load bottleneck compounds a well-documented generation-interconnection queue. Per Lawrence Berkeley National Laboratory's tracking, roughly 8,200 active projects representing about 1,312 GW of generation and 749 GW of storage were queued for grid connection as of end-2025, with average wait times near five years nationally, and up to seven in Northern Virginia. Structurally, data-center demand is being added to the grid at an estimated 5-7 GW per year, while new generation supply is energized at only about 2-3 GW per year — a gap, not a fixed backlog, meaning the shortfall compounds annually regardless of how fast interconnection paperwork itself gets processed. NERC's January 2026 Long-Term Reliability Assessment raised its 10-year summer peak demand growth forecast to 224 GW, 69% above the prior year's estimate and a 24% increase over 2025 peak demand — the steepest compound annual growth rate NERC has recorded since it began tracking in 1995 — attributing most of the increase to new data-center load, and flagging 13 of 23 assessed regions at elevated or high resource-adequacy risk within five years.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.ferc.gov/news-events/news/ferc-launches-aggressive-targeted-action-speed-large-load-integration" target="_blank" rel="noopener">FERC — FERC Launches Aggressive Targeted Action to Speed Large Load Integration</a></li>
+    <li><a href="https://www.whitecase.com/insight-alert/ferc-orders-grid-operators-promptly-revise-or-justify-interconnection-rules-data" target="_blank" rel="noopener">White &amp; Case — FERC Orders Grid Operators to Promptly Revise or Justify Interconnection Rules for Data Centers and Large Loads</a></li>
+    <li><a href="https://www.utilitydive.com/news/nerc-10-year-peak-demand-forecast-jumps-24-on-new-data-center-loads/810955/" target="_blank" rel="noopener">Utility Dive — NERC 10-Year Peak Demand Forecast Jumps 24% on New Data Center Loads</a></li>
+    <li><a href="https://www.zeroemissiongrid.com/iso-rto/miso-large-load-interconnection/" target="_blank" rel="noopener">Zero Emission Grid — MISO Large Load Interconnection &amp; FLITS Updates</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var slider = document.getElementById('sv-year');
+    if (!slider) return;
+
+    var DEMAND_RATE = 6;
+    var SUPPLY_RATE_CURRENT = 2.5;
+    var SUPPLY_RATE_MATCHED = 6;
+    var X0 = 60, X1 = 380, Y0 = 170, Y_TOP = 20;
+    var GW_MAX = 60;
+    var YEAR_MAX = 10;
+    var pxPerGW = (Y0 - Y_TOP) / GW_MAX;
+    var pxPerYear = (X1 - X0) / YEAR_MAX;
+
+    var reduceMotion = false;
+    try {
+      reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) {}
+
+    var paceMode = 'current';
+    var playing = false;
+    var playTimer = null;
+
+    var demandLine = document.getElementById('sv-demand-line');
+    var supplyLine = document.getElementById('sv-supply-line');
+    var gapArea = document.getElementById('sv-gap');
+    var playhead = document.getElementById('sv-playhead');
+    var dotDemand = document.getElementById('sv-dot-demand');
+    var dotSupply = document.getElementById('sv-dot-supply');
+    var labelDemand = document.getElementById('sv-label-demand');
+    var labelSupply = document.getElementById('sv-label-supply');
+    var yearValue = document.getElementById('sv-year-value');
+    var calcYear = document.getElementById('sv-calc-year');
+    var calcDemand = document.getElementById('sv-calc-demand');
+    var calcSupply = document.getElementById('sv-calc-supply');
+    var calcBacklog = document.getElementById('sv-calc-backlog');
+    var statYear = document.getElementById('sv-stat-year');
+    var statDemand = document.getElementById('sv-stat-demand');
+    var statSupply = document.getElementById('sv-stat-supply');
+    var statBacklog = document.getElementById('sv-stat-backlog');
+    var playBtn = document.getElementById('sv-play');
+    var paceCurrentBtn = document.getElementById('sv-pace-current');
+    var paceMatchedBtn = document.getElementById('sv-pace-matched');
+
+    function fmt1(x) {
+      return (Math.round(x * 10) / 10).toString();
+    }
+
+    function render(year) {
+      var supplyRate = paceMode === 'matched' ? SUPPLY_RATE_MATCHED : SUPPLY_RATE_CURRENT;
+      var demandTotal = DEMAND_RATE * year;
+      var supplyTotal = supplyRate * year;
+      var backlog = Math.max(0, demandTotal - supplyTotal);
+
+      var x = X0 + year * pxPerYear;
+      var yD = Y0 - demandTotal * pxPerGW;
+      var yS = Y0 - supplyTotal * pxPerGW;
+
+      demandLine.setAttribute('x2', x.toFixed(1));
+      demandLine.setAttribute('y2', yD.toFixed(1));
+      supplyLine.setAttribute('x2', x.toFixed(1));
+      supplyLine.setAttribute('y2', yS.toFixed(1));
+      gapArea.setAttribute('points', X0 + ',' + Y0 + ' ' + x.toFixed(1) + ',' + yD.toFixed(1) + ' ' + x.toFixed(1) + ',' + yS.toFixed(1));
+      playhead.setAttribute('x1', x.toFixed(1));
+      playhead.setAttribute('x2', x.toFixed(1));
+      playhead.setAttribute('y1', Math.min(yD, Y_TOP).toFixed(1));
+      dotDemand.setAttribute('cx', x.toFixed(1));
+      dotDemand.setAttribute('cy', yD.toFixed(1));
+      dotSupply.setAttribute('cx', x.toFixed(1));
+      dotSupply.setAttribute('cy', yS.toFixed(1));
+
+      var labelX = Math.max(x - 24, X0 + 4);
+      labelDemand.setAttribute('x', labelX.toFixed(1));
+      labelDemand.setAttribute('y', (yD - 6).toFixed(1));
+      labelDemand.textContent = fmt1(demandTotal) + ' GW';
+      labelSupply.setAttribute('x', labelX.toFixed(1));
+      labelSupply.setAttribute('y', (yS - 6 < yD + 12 ? yS + 14 : yS - 6).toFixed(1));
+      labelSupply.textContent = fmt1(supplyTotal) + ' GW';
+
+      yearValue.textContent = 'Year ' + year;
+      calcYear.textContent = 'year ' + year;
+      calcDemand.textContent = fmt1(demandTotal);
+      calcSupply.textContent = fmt1(supplyTotal);
+      calcBacklog.textContent = fmt1(backlog);
+      statYear.textContent = String(year);
+      statDemand.textContent = fmt1(demandTotal) + ' GW';
+      statSupply.textContent = fmt1(supplyTotal) + ' GW';
+      statBacklog.textContent = fmt1(backlog) + ' GW';
+    }
+
+    function setYear(year) {
+      slider.value = String(year);
+      render(year);
+    }
+
+    slider.addEventListener('input', function () {
+      stopPlay();
+      render(parseInt(slider.value, 10));
+    });
+
+    function stopPlay() {
+      playing = false;
+      if (playTimer) {
+        clearInterval(playTimer);
+        playTimer = null;
+      }
+      playBtn.textContent = '▶ Play from Yr 0';
+    }
+
+    function startPlay() {
+      if (reduceMotion) {
+        setYear(YEAR_MAX);
+        return;
+      }
+      stopPlay();
+      playing = true;
+      playBtn.textContent = '⏸ Playing…';
+      var y = 0;
+      setYear(0);
+      playTimer = setInterval(function () {
+        y += 1;
+        setYear(y);
+        if (y >= YEAR_MAX) {
+          stopPlay();
+        }
+      }, 450);
+    }
+
+    playBtn.addEventListener('click', function () {
+      if (playing) {
+        stopPlay();
+      } else {
+        startPlay();
+      }
+    });
+
+    function setPace(mode) {
+      paceMode = mode;
+      paceCurrentBtn.setAttribute('aria-pressed', String(mode === 'current'));
+      paceMatchedBtn.setAttribute('aria-pressed', String(mode === 'matched'));
+      render(parseInt(slider.value, 10));
+    }
+    paceCurrentBtn.addEventListener('click', function () { setPace('current'); });
+    paceMatchedBtn.addEventListener('click', function () { setPace('matched'); });
+
+    render(parseInt(slider.value, 10));
+  })();
+</script>
+</body>
+</html>
