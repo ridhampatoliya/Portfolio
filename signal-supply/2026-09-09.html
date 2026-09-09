@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — One Steel Mill Controls How Fast America's Power Grid Can Grow</title>
+<meta name="description" content="Nearly every large power transformer built in the US needs a specialty magnetic steel that only one company still makes domestically, at two plants in Pennsylvania and Ohio. With AI data centers, factories, and an aging grid all ordering at once, a big transformer's lead time has stretched to 3-5 years — often longer than the building it's meant to power." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f4e2cf;
+    --accent-b: #2f6690;
+    --accent-b-tint: #dbe8f0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e2984f;
+      --accent-a-tint: #3a2712;
+      --accent-b: #6fabd1;
+      --accent-b-tint: #17293a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e2984f;
+    --accent-a-tint: #3a2712;
+    --accent-b: #6fabd1;
+    --accent-b-tint: #17293a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f4e2cf;
+    --accent-b: #2f6690;
+    --accent-b-tint: #dbe8f0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: the race to power-on --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.5;
+  }
+  .sv-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 10px;
+    font-size: 11px;
+  }
+  .sv-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+  }
+  .sv-legend-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 10px 10px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; }
+  .sv-grid { stroke: var(--border); stroke-width: 1; }
+  .sv-axis-label { font-size: 8px; fill: var(--muted); }
+  .sv-track-bg { fill: var(--surface); stroke: var(--border); stroke-width: 1; }
+  .sv-fill-dc { fill: var(--accent-b); }
+  .sv-fill-tf { fill: var(--accent-a); }
+  .sv-marker { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+  .sv-marker-label { font-size: 8px; fill: var(--muted); }
+  .sv-row-label { font-size: 10px; font-weight: 700; }
+  .sv-status-label { font-size: 9px; font-weight: 700; }
+  @media (prefers-reduced-motion: no-preference) {
+    .sv-fill-dc, .sv-fill-tf, .sv-marker {
+      transition: all 0.15s linear;
+    }
+  }
+
+  .sv-divider {
+    border-top: 1px solid var(--border);
+    margin: 18px 0 16px;
+  }
+
+  .sv-calc-label {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  .sv-control-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .sv-slider {
+    flex: 1 1 160px;
+    min-width: 130px;
+    accent-color: var(--accent-a);
+    height: 22px;
+    cursor: pointer;
+  }
+  .sv-slider-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: right;
+    min-width: 72px;
+  }
+  .sv-play-btn {
+    border: 1px solid var(--accent-a);
+    background: var(--accent-a);
+    color: #fff;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 7px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .sv-play-btn:active { opacity: 0.85; }
+  .sv-pace-toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .sv-pace-toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    padding: 6px 11px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .sv-pace-toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .sv-calc-result {
+    font-size: 13.5px;
+    margin: 12px 0 0;
+    line-height: 1.5;
+  }
+  .sv-calc-result .sv-num {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent-a);
+  }
+
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 18px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 9, 2026</span>
+    <span class="category-chip">GRID HARDWARE</span>
+  </div>
+  <h1>One Steel Mill Controls How Fast America's Power Grid Can Grow</h1>
+  <p class="lede">Every large power transformer needs a magnetic steel that barely wastes energy as heat. Almost none of it is made in the US anymore — except at two aging plants in Pennsylvania and Ohio, run by one company. AI's power hunger just ran straight into that bottleneck.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Cleveland-Cliffs is essentially the only company still making grain-oriented electrical steel — the transformer-core material — at scale in the US, from plants in Butler, PA and Zanesville, OH. Per DOE's 2024 report to Congress, over 80% of large power transformers installed in the US are already imported, and Wood Mackenzie estimated a roughly 30% supply deficit for power transformers in 2025. A custom, top-tier unit now takes 3 to 5 years to arrive — often longer than the data center, factory, or substation waiting on it.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">The race to power-on</h2>
+      <p class="sv-caption mono">Two builds share one clock: a data center's construction, and the large power transformer it needs before it can draw a watt. Toggle the era to see the wait shift, then scrub or press Play. Simplified model — construction ≈24 months (typical shell-and-core range); transformer lead time ≈15 months pre-2020 vs. ≈54 months in 2026 for a custom Tier-1 unit (reported range 48-60 months) — illustrative, not one specific project's real schedule.</p>
+    </div>
+
+    <div class="sv-legend">
+      <span class="sv-legend-item"><span class="sv-legend-dot" style="background:var(--accent-b);"></span>Data center construction</span>
+      <span class="sv-legend-item"><span class="sv-legend-dot" style="background:var(--accent-a);"></span>Large power transformer</span>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 400 165" role="img" aria-label="Two horizontal progress bars racing along a shared month timeline from 0 to 60: data center construction and its large power transformer, showing which finishes first.">
+        <text x="70" y="12" class="sv-row-label" fill="var(--accent-b)">DATA CENTER</text>
+        <rect x="70" y="20" width="310" height="24" rx="6" class="sv-track-bg"></rect>
+        <rect id="sv-fill-dc" x="70" y="20" width="0" height="24" rx="6" class="sv-fill-dc"></rect>
+        <text id="sv-status-dc" x="380" y="36" class="sv-status-label mono" text-anchor="end" fill="var(--surface)">0%</text>
+
+        <text x="70" y="72" class="sv-row-label" fill="var(--accent-a)">LARGE POWER TRANSFORMER</text>
+        <rect x="70" y="80" width="310" height="24" rx="6" class="sv-track-bg"></rect>
+        <rect id="sv-fill-tf" x="70" y="80" width="0" height="24" rx="6" class="sv-fill-tf"></rect>
+        <text id="sv-status-tf" x="380" y="96" class="sv-status-label mono" text-anchor="end" fill="var(--surface)">0%</text>
+
+        <line id="sv-marker" class="sv-marker" x1="194" y1="14" x2="194" y2="104"></line>
+        <text id="sv-marker-label" x="194" y="118" class="sv-marker-label mono" text-anchor="middle">DC READY: MO 24</text>
+
+        <line x1="70" y1="140" x2="380" y2="140" class="sv-grid"></line>
+        <text x="70" y="152" class="sv-axis-label mono" text-anchor="middle">0</text>
+        <text x="132" y="152" class="sv-axis-label mono" text-anchor="middle">12</text>
+        <text x="194" y="152" class="sv-axis-label mono" text-anchor="middle">24</text>
+        <text x="256" y="152" class="sv-axis-label mono" text-anchor="middle">36</text>
+        <text x="318" y="152" class="sv-axis-label mono" text-anchor="middle">48</text>
+        <text x="380" y="152" class="sv-axis-label mono" text-anchor="middle">60</text>
+        <text x="225" y="163" class="sv-axis-label mono" text-anchor="middle">months since both are ordered</text>
+      </svg>
+    </div>
+
+    <div class="sv-divider"></div>
+
+    <p class="sv-calc-label">Pick an era, then scrub or race the clock:</p>
+    <div class="sv-control-row">
+      <div class="sv-pace-toggle" role="group" aria-label="Transformer lead-time era">
+        <button type="button" id="sv-era-past" aria-pressed="false">Pre-2020 (~15 mo)</button>
+        <button type="button" id="sv-era-now" aria-pressed="true">Today (~54 mo)</button>
+      </div>
+    </div>
+    <div class="sv-control-row">
+      <button type="button" class="sv-play-btn" id="sv-play">▶ Play from Mo 0</button>
+      <input type="range" id="sv-month" class="sv-slider" min="0" max="60" step="1" value="60" aria-label="Months elapsed" />
+      <span class="sv-slider-value mono" id="sv-month-value">Month 60</span>
+    </div>
+    <p class="sv-calc-result mono" id="sv-calc-text"></p>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Month</div>
+        <div class="sv-stat-value mono" id="sv-stat-month">60</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Data center</div>
+        <div class="sv-stat-value mono" id="sv-stat-dc">Ready</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Transformer</div>
+        <div class="sv-stat-value mono" id="sv-stat-tf">Delivered</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Built, no power</div>
+        <div class="sv-stat-value mono" id="sv-stat-idle">30 mo</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Think about the gap between "we found enough power for the data center" and "the data center actually has power." Sitting in that gap is a giant metal box called a power transformer — not a chip, not glamorous, just a hundred-ton object built by winding miles of copper wire around a core made of a very specific magnetic steel. That steel has to be manufactured so it barely wastes energy as heat every time current runs through it 60 times a second.</p>
+      <p>Here's the surprise: there is essentially one company left making that steel at scale in the US — Cleveland-Cliffs, at two plants in Butler, Pennsylvania and Zanesville, Ohio. Everyone building a large transformer in America — for a data center, a factory, a new solar farm, a hydro dam replacement — is drawing from the same steel, made in the same two towns. Add a specialized copper-winding process on top, and those two materials alone can be roughly half of what a big transformer costs to build.</p>
+      <p>So when AI data centers, factory electrification, and an aging grid all started ordering transformers at the same time, there was no switch to flip. Federal energy officials found that more than 80% of the large transformers going into the US grid are already imported — and even that overseas supply is now stretched thin. Orders from the biggest manufacturers now take three to five years to arrive, sometimes longer than it takes to build the data center itself. Utilities have learned to order years in advance, occasionally before they know exactly where a project will even go, just to hold a place in line.</p>
+      <p>The chips get the headlines. A steel mill in Butler, Pennsylvania quietly decides how fast the actual buildout can move.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>A large power transformer (LPT — generally rated above 100 MVA, the class used at generating stations, bulk substations, and gigawatt-scale campuses) has two dominant, correlated cost drivers: grain-oriented electrical steel (GOES) for the magnetic core, and continuously transposed conductor (CTC) copper for the windings. Per a 2020 US Commerce Department industry survey cited in DOE's July 2024 Large Power Transformer Resilience Report to Congress, GOES and CTC copper each account for roughly 25% of an LPT's final production cost — half the materials bill riding on two specialty inputs. GOES is cold-rolled silicon steel processed so its magnetic domains align along the rolling direction, minimizing hysteresis and eddy-current losses as the core cycles at 60 Hz; producing it at grid scale requires precision annealing and coating lines that few mills anywhere operate.</p>
+      <p>In the US, that capability sits almost entirely with Cleveland-Cliffs, whose Butler Works (Butler, PA) and Zanesville, OH facilities are the only domestic-scale GOES source, per the company's own disclosures and reporting from Butler Eagle and Utility Dive — a concentration significant enough that the Defense Logistics Agency recently signed a five-year, up-to-$400 million contract with Cliffs to secure GOES supply for military-grade electrical equipment. DOE's report quantifies the downstream effect: over 80% of large power transformers installed in the US are imported, largely from South Korea, Mexico, and other manufacturers, in part because import costs and lead times have historically beaten domestic ones.</p>
+      <p>That import channel is now saturated too. Wood Mackenzie estimated roughly a 30% supply deficit for power transformers and 10% for distribution transformers in 2025, as AI data-center buildout, industrial electrification, and utility grid-hardening replacement demand converge on the same finite manufacturing slots at GE Vernova, Hitachi Energy, Siemens Energy, and ABB. DOE projects US LPT demand rising from roughly 750 units/year in 2019 toward 900 units/year by 2027. Lead times for a custom, Tier-1 unit have stretched to 3-5 years — reported as high as 48-60 months at Hitachi Energy and 60-plus months (with some order slots quoted into 2031) at GE Vernova — up from roughly 12-18 months before 2020, making transformer procurement, not turbine or switchgear delivery, the longest single item on many interconnection critical paths.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.energy.gov/sites/default/files/2024-10/EXEC-2022-001242%20-%20Large%20Power%20Transformer%20Resilience%20Report%20signed%20by%20Secretary%20Granholm%20on%207-10-24.pdf" target="_blank" rel="noopener">U.S. Department of Energy — Large Power Transformer Resilience Report to Congress (July 2024)</a></li>
+    <li><a href="https://www.woodmac.com/news/opinion/transformer-troubles-manufacturing-and-policy-constraints-hit-us-transformer-supply/" target="_blank" rel="noopener">Wood Mackenzie — Transformer Troubles: Manufacturing and Policy Constraints Hit US Transformer Supply</a></li>
+    <li><a href="https://www.butlereagle.com/20260807/cliffs-ceo-says-grain-oriented-steel-essential-as-dept-of-energy-mulls-2024-transformer-ruling/" target="_blank" rel="noopener">Butler Eagle — Cliffs CEO Says Grain-Oriented Steel Essential as DOE Mulls 2024 Transformer Ruling</a></li>
+    <li><a href="https://pv-magazine-usa.com/2026/05/11/u-s-transformer-market-faces-severe-supply-constraints-as-lead-times-extend-to-four-years/" target="_blank" rel="noopener">pv magazine USA — U.S. Transformer Market Faces Severe Supply Constraints as Lead Times Extend to Four Years</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var slider = document.getElementById('sv-month');
+    if (!slider) return;
+
+    var DC_MONTHS = 24;
+    var TF_MONTHS_PAST = 15;
+    var TF_MONTHS_NOW = 54;
+    var X0 = 70, X1 = 380;
+    var MONTH_MAX = 60;
+    var pxPerMonth = (X1 - X0) / MONTH_MAX;
+    var TRACK_W = X1 - X0;
+
+    var reduceMotion = false;
+    try {
+      reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) {}
+
+    var era = 'now';
+    var playing = false;
+    var playTimer = null;
+
+    var fillDc = document.getElementById('sv-fill-dc');
+    var fillTf = document.getElementById('sv-fill-tf');
+    var statusDc = document.getElementById('sv-status-dc');
+    var statusTf = document.getElementById('sv-status-tf');
+    var monthValue = document.getElementById('sv-month-value');
+    var calcText = document.getElementById('sv-calc-text');
+    var statMonth = document.getElementById('sv-stat-month');
+    var statDc = document.getElementById('sv-stat-dc');
+    var statTf = document.getElementById('sv-stat-tf');
+    var statIdle = document.getElementById('sv-stat-idle');
+    var playBtn = document.getElementById('sv-play');
+    var eraPastBtn = document.getElementById('sv-era-past');
+    var eraNowBtn = document.getElementById('sv-era-now');
+
+    function tfMonths() {
+      return era === 'past' ? TF_MONTHS_PAST : TF_MONTHS_NOW;
+    }
+
+    function render(month) {
+      var tf = tfMonths();
+      var dcDone = month >= DC_MONTHS;
+      var tfDone = month >= tf;
+
+      var dcWidth = Math.min(month, DC_MONTHS) * pxPerMonth;
+      var tfWidth = Math.min(month, tf) * pxPerMonth;
+      fillDc.setAttribute('width', dcWidth.toFixed(1));
+      fillTf.setAttribute('width', tfWidth.toFixed(1));
+
+      var dcPct = Math.min(100, Math.round((month / DC_MONTHS) * 100));
+      var tfPct = Math.min(100, Math.round((month / tf) * 100));
+
+      statusDc.textContent = dcDone ? 'READY' : dcPct + '%';
+      statusDc.setAttribute('x', Math.max(X0 + dcWidth - 6, X0 + 30).toFixed(1));
+      statusDc.setAttribute('fill', dcWidth > 26 ? 'var(--surface)' : 'var(--ink)');
+      statusDc.setAttribute('text-anchor', dcWidth > 26 ? 'end' : 'start');
+
+      statusTf.textContent = tfDone ? 'DELIVERED' : tfPct + '%';
+      statusTf.setAttribute('x', Math.max(X0 + tfWidth - 6, X0 + 30).toFixed(1));
+      statusTf.setAttribute('fill', tfWidth > 26 ? 'var(--surface)' : 'var(--ink)');
+      statusTf.setAttribute('text-anchor', tfWidth > 26 ? 'end' : 'start');
+
+      var idle = dcDone ? Math.max(0, Math.min(month, tf) - DC_MONTHS) : 0;
+
+      monthValue.textContent = 'Month ' + month;
+      statMonth.textContent = String(month);
+      statDc.textContent = dcDone ? 'Ready' : 'Building';
+      statTf.textContent = tfDone ? 'Delivered' : tfPct + '% built';
+      statIdle.textContent = idle + ' mo';
+
+      if (tf <= DC_MONTHS) {
+        calcText.innerHTML = 'In this era, the transformer arrives at month <span class="sv-num">' + tf + '</span>, before the data center itself is even done at month <span class="sv-num">' + DC_MONTHS + '</span> — construction, not the transformer, is the pace-setter.';
+      } else if (idle > 0) {
+        calcText.innerHTML = 'The data center finished at month <span class="sv-num">' + DC_MONTHS + '</span>. Its transformer doesn\'t arrive until month <span class="sv-num">' + tf + '</span> — <span class="sv-num">' + idle + '</span> months of a finished building with no power to turn on.';
+      } else if (dcDone && !tfDone) {
+        calcText.innerHTML = 'The data center just finished at month <span class="sv-num">' + DC_MONTHS + '</span>. Its transformer isn\'t due until month <span class="sv-num">' + tf + '</span> — the idle clock starts now.';
+      } else {
+        calcText.innerHTML = 'Both are still underway at month <span class="sv-num">' + month + '</span>. Keep the clock running to see which one the other ends up waiting on.';
+      }
+    }
+
+    function setMonth(month) {
+      slider.value = String(month);
+      render(month);
+    }
+
+    slider.addEventListener('input', function () {
+      stopPlay();
+      render(parseInt(slider.value, 10));
+    });
+
+    function stopPlay() {
+      playing = false;
+      if (playTimer) {
+        clearInterval(playTimer);
+        playTimer = null;
+      }
+      playBtn.textContent = '▶ Play from Mo 0';
+    }
+
+    function startPlay() {
+      if (reduceMotion) {
+        setMonth(MONTH_MAX);
+        return;
+      }
+      stopPlay();
+      playing = true;
+      playBtn.textContent = '⏸ Playing…';
+      var m = 0;
+      setMonth(0);
+      playTimer = setInterval(function () {
+        m += 1;
+        setMonth(m);
+        if (m >= MONTH_MAX) {
+          stopPlay();
+        }
+      }, 90);
+    }
+
+    playBtn.addEventListener('click', function () {
+      if (playing) {
+        stopPlay();
+      } else {
+        startPlay();
+      }
+    });
+
+    function setEra(mode) {
+      era = mode;
+      eraPastBtn.setAttribute('aria-pressed', String(mode === 'past'));
+      eraNowBtn.setAttribute('aria-pressed', String(mode === 'now'));
+      render(parseInt(slider.value, 10));
+    }
+    eraPastBtn.addEventListener('click', function () { setEra('past'); });
+    eraNowBtn.addEventListener('click', function () { setEra('now'); });
+
+    if (reduceMotion) {
+      setMonth(MONTH_MAX);
+    } else {
+      render(parseInt(slider.value, 10));
+    }
+  })();
+</script>
+</body>
+</html>
