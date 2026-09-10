@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — An AI Data Center's Real Water Bill Isn't in the Cooling Towers. It's at the Power Plant.</title>
+<meta name="description" content="A Ceres analysis finds data centers in seven states indirectly draw 3.4 trillion gallons of freshwater a year through their electricity — more than they use on-site. Meta's own 2024 disclosure: over 20x its direct water use." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b0491f;
+    --accent-a-tint: #f5e0d3;
+    --accent-b: #146c8c;
+    --accent-b-tint: #d7eaf1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e0925a;
+      --accent-a-tint: #35220f;
+      --accent-b: #5fb8d6;
+      --accent-b-tint: #0f2b34;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e0925a;
+    --accent-a-tint: #35220f;
+    --accent-b: #5fb8d6;
+    --accent-b-tint: #0f2b34;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b0491f;
+    --accent-a-tint: #f5e0d3;
+    --accent-b: #146c8c;
+    --accent-b-tint: #d7eaf1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: the invisible water bill --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.5;
+  }
+  .sv-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 10px;
+    font-size: 11px;
+  }
+  .sv-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+  }
+  .sv-legend-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 10px 10px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; }
+  .sv-grid { stroke: var(--border); stroke-width: 1; }
+  .sv-axis-label { font-size: 8px; fill: var(--muted); }
+  .sv-track-bg { fill: var(--surface); stroke: var(--border); stroke-width: 1; }
+  .sv-fill-direct { fill: var(--accent-b); }
+  .sv-fill-indirect { fill: var(--accent-a); }
+  .sv-row-label { font-size: 10px; font-weight: 700; }
+  .sv-status-label { font-size: 9px; font-weight: 700; }
+  @media (prefers-reduced-motion: no-preference) {
+    .sv-fill-direct, .sv-fill-indirect {
+      transition: width 0.2s ease-out;
+    }
+  }
+
+  .sv-divider {
+    border-top: 1px solid var(--border);
+    margin: 18px 0 16px;
+  }
+
+  .sv-calc-label {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  .sv-control-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .sv-slider {
+    flex: 1 1 160px;
+    min-width: 130px;
+    accent-color: var(--accent-a);
+    height: 22px;
+    cursor: pointer;
+  }
+  .sv-slider-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: right;
+    min-width: 90px;
+  }
+  .sv-pace-toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+    flex-wrap: wrap;
+  }
+  .sv-pace-toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    padding: 6px 11px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .sv-pace-toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .sv-calc-result {
+    font-size: 13.5px;
+    margin: 12px 0 0;
+    line-height: 1.5;
+  }
+  .sv-calc-result .sv-num {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent-a);
+  }
+  .sv-footnote {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 14px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    line-height: 1.5;
+  }
+
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 18px;
+  }
+  .sv-stat-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 10, 2026</span>
+    <span class="category-chip">WATER</span>
+  </div>
+  <h1>An AI Data Center's Real Water Bill Isn't in the Cooling Towers. It's at the Power Plant.</h1>
+  <p class="lede">Everyone worried about AI's water use pictures a cooling tower. A new seven-state analysis finds the bigger draw is one step upstream, in the plants generating the electricity — and Meta's own disclosed numbers show it can run more than 20 times larger.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    A Ceres report published September 3, 2026 found that data centers across seven states — Virginia, Texas, California, Illinois, Georgia, Ohio, and Arizona, which together host roughly half of US data center capacity — indirectly draw about 3.4 trillion gallons of freshwater a year through the electricity they consume, more than they use directly on-site. Meta, the only hyperscaler that discloses this figure, reported 19 billion gallons of indirect water consumption for 2024 — over 20 times its direct use, and rising every year since 2021. Sixty-six percent of the electricity behind these data centers comes from grid regions already facing medium-high to extreme water stress.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">The invisible water bill</h2>
+      <p class="sv-caption mono">A power plant that isn't wind or solar boils water to spin a turbine, then has to condense that steam back to liquid — usually by evaporating water in a cooling tower. Drag the slider to set how much of a data center's electricity comes from that kind of plant, and watch its indirect water footprint move against its fixed on-site cooling. Model: a 100 MW facility running continuously for a year (876,000 MWh); on-site cooling fixed at ~530,000 gal/day, a commonly cited average for a facility that size (≈193.4M gal/yr); steam-cycle thermal generation (coal, gas, or nuclear) assumed to consume ~500 gal per MWh, the mid-range of published closed-loop cooling estimates; wind and solar assumed ~0, since neither has a condenser step. Simplified and illustrative, not one specific facility's real bill.</p>
+    </div>
+
+    <div class="sv-legend">
+      <span class="sv-legend-item"><span class="sv-legend-dot" style="background:var(--accent-b);"></span>On-site cooling (fixed)</span>
+      <span class="sv-legend-item"><span class="sv-legend-dot" style="background:var(--accent-a);"></span>Grid electricity (indirect)</span>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 400 165" role="img" aria-label="Two horizontal bars on a gallons-per-year scale from 0 to 450 million: fixed on-site cooling water, and indirect grid-electricity water that grows as the thermal generation share increases.">
+        <text x="70" y="12" class="sv-row-label" fill="var(--accent-b)">ON-SITE COOLING</text>
+        <rect x="70" y="20" width="310" height="24" rx="6" class="sv-track-bg"></rect>
+        <rect id="sv-fill-direct" x="70" y="20" width="0" height="24" rx="6" class="sv-fill-direct"></rect>
+        <text id="sv-status-direct" x="380" y="36" class="sv-status-label mono" text-anchor="end" fill="var(--surface)">0</text>
+
+        <text x="70" y="72" class="sv-row-label" fill="var(--accent-a)">GRID ELECTRICITY (INDIRECT)</text>
+        <rect x="70" y="80" width="310" height="24" rx="6" class="sv-track-bg"></rect>
+        <rect id="sv-fill-indirect" x="70" y="80" width="0" height="24" rx="6" class="sv-fill-indirect"></rect>
+        <text id="sv-status-indirect" x="380" y="96" class="sv-status-label mono" text-anchor="end" fill="var(--surface)">0</text>
+
+        <line x1="70" y1="118" x2="380" y2="118" class="sv-grid"></line>
+        <text x="70" y="130" class="sv-axis-label mono" text-anchor="middle">0</text>
+        <text x="147.5" y="130" class="sv-axis-label mono" text-anchor="middle">150M</text>
+        <text x="225" y="130" class="sv-axis-label mono" text-anchor="middle">300M</text>
+        <text x="380" y="130" class="sv-axis-label mono" text-anchor="middle">450M</text>
+        <text x="225" y="145" class="sv-axis-label mono" text-anchor="middle">gallons of freshwater per year</text>
+      </svg>
+    </div>
+
+    <div class="sv-divider"></div>
+
+    <p class="sv-calc-label">Set the grid's thermal share, or pick a preset:</p>
+    <div class="sv-control-row">
+      <div class="sv-pace-toggle" role="group" aria-label="Thermal generation share preset">
+        <button type="button" id="sv-preset-0" aria-pressed="false">All renewable (0%)</button>
+        <button type="button" id="sv-preset-70" aria-pressed="true">US mix (~70%)</button>
+        <button type="button" id="sv-preset-100" aria-pressed="false">All thermal (100%)</button>
+      </div>
+    </div>
+    <div class="sv-control-row">
+      <input type="range" id="sv-share" class="sv-slider" min="0" max="100" step="1" value="70" aria-label="Share of electricity from steam-cycle thermal generation" />
+      <span class="sv-slider-value mono" id="sv-share-value">70% thermal</span>
+    </div>
+    <p class="sv-calc-result mono" id="sv-calc-text"></p>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Thermal share</div>
+        <div class="sv-stat-value mono" id="sv-stat-share">70%</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Indirect / yr</div>
+        <div class="sv-stat-value mono" id="sv-stat-indirect">306.6M gal</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">On-site / yr</div>
+        <div class="sv-stat-value mono" id="sv-stat-direct">193.4M gal</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Indirect ÷ direct</div>
+        <div class="sv-stat-value mono" id="sv-stat-ratio">1.6×</div>
+      </div>
+    </div>
+
+    <p class="sv-footnote">For comparison: Meta, the only hyperscaler that discloses this number, reported its real 2024 ratio at over 20× — well above anything this simplified model produces, because the real figure reflects Meta's actual regional grid mix, plant-level efficiency, and a fuller water-accounting scope than a two-input model like this one can capture.</p>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>When people worry about AI data centers and water, they picture the cooling towers on the roof — the equipment keeping thousands of GPUs from overheating. That part is real, but it's not the biggest number. A new analysis from the sustainability nonprofit Ceres, published September 3, found that a data center's bigger water bill sits one step removed: it's baked into the electricity itself.</p>
+      <p>Here's why. Most power plants that aren't wind or solar work like a steam engine at heart: burn fuel or split atoms to boil water, use the steam to spin a turbine, then — critically — turn that steam back into water so it can be boiled again. That last step, condensing steam, is usually done by evaporating water in a cooling tower at the power plant. So every kilowatt-hour a data center pulls from a coal, gas, or nuclear plant carries a hidden water cost that never touches the data center's own property line.</p>
+      <p>Ceres found that data centers in just seven states — Virginia, Texas, California, Illinois, Georgia, Ohio, and Arizona, which host roughly half the country's data centers — indirectly draw about 3.4 trillion gallons of freshwater a year this way, more than they use directly on-site. Meta is the only major tech company that discloses this number at all, and its 2024 figure was more than 20 times its direct water use. Worse, 66% of the electricity behind these data centers comes from regions already short on water.</p>
+      <p>The fix isn't a better cooling tower. It's what's plugged into the wall — because wind and solar need almost no water to make electricity in the first place.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The mechanism is thermodynamic, not incidental. Coal, natural-gas steam and combined-cycle, and nuclear plants generate electricity via a Rankine cycle: fuel or fission heat boils water into high-pressure steam that expands through a turbine, and the exhausted steam must then be condensed back to liquid before it can be reboiled. That condensation step is the water-intensive one — typically handled by a wet cooling tower, which rejects waste heat by evaporating a portion of its circulating water into the atmosphere rather than returning it all to the source. Published estimates for closed-loop (recirculating) systems put coal and nuclear plants at roughly 500-1,100 gallons of water consumed per MWh generated; natural-gas combined-cycle plants run lower, near 200 gal/MWh, since more of their output comes from the gas turbine's direct combustion stage rather than a steam bottoming cycle. Wind turbines and solar PV panels have no condenser step at all and consume water only incidentally, for occasional panel washing.</p>
+      <p>Ceres' "Water Behind the Watts" report (published Sept. 3, 2026) quantifies the resulting exposure: data centers across seven states — Virginia, Texas, California, Illinois, Georgia, Ohio, and Arizona, which together host roughly half of US data center capacity — draw an estimated 3.4 trillion gallons of freshwater annually through the electricity they consume, exceeding their direct operational water use. Sixty-six percent of the electricity generated in those states comes from grid regions Ceres classifies as facing medium-high to extremely high baseline water stress. Meta is currently the sole hyperscaler disclosing embedded, indirect water consumption tied to its purchased electricity; its reported 2024 figure was 19 billion gallons — more than 20 times its direct operational consumption, and it has grown every year since 2021. Ceres projects total indirect consumption across the sector could increase by a further 4.1 to 7.6 trillion gallons by 2030, absent a shift toward lower-water generation (renewables, combined-cycle gas) or broader adoption of air-cooled (dry) condensers, which cut water use at the cost of reduced thermal efficiency and higher capital expense. Separately, a Guardian analysis of NOAA drought data found roughly two-thirds of 809 planned US data centers sit on land classified as drought-affected in the past year — meaning the sites drawing hardest on this indirect water math are disproportionately the ones with the least water margin to spare.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.ceres.org/resources/news/new-ceres-report-spotlights-data-centers-biggest-and-least-visible-water-use-the-power-that-runs-them" target="_blank" rel="noopener">Ceres — New Ceres Report Spotlights Data Centers' Biggest and Least Visible Water Use: The Power That Runs Them</a></li>
+    <li><a href="https://www.esgdive.com/news/electricity-use-spurring-data-centers-growing-water-footprint-ceres/829194/" target="_blank" rel="noopener">ESG Dive — Electricity Use Spurring Data Centers' Growing Water Footprint: Ceres</a></li>
+    <li><a href="https://www.latitudemedia.com/news/data-centers-hidden-water-footprint-is-linked-to-the-grid/" target="_blank" rel="noopener">Latitude Media — Data Centers' Hidden Water Footprint Is Linked to the Grid</a></li>
+    <li><a href="https://www.tomshardware.com/tech-industry/most-new-us-ai-data-centers-are-going-up-on-drought-land" target="_blank" rel="noopener">Tom's Hardware — Most New U.S. AI Data Centers Are Being Built in Drought Zones</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var slider = document.getElementById('sv-share');
+    if (!slider) return;
+
+    var ANNUAL_MWH = 876000;
+    var THERMAL_GAL_PER_MWH = 500;
+    var ONSITE_GAL = 530000 * 365;
+    var MAX_GAL = 450000000;
+    var X0 = 70, X1 = 380;
+    var TRACK_W = X1 - X0;
+    var pxPerGal = TRACK_W / MAX_GAL;
+
+    var reduceMotion = false;
+    try {
+      reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) {}
+
+    var fillDirect = document.getElementById('sv-fill-direct');
+    var fillIndirect = document.getElementById('sv-fill-indirect');
+    var statusDirect = document.getElementById('sv-status-direct');
+    var statusIndirect = document.getElementById('sv-status-indirect');
+    var shareValue = document.getElementById('sv-share-value');
+    var calcText = document.getElementById('sv-calc-text');
+    var statShare = document.getElementById('sv-stat-share');
+    var statIndirect = document.getElementById('sv-stat-indirect');
+    var statDirect = document.getElementById('sv-stat-direct');
+    var statRatio = document.getElementById('sv-stat-ratio');
+    var preset0 = document.getElementById('sv-preset-0');
+    var preset70 = document.getElementById('sv-preset-70');
+    var preset100 = document.getElementById('sv-preset-100');
+
+    function fmtGal(g) {
+      return (g / 1000000).toFixed(1) + 'M gal';
+    }
+
+    function placeLabel(el, width, text) {
+      el.textContent = text;
+      var x = Math.max(X0 + width - 6, X0 + 34);
+      el.setAttribute('x', x.toFixed(1));
+      el.setAttribute('fill', width > 30 ? 'var(--surface)' : 'var(--ink)');
+      el.setAttribute('text-anchor', width > 30 ? 'end' : 'start');
+    }
+
+    function render(pct) {
+      var indirectGal = ANNUAL_MWH * (pct / 100) * THERMAL_GAL_PER_MWH;
+      var directWidth = ONSITE_GAL * pxPerGal;
+      var indirectWidth = indirectGal * pxPerGal;
+
+      fillDirect.setAttribute('width', directWidth.toFixed(1));
+      fillIndirect.setAttribute('width', indirectWidth.toFixed(1));
+
+      placeLabel(statusDirect, directWidth, fmtGal(ONSITE_GAL));
+      placeLabel(statusIndirect, indirectWidth, fmtGal(indirectGal));
+
+      var ratio = indirectGal / ONSITE_GAL;
+
+      shareValue.textContent = pct + '% thermal';
+      statShare.textContent = pct + '%';
+      statIndirect.textContent = fmtGal(indirectGal) + '/yr';
+      statDirect.textContent = fmtGal(ONSITE_GAL) + '/yr';
+      statRatio.textContent = ratio.toFixed(pct === 0 ? 0 : 1) + '×';
+
+      if (pct === 0) {
+        calcText.innerHTML = 'At <span class="sv-num">0%</span> thermal — an all-renewable grid — this data center\'s indirect water footprint drops to essentially zero. On-site cooling, <span class="sv-num">' + fmtGal(ONSITE_GAL) + '/yr</span>, becomes practically its whole water footprint.';
+      } else {
+        calcText.innerHTML = 'At <span class="sv-num">' + pct + '%</span> thermal generation, this data center\'s indirect grid-electricity water footprint is <span class="sv-num">' + fmtGal(indirectGal) + '/yr</span> — <span class="sv-num">' + ratio.toFixed(1) + '×</span> its fixed on-site cooling water.';
+      }
+    }
+
+    function setPct(pct, presetId) {
+      slider.value = String(pct);
+      render(pct);
+      setPresetPressed(presetId);
+    }
+
+    function setPresetPressed(presetId) {
+      preset0.setAttribute('aria-pressed', String(presetId === 'p0'));
+      preset70.setAttribute('aria-pressed', String(presetId === 'p70'));
+      preset100.setAttribute('aria-pressed', String(presetId === 'p100'));
+    }
+
+    function nearestPreset(pct) {
+      if (pct === 0) return 'p0';
+      if (pct === 70) return 'p70';
+      if (pct === 100) return 'p100';
+      return null;
+    }
+
+    slider.addEventListener('input', function () {
+      var pct = parseInt(slider.value, 10);
+      render(pct);
+      setPresetPressed(nearestPreset(pct));
+    });
+
+    preset0.addEventListener('click', function () { setPct(0, 'p0'); });
+    preset70.addEventListener('click', function () { setPct(70, 'p70'); });
+    preset100.addEventListener('click', function () { setPct(100, 'p100'); });
+
+    render(parseInt(slider.value, 10));
+  })();
+</script>
+</body>
+</html>
