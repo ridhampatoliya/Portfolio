@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — The US Closed a Chip-Tool "Loophole" in China. Samsung and SK Hynix Are Now Buying the Local Alternative.</title>
+<meta name="description" content="The US revoked Samsung's and SK Hynix's standing waiver to ship American chip tools into their China fabs, replacing it with an annual license renewed every December. Reuters reports both are now testing Chinese-made tools as a hedge — handing domestic toolmakers their most demanding reference customers yet." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a83a2e;
+    --accent-a-tint: #f6ded9;
+    --accent-b: #2d5a9c;
+    --accent-b-tint: #dbe6f5;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e2836f;
+      --accent-a-tint: #3a201a;
+      --accent-b: #7ea8e0;
+      --accent-b-tint: #16233a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e2836f;
+    --accent-a-tint: #3a201a;
+    --accent-b: #7ea8e0;
+    --accent-b-tint: #16233a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a83a2e;
+    --accent-a-tint: #f6ded9;
+    --accent-b: #2d5a9c;
+    --accent-b-tint: #dbe6f5;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: the chokepoint and the bypass --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.5;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 12px 8px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; max-width: 340px; margin: 0 auto; }
+  .sv-box-fill { fill: var(--surface); }
+  .sv-box-stroke { stroke: var(--border); stroke-width: 1.4; }
+  .sv-box-title { font-size: 9.5px; font-weight: 700; }
+  .sv-box-sub { font-size: 7.6px; }
+  .sv-pipe { stroke: var(--border); stroke-width: 2; fill: none; }
+  .sv-arrow { fill: var(--border); }
+  @media (prefers-reduced-motion: no-preference) {
+    .sv-gate-box, .sv-gate-label, .sv-bypass-line, .sv-bypass-arrow,
+    .sv-n5-box, .sv-n5-title, .sv-n5-sub, .sv-n5-stat {
+      transition: fill 0.2s ease-out, stroke 0.2s ease-out, opacity 0.2s ease-out, stroke-dasharray 0.2s ease-out;
+    }
+  }
+
+  .sv-divider {
+    border-top: 1px solid var(--border);
+    margin: 18px 0 16px;
+  }
+
+  .sv-step-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .sv-step-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sv-nav-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .sv-nav-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+  .sv-dots {
+    display: flex;
+    gap: 6px;
+  }
+  .sv-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 0;
+    cursor: pointer;
+  }
+  .sv-dot[aria-current="true"] {
+    background: var(--accent-a);
+    border-color: var(--accent-a);
+  }
+  .sv-step-count {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .sv-step-text {
+    font-size: 14px;
+    line-height: 1.55;
+    margin: 4px 0 0;
+    min-height: 4.6em;
+  }
+
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 18px;
+  }
+  .sv-stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 11, 2026</span>
+    <span class="category-chip">EXPORT CONTROLS</span>
+  </div>
+  <h1>The US Closed a Chip-Tool "Loophole" in China. Samsung and SK Hynix Are Now Buying the Local Alternative.</h1>
+  <p class="lede">A rule meant to starve China's semiconductor-equipment industry of customers just handed it two of the most demanding customers on the planet to practice on.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    In September 2025, the U.S. Commerce Department revoked the standing "Validated End-User" authorization that let Samsung, SK Hynix, Intel, and TSMC ship American chipmaking tools into their China-based fabs without a license for each shipment — effective December 31, 2025. One day before that deadline, Commerce granted Samsung and SK Hynix narrower annual licenses instead, covering maintenance of existing tools only, excluding EUV lithography, and up for renewal every year. Reuters reported in August 2026 that both companies have quietly been testing chipmaking tools from China's AMEC as a hedge — tools Deutsche Bank estimates undercut the American originals by 20–30%, from a domestic toolmaking industry (AMEC, Naura, Piotech, ACM Research) now generating more than $1 billion in revenue apiece.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Five years, one chokepoint, one bypass</h2>
+      <p class="sv-caption mono">Step through what happened to the pipeline connecting U.S. chip-tool makers to two Korean-owned fabs in China — and the side route that opened once the pipe started narrowing. Use Next / Prev, the dots, or the arrow keys.</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 340 320" role="img" aria-label="Diagram: US toolmakers connect through a Commerce Department gate to Korean fabs in China, which feed global memory supply. A separate line from Chinese toolmakers bypasses the gate entirely.">
+        <defs>
+          <marker id="sv-arrowhead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" class="sv-arrow"></path>
+          </marker>
+        </defs>
+
+        <!-- N1: US toolmakers -->
+        <rect x="70" y="8" width="200" height="46" rx="8" class="sv-box-fill sv-box-stroke"></rect>
+        <text x="170" y="28" text-anchor="middle" class="sv-box-title mono" fill="var(--accent-b)">US TOOLMAKERS</text>
+        <text x="170" y="43" text-anchor="middle" class="sv-box-sub mono" fill="var(--muted)">Applied Materials · Lam · KLA</text>
+
+        <!-- pipe N1 -> gate -->
+        <line x1="170" y1="54" x2="170" y2="90" class="sv-pipe" marker-end="url(#sv-arrowhead)"></line>
+
+        <!-- Gate (BIS) -->
+        <rect id="sv-gate-box" x="122" y="94" width="96" height="34" rx="6" fill="var(--accent-b-tint)" stroke="var(--accent-b)" stroke-width="1.6"></rect>
+        <text id="sv-gate-label" x="170" y="115" text-anchor="middle" class="sv-box-title mono" fill="var(--accent-b)">OPEN</text>
+
+        <!-- pipe gate -> N3 -->
+        <line x1="170" y1="128" x2="170" y2="162" class="sv-pipe" marker-end="url(#sv-arrowhead)"></line>
+
+        <!-- N3: Korean fabs in China -->
+        <rect x="26" y="164" width="288" height="52" rx="8" class="sv-box-fill sv-box-stroke"></rect>
+        <text x="170" y="184" text-anchor="middle" class="sv-box-title mono" fill="var(--ink)">SAMSUNG XI'AN · SK HYNIX WUXI &amp; DALIAN</text>
+        <text x="170" y="200" text-anchor="middle" class="sv-box-sub mono" fill="var(--muted)">~10% of global DRAM, ~10% of global NAND (est.)</text>
+
+        <!-- pipe N3 -> N4 -->
+        <line x1="170" y1="216" x2="170" y2="250" class="sv-pipe" marker-end="url(#sv-arrowhead)"></line>
+
+        <!-- N4: global memory supply -->
+        <rect x="70" y="252" width="200" height="40" rx="8" class="sv-box-fill sv-box-stroke"></rect>
+        <text x="170" y="277" text-anchor="middle" class="sv-box-title mono" fill="var(--ink)">GLOBAL MEMORY SUPPLY</text>
+
+        <!-- N5: Chinese toolmakers (bypass source) -->
+        <rect id="sv-n5-box" x="6" y="94" width="104" height="46" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="1.4"></rect>
+        <text id="sv-n5-title" x="58" y="112" text-anchor="middle" class="sv-box-title mono" fill="var(--muted)">CHINESE TOOLMAKERS</text>
+        <text id="sv-n5-sub" x="58" y="125" text-anchor="middle" class="sv-box-sub mono" fill="var(--muted)">AMEC · Naura · Piotech · ACM</text>
+        <text id="sv-n5-stat" x="58" y="137" text-anchor="middle" class="sv-box-sub mono" fill="var(--accent-a)" opacity="0">$1B+ revenue each (2026E)</text>
+
+        <!-- bypass line N5 -> N3, avoids the gate entirely -->
+        <line id="sv-bypass-line" x1="58" y1="140" x2="58" y2="163" stroke="var(--border)" stroke-width="2" opacity="0"></line>
+        <polygon id="sv-bypass-arrow" points="53,163 63,163 58,171" fill="var(--border)" opacity="0"></polygon>
+      </svg>
+    </div>
+
+    <div class="sv-divider"></div>
+
+    <div class="sv-step-row">
+      <div class="sv-step-nav">
+        <button type="button" class="sv-nav-btn" id="sv-prev">◀ Prev</button>
+        <button type="button" class="sv-nav-btn" id="sv-next">Next ▶</button>
+      </div>
+      <div class="sv-dots" role="group" aria-label="Jump to step">
+        <button type="button" class="sv-dot" data-step="0" aria-current="true" aria-label="Step 1"></button>
+        <button type="button" class="sv-dot" data-step="1" aria-label="Step 2"></button>
+        <button type="button" class="sv-dot" data-step="2" aria-label="Step 3"></button>
+        <button type="button" class="sv-dot" data-step="3" aria-label="Step 4"></button>
+        <button type="button" class="sv-dot" data-step="4" aria-label="Step 5"></button>
+      </div>
+      <span class="sv-step-count mono" id="sv-step-count">STEP 1 / 5</span>
+    </div>
+
+    <p class="sv-step-text" id="sv-step-text"></p>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Access regime</div>
+        <div class="sv-stat-value mono" id="sv-stat-regime">—</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">License renewal</div>
+        <div class="sv-stat-value mono" id="sv-stat-renewal">—</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Bypass route</div>
+        <div class="sv-stat-value mono" id="sv-stat-bypass">—</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">CN toolmaker rev. (2026E)</div>
+        <div class="sv-stat-value mono" id="sv-stat-revenue">—</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>For a decade, if a U.S. company wanted to sell advanced chipmaking equipment to a factory in China, it needed an export license — unless that factory held a special status called "Validated End-User." VEU status was a blanket permission slip: once granted, American toolmakers could ship approved equipment to that specific factory indefinitely, no case-by-case paperwork. Samsung's NAND flash plant in Xi'an and SK Hynix's DRAM fab in Wuxi and NAND plant in Dalian all had it — a legacy of a time when Washington judged these foreign-owned, well-monitored factories low-risk, even sitting inside China.</p>
+      <p>In September 2025, the Commerce Department pulled that status, calling it a loophole. The change took effect December 31, and just one day before the deadline, Commerce handed Samsung and SK Hynix a consolation prize: annual licenses instead of a blanket cutoff. The two companies can keep buying American tools for these fabs — but only to maintain what's already there, not for cutting-edge lithography, and only for one year at a time. Every December, they have to ask again.</p>
+      <p>That kind of yearly uncertainty is exactly what pushes a company to build a backup plan. Reuters reported in August 2026 that Samsung and SK Hynix have started testing etching tools from AMEC, a Chinese equipment maker, at these same fabs — insurance in case a future renewal doesn't go their way.</p>
+      <p>Here's the twist: these two companies are about as picky and technically demanding as customers get. If their engineers spend years proving an AMEC tool survives real production, that validation is worth more to AMEC than any single sale — it's the reference customer that opens doors with everyone else. A policy built to starve China's toolmakers of customers may be creating their best ones.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The mechanism runs through the Export Administration Regulations' "Validated End-User" (VEU) program, which lets Commerce pre-authorize specific foreign facilities to receive controlled U.S.-origin items without transaction-by-transaction licensing, provided the facility passes site inspections and reporting requirements. Samsung China Semiconductor (Xi'an, NAND), SK Hynix Semiconductor China (Wuxi DRAM and Dalian NAND), Intel Semiconductor (Dalian), and TSMC Nanjing all held VEU authorization dating to earlier administrations, when Washington judged these foreign-owned, non-Chinese-controlled fabs low-risk enough to warrant blanket treatment despite their location.</p>
+      <p>BIS revoked all four authorizations via a rule published in the Federal Register on September 2, 2025, effective December 31, 2025, framing VEU as a loophole letting foreign-owned fabs receive equipment without the individual scrutiny applied to Chinese-owned competitors. On December 30, one day before the deadline, BIS granted Samsung and SK Hynix annual licenses for 2026 instead — a narrower substitute requiring the companies to file yearly plans detailing anticipated U.S.-origin equipment needs. Reporting indicates these licenses authorize maintenance and continued operation of existing toolsets, not process upgrades, and explicitly exclude EUV lithography and other frontier equipment.</p>
+      <p>Estimates put SK Hynix's Wuxi fab at roughly 30% of the company's total DRAM output (an estimated ~10% of global DRAM supply) and Samsung's Xi'an fab at 40–50% of its NAND output (~10% of global NAND supply) — production too large to relocate quickly if a future license is denied.</p>
+      <p>That renewal risk is the proximate cause of the hedge: Reuters reported in August 2026 that both companies have been testing etch tools from AMEC (Advanced Micro-Fabrication Equipment) at these China fabs, which currently depend heavily on Applied Materials and Lam Research equipment. TechInsights estimates Chinese-made tools undercut U.S. equivalents by 20–30% on price. Deutsche Bank projects Naura, AMEC, Piotech, and ACM Research will each clear $1 billion in 2026 revenue, together capturing 25–30% of China's roughly $28 billion wafer-fab-equipment market. Each qualification cycle at a top-tier fab compounds a domestic toolmaker's production yield data and reference-customer credibility — the same asset export controls were designed to deny it.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.federalregister.gov/documents/2025/09/02/2025-16735/revocation-of-validated-end-user-authorizations-in-the-peoples-republic-of-china" target="_blank" rel="noopener">Federal Register — Revocation of Validated End-User Authorizations in the People's Republic of China</a></li>
+    <li><a href="https://www.cnbc.com/2025/09/03/us-makes-it-harder-for-tsmc-sk-hynix-samsung-to-make-chips-in-china.html" target="_blank" rel="noopener">CNBC — The U.S. Makes It Harder for TSMC, SK Hynix and Samsung to Produce Chips in China</a></li>
+    <li><a href="https://www.tomshardware.com/tech-industry/us-grants-samsung-and-sk-hynix-2026-licenses-for-chipmaking-tool-shipments-to-china" target="_blank" rel="noopener">Tom's Hardware — U.S. Grants Samsung and SK Hynix 2026 Licenses for Chipmaking Tool Shipments to China</a></li>
+    <li><a href="https://seekingalpha.com/news/4625595-samsung-sk-hynix-test-chinese-chip-tools-to-hedge-against-us-risks-reuters" target="_blank" rel="noopener">Reuters (via Seeking Alpha) — Samsung, SK Hynix Test Chinese Chip Tools to Hedge Against US Risks</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var STEPS = [
+      {
+        gateLabel: 'OPEN',
+        gateFill: 'var(--accent-b-tint)',
+        gateStroke: 'var(--accent-b)',
+        gateDash: '0',
+        gateTextColor: 'var(--accent-b)',
+        n5Active: false,
+        bypassOn: false,
+        bypassWidth: '2',
+        showRevenue: false,
+        regime: 'STANDING WAIVER',
+        renewal: 'NONE — STANDING',
+        bypass: 'NOT BUILT',
+        revenue: '—',
+        text: '2016–2025: Samsung’s Xi’an NAND fab and SK Hynix’s Wuxi DRAM and Dalian NAND fabs hold "Validated End-User" (VEU) status — a standing U.S. authorization letting American toolmakers ship equipment to them with no license per shipment.'
+      },
+      {
+        gateLabel: 'REVOKED',
+        gateFill: 'var(--surface)',
+        gateStroke: 'var(--muted)',
+        gateDash: '4,3',
+        gateTextColor: 'var(--muted)',
+        n5Active: false,
+        bypassOn: false,
+        bypassWidth: '2',
+        showRevenue: false,
+        regime: 'REVOKED',
+        renewal: 'N/A — CUT OFF',
+        bypass: 'NOT BUILT',
+        revenue: '—',
+        text: 'September 2, 2025: The Commerce Department revokes VEU status for these fabs (plus Intel Dalian and TSMC Nanjing), calling the blanket authorization a loophole. Effective December 31, 2025.'
+      },
+      {
+        gateLabel: 'ANNUAL',
+        gateFill: 'var(--accent-a-tint)',
+        gateStroke: 'var(--accent-a)',
+        gateDash: '5,3',
+        gateTextColor: 'var(--accent-a)',
+        n5Active: false,
+        bypassOn: false,
+        bypassWidth: '2',
+        showRevenue: false,
+        regime: 'ANNUAL LICENSE',
+        renewal: 'EVERY DEC 31',
+        bypass: 'NOT BUILT',
+        revenue: '—',
+        text: 'December 30, 2025: One day before the deadline, Commerce grants Samsung and SK Hynix narrower annual licenses instead — maintenance of existing tools only, no EUV, renewed every December 31.'
+      },
+      {
+        gateLabel: 'ANNUAL',
+        gateFill: 'var(--accent-a-tint)',
+        gateStroke: 'var(--accent-a)',
+        gateDash: '5,3',
+        gateTextColor: 'var(--accent-a)',
+        n5Active: true,
+        bypassOn: true,
+        bypassWidth: '2',
+        showRevenue: false,
+        regime: 'ANNUAL LICENSE',
+        renewal: 'EVERY DEC 31',
+        bypass: 'TESTING',
+        revenue: 'IN TESTING',
+        text: 'August 2026: Reuters reports Samsung and SK Hynix have been quietly testing etching tools from China’s AMEC at these same fabs — a hedge in case a future renewal goes badly.'
+      },
+      {
+        gateLabel: 'ANNUAL',
+        gateFill: 'var(--accent-a-tint)',
+        gateStroke: 'var(--accent-a)',
+        gateDash: '5,3',
+        gateTextColor: 'var(--accent-a)',
+        n5Active: true,
+        bypassOn: true,
+        bypassWidth: '4',
+        showRevenue: true,
+        regime: 'ANNUAL LICENSE',
+        renewal: 'EVERY DEC 31',
+        bypass: 'QUALIFYING',
+        revenue: '$1B+ EACH',
+        text: 'The reference-customer effect: qualifying at two of the pickiest fabs on Earth hands AMEC (and peers Naura, Piotech, ACM Research) production-grade validation — the credibility a toolmaker needs to win customers export controls were never meant to help it reach.'
+      }
+    ];
+
+    var svg = document.getElementById('sv-svg');
+    if (!svg) return;
+
+    var gateBox = document.getElementById('sv-gate-box');
+    var gateLabel = document.getElementById('sv-gate-label');
+    var n5Box = document.getElementById('sv-n5-box');
+    var n5Title = document.getElementById('sv-n5-title');
+    var n5Sub = document.getElementById('sv-n5-sub');
+    var n5Stat = document.getElementById('sv-n5-stat');
+    var bypassLine = document.getElementById('sv-bypass-line');
+    var bypassArrow = document.getElementById('sv-bypass-arrow');
+
+    var stepText = document.getElementById('sv-step-text');
+    var stepCount = document.getElementById('sv-step-count');
+    var statRegime = document.getElementById('sv-stat-regime');
+    var statRenewal = document.getElementById('sv-stat-renewal');
+    var statBypass = document.getElementById('sv-stat-bypass');
+    var statRevenue = document.getElementById('sv-stat-revenue');
+    var prevBtn = document.getElementById('sv-prev');
+    var nextBtn = document.getElementById('sv-next');
+    var dots = Array.prototype.slice.call(document.querySelectorAll('.sv-dot'));
+
+    var current = 0;
+
+    function render(i) {
+      var s = STEPS[i];
+
+      gateBox.setAttribute('fill', s.gateFill);
+      gateBox.setAttribute('stroke', s.gateStroke);
+      gateBox.setAttribute('stroke-dasharray', s.gateDash);
+      gateLabel.textContent = s.gateLabel;
+      gateLabel.setAttribute('fill', s.gateTextColor);
+
+      if (s.n5Active) {
+        n5Box.setAttribute('fill', 'var(--accent-a-tint)');
+        n5Box.setAttribute('stroke', 'var(--accent-a)');
+        n5Title.setAttribute('fill', 'var(--accent-a)');
+        n5Sub.setAttribute('fill', 'var(--ink)');
+      } else {
+        n5Box.setAttribute('fill', 'var(--surface)');
+        n5Box.setAttribute('stroke', 'var(--border)');
+        n5Title.setAttribute('fill', 'var(--muted)');
+        n5Sub.setAttribute('fill', 'var(--muted)');
+      }
+      n5Stat.setAttribute('opacity', s.showRevenue ? '1' : '0');
+
+      bypassLine.setAttribute('opacity', s.bypassOn ? '1' : '0');
+      bypassLine.setAttribute('stroke', s.n5Active ? 'var(--accent-a)' : 'var(--border)');
+      bypassLine.setAttribute('stroke-width', s.bypassWidth);
+      bypassLine.setAttribute('stroke-dasharray', s.bypass === 'TESTING' ? '4,3' : '0');
+      bypassArrow.setAttribute('opacity', s.bypassOn ? '1' : '0');
+      bypassArrow.setAttribute('fill', s.n5Active ? 'var(--accent-a)' : 'var(--border)');
+
+      stepText.textContent = s.text;
+      stepCount.textContent = 'STEP ' + (i + 1) + ' / ' + STEPS.length;
+      statRegime.textContent = s.regime;
+      statRenewal.textContent = s.renewal;
+      statBypass.textContent = s.bypass;
+      statRevenue.textContent = s.revenue;
+
+      prevBtn.disabled = (i === 0);
+      nextBtn.disabled = (i === STEPS.length - 1);
+
+      dots.forEach(function (d, idx) {
+        d.setAttribute('aria-current', String(idx === i));
+      });
+
+      current = i;
+    }
+
+    prevBtn.addEventListener('click', function () {
+      if (current > 0) render(current - 1);
+    });
+    nextBtn.addEventListener('click', function () {
+      if (current < STEPS.length - 1) render(current + 1);
+    });
+    dots.forEach(function (d) {
+      d.addEventListener('click', function () {
+        render(parseInt(d.getAttribute('data-step'), 10));
+      });
+    });
+
+    svg.parentElement.parentElement.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' && current < STEPS.length - 1) { render(current + 1); }
+      if (e.key === 'ArrowLeft' && current > 0) { render(current - 1); }
+    });
+
+    render(0);
+  })();
+</script>
+</body>
+</html>
