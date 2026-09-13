@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — The Panama Canal Cut Daily Transits From 36 to 32. One Ship Just Paid $5.3 Million to Skip the Queue.</title>
+<meta name="description" content="Drought has cut the number of ships the Panama Canal lets through each day by 11% since July, right as its slot auction hits record prices. About 40% of U.S. container trade passes through this one waterway, and peak holiday shipping season just started." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5540c;
+    --accent-a-tint: #f7e3cc;
+    --accent-b: #1a6e8c;
+    --accent-b-tint: #d9edf4;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #eaa15f;
+      --accent-a-tint: #3a2717;
+      --accent-b: #7ecbe3;
+      --accent-b-tint: #142833;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #eaa15f;
+    --accent-a-tint: #3a2717;
+    --accent-b: #7ecbe3;
+    --accent-b-tint: #142833;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5540c;
+    --accent-a-tint: #f7e3cc;
+    --accent-b: #1a6e8c;
+    --accent-b-tint: #d9edf4;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: the slot squeeze --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.5;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 10px 6px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; max-width: 460px; margin: 0 auto; }
+  .sv-ship { fill: var(--accent-b); }
+  .sv-gate-line { stroke: var(--accent-a); stroke-width: 2; stroke-dasharray: 5,4; }
+  .sv-label { font-size: 9px; font-weight: 700; letter-spacing: 0.06em; }
+  .sv-cap-num { font-size: 24px; font-weight: 800; }
+  @media (prefers-reduced-motion: no-preference) {
+    .sv-ship { transition: opacity 0.2s ease; }
+  }
+
+  .sv-divider {
+    border-top: 1px solid var(--border);
+    margin: 16px 0 16px;
+  }
+
+  .sv-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .sv-cap-btns {
+    display: flex;
+    gap: 6px;
+  }
+  .sv-cap-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    line-height: 1.3;
+    text-align: center;
+  }
+  .sv-cap-btn span { display: block; font-size: 9px; font-weight: 500; opacity: 0.8; }
+  .sv-cap-btn[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+  .sv-action-btns { display: flex; gap: 6px; }
+  .sv-play-btn {
+    border: 1px solid var(--accent-a);
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .sv-play-btn:disabled { opacity: 0.5; cursor: default; }
+  .sv-reset-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 13, 2026</span>
+    <span class="category-chip">LOGISTICS</span>
+  </div>
+  <h1>The Panama Canal Cut Daily Transits From 36 to 32. One Ship Just Paid $5.3 Million to Skip the Queue.</h1>
+  <p class="lede">Drought has trimmed the number of ships the canal lets through each day by 11% since July — right as its slot auction hits record prices. About 40% of all U.S. container traffic moves through this one waterway, and the next cut lands this week.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    The Panama Canal Authority (ACP) has cut daily transits from a baseline of 36 to 34 in early September, and down to 32 effective September 15, 2026 — an 11% reduction in under two months — after watershed rainfall came in roughly 34% below normal and inflow to the reservoirs that feed the locks fell about 44% this hydrological year, consistent with an intensifying El Niño. Owners can skip the regular booking queue by bidding in the ACP's daily slot auction; on September 1, the LPG carrier G. Spirit's owner paid a record $5.3 million for one Neopanamax slot, beating the $4.6 million record set just weeks earlier by G. Arete. Roughly 40% of all U.S. container traffic, and close to half of everything shipped from Northeast Asia to the U.S. East Coast, passes through this single lock system.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">The slot squeeze: how a small daily cut becomes a growing backlog</h2>
+      <p class="sv-caption mono">Pick a capacity setting, then hit Run to simulate 20 days. Model assumes a simplified, fixed ~35 ships/day want a slot — close to normal pre-drought demand — against whichever daily cap you choose. This is illustrative of the queueing mechanic and the auction-price relationship, not the ACP's real queue length or bid formula.</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 460 210" role="img" aria-label="Diagram showing a queue of ships waiting on the left of a dashed gate line, with the daily transit capacity shown as a number on the right.">
+        <text x="18" y="16" class="sv-label mono" fill="var(--muted)">SHIPS WAITING FOR A SLOT</text>
+        <g id="queue-grid"></g>
+        <text id="queue-overflow" x="18" y="196" class="sv-label mono" fill="var(--muted)" style="display:none;"></text>
+
+        <line x1="352" y1="10" x2="352" y2="188" class="sv-gate-line"></line>
+        <text x="352" y="8" text-anchor="middle" class="sv-label mono" fill="var(--accent-a)">SLOT GATE</text>
+
+        <text x="405" y="95" text-anchor="middle" class="sv-cap-num mono" fill="var(--accent-a)" id="gate-capacity">34</text>
+        <text x="405" y="112" text-anchor="middle" class="sv-label mono" fill="var(--muted)">ships / day</text>
+        <text x="405" y="140" text-anchor="middle" class="sv-label mono" fill="var(--muted)" style="font-size:8.5px;">allowed through</text>
+        <text x="405" y="152" text-anchor="middle" class="sv-label mono" fill="var(--muted)" style="font-size:8.5px;">the gate today</text>
+      </svg>
+    </div>
+
+    <div class="sv-divider"></div>
+
+    <div class="sv-controls-row">
+      <div class="sv-cap-btns" role="group" aria-label="Select daily transit capacity">
+        <button type="button" class="sv-cap-btn" data-cap="36" aria-pressed="false">36/day<span>baseline</span></button>
+        <button type="button" class="sv-cap-btn" data-cap="34" aria-pressed="true">34/day<span>since Sep 3</span></button>
+        <button type="button" class="sv-cap-btn" data-cap="32" aria-pressed="false">32/day<span>from Sep 15</span></button>
+      </div>
+      <div class="sv-action-btns">
+        <button type="button" class="sv-reset-btn" id="sv-reset">Reset</button>
+        <button type="button" class="sv-play-btn" id="sv-play">▶ Run 20 days</button>
+      </div>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Day</div>
+        <div class="sv-stat-value mono" id="stat-day">0 / 20</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Ships waiting</div>
+        <div class="sv-stat-value mono" id="stat-backlog">0</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Capacity today</div>
+        <div class="sv-stat-value mono" id="stat-cap">34 / day</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Est. price to skip today</div>
+        <div class="sv-stat-value mono" id="stat-price">$150k</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>The Panama Canal isn't a sea-level ditch like Suez — it's an elevator. Locks lift each ship up over the isthmus using fresh water, then lower it back down the other side, and every drop used to do that gets flushed out to the ocean, gone for good. When it rains a lot, there's always enough water. When it doesn't, the canal authority has exactly one blunt lever: let fewer ships through per day.</p>
+      <p>This year the rains didn't show up. Water flowing into the lakes that feed the locks is down roughly 44% for the year, so the Panama Canal Authority has been quietly turning the dial down: a normal day moves 36 ships through. Since early September that's been 34. As of September 15 — literally this week — it drops again, to 32.</p>
+      <p>Two fewer ships a day sounds trivial. It isn't, because a canal has no "come back tomorrow, it's less busy" — every ship that misses today's cutoff competes with tomorrow's ships too, so a small daily shortfall compounds into a real backlog within days. Owners in a hurry (a gas tanker on a charter deadline, a container ship racing to make a holiday-season sailing) can skip that regular line entirely by bidding in the canal's daily slot auction instead of waiting. On September 1st, one gas tanker's owner paid a record $5.3 million for a single slot — beating a record set just three weeks earlier.</p>
+      <p>Why should a tech reader care about a canal? About 40% of all U.S. container traffic, and nearly half of everything shipped from Northeast Asia to the U.S. East Coast, passes through this one waterway. Squeeze it during peak holiday shipping season and the cost shows up later — in freight bills, in delivery dates, in the price of whatever gadget had to find a longer way around.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Mechanically, the Panama Canal is a freshwater lift-lock system, not a sea-level cut. Each transit through the Gatun, Pedro Miguel, Miraflores, and Neopanamax locks consumes on the order of tens of millions of gallons of fresh water per ship, drawn from Gatun and Alajuela Lakes and ultimately sourced from rainfall over the watershed. That water is released to sea level once used; the water-saving basins added in the 2016 Neopanamax expansion recover a meaningful share of it per transit, but net consumption is still large and one-directional.</p>
+      <p>The binding constraint isn't lock throughput capacity — it's reservoir recharge. This hydrological year, the ACP reports accumulated watershed rainfall down roughly 34% and inflow into the reservoir system down roughly 44%, consistent with an intensifying El Niño, which reliably suppresses isthmus rainfall by shifting the Pacific trade-wind pattern that normally drives moisture onto the watershed. With Gatun Lake tracking below the ACP's operating curve, the agency's only short-run control variable is daily transit count: cut from a baseline of 36/day to 34/day effective early September, and to 32/day effective September 15 — an 11% reduction in two months, distinct from the draft (loading depth) restrictions used in earlier drought cycles.</p>
+      <p>The market-clearing mechanism for scarce slots is the ACP's daily transit slot auction, layered on top of the standard booking and reservation system: any operator can bid to jump the regular queue, cleared highest-bid-first. On September 1, LPG carrier G. Spirit's owner paid $5.3 million for a single Neopanamax slot — a record that itself broke a $4.6 million record set August 14. Those prices are a real-time signal of water scarcity: they rise precisely when a ship's schedule value (a charter deadline, a cargo's spot-price window, a peak-season sailing) exceeds the cost of waiting in the regular queue, which is exactly the price-discovery function an auction is designed to perform.</p>
+      <p>Roughly 40% of U.S. container volume, and about 46% of container traffic moving from Northeast Asia to the U.S. East Coast, transits this single chokepoint — meaning a capacity cut here has an outsized, geographically concentrated effect on U.S. import lead times relative to its share of global trade tonnage.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> this cut lands right at the start of peak holiday shipping season, when everything from consumer electronics to warehouse robotics parts is racing to reach U.S. shelves — a slower or pricier Panama transit now shows up as a later, more expensive delivery in November and December.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> procurement and logistics teams sourcing from Northeast Asia should model Panama transit as a variable-cost, variable-lead-time chokepoint through at least this hydrological year — treating the slot-auction price as a leading indicator of freight-rate and ETA risk on East Coast-bound electronics and hardware shipments, not a one-off anomaly.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://gcaptain.com/panama-canal-to-cut-daily-transits-as-optimistic-water-outlook-fades/" target="_blank" rel="noopener">gCaptain — Panama Canal to Cut Daily Transits as Optimistic Water Outlook Fades</a></li>
+    <li><a href="https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/07/panama-canal-imposes-crossing-restrictions" target="_blank" rel="noopener">S&amp;P Global Market Intelligence — Panama Canal Imposes Crossing Restrictions</a></li>
+    <li><a href="https://www.dtnpf.com/agriculture/web/ag/columns/cash-market-moves/article/2026/09/02/panama-canal-authority-adopts-new" target="_blank" rel="noopener">DTN — Panama Canal Authority Adopts New Transit Restrictions</a></li>
+    <li><a href="https://www.bts.gov/data-spotlight/us-trade-and-impact-low-water-levels-gatun-lake-and-panama-canal" target="_blank" rel="noopener">U.S. Bureau of Transportation Statistics — U.S. Trade and the Impact of Low Water Levels in Gatun Lake and the Panama Canal</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var ARRIVALS = 35;
+    var MAX_DAYS = 20;
+    var MAX_ICONS = 42;
+    var COLS = 14;
+    var CELL = 17;
+    var GRID_X = 18;
+    var GRID_Y = 26;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var svgNS = 'http://www.w3.org/2000/svg';
+
+    var capBtns = Array.prototype.slice.call(document.querySelectorAll('.sv-cap-btn'));
+    var playBtn = document.getElementById('sv-play');
+    var resetBtn = document.getElementById('sv-reset');
+    var queueGrid = document.getElementById('queue-grid');
+    var queueOverflow = document.getElementById('queue-overflow');
+    var gateCapacityText = document.getElementById('gate-capacity');
+    var statDay = document.getElementById('stat-day');
+    var statBacklog = document.getElementById('stat-backlog');
+    var statCap = document.getElementById('stat-cap');
+    var statPrice = document.getElementById('stat-price');
+
+    var state = {
+      capacity: 34,
+      day: 0,
+      backlog: 0,
+      playing: false
+    };
+
+    function priceFor(backlog) {
+      var price = 150000 + backlog * 90000;
+      if (price >= 1000000) return '$' + (price / 1000000).toFixed(2) + 'M';
+      return '$' + Math.round(price / 1000) + 'k';
+    }
+
+    function renderQueue() {
+      while (queueGrid.firstChild) queueGrid.removeChild(queueGrid.firstChild);
+      var shown = Math.min(state.backlog, MAX_ICONS);
+      for (var i = 0; i < shown; i++) {
+        var col = i % COLS;
+        var row = Math.floor(i / COLS);
+        var rect = document.createElementNS(svgNS, 'rect');
+        rect.setAttribute('x', GRID_X + col * CELL);
+        rect.setAttribute('y', GRID_Y + row * CELL);
+        rect.setAttribute('width', 12);
+        rect.setAttribute('height', 12);
+        rect.setAttribute('rx', 3);
+        rect.setAttribute('class', 'sv-ship');
+        queueGrid.appendChild(rect);
+      }
+      if (state.backlog > MAX_ICONS) {
+        queueOverflow.style.display = '';
+        queueOverflow.textContent = '+' + (state.backlog - MAX_ICONS) + ' more waiting';
+      } else {
+        queueOverflow.style.display = 'none';
+      }
+    }
+
+    function render() {
+      gateCapacityText.textContent = state.capacity;
+      statDay.textContent = state.day + ' / ' + MAX_DAYS;
+      statBacklog.textContent = state.backlog;
+      statCap.textContent = state.capacity + ' / day';
+      statPrice.textContent = priceFor(state.backlog);
+      renderQueue();
+    }
+
+    function setCapacity(cap, instantFull) {
+      state.capacity = cap;
+      capBtns.forEach(function (b) {
+        b.setAttribute('aria-pressed', String(Number(b.getAttribute('data-cap')) === cap));
+      });
+      if (instantFull) {
+        state.day = MAX_DAYS;
+        state.backlog = Math.max(0, ARRIVALS - cap) * MAX_DAYS;
+        if (cap >= ARRIVALS + 1) state.backlog = 0;
+      } else {
+        state.day = 0;
+        state.backlog = 0;
+      }
+      render();
+    }
+
+    capBtns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (state.playing) return;
+        setCapacity(Number(b.getAttribute('data-cap')), reduceMotion);
+      });
+    });
+
+    resetBtn.addEventListener('click', function () {
+      if (state.playing) return;
+      state.day = 0;
+      state.backlog = 0;
+      render();
+    });
+
+    function tick() {
+      state.day++;
+      state.backlog = Math.max(0, state.backlog + ARRIVALS - state.capacity);
+    }
+
+    function runSimulation() {
+      if (state.playing) return;
+      state.playing = true;
+      playBtn.disabled = true;
+
+      if (reduceMotion) {
+        while (state.day < MAX_DAYS) tick();
+        render();
+        state.playing = false;
+        playBtn.disabled = false;
+        playBtn.textContent = '▶ Run again';
+        return;
+      }
+
+      playBtn.textContent = '▶ Running…';
+      state.day = 0;
+      state.backlog = 0;
+      render();
+
+      function step() {
+        if (state.day >= MAX_DAYS) {
+          state.playing = false;
+          playBtn.disabled = false;
+          playBtn.textContent = '▶ Run again';
+          return;
+        }
+        tick();
+        render();
+        setTimeout(step, 260);
+      }
+      setTimeout(step, 260);
+    }
+    playBtn.addEventListener('click', runSimulation);
+
+    if (reduceMotion) {
+      setCapacity(34, true);
+      playBtn.textContent = '▶ Run again';
+    } else {
+      render();
+    }
+  })();
+</script>
+</body>
+</html>
