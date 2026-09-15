@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Taiwan Gets 88% of Its Chip Helium From One Plant in Qatar. Missiles Hit It in March.</title>
+<meta name="description" content="Chip fabs cool and clean wafers with helium, a gas with no industrial substitute. Taiwan sourced roughly 88% of its supply from Qatar's Ras Laffan complex. Iranian missiles struck it in March 2026; six months later the plant is still running at about 25% of pre-strike capacity, and chipmakers are rationing gas." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c1461c;
+    --accent-a-tint: #f8ddd0;
+    --accent-b: #1f7f95;
+    --accent-b-tint: #d7eef2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #ec9268;
+      --accent-a-tint: #3a2013;
+      --accent-b: #6fd3e0;
+      --accent-b-tint: #10313a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #ec9268;
+    --accent-a-tint: #3a2013;
+    --accent-b: #6fd3e0;
+    --accent-b-tint: #10313a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c1461c;
+    --accent-a-tint: #f8ddd0;
+    --accent-b: #1f7f95;
+    --accent-b-tint: #d7eef2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: the helium squeeze --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.5;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 10px 10px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; max-width: 460px; margin: 0 auto; }
+  .sv-label { font-size: 9px; font-weight: 700; letter-spacing: 0.06em; }
+  .sv-legend-label { font-size: 9.5px; font-weight: 600; }
+  @media (prefers-reduced-motion: no-preference) {
+    #bar-qatar, #bar-other { transition: width 0.3s ease, x 0.3s ease; }
+    #tank-fill { transition: y 0.16s linear, height 0.16s linear; }
+  }
+
+  .sv-divider {
+    border-top: 1px solid var(--border);
+    margin: 16px 0 16px;
+  }
+
+  .sv-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .sv-cap-btns {
+    display: flex;
+    gap: 6px;
+  }
+  .sv-cap-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    line-height: 1.3;
+    text-align: center;
+  }
+  .sv-cap-btn span { display: block; font-size: 9px; font-weight: 500; opacity: 0.8; }
+  .sv-cap-btn[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+  .sv-action-btns { display: flex; gap: 6px; }
+  .sv-play-btn {
+    border: 1px solid var(--accent-a);
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .sv-play-btn:disabled { opacity: 0.5; cursor: default; }
+  .sv-reset-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 15, 2026</span>
+    <span class="category-chip">CRITICAL GASES</span>
+  </div>
+  <h1>Taiwan Gets 88% of Its Chip Helium From One Plant in Qatar. Missiles Hit It in March.</h1>
+  <p class="lede">Chip fabs run on a gas with no industrial substitute — and the supply chain behind it just proved how fragile that really is. Taiwan's chipmakers sourced roughly 88% of their helium from one Qatari complex. Iranian missiles hit it in March; six months later it's still running at about a quarter of its old output, and Samsung and SK Hynix are rationing gas.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    On March 18–19, 2026, Iranian missiles struck Qatar's Ras Laffan Industrial City — home to the Helium2 plant, part of one of only two or three sites on Earth that supply most of the world's helium — in retaliation for an Israeli strike on Iranian gas facilities. Taiwan's chipmakers had entered 2026 sourcing roughly 88% of their helium from Qatar, up from about 46% four years earlier, and Fitch Ratings named Taiwan and South Korea the chip sectors most exposed to the fallout. Six months on, Helium2 is running at roughly 25% of pre-strike capacity on one of its four fill bays, the Strait of Hormuz remains constrained for commercial shipping, and analysts peg full recovery at three to five years. Spot helium prices in Northeast Asia have roughly doubled, Samsung and SK Hynix are rationing gas and slowing wafer starts, and Taiwan's chip industry association has asked Taipei to build a strategic helium reserve, following Japan and the U.S.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">The 88% supply line: what a 75% capacity cut at one plant does downstream</h2>
+      <p class="sv-caption mono">Pick a scenario to compare the inflow bar against fixed fab demand (100 = demand index). Hit Run to animate the reservoir draining under the post-strike shortfall. Simplified illustrative model built from real reported figures — Qatar supplied ~88% of Taiwan's helium pre-strike, its main export plant restarted at ~25% of pre-strike output — not real inventory, flow-rate, or timeline data.</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 460 240" role="img" aria-label="A bar chart comparing helium inflow to Taiwan's fabs against fixed demand, and a tank showing a helium reserve that can be animated draining when the Qatar plant's capacity is cut to 25 percent.">
+        <text x="20" y="16" class="sv-label mono" fill="var(--muted)">INFLOW VS FAB DEMAND (INDEX, 100 = DEMAND)</text>
+
+        <rect x="20" y="34" width="400" height="22" rx="4" fill="none" stroke="var(--border)" stroke-width="1"></rect>
+        <line x1="420" y1="26" x2="420" y2="64" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="3,3"></line>
+        <text x="420" y="21" text-anchor="end" class="sv-label mono" fill="var(--muted)">DEMAND</text>
+
+        <rect id="bar-qatar" x="20" y="34" width="352" height="22" fill="var(--accent-a)"></rect>
+        <rect id="bar-other" x="372" y="34" width="48" height="22" fill="var(--accent-b)"></rect>
+
+        <text id="bar-label" x="20" y="71" class="sv-legend-label mono" fill="var(--ink)">Inflow: 100 / 100</text>
+
+        <rect x="20" y="82" width="10" height="10" rx="2" fill="var(--accent-a)"></rect>
+        <text x="36" y="91" class="sv-legend-label mono" fill="var(--ink)">Qatar (Ras Laffan)</text>
+        <rect x="180" y="82" width="10" height="10" rx="2" fill="var(--accent-b)"></rect>
+        <text x="196" y="91" class="sv-legend-label mono" fill="var(--ink)">All other sources</text>
+
+        <line x1="20" y1="108" x2="440" y2="108" stroke="var(--border)"></line>
+
+        <text x="20" y="126" class="sv-label mono" fill="var(--muted)">FAB HELIUM RESERVOIR (BUFFER STOCK)</text>
+
+        <rect id="tank-outline" x="190" y="140" width="80" height="88" rx="6" fill="none" stroke="var(--border)" stroke-width="1.5"></rect>
+        <rect id="tank-fill" x="190" y="140" width="80" height="88" fill="var(--accent-b)"></rect>
+        <line x1="182" y1="206" x2="270" y2="206" stroke="var(--accent-a)" stroke-width="1" stroke-dasharray="3,3"></line>
+        <text x="278" y="209" class="sv-legend-label mono" fill="var(--accent-a)">rationing line (25%)</text>
+
+        <text x="290" y="160" class="sv-legend-label mono" fill="var(--muted)">RESERVOIR</text>
+        <text id="tank-pct" x="290" y="180" class="sv-stat-value mono" fill="var(--ink)" font-size="16">100%</text>
+        <text id="tank-status" x="290" y="200" class="sv-legend-label mono" fill="var(--accent-b)">Normal</text>
+      </svg>
+    </div>
+
+    <div class="sv-divider"></div>
+
+    <div class="sv-controls-row">
+      <div class="sv-cap-btns" role="group" aria-label="Select scenario">
+        <button type="button" class="sv-cap-btn" data-scn="before" aria-pressed="true">Before strike<span>Qatar at 100%</span></button>
+        <button type="button" class="sv-cap-btn" data-scn="after" aria-pressed="false">After strike<span>Qatar at 25%</span></button>
+      </div>
+      <div class="sv-action-btns">
+        <button type="button" class="sv-reset-btn" id="sv-reset">Reset</button>
+        <button type="button" class="sv-play-btn" id="sv-play">▶ Run drawdown</button>
+      </div>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Qatar plant capacity</div>
+        <div class="sv-stat-value mono" id="stat-capacity">100%</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Inflow vs demand</div>
+        <div class="sv-stat-value mono" id="stat-inflow">100 / 100</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Reservoir level</div>
+        <div class="sv-stat-value mono" id="stat-reservoir">100%</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Fab gas status</div>
+        <div class="sv-stat-value mono" id="stat-status">Normal</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Every advanced computer chip is bathed, cooled, and leak-tested with a gas you probably last thought about at a birthday party: helium. Balloons are the least of it. Inside a chip fab, helium is what keeps a silicon wafer from overheating and warping while a machine blasts it with ions or laser light precise enough to draw features a few atoms wide. Nothing else does the job as well — helium carries heat away faster than almost any other gas, and because it barely reacts with anything, it won't contaminate the ultra-clean chamber. There's no substitute waiting in the wings.</p>
+      <p>That would just be a curiosity if helium came from lots of places. It doesn't. Most of the world's helium is squeezed out as a byproduct of natural gas production, and only a handful of sites can do it at real scale — chiefly the United States and Qatar. Taiwan, home to TSMC and the chips inside nearly every AI GPU and iPhone, had come to rely on Qatar for roughly 88% of its helium, up from under half just four years earlier.</p>
+      <p>In March 2026, Iran fired missiles at Qatar's Ras Laffan energy complex — the source of that helium — in retaliation for an Israeli strike on Iranian gas facilities. Six months on, the plant is still limping back at roughly a quarter of its old output. Helium prices in Asia have roughly doubled, and Samsung and SK Hynix are rationing gas and slowing memory-chip production — the same memory chips going into every new AI server. A gas nobody thinks about just became a bottleneck for the thing everyone's watching.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Helium's usefulness in chip fabrication comes down to two properties: thermal conductivity roughly six times that of nitrogen, and near-total chemical inertness at essentially any process temperature. In ion implantation, a wafer sits on an electrostatic chuck while dopant ions slam into its surface at high energy; helium flowed across the wafer's backside carries that heat away fast enough to hold critical-dimension uniformity, preventing the dopant diffusion or resist damage that would otherwise blur patterns already etched into the silicon. The same properties make helium essential for temperature control in EUV lithography stages and for the fine helium leak-testing used to qualify vacuum chambers — its small atomic radius finds leaks nitrogen or argon simply can't. Nitrogen also acts as a chemical suppressant in chlorine-based etch chemistries, ruling it out wherever those are already in play. No industrial substitute exists for any of these roles at leading-edge nodes.</p>
+      <p>Supply is geologically and geopolitically narrow. Helium is recovered cryogenically as a byproduct of natural-gas processing, and only a few fields have the concentration and infrastructure to make extraction economical: the U.S. Federal Helium System, Qatar's Ras Laffan/North Field complex, Algeria, and Russia's Amur plant. Taiwan's chip industry sourced roughly 88% of its helium from Qatar entering 2026, up from about 46% four years earlier, per DigiTimes reporting on customs data, as Ras Laffan's output grew; Fitch Ratings has separately flagged Taiwan and South Korea as the two chip sectors most exposed to a Qatar-side disruption.</p>
+      <p>On March 18–19, 2026, Iranian missile strikes on Ras Laffan Industrial City — retaliation for an Israeli strike on an Iranian gas facility — caused what QatarEnergy called "extensive damage." The Helium2 processing plant has since restarted using only one of its four fill bays, running at roughly 25% of pre-strike capacity, with full recovery estimated at three to five years and Strait of Hormuz shipping still constrained. Spot helium prices in Northeast Asia have risen sharply against long-term contract levels, Samsung and SK Hynix have moved to gas rationing and throttled wafer starts, and Taiwan's semiconductor industry association has petitioned Taipei to build a strategic helium and LNG reserve, following Japan's and the U.S.'s lead.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> a missile strike on a gas plant most people have never heard of is now shaping how fast AI memory chips ship — critical inputs hide in stranger places than most supply-chain maps show.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> helium sits alongside neon and specialty process gases as a category where concentration risk stays invisible until it isn't — teams modeling AI hardware supply chains need to track feedstock gases with the same rigor as wafers, substrates, and export controls, not treat them as a rounding error.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.cnbc.com/2026/03/18/iran-war-qatar-ras-laffan-natural-gas-lng.html" target="_blank" rel="noopener">CNBC — Iran missile attack on Qatar causes 'extensive damage' to facility housing huge gas plant</a></li>
+    <li><a href="https://www.digitimes.com/news/a20260703VL202/helium-exports-qatar-taiwan-chipmakers-2026.html" target="_blank" rel="noopener">DigiTimes — Analysis: Taiwan's semiconductor sector enters 2026 helium crunch, with nearly 90% dependent on Qatar</a></li>
+    <li><a href="https://www.scmp.com/tech/article/3347005/korea-taiwan-chip-sectors-most-exposed-helium-shortage-amid-middle-east-war-fitch" target="_blank" rel="noopener">South China Morning Post — Korea, Taiwan chip sectors most exposed to helium shortage amid Middle East war: Fitch</a></li>
+    <li><a href="https://www.tomshardware.com/tech-industry/taiwanese-chip-makers-call-on-government-to-stockpile-helium-lng-tsia-pleads-for-strategic-supplies-as-us-and-iran-sign-ceasefire-in-middle-east" target="_blank" rel="noopener">Tom's Hardware — Taiwanese chip makers call on government to stockpile helium, liquid natural gas</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var DEMAND = 100;
+    var QATAR_SHARE = 88;
+    var OTHER_SHARE = 12;
+    var PX_PER_UNIT = 400 / 100;
+    var BAR_X0 = 20;
+    var TANK_Y = 140;
+    var TANK_H = 88;
+    var TICKS = 18;
+    var STEP_MS = 180;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var scnBtns = Array.prototype.slice.call(document.querySelectorAll('.sv-cap-btn'));
+    var playBtn = document.getElementById('sv-play');
+    var resetBtn = document.getElementById('sv-reset');
+    var barQatar = document.getElementById('bar-qatar');
+    var barOther = document.getElementById('bar-other');
+    var barLabel = document.getElementById('bar-label');
+    var tankFill = document.getElementById('tank-fill');
+    var tankPct = document.getElementById('tank-pct');
+    var tankStatus = document.getElementById('tank-status');
+    var statCapacity = document.getElementById('stat-capacity');
+    var statInflow = document.getElementById('stat-inflow');
+    var statReservoir = document.getElementById('stat-reservoir');
+    var statStatus = document.getElementById('stat-status');
+
+    var state = {
+      scenario: 'before',
+      reservoir: 100,
+      playing: false,
+      step: 0
+    };
+
+    function inflowFor(scn) {
+      var qatarCapacityPct = scn === 'after' ? 25 : 100;
+      var qatarUnits = QATAR_SHARE * qatarCapacityPct / 100;
+      return { qatarUnits: qatarUnits, otherUnits: OTHER_SHARE, total: qatarUnits + OTHER_SHARE };
+    }
+
+    function renderBar(scn) {
+      var f = inflowFor(scn);
+      var qw = f.qatarUnits * PX_PER_UNIT;
+      var ow = f.otherUnits * PX_PER_UNIT;
+      barQatar.setAttribute('width', qw.toFixed(1));
+      barOther.setAttribute('x', (BAR_X0 + qw).toFixed(1));
+      barOther.setAttribute('width', ow.toFixed(1));
+      barLabel.textContent = 'Inflow: ' + Math.round(f.total) + ' / ' + DEMAND;
+      statCapacity.textContent = (scn === 'after' ? '25%' : '100%');
+      statInflow.textContent = Math.round(f.total) + ' / ' + DEMAND;
+    }
+
+    function renderTank() {
+      var fillH = TANK_H * (state.reservoir / 100);
+      tankFill.setAttribute('y', (TANK_Y + (TANK_H - fillH)).toFixed(1));
+      tankFill.setAttribute('height', fillH.toFixed(1));
+      var pct = Math.round(state.reservoir);
+      tankPct.textContent = pct + '%';
+      statReservoir.textContent = pct + '%';
+      var rationing = state.reservoir <= 25;
+      var label = rationing ? 'Rationing' : 'Normal';
+      var color = rationing ? 'var(--accent-a)' : 'var(--accent-b)';
+      tankStatus.textContent = label;
+      tankStatus.setAttribute('fill', color);
+      statStatus.textContent = label;
+    }
+
+    function setScenarioBar(scn) {
+      state.scenario = scn;
+      scnBtns.forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.getAttribute('data-scn') === scn));
+      });
+      renderBar(scn);
+    }
+
+    function resetAll() {
+      if (state.playing) return;
+      state.reservoir = 100;
+      state.step = 0;
+      setScenarioBar('before');
+      renderTank();
+      playBtn.disabled = false;
+      playBtn.textContent = '▶ Run drawdown';
+    }
+
+    scnBtns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (state.playing) return;
+        setScenarioBar(b.getAttribute('data-scn'));
+      });
+    });
+
+    resetBtn.addEventListener('click', resetAll);
+
+    function runDrawdown() {
+      if (state.playing) return;
+      state.playing = true;
+      playBtn.disabled = true;
+      setScenarioBar('after');
+      state.reservoir = 100;
+      state.step = 0;
+      renderTank();
+
+      if (reduceMotion) {
+        state.reservoir = 0;
+        renderTank();
+        state.playing = false;
+        playBtn.disabled = false;
+        playBtn.textContent = '▶ Run again';
+        return;
+      }
+
+      playBtn.textContent = '▶ Draining…';
+
+      function step() {
+        if (state.step >= TICKS) {
+          state.playing = false;
+          playBtn.disabled = false;
+          playBtn.textContent = '▶ Run again';
+          return;
+        }
+        state.step++;
+        state.reservoir = Math.max(0, 100 - (100 / TICKS) * state.step);
+        renderTank();
+        setTimeout(step, STEP_MS);
+      }
+      setTimeout(step, STEP_MS);
+    }
+    playBtn.addEventListener('click', runDrawdown);
+
+    setScenarioBar('before');
+    renderTank();
+  })();
+</script>
+</body>
+</html>
