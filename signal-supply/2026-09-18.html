@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Every Advanced Chip Is Wired With Tungsten. China Just Cut the World's Legal Suppliers to 15 Companies.</title>
+<meta name="description" content="Tungsten fills the microscopic vias that wire a chip's transistors to its metal layers above — a job with no drop-in substitute at scale. China mines roughly 80% of the world's tungsten, and as of this year only 15 Chinese companies hold a license to export any of it. In 2025, US importers were approved for zero of those licenses, and Chinese tungsten prices more than tripled." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a85a1a;
+    --accent-a-tint: #f6e3d0;
+    --accent-b: #2f6690;
+    --accent-b-tint: #dbeaf3;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e2955c;
+      --accent-a-tint: #3a2416;
+      --accent-b: #74b6dc;
+      --accent-b-tint: #112f40;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e2955c;
+    --accent-a-tint: #3a2416;
+    --accent-b: #74b6dc;
+    --accent-b-tint: #112f40;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a85a1a;
+    --accent-a-tint: #f6e3d0;
+    --accent-b: #2f6690;
+    --accent-b-tint: #dbeaf3;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: wiring the chip --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.5;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 16px 10px 10px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; max-width: 460px; margin: 0 auto; }
+  .sv-label { font-size: 9px; font-weight: 700; letter-spacing: 0.06em; }
+  .sv-layer-label { font-size: 10px; font-weight: 800; letter-spacing: 0.02em; }
+  .sv-via-count { font-size: 9px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  .sv-readout {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 14px;
+    background: var(--accent-a-tint);
+  }
+  .sv-readout-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .sv-stage-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  .sv-stage-mult {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-a);
+    font-variant-numeric: tabular-nums;
+  }
+  .sv-stage-price {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+    margin: 6px 0 8px;
+  }
+  .sv-stage-desc {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .sv-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 16px 0 4px;
+  }
+  .sv-action-btns { display: flex; gap: 6px; }
+  .sv-play-btn {
+    border: 1px solid var(--accent-a);
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .sv-play-btn:disabled { opacity: 0.4; cursor: default; }
+  .sv-reset-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .sv-reset-btn:disabled { opacity: 0.4; cursor: default; }
+
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 12.5px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .sv-via { transition: fill 0.18s ease, stroke 0.18s ease; }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 18, 2026</span>
+    <span class="category-chip">SEMICONDUCTORS</span>
+  </div>
+  <h1>Every Advanced Chip Is Wired With Tungsten. China Just Cut the World's Legal Suppliers to 15 Companies.</h1>
+  <p class="lede">Tungsten fills the microscopic vias that connect a chip's transistors to the metal wiring stacked above them — a job nothing else does at scale. China mines roughly 80% of the world's tungsten, and starting this year, only 15 Chinese companies hold a government license to export any of it. In 2025, US importers were approved for zero of those licenses.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Tungsten's job inside a chip is unglamorous but irreplaceable: after transistors are etched into silicon, tungsten is deposited into holes just tens of nanometers wide to form the "contacts" and "vias" that carry current up from the transistor layer into the metal wiring above — and at mainstream and trailing-edge nodes, which still make the vast majority of the world's chips, there's no substitute used at production scale. China mines an estimated 80% of the world's tungsten and, per USGS data, produced roughly 67,000 of the world's 85,000 tonnes in 2025. In February 2025, Beijing added tungsten to its export-license list alongside four other minerals; in late December 2025, it went further, naming the only 15 companies permitted to export any tungsten at all for 2026 and 2027 — down from a far larger pool of traders — with each shipment still needing an individual government license that takes one to two months to clear. The result: Chinese tungsten product prices, including ammonium paratungstate, more than tripled over the course of 2025, and US importers received zero approved export licenses the entire year.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Wiring a chip: watch tungsten make the vertical connections</h2>
+      <p class="sv-caption mono">A simplified 3-layer slice of a chip. Press Run to fabricate it: tungsten (amber) fills each via, bottom to top, linking the transistor layer up through the metal layers above it. Real chips have dozens of these layers and thousands of vias per square millimeter — this shows the same principle at readable scale.</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 400 220" role="img" aria-label="A diagram of a chip cross-section with a transistor layer at the bottom and three metal wiring layers stacked above it, connected by twelve tungsten vias. A Run control fills the vias from bottom to top to show how tungsten wires each layer to the one above.">
+        <text x="14" y="16" class="sv-label mono" fill="var(--muted)">CHIP CROSS-SECTION — SIMPLIFIED</text>
+
+        <rect x="40" y="176" width="320" height="18" rx="3" fill="var(--border)"></rect>
+        <text x="200" y="189" text-anchor="middle" class="sv-layer-label mono" fill="var(--ink)">TRANSISTOR LAYER</text>
+
+        <rect id="m1" x="40" y="138" width="320" height="14" rx="3" fill="var(--surface)" stroke="var(--border)" stroke-width="2"></rect>
+        <text x="200" y="148" text-anchor="middle" class="sv-layer-label mono" fill="var(--muted)">METAL 1</text>
+
+        <rect id="m2" x="40" y="98" width="320" height="14" rx="3" fill="var(--surface)" stroke="var(--border)" stroke-width="2"></rect>
+        <text x="200" y="108" text-anchor="middle" class="sv-layer-label mono" fill="var(--muted)">METAL 2</text>
+
+        <rect id="m3" x="40" y="58" width="320" height="14" rx="3" fill="var(--surface)" stroke="var(--border)" stroke-width="2"></rect>
+        <text x="200" y="68" text-anchor="middle" class="sv-layer-label mono" fill="var(--muted)">METAL 3</text>
+
+        <g id="vias-group"></g>
+
+        <text x="14" y="212" class="sv-label mono" fill="var(--muted)">AMBER = TUNGSTEN-FILLED VIA. NO OTHER METAL DOES THIS JOB AT SCALE.</text>
+      </svg>
+    </div>
+
+    <div class="sv-readout" aria-live="polite">
+      <div class="sv-readout-top">
+        <span class="sv-stage-label mono" id="stage-label">READY TO FABRICATE</span>
+        <span class="sv-stage-mult mono" id="stage-mult" style="font-variant-numeric: tabular-nums;">0 / 12 vias wired</span>
+      </div>
+      <div class="sv-stage-price mono" id="stage-price">0 / 12</div>
+      <p class="sv-stage-desc" id="stage-desc">Press Run to fill the contacts and vias in order, bottom to top — the same sequence a fab follows during middle-of-line processing.</p>
+    </div>
+
+    <div class="sv-controls-row">
+      <div class="sv-action-btns">
+        <button type="button" class="sv-play-btn" id="sv-run">Run ▶</button>
+      </div>
+      <button type="button" class="sv-reset-btn" id="sv-reset">Reset</button>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">China's tungsten mine share</div>
+        <div class="sv-stat-value mono">≈80% (2025)</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Licensed exporters, 2026–27</div>
+        <div class="sv-stat-value mono">15 companies</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">China tungsten price, 2025</div>
+        <div class="sv-stat-value mono">up &gt;200%</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">US export licenses granted, 2025</div>
+        <div class="sv-stat-value mono">0</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Think of an advanced chip as a multi-story parking garage built at a scale you can't see. The transistors live on the ground floor. Above them are several more floors of metal wiring that carry electricity around, layer stacked on layer. To get power and signals from the ground floor up to those wiring levels, you need ramps — millions of them, packed impossibly close together. Tungsten is the material that fills those ramps. It's the one metal that can be poured into holes a few dozen atoms wide, survive the intense heat of the manufacturing process, and still carry current reliably for years. Nothing else does that job at the scale a chip factory needs, for the vast bulk of the chips the world actually makes.</p>
+      <p>Here's the catch: China mines roughly 80% of the world's tungsten. For years, that mattered less because tungsten was cheap and easy to buy. That changed fast. In February 2025, Beijing put tungsten on its export-license list. Then, in late December, it narrowed the field further: starting in 2026, only 15 Chinese companies are legally allowed to export any tungsten at all, and every shipment still needs its own government approval, which can take one to two months.</p>
+      <p>The results showed up immediately. Chinese tungsten prices more than tripled over 2025. And American importers — who need the metal for everything from chips to drill bits to jet engines — got approved for exactly zero export licenses the entire year.</p>
+      <p>If you make electronics, weapons systems, or industrial tools, your supply chain now runs through a government-picked list of 15 phone numbers, each call subject to a permission slip.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>In middle-of-line (MOL) processing, after transistors are formed, contact holes are etched down to the source, drain and gate terminals and filled with tungsten via chemical vapor deposition (CVD), typically over a titanium/titanium-nitride liner that promotes adhesion and blocks diffusion. The same approach fills the vias connecting successive back-end-of-line (BEOL) copper metal layers at the layers closest to the transistor, where feature sizes are too small for copper's electromigration and gap-fill behavior to work reliably. Tungsten's appeal is a combination of excellent CVD conformality into high-aspect-ratio holes, high electromigration resistance, and a melting point (~3,422°C) and thermal stability that survive subsequent processing steps without reflow or voiding. At the most advanced logic nodes, fabs are piloting cobalt and ruthenium as tungsten replacements in the lowest, narrowest via layers — but tungsten remains the dominant contact/via material across the mainstream and trailing-edge nodes that still account for the large majority of global chip volume, plus in through-silicon vias for advanced packaging.</p>
+      <p>China's leverage sits upstream of the fab: USGS estimates put China's 2025 mined tungsten output at roughly 67,000 of the world's ~85,000 tonnes (≈80%), and its midstream position — converting ore to ammonium paratungstate (APT), tungsten oxides and cemented carbide — is even more concentrated, so non-Chinese mined ore often still passes through Chinese processing. On February 4, 2025, China's Ministry of Commerce added tungsten, tellurium, bismuth, indium and molybdenum to its dual-use export control list, requiring individual export licenses. In late December 2025, MOFCOM tightened the regime from a product-license system to a company-level whitelist for 2026–2027: only 15 named firms (including China Tungsten & Hightech Materials, a China Minmetals unit, and Xiamen Tungsten) may apply to export tungsten at all, versus 11 for antimony and 44 for silver under the same rules. Each order is still assessed case-by-case, with end-use and destination review adding roughly one to two months per shipment. The measurable effect: Chinese APT and ferrotungsten prices rose more than 200% over 2025 on the combination of licensing friction and fresh semiconductor-driven demand, while US importers were approved for zero tungsten export licenses across the year — a de facto embargo achieved without ever being labeled one.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> if you build electronics, drill rigs, or defense hardware, your tungsten supply now runs through 15 government-picked companies and a permission slip — not a market.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> a company-level export whitelist is a harder chokepoint than a product ban — it lets Beijing throttle volume, timing and destination shipment-by-shipment without ever declaring a formal embargo, and it sits underneath every fab's contact/via process, not just one exotic material niche.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://investingnews.com/china-named-15-tungsten-exporters-for-2026-the-west-is-drilling/" target="_blank" rel="noopener">Investing News Network — China named 15 tungsten exporters for 2026, the West is drilling</a></li>
+    <li><a href="https://www.fastmarkets.com/insights/chinese-tungsten-product-prices-surge-2025-export-controls-fresh-demand/" target="_blank" rel="noopener">Fastmarkets — Chinese tungsten product prices surge over 200% in 2025 amid export controls, fresh demand</a></li>
+    <li><a href="https://www.scmp.com/economy/global-economy/article/3356921/do-chinas-export-curbs-tungsten-threaten-japans-ai-chip-supply-chain" target="_blank" rel="noopener">South China Morning Post — Do China's export curbs on tungsten threaten Japan's AI chip supply chain?</a></li>
+    <li><a href="https://pubs.usgs.gov/periodicals/mcs2025/mcs2025-tungsten.pdf" target="_blank" rel="noopener">USGS Mineral Commodity Summaries — Tungsten</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var NS = 'http://www.w3.org/2000/svg';
+    var COLS = [80, 160, 240, 320];
+    var GAPS = [
+      { yFrom: 176, yTo: 152, layer: 'TRANSISTOR → METAL 1' },
+      { yFrom: 138, yTo: 112, layer: 'METAL 1 → METAL 2' },
+      { yFrom: 98, yTo: 72, layer: 'METAL 2 → METAL 3' }
+    ];
+
+    var vias = [];
+    GAPS.forEach(function (gap, gi) {
+      COLS.forEach(function (x, ci) {
+        vias.push({ x: x, yFrom: gap.yFrom, yTo: gap.yTo, layer: gap.layer, order: gi * COLS.length + ci });
+      });
+    });
+    var TOTAL = vias.length;
+
+    var group = document.getElementById('vias-group');
+    vias.forEach(function (v, i) {
+      var rect = document.createElementNS(NS, 'rect');
+      rect.setAttribute('id', 'via-' + i);
+      rect.setAttribute('class', 'sv-via');
+      rect.setAttribute('x', String(v.x - 5));
+      rect.setAttribute('y', String(v.yTo));
+      rect.setAttribute('width', '10');
+      rect.setAttribute('height', String(v.yFrom - v.yTo));
+      rect.setAttribute('rx', '2');
+      rect.setAttribute('fill', 'var(--surface)');
+      rect.setAttribute('stroke', 'var(--border)');
+      rect.setAttribute('stroke-width', '1.5');
+      group.appendChild(rect);
+    });
+
+    var runBtn = document.getElementById('sv-run');
+    var resetBtn = document.getElementById('sv-reset');
+    var stageLabel = document.getElementById('stage-label');
+    var stageMult = document.getElementById('stage-mult');
+    var stagePrice = document.getElementById('stage-price');
+    var stageDesc = document.getElementById('stage-desc');
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var state = { filled: 0, timer: null };
+
+    function renderVias() {
+      for (var i = 0; i < TOTAL; i++) {
+        var el = document.getElementById('via-' + i);
+        var on = i < state.filled;
+        el.setAttribute('fill', on ? 'var(--accent-a)' : 'var(--surface)');
+        el.setAttribute('stroke', on ? 'var(--accent-a)' : 'var(--border)');
+      }
+    }
+
+    function renderReadout() {
+      stageMult.textContent = state.filled + ' / ' + TOTAL + ' vias wired';
+      stagePrice.textContent = state.filled + ' / ' + TOTAL;
+      if (state.filled === 0) {
+        stageLabel.textContent = 'READY TO FABRICATE';
+        stageDesc.textContent = 'Press Run to fill the contacts and vias in order, bottom to top — the same sequence a fab follows during middle-of-line processing.';
+      } else if (state.filled < TOTAL) {
+        var gi = Math.floor((state.filled - 1) / COLS.length);
+        stageLabel.textContent = 'WIRING — ' + vias[state.filled - 1].layer;
+        stageDesc.textContent = 'Tungsten CVD fills the contact/via holes at this level, connecting it to the layer below. Too narrow for copper to fill reliably here.';
+      } else {
+        stageLabel.textContent = 'CHIP WIRED — ALL LAYERS CONNECTED';
+        stageDesc.textContent = 'Every one of these ' + TOTAL + ' connections needed tungsten. A real chip repeats this thousands of times per square millimeter, across dozens of layers.';
+      }
+      runBtn.disabled = state.filled === TOTAL;
+      resetBtn.disabled = state.filled === 0;
+    }
+
+    function render() {
+      renderVias();
+      renderReadout();
+    }
+
+    function stopTimer() {
+      if (state.timer) { clearInterval(state.timer); state.timer = null; }
+    }
+
+    function runAnimated() {
+      stopTimer();
+      state.timer = setInterval(function () {
+        if (state.filled >= TOTAL) { stopTimer(); render(); return; }
+        state.filled++;
+        render();
+      }, 160);
+    }
+
+    runBtn.addEventListener('click', function () {
+      if (state.filled >= TOTAL) return;
+      if (reduceMotion) {
+        state.filled = TOTAL;
+        render();
+      } else {
+        runAnimated();
+      }
+    });
+
+    resetBtn.addEventListener('click', function () {
+      stopTimer();
+      state.filled = 0;
+      render();
+    });
+
+    if (reduceMotion) {
+      state.filled = TOTAL;
+    }
+    render();
+  })();
+</script>
+</body>
+</html>
