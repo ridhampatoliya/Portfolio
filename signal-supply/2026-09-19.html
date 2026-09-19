@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — A Chipmaker Nobody's Heard Of Nearly Stopped Global Car Production. This Week It Announced Where It's Rebuilding — Not China.</title>
+<meta name="description" content="Nexperia makes roughly 40% of the world's automotive discrete chips by volume — the cheap transistors and diodes wired into every car's brakes and headlights. A Dutch government seizure and a Chinese export ban split the company in 2025 and froze car production worldwide. On September 17, 2026, its non-Chinese half announced its fix: a new supply chain built with Tata Electronics in India." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5491f;
+    --accent-a-tint: #f8e2d4;
+    --accent-b: #1c7c6d;
+    --accent-b-tint: #d9efe9;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e89563;
+      --accent-a-tint: #3b2416;
+      --accent-b: #5fcbb6;
+      --accent-b-tint: #10312c;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e89563;
+    --accent-a-tint: #3b2416;
+    --accent-b: #5fcbb6;
+    --accent-b-tint: #10312c;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5491f;
+    --accent-a-tint: #f8e2d4;
+    --accent-b: #1c7c6d;
+    --accent-b-tint: #d9efe9;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: chokepoint pipeline stepper --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.5;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 16px 10px 10px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; max-width: 460px; margin: 0 auto; }
+  .sv-label { font-size: 9px; font-weight: 700; letter-spacing: 0.06em; }
+  .sv-node-label { font-size: 9.5px; font-weight: 800; letter-spacing: 0.01em; }
+  .sv-node-sub { font-size: 8px; font-weight: 600; letter-spacing: 0.01em; }
+  @media (prefers-reduced-motion: no-preference) {
+    .sv-node-rect, .sv-flow-line, .sv-break, .sv-tag { transition: fill 0.25s ease, stroke 0.25s ease, opacity 0.25s ease, stroke-dasharray 0.25s ease; }
+  }
+
+  .sv-readout {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 14px;
+    background: var(--accent-a-tint);
+  }
+  .sv-readout-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .sv-stage-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  .sv-stage-mult {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-a);
+    font-variant-numeric: tabular-nums;
+  }
+  .sv-stage-desc {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin: 8px 0 0;
+    line-height: 1.5;
+  }
+
+  .sv-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 16px 0 4px;
+  }
+  .sv-action-btns { display: flex; gap: 6px; }
+  .sv-play-btn {
+    border: 1px solid var(--accent-a);
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .sv-play-btn:disabled { opacity: 0.4; cursor: default; }
+  .sv-reset-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .sv-reset-btn:disabled { opacity: 0.4; cursor: default; }
+
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 12.5px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 19, 2026</span>
+    <span class="category-chip">SEMICONDUCTORS</span>
+  </div>
+  <h1>A Chipmaker Nobody's Heard Of Nearly Stopped Global Car Production. This Week It Announced Where It's Rebuilding — Not China.</h1>
+  <p class="lede">Nexperia makes the unglamorous transistors and diodes wired into nearly every car's brakes, headlights and battery system — about 40% of the world's supply by volume. Last October, a Dutch government seizure and a Chinese export ban split the company in two and froze car production worldwide. On September 17, the non-Chinese half picked its new manufacturing partner: Tata, in India.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Nexperia doesn't make cutting-edge AI chips — it makes the cheap, boring transistors and diodes that route power and signals inside almost every electronic system in a car. By TechInsights' estimate, Nexperia holds roughly 40% of the world's automotive discrete-semiconductor market by unit volume, but only an estimated 5% by revenue — each part costs pennies, yet a modern car needs hundreds of them and can't ship without a single one. When the Dutch government invoked a Cold War–era law in September 2025 to seize control of Nexperia from its Chinese owner, Wingtech, Beijing retaliated by banning exports of parts packaged at Nexperia's Dongguan plant, which handles an estimated 70% of the company's output. Honda alone projected a roughly $960 million hit to operating profit for the fiscal year ending March 2026. A Trump-Xi trade deal eased the ban within weeks, but the company stayed split along the same border. On September 17, 2026, Nexperia's non-Chinese half announced it will build its future supply chain in India instead, partnering with Tata Electronics on a combined $14 billion fab-and-packaging buildout.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Step through the chokepoint: how one factory freeze stalled car plants worldwide</h2>
+      <p class="sv-caption mono">A simplified version of Nexperia's supply chain. Use Next/Prev to move through six stages, from normal operation to the September 2026 pivot to India. Geography and share figures are simplified for clarity — see stats and sources below for the real numbers.</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 440 260" role="img" aria-label="A step-through diagram of Nexperia's supply chain: design in the Netherlands, wafer fabrication in Europe, packaging and testing in Dongguan China, and shipment to carmakers worldwide, with a new packaging node in Jagiroad India appearing at the final stage.">
+        <text x="10" y="16" class="sv-label mono" fill="var(--muted)">NEXPERIA SUPPLY CHAIN — SIMPLIFIED</text>
+
+        <line id="line-fab" class="sv-flow-line" x1="98" y1="135" x2="132" y2="135" stroke="var(--border)" stroke-width="3"></line>
+        <line id="line-pkgcn" class="sv-flow-line" x1="238" y1="135" x2="272" y2="100" stroke="var(--border)" stroke-width="3"></line>
+        <line id="line-car" class="sv-flow-line" x1="360" y1="90" x2="392" y2="130" stroke="var(--border)" stroke-width="3"></line>
+        <line id="line-pkgin" class="sv-flow-line" x1="360" y1="205" x2="392" y2="150" stroke="var(--border)" stroke-width="3" stroke-dasharray="5 5" opacity="0"></line>
+        <circle id="break-x" cx="376" cy="110" r="9" fill="var(--accent-a)" opacity="0"></circle>
+        <text id="break-x-label" x="376" y="114" text-anchor="middle" class="sv-node-sub mono" fill="var(--surface)" opacity="0">X</text>
+
+        <g id="node-design">
+          <rect class="sv-node-rect" x="10" y="112" width="88" height="46" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"></rect>
+          <text x="54" y="132" text-anchor="middle" class="sv-node-label mono" fill="var(--ink)">DESIGN</text>
+          <text x="54" y="144" text-anchor="middle" class="sv-node-sub mono" fill="var(--muted)">NETHERLANDS</text>
+          <g id="tag-owner" opacity="0">
+            <rect x="14" y="96" width="80" height="14" rx="6" fill="var(--accent-a)"></rect>
+            <text x="54" y="106" text-anchor="middle" class="sv-node-sub mono" fill="var(--surface)">OWNED BY CN</text>
+          </g>
+        </g>
+
+        <g id="node-fab">
+          <rect class="sv-node-rect" x="132" y="112" width="88" height="46" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"></rect>
+          <text x="176" y="132" text-anchor="middle" class="sv-node-label mono" fill="var(--ink)">WAFER FAB</text>
+          <text x="176" y="144" text-anchor="middle" class="sv-node-sub mono" fill="var(--muted)">EUROPE</text>
+        </g>
+
+        <g id="node-pkgcn">
+          <rect class="sv-node-rect" x="272" y="62" width="96" height="46" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"></rect>
+          <text x="320" y="82" text-anchor="middle" class="sv-node-label mono" fill="var(--ink)">PACKAGE &amp; TEST</text>
+          <text x="320" y="94" text-anchor="middle" class="sv-node-sub mono" fill="var(--muted)">DONGGUAN, CHINA</text>
+          <text x="320" y="104" text-anchor="middle" class="sv-node-sub mono" fill="var(--muted)">≈70% of output</text>
+        </g>
+
+        <g id="node-pkgin" opacity="0">
+          <rect class="sv-node-rect" x="272" y="162" width="96" height="46" rx="8" fill="var(--surface)" stroke="var(--accent-b)" stroke-width="2" stroke-dasharray="4 3"></rect>
+          <text x="320" y="180" text-anchor="middle" class="sv-node-label mono" fill="var(--ink)">PACKAGE &amp; TEST</text>
+          <text x="320" y="192" text-anchor="middle" class="sv-node-sub mono" fill="var(--accent-b)">JAGIROAD, INDIA</text>
+          <text x="320" y="202" text-anchor="middle" class="sv-node-sub mono" fill="var(--accent-b)">NEW — SEPT 2026</text>
+        </g>
+
+        <g id="node-car">
+          <rect class="sv-node-rect" x="392" y="112" width="42" height="46" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"></rect>
+          <text x="413" y="132" text-anchor="middle" class="sv-node-label mono" fill="var(--ink)">CAR-</text>
+          <text x="413" y="142" text-anchor="middle" class="sv-node-label mono" fill="var(--ink)">MAKERS</text>
+          <text x="413" y="153" text-anchor="middle" class="sv-node-sub mono" fill="var(--muted)">WORLD</text>
+        </g>
+
+        <text x="10" y="240" class="sv-label mono" fill="var(--muted)" id="svg-footnote">STAGE 1 OF 6 — NORMAL OPERATION, PRE-2025</text>
+      </svg>
+    </div>
+
+    <div class="sv-readout" aria-live="polite">
+      <div class="sv-readout-top">
+        <span class="sv-stage-label mono" id="stage-label">STAGE 1 / 6</span>
+        <span class="sv-stage-mult mono" id="stage-mult">NORMAL OPERATION</span>
+      </div>
+      <p class="sv-stage-desc" id="stage-desc">Nexperia designs chips in the Netherlands, fabs wafers in Europe, and packages/tests an estimated 70% of its output at one plant in Dongguan, China, before shipping worldwide.</p>
+    </div>
+
+    <div class="sv-controls-row">
+      <div class="sv-action-btns">
+        <button type="button" class="sv-play-btn" id="sv-prev">◀ Prev</button>
+        <button type="button" class="sv-play-btn" id="sv-next">Next ▶</button>
+      </div>
+      <button type="button" class="sv-reset-btn" id="sv-reset">Reset</button>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Auto discrete share (volume)</div>
+        <div class="sv-stat-value mono">≈40% (TechInsights)</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Same market, by revenue</div>
+        <div class="sv-stat-value mono">≈5%</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Dongguan share of output</div>
+        <div class="sv-stat-value mono">≈70%</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Honda profit impact, FY26</div>
+        <div class="sv-stat-value mono">≈$960M</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture everything electronic in your car: the button that dims your headlights, the sensor that decides your anti-lock brakes should kick in, the circuit that manages your battery's charge. None of that runs on a fancy AI chip. It runs on cheap, boring parts called discrete semiconductors — tiny transistors and diodes that act like on/off switches and one-way valves for electricity. They cost a few cents each, and a single modern car uses hundreds of them.</p>
+      <p>One company, a Dutch chipmaker called Nexperia, makes roughly 40% of the world's supply of these car-grade parts. Nobody outside the industry had heard of it — until last October, when it became the center of a geopolitical fight. Nexperia is owned by a Chinese conglomerate, Wingtech. Worried about that ownership amid the US-China tech rivalry, the Dutch government dusted off a law from the Cold War and seized control of the company overnight. China retaliated by banning exports of the Nexperia chips made at its factory in Dongguan — which handles about 70% of everything Nexperia ships.</p>
+      <p>Almost immediately, carmakers ran out of parts. Honda halted its Mexico plant, adjusted lines in the US, Canada and Japan, and estimated the shortage would cost it nearly a billion dollars in profit. A last-minute trade truce between Trump and Xi got shipments moving again within weeks, but the company stayed split — its Chinese factory and its European headquarters now barely speak to each other.</p>
+      <p>This week, the non-Chinese half of Nexperia announced its answer: it's moving its future manufacturing to India, partnering with Tata on a combined $14 billion chip complex. The lesson: the chips that keep the physical world running aren't the exciting ones — but losing access to them can stop an entire industry cold.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Nexperia is the automotive/industrial discrete and small-signal logic semiconductor business spun out of NXP (itself demerged from Philips), acquired by China's Wingtech Technology in 2019. Its core products — power MOSFETs, small-signal transistors and diodes — are trailing-edge devices built on mature process nodes, valued for decades of qualification history and reliability rather than transistor density. By TechInsights' analysis, Nexperia holds an estimated 40% share of global automotive discrete-semiconductor volume, but only around 5% of that market's revenue — a volume/value gap that let its systemic importance go largely unpriced until supply was actually interrupted.</p>
+      <p>The crisis originated in export-control mechanics, not tariffs. Wingtech was added to the US Commerce Department's Entity List in December 2024; on September 29, 2025, the Bureau of Industry and Security extended Entity List restrictions to any entity 50%-or-more owned by a listed party, pulling Nexperia into scope. The next day, the Dutch Ministry of Economic Affairs invoked the Goods Availability Act — a 1952 emergency-powers statute — to freeze Nexperia's global corporate governance for up to a year, and the Enterprise Chamber of the Amsterdam Court of Appeal ousted CEO Zhang Xuezheng on October 7. China's Ministry of Commerce responded on October 4 by blocking exports of finished goods and subassemblies from Nexperia's Dongguan packaging-and-test facility, an estimated 70% of the company's total output, severing supply just as automakers' just-in-time inventories ran out. Honda alone projected a roughly $960 million hit to FY2026 (ending March 2026) operating profit and idled plants in Mexico, the US, Canada and Japan.</p>
+      <p>A partial exemption followed the late-October Trump-Xi summit in Busan, restoring shipments by mid-November 2025, but Dutch-Chinese governance of Nexperia remained contested into 2026, with Wingtech reportedly seeking roughly $8 billion in compensation from the Dutch state and sourcing Chinese wafer suppliers independently of Nexperia's own fabs. On September 17, 2026, Nexperia's non-Chinese entity moved to structurally de-risk its supply chain, agreeing to fabricate its MOSFET portfolio at Tata Electronics' 300mm Dholera fab and assemble/test discrete products at Tata's Jagiroad OSAT facility — India's first commercial fab and first indigenous packaging plant, respectively, part of a combined $14 billion buildout.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> if you build anything with a circuit board — cars, appliances, industrial gear — the parts you can't get are rarely the exciting ones. They're the cheap components nobody tracks until the one supplier making them is caught in a geopolitical fight.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> volume share, not revenue share, is the right metric for supply-chain risk — a supplier can be immaterial to a market's dollar value and still be a single point of failure for a 1,000-part bill of materials with multi-month automotive requalification cycles.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.cnbc.com/2025/10/13/dutch-government-takes-control-of-chinese-owned-chipmaker-nexperia.html" target="_blank" rel="noopener">CNBC — Dutch government takes control of Chinese-owned chipmaker Nexperia</a></li>
+    <li><a href="https://www.cnn.com/2025/11/03/business/china-nexperia-chip-exports" target="_blank" rel="noopener">CNN Business — China backs off chip export ban that could have shut down global auto plants</a></li>
+    <li><a href="https://www.wardsauto.com/news/honda-fy2026-first-half-2025-financial-results/804980/" target="_blank" rel="noopener">WardsAuto — Honda cuts full-year profit forecast over tariffs and chip shortages</a></li>
+    <li><a href="https://resilinc.ai/blog/what-nexperia-crisis-means-for-global-semiconductor-supply-chain/" target="_blank" rel="noopener">Resilinc — What the Nexperia Crisis Means for the Global Semiconductor Supply Chain</a></li>
+    <li><a href="https://www.globalbankingandfinance.com/nexperia-partner-tata-chip-production-packaging-india/" target="_blank" rel="noopener">Global Banking &amp; Finance — Nexperia partners with Tata for chip production and packaging in India</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var STAGES = [
+      {
+        label: 'STAGE 1 / 6',
+        mult: 'NORMAL OPERATION',
+        desc: "Nexperia designs chips in the Netherlands, fabs wafers in Europe, and packages/tests an estimated 70% of its output at one plant in Dongguan, China, before shipping worldwide.",
+        footnote: 'STAGE 1 OF 6 — NORMAL OPERATION, PRE-2025',
+        owner: false, seized: false, break_: false, impact: false, india: false, cnFaded: false
+      },
+      {
+        label: 'STAGE 2 / 6',
+        mult: '2019 — WINGTECH BUYS NEXPERIA',
+        desc: "Chinese conglomerate Wingtech bought Nexperia in 2019. For years that ownership barely mattered to customers — until US-China tech tensions caught up with it.",
+        footnote: 'STAGE 2 OF 6 — OWNERSHIP BECOMES THE ISSUE',
+        owner: true, seized: false, break_: false, impact: false, india: false, cnFaded: false
+      },
+      {
+        label: 'STAGE 3 / 6',
+        mult: 'SEPT 30, 2025 — THE NETHERLANDS SEIZES CONTROL',
+        desc: "After the US placed Wingtech on its trade blacklist, the Dutch government invoked a Cold War-era law to freeze Nexperia's global governance and remove its CEO.",
+        footnote: 'STAGE 3 OF 6 — DUTCH GOVERNMENT INTERVENES',
+        owner: true, seized: true, break_: false, impact: false, india: false, cnFaded: false
+      },
+      {
+        label: 'STAGE 4 / 6',
+        mult: 'OCT 4, 2025 — CHINA CUTS THE EXPORT VALVE',
+        desc: "Beijing retaliated by banning exports of chips packaged at Dongguan — the plant handling roughly 70% of Nexperia's output — severing the link to carmakers overnight.",
+        footnote: 'STAGE 4 OF 6 — CHINA BLOCKS EXPORTS FROM DONGGUAN',
+        owner: true, seized: true, break_: true, impact: false, india: false, cnFaded: false
+      },
+      {
+        label: 'STAGE 5 / 6',
+        mult: 'WEEKS LATER — CARMAKERS RUN DRY',
+        desc: "Honda halted its Mexico plant, adjusted US, Canada and Japan lines, and projected a roughly $960M hit to operating profit. A Trump-Xi trade truce got shipments moving again by mid-November.",
+        footnote: 'STAGE 5 OF 6 — SHORTAGE HITS CARMAKERS',
+        owner: true, seized: true, break_: true, impact: true, india: false, cnFaded: false
+      },
+      {
+        label: 'STAGE 6 / 6',
+        mult: 'SEPT 17, 2026 — NEXPERIA BUILDS A BYPASS',
+        desc: "Nexperia's non-Chinese half announced it will fab and package its future chips with Tata Electronics in India instead — a parallel supply chain the Dutch-Chinese dispute can't freeze.",
+        footnote: 'STAGE 6 OF 6 — A NEW ROUTE OPENS, VIA INDIA',
+        owner: true, seized: true, break_: false, impact: false, india: true, cnFaded: true
+      }
+    ];
+
+    var idx = 0;
+    var TOTAL = STAGES.length;
+
+    var els = {
+      tagOwner: document.getElementById('tag-owner'),
+      nodeDesign: document.querySelector('#node-design .sv-node-rect'),
+      nodePkgcn: document.querySelector('#node-pkgcn .sv-node-rect'),
+      nodePkgin: document.getElementById('node-pkgin'),
+      lineCar: document.getElementById('line-car'),
+      linePkgin: document.getElementById('line-pkgin'),
+      breakX: document.getElementById('break-x'),
+      breakXLabel: document.getElementById('break-x-label'),
+      nodeCarRect: document.querySelector('#node-car .sv-node-rect'),
+      footnote: document.getElementById('svg-footnote'),
+      stageLabel: document.getElementById('stage-label'),
+      stageMult: document.getElementById('stage-mult'),
+      stageDesc: document.getElementById('stage-desc'),
+      prevBtn: document.getElementById('sv-prev'),
+      nextBtn: document.getElementById('sv-next'),
+      resetBtn: document.getElementById('sv-reset')
+    };
+
+    function render() {
+      var s = STAGES[idx];
+
+      els.tagOwner.setAttribute('opacity', s.owner ? '1' : '0');
+      els.nodeDesign.setAttribute('stroke', s.seized ? 'var(--accent-b)' : 'var(--border)');
+      els.nodeDesign.setAttribute('fill', s.seized ? 'var(--accent-b-tint)' : 'var(--surface)');
+
+      els.nodePkgcn.setAttribute('stroke', s.break_ ? 'var(--accent-a)' : 'var(--border)');
+      els.nodePkgcn.setAttribute('fill', s.break_ ? 'var(--accent-a-tint)' : 'var(--surface)');
+      els.nodePkgcn.parentElement.setAttribute('opacity', s.cnFaded ? '0.4' : '1');
+
+      els.lineCar.setAttribute('stroke', s.break_ && !s.india ? 'var(--accent-a)' : (s.cnFaded ? 'var(--border)' : 'var(--border)'));
+      els.lineCar.setAttribute('stroke-dasharray', s.break_ ? '5 4' : (s.cnFaded ? '3 4' : 'none'));
+      els.lineCar.setAttribute('opacity', s.cnFaded ? '0.5' : '1');
+
+      els.breakX.setAttribute('opacity', s.break_ && !s.india ? '1' : '0');
+      els.breakXLabel.setAttribute('opacity', s.break_ && !s.india ? '1' : '0');
+
+      els.nodePkgin.setAttribute('opacity', s.india ? '1' : '0');
+      els.linePkgin.setAttribute('opacity', s.india ? '1' : '0');
+
+      els.nodeCarRect.setAttribute('stroke', s.impact ? 'var(--accent-a)' : 'var(--border)');
+      els.nodeCarRect.setAttribute('fill', s.impact ? 'var(--accent-a-tint)' : 'var(--surface)');
+
+      els.footnote.textContent = s.footnote;
+      els.stageLabel.textContent = s.label;
+      els.stageMult.textContent = s.mult;
+      els.stageDesc.textContent = s.desc;
+
+      els.prevBtn.disabled = idx === 0;
+      els.nextBtn.disabled = idx === TOTAL - 1;
+      els.resetBtn.disabled = idx === 0;
+    }
+
+    els.nextBtn.addEventListener('click', function () {
+      if (idx < TOTAL - 1) { idx++; render(); }
+    });
+    els.prevBtn.addEventListener('click', function () {
+      if (idx > 0) { idx--; render(); }
+    });
+    els.resetBtn.addEventListener('click', function () {
+      idx = 0; render();
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
