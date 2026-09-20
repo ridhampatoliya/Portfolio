@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Tesla, Figure and Apptronik All Shipped Humanoid Robots This Year. The Same $200 Part Is Slowing Down All Three.</title>
+<meta name="description" content="A capable humanoid robot needs 30-40 precision joints, most built around a strain-wave gearbox almost nobody outside factory-automation circles has heard of. As Optimus, Figure 02 and Apptronik's Apollo all began shipping to customers in 2026, lead times on that gearbox stretched past 26 weeks — and a small handful of mostly Japanese manufacturers still make nearly all of them." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a1631f;
+    --accent-a-tint: #f6e6d1;
+    --accent-b: #375c96;
+    --accent-b-tint: #dde4f1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e2a862;
+      --accent-a-tint: #3a2814;
+      --accent-b: #7fa0da;
+      --accent-b-tint: #182742;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e2a862;
+    --accent-a-tint: #3a2814;
+    --accent-b: #7fa0da;
+    --accent-b-tint: #182742;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a1631f;
+    --accent-a-tint: #f6e6d1;
+    --accent-b: #375c96;
+    --accent-b-tint: #dde4f1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* --- signature visual: gearbox production race --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.55;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 16px 10px 10px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; max-width: 460px; margin: 0 auto; }
+  .sv-label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.05em; }
+  @media (prefers-reduced-motion: no-preference) {
+    .sv-tile { transition: fill 0.2s ease, stroke 0.2s ease; }
+  }
+
+  .sv-toggle-row { margin: 16px 0 2px; }
+  .sv-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 12.5px;
+    color: var(--ink);
+    cursor: pointer;
+    line-height: 1.4;
+  }
+  .sv-checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent-a);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .sv-readout {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 14px;
+    background: var(--accent-a-tint);
+  }
+  .sv-readout-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .sv-stage-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  .sv-stage-mult {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-a);
+    font-variant-numeric: tabular-nums;
+  }
+  .sv-stage-desc {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin: 8px 0 0;
+    line-height: 1.5;
+  }
+
+  .sv-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 16px 0 4px;
+  }
+  .sv-action-btns { display: flex; gap: 6px; }
+  .sv-play-btn {
+    border: 1px solid var(--accent-a);
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    min-width: 96px;
+  }
+  .sv-reset-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 12.5px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 20, 2026</span>
+    <span class="category-chip">ROBOTICS</span>
+  </div>
+  <h1>Tesla, Figure and Apptronik All Shipped Humanoid Robots This Year. The Same $200 Part Is Slowing Down All Three.</h1>
+  <p class="lede">Three rival humanoid-robot programs began shipping to real customers within the same quarter of 2026 — a first for the industry. All three lean on the same scarce component: a thumb-sized precision gearbox, made almost entirely by a handful of Japanese manufacturers, that lets a small motor move a heavy limb without slipping. By mid-2026, the wait for one had stretched past six months.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    A capable humanoid robot needs roughly 30 to 40 or more independently moving joints, and most of the compact, high-torque ones — shoulders, wrists, torso — use a strain-wave (or "harmonic") gearbox: a thin, deliberately flexible steel cup, machined to micron-level tolerances, that converts a fast, weak motor spin into a slow, powerful, near-zero-backlash twist inside a housing small enough to fit in a human limb. It's one of the most precision-demanding parts made at volume, and the market stayed concentrated for decades because of it: Japan's Harmonic Drive Systems holds an estimated 85% of the strain-wave segment specifically, while Nabtesco holds roughly 35% of the separate RV (cycloidal) reducer market used in robot joints. By mid-2026, industry lead times on these gearboxes had stretched to an estimated 26 weeks or more. Schaeffler says the actuators built around them account for roughly half of a humanoid robot's total manufacturing cost, at an audited price near $200 per joint — meaning a 40-joint robot can spend more on gearboxes alone than most laptops cost. Nabtesco is racing to double its reducer capacity by year-end 2026; Schaeffler unveiled a stamped, "formed" strain-wave gearbox in August that it says cuts manufacturing cost over 25% and material use over 75% — but mass production isn't scheduled until 2027.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Race to fill one robot's 40 joints: today's line vs. the 2027 fix</h2>
+      <p class="sv-caption mono">A simplified model, not a literal production schedule. Blue tiles are joints filled by today's precision-machined gearbox line (Line A). Unlock Line B to simulate Schaeffler's 2027 formed-gearbox process — dramatized here at roughly 8× Line A's pace, a stand-in for its "seconds instead of minutes" claim rather than an audited throughput figure. Hit Run and watch the backlog behave differently.</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 440 328" role="img" aria-label="Two 40-tile grids representing the joints of one humanoid robot. Line A, today's precision-machined gearbox line, fills slowly, one tile per simulated week. Line B, a future formed-gearbox line, can be unlocked to fill much faster.">
+        <text x="20" y="18" class="sv-label mono" fill="var(--muted)">LINE A — PRECISION-MACHINED (TODAY)</text>
+        <text x="420" y="18" text-anchor="end" class="sv-label mono" fill="var(--accent-b)" id="gridA-rate-label">1/WK</text>
+        <g id="gridA-cells"></g>
+
+        <text x="20" y="164" class="sv-label mono" fill="var(--muted)">LINE B — FORMED GEARBOXES (2027+)</text>
+        <text x="420" y="164" text-anchor="end" class="sv-label mono" fill="var(--accent-a)" id="gridB-rate-label">LOCKED</text>
+        <g id="gridB-cells"></g>
+
+        <text x="20" y="314" class="sv-label mono" fill="var(--muted)" id="svg-footnote">WEEK 0 — LINE B LOCKED</text>
+      </svg>
+    </div>
+
+    <div class="sv-toggle-row">
+      <label class="sv-checkbox-label mono">
+        <input type="checkbox" id="sv-unlock" />
+        Unlock Line B — Schaeffler's 2027 formed-gearbox process
+      </label>
+    </div>
+
+    <div class="sv-readout" aria-live="polite">
+      <div class="sv-readout-top">
+        <span class="sv-stage-label mono" id="stage-label">WEEK 0</span>
+        <span class="sv-stage-mult mono" id="stage-mult">READY</span>
+      </div>
+      <p class="sv-stage-desc" id="stage-desc">Press Run to simulate production, one week at a time, toward outfitting one 40-joint humanoid robot.</p>
+    </div>
+
+    <div class="sv-controls-row">
+      <div class="sv-action-btns">
+        <button type="button" class="sv-play-btn" id="sv-run">▶ Run</button>
+      </div>
+      <button type="button" class="sv-reset-btn" id="sv-reset">Reset</button>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Week</div>
+        <div class="sv-stat-value mono" id="stat-week">0</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Line A filled</div>
+        <div class="sv-stat-value mono" id="stat-a">0 / 40</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Line B filled</div>
+        <div class="sv-stat-value mono" id="stat-b">0 / 40</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Est. weeks to fill 40</div>
+        <div class="sv-stat-value mono" id="stat-eta">40 wks</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture what it takes for a robot to lift its arm smoothly, hold a box steady, and stop exactly where it means to — without a motor the size of a car engine. Engineers solve this with a strange little gearbox called a "harmonic drive": instead of ordinary gear teeth, it uses a thin, flexible steel cup that bends slightly as it spins, meshing with a rigid ring around it. That flex is the whole trick — it turns a small, cheap, fast-spinning motor into a slow, extremely precise, very strong twist, packed into a space no bigger than a fist. It's the same basic idea as a bicycle's gears trading speed for power, just shrunk down and made nearly frictionless.</p>
+      <p>A humanoid robot needs 30 to 40 or more of these joints to move like a person — shoulders, wrists, hips, a flexible spine. And almost none of the companies racing to build humanoid robots make their own gearboxes. A tiny handful of manufacturers, mostly in Japan, make nearly all of them. This year, as Tesla's Optimus, Figure's robot and Apptronik's Apollo all started shipping to real customers for the first time, orders overwhelmed that supply. Wait times for a single gearbox stretched past six months. Elon Musk himself said the robot ramp-up would be "long and flat," in part because, unlike a car, a robot can't lean on a supply chain that already exists.</p>
+      <p>One company is trying to fix this the way factories usually break a bottleneck: change how the part is made. In August, the German manufacturer Schaeffler showed off a way to stamp these gearboxes into shape with high-pressure forming instead of slowly machining them — cheaper, faster, using a fraction of the raw metal. It won't reach mass production until 2027.</p>
+      <p>That's the twist: humanoid robots look like a software and AI story. In practice, whoever can get their hands on enough of one obscure, thumb-sized metal cup gets to actually ship robots this year — everyone else waits.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The component is a strain-wave (harmonic) gearing system: a flexspline — a thin-walled, elastically deformable cup with external teeth — is driven by an elliptical wave generator that forces it into contact with a rigid, internally toothed circular spline at two opposing points. Because the flexspline carries slightly fewer teeth than the circular spline, each full rotation of the wave generator advances the flexspline by only that tooth-count difference, yielding single-stage reduction ratios roughly in the 30:1-320:1 range with near-zero backlash in a housing a fraction the size and weight of an equivalent planetary or worm-gear assembly. That combination of high reduction, high torque density and a compact envelope is why harmonic drives — rather than planetary gearboxes, which run up to 80% cheaper but at 95-98% efficiency versus 85-90% and in a bulkier package — dominate humanoid robots' rotary joints: shoulder, wrist roll, torso yaw.</p>
+      <p>Manufacturing one is unusually precision-intensive: flexspline wall thickness and tooth geometry are held to micron-level tolerances, since the part must survive millions of elastic-deformation cycles without fatigue-cracking. That's kept the segment concentrated in a small number of specialists. Japan's Harmonic Drive Systems holds an estimated 85% share of the strain-wave gearbox segment specifically; Nabtesco holds roughly 35% of the separate market for RV (cycloidal) reducers used in larger robot joints. China's Leaderdrive, Suzhou Green Harmonic and Zhejiang Shuanghuan (adding a 500,000-unit-capacity plant in Suzhou this year) are contesting the lower-precision tiers. By mid-2026, industry lead times on these gearboxes had stretched to an estimated 26 weeks or more.</p>
+      <p>Actuators built around these gearboxes account for an estimated half of a humanoid robot's total bill of materials, at an audited per-joint price near $200 — meaning a 30-40 DoF robot's gearbox-and-motor stack alone can run several thousand dollars before sensors, batteries or compute. Nabtesco is targeting doubled reducer capacity by year-end 2026 to meet demand from Tesla, Figure and Agility-class programs. Schaeffler introduced a stamped, high-pressure-formed strain-wave gearbox in August 2026 that it says cuts unit manufacturing cost over 25% and raw-material input over 75% by replacing subtractive machining with net-shape forming — producing key components in seconds rather than minutes on a conventional line. Mass production isn't scheduled until 2027, leaving 2026's supply constraint largely intact through the ramp Optimus, Figure 02 and Apollo are all attempting at once.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> a robot's intelligence gets the headlines, but the machines actually shipping this year are bottlenecked by a decades-old mechanical part almost nobody outside factory-automation circles had heard of.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> humanoid robotics is running the AI-chip and EV-battery playbook again — a fast-scaling demand curve colliding with a slow-scaling, geographically concentrated precision-manufacturing base with multi-year capacity lead times.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.schaeffler.com/en/media/press-releases/press-releases-detail.jsp?id=88210241" target="_blank" rel="noopener">Schaeffler Group — Ready for the mass market: Schaeffler presents formed strain wave gearboxes for humanoid robots</a></li>
+    <li><a href="https://www.therobotreport.com/schaeffler-plans-to-mass-manufacture-gearboxes-for-humanoids-in-2027/" target="_blank" rel="noopener">The Robot Report — Schaeffler plans to mass produce gearboxes for humanoid robots in 2027</a></li>
+    <li><a href="https://corematter.substack.com/p/humanoid-robot-actuator-cost-bom-analysis" target="_blank" rel="noopener">Corematter — The $202 Humanoid Joint: What Actuators Actually Cost at Scale</a></li>
+    <li><a href="https://theaiinsider.tech/2026/07/25/musk-updates-progress-of-teslas-optimus-humanoid-robot-warns-of-initial-long-and-flat-production-ramp/" target="_blank" rel="noopener">The AI Insider — Musk updates progress of Tesla's Optimus, warns of "long and flat" production ramp</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var COLS = 8, ROWS = 5, TOTAL = COLS * ROWS;
+    var TILE = 20, GAP = 4, STEP = TILE + GAP;
+    var BASE_X = 126;
+    var BASE_Y_A = 26;
+    var BASE_Y_B = 170;
+    var RATE_A = 1;
+    var RATE_B = 8;
+
+    var gridACells = [];
+    var gridBCells = [];
+
+    function buildGrid(containerId, baseY, cellsArr) {
+      var g = document.getElementById(containerId);
+      for (var r = 0; r < ROWS; r++) {
+        for (var c = 0; c < COLS; c++) {
+          var rect = document.createElementNS(svgNS, 'rect');
+          rect.setAttribute('x', String(BASE_X + c * STEP));
+          rect.setAttribute('y', String(baseY + r * STEP));
+          rect.setAttribute('width', String(TILE));
+          rect.setAttribute('height', String(TILE));
+          rect.setAttribute('rx', '3');
+          rect.setAttribute('fill', 'var(--surface)');
+          rect.setAttribute('stroke', 'var(--border)');
+          rect.setAttribute('stroke-width', '1.5');
+          rect.setAttribute('class', 'sv-tile');
+          g.appendChild(rect);
+          cellsArr.push(rect);
+        }
+      }
+    }
+    buildGrid('gridA-cells', BASE_Y_A, gridACells);
+    buildGrid('gridB-cells', BASE_Y_B, gridBCells);
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var week = 0, fillA = 0, fillB = 0, accA = 0, accB = 0;
+    var running = false, timer = null;
+
+    var unlockBox = document.getElementById('sv-unlock');
+    var runBtn = document.getElementById('sv-run');
+    var resetBtn = document.getElementById('sv-reset');
+
+    var els = {
+      week: document.getElementById('stat-week'),
+      a: document.getElementById('stat-a'),
+      b: document.getElementById('stat-b'),
+      eta: document.getElementById('stat-eta'),
+      stageLabel: document.getElementById('stage-label'),
+      stageMult: document.getElementById('stage-mult'),
+      stageDesc: document.getElementById('stage-desc'),
+      footnote: document.getElementById('svg-footnote'),
+      gridBRate: document.getElementById('gridB-rate-label')
+    };
+
+    function paintCell(cell, on, colorVar) {
+      cell.setAttribute('fill', on ? colorVar : 'var(--surface)');
+      cell.setAttribute('stroke', on ? colorVar : 'var(--border)');
+    }
+
+    function render() {
+      for (var i = 0; i < TOTAL; i++) {
+        paintCell(gridACells[i], i < fillA, 'var(--accent-b)');
+        paintCell(gridBCells[i], i < fillB, 'var(--accent-a)');
+      }
+
+      els.week.textContent = String(week);
+      els.a.textContent = fillA + ' / 40';
+      els.b.textContent = fillB + ' / 40';
+
+      var unlocked = unlockBox.checked;
+      var totalRate = RATE_A + (unlocked ? RATE_B : 0);
+      var done = fillA >= TOTAL && (!unlocked || fillB >= TOTAL);
+      els.eta.textContent = done ? 'DONE' : Math.ceil(TOTAL / totalRate) + ' wks';
+      els.gridBRate.textContent = unlocked ? (RATE_B + '/WK') : 'LOCKED';
+      els.stageLabel.textContent = 'WEEK ' + week;
+      els.stageMult.textContent = unlocked ? 'BOTH LINES RUNNING' : 'LINE A ONLY';
+      els.stageDesc.textContent = unlocked
+        ? 'Line B is unlocked and filling roughly 8× faster in this simplified model — watch it close the gap fast once it starts.'
+        : 'Only the precision-machined line is active — today’s reality. At this pace, fully outfitting one 40-joint robot takes about 40 simulated weeks.';
+      els.footnote.textContent = 'WEEK ' + week + ' — LINE B ' + (unlocked ? 'UNLOCKED' : 'LOCKED');
+    }
+
+    function tick() {
+      if (fillA < TOTAL) {
+        accA += RATE_A;
+        while (accA >= 1 && fillA < TOTAL) { fillA++; accA--; }
+      }
+      if (unlockBox.checked && fillB < TOTAL) {
+        accB += RATE_B;
+        while (accB >= 1 && fillB < TOTAL) { fillB++; accB--; }
+      }
+      week++;
+      render();
+      var done = fillA >= TOTAL && (!unlockBox.checked || fillB >= TOTAL);
+      if (done || week >= 45) stop();
+    }
+
+    function start() {
+      if (running) { stop(); return; }
+      if (reduceMotion) {
+        var guard = 0;
+        while (guard < 45) {
+          tick();
+          guard++;
+          if (fillA >= TOTAL && (!unlockBox.checked || fillB >= TOTAL)) break;
+        }
+        return;
+      }
+      running = true;
+      runBtn.textContent = '■ Pause';
+      timer = setInterval(tick, 320);
+    }
+
+    function stop() {
+      running = false;
+      runBtn.textContent = '▶ Run';
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+
+    function reset() {
+      stop();
+      week = 0; fillA = 0; fillB = 0; accA = 0; accB = 0;
+      render();
+    }
+
+    runBtn.addEventListener('click', start);
+    resetBtn.addEventListener('click', reset);
+    unlockBox.addEventListener('change', render);
+
+    render();
+  })();
+</script>
+</body>
+</html>
