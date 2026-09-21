@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — AI Chip Packages Are Starting to Warp Like Potato Chips. The Billion-Dollar Fix Keeps Missing Its Ship Date.</title>
+<meta name="description" content="Today's largest AI accelerator packages are big enough that the plastic substrate underneath them bows during manufacturing, risking cracked solder joints. The fix is a glass substrate core that expands at nearly silicon's rate — and it has been 'almost ready' since 2024." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #9c4221;
+    --accent-a-tint: #f7e1d6;
+    --accent-b: #2c6e6b;
+    --accent-b-tint: #dcece9;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e2946e;
+      --accent-a-tint: #3a2419;
+      --accent-b: #6fc2bd;
+      --accent-b-tint: #16302e;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e2946e;
+    --accent-a-tint: #3a2419;
+    --accent-b: #6fc2bd;
+    --accent-b-tint: #16302e;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #9c4221;
+    --accent-a-tint: #f7e1d6;
+    --accent-b: #2c6e6b;
+    --accent-b-tint: #dcece9;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: warpage simulator --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.55;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 10px 6px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; max-width: 460px; margin: 0 auto; }
+  .sv-label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.04em; }
+  @media (prefers-reduced-motion: no-preference) {
+    .sv-plate, .sv-die { transition: d 0.05s linear, fill 0.2s ease; }
+  }
+
+  .sv-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0 2px;
+    flex-wrap: wrap;
+  }
+  .sv-slider-row label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .sv-slider-row input[type="range"] {
+    flex: 1;
+    min-width: 120px;
+    accent-color: var(--accent-a);
+  }
+  .sv-slider-row .sv-size-val {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--ink);
+    min-width: 78px;
+    text-align: right;
+  }
+
+  .sv-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 16px 0 4px;
+  }
+  .sv-action-btns { display: flex; gap: 6px; }
+  .sv-play-btn {
+    border: 1px solid var(--accent-a);
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    min-width: 96px;
+  }
+  .sv-reset-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 12.5px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  @media (max-width: 520px) {
+    .sv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 21, 2026</span>
+    <span class="category-chip">SEMICONDUCTORS</span>
+  </div>
+  <h1>AI Chip Packages Are Starting to Warp Like Potato Chips. The Billion-Dollar Fix Keeps Missing Its Ship Date.</h1>
+  <p class="lede">Today's biggest AI accelerators cram a giant compute die next to towers of memory onto a single plastic-cored package — and that package is now large enough to bow during manufacturing, risking cracked solder joints. The industry's fix is a substrate made of glass. It's been "almost ready" since 2024.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Every advanced chip package is a sandwich: a silicon die bonded onto a substrate that carries power and signal down to the circuit board. That bonding happens above 200°C, and today's substrate core is an epoxy-resin composite that expands and contracts roughly six times faster than the silicon on top of it (about 17 parts per million per °C, versus roughly 2.6 for silicon). As the sandwich cools, the two layers shrink at different rates and the whole package bows — like a bimetallic strip, or a potato chip left in the sun. On a small phone chip, that bow is harmless. But today's AI accelerators tile a large compute die next to 8 to 12 stacked memory towers onto one package that can span 100mm or more per side — big enough that the bow can reach hundreds of microns, enough to crack the microscopic solder balls holding the chip to the board. The fix on every roadmap: replace the resin core with a thin sheet of glass, whose thermal expansion (roughly 3.5-4 ppm/°C) nearly matches silicon's. Absolics, an SKC subsidiary, has run a 120,000-square-foot glass-substrate plant in Covington, Georgia since 2022 — backed by up to $75 million in preliminary CHIPS Act funding — and has been sampling to AMD and AWS for qualification since early 2026. Its mass-production date has slipped from 2024 to "by year-end" more than once. Intel has put over $1 billion behind its own version since 2023 and only demonstrated a crack-free sample this past January. Samsung and TSMC are both targeting 2027-2028. Until one of them actually ships at volume, the ceiling on how large — and how memory-dense — a single AI chip package can get is set not by transistor physics, but by how far a sheet of plastic can bend before it snaps.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Same package, two substrate materials: watch the bow</h2>
+      <p class="sv-caption mono">Illustrative model, not a precision engineering simulation — bow ≈ k × |CTE(substrate) − CTE(silicon)| × ΔT × size², with k calibrated so the organic curve crosses a rough "crack-risk" line (~150µm) right around the 80-120mm package sizes today's largest AI accelerators actually use. Drag the slider or hit Grow to change package size and watch each material respond against the same red risk line.</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 440 210" role="img" aria-label="Two side-by-side diagrams of a chip package bowing during manufacturing: one built on an organic resin substrate, one on a glass substrate. As package size increases, the organic package bows further past a marked crack-risk line, while the glass package stays nearly flat.">
+        <text x="20" y="16" class="sv-label mono" fill="var(--accent-a)">ORGANIC SUBSTRATE (TODAY)</text>
+        <text x="230" y="16" class="sv-label mono" fill="var(--accent-b)">GLASS SUBSTRATE (THE FIX)</text>
+
+        <!-- risk reference lines -->
+        <line x1="20" y1="93" x2="200" y2="93" stroke="var(--border)" stroke-width="1" stroke-dasharray="3,3" />
+        <line x1="230" y1="93" x2="410" y2="93" stroke="var(--border)" stroke-width="1" stroke-dasharray="3,3" />
+        <line id="riskLineA" x1="20" y1="114" x2="200" y2="114" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="4,3" />
+        <line id="riskLineB" x1="230" y1="114" x2="410" y2="114" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="4,3" />
+        <text x="200" y="127" text-anchor="end" class="sv-label mono" fill="#c0392b" font-size="8">CRACK RISK ~150µm</text>
+
+        <path id="plateA" class="sv-plate" d="" fill="var(--accent-a-tint)" stroke="var(--accent-a)" stroke-width="1.6" />
+        <path id="plateB" class="sv-plate" d="" fill="var(--accent-b-tint)" stroke="var(--accent-b)" stroke-width="1.6" />
+
+        <text x="110" y="196" text-anchor="middle" class="sv-label mono" fill="var(--accent-a)" id="valA">0µm · SAFE</text>
+        <text x="320" y="196" text-anchor="middle" class="sv-label mono" fill="var(--accent-b)" id="valB">0µm · SAFE</text>
+      </svg>
+    </div>
+
+    <div class="sv-slider-row">
+      <label class="mono" for="sv-size">Package size</label>
+      <input type="range" id="sv-size" min="40" max="140" step="2" value="60" aria-describedby="sv-size-desc" />
+      <span class="sv-size-val mono" id="sv-size-val">60 × 60mm</span>
+    </div>
+    <p id="sv-size-desc" class="sv-caption mono" style="margin:6px 0 0;">For reference: mainstream laptop/phone chip packages run roughly 20-40mm per side; today's largest AI accelerator packages (compute die + several HBM stacks) run roughly 80-120mm per side.</p>
+
+    <div class="sv-controls-row">
+      <div class="sv-action-btns">
+        <button type="button" class="sv-play-btn" id="sv-play">▶ Grow</button>
+      </div>
+      <button type="button" class="sv-reset-btn" id="sv-reset">Reset</button>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Package size</div>
+        <div class="sv-stat-value mono" id="stat-size">60mm</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Organic bow</div>
+        <div class="sv-stat-value mono" id="stat-organic">— µm</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Glass bow</div>
+        <div class="sv-stat-value mono" id="stat-glass">— µm</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Organic ÷ glass</div>
+        <div class="sv-stat-value mono" id="stat-ratio">—×</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Think about a bimetallic strip in an old thermostat: two metals bonded together that expand at different rates, so when the temperature changes, the strip curls. Advanced chip packages have the same problem. Manufacturing glues a silicon chip onto a plastic-and-resin base at temperatures above 200°C. As it cools back to room temperature, the plastic shrinks about six times more than the silicon sitting on top of it. On a small chip, that mismatch is invisible. But today's AI accelerators are enormous by chip standards — one giant compute chip sitting beside 8 to 12 towers of memory, all packed onto a single base that can be as wide as a coaster. At that size, the shrinking mismatch is big enough to visibly bow the whole package, like a potato chip warping on a hot windshield. Bow it enough, and the microscopic solder balls connecting the chip to the circuit board start to crack — turning a chip that can cost more than a car into scrap.</p>
+      <p>The fix everyone in the industry agrees on: stop using plastic. Swap in a thin sheet of specialized glass, which expands and contracts at almost the same rate as silicon, so the package barely bends no matter how big it gets. The catch is that glass is also brittle — good at not stretching, bad at not shattering — so drilling thousands of hair-thin connective holes through it without cracking it has turned out to be its own multi-year engineering slog.</p>
+      <p>A company called Absolics has run a dedicated glass-substrate factory in Georgia, backed partly by U.S. government CHIPS Act money, since 2022 — and has been "about to" reach mass production ever since, missing the date it originally set for 2024 more than once. Intel, Samsung and Taiwan's TSMC are all racing versions of the same fix, aiming for real volume production sometime around 2027 to 2028.</p>
+      <p>The twist: nobody talks about AI chip progress in terms of glue and plastic. But right now, the size and memory capacity of the world's most advanced AI chips is limited less by how small a transistor can get, and more by how big a piece of plastic can bend before it cracks.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The constraint is coefficient-of-thermal-expansion (CTE) mismatch inside the package, not the reticle limit itself — though the two are related. A single lithography exposure is capped at roughly 26mm × 33mm (about 858mm²), which is why large AI accelerators are built from multiple chiplets and HBM stacks tiled across an interposer and mounted on a package substrate rather than fabricated as one monolithic die. That substrate — typically an ABF (Ajinomoto build-up film) or BT-resin laminate core — has a CTE around 17 ppm/°C, versus roughly 2.6 ppm/°C for monocrystalline silicon. During die-attach and underfill cure (reflow well above 200°C, followed by cooldown to ambient), the differential contraction generates a bending moment across the stack-up, analogous to a bimetallic strip, producing package bow scaling roughly with CTE mismatch, ΔT, and the square of lateral package size, inversely with substrate thickness. At the 100-120mm footprints now common for reticle-stitched GPU/accelerator packages carrying 8-12 HBM stacks beside a large compute die, bow can reach several hundred microns — enough to exceed the fatigue/elastic limits of C4 and microbump solder joints, with failure concentrated at die corners where stress is highest.</p>
+      <p>Glass cores (aluminosilicate or borosilicate formulations) bring CTE to roughly 3.5-4 ppm/°C — near-matched to silicon — plus superior flatness and lower dielectric loss than organic laminates, enabling both larger reticle-stitched panels and denser, lower-loss signal routing. The trade-off is mechanical: glass has essentially no plastic deformation regime, so stress that an organic laminate would absorb by yielding instead propagates as a crack, making through-glass-via (TGV) drilling and panel handling failure modes that took years to de-risk. On manufacturing status: Absolics (an SKC affiliate) operates a 120,000 sq ft Covington, Georgia facility, backed by up to $75 million in preliminary CHIPS Act funding, and has been supplying qualification-stage samples to AMD and AWS while scaling capacity from roughly 5,000 toward a targeted 20,000 panels per month — with its own mass-production date having slipped from an original H1 2024 target to repeated "by year-end" restatements. Intel, which has committed over $1 billion to glass substrates since 2023, demonstrated an EMIB-plus-glass-core assembly with zero observed microcracking ("No SeWaRe") in January 2026, still short of a shipping product. Samsung Electro-Mechanics and Sumitomo Chemical's Dongwoo Fine-Chem formed a glass-core joint venture targeting second-half-2027 production; TSMC's CoPoS line targets 2027 pilot and second-half-2028 mass production. Industry trade coverage is consistent on one point: despite years of "imminent" announcements, real volume production remains 2027-2030 out.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> the ceiling on how big and how memory-dense the world's most advanced AI chips can get isn't set by clever engineering anymore — it's set by whether a handful of factories can mass-produce a sheet of brittle glass without cracking it.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> advanced packaging, not lithography, is now the gating factor on how much compute and HBM an AI accelerator vendor can integrate per package — and that gate is held by a handful of substrate suppliers still stuck in qualification, years behind their own announced timelines.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://insights.trendforce.com/p/glass-substrate-development" target="_blank" rel="noopener">TrendForce Insights — Glass Substrates Are Breaking Through the AI Chip Packaging Bottleneck</a></li>
+    <li><a href="https://www.tomshardware.com/tech-industry/manufacturing/glass-substrate-roadmap-examined" target="_blank" rel="noopener">Tom's Hardware — Glass substrate roadmaps examined: Absolics in final qualification and a first product that keeps slipping</a></li>
+    <li><a href="https://www.nist.gov/chips/absolics-georgia-covington" target="_blank" rel="noopener">NIST / CHIPS Program Office — Absolics (Georgia)</a></li>
+    <li><a href="https://www.intc.com/news-events/press-releases/detail/1647/intel-unveils-industry-leading-glass-substrates-to-meet" target="_blank" rel="noopener">Intel Corporation — Intel Unveils Industry-Leading Glass Substrates to Meet Demand for More Powerful Compute</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var CTE_SI = 2.6, CTE_ORGANIC = 17, CTE_GLASS = 3.8, DELTA_T = 200, K = 0.086;
+    var UM_PER_PX = 500 / 70; // 500µm of bow maps to 70px of visual amplitude, capped
+
+    function warpageUm(cteSubstrate, sizeMm) {
+      return K * Math.abs(cteSubstrate - CTE_SI) * DELTA_T * Math.pow(sizeMm / 100, 2);
+    }
+    function status(um) {
+      if (um < 80) return 'SAFE';
+      if (um < 150) return 'MARGINAL';
+      return 'CRACK RISK';
+    }
+    function statusColor(um) {
+      if (um < 80) return null; // use material color
+      if (um < 150) return '#b8860b';
+      return '#c0392b';
+    }
+    function ampPx(um) {
+      return Math.min(70, um / UM_PER_PX);
+    }
+
+    function platePath(xLeft, xRight, baseY, amp) {
+      var midX = (xLeft + xRight) / 2;
+      var topY = baseY - 7, botY = baseY + 7;
+      return 'M ' + xLeft + ' ' + topY +
+        ' Q ' + midX + ' ' + (topY + amp) + ' ' + xRight + ' ' + topY +
+        ' L ' + xRight + ' ' + botY +
+        ' Q ' + midX + ' ' + (botY + amp) + ' ' + xLeft + ' ' + botY +
+        ' Z';
+    }
+
+    var slider = document.getElementById('sv-size');
+    var sizeVal = document.getElementById('sv-size-val');
+    var plateA = document.getElementById('plateA');
+    var plateB = document.getElementById('plateB');
+    var valA = document.getElementById('valA');
+    var valB = document.getElementById('valB');
+    var statSize = document.getElementById('stat-size');
+    var statOrganic = document.getElementById('stat-organic');
+    var statGlass = document.getElementById('stat-glass');
+    var statRatio = document.getElementById('stat-ratio');
+    var playBtn = document.getElementById('sv-play');
+    var resetBtn = document.getElementById('sv-reset');
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var playing = false, timer = null, dir = 1;
+
+    function render() {
+      var size = parseInt(slider.value, 10);
+      var umA = warpageUm(CTE_ORGANIC, size);
+      var umB = warpageUm(CTE_GLASS, size);
+
+      var pA = platePath(20, 200, 100, ampPx(umA));
+      var pB = platePath(230, 410, 100, ampPx(umB));
+      plateA.setAttribute('d', pA);
+      plateB.setAttribute('d', pB);
+
+      var colorA = statusColor(umA) || getComputedStyle(document.documentElement).getPropertyValue('--accent-a').trim();
+      var colorB = statusColor(umB) || getComputedStyle(document.documentElement).getPropertyValue('--accent-b').trim();
+      plateA.setAttribute('stroke', colorA);
+      plateB.setAttribute('stroke', colorB);
+
+      sizeVal.textContent = size + ' × ' + size + 'mm';
+      statSize.textContent = size + 'mm';
+      statOrganic.textContent = Math.round(umA) + ' µm';
+      statGlass.textContent = Math.round(umB) + ' µm';
+      statRatio.textContent = (umA / Math.max(umB, 0.1)).toFixed(1) + '×';
+      valA.textContent = Math.round(umA) + 'µm · ' + status(umA);
+      valB.textContent = Math.round(umB) + 'µm · ' + status(umB);
+      valA.setAttribute('fill', colorA);
+      valB.setAttribute('fill', colorB);
+    }
+
+    function stepPlay() {
+      var size = parseInt(slider.value, 10);
+      size += dir * 2;
+      if (size >= 140) { size = 140; dir = -1; }
+      if (size <= 40) { size = 40; dir = 1; }
+      slider.value = size;
+      render();
+    }
+
+    function stopPlay() {
+      playing = false;
+      playBtn.textContent = '▶ Grow';
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+
+    function startPlay() {
+      if (playing) { stopPlay(); return; }
+      if (reduceMotion) {
+        slider.value = 110;
+        render();
+        return;
+      }
+      playing = true;
+      dir = 1;
+      playBtn.textContent = '■ Stop';
+      timer = setInterval(function () {
+        stepPlay();
+        if (parseInt(slider.value, 10) >= 140) { stopPlay(); }
+      }, 140);
+    }
+
+    function reset() {
+      stopPlay();
+      slider.value = 60;
+      render();
+    }
+
+    slider.addEventListener('input', render);
+    playBtn.addEventListener('click', startPlay);
+    resetBtn.addEventListener('click', reset);
+
+    if (reduceMotion) { slider.value = 110; }
+    render();
+  })();
+</script>
+</body>
+</html>
