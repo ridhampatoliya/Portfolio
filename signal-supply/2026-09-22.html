@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — A Blacklisted Chinese Chip Firm Can Dodge U.S. Sanctions by Spinning Off a Subsidiary. One Frozen Rule Ends That in 48 Days.</title>
+<meta name="description" content="America's export blacklist has always restricted companies by name only. A rule to automatically extend it to anything a listed company owns 50%-plus of has been frozen for a year as a trade-truce concession — and thaws November 9, 48 days from today." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b23a2e;
+    --accent-a-tint: #f8ded9;
+    --accent-b: #2b5f8a;
+    --accent-b-tint: #dbe7f0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e8836f;
+      --accent-a-tint: #3a1f19;
+      --accent-b: #7bb0d9;
+      --accent-b-tint: #16283a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e8836f;
+    --accent-a-tint: #3a1f19;
+    --accent-b: #7bb0d9;
+    --accent-b-tint: #16283a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b23a2e;
+    --accent-a-tint: #f8ded9;
+    --accent-b: #2b5f8a;
+    --accent-b-tint: #dbe7f0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the 50% cascade --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.55;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 10px 10px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; max-width: 480px; margin: 0 auto; }
+  .cn-rect {
+    stroke-width: 1.6;
+    rx: 9;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .cn-rect, .cn-text, .ce-line, .ce-chip-bg, .ce-chip-text { transition: fill 0.25s ease, stroke 0.25s ease; }
+  }
+  .cn-label { font-size: 10.5px; font-weight: 700; }
+  .cn-sub { font-size: 8px; }
+  .cn-badge { font-size: 7.5px; font-weight: 700; letter-spacing: 0.04em; }
+  .ce-chip-text { font-size: 8px; font-weight: 700; }
+
+  .sv-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 16px 0 4px;
+  }
+  .sv-toggle-btn {
+    border: 1px solid var(--accent-a);
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 9px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .sv-toggle-btn[data-rule="off"] {
+    border-color: var(--accent-b);
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+  }
+  .sv-status {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  @media (max-width: 480px) {
+    .sv-stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 22, 2026</span>
+    <span class="category-chip">EXPORT CONTROLS</span>
+  </div>
+  <h1>A Blacklisted Chinese Chip Firm Can Dodge U.S. Sanctions by Spinning Off a Subsidiary. One Frozen Rule Ends That in 48 Days.</h1>
+  <p class="lede">America's export blacklist has always restricted companies by name only — so a listed Chinese chipmaker could spin off an unnamed subsidiary and keep trading almost freely. The rule built to close that loophole has been frozen for exactly a year, as a trade-truce concession. It thaws November 9.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    The "Affiliates Rule" doesn't add new names to America's China export blacklist — it makes ownership itself the trigger. Own 50% or more of a listed company, directly, indirectly through a chain of subsidiaries, or by combining stakes with another listed owner, and the restriction applies automatically, with no new listing required. Frozen for a year as part of the U.S.-China trade truce, it's due to snap back November 10 — 48 days from today — and there's no public list yet of exactly who that will hit.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">The 50% cascade: toggle the rule, watch who goes dark</h2>
+      <p class="sv-caption mono">Illustrative ownership structure, not real companies. Two entities ("Parent A," "Parent B") are already on the Entity List. Toggle the frozen Affiliates Rule on to see restrictions spread automatically down the ownership chain — including to a second-tier subsidiary its parent doesn't even directly own.</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 460 300" role="img" aria-label="Ownership diagram. Parent A and Parent B are on the Entity List. Parent A owns 40% of Logistics Partner, 62% of Fab-Tool Co, and 30% of Materials JV. Parent B owns 25% of Materials JV. Fab-Tool Co owns 100% of Design Arm. A toggle switches a rule on or off; when on, Fab-Tool Co, Materials JV, and Design Arm turn restricted because their combined listed ownership reaches 50 percent or more, while Logistics Partner, at 40%, stays clear.">
+        <!-- edges -->
+        <line class="ce-line" id="edge-A-logistics" x1="95" y1="62" x2="69" y2="112" stroke="var(--border)" stroke-width="1.4" />
+        <line class="ce-line" id="edge-A-fabtool" x1="95" y1="62" x2="219" y2="112" stroke="var(--border)" stroke-width="1.4" />
+        <line class="ce-line" id="edge-A-materials" x1="95" y1="62" x2="380" y2="112" stroke="var(--border)" stroke-width="1.4" />
+        <line class="ce-line" id="edge-B-materials" x1="365" y1="62" x2="380" y2="112" stroke="var(--border)" stroke-width="1.4" />
+        <line class="ce-line" id="edge-fabtool-design" x1="219" y1="158" x2="220" y2="208" stroke="var(--border)" stroke-width="1.4" />
+
+        <!-- edge % chips -->
+        <g transform="translate(58,86)"><rect class="ce-chip-bg" x="-14" y="-8" width="28" height="14" rx="4" fill="var(--surface)" stroke="var(--border)" /><text class="ce-chip-text mono" x="0" y="2" text-anchor="middle" fill="var(--muted)">40%</text></g>
+        <g transform="translate(150,86)"><rect class="ce-chip-bg" x="-14" y="-8" width="28" height="14" rx="4" fill="var(--surface)" stroke="var(--border)" /><text class="ce-chip-text mono" x="0" y="2" text-anchor="middle" fill="var(--muted)">62%</text></g>
+        <g transform="translate(255,80)"><rect class="ce-chip-bg" x="-14" y="-8" width="28" height="14" rx="4" fill="var(--surface)" stroke="var(--border)" /><text class="ce-chip-text mono" x="0" y="2" text-anchor="middle" fill="var(--muted)">30%</text></g>
+        <g transform="translate(390,86)"><rect class="ce-chip-bg" x="-14" y="-8" width="28" height="14" rx="4" fill="var(--surface)" stroke="var(--border)" /><text class="ce-chip-text mono" x="0" y="2" text-anchor="middle" fill="var(--muted)">25%</text></g>
+        <g transform="translate(244,183)"><rect class="ce-chip-bg" x="-16" y="-8" width="32" height="14" rx="4" fill="var(--surface)" stroke="var(--border)" /><text class="ce-chip-text mono" x="0" y="2" text-anchor="middle" fill="var(--muted)">100%</text></g>
+
+        <!-- nodes -->
+        <g class="cnode" data-id="parentA" transform="translate(30,16)">
+          <rect class="cn-rect" width="130" height="46" fill="var(--accent-a-tint)" stroke="var(--accent-a)" />
+          <text class="cn-label mono" x="65" y="19" text-anchor="middle" fill="var(--accent-a)">Parent A</text>
+          <text class="cn-sub mono" x="65" y="32" text-anchor="middle" fill="var(--accent-a)">ENTITY LIST</text>
+          <text class="cn-badge mono" x="65" y="42" text-anchor="middle" fill="var(--accent-a)">LISTED</text>
+        </g>
+        <g class="cnode" data-id="parentB" transform="translate(300,16)">
+          <rect class="cn-rect" width="130" height="46" fill="var(--accent-a-tint)" stroke="var(--accent-a)" />
+          <text class="cn-label mono" x="65" y="19" text-anchor="middle" fill="var(--accent-a)">Parent B</text>
+          <text class="cn-sub mono" x="65" y="32" text-anchor="middle" fill="var(--accent-a)">ENTITY LIST</text>
+          <text class="cn-badge mono" x="65" y="42" text-anchor="middle" fill="var(--accent-a)">LISTED</text>
+        </g>
+
+        <g class="cnode" data-id="logistics" transform="translate(10,112)">
+          <rect class="cn-rect" width="118" height="46" fill="var(--surface)" stroke="var(--border)" />
+          <text class="cn-label mono" x="59" y="18" text-anchor="middle" fill="var(--ink)">Logistics Partner</text>
+          <text class="cn-sub mono" x="59" y="31" text-anchor="middle" fill="var(--muted)">40% via A</text>
+          <text class="cn-badge mono" x="59" y="41" text-anchor="middle" fill="var(--accent-b)">CLEAR</text>
+        </g>
+        <g class="cnode" data-id="fabtool" transform="translate(160,112)">
+          <rect class="cn-rect" width="118" height="46" fill="var(--surface)" stroke="var(--border)" />
+          <text class="cn-label mono" x="59" y="18" text-anchor="middle" fill="var(--ink)">Fab-Tool Co.</text>
+          <text class="cn-sub mono" x="59" y="31" text-anchor="middle" fill="var(--muted)">62% via A</text>
+          <text class="cn-badge mono" x="59" y="41" text-anchor="middle" fill="var(--accent-b)">CLEAR</text>
+        </g>
+        <g class="cnode" data-id="materials" transform="translate(320,112)">
+          <rect class="cn-rect" width="120" height="46" fill="var(--surface)" stroke="var(--border)" />
+          <text class="cn-label mono" x="60" y="18" text-anchor="middle" fill="var(--ink)">Materials JV</text>
+          <text class="cn-sub mono" x="60" y="31" text-anchor="middle" fill="var(--muted)">30%+25% agg.</text>
+          <text class="cn-badge mono" x="60" y="41" text-anchor="middle" fill="var(--accent-b)">CLEAR</text>
+        </g>
+
+        <g class="cnode" data-id="design" transform="translate(150,208)">
+          <rect class="cn-rect" width="140" height="46" fill="var(--surface)" stroke="var(--border)" />
+          <text class="cn-label mono" x="70" y="18" text-anchor="middle" fill="var(--ink)">Design Arm</text>
+          <text class="cn-sub mono" x="70" y="31" text-anchor="middle" fill="var(--muted)">100% via Fab-Tool</text>
+          <text class="cn-badge mono" x="70" y="41" text-anchor="middle" fill="var(--accent-b)">CLEAR</text>
+        </g>
+
+        <text x="60" y="272" class="cn-sub mono" fill="var(--muted)">Tier 1 = direct or aggregate ownership by listed parties</text>
+        <text x="150" y="288" class="cn-sub mono" fill="var(--muted)">Tier 2 = ownership by an already-captured affiliate</text>
+      </svg>
+    </div>
+
+    <div class="sv-controls-row">
+      <button type="button" class="sv-toggle-btn" id="sv-toggle" data-rule="off">▶ Reimpose the rule</button>
+      <span class="sv-status mono" id="sv-status">RULE: SUSPENDED (TODAY)</span>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Companies restricted</div>
+        <div class="sv-stat-value mono" id="stat-restricted">2 of 6</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Newly captured if reimposed</div>
+        <div class="sv-stat-value mono" id="stat-new">0</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Cleared only by staying under 50%</div>
+        <div class="sv-stat-value mono" id="stat-clear">Logistics Partner (40%)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Imagine the U.S. keeps a blacklist of Chinese companies it won't let American suppliers sell certain sensitive technology to — currently a few thousand names, mostly chipmakers, chip-tool makers and their military-linked partners. For as long as that blacklist has existed, it has worked by name only: if a company isn't literally on the list, it can trade with U.S. suppliers, even if it's owned or controlled by a company that is.</p>
+      <p>Last September, regulators tried to close that loophole with something nicknamed the "Affiliates Rule," or the "50% Rule." Under it, if a blacklisted company owns half or more of another company — directly, through a chain of subsidiaries, or even by adding together several partial stakes from more than one blacklisted owner — that company automatically inherits the same restrictions. No new paperwork. No new listing. It just happens, all the way down an ownership chain: if a blacklisted firm owns 50%-plus of Company B, and Company B separately owns 50%-plus of Company C, then C is fully restricted too, even though the blacklisted firm's actual financial stake in C, multiplied through, might only be 25%.</p>
+      <p>Two months after adopting it, as part of a broader trade truce with China — the same deal that also paused China's rare-earth export curbs — Washington froze the rule for exactly one year. For the past year, companies have been trading with Chinese partners under the old, name-only system.</p>
+      <p>That freeze thaws November 9 — 48 days from today. Nobody knows for certain what comes next: an extension, a narrower version targeting specific sectors, or a full snapback overnight. If it's the last option, an unknown number of previously untouchable Chinese subsidiaries across the tech supply chain could become off-limits at once, with no public list telling companies in advance exactly who's affected.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>BIS's Entity List, Military End-User (MEU) List and §744.8 restrictions have historically applied strictly to the entity named — a textbook name-based control regime with a well-documented evasion path: a listed company forms an unlisted subsidiary or joint venture, and absent a separate multi-month BIS listing action naming that new entity, U.S.-origin items can flow to it without restriction.</p>
+      <p>On September 29, 2025, BIS issued an interim final rule creating the Affiliates Rule: any entity owned, directly or indirectly, individually or in the aggregate, 50% or more by one or more Entity List, MEU List or §744.8-restricted parties is automatically subject to that party's restrictions, with no separate listing action required. Ownership stakes from multiple listed parents sum together — a 30% stake plus a 25% stake from two different listed owners captures the target at 55%. Multi-tier chains are evaluated at each link independently rather than diluted mathematically across tiers: if listed Company A owns 50%-plus of B, and B separately owns 50%-plus of C, then C is captured in full, even though A's actual indirect beneficial stake in C, multiplied through the chain, works out to only 25%. The rule also imposes an affirmative due-diligence duty on exporters to identify and resolve "red flag" ownership structures.</p>
+      <p>Six weeks later, as part of the broader U.S.-China trade framework reached at the late-October 2025 Trump-Xi summit — the same agreement under which China suspended the global implementation of its October 9, 2025 expansion of rare-earth export controls, though the narrower April 2025 heavy-rare-earth curbs remain fully in force — BIS suspended the Affiliates Rule for one year, effective November 10, 2025 through November 9, 2026, reverting enforcement to name-only Entity List status for that window.</p>
+      <p>That suspension lapses in 48 days. Per the current Federal Register text, reimposition is effective November 10, 2026 and extends indefinitely absent further action. Trade counsel broadly describe three plausible outcomes at that deadline — extension, narrowed or sector-specific reinstatement, or full snapback — with no public consensus yet on which is most likely, and no comprehensive public registry of which unlisted affiliates would qualify under the 50% test.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> a full reimposition could widen America's effective China chip blacklist from roughly a few thousand named entities to an unknown multiple of unnamed subsidiaries and joint ventures — with 48 days to find out which ones.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> for chip-tool, materials and EDA suppliers, ownership-chain due diligence — not the published Entity List itself — is about to become the binding constraint on who they can legally sell to, on a 48-day runway with no finalized outcome yet.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.federalregister.gov/documents/2025/09/30/2025-19001/expansion-of-end-user-controls-to-cover-affiliates-of-certain-listed-entities" target="_blank" rel="noopener">Federal Register — Expansion of End-User Controls To Cover Affiliates of Certain Listed Entities (interim final rule, Sept. 29, 2025)</a></li>
+    <li><a href="https://www.federalregister.gov/documents/2025/11/12/2025-19846/one-year-suspension-of-expansion-of-end-user-controls-for-affiliates-of-certain-listed-entities" target="_blank" rel="noopener">Federal Register — One Year Suspension of Expansion of End-User Controls for Affiliates of Certain Listed Entities</a></li>
+    <li><a href="https://www.whitecase.com/insight-alert/bis-implements-affiliates-rule-50-rule-applicable-entity-list-and-military-end-user" target="_blank" rel="noopener">White &amp; Case — BIS Implements "Affiliates Rule" (a 50% Rule) Applicable to Entity List and Military End User List</a></li>
+    <li><a href="https://www.cnbc.com/2025/11/10/china-suspends-some-critical-mineral-export-curbs-to-the-u-s-as-trade-truce-takes-hold.html" target="_blank" rel="noopener">CNBC — China suspends some critical mineral export curbs to the U.S. as trade truce takes hold</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    // pct = ownership reaching this node from a listed party at THIS tier only (not multiplied through)
+    var NODES = {
+      parentA:    { alwaysListed: true },
+      parentB:    { alwaysListed: true },
+      logistics:  { pct: 40, parent: 'parentA' },
+      fabtool:    { pct: 62, parent: 'parentA' },
+      materials:  { pct: 55, parent: 'parentA+B' },
+      design:     { pct: 100, parent: 'fabtool' } // captured only if fabtool itself is captured (or listed)
+    };
+
+    var toggleBtn = document.getElementById('sv-toggle');
+    var statusEl = document.getElementById('sv-status');
+    var statRestricted = document.getElementById('stat-restricted');
+    var statNew = document.getElementById('stat-new');
+
+    function isCaptured(id, ruleOn) {
+      var n = NODES[id];
+      if (n.alwaysListed) return true;
+      if (!ruleOn) return false;
+      if (n.pct < 50) return false;
+      if (n.parent === 'parentA' || n.parent === 'parentA+B') return true;
+      // tier-2: only cascades if the immediate parent node is itself captured
+      return isCaptured(n.parent, ruleOn);
+    }
+
+    function render() {
+      var ruleOn = toggleBtn.getAttribute('data-rule') === 'on';
+      var restrictedCount = 0;
+      var newlyCaptured = 0;
+
+      Object.keys(NODES).forEach(function (id) {
+        var captured = isCaptured(id, ruleOn);
+        var wasCapturedOff = isCaptured(id, false);
+        if (captured) restrictedCount++;
+        if (captured && !wasCapturedOff) newlyCaptured++;
+
+        var g = document.querySelector('.cnode[data-id="' + id + '"]');
+        if (!g) return;
+        var rect = g.querySelector('.cn-rect');
+        var texts = g.querySelectorAll('text');
+        var color = captured ? 'var(--accent-a)' : 'var(--accent-b)';
+        var fillTint = captured ? 'var(--accent-a-tint)' : (NODES[id].alwaysListed ? 'var(--accent-a-tint)' : 'var(--surface)');
+        rect.setAttribute('fill', captured ? 'var(--accent-a-tint)' : 'var(--surface)');
+        rect.setAttribute('stroke', captured ? 'var(--accent-a)' : 'var(--border)');
+        texts.forEach(function (t, i) {
+          if (i === 0) { t.setAttribute('fill', captured ? 'var(--accent-a)' : 'var(--ink)'); }
+          else if (i === 2) { t.setAttribute('fill', color); t.textContent = captured ? (NODES[id].alwaysListed ? 'LISTED' : 'RESTRICTED') : 'CLEAR'; }
+          else { t.setAttribute('fill', captured ? 'var(--accent-a)' : 'var(--muted)'); }
+        });
+      });
+
+      statusEl.textContent = ruleOn ? 'RULE: REIMPOSED (NOV 10)' : 'RULE: SUSPENDED (TODAY)';
+      toggleBtn.textContent = ruleOn ? '↺ Suspend the rule' : '▶ Reimpose the rule';
+      statRestricted.textContent = restrictedCount + ' of 6';
+      statNew.textContent = String(newlyCaptured);
+    }
+
+    toggleBtn.addEventListener('click', function () {
+      var current = toggleBtn.getAttribute('data-rule');
+      toggleBtn.setAttribute('data-rule', current === 'on' ? 'off' : 'on');
+      render();
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
