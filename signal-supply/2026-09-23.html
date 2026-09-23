@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-09-23","category":"CHIP EQUIPMENT","headline":"China Now Builds 35% of Its Own Chip Tools. The Valve That Controls the Gas Inside Is Still 90% Foreign","summary":"China's chip-tool makers now build about 35% of the machines going into Chinese fabs domestically, up from a quarter two years ago. But the internals controlling the physics — precision gas valves, RF power generators — remain 80-90% foreign, dominated by a handful of Swiss and American firms.","whyItMatters":"Export controls are shifting from restricting whole tools to restricting these hard-to-replace sub-components, which choke many different machine types at once."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — China Now Builds 35% of Its Own Chip Tools. The Valve That Controls the Gas Inside Is Still 90% Foreign.</title>
+<meta name="description" content="China's chip-tool makers now build about 35% of the machines going into Chinese fabs domestically. But the precision valve metering gas into the chamber, and the generator igniting the plasma, remain 80-90% foreign — sourced almost entirely from a handful of Swiss and American firms." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f8e4cf;
+    --accent-b: #345d7c;
+    --accent-b-tint: #dbe6ec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e8a565;
+      --accent-a-tint: #3c2a15;
+      --accent-b: #86b4cf;
+      --accent-b-tint: #15242d;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e8a565;
+    --accent-a-tint: #3c2a15;
+    --accent-b: #86b4cf;
+    --accent-b-tint: #15242d;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f8e4cf;
+    --accent-b: #345d7c;
+    --accent-b-tint: #dbe6ec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: zoom into the tool --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.55;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 10px 10px;
+  }
+  .sv-svg { width: 100%; height: auto; display: block; max-width: 420px; margin: 0 auto; }
+  .sv-label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.03em; }
+  .sv-sublabel { font-size: 8px; font-weight: 600; letter-spacing: 0.02em; }
+  .sv-hl rect, .sv-hl line { fill: var(--surface); stroke: var(--border); stroke-width: 1.4; }
+  .sv-hl { opacity: 0.4; }
+  @media (prefers-reduced-motion: no-preference) {
+    .sv-hl { transition: opacity 0.25s ease; }
+    .sv-hl rect, .sv-hl line { transition: fill 0.25s ease, stroke 0.25s ease; }
+  }
+  .sv-hl.sv-active { opacity: 1; }
+  .sv-hl.sv-active rect { fill: var(--accent-a-tint); stroke: var(--accent-a); stroke-width: 2; }
+  .sv-hl.sv-active line { stroke: var(--accent-a); stroke-width: 2.2; }
+
+  .sv-nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 16px 0 4px;
+    flex-wrap: wrap;
+  }
+  .sv-nav-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .sv-nav-btn:disabled { opacity: 0.35; cursor: default; }
+  .sv-dots { display: flex; gap: 7px; }
+  .sv-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    padding: 0;
+  }
+  .sv-dot[aria-current="true"] { background: var(--accent-a); border-color: var(--accent-a); }
+
+  .sv-stage-label {
+    font-size: 13.5px;
+    font-weight: 700;
+    margin: 14px 0 10px;
+    text-align: center;
+  }
+
+  .sv-meter-track {
+    display: flex;
+    height: 22px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .sv-meter-domestic { background: var(--accent-a); height: 100%; }
+  .sv-meter-foreign { background: var(--accent-b); height: 100%; }
+  @media (prefers-reduced-motion: no-preference) {
+    .sv-meter-domestic, .sv-meter-foreign { transition: width 0.4s ease; }
+  }
+  .sv-meter-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    margin-top: 6px;
+  }
+  .sv-meter-labels .dom { color: var(--accent-a); font-weight: 700; }
+  .sv-meter-labels .for { color: var(--accent-b); font-weight: 700; }
+
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 12.5px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 23, 2026</span>
+    <span class="category-chip">CHIP EQUIPMENT</span>
+  </div>
+  <h1>China Now Builds 35% of Its Own Chip Tools. The Valve That Controls the Gas Inside Is Still 90% Foreign.</h1>
+  <p class="lede">China's chipmaking-tool industry just crossed a symbolic line — over a third of the machines going into its fabs are now domestically built, up from a quarter two years ago. But open the box, and the parts that actually touch the physics — the valve metering gas into the chamber, the generator igniting the plasma — are still made almost nowhere but Switzerland and the U.S.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    "Self-sufficiency" is a whole-machine number. China's chip-tool builders — AMEC, Naura, and SMEE among them — went from supplying roughly a quarter of the equipment installed in Chinese fabs two years ago to about 35% today, mostly on chassis, chambers, and robotics that are hard to machine but don't require nanometer-level control physics. Two subsystems inside nearly every etch and deposition tool haven't moved nearly as much: the precision valve that meters process gas into the chamber (Switzerland's VAT Group, roughly 60–70% of the global market; Chinese-built high-end valves are under 10% domestic) and the RF generator that ignites and sustains the plasma (three U.S. firms — Advanced Energy, MKS Instruments, and Comdel — hold roughly 65–75% combined; domestic Chinese RF power penetration is around 20%). That's also why the newest export-control rules increasingly name these components specifically, rather than only finished tools.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Zoom into the tool: watch "self-sufficient" shrink</h2>
+      <p class="sv-caption mono">Simplified schematic of an etch/deposition tool, not a real machine's floor plan. Step through three levels of the same tool — the whole housing, the RF generator, the gas valve — and watch the domestic-vs-foreign split fall at each level. The 8% figure for valves is an illustrative point standing in for the reported "under 10%."</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <svg class="sv-svg" id="sv-svg" viewBox="0 0 400 270" role="img" aria-label="Diagram of a chip-making tool: an outer housing containing a vacuum chamber, a gas valve on top feeding the chamber, and an RF power generator attached to the side. Stepping through highlights each part in turn with its share of domestic Chinese content.">
+        <!-- chamber (context, always neutral) -->
+        <rect x="55" y="65" width="190" height="150" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="1.2" />
+        <text x="150" y="82" text-anchor="middle" class="sv-sublabel mono" fill="var(--muted)">VACUUM CHAMBER</text>
+
+        <!-- wafer (context) -->
+        <rect x="125" y="204" width="50" height="10" rx="2" fill="var(--muted)" opacity="0.5" />
+        <text x="180" y="212" class="sv-sublabel mono" fill="var(--muted)">WAFER</text>
+
+        <!-- stage 0: chassis -->
+        <g id="hl-tool" class="sv-hl sv-active">
+          <rect x="20" y="25" width="260" height="230" rx="12" />
+        </g>
+        <text x="150" y="245" text-anchor="middle" class="sv-label mono" fill="var(--muted)">TOOL HOUSING</text>
+
+        <!-- stage 2: valve + feed line -->
+        <g id="hl-valve" class="sv-hl">
+          <line x1="150" y1="39" x2="150" y2="204" />
+          <rect x="130" y="15" width="40" height="24" rx="4" />
+        </g>
+        <text x="150" y="10" text-anchor="middle" class="sv-label mono" fill="var(--muted)">GAS VALVE</text>
+
+        <!-- stage 1: RF generator + cable -->
+        <g id="hl-rf" class="sv-hl">
+          <line x1="280" y1="140" x2="300" y2="140" />
+          <rect x="300" y="108" width="80" height="64" rx="6" />
+        </g>
+        <text x="340" y="100" text-anchor="middle" class="sv-label mono" fill="var(--muted)">RF POWER</text>
+        <text x="340" y="185" text-anchor="middle" class="sv-label mono" fill="var(--muted)">GENERATOR</text>
+      </svg>
+    </div>
+
+    <div class="sv-stage-label mono" id="sv-stage-label">Whole tool (etch / deposition machine)</div>
+
+    <div class="sv-meter-track">
+      <div class="sv-meter-domestic" id="meter-domestic"></div>
+      <div class="sv-meter-foreign" id="meter-foreign"></div>
+    </div>
+    <div class="sv-meter-labels mono">
+      <span class="dom" id="label-domestic">Domestic 35%</span>
+      <span class="for" id="label-foreign">Foreign 65%</span>
+    </div>
+
+    <div class="sv-nav-row" id="sv-nav" tabindex="0" aria-label="Step through tool components, use left and right arrow keys">
+      <button type="button" class="sv-nav-btn" id="sv-prev">← Prev</button>
+      <div class="sv-dots" role="group" aria-label="Component stage">
+        <button type="button" class="sv-dot" id="sv-dot-0" aria-label="Stage 1: whole tool" aria-current="true"></button>
+        <button type="button" class="sv-dot" id="sv-dot-1" aria-label="Stage 2: RF power generator"></button>
+        <button type="button" class="sv-dot" id="sv-dot-2" aria-label="Stage 3: gas valve"></button>
+      </div>
+      <button type="button" class="sv-nav-btn" id="sv-next">Next →</button>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Dominant supplier(s)</div>
+        <div class="sv-stat-value mono" id="stat-supplier">AMEC / Naura / SMEE + others (China)</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Source basis</div>
+        <div class="sv-stat-value mono" id="stat-basis">China WFE market, early 2026 — up from ~25% two years earlier</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Think of China's chip-tool industry as a car-parts factory. It's gotten very good at stamping out the body panels, chassis, and wheels — the big machines, called etch and deposition tools, that carve and build up microscopic patterns on a silicon wafer. About 35% of the machines going into Chinese chip factories are now made domestically, up from a quarter two years ago. That's genuinely impressive progress.</p>
+      <p>But pop the hood, and two small parts under there are still imported almost entirely. One is a valve about the size of a fist that controls exactly how much gas flows into the vacuum chamber — too much or too little and the whole wafer comes out wrong. A single Swiss company, VAT Group, makes most of the world's high-end versions; Chinese-made valves show up in fewer than one in ten of the best machines. The other is the power generator that turns ordinary electricity into the radio-frequency energy that ignites plasma — the "torch" that actually etches the silicon. Two American companies dominate that market; Chinese versions are used in only about one in five high-end tools.</p>
+      <p>Both parts demand tolerances measured in fractions of a percent, tuned over decades of trial and error that nobody's written down in a manual. That's a much harder thing to copy than sheet metal — which is also why the newest wave of export restrictions increasingly targets these exact components, instead of whole machines.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>China's wafer-fab-equipment (WFE) domestic content reached roughly 35% in early 2026, per market trackers, up from about 25% two years earlier — driven by maturing etch, deposition, and lithography tool lines from firms including AMEC, Naura, and SMEE. But localization is uneven across the bill of materials, concentrated in two subsystems that resist it almost entirely.</p>
+      <p>Precision vacuum valves — gate and pendulum valves that throttle process gas into the chamber with sub-percent repeatability, critical to etch/deposition uniformity across a 300mm wafer — remain dominated by Switzerland's VAT Group, which holds an estimated 60–70% global market share. High-end configurations in Chinese-built tools are reportedly under 10% domestically sourced.</p>
+      <p>RF power delivery — the generators and matching networks converting line power into the 13.56MHz-plus RF energy that strikes and sustains plasma for etch and PECVD steps — is concentrated among three U.S. firms: Advanced Energy Industries, MKS Instruments, and Comdel, together holding an estimated 65–75% of the global market. Domestic Chinese RF power penetration in high-end tools sits near 20%.</p>
+      <p>Both subsystems require closed-loop control tolerances — gas-flow variance under 1%, RF impedance matching on millisecond timescales — built on decades of empirical tuning data that patents and spec sheets don't fully capture: tacit engineering knowledge that's slow to reverse-engineer regardless of capital deployed. That gap is strategically legible, too — recent revisions to U.S. and allied export-control rules increasingly name specific sub-components rather than only finished tool models, since restricting one high-leverage component chokes many downstream tool types at once, a broader effect than restricting a single machine.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> the next wave of chip export controls is targeting the small, hard-to-copy parts inside the machines — not just the machines themselves — which means China's path to truly sanctions-proof chipmaking is much longer than the 35% headline suggests.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> aggregate WFE self-sufficiency metrics overstate resilience — the control-critical subsystems most exposed to export restriction are exactly the ones localization hasn't reached, which is where the next round of targeted controls is heading.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.techtimes.com/articles/325956/20260829/china-chip-equipment-hits-35-vacuum-valves-rf-power-remain-80-foreign.htm" target="_blank" rel="noopener">Tech Times — China Chip Equipment Hits 35%; Vacuum Valves and RF Power Remain 80% Foreign</a></li>
+    <li><a href="https://www.vatgroup.com/solutions/semiconductor-production" target="_blank" rel="noopener">VAT Group — Semiconductor Production solutions (precision vacuum valves)</a></li>
+    <li><a href="https://investor.mks.com/news-releases/news-release-details/mks-becomes-1-market-leader-rf-power-supplies" target="_blank" rel="noopener">MKS Instruments — MKS Becomes #1 Market Leader in RF Power Supplies</a></li>
+    <li><a href="https://investor.wedbush.com/wedbush/article/tokenring-2026-1-21-china-reaches-35-semiconductor-equipment-self-sufficiency-amid-advanced-lithography-breakthroughs" target="_blank" rel="noopener">Wedbush / TokenRing — China Reaches 35% Semiconductor Equipment Self-Sufficiency Amid Advanced Lithography Breakthroughs</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var STAGES = [
+      {
+        label: 'Whole tool (etch / deposition machine)',
+        domestic: 35,
+        highlight: 'hl-tool',
+        supplier: 'AMEC / Naura / SMEE + others (China)',
+        basis: 'China WFE market, early 2026 — up from ~25% two years earlier'
+      },
+      {
+        label: 'RF power generator (ignites & sustains the plasma)',
+        domestic: 20,
+        highlight: 'hl-rf',
+        supplier: 'Advanced Energy + MKS + Comdel (all U.S.)',
+        basis: 'Three U.S. firms hold an estimated 65–75% of the global market'
+      },
+      {
+        label: 'Precision gas valve (meters gas into the chamber)',
+        domestic: 8,
+        highlight: 'hl-valve',
+        supplier: 'VAT Group (Switzerland)',
+        basis: 'VAT holds an estimated 60–70% global share; high-end valves reportedly under 10% domestic in China'
+      }
+    ];
+
+    var highlights = {
+      'hl-tool': document.getElementById('hl-tool'),
+      'hl-rf': document.getElementById('hl-rf'),
+      'hl-valve': document.getElementById('hl-valve')
+    };
+    var stageLabel = document.getElementById('sv-stage-label');
+    var meterDomestic = document.getElementById('meter-domestic');
+    var meterForeign = document.getElementById('meter-foreign');
+    var labelDomestic = document.getElementById('label-domestic');
+    var labelForeign = document.getElementById('label-foreign');
+    var statSupplier = document.getElementById('stat-supplier');
+    var statBasis = document.getElementById('stat-basis');
+    var prevBtn = document.getElementById('sv-prev');
+    var nextBtn = document.getElementById('sv-next');
+    var nav = document.getElementById('sv-nav');
+    var dots = [
+      document.getElementById('sv-dot-0'),
+      document.getElementById('sv-dot-1'),
+      document.getElementById('sv-dot-2')
+    ];
+
+    var index = 0;
+
+    function render() {
+      var s = STAGES[index];
+      Object.keys(highlights).forEach(function (key) {
+        highlights[key].classList.toggle('sv-active', key === s.highlight);
+      });
+      stageLabel.textContent = s.label;
+      meterDomestic.style.width = s.domestic + '%';
+      meterForeign.style.width = (100 - s.domestic) + '%';
+      labelDomestic.textContent = 'Domestic ' + s.domestic + '%';
+      labelForeign.textContent = 'Foreign ' + (100 - s.domestic) + '%';
+      statSupplier.textContent = s.supplier;
+      statBasis.textContent = s.basis;
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === STAGES.length - 1;
+      dots.forEach(function (d, i) {
+        d.setAttribute('aria-current', String(i === index));
+      });
+    }
+
+    function goTo(i) {
+      index = Math.max(0, Math.min(STAGES.length - 1, i));
+      render();
+    }
+
+    prevBtn.addEventListener('click', function () { goTo(index - 1); });
+    nextBtn.addEventListener('click', function () { goTo(index + 1); });
+    dots.forEach(function (d, i) {
+      d.addEventListener('click', function () { goTo(i); });
+    });
+    nav.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(index + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(index - 1); }
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
