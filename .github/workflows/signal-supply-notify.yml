@@ -1,0 +1,73 @@
+name: Send Signal & Supply teaser
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'signal-supply/*.html'
+  workflow_dispatch:
+    inputs:
+      file:
+        description: 'Edition file to send (e.g. signal-supply/2026-09-22.html)'
+        required: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Determine changed edition file
+        id: pick
+        run: |
+          if [ -n "${{ github.event.inputs.file }}" ]; then
+            FILE="${{ github.event.inputs.file }}"
+          else
+            FILE=$(git diff --name-only HEAD^ HEAD -- 'signal-supply/*.html' | grep -v 'index.html' | grep -E 'signal-supply/[0-9]{4}-[0-9]{2}-[0-9]{2}\.html$' | head -1 || true)
+          fi
+          echo "file=$FILE" >> "$GITHUB_OUTPUT"
+      - name: Extract metadata and send
+        if: steps.pick.outputs.file != ''
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          FILE: ${{ steps.pick.outputs.file }}
+        run: |
+          python3 - <<'PYEOF'
+          import json, os, re, urllib.request
+
+          file = os.environ["FILE"]
+          with open(file, encoding="utf-8") as f:
+              html = f.read()
+
+          m = re.search(r'<script type="application/json" id="ss-meta">(.*?)</script>', html, re.S)
+          if not m:
+              raise SystemExit(f"No ss-meta block found in {file}")
+          meta = json.loads(m.group(1))
+
+          date = meta["date"]
+          url = f"https://ridhampatoliya.com/signal-supply/{date}"
+          body = (
+              f"**{date} · {meta['category']}**\n\n"
+              f"## {meta['headline']}\n\n"
+              f"{meta['summary']}\n\n"
+              f"**Why it matters:** {meta['whyItMatters']}\n\n"
+              f"[Read the full brief →]({url})"
+          )
+          payload = json.dumps({
+              "subject": f"Signal & Supply — {meta['headline']}",
+              "body": body,
+              "status": "published",
+          }).encode()
+
+          req = urllib.request.Request(
+              "https://api.buttondown.email/v1/emails",
+              data=payload,
+              headers={
+                  "Authorization": f"Token {os.environ['BUTTONDOWN_API_KEY']}",
+                  "Content-Type": "application/json",
+              },
+              method="POST",
+          )
+          with urllib.request.urlopen(req) as resp:
+              print(resp.status, resp.read().decode())
+          PYEOF
