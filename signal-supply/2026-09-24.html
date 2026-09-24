@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-09-24","category":"CHIP SECURITY","headline":"China Has Up to 660,000 Smuggled Nvidia Chips. Congress's Fix Turns Every GPU Into a Traceroute","summary":"A bipartisan bill would make export-controlled AI chips prove where they physically sit by timing pings to landmark servers, the same trick that geolocates you online. It won't stop smuggling outright, but Epoch AI estimates up to 660,000 H100-equivalents are already diverted to China.","whyItMatters":"Export controls have always policed paperwork at the border; this pushes verification inside the data center, continuously, for as long as the chip keeps running."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — China Has Up to 660,000 Smuggled Nvidia Chips. Congress's Fix Turns Every GPU Into a Traceroute.</title>
+<meta name="description" content="A bipartisan bill would make export-controlled AI chips prove where they physically sit by timing pings to landmark servers — the same trick that geolocates you online. Nvidia already has a working prototype. The physics means a chip can lie about being farther away, but never closer." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #1d6b52;
+    --accent-a-tint: #dcefe6;
+    --accent-b: #7a4fb5;
+    --accent-b-tint: #ece3f7;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #57cba0;
+      --accent-a-tint: #143028;
+      --accent-b: #bb98e8;
+      --accent-b-tint: #251c33;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #57cba0;
+    --accent-a-tint: #143028;
+    --accent-b: #bb98e8;
+    --accent-b-tint: #251c33;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #1d6b52;
+    --accent-a-tint: #dcefe6;
+    --accent-b: #7a4fb5;
+    --accent-b-tint: #ece3f7;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: ping-based location verification --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.55;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+  }
+  .sv-canvas {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+  }
+  .sv-controls {
+    margin-top: 16px;
+  }
+  .sv-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .sv-slider-row label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    flex: 0 0 auto;
+    max-width: 120px;
+    line-height: 1.3;
+  }
+  .sv-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-b);
+  }
+  .sv-slider-val {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+    min-width: 52px;
+    text-align: right;
+  }
+  .sv-reset-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+  .sv-reset-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .sv-insight {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 24, 2026</span>
+    <span class="category-chip">CHIP SECURITY</span>
+  </div>
+  <h1>China Has Up to 660,000 Smuggled Nvidia Chips. Congress's Fix Turns Every GPU Into a Traceroute.</h1>
+  <p class="lede">Export controls have always worked at the border: check the paperwork, watch the crate leave. Once the chip is out the door, nobody checks again. A bipartisan bill headed through Congress would change that — by making every export-controlled AI chip continuously prove where it physically is, using the same trick that tells a website roughly which city you're browsing from.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    The Chip Security Act (H.R. 3447 / S.1705) cleared the House Foreign Affairs Committee 42–0 in March 2026 and would direct the Commerce Department to require "chip security mechanisms" — location verification — on covered AI chips within 180 days of enactment. The leading method, ping-based location verification, times round-trip signals between the chip and servers at known locations: because no signal beats the speed of light, a chip can be made to look farther away than it is, but never closer. Nvidia has confirmed it's already built and tested this on H100-class silicon. The backdrop for the urgency: Epoch AI estimates 290,000 to 1.6 million H100-equivalent chips — a median of roughly 660,000, or about a third of China's total AI compute — have been diverted there through illicit channels, including a $2.5 billion pipeline tied to Super Micro that federal prosecutors charged in March 2026.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Try to spoof the chip's location</h2>
+      <p class="sv-caption mono">Three landmark servers at known positions time how long a signal takes to reach the chip and bounce back (RTT). Drag the slider to make the chip's firmware inject fake delay into every reply — the attacker's only real lever. Watch what happens to the estimate. Illustrative scale only: assumes an effective signal speed of 100 km per millisecond of round trip and ignores routing overhead a real network would add.</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <canvas class="sv-canvas" id="sv-canvas" width="400" height="300" role="img" aria-label="Diagram showing three landmark servers around a hidden chip location, each drawing a circle whose radius is the maximum possible distance implied by its ping time. The overlap of the three circles is the estimated zone where the chip could be."></canvas>
+    </div>
+
+    <div class="sv-controls">
+      <div class="sv-slider-row">
+        <label for="sv-slider">Fake delay injected into every ping</label>
+        <input type="range" id="sv-slider" min="0" max="30" step="1" value="0" aria-describedby="sv-slider-val" />
+        <span class="sv-slider-val mono" id="sv-slider-val">0 ms</span>
+      </div>
+      <div class="sv-reset-row">
+        <button type="button" class="sv-reset-btn" id="sv-reset">Reset</button>
+      </div>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">RTT to servers A / B / C</div>
+        <div class="sv-stat-value mono" id="stat-rtt">—</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Max possible distance</div>
+        <div class="sv-stat-value mono" id="stat-radius">—</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Estimated zone size</div>
+        <div class="sv-stat-value mono" id="stat-area">—</div>
+      </div>
+    </div>
+
+    <div class="sv-insight mono" id="sv-insight">Drag the slider: the shaded zone only ever grows and stays centered on the truth. Delay can blur the estimate. It can't move it, and it can't shrink it below the chip's real distance from any server.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture proving you're at home using nothing but a phone. Three friends in different, known locations call you, and each times how long it takes your voice to reach them and bounce back. Sound can't travel instantly, so that round-trip time sets a hard ceiling on how far away you could possibly be — you could be closer, but you cannot be farther than the ceiling implies. Draw a circle of that radius around each friend, and the overlap of all three circles is roughly where you are. Add a second and third friend from different directions and the overlap tightens into a small patch.</p>
+      <p>That's the idea behind "ping-based location verification," and Nvidia has already tested a version of it on its H100 chips. Instead of friends on the phone, it's servers with known coordinates pinging the chip's onboard telemetry. The clever part is what an attacker can and can't fake: they can stall their replies to seem farther away, which only makes the circle bigger and blurrier. They cannot make a reply arrive faster than physics allows, so they can never fake being closer, or in a different country entirely, without visibly breaking the math. It doesn't need GPS, which is easily spoofed and doesn't work inside a windowless data center anyway, and it doesn't require a remote kill switch — it only reports, it doesn't shut anything off.</p>
+      <p>Why build this now? Because the honor system has failed badly. Researchers at Epoch AI estimate somewhere between 290,000 and 1.6 million Nvidia H100-class chips — call it roughly 660,000 as a middle guess, worth billions of dollars — have been smuggled into China despite export bans, including a $2.5 billion scheme prosecutors tied to server-maker Super Micro this past March. A bill moving through Congress, the Chip Security Act, would require chips like these to keep proving their location for as long as they run, not just at the moment they leave the warehouse.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Ping-based location verification (PBLV) exploits a fixed physical constant: signal propagation delay in fiber. Landmark servers at surveyed coordinates issue authenticated challenge-response pings to a chip's onboard telemetry firmware; round-trip time (RTT) sets an upper bound on one-way distance, since routing, queuing, and processing overhead only ever add latency, never subtract it. With three or more non-collinear landmarks, multilateration narrows the feasible region to the intersection of distance circles (spheres, in practice). Independent research groups analyzing this approach report median accuracy on the order of tens of miles — sufficient for confident country-level attribution, though not building-level precision.</p>
+      <p>The security property that matters is asymmetric: an adversary can trivially inflate apparent distance from a landmark by adding artificial delay or routing through extra hops, which only widens the estimated region while leaving the true location inside it. Faking a shorter distance — the only way to spoof being in an authorized jurisdiction while physically elsewhere — would require beating the true propagation delay, which is not a software problem but a physics one. Nvidia has confirmed its Hopper- and Blackwell-generation silicon already generates the telemetry PBLV needs and that the capability could plausibly ship as a firmware update; the company has explicitly stated the mechanism reports location without functioning as a kill switch or remote shutdown, an important distinction for chipmakers wary of persistent backdoors.</p>
+      <p>The legislative vehicle is the Chip Security Act (H.R. 3447, introduced by Rep. Bill Huizenga and co-sponsors; S.1705, Sen. Tom Cotton's companion), which passed the House Foreign Affairs Committee 42–0 in March 2026. It directs Commerce to mandate location verification on covered integrated circuits within 180 days of enactment, deliberately written as mechanism-agnostic — software, firmware, or hardware — rather than mandating PBLV specifically. The policy backdrop is Epoch AI's diversion estimate: 290,000 to 1.6 million H100-equivalents smuggled into China through 2025, a median around 660,000, roughly a third of China's total installed AI compute, plus the March 2026 DOJ indictment of Super Micro co-founder Yih-Shyan "Wally" Liaw over an alleged $2.5 billion diversion pipeline. One limitation worth flagging: PBLV verifies where a chip is, not what it's running — a legitimately imported chip can still be repurposed for unauthorized workloads once inside the correct border, so it complements rather than replaces end-use audits and know-your-customer diligence.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> export controls have policed paperwork at the loading dock for decades; this moves enforcement inside the data center and makes it continuous, which is a genuinely different kind of leverage over where compute actually ends up.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> if PBLV becomes a firmware-level standard, it shifts export enforcement from a point-in-time customs check to a persistent telemetry stream — changing both the economics of chip diversion and the privacy/sovereignty calculus for legitimate buyers.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.congress.gov/bill/119th-congress/house-bill/3447/text" target="_blank" rel="noopener">Congress.gov — H.R. 3447, Chip Security Act (bill text)</a></li>
+    <li><a href="https://chinaselectcommittee.house.gov/media/press-releases/house-committee-passes-chip-security-act" target="_blank" rel="noopener">House Select Committee on the CCP — House Committee Passes Chip Security Act (42–0)</a></li>
+    <li><a href="https://www.cnbc.com/2025/12/11/nvidias-new-software-could-help-trace-where-its-ai-chips-end-up.html" target="_blank" rel="noopener">CNBC — Nvidia's New Software Could Help Trace Where Its AI Chips End Up</a></li>
+    <li><a href="https://epoch.ai/publications/chip-smuggling" target="_blank" rel="noopener">Epoch AI — Diversion and Resale: Estimating Compute Smuggling to China</a></li>
+    <li><a href="https://www.iaps.ai/research/location-verification-for-ai-chips" target="_blank" rel="noopener">Institute for AI Policy and Strategy — Location Verification for AI Chips</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+      if (window.__svRedraw) window.__svRedraw();
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+        if (window.__svRedraw) window.__svRedraw();
+      });
+    }
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var canvas = document.getElementById('sv-canvas');
+    var ctx = canvas.getContext('2d');
+    var slider = document.getElementById('sv-slider');
+    var sliderVal = document.getElementById('sv-slider-val');
+    var resetBtn = document.getElementById('sv-reset');
+    var statRtt = document.getElementById('stat-rtt');
+    var statRadius = document.getElementById('stat-radius');
+    var statArea = document.getElementById('stat-area');
+
+    var W = 400, H = 300;
+    var KM_PER_PX = 2;      // illustrative map scale
+    var KM_PER_MS = 100;    // illustrative: effective round-trip speed
+
+    var landmarks = [
+      { x: 70, y: 66, label: 'A' },
+      { x: 330, y: 66, label: 'B' },
+      { x: 200, y: 258, label: 'C' }
+    ];
+    var chip = { x: 205, y: 150 };
+
+    var dpr = window.devicePixelRatio || 1;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.scale(dpr, dpr);
+
+    function cssVar(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+
+    function dist(a, b) {
+      return Math.hypot(a.x - b.x, a.y - b.y);
+    }
+
+    function render() {
+      var fakeMs = Number(slider.value);
+      var ink = cssVar('--ink');
+      var muted = cssVar('--muted');
+      var border = cssVar('--border');
+      var accentA = cssVar('--accent-a');
+      var accentB = cssVar('--accent-b');
+      var surface = cssVar('--surface');
+
+      ctx.clearRect(0, 0, W, H);
+
+      // compute per-landmark true & displayed radii
+      var radiiPx = landmarks.map(function (lm) {
+        var truePx = dist(lm, chip);
+        var trueKm = truePx * KM_PER_PX;
+        var trueRttMs = trueKm / KM_PER_MS;
+        var displayedRttMs = trueRttMs + fakeMs;
+        var displayedKm = displayedRttMs * KM_PER_MS;
+        var displayedPx = displayedKm / KM_PER_PX;
+        return { rttMs: displayedRttMs, km: displayedKm, px: displayedPx };
+      });
+
+      // shaded intersection zone (sampled grid)
+      ctx.fillStyle = accentB;
+      ctx.globalAlpha = 0.16;
+      var step = 4;
+      var zonePixels = 0;
+      for (var gx = 0; gx < W; gx += step) {
+        for (var gy = 0; gy < H; gy += step) {
+          var inside = true;
+          for (var i = 0; i < landmarks.length; i++) {
+            if (Math.hypot(gx - landmarks[i].x, gy - landmarks[i].y) > radiiPx[i].px) { inside = false; break; }
+          }
+          if (inside) {
+            ctx.fillRect(gx, gy, step, step);
+            zonePixels++;
+          }
+        }
+      }
+      ctx.globalAlpha = 1;
+
+      // circles
+      landmarks.forEach(function (lm, i) {
+        ctx.beginPath();
+        ctx.arc(lm.x, lm.y, radiiPx[i].px, 0, Math.PI * 2);
+        ctx.strokeStyle = accentB;
+        ctx.lineWidth = 1.4;
+        ctx.setLineDash([4, 3]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      });
+
+      // landmark markers + labels
+      landmarks.forEach(function (lm) {
+        ctx.beginPath();
+        ctx.arc(lm.x, lm.y, 5, 0, Math.PI * 2);
+        ctx.fillStyle = surface;
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = ink;
+        ctx.stroke();
+        ctx.font = '700 11px ui-monospace, SF Mono, Menlo, monospace';
+        ctx.fillStyle = muted;
+        ctx.textAlign = 'center';
+        ctx.fillText('SERVER ' + lm.label, lm.x, lm.y - 12);
+      });
+
+      // true chip location
+      ctx.beginPath();
+      ctx.arc(chip.x, chip.y, 6, 0, Math.PI * 2);
+      ctx.fillStyle = accentA;
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = surface;
+      ctx.stroke();
+      ctx.font = '700 10.5px ui-monospace, SF Mono, Menlo, monospace';
+      ctx.fillStyle = accentA;
+      ctx.textAlign = 'center';
+      ctx.fillText('TRUE CHIP LOCATION', chip.x, chip.y + 22);
+      ctx.font = '9px ui-monospace, SF Mono, Menlo, monospace';
+      ctx.fillStyle = muted;
+      ctx.fillText('(shown for teaching only)', chip.x, chip.y + 34);
+
+      // border frame
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 1;
+      ctx.strokeRect(0.5, 0.5, W - 1, H - 1);
+
+      // stats
+      sliderVal.textContent = fakeMs + ' ms';
+      statRtt.textContent = radiiPx.map(function (r) { return r.rttMs.toFixed(1); }).join(' / ') + ' ms';
+      statRadius.textContent = radiiPx.map(function (r) { return Math.round(r.km); }).join(' / ') + ' km';
+      var zoneKm2 = Math.round(zonePixels * step * step * KM_PER_PX * KM_PER_PX);
+      statArea.textContent = zoneKm2.toLocaleString('en-US') + ' km²';
+    }
+
+    slider.addEventListener('input', render);
+    resetBtn.addEventListener('click', function () { slider.value = 0; render(); });
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      slider.value = 15;
+    }
+
+    window.__svRedraw = render;
+    render();
+  })();
+</script>
+</body>
+<!-- notify-verify -->
+</html>
