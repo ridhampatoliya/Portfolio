@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-09-25","category":"OCEAN FREIGHT","headline":"China's Ports Have Taken Two Typhoons Since Late August. Carriers Answered the Backlog With Fewer Sailings, Not More","summary":"Super Typhoon Ragasa just shut Hong Kong and three Shenzhen terminals, days after Typhoon Saudel closed Ningbo for 78 hours. Rather than surge ships to clear the backlog, carriers blanked roughly 1 in 9 scheduled sailings. Rates are climbing into 2026's busiest US import month.","whyItMatters":"Carrier capacity discipline, not just weather, is what's keeping trans-Pacific freight expensive and unreliable right as tech and holiday electronics shipments peak for Q4."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — China's Ports Have Taken Two Typhoons Since Late August. Carriers Answered the Backlog With Fewer Sailings, Not More.</title>
+<meta name="description" content="September is on track to be 2026's busiest US import month. China's ports just took two typhoons in a month. Carriers responded by canceling sailings, not adding them — and freight rates are rising, not falling, because of it." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b1541f;
+    --accent-a-tint: #f5e4d8;
+    --accent-b: #1c6f8c;
+    --accent-b-tint: #dceef3;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e79a63;
+      --accent-a-tint: #3a2618;
+      --accent-b: #7ecbe3;
+      --accent-b-tint: #12313c;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e79a63;
+    --accent-a-tint: #3a2618;
+    --accent-b: #7ecbe3;
+    --accent-b-tint: #12313c;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b1541f;
+    --accent-a-tint: #f5e4d8;
+    --accent-b: #1c6f8c;
+    --accent-b-tint: #dceef3;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: blank-sailing capacity simulator --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.55;
+  }
+  .sv-chart-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+  }
+  .sv-canvas {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+  }
+  .sv-controls {
+    margin-top: 16px;
+  }
+  .sv-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .sv-slider-row label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    flex: 0 0 auto;
+    max-width: 130px;
+    line-height: 1.3;
+  }
+  .sv-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-b);
+  }
+  .sv-slider-val {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+    min-width: 52px;
+    text-align: right;
+  }
+  .sv-reset-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+  .sv-reset-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .sv-legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .sv-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .sv-legend i {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+  .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+  .sv-stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sv-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 25, 2026</span>
+    <span class="category-chip">OCEAN FREIGHT</span>
+  </div>
+  <h1>China's Ports Have Taken Two Typhoons Since Late August. Carriers Answered the Backlog With Fewer Sailings, Not More.</h1>
+  <p class="lede">September is shaping up as the busiest month U.S. ports have had all year, right as a second typhoon this week shut down Hong Kong and three Shenzhen terminals. The obvious fix for a shipping backlog is more ships. Ocean carriers are doing close to the opposite — and it's why freight rates are climbing, not falling, at the worst possible time to import anything.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    The National Retail Federation's Global Port Tracker expects 2.31 million TEU to arrive at major U.S. ports in September — 2026's busiest import month, up 9.6% year over year. At the same time, China's port clusters have taken two typhoons in a month: Typhoon Saudel shut Ningbo for roughly 78 hours in late August, and Super Typhoon Ragasa just closed Hong Kong and Shenzhen's Yantian, Shekou and Nansha terminals, affecting an estimated 661 vessels across the region. Rather than add capacity to clear the resulting queue, carriers have blanked (canceled) 79 of 721 scheduled East-West sailings over five weeks — an 11% cut, more than half of it on the trans-Pacific route under the most strain. Shanghai–Los Angeles spot rates rose 5% in the week of September 10–17 alone.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">Run the ten-week capacity model</h2>
+      <p class="sv-caption mono">A simplified illustrative model, not real carrier data. Weeks 3–4 simulate a typhoon that forces ports to run at 45% of normal throughput no matter what carriers do. The slider is the lever carriers actually control: how much of the remaining scheduled capacity they choose to cancel on top of that. Demand eases slightly as the modeled rate rises, standing in for price sensitivity. Drag the slider, then press Run to watch ten weeks unfold and see whether the backlog recovers once the storm passes.</p>
+    </div>
+
+    <div class="sv-chart-wrap">
+      <canvas class="sv-canvas" id="sv-canvas" width="440" height="330" role="img" aria-label="Chart with two panels across ten simulated weeks. Top panel shows scheduled sailing capacity as an outline bar and actual sailings as a filled bar, shorter during a typhoon shock in weeks three and four. Bottom panel shows a growing or shrinking backlog as bars and a modeled freight rate index as a line, both depending on how many sailings carriers choose to blank."></canvas>
+    </div>
+
+    <div class="sv-controls">
+      <div class="sv-slider-row">
+        <label for="sv-slider">Sailings carriers choose to blank</label>
+        <input type="range" id="sv-slider" min="0" max="30" step="1" value="11" aria-describedby="sv-slider-val" />
+        <span class="sv-slider-val mono" id="sv-slider-val">11%</span>
+      </div>
+      <div class="sv-reset-row">
+        <button type="button" class="sv-reset-btn" id="sv-run">▶ Run 10-week simulation</button>
+      </div>
+      <div class="sv-legend">
+        <span><i style="background:var(--accent-a);"></i>sailed (top panel)</span>
+        <span><i style="background:var(--accent-b);"></i>backlog (bottom panel, bars)</span>
+        <span><i style="background:var(--ink);"></i>rate index (bottom panel, line)</span>
+      </div>
+    </div>
+
+    <div class="sv-stats">
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Week</div>
+        <div class="sv-stat-value mono" id="stat-week">—</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Backlog (relative)</div>
+        <div class="sv-stat-value mono" id="stat-backlog">—</div>
+      </div>
+      <div class="sv-stat">
+        <div class="sv-stat-label mono">Rate index (Aug = 100)</div>
+        <div class="sv-stat-value mono" id="stat-rate">—</div>
+      </div>
+    </div>
+
+    <div class="sv-insight mono" id="sv-insight" style="margin-top:14px; padding-top:14px; border-top:1px solid var(--border); font-size:13px; color:var(--ink);">Set the slider to 0% and run it: the backlog still spikes during the storm, but it drains afterward. Raise the slider toward today's real ~11% and the backlog — and the rate index — never fully recover, even once the weather clears.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture an airline whose flights are backed up because of a hurricane. You'd think the fix, once the weather clears, is to add extra flights and work through the line of stranded passengers. What airlines — and container-shipping lines — often do instead is cancel even more flights. In shipping, that's called a "blank sailing," and it's happening across the Pacific right now, at about the worst possible moment.</p>
+      <p>September is on track to be the single busiest month U.S. ports have had all year — the National Retail Federation expects 2.31 million shipping containers to arrive, up nearly 10% from last September, as retailers and electronics importers race gaming consoles, laptops and AI server racks in ahead of the holidays. At the same time, China's ports have taken two typhoons within a month. Typhoon Saudel shut the port of Ningbo for more than three days in late August. This week, Super Typhoon Ragasa — strong enough to trigger Hong Kong's highest storm warning — closed Hong Kong's port and three major Shenzhen terminals, snarling more than 600 ships.</p>
+      <p>You'd expect shipping lines to throw extra vessels at that backlog. Instead, the big carrier alliances have canceled roughly 1 in 9 of their scheduled sailings across major trade routes over the next five weeks, with more than half of those cuts on the very Asia-to-U.S. route under the most strain. Skipping a sailing lets a ship dodge a jammed port and rejoin its schedule downstream — and, conveniently, it also keeps cargo space scarce, which is what keeps prices from sliding. The result: freight rates from Shanghai to Los Angeles rose 5% last week alone, climbing instead of easing, in the exact month everyone needed the ships the most.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Two forcing functions are compounding on the trans-Pacific trade this month, and it's worth separating them. The first is weather: since mid-July, a run of typhoons has hit Chinese port clusters, most recently Typhoon Saudel (Ningbo closed roughly 78 hours, Shanghai's Yangshan terminal roughly 54 hours, Waigaoqiao roughly 48 hours, in late August) and Super Typhoon Ragasa, which made landfall on the South China coast on September 24, triggering Hong Kong's Signal No. 10 warning and idling Shenzhen's Yantian, Shekou and Nansha terminals since September 22 — an estimated 661 vessels across 45 regional ports affected, with a 3-to-7-day cargo delay once terminals reopen around September 26. The cumulative effect: berthing delays at Shanghai and Ningbo have stretched to roughly 10 days, with as many as 90 ships reported waiting more than a week for a slot at Shanghai this week.</p>
+      <p>The second forcing function is carrier capacity management, and it's the more consequential one economically. Drewry's Cancelled Sailings Tracker shows 79 of 721 scheduled sailings across the major East-West trades blanked between weeks 38 and 42 (mid-September to mid-October) — an 11% cancellation rate, with 52% of those cuts concentrated on the trans-Pacific eastbound lane specifically, and announced blankings for weeks 38–41 jumping roughly 56% week over week as the typhoon disruption unfolded. Blanking a sailing serves two functions at once: operationally, it lets a vessel skip a backed-up berth and re-enter its weekly rotation on schedule rather than idle in a queue accruing demurrage; commercially, it keeps industry-wide capacity tight during a demand spike, which is what allows rates to rise rather than mean-revert.</p>
+      <p>That second effect shows up directly in the numbers: Drewry's World Container Index has Shanghai–Los Angeles rates climbing from $7,352 to $7,712 per FEU (+5%) between September 10 and 17, and transatlantic rates are up $400/FEU in two weeks to $2,600 — on a lane the typhoons never touched, evidence the capacity discipline extends well beyond storm response alone.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> this is peak shipping season for holiday electronics and the AI server racks and networking gear flowing into new data centers — exactly when carriers are choosing to keep ships scarce rather than plentiful, so higher freight bills and later deliveries land on Q4 the hardest.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> when capacity discipline outweighs weather as the driver of elevated rates, the leading indicator isn't the storm forecast — it's alliance blank-sailing announcements, which now function as a real-time signal for trans-Pacific pricing and lead times independent of what the ports themselves are doing.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.worldcargonews.com/news/2026/09/nrf-september-could-be-busiest-import-month-for-us-ports/" target="_blank" rel="noopener">WorldCargo News — NRF: September Could Be Busiest Import Month for US Ports</a></li>
+    <li><a href="https://wwd.com/sourcing-journal/logistics/typhoon-saudel-china-ports-congestion-shanghai-ningbo-closed-1239173025/" target="_blank" rel="noopener">WWD / Sourcing Journal — Typhoon Saudel Compounds China's Growing Port Congestion Problem</a></li>
+    <li><a href="https://www.portcast.io/blog/typhoon-ragasa-disrupts-hong-kong-and-south-china-ports-661-vessels-impacted" target="_blank" rel="noopener">Portcast — Typhoon Ragasa Disrupts Hong Kong and South China Ports: 661 Vessels Impacted</a></li>
+    <li><a href="https://www.freightos.com/freight-resources/typhoon-disruptions-driving-congestion-and-putting-pressure-on-rates-september-25-2026-update/" target="_blank" rel="noopener">Freightos — Typhoon Disruptions Driving Congestion and Putting Pressure on Rates (Sept. 25, 2026 update)</a></li>
+    <li><a href="https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/cancelled-sailings-tracker" target="_blank" rel="noopener">Drewry — Cancelled Sailings Tracker</a></li>
+    <li><a href="https://theloadstar.com/berthing-delay-at-congested-shanghai-and-ningbo-now-hitting-10-days/" target="_blank" rel="noopener">The Loadstar — Berthing Delay at Congested Shanghai and Ningbo Now Hitting 10 Days</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+      if (window.__svRedraw) window.__svRedraw();
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+        if (window.__svRedraw) window.__svRedraw();
+      });
+    }
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var canvas = document.getElementById('sv-canvas');
+    var ctx = canvas.getContext('2d');
+    var slider = document.getElementById('sv-slider');
+    var sliderVal = document.getElementById('sv-slider-val');
+    var runBtn = document.getElementById('sv-run');
+    var statWeek = document.getElementById('stat-week');
+    var statBacklog = document.getElementById('stat-backlog');
+    var statRate = document.getElementById('stat-rate');
+
+    var W = 440, H = 330;
+    var CAP = 10, BASE_DEMAND = 11, STORM_FACTOR = 0.45;
+    var STORM_WEEKS = [3, 4];
+    var WEEKS = 10;
+
+    var dpr = window.devicePixelRatio || 1;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.scale(dpr, dpr);
+
+    function cssVar(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+
+    function computeSeries(blankPct) {
+      var series = [];
+      var backlog = 0, prevRate = 100;
+      for (var w = 1; w <= WEEKS; w++) {
+        var storm = STORM_WEEKS.indexOf(w) !== -1;
+        var demand = Math.max(6, BASE_DEMAND - 0.03 * (prevRate - 100));
+        var sailed = CAP * (1 - blankPct / 100) * (storm ? STORM_FACTOR : 1);
+        backlog = Math.max(0, backlog + demand - sailed);
+        var rate = Math.min(280, 100 + backlog * 4 + blankPct * 1.5);
+        series.push({ week: w, storm: storm, sailed: sailed, backlog: backlog, rate: rate });
+        prevRate = rate;
+      }
+      return series;
+    }
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var state = { blankPct: 11, series: computeSeries(11), pointer: WEEKS, animTimer: null };
+
+    var padL = 34, padR = 14, topY = 30, topH = 110, gapY = 34, botH = 110;
+    var chartW = W - padL - padR;
+
+    function weekX(w) {
+      return padL + ((w - 0.5) / WEEKS) * chartW;
+    }
+    var barW = (chartW / WEEKS) * 0.56;
+
+    function render() {
+      var ink = cssVar('--ink');
+      var muted = cssVar('--muted');
+      var border = cssVar('--border');
+      var accentA = cssVar('--accent-a');
+      var accentATint = cssVar('--accent-a-tint');
+      var accentB = cssVar('--accent-b');
+      var surface = cssVar('--surface');
+      var series = state.series;
+      var pointer = state.pointer;
+
+      ctx.clearRect(0, 0, W, H);
+
+      var topBase = topY + topH;
+      var botTop = topBase + gapY;
+      var botBase = botTop + botH;
+
+      // section labels
+      ctx.font = '700 10px ui-monospace, SF Mono, Menlo, monospace';
+      ctx.fillStyle = muted;
+      ctx.textAlign = 'left';
+      ctx.fillText('CAPACITY: SCHEDULED (outline) VS SAILED (filled)', padL, topY - 12);
+      ctx.fillText('BACKLOG (bars) & RATE INDEX (line)', padL, botTop - 12);
+
+      // storm shading spanning both panels
+      series.forEach(function (d) {
+        if (!d.storm) return;
+        var x0 = weekX(d.week) - (chartW / WEEKS) / 2;
+        ctx.fillStyle = accentATint;
+        ctx.globalAlpha = 0.7;
+        ctx.fillRect(x0, topY, chartW / WEEKS, botBase - topY);
+        ctx.globalAlpha = 1;
+      });
+      var stormMid = weekX(3.5);
+      ctx.font = '700 9px ui-monospace, SF Mono, Menlo, monospace';
+      ctx.fillStyle = accentA;
+      ctx.textAlign = 'center';
+      ctx.fillText('TYPHOON', stormMid, topY + 12);
+
+      // top panel: capacity bars
+      var maxCap = CAP * 1.08;
+      series.forEach(function (d) {
+        var cx = weekX(d.week);
+        var capH = (CAP / maxCap) * topH;
+        var sailedH = (d.sailed / maxCap) * topH;
+        ctx.strokeStyle = border;
+        ctx.lineWidth = 1;
+        ctx.setLineDash([2, 2]);
+        ctx.strokeRect(cx - barW / 2, topBase - capH, barW, capH);
+        ctx.setLineDash([]);
+        ctx.fillStyle = accentA;
+        ctx.fillRect(cx - barW / 2, topBase - sailedH, barW, sailedH);
+      });
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(padL, topBase + 0.5);
+      ctx.lineTo(padL + chartW, topBase + 0.5);
+      ctx.stroke();
+
+      // bottom panel: backlog bars + rate line
+      var maxBacklog = Math.max(5, Math.max.apply(null, series.map(function (d) { return d.backlog; })) * 1.15);
+      var maxRate = Math.max(120, Math.max.apply(null, series.map(function (d) { return d.rate; })) * 1.08);
+
+      series.forEach(function (d) {
+        var cx = weekX(d.week);
+        var bH = (d.backlog / maxBacklog) * botH;
+        ctx.fillStyle = accentB;
+        ctx.globalAlpha = 0.85;
+        ctx.fillRect(cx - barW / 2, botBase - bH, barW, bH);
+        ctx.globalAlpha = 1;
+      });
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(padL, botBase + 0.5);
+      ctx.lineTo(padL + chartW, botBase + 0.5);
+      ctx.stroke();
+
+      ctx.beginPath();
+      series.forEach(function (d, i) {
+        var cx = weekX(d.week);
+        var ry = botBase - ((d.rate - 100) / (maxRate - 100)) * botH;
+        if (i === 0) ctx.moveTo(cx, ry); else ctx.lineTo(cx, ry);
+      });
+      ctx.strokeStyle = ink;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      series.forEach(function (d) {
+        var cx = weekX(d.week);
+        var ry = botBase - ((d.rate - 100) / (maxRate - 100)) * botH;
+        ctx.beginPath();
+        ctx.arc(cx, ry, 2.4, 0, Math.PI * 2);
+        ctx.fillStyle = surface;
+        ctx.fill();
+        ctx.lineWidth = 1.6;
+        ctx.strokeStyle = ink;
+        ctx.stroke();
+      });
+
+      // week ticks
+      ctx.font = '9px ui-monospace, SF Mono, Menlo, monospace';
+      ctx.fillStyle = muted;
+      ctx.textAlign = 'center';
+      series.forEach(function (d) {
+        ctx.fillText('W' + d.week, weekX(d.week), botBase + 14);
+      });
+
+      // playhead
+      var px = weekX(pointer);
+      ctx.strokeStyle = accentB;
+      ctx.lineWidth = 1.4;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(px, topY - 4);
+      ctx.lineTo(px, botBase + 4);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // frame
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 1;
+      ctx.strokeRect(0.5, 0.5, W - 1, H - 1);
+
+      // live stats
+      var d = series[pointer - 1];
+      statWeek.textContent = pointer + ' / ' + WEEKS;
+      statBacklog.textContent = d.backlog.toFixed(1) + ' units';
+      statRate.textContent = d.rate.toFixed(0);
+    }
+
+    function stopAnim() {
+      if (state.animTimer) {
+        clearInterval(state.animTimer);
+        state.animTimer = null;
+      }
+      runBtn.textContent = '▶ Run 10-week simulation';
+    }
+
+    function runAnim() {
+      stopAnim();
+      if (reduceMotion) {
+        state.pointer = WEEKS;
+        render();
+        return;
+      }
+      state.pointer = 1;
+      render();
+      runBtn.textContent = '■ Running…';
+      state.animTimer = setInterval(function () {
+        state.pointer++;
+        if (state.pointer > WEEKS) {
+          state.pointer = WEEKS;
+          render();
+          stopAnim();
+          return;
+        }
+        render();
+      }, 260);
+    }
+
+    slider.addEventListener('input', function () {
+      stopAnim();
+      state.blankPct = Number(slider.value);
+      sliderVal.textContent = state.blankPct + '%';
+      state.series = computeSeries(state.blankPct);
+      state.pointer = WEEKS;
+      render();
+    });
+
+    runBtn.addEventListener('click', function () {
+      if (state.animTimer) { stopAnim(); return; }
+      runAnim();
+    });
+
+    if (reduceMotion) {
+      state.pointer = WEEKS;
+    }
+
+    window.__svRedraw = render;
+    render();
+  })();
+</script>
+</body>
+</html>
