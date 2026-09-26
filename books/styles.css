@@ -22,8 +22,7 @@
 }
 
 .summary-card,
-.book-card,
-.library-heading {
+.book-card {
   border: 1px solid var(--line);
   background: var(--panel);
   box-shadow: var(--shadow);
@@ -53,74 +52,36 @@
 
 .library {
   display: grid;
-  gap: 28px;
 }
 
-.library-column {
+.book-grid {
   display: grid;
-  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.4fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
-  align-items: start;
-}
-
-.library-heading {
-  padding: 28px;
-  border-radius: 28px;
-  position: sticky;
-  top: 112px;
-}
-
-.library-heading h2 {
-  max-width: 11ch;
-}
-
-.book-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
 }
 
 .book-card {
-  display: grid;
-  grid-template-columns: 86px minmax(0, 1fr);
-  gap: 16px;
-  align-items: start;
-  padding: 22px 24px;
-  border-radius: 24px;
-  min-height: 124px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 22px;
 }
 
 .book-cover {
-  display: grid;
-  align-content: space-between;
-  width: 86px;
+  width: 100%;
   aspect-ratio: 2 / 3;
-  padding: 10px 10px 12px;
   border-radius: 14px;
-  background: var(--cover-bg);
+  overflow: hidden;
+  background: var(--line);
   box-shadow: 0 12px 24px rgba(23, 33, 28, 0.12);
-  color: var(--cover-accent);
 }
 
-.cover-kicker {
-  font-size: 0.56rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.cover-title {
-  font-family: "Instrument Serif", serif;
-  font-size: 1rem;
-  line-height: 0.96;
-  letter-spacing: -0.03em;
-}
-
-.cover-author {
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.book-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .book-copy {
@@ -128,15 +89,15 @@
 }
 
 .book-card h3 {
-  font-size: 1.08rem;
+  font-size: 1rem;
   line-height: 1.35;
 }
 
 .book-author {
-  margin-top: 8px;
+  margin-top: 6px;
   color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.5;
 }
 
 .footer-link {
@@ -145,16 +106,14 @@
 }
 
 @media (max-width: 900px) {
-  .library-column {
-    grid-template-columns: 1fr;
+  .book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
-  .book-list {
+@media (max-width: 480px) {
+  .book-grid {
     grid-template-columns: 1fr;
-  }
-
-  .library-heading {
-    position: static;
   }
 }
 
@@ -164,8 +123,7 @@
   }
 
   .summary-card,
-  .book-card,
-  .library-heading {
+  .book-card {
     border-radius: 24px;
   }
 }
