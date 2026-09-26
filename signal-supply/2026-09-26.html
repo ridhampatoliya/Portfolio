@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-09-26","category":"CRITICAL MINERALS","headline":"China Refines Up to 95% of Four Battery Metals. The US Just Took a Deep-Sea Mining Bid to the Brink of Approval, Skipping the World's Rulebook","summary":"The US just took the first-ever deep-sea mining bid to the edge of approval — 65,000 km² of Pacific seafloor rocks holding nickel, cobalt, copper and manganese that China dominates in refining. It's using a 1980 law that skips the international seabed authority, and roughly 40 countries call that illegal.","whyItMatters":"This is the first real attempt to mine and refine battery metals somewhere China doesn't control the refining step — though the international legal fight over doing it this way has barely started."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — China Refines Up to 95% of Four Battery Metals. The US Just Took a Deep-Sea Mining Bid to the Brink of Approval, Skipping the World's Rulebook.</title>
+<meta name="description" content="NOAA just found the first-ever deep-sea commercial mining application fully compliant with U.S. law, covering 65,000 km² of Pacific seafloor rocks rich in nickel, cobalt, copper and manganese. It bypasses the international treaty every other country follows — and nearly 40 nations call that illegal." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #93591f;
+    --accent-a-tint: #f2e4d0;
+    --accent-b: #0b6e8f;
+    --accent-b-tint: #d7edf3;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e3ac6c;
+      --accent-a-tint: #3a2a14;
+      --accent-b: #6cc9e6;
+      --accent-b-tint: #0f2f38;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e3ac6c;
+    --accent-a-tint: #3a2a14;
+    --accent-b: #6cc9e6;
+    --accent-b-tint: #0f2f38;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #93591f;
+    --accent-a-tint: #f2e4d0;
+    --accent-b: #0b6e8f;
+    --accent-b-tint: #d7edf3;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: seafloor-to-refinery stepper --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.55;
+  }
+  .sv-stage-label {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .sv-stage-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent-b);
+  }
+  .sv-stage-count {
+    font-size: 11px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .sv-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+  }
+  .sv-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .sv-elem {
+    opacity: 0.28;
+    transition: opacity 0.35s ease;
+  }
+  .sv-elem.active {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .sv-elem.active.sv-pulse {
+      animation: sv-pulse 1.6s ease-in-out infinite;
+    }
+  }
+  @keyframes sv-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+  .sv-bars {
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+    padding: 6px 4px;
+  }
+  .sv-bar-row {
+    display: grid;
+    grid-template-columns: 84px 1fr 46px;
+    align-items: center;
+    gap: 10px;
+  }
+  .sv-bar-label {
+    font-size: 12px;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .sv-bar-track {
+    height: 14px;
+    border-radius: 999px;
+    background: var(--border);
+    overflow: hidden;
+    position: relative;
+  }
+  .sv-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent-a);
+    border-radius: 999px;
+  }
+  .sv-bar-pct {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-align: right;
+  }
+  .sv-bars-note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .sv-caption-live {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13.5px;
+    min-height: 3.2em;
+  }
+  .sv-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .sv-nav-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .sv-nav-btn:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+  .sv-dots {
+    display: flex;
+    gap: 8px;
+  }
+  .sv-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 0;
+    cursor: pointer;
+  }
+  .sv-dot[aria-current="true"] {
+    background: var(--accent-b);
+    border-color: var(--accent-b);
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 26, 2026</span>
+    <span class="category-chip">CRITICAL MINERALS</span>
+  </div>
+  <h1>China Refines Up to 95% of Four Battery Metals. The US Just Took a Deep-Sea Mining Bid to the Brink of Approval, Skipping the World's Rulebook.</h1>
+  <p class="lede">For two decades, China built the refineries that turn raw ore into battery-grade nickel, cobalt, copper and manganese — so even mines the U.S. and its allies control still often ship concentrate to a Chinese smelter to become usable metal. This month, a U.S. regulator took the furthest step any government has ever taken toward mining four of those metals at once, from softball-sized rocks scattered across the Pacific floor, using a law that skips the international treaty every other seafaring nation follows.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    On April 28, 2026, NOAA found that The Metals Company's U.S. subsidiary had filed the first deep-seabed commercial-recovery application anywhere ever ruled fully compliant with the relevant law — covering 65,000 km² of the Clarion-Clipperton Zone, a Pacific abyssal plain between Hawaii and Mexico whose full 4.5 million km² is estimated to hold roughly 34 billion tons of polymetallic nodules region-wide. Those rocks matter because each one bundles manganese, nickel, copper and cobalt into a single lump — and China currently refines an estimated 95% of the world's manganese, 78% of its cobalt, 45% of its copper and 35% of its nickel, so even ore mined elsewhere often still needs a Chinese smelter to become usable metal. The U.S. is proceeding under the 1980 Deep Seabed Hard Mineral Resources Act rather than the UN's Law of the Sea framework, which nearly 40 countries plus China, Russia and France say makes the whole approach illegal. Separately, on September 23, a different miner, Deep Sea Minerals Corp., signed a letter of intent with Westwin Elements to study building the one piece the strategy still lacks: a nodule refinery on U.S. soil.
+  </div>
+
+  <div class="card sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">From seafloor rock to refined metal</h2>
+      <p class="sv-caption mono">Step through the four stages of turning a Pacific nodule into usable battery metal. Depth and grade figures are typical Clarion-Clipperton Zone values, rounded for clarity. Stage 4's bars show China's approximate current share of global refining capacity for each metal — not where the ore itself is mined.</p>
+    </div>
+
+    <div class="sv-stage-label">
+      <span class="sv-stage-name mono" id="sv-stage-name">STAGE 1 — FORMATION</span>
+      <span class="sv-stage-count mono" id="sv-stage-count">1 / 4</span>
+    </div>
+
+    <div class="sv-scene-wrap">
+      <svg class="sv-scene" id="sv-scene" viewBox="0 0 440 260" role="img" aria-label="Schematic cross-section of the ocean, showing nodules on the seafloor, a collector vehicle, a riser pipe, and a surface ship, with the currently highlighted stage shown at full opacity.">
+        <defs>
+          <linearGradient id="sv-water" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="var(--accent-b-tint)" stop-opacity="0.55" />
+            <stop offset="100%" stop-color="var(--accent-b-tint)" stop-opacity="0.15" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="440" height="260" fill="var(--surface)" />
+        <rect x="0" y="26" width="440" height="206" fill="url(#sv-water)" />
+        <line x1="0" y1="26" x2="440" y2="26" stroke="var(--border)" stroke-width="1" />
+        <line x1="0" y1="232" x2="440" y2="232" stroke="var(--border)" stroke-width="1.5" />
+        <text x="8" y="18" class="mono" font-size="9" fill="var(--muted)">SURFACE</text>
+        <text x="8" y="250" class="mono" font-size="9" fill="var(--muted)">SEAFLOOR · ~4,000 M / 13,000 FT DOWN</text>
+
+        <!-- riser pipe: stage 3 -->
+        <g class="sv-elem" data-stage="3">
+          <line x1="230" y1="30" x2="230" y2="220" stroke="var(--accent-b)" stroke-width="5" stroke-linecap="round" />
+          <circle class="sv-pulse" cx="230" cy="120" r="4" fill="var(--surface)" />
+          <circle class="sv-pulse" cx="230" cy="150" r="4" fill="var(--surface)" />
+          <circle class="sv-pulse" cx="230" cy="180" r="4" fill="var(--surface)" />
+        </g>
+
+        <!-- ship: stage 3 -->
+        <g class="sv-elem" data-stage="3">
+          <path d="M198 22 L262 22 L252 34 L208 34 Z" fill="var(--accent-b)" />
+          <rect x="222" y="10" width="16" height="12" fill="var(--accent-b)" />
+        </g>
+
+        <!-- collector vehicle: stage 2 -->
+        <g class="sv-elem sv-pulse" data-stage="2">
+          <rect x="200" y="208" width="60" height="18" rx="4" fill="var(--accent-b)" />
+          <circle cx="212" cy="228" r="5" fill="var(--ink)" />
+          <circle cx="248" cy="228" r="5" fill="var(--ink)" />
+          <line x1="230" y1="208" x2="230" y2="196" stroke="var(--accent-b)" stroke-width="4" />
+        </g>
+
+        <!-- nodules: stage 1 -->
+        <g class="sv-elem sv-pulse" data-stage="1">
+          <circle cx="70" cy="222" r="6" fill="var(--accent-a)" />
+          <circle cx="100" cy="227" r="5" fill="var(--accent-a)" />
+          <circle cx="135" cy="220" r="7" fill="var(--accent-a)" />
+          <circle cx="165" cy="226" r="5" fill="var(--accent-a)" />
+          <circle cx="300" cy="223" r="6" fill="var(--accent-a)" />
+          <circle cx="335" cy="228" r="5" fill="var(--accent-a)" />
+          <circle cx="370" cy="220" r="7" fill="var(--accent-a)" />
+          <circle cx="400" cy="226" r="5" fill="var(--accent-a)" />
+        </g>
+      </svg>
+    </div>
+
+    <div class="sv-bars" id="sv-bars">
+      <div class="sv-bar-row">
+        <span class="sv-bar-label">Manganese</span>
+        <span class="sv-bar-track"><span class="sv-bar-fill" id="bar-mn" data-target="95"></span></span>
+        <span class="sv-bar-pct mono" id="pct-mn">0%</span>
+      </div>
+      <div class="sv-bar-row">
+        <span class="sv-bar-label">Cobalt</span>
+        <span class="sv-bar-track"><span class="sv-bar-fill" id="bar-co" data-target="78"></span></span>
+        <span class="sv-bar-pct mono" id="pct-co">0%</span>
+      </div>
+      <div class="sv-bar-row">
+        <span class="sv-bar-label">Copper</span>
+        <span class="sv-bar-track"><span class="sv-bar-fill" id="bar-cu" data-target="45"></span></span>
+        <span class="sv-bar-pct mono" id="pct-cu">0%</span>
+      </div>
+      <div class="sv-bar-row">
+        <span class="sv-bar-label">Nickel</span>
+        <span class="sv-bar-track"><span class="sv-bar-fill" id="bar-ni" data-target="35"></span></span>
+        <span class="sv-bar-pct mono" id="pct-ni">0%</span>
+      </div>
+      <p class="sv-bars-note mono">China's approx. share of global refining capacity, independent of mine origin.</p>
+    </div>
+
+    <p class="sv-caption-live mono" id="sv-caption-live" aria-live="polite">Over millions of years, dissolved manganese and iron slowly precipitate in rings around a tiny core — a shark's tooth, a bone fragment — building a potato-sized rock loaded with four metals at once. No drilling, no overburden: nodules just sit loose on the mud.</p>
+
+    <div class="sv-controls">
+      <button type="button" class="sv-nav-btn" id="sv-prev">← Prev</button>
+      <div class="sv-dots" role="tablist" aria-label="Pipeline stage">
+        <button type="button" class="sv-dot" id="sv-dot-1" aria-current="true" aria-label="Stage 1: Formation"></button>
+        <button type="button" class="sv-dot" id="sv-dot-2" aria-current="false" aria-label="Stage 2: Collection"></button>
+        <button type="button" class="sv-dot" id="sv-dot-3" aria-current="false" aria-label="Stage 3: Lift"></button>
+        <button type="button" class="sv-dot" id="sv-dot-4" aria-current="false" aria-label="Stage 4: Refine"></button>
+      </div>
+      <button type="button" class="sv-nav-btn" id="sv-next">Next →</button>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Scattered across the Pacific seafloor between Hawaii and Mexico are billions of dark, potato-sized rocks called polymetallic nodules. They formed over millions of years as metal dissolved in seawater slowly built up in layers around a speck of debris — and unlike almost any metal deposit on land, each rock isn't one metal, it's four: manganese, nickel, copper and cobalt, all bundled together and just sitting loose on top of the mud instead of buried in rock you have to blast apart.</p>
+      <p>That would be a curiosity except those four metals are exactly what go into EV batteries, grid batteries and stainless steel — and mining them isn't actually the hard part. Refining is. China spent two decades building the smelters and processing plants that turn raw ore into battery-grade metal, so even when the U.S. or an ally controls a mine somewhere else in the world, the ore often still gets shipped to a Chinese refinery before it's usable. Refining, not digging, is the real chokepoint.</p>
+      <p>So this month, Washington did something no country has ever done before: a federal regulator found a mining company's plan to vacuum up those rocks at industrial scale to be fully compliant with U.S. law — the furthest any deep-sea mining bid has gotten, anywhere, using an American law from 1980 that has nothing to do with the international treaty every other seafaring nation follows. A final permit hasn't been issued yet, but a second, smaller company already signed a deal to study building the refinery piece on U.S. soil too, so the rocks wouldn't need to pass through China to become metal at all.</p>
+      <p>Nearly 40 countries, plus China, Russia and France, say this whole approach is illegal — the international rulebook treats the deep seabed as belonging to everyone, with no single country allowed to hand out mining permits on its own. The U.S. is betting it can get ships in the water before the legal fight catches up.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Polymetallic nodules form through slow (millimeter-per-million-years) hydrogenetic and diagenetic precipitation of manganese and iron oxides around a nucleus — often a shark's tooth, bone fragment, or rock chip — concentrated across the Clarion-Clipperton Zone (CCZ), a roughly 4.5-million-km² abyssal plain between Hawaii and Mexico at 4,000–6,000 m depth. A typical nodule assays around 28% manganese, 1.3% nickel, 1.1% copper and 0.2% cobalt by dry weight, with higher-grade nodules running closer to 2.5% nickel and 2% copper — richer in nickel and copper than most producing land mines, and carrying four payable metals in one ore body instead of the usual one or two. Region-wide CCZ estimates run to roughly 21–34 billion (wet or dry, depending on the study) tons of nodules, equivalent to several times known terrestrial reserves of cobalt and nickel.</p>
+      <p>The regulatory track: an April 24, 2025 executive order ("Unleashing America's Offshore Critical Minerals and Resources") directed Commerce and NOAA to process seabed-mining permits under the 1980 Deep Seabed Hard Mineral Resources Act (DSHMRA) rather than through UNCLOS and the International Seabed Authority (ISA), a body the U.S. never joined. On February 6, 2026, The Metals Company's U.S. subsidiary filed a consolidated application covering 65,000 km² of the CCZ for both exploration and commercial recovery; NOAA found it in full compliance on April 28, 2026 — a procedural finding, not a final permit grant, but the furthest any deep-sea commercial-recovery bid has advanced in any jurisdiction. Separately, on September 23, 2026, Deep Sea Minerals Corp. and Westwin Elements signed a non-binding letter of intent to evaluate U.S.-based processing of nodules, aimed squarely at the actual bottleneck: independent of where ore is mined, China holds an estimated 95% of refined manganese capacity, 78% of refined cobalt, 45% of refined copper and 35% of refined nickel.</p>
+      <p>The legal exposure is real: UNCLOS treats seabed resources beyond national jurisdiction as the "common heritage of mankind," administered exclusively through the ISA. Because DSHMRA permits carry no ISA sanction, roughly 40 states plus China, Russia and France have backed a formal ISA statement calling unilateral permitting unlawful, and at least one 2026 legal analysis has floated the possibility of Chinese countermeasures or sanctions. No nodule has yet been extracted at commercial scale anywhere; the real test comes once a collector-and-riser system attempts sustained, continuous production, targeted for 2027.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> the batteries in EVs, phones and grid storage all need nickel, cobalt, copper and manganese — this is the first serious attempt to mine and refine them somewhere China doesn't control the processing step, even though the legal fight over doing it this way has barely started.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> if DSHMRA permitting survives the coming legal challenges, it sets a non-ISA precedent other states could copy — but the more consequential race isn't the mining permit, it's whether U.S. nodule-processing capacity actually gets built before China's refining leverage over these four metals becomes structurally permanent.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.noaa.gov/news-release/noaa-advances-review-of-first-ever-deep-seabed-mining-commercial-recovery-application" target="_blank" rel="noopener">NOAA — NOAA Advances Review of First-Ever Deep Seabed Mining Commercial Recovery Application</a></li>
+    <li><a href="https://www.whitecase.com/insight-alert/new-executive-order-seeks-increase-american-extraction-minerals-through-deep-sea" target="_blank" rel="noopener">White &amp; Case — New Executive Order Seeks to Increase American Extraction of Minerals Through Deep Sea Mining</a></li>
+    <li><a href="https://www.rfa.org/english/pacific/2026/04/01/us-china-rare-earths-competition-guam-pacific/" target="_blank" rel="noopener">Radio Free Asia — China-US Competition for Rare Earths Sparks Plan to Mine Pacific Seabed Near Guam</a></li>
+    <li><a href="https://www.globenewswire.com/news-release/2026/09/23/3367390/0/en/deep-sea-minerals-westwin-sign-non-binding-letter-of-intent-to-evaluate-u-s-processing-of-polymetallic-nodules.html" target="_blank" rel="noopener">GlobeNewswire — Deep Sea Minerals, Westwin Sign Non-Binding LOI to Evaluate U.S. Processing of Polymetallic Nodules</a></li>
+    <li><a href="https://hongkongfp.com/2025/04/25/china-warns-us-deep-sea-mining-plan-violates-international-law/" target="_blank" rel="noopener">Hong Kong Free Press — China Warns US Deep-Sea Mining Plan "Violates International Law"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var stages = [
+      {
+        name: 'STAGE 1 — FORMATION',
+        caption: "Over millions of years, dissolved manganese and iron slowly precipitate in rings around a tiny core — a shark's tooth, a bone fragment — building a potato-sized rock loaded with four metals at once. No drilling, no overburden: nodules just sit loose on the mud."
+      },
+      {
+        name: 'STAGE 2 — COLLECTION',
+        caption: 'A tracked collector vehicle crawls the seafloor, vacuuming nodules and stirred-up sediment into a slurry — the first fully mechanical harvest of an ore body no human has ever physically touched.'
+      },
+      {
+        name: 'STAGE 3 — LIFT',
+        caption: 'A riser pipe roughly 4 kilometers long lifts the nodule slurry to a surface ship, on the same basic principle as an airlift pump — running continuously rather than in single trips.'
+      },
+      {
+        name: 'STAGE 4 — REFINE (THE REAL BOTTLENECK)',
+        caption: "Mining the rock is the easy part. Turning it into battery-grade metal needs a refinery — and today, most of that refining capacity sits in China. Closing that gap on U.S. soil, not the mining permit, is the harder race."
+      }
+    ];
+
+    var idx = 0;
+    var barsAnimated = false;
+
+    var elems = Array.prototype.slice.call(document.querySelectorAll('.sv-elem'));
+    var sceneWrap = document.querySelector('.sv-scene-wrap');
+    var barsWrap = document.getElementById('sv-bars');
+    var stageName = document.getElementById('sv-stage-name');
+    var stageCount = document.getElementById('sv-stage-count');
+    var captionLive = document.getElementById('sv-caption-live');
+    var prevBtn = document.getElementById('sv-prev');
+    var nextBtn = document.getElementById('sv-next');
+    var dots = [
+      document.getElementById('sv-dot-1'),
+      document.getElementById('sv-dot-2'),
+      document.getElementById('sv-dot-3'),
+      document.getElementById('sv-dot-4')
+    ];
+
+    var bars = [
+      { fill: document.getElementById('bar-mn'), pct: document.getElementById('pct-mn') },
+      { fill: document.getElementById('bar-co'), pct: document.getElementById('pct-co') },
+      { fill: document.getElementById('bar-cu'), pct: document.getElementById('pct-cu') },
+      { fill: document.getElementById('bar-ni'), pct: document.getElementById('pct-ni') }
+    ];
+
+    function animateBars() {
+      bars.forEach(function (b) {
+        var target = Number(b.fill.getAttribute('data-target'));
+        if (reduceMotion) {
+          b.fill.style.width = target + '%';
+          b.pct.textContent = target + '%';
+          return;
+        }
+        var start = null;
+        var duration = 700;
+        function step(ts) {
+          if (start === null) start = ts;
+          var progress = Math.min(1, (ts - start) / duration);
+          var eased = 1 - Math.pow(1 - progress, 2);
+          var val = Math.round(eased * target);
+          b.fill.style.width = val + '%';
+          b.pct.textContent = val + '%';
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+
+    function render() {
+      var showBars = idx === 3;
+      sceneWrap.style.display = showBars ? 'none' : 'block';
+      barsWrap.style.display = showBars ? 'flex' : 'none';
+
+      elems.forEach(function (el) {
+        var elStage = Number(el.getAttribute('data-stage'));
+        el.classList.toggle('active', elStage === idx + 1);
+      });
+
+      stageName.textContent = stages[idx].name;
+      stageCount.textContent = (idx + 1) + ' / 4';
+      captionLive.textContent = stages[idx].caption;
+
+      dots.forEach(function (d, i) {
+        d.setAttribute('aria-current', String(i === idx));
+      });
+
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === stages.length - 1;
+
+      if (showBars && !barsAnimated) {
+        barsAnimated = true;
+        animateBars();
+      }
+    }
+
+    function goTo(i) {
+      idx = Math.max(0, Math.min(stages.length - 1, i));
+      render();
+    }
+
+    prevBtn.addEventListener('click', function () { goTo(idx - 1); });
+    nextBtn.addEventListener('click', function () { goTo(idx + 1); });
+    dots.forEach(function (d, i) {
+      d.addEventListener('click', function () { goTo(i); });
+    });
+
+    var stepper = document.querySelector('.sv-card');
+    stepper.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { goTo(idx + 1); }
+      else if (e.key === 'ArrowLeft') { goTo(idx - 1); }
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
