@@ -1,0 +1,864 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-09-27","category":"MEMORY CHIPS","headline":"Samsung's HBM4 Yield Went From Under 60% to 80% in Six Months. On a 12-Layer Memory Stack, That's the Difference Between Profit and Scrap","summary":"Samsung's HBM4 yield jumped from under 60% to 80% — the level insiders call “golden yield” — in six months, closing in on SK Hynix for supplying memory to Nvidia's next AI GPUs. The reason yield swings so hard: stack twelve memory dies together, and one bad layer can scrap the whole tower.","whyItMatters":"Every 2027 AI GPU roadmap depends on how many working HBM4 stacks Korea's two memory giants can actually produce — and yield, not raw fab capacity, is now the real bottleneck."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Samsung's HBM4 Yield Went From Under 60% to 80% in Six Months. On a 12-Layer Memory Stack, That's the Difference Between Profit and Scrap</title>
+<meta name="description" content="Samsung's HBM4 yield jumped from under 60% to 80% in six months, a level insiders call 'golden yield.' The reason the number swings so hard: stack twelve memory dies together, and one bad layer can scrap the whole tower." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a8621f;
+    --accent-a-tint: #f4e3cf;
+    --accent-b: #2f6fb0;
+    --accent-b-tint: #dbe8f6;
+    --fail: #b3352b;
+    --fail-tint: #f8e2df;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e6a463;
+      --accent-a-tint: #3a2814;
+      --accent-b: #7fb8ec;
+      --accent-b-tint: #15293b;
+      --fail: #e2685f;
+      --fail-tint: #3a1f1c;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e6a463;
+    --accent-a-tint: #3a2814;
+    --accent-b: #7fb8ec;
+    --accent-b-tint: #15293b;
+    --fail: #e2685f;
+    --fail-tint: #3a1f1c;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a8621f;
+    --accent-a-tint: #f4e3cf;
+    --accent-b: #2f6fb0;
+    --accent-b-tint: #dbe8f6;
+    --fail: #b3352b;
+    --fail-tint: #f8e2df;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: HBM yield-cascade simulator --- */
+  .sv-header { margin-bottom: 4px; }
+  .sv-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sv-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.55;
+  }
+
+  .yv-control-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .yv-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .yv-control-row input[type="range"] {
+    flex: 1;
+    min-width: 140px;
+    accent-color: var(--accent-b);
+    height: 4px;
+  }
+  .yv-slider-val {
+    font-size: 13px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent-b);
+    min-width: 52px;
+    text-align: right;
+  }
+
+  .yv-height-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .yv-height-btn {
+    flex: 1;
+    min-width: 96px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 8px 6px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+  }
+  .yv-height-btn[aria-pressed="true"] {
+    background: var(--accent-a-tint);
+    border-color: var(--accent-a);
+    color: var(--accent-a);
+  }
+
+  .sv-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 4px 2px 6px;
+    margin-bottom: 18px;
+  }
+  .sv-bar-row {
+    display: grid;
+    grid-template-columns: 84px 1fr 52px;
+    align-items: center;
+    gap: 10px;
+  }
+  .sv-bar-row.yv-active .sv-bar-label { color: var(--accent-a); }
+  .sv-bar-label {
+    font-size: 12px;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .sv-bar-track {
+    height: 14px;
+    border-radius: 999px;
+    background: var(--border);
+    overflow: hidden;
+    position: relative;
+  }
+  .sv-bar-fill {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: var(--accent-a);
+    border-radius: 999px;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .sv-bar-fill { transition: width 0.25s ease; }
+  }
+  .sv-bar-pct {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .sv-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+  }
+  .sv-scene {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .sv-caption-live {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13.5px;
+    min-height: 3.4em;
+  }
+  .sv-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .sv-nav-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .sv-nav-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+  .yv-tally {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 27, 2026</span>
+    <span class="category-chip">MEMORY CHIPS</span>
+  </div>
+  <h1>Samsung's HBM4 Yield Went From Under 60% to 80% in Six Months. On a 12-Layer Memory Stack, That's the Difference Between Profit and Scrap.</h1>
+  <p class="lede">The memory that feeds Nvidia's newest AI chips isn't one chip — it's a tower of a dozen wired together, and a single bad layer can wreck the whole thing. That's why a Korean factory's yield number just became one of the most closely watched figures in the entire AI supply chain.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Samsung's HBM4 (High Bandwidth Memory, generation 4) yield was reportedly still under 60% in February 2026. By August, trade press put it at roughly 80% — four months ahead of Samsung's own year-end target, and a level insiders call "golden yield," the point at which a fab can stop hand-picking samples and start shipping real commercial volume. That jump matters because HBM4 is built by stacking up to a dozen memory dies vertically and wiring them together through the silicon itself — SK Hynix currently supplies the bulk of the HBM4 going into Nvidia's next "Vera Rubin" GPU platform, with various reports putting its share of Nvidia's orders anywhere from just over half to as much as two-thirds. Samsung's yield climb is the clearest sign yet that it can compete for that business at scale rather than just in samples — a Sept. 21 report already put the overall HBM market-share gap between the two companies at 17 percentage points, down from a much wider spread.
+  </div>
+
+  <div class="card sv-card" id="sv-card">
+    <div class="sv-header">
+      <h2 class="sv-title">One bad layer scraps the whole stack</h2>
+      <p class="sv-caption mono">Set a per-die pass rate, pick a stack height, then press Run to build a stack layer by layer and see if it survives. Simplified model: treats every memory die's pass/fail as independent and ignores real fabs' known-good-die testing and redundant wiring, which claw back some yield in practice — the compounding math is still the real reason more layers make yield dramatically harder.</p>
+    </div>
+
+    <div class="yv-control-row">
+      <label for="yv-slider" class="yv-label mono">PER-DIE PASS RATE</label>
+      <input type="range" id="yv-slider" min="90" max="99.8" step="0.1" value="97" aria-describedby="yv-slider-val" />
+      <span class="yv-slider-val mono" id="yv-slider-val">97.0%</span>
+    </div>
+
+    <div class="yv-height-row" role="group" aria-label="Stack height">
+      <button type="button" class="yv-height-btn" id="yv-h8" data-h="8" aria-pressed="false">8-HI · HBM3E</button>
+      <button type="button" class="yv-height-btn" id="yv-h12" data-h="12" aria-pressed="true">12-HI · HBM4</button>
+      <button type="button" class="yv-height-btn" id="yv-h16" data-h="16" aria-pressed="false">16-HI · HBM4E</button>
+    </div>
+
+    <div class="sv-bars" id="yv-bars">
+      <div class="sv-bar-row" id="yv-row-8">
+        <span class="sv-bar-label">8-hi</span>
+        <span class="sv-bar-track"><span class="sv-bar-fill" id="yv-bar-8"></span></span>
+        <span class="sv-bar-pct mono" id="yv-pct-8">0%</span>
+      </div>
+      <div class="sv-bar-row" id="yv-row-12">
+        <span class="sv-bar-label">12-hi</span>
+        <span class="sv-bar-track"><span class="sv-bar-fill" id="yv-bar-12"></span></span>
+        <span class="sv-bar-pct mono" id="yv-pct-12">0%</span>
+      </div>
+      <div class="sv-bar-row" id="yv-row-16">
+        <span class="sv-bar-label">16-hi</span>
+        <span class="sv-bar-track"><span class="sv-bar-fill" id="yv-bar-16"></span></span>
+        <span class="sv-bar-pct mono" id="yv-pct-16">0%</span>
+      </div>
+    </div>
+
+    <div class="sv-scene-wrap">
+      <svg class="sv-scene" id="yv-scene" viewBox="0 0 220 300" role="img" aria-label="Vertical stack of memory dies above a base logic die, colored green or red as they are simulated to pass or fail.">
+      </svg>
+    </div>
+
+    <p class="sv-caption-live mono" id="yv-result" aria-live="polite">Press Run to build a 12-hi stack at 97.0% per-die pass rate.</p>
+
+    <div class="sv-controls">
+      <button type="button" class="sv-nav-btn" id="yv-run">Run ▶</button>
+      <button type="button" class="sv-nav-btn" id="yv-reset">Reset</button>
+    </div>
+    <div class="yv-tally mono" id="yv-tally">Attempts: 0 · Good stacks: 0 · Session yield: —</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Every high-end AI chip today needs a special kind of memory called HBM — not one chip, but a tower of up to a dozen tiny memory chips glued directly on top of each other and wired straight down through microscopic tunnels drilled through the silicon. Building that tower is one of the hardest tricks in electronics, because of a brutal rule: if even one layer in the stack has a flaw, the whole tower usually gets thrown away. It doesn't matter if the other eleven layers were perfect.</p>
+      <p>That's why "yield" — the share of finished stacks that actually work — is one of the most closely watched numbers in the entire AI chip supply chain right now. In February, Samsung's HBM4 stacks were passing well under 60% of the time. By August, that number hit roughly 80%, a level the industry calls "golden yield" — good enough to sell in real volume instead of handing out samples. Six months, about twenty extra points, and it's the difference between Samsung becoming a real second supplier for Nvidia's newest AI GPUs, or staying stuck behind SK Hynix, which currently ships most of that memory.</p>
+      <p>Here's the twist: to get there, both companies redesigned the bottom layer of the stack — the "base die," which handles traffic control instead of storing data — and each is now leaning on outside manufacturing to build it, using more advanced chipmaking than memory companies usually touch. Even the two biggest memory makers on Earth can't do this entirely alone anymore.</p>
+      <p>Which is exactly why one Korean factory's yield number moving from 60% to 80% ripples all the way out to how many AI chips the whole industry can actually ship next year — memory, not the GPU itself, is turning into the thing that decides the pace.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>HBM4 — the memory standard behind Nvidia's Vera Rubin GPU platform and AMD's next Instinct accelerators — hits its bandwidth and capacity targets by stacking DRAM dies vertically and linking them with through-silicon vias (TSVs): copper-filled vertical channels etched straight through each die, bonded to the dies above and below through microbumps at a tighter pitch than HBM3E used. In JEDEC's naming, "12-hi" and "16-hi" refer specifically to the number of stacked DRAM core dies, sitting atop one separately built base die that handles I/O and memory-controller logic. Mainstream HBM3E ships mostly at 8-hi; HBM4 standardizes on 12-hi, with 16-hi variants planned for HBM4E.</p>
+      <p>The yield mechanics are unforgiving because, to a first approximation and ignoring built-in TSV redundancy and known-good-die screening, overall stack yield ≈ (per-die yield)^n. A 12-hi stack at a hypothetical 97% per-die yield lands near 69%; nudging per-die yield to roughly 98% pushes it close to 79-80% — illustrating, at the order-of-magnitude level, why moving from sub-60% to an 80% "golden yield" between February and August 2026 registered industry-wide as a landmark rather than an incremental step.</p>
+      <p>The structural shift in HBM4 is where the base die gets fabricated. Earlier HBM generations built the base die on the same DRAM process as the stack above it; HBM4 instead moves it to a separate, more advanced logic node, because logic transistors scale and switch far more efficiently there than on a DRAM process. SK Hynix has reportedly adopted TSMC's N12 (12nm-class) node for its base die, said to drop operating voltage from DRAM's typical 1.1V to around 0.8V for roughly 1.5x better energy efficiency; Samsung, which owns its own foundry, is instead using its internal 4nm-class SF4 process paired with 1c (~10nm-class) DRAM core dies, and has demonstrated a 12-hi, 36GB stack with 2,048 I/O pins and 3.3TB/s of bandwidth.</p>
+      <p>Market-share figures diverge by source and don't always measure the same thing: UBS reportedly projects SK Hynix's 2026 HBM4 share near 48% versus Samsung's 39%, flipping to a narrow Samsung lead in 2027, while a separate Sept. 21 report pegs the current overall HBM gap (including older HBM3E, where SK Hynix's lead is largest) at 17 percentage points. Nvidia's own HBM4 allocation to SK Hynix has been reported anywhere from just over half to roughly two-thirds, depending on the outlet and month — treat any single percentage as a snapshot of a fast-moving negotiation, not a settled fact.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> every 2027 AI GPU roadmap depends on how many working HBM4 stacks Korea's two memory giants can actually produce — and right now, yield, not raw factory capacity, is the real bottleneck.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> HBM4's base-die split also means TSMC's logic capacity now indirectly gates memory supply for both Samsung and SK Hynix — a second foundry dependency layered underneath the one everyone already watches at the GPU level.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.trendforce.com/news/2026/08/10/news-samsungs-hbm4-yield-reportedly-hits-80-as-race-to-supply-vera-rubin-heats-up-sk-hynix-labor-talks-add-a-twist/" target="_blank" rel="noopener">TrendForce — Samsung's HBM4 Yield Reportedly Hits 80% as Race to Supply Vera Rubin Heats Up</a></li>
+    <li><a href="https://en.sedaily.com/finance/2026/09/21/samsung-narrows-hbm-gap-with-sk-hynix-to-17-points" target="_blank" rel="noopener">Seoul Economic Daily — Samsung Narrows HBM Gap With SK Hynix to 17 Points</a></li>
+    <li><a href="https://www.trendforce.com/news/2026/01/28/news-sk-hynix-reportedly-to-supply-about-two-thirds-of-nvidia-hbm4-samsung-targets-early-delivery/" target="_blank" rel="noopener">TrendForce — SK Hynix Reportedly to Supply About Two-Thirds of Nvidia HBM4; Samsung Targets Early Delivery</a></li>
+    <li><a href="https://wccftech.com/samsung-sk-hynix-eye-1c-hbm4-memory-tsmc-preps-hbm4-base-dies-12nm-5nm/" target="_blank" rel="noopener">Wccftech — Samsung &amp; SK Hynix Eye 1c DRAM for HBM4 Memory; TSMC Preps HBM4 Base Dies on 12nm &amp; 5nm</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var perDie = 0.97;
+    var n = 12;
+    var running = false;
+    var tally = { attempts: 0, good: 0 };
+
+    var slider = document.getElementById('yv-slider');
+    var sliderVal = document.getElementById('yv-slider-val');
+    var heightBtns = {
+      8: document.getElementById('yv-h8'),
+      12: document.getElementById('yv-h12'),
+      16: document.getElementById('yv-h16')
+    };
+    var bars = {
+      8: { fill: document.getElementById('yv-bar-8'), pct: document.getElementById('yv-pct-8'), row: document.getElementById('yv-row-8') },
+      12: { fill: document.getElementById('yv-bar-12'), pct: document.getElementById('yv-pct-12'), row: document.getElementById('yv-row-12') },
+      16: { fill: document.getElementById('yv-bar-16'), pct: document.getElementById('yv-pct-16'), row: document.getElementById('yv-row-16') }
+    };
+    var scene = document.getElementById('yv-scene');
+    var resultEl = document.getElementById('yv-result');
+    var runBtn = document.getElementById('yv-run');
+    var resetBtn = document.getElementById('yv-reset');
+    var tallyEl = document.getElementById('yv-tally');
+
+    var dieRects = [];
+    var baseRect = null;
+
+    function theoreticalPct(height) {
+      return Math.pow(perDie, height) * 100;
+    }
+
+    function updateBars() {
+      [8, 12, 16].forEach(function (h) {
+        var pct = theoreticalPct(h);
+        bars[h].fill.style.width = pct + '%';
+        bars[h].pct.textContent = pct.toFixed(1) + '%';
+        bars[h].row.classList.toggle('yv-active', h === n);
+      });
+    }
+
+    function updateSliderLabel() {
+      sliderVal.textContent = (perDie * 100).toFixed(1) + '%';
+    }
+
+    function idlePrompt() {
+      resultEl.textContent = 'Press Run to build a ' + n + '-hi stack at ' + (perDie * 100).toFixed(1) + '% per-die pass rate.';
+    }
+
+    function clearScene() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+      dieRects = [];
+      baseRect = null;
+    }
+
+    function makeRect(x, y, w, h, fill, stroke) {
+      var r = document.createElementNS(svgNS, 'rect');
+      r.setAttribute('x', x);
+      r.setAttribute('y', y);
+      r.setAttribute('width', w);
+      r.setAttribute('height', h);
+      r.setAttribute('rx', 3);
+      r.setAttribute('fill', fill);
+      r.setAttribute('stroke', stroke);
+      r.setAttribute('stroke-width', 1);
+      return r;
+    }
+
+    function buildScene() {
+      clearScene();
+      var stackTop = 14;
+      var stackBottom = 250;
+      var span = stackBottom - stackTop;
+      var rowH = span / n;
+      var dieH = Math.max(6, rowH - 4);
+      var dieW = 140;
+      var dieX = 40;
+
+      // TSV lines behind the dies
+      var tsvXs = [60, 90, 120, 150, 170];
+      tsvXs.forEach(function (tx) {
+        var line = document.createElementNS(svgNS, 'line');
+        line.setAttribute('x1', tx);
+        line.setAttribute('y1', stackTop + 2);
+        line.setAttribute('x2', tx);
+        line.setAttribute('y2', stackBottom - 2);
+        line.setAttribute('stroke', 'var(--border)');
+        line.setAttribute('stroke-width', 2);
+        line.setAttribute('stroke-dasharray', '2,3');
+        scene.appendChild(line);
+      });
+
+      // memory dies, index 0 = bottom-most memory die, n-1 = top
+      for (var i = 0; i < n; i++) {
+        var yBottom = stackBottom - i * rowH;
+        var y = yBottom - dieH;
+        var rect = makeRect(dieX, y, dieW, dieH, 'var(--surface)', 'var(--border)');
+        scene.appendChild(rect);
+        dieRects.unshift(rect); // dieRects[0] = bottom memory die
+      }
+
+      // base logic die, fixed, below the memory stack
+      var baseH = 22;
+      var baseY = stackBottom + 6;
+      baseRect = makeRect(dieX - 6, baseY, dieW + 12, baseH, 'var(--accent-a-tint)', 'var(--accent-a)');
+      scene.appendChild(baseRect);
+
+      var baseLabel = document.createElementNS(svgNS, 'text');
+      baseLabel.setAttribute('x', dieX + dieW / 2);
+      baseLabel.setAttribute('y', baseY + baseH / 2 + 4);
+      baseLabel.setAttribute('text-anchor', 'middle');
+      baseLabel.setAttribute('font-size', '9');
+      baseLabel.setAttribute('fill', 'var(--accent-a)');
+      baseLabel.setAttribute('class', 'mono');
+      baseLabel.textContent = 'BASE DIE · LOGIC (OUTSIDE FOUNDRY)';
+      scene.appendChild(baseLabel);
+
+      var topLabel = document.createElementNS(svgNS, 'text');
+      topLabel.setAttribute('x', dieX + dieW / 2);
+      topLabel.setAttribute('y', stackTop - 4);
+      topLabel.setAttribute('text-anchor', 'middle');
+      topLabel.setAttribute('font-size', '9');
+      topLabel.setAttribute('fill', 'var(--muted)');
+      topLabel.setAttribute('class', 'mono');
+      topLabel.textContent = n + ' STACKED DRAM DIES';
+      scene.appendChild(topLabel);
+
+      scene.setAttribute('viewBox', '0 0 220 ' + (baseY + baseH + 10));
+    }
+
+    function resetSceneColors() {
+      dieRects.forEach(function (r) {
+        r.setAttribute('fill', 'var(--surface)');
+        r.setAttribute('stroke', 'var(--border)');
+        r.setAttribute('opacity', 1);
+      });
+    }
+
+    function setHeight(h) {
+      n = h;
+      [8, 12, 16].forEach(function (hh) {
+        heightBtns[hh].setAttribute('aria-pressed', String(hh === h));
+      });
+      tally.attempts = 0;
+      tally.good = 0;
+      updateTally();
+      buildScene();
+      updateBars();
+      idlePrompt();
+    }
+
+    function updateTally() {
+      var yieldText = tally.attempts === 0 ? '—' : Math.round((tally.good / tally.attempts) * 100) + '%';
+      tallyEl.textContent = 'Attempts: ' + tally.attempts + ' · Good stacks: ' + tally.good + ' · Session yield: ' + yieldText;
+    }
+
+    function finishRun(results) {
+      var allGood = results.every(function (p) { return p; });
+      var firstFail = results.indexOf(false);
+      tally.attempts += 1;
+      if (allGood) tally.good += 1;
+      updateTally();
+
+      if (allGood) {
+        resultEl.textContent = 'GOOD STACK — all ' + n + ' dies passed. Theoretical yield at ' + (perDie * 100).toFixed(1) + '% per die: ' + theoreticalPct(n).toFixed(1) + '%.';
+      } else {
+        resultEl.textContent = 'SCRAPPED — die #' + (firstFail + 1) + ' of ' + n + ' failed, so the whole stack is discarded. Theoretical yield at this pass rate: ' + theoreticalPct(n).toFixed(1) + '%.';
+      }
+      running = false;
+      runBtn.disabled = false;
+    }
+
+    function runSimulation() {
+      if (running) return;
+      running = true;
+      runBtn.disabled = true;
+      resetSceneColors();
+
+      var results = [];
+      for (var i = 0; i < n; i++) {
+        results.push(Math.random() < perDie);
+      }
+      var firstFailIdx = results.indexOf(false);
+      var stopAt = firstFailIdx === -1 ? n : firstFailIdx + 1;
+
+      if (reduceMotion) {
+        for (var j = 0; j < n; j++) {
+          if (j < stopAt) {
+            var pass = results[j];
+            dieRects[j].setAttribute('fill', pass ? 'var(--accent-b)' : 'var(--fail)');
+            dieRects[j].setAttribute('stroke', pass ? 'var(--accent-b)' : 'var(--fail)');
+          } else {
+            dieRects[j].setAttribute('opacity', 0.3);
+          }
+        }
+        finishRun(results.slice(0, stopAt));
+        return;
+      }
+
+      var idx = 0;
+      function step() {
+        if (idx >= stopAt) {
+          for (var k = stopAt; k < n; k++) {
+            dieRects[k].setAttribute('opacity', 0.3);
+          }
+          finishRun(results.slice(0, stopAt));
+          return;
+        }
+        var pass = results[idx];
+        dieRects[idx].setAttribute('fill', pass ? 'var(--accent-b)' : 'var(--fail)');
+        dieRects[idx].setAttribute('stroke', pass ? 'var(--accent-b)' : 'var(--fail)');
+        idx += 1;
+        setTimeout(step, 190);
+      }
+      step();
+    }
+
+    function resetAll() {
+      if (running) return;
+      tally.attempts = 0;
+      tally.good = 0;
+      updateTally();
+      resetSceneColors();
+      idlePrompt();
+    }
+
+    slider.addEventListener('input', function () {
+      perDie = Number(slider.value) / 100;
+      updateSliderLabel();
+      updateBars();
+      if (!running) idlePrompt();
+    });
+
+    [8, 12, 16].forEach(function (h) {
+      heightBtns[h].addEventListener('click', function () { setHeight(h); });
+    });
+
+    runBtn.addEventListener('click', runSimulation);
+    resetBtn.addEventListener('click', resetAll);
+
+    updateSliderLabel();
+    buildScene();
+    updateBars();
+    updateTally();
+    idlePrompt();
+  })();
+</script>
+</body>
+</html>
