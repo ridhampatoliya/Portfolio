@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-09-28","category":"ENERGY","headline":"Britain's AI Data Centers Requested 50 Gigawatts of Grid Power. The Entire Country Peaks at 45","summary":"The UK's AI data centers just requested 50 gigawatts of grid power — more than Britain's entire peak demand. The real bottleneck isn't electricity, it's a broken first-come-first-served queue. A 2025 reform cut the backlog from 700+ gigawatts to 238 by screening out unviable projects.","whyItMatters":"AI's site-selection constraint is shifting from chips and capital to which country can turn a grid-connection application into actual power the fastest."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Britain's AI Data Centers Requested 50 Gigawatts of Grid Power. The Entire Country Peaks at 45.</title>
+<meta name="description" content="About 140 proposed UK data centers are asking for a combined 50 gigawatts of grid power — more than Britain's own peak demand of 45 gigawatts. The real story isn't a power shortage; it's a decade-long connection queue, and the reform that just cut it from 700+ gigawatts of requests to 238." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5560f;
+    --accent-a-tint: #fbe6d0;
+    --accent-b: #1a6bb0;
+    --accent-b-tint: #dcebf9;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #f0a05c;
+      --accent-a-tint: #3a2712;
+      --accent-b: #6bb3ea;
+      --accent-b-tint: #12283a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #f0a05c;
+    --accent-a-tint: #3a2712;
+    --accent-b: #6bb3ea;
+    --accent-b-tint: #12283a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5560f;
+    --accent-a-tint: #fbe6d0;
+    --accent-b: #1a6bb0;
+    --accent-b-tint: #dcebf9;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-b-tint);
+    border-left: 3px solid var(--accent-b);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-b);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-b);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: grid queue simulator --- */
+  .gq-header { margin-bottom: 4px; }
+  .gq-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .gq-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.55;
+  }
+  .gq-mode-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .gq-mode-row .toggle button {
+    font-size: 11px;
+    padding: 7px 11px;
+  }
+  .gq-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+  }
+  .gq-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .gq-tile-rect {
+    transition: fill 0.25s ease, stroke 0.25s ease, stroke-width 0.2s ease;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .gq-tile-rect.gq-pulse {
+      animation: gq-pulse 1.1s ease-in-out infinite;
+    }
+  }
+  @keyframes gq-pulse {
+    0%, 100% { stroke-opacity: 1; }
+    50% { stroke-opacity: 0.4; }
+  }
+  .gq-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .gq-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .gq-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 9.5px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .gq-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 17px;
+  }
+  .gq-log {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13.5px;
+    min-height: 3.2em;
+  }
+  .gq-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .gq-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .gq-btn.gq-primary {
+    background: var(--accent-a);
+    border-color: var(--accent-a);
+    color: var(--bg);
+  }
+  .gq-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 28, 2026</span>
+    <span class="category-chip">ENERGY</span>
+  </div>
+  <h1>Britain's AI Data Centers Requested 50 Gigawatts of Grid Power. The Entire Country Peaks at 45.</h1>
+  <p class="lede">That comparison sounds like Britain is about to run out of electricity. It isn't — most of those projects will never get built. The real story is that Europe's grid-connection queues, not chip supply or construction budgets, have become the binding constraint on where the AI boom actually lands, and the fix Britain tried this year offers a preview of the fight every other country is about to have.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    In Britain's biggest data-center hubs, a project can win planning permission, buy the land and line up a tenant faster than the grid operator can promise it power — and that gap used to get worse over time, because the queue ran strictly first-come-first-served. A speculative project with no land, no permits and no financing could hold a place in line for a decade, blocking real, fundable projects stuck behind it. In June 2025, Britain's grid operator, NESO, replaced that rule with "first ready and needed, first connected." The result: the national connections pipeline fell from over 700 gigawatts of requests to 238 gigawatts of ones actually worth planning around — almost entirely by throwing out projects that were never going anywhere.
+  </div>
+
+  <div class="card gq-card">
+    <div class="gq-header">
+      <h2 class="gq-title">The grid queue, two ways</h2>
+      <p class="gq-caption mono">A simplified model, not real UK project data: 12 projects in a queue, 4 of them missing land, permits or funding ("zombie" projects) — roughly the ~30% share NESO's own reform found unviable. One connection can be processed per simulated year. Toggle the queueing rule, then press Run.</p>
+    </div>
+
+    <div class="gq-mode-row">
+      <div class="toggle" role="group" aria-label="Queueing rule">
+        <button type="button" id="gq-mode-fcfs" aria-pressed="true">First-come, first-served</button>
+        <button type="button" id="gq-mode-reform" aria-pressed="false">Ready-first (2025 reform)</button>
+      </div>
+    </div>
+
+    <div class="gq-scene-wrap">
+      <svg class="gq-scene" id="gq-scene" viewBox="0 0 446 202" role="img" aria-label="A grid of 12 tiles representing queued grid-connection projects, showing which are ready, waiting, connected, or screened out as the simulation runs.">
+      </svg>
+    </div>
+
+    <div class="gq-stats">
+      <div class="gq-stat">
+        <span class="gq-stat-label mono">Year</span>
+        <span class="gq-stat-value mono" id="gq-stat-year">0 / 8</span>
+      </div>
+      <div class="gq-stat">
+        <span class="gq-stat-label mono">Connected</span>
+        <span class="gq-stat-value mono" id="gq-stat-connected">0 / 8</span>
+      </div>
+      <div class="gq-stat">
+        <span class="gq-stat-label mono">Years lost to zombies</span>
+        <span class="gq-stat-value mono" id="gq-stat-wasted">0</span>
+      </div>
+    </div>
+
+    <p class="gq-log mono" id="gq-log" aria-live="polite">Initial queue — first-come, first-served. Whoever is first in line goes first, ready or not. Press Run.</p>
+
+    <div class="gq-controls">
+      <button type="button" class="gq-btn gq-primary" id="gq-run">Run</button>
+      <button type="button" class="gq-btn" id="gq-reset">Reset</button>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture a line at a government office, except the line is for plugging into the electrical grid, and reaching the counter can take a decade. That's roughly what's happening across Europe's biggest tech hubs — London, Frankfurt, Amsterdam, Paris, Dublin — where companies wanting to build AI data centers face connection queues running seven to ten years, even though building the data center itself takes only 18 to 24 months. The bottleneck isn't the building. It's the wire.</p>
+      <p>In February, Britain's grid operator found roughly 140 proposed data centers asking for a combined 50 gigawatts of power — more than the entire country delivers at its single busiest moment of the year, 45 gigawatts. That doesn't mean Britain is about to go dark; most of those projects will never actually get built. That's exactly the problem: for years, the queue worked strictly first-come-first-served, so speculative projects with no land, no permits and no real financing could hold a spot for a decade, blocking real, fundable projects stuck behind them. The industry calls these "zombie" projects.</p>
+      <p>This June, Britain rewrote the rule. Instead of first-come-first-served, projects now have to prove they're ready — land secured, permits in hand, financing lined up — to keep their place in line. The effect was immediate: the national queue shrank from over 700 gigawatts of requests to 238 gigawatts of genuinely viable ones, mostly by deleting projects that were never getting built in the first place.</p>
+      <p>Ireland shows what happens without that fix. Dublin's grid has been effectively closed to new data-center connections since around 2021, and roughly €5.8 billion worth of fully permitted, land-bought data centers now sit idle, waiting for power that hasn't come.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The mismatch driving Europe's data-center power crunch is structural, not cyclical: in the FLAP-D markets (Frankfurt, London, Amsterdam, Paris, Dublin), grid interconnection queues average 7–10 years, against a hyperscale data-center construction timeline of 18–24 months. A developer can secure land, planning consent and a tenant faster than a transmission operator can issue a firm connection offer, so financeable projects sit stalled behind speculative ones with no real prospect of completion.</p>
+      <p>In Great Britain, National Energy System Operator (NESO) data show the demand-side queue climbing from roughly 41 GW (November 2024) to 125 GW (June 2025) to about 140 identified data-center projects totaling ~50 GW by February 2026 — a figure that alone exceeds Great Britain's own peak system demand of 45 GW, recorded February 11, 2026. The generation-side queue told the same story in reverse: more than 700 GW of contracted capacity sat in the pipeline under a strict "first come, first connected" allocation model, much of it non-viable.</p>
+      <p>Ofgem approved NESO's TMO4+ reform package in April 2025; it went live June 10, 2025, replacing first-come-first-served with "first ready and needed, first connected." Projects lacking land rights, consents or demonstrated progress were placed in a non-priority "Gate 1" tranche — roughly 217 GW of the queue, informally termed "zombie" projects — cutting the retained development pipeline to 238 GW. Battery storage, at 83 GW, was the largest surviving category; roughly 36 GW of solar was removed. By June 2026, more than 700 projects representing 37 GW had received connection offers under the new regime.</p>
+      <p>Ireland illustrates the cost of reforming too slowly: the Commission for Regulation of Utilities' effective 2021–22 moratorium on new Dublin-area data-center connections, driven by transmission-capacity limits, has left an estimated €5.8 billion in fully permitted, land-secured data-center investment unable to reach commercial operation, pending EirGrid's 2026–2030 grid-backbone upgrade and an April 2026 Grid Code Modification proposal to the CRU.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> AI's site-selection constraint is shifting from chips and capital to which country can turn a grid-connection application into actual power the fastest.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> queue-allocation mechanism design, not raw generation capacity, is now the marginal lever governments have over where AI compute physically gets sited — and Britain's readiness-gated model is the template other grid operators are now racing to copy.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.theregister.com/2026/02/27/datacenter_uk_grid_demand/" target="_blank" rel="noopener">The Register — 50 GW of Datacenter Demand Queues Up for UK Grid Access</a></li>
+    <li><a href="https://www.datacenterdynamics.com/en/news/neso-reveals-results-of-uks-grid-connection-reforms/" target="_blank" rel="noopener">Data Center Dynamics — NESO Reveals Results of UK's Grid Connection Reforms</a></li>
+    <li><a href="https://www.pv-tech.org/uks-grid-reform-separates-viable-projects-from-zombies/" target="_blank" rel="noopener">PV Tech — UK's Grid Reform Separates Viable Projects From "Zombies"</a></li>
+    <li><a href="https://avanzaenergy.substack.com/p/the-176-billion-detour-how-europes" target="_blank" rel="noopener">Avanza Energy — The $176 Billion Detour: How Europe's Data Centers Built Three Regulatory Workarounds When the Grid Said No</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // true = has land/permits/funding ("ready"); false = a "zombie" project
+    var READY = [false, true, true, false, true, true, true, false, true, true, false, true];
+    var READY_COUNT = READY.filter(function (r) { return r; }).length;
+
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+    var COLS = 4, ROWS = 3, TW = 96, TH = 48, GX = 14, GY = 15, OX = 10, OY = 14;
+
+    var scene = document.getElementById('gq-scene');
+    var yearEl = document.getElementById('gq-stat-year');
+    var connectedEl = document.getElementById('gq-stat-connected');
+    var wastedEl = document.getElementById('gq-stat-wasted');
+    var logEl = document.getElementById('gq-log');
+    var runBtn = document.getElementById('gq-run');
+    var resetBtn = document.getElementById('gq-reset');
+    var modeFcfsBtn = document.getElementById('gq-mode-fcfs');
+    var modeReformBtn = document.getElementById('gq-mode-reform');
+
+    var tileParts = []; // { rect, num, label }
+
+    function buildScene() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+      for (var i = 0; i < READY.length; i++) {
+        var col = i % COLS, row = Math.floor(i / COLS);
+        var x = OX + col * (TW + GX);
+        var y = OY + row * (TH + GY);
+
+        var g = document.createElementNS(SVG_NS, 'g');
+
+        var rect = document.createElementNS(SVG_NS, 'rect');
+        rect.setAttribute('x', x);
+        rect.setAttribute('y', y);
+        rect.setAttribute('width', TW);
+        rect.setAttribute('height', TH);
+        rect.setAttribute('rx', 8);
+        rect.setAttribute('class', 'gq-tile-rect');
+        g.appendChild(rect);
+
+        var num = document.createElementNS(SVG_NS, 'text');
+        num.setAttribute('x', x + 9);
+        num.setAttribute('y', y + 16);
+        num.setAttribute('class', 'mono');
+        num.setAttribute('font-size', '9');
+        num.setAttribute('fill', 'var(--muted)');
+        num.textContent = '#' + (i + 1);
+        g.appendChild(num);
+
+        var label = document.createElementNS(SVG_NS, 'text');
+        label.setAttribute('x', x + 9);
+        label.setAttribute('y', y + 35);
+        label.setAttribute('class', 'mono');
+        label.setAttribute('font-size', '10.5');
+        label.setAttribute('font-weight', '700');
+        g.appendChild(label);
+
+        scene.appendChild(g);
+        tileParts.push({ rect: rect, label: label });
+      }
+    }
+
+    function styleTile(i, status, ready) {
+      var p = tileParts[i];
+      p.rect.classList.remove('gq-pulse');
+      if (status === 'pending' && ready) {
+        p.rect.setAttribute('fill', 'var(--surface)');
+        p.rect.setAttribute('stroke', 'var(--accent-b)');
+        p.rect.setAttribute('stroke-width', '2');
+        p.rect.removeAttribute('stroke-dasharray');
+        p.label.setAttribute('fill', 'var(--ink)');
+        p.label.textContent = 'ready';
+      } else if (status === 'pending' && !ready) {
+        p.rect.setAttribute('fill', 'var(--surface)');
+        p.rect.setAttribute('stroke', 'var(--border)');
+        p.rect.setAttribute('stroke-width', '2');
+        p.rect.setAttribute('stroke-dasharray', '4 3');
+        p.label.setAttribute('fill', 'var(--muted)');
+        p.label.textContent = 'no permit';
+      } else if (status === 'waiting') {
+        p.rect.setAttribute('fill', 'var(--surface)');
+        p.rect.setAttribute('stroke', 'var(--accent-a)');
+        p.rect.setAttribute('stroke-width', '2.5');
+        p.rect.removeAttribute('stroke-dasharray');
+        p.rect.classList.add('gq-pulse');
+        p.label.setAttribute('fill', 'var(--accent-a)');
+        p.label.textContent = 'waiting…';
+      } else if (status === 'connected') {
+        p.rect.setAttribute('fill', 'var(--accent-a)');
+        p.rect.setAttribute('stroke', 'var(--accent-a)');
+        p.rect.setAttribute('stroke-width', '2');
+        p.rect.removeAttribute('stroke-dasharray');
+        p.label.setAttribute('fill', 'var(--bg)');
+        p.label.textContent = 'connected';
+      } else if (status === 'removed') {
+        p.rect.setAttribute('fill', 'var(--bg)');
+        p.rect.setAttribute('stroke', 'var(--muted)');
+        p.rect.setAttribute('stroke-width', '2');
+        p.rect.setAttribute('stroke-dasharray', '4 3');
+        p.label.setAttribute('fill', 'var(--muted)');
+        p.label.textContent = 'screened out';
+      }
+    }
+
+    function snapshot(tick, tiles, connected, wasted, note) {
+      return {
+        tick: tick,
+        connected: connected,
+        wasted: wasted,
+        note: note,
+        tiles: tiles.map(function (t) { return { ready: t.ready, status: t.status }; })
+      };
+    }
+
+    function buildFcfsFrames() {
+      var tiles = READY.map(function (r) { return { ready: r, status: 'pending', wait: 0 }; });
+      var frames = [];
+      frames.push(snapshot(0, tiles, 0, 0, 'Initial queue — first-come, first-served. Whoever is first in line goes first, ready or not. Press Run.'));
+
+      var pointer = 0, tick = 0, connected = 0, wasted = 0;
+      while (pointer < tiles.length) {
+        tick++;
+        var i = pointer;
+        if (tiles[i].ready) {
+          tiles[i].status = 'connected';
+          connected++;
+          pointer++;
+          frames.push(snapshot(tick, tiles, connected, wasted, 'Year ' + tick + ' — Project #' + (i + 1) + ' connects. It was ready the whole time — it just wasn’t first.'));
+        } else {
+          tiles[i].wait++;
+          wasted++;
+          if (tiles[i].wait < 3) {
+            tiles[i].status = 'waiting';
+            frames.push(snapshot(tick, tiles, connected, wasted, 'Year ' + tick + ' — Project #' + (i + 1) + ' is next in line but still has no land, permits or funding. The queue waits.'));
+          } else {
+            tiles[i].status = 'removed';
+            pointer++;
+            frames.push(snapshot(tick, tiles, connected, wasted, 'Year ' + tick + ' — Project #' + (i + 1) + ' is finally confirmed non-viable and dropped. 3 years spent on a project that was never getting built.'));
+          }
+        }
+      }
+      frames.push(snapshot(tick, tiles, connected, wasted, 'Done — all ' + connected + ' ready projects connected. Total time: ' + tick + ' years, including ' + wasted + ' wasted on non-viable projects blocking the line.'));
+      return frames;
+    }
+
+    function buildReformFrames() {
+      var tiles = READY.map(function (r) { return { ready: r, status: r ? 'pending' : 'removed', wait: 0 }; });
+      var zombieCount = tiles.length - READY_COUNT;
+      var frames = [];
+      frames.push(snapshot(0, tiles, 0, 0, zombieCount + ' non-viable projects are screened out before the queue even starts — 0 years lost.'));
+
+      var tick = 0, connected = 0;
+      for (var i = 0; i < tiles.length; i++) {
+        if (!READY[i]) continue;
+        tick++;
+        tiles[i].status = 'connected';
+        connected++;
+        frames.push(snapshot(tick, tiles, connected, 0, 'Year ' + tick + ' — Project #' + (i + 1) + ' connects.'));
+      }
+      frames.push(snapshot(tick, tiles, connected, 0, 'Done — all ' + connected + ' ready projects connected. Total time: ' + tick + ' years. No years lost to non-viable projects.'));
+      return frames;
+    }
+
+    var mode = 'fcfs';
+    var frames = [];
+    var frameIdx = 0;
+    var timer = null;
+
+    function renderFrame(f) {
+      var total = frames[frames.length - 1].tick;
+      yearEl.textContent = f.tick + ' / ' + total;
+      connectedEl.textContent = f.connected + ' / ' + READY_COUNT;
+      wastedEl.textContent = String(f.wasted);
+      logEl.textContent = f.note;
+      f.tiles.forEach(function (t, i) { styleTile(i, t.status, t.ready); });
+    }
+
+    function stopTimer() {
+      if (timer) { clearInterval(timer); timer = null; }
+      runBtn.disabled = false;
+      runBtn.textContent = 'Run';
+    }
+
+    function loadMode(newMode) {
+      mode = newMode;
+      stopTimer();
+      frames = mode === 'fcfs' ? buildFcfsFrames() : buildReformFrames();
+      frameIdx = reduceMotion ? frames.length - 1 : 0;
+      renderFrame(frames[frameIdx]);
+      modeFcfsBtn.setAttribute('aria-pressed', String(mode === 'fcfs'));
+      modeReformBtn.setAttribute('aria-pressed', String(mode === 'reform'));
+    }
+
+    function runSim() {
+      if (timer) return;
+      if (reduceMotion) {
+        frameIdx = frames.length - 1;
+        renderFrame(frames[frameIdx]);
+        return;
+      }
+      if (frameIdx >= frames.length - 1) frameIdx = 0;
+      runBtn.disabled = true;
+      runBtn.textContent = 'Running…';
+      timer = setInterval(function () {
+        frameIdx++;
+        renderFrame(frames[frameIdx]);
+        if (frameIdx >= frames.length - 1) stopTimer();
+      }, 550);
+    }
+
+    function resetSim() {
+      stopTimer();
+      frameIdx = reduceMotion ? frames.length - 1 : 0;
+      renderFrame(frames[frameIdx]);
+    }
+
+    modeFcfsBtn.addEventListener('click', function () { loadMode('fcfs'); });
+    modeReformBtn.addEventListener('click', function () { loadMode('reform'); });
+    runBtn.addEventListener('click', runSim);
+    resetBtn.addEventListener('click', resetSim);
+
+    buildScene();
+    loadMode('fcfs');
+  })();
+</script>
+</body>
+</html>
