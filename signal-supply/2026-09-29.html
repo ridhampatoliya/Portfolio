@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-09-29","category":"CHIP POLICY","headline":"Europe's Chip Act Promised 20% of the World's Chips by 2030. It's Tracking to 12% — Today All 27 EU Governments Demanded a Rewrite","summary":"All 27 EU governments just declared semiconductor policy urgent — because the EU's Chips Act, which promised 20% of global chip output by 2030, is tracking to about 12%. Today's proposed rewrite trades fab subsidies for chip design, equipment, materials and new demand-side rules.","whyItMatters":"Europe's semiconductor bet is shifting from out-building TSMC on fab volume to owning chokepoints — equipment, materials, design IP and guaranteed local demand — that subsidy money alone can't out-grow a doubling market."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Europe's Chip Act Promised 20% of the World's Chips by 2030. It's Tracking to 12%.</title>
+<meta name="description" content="The EU's Chips Act aimed for 20% of global chip output by 2030. Its own auditors say Europe is on pace for about 12%. Today all 27 member states signed a declaration demanding a rewrite — one that quietly drops the fab-building race for equipment, design and guaranteed demand." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #1c5fae;
+    --accent-a-tint: #dde9f8;
+    --accent-b: #b5560f;
+    --accent-b-tint: #fbe6d0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #6fa8e8;
+      --accent-a-tint: #142235;
+      --accent-b: #f0a05c;
+      --accent-b-tint: #3a2712;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #6fa8e8;
+    --accent-a-tint: #142235;
+    --accent-b: #f0a05c;
+    --accent-b-tint: #3a2712;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #1c5fae;
+    --accent-a-tint: #dde9f8;
+    --accent-b: #b5560f;
+    --accent-b-tint: #fbe6d0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-a);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-a);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: shrinking-slice share meter --- */
+  .cs-header { margin-bottom: 4px; }
+  .cs-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .cs-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.6;
+  }
+  .cs-slider-row {
+    margin-bottom: 16px;
+  }
+  .cs-slider-label {
+    display: block;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .cs-slider-label span {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  #cs-slider {
+    width: 100%;
+    accent-color: var(--accent-a);
+    margin-bottom: 10px;
+  }
+  .cs-presets {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .cs-preset-btn {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .cs-preset-btn:hover { border-color: var(--accent-a); }
+  .cs-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px 6px;
+  }
+  .cs-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .cs-fill {
+    transition: width 0.05s linear;
+  }
+  .cs-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .cs-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .cs-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 9.5px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .cs-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 17px;
+  }
+  .cs-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cs-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .cs-btn.cs-primary {
+    background: var(--accent-a);
+    border-color: var(--accent-a);
+    color: var(--bg);
+  }
+  .cs-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 29, 2026</span>
+    <span class="category-chip">CHIP POLICY</span>
+  </div>
+  <h1>Europe's Chip Act Promised 20% of the World's Chips by 2030. It's Tracking to 12% — Today All 27 EU Governments Demanded a Rewrite.</h1>
+  <p class="lede">Four years ago Brussels picked a number: raise Europe's share of global chip production from under 10% to 20% by 2030, mostly by subsidizing new factories. Today, with that target badly missed, every EU member state signed a joint declaration calling semiconductor policy as strategically urgent as aerospace and defense. The plan taking shape isn't "build more fabs." It's an admission that Europe was chasing the wrong number.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Hitting 20% of a fast-growing global chip market by 2030 required roughly quadrupling Europe's 2022 chip output, according to the EU's own Court of Auditors. Europe is on pace for about 2.4× instead — real growth, just not enough to gain share while the worldwide market, supercharged by AI demand, is also nearly doubling. The European Commission's own direct funding covers roughly 5% of the €86 billion the Chips Act was meant to mobilize by 2030, against an estimated €405 billion the world's leading chipmakers spent on capacity in just 2020–2023 alone. "Chips Act 2.0," unveiled in June and endorsed by all 27 governments today, quietly drops front-end fab-building as the primary goal and redirects support toward chip design, equipment, specialty materials, packaging — and, new this round, rules meant to guarantee EU-made chips actual buyers.
+  </div>
+
+  <div class="card cs-card">
+    <div class="cs-header">
+      <h2 class="cs-title">Europe's shrinking slice</h2>
+      <p class="cs-caption mono">Simplified illustrative model, not an official EU chart: assumes the global chip market roughly doubles 2022→2030 (in line with WSTS/industry forecasts) from a 9.8% EU baseline share (Court of Auditors, 2022). Set how fast Europe's own output grows relative to 2022, then press Run to animate 2022→2030 and watch the share meter. Because the global market is also growing, EU output can rise in absolute terms while its share still falls.</p>
+    </div>
+
+    <div class="cs-slider-row">
+      <label for="cs-slider" class="cs-slider-label mono">EU output growth by 2030: <span id="cs-mult-val">2.4×</span></label>
+      <input type="range" id="cs-slider" min="1" max="4.5" step="0.1" value="2.4" aria-describedby="cs-stat-share" />
+      <div class="cs-presets">
+        <button type="button" class="cs-preset-btn" id="cs-preset-actual">Actual pace — 2.4×</button>
+        <button type="button" class="cs-preset-btn" id="cs-preset-target">20% target pace — 4.1×</button>
+      </div>
+    </div>
+
+    <div class="cs-scene-wrap">
+      <svg class="cs-scene" id="cs-scene" viewBox="0 0 440 130" role="img" aria-label="A meter showing Europe's share of the global chip market moving from 9.8% in 2022 toward a live-calculated 2030 value, with a dashed line marking the original 20% target.">
+      </svg>
+    </div>
+
+    <div class="cs-stats">
+      <div class="cs-stat">
+        <span class="cs-stat-label mono">Year</span>
+        <span class="cs-stat-value mono" id="cs-stat-year">2022</span>
+      </div>
+      <div class="cs-stat">
+        <span class="cs-stat-label mono">EU share</span>
+        <span class="cs-stat-value mono" id="cs-stat-share">9.8%</span>
+      </div>
+      <div class="cs-stat">
+        <span class="cs-stat-label mono">Gap to 20% target</span>
+        <span class="cs-stat-value mono" id="cs-stat-gap">10.2 pts</span>
+      </div>
+    </div>
+
+    <div class="cs-controls">
+      <button type="button" class="cs-btn cs-primary" id="cs-run">Run</button>
+      <button type="button" class="cs-btn" id="cs-reset">Reset</button>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture a small bakery in a town where one giant factory supplies 90% of all bread. The bakery announces a goal: by 2030, we'll bake a fifth of all the bread in the region. Sounds doable if you add more ovens — except the region's appetite for bread is also exploding, because of a new craze everyone wants in on. So even if the bakery doubles its own output, its slice of the now much-bigger bread market barely moves.</p>
+      <p>That's roughly what happened to Europe's semiconductor strategy. In 2023, the EU launched the "Chips Act" with a goal that sounded bold but reachable: grow Europe's share of the world's chip production from about 10% to 20% by 2030. Most of the plan leaned on subsidies for building giant chip factories — "fabs" — the kind TSMC runs in Taiwan and Samsung runs in South Korea.</p>
+      <p>Three years later, Europe's own government auditors have delivered the verdict: the target is basically out of reach. Not because Europe stopped investing — chip output is still growing — but because the global chip market itself, supercharged by the AI boom, is growing even faster. Hitting 20% would have required roughly quadrupling Europe's 2022 output. Europe is on pace for less than half that.</p>
+      <p>So today, all 27 EU governments signed a joint statement admitting the plan needs a rewrite, and calling for a bigger, more urgent follow-up. The emerging fix, "Chips Act 2.0," quietly drops the goal of out-building Taiwan on raw factory volume. Instead it leans into things Europe already does well — chip design, the specialized machines that make chips (Dutch company ASML has a near-monopoly on the most advanced kind), packaging and materials — while adding rules meant to guarantee that European buyers actually buy European-made chips, so new factories don't open with nobody to sell to.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The European Chips Act (Regulation (EU) 2023/1781) set a headline target of 20% of global semiconductor production value by 2030, against a 2022 baseline the European Court of Auditors puts at 9.8%. Because the addressable market itself is expanding rapidly — WSTS and industry forecasts point to global semiconductor revenue roughly doubling across this decade, driven overwhelmingly by AI accelerators and HBM — hitting a fixed percentage target required Europe's absolute output to grow at a multiple comparable to the market just to hold share, and a further multiple on top of that to gain it. The Court of Auditors' April 2025 report calculated that reaching 20% would require roughly quadrupling 2022-level EU chip output by 2030; at current investment and fab-construction trajectories, it instead projected Europe would land around 11.7%.</p>
+      <p>The funding mismatch explains much of the gap. The Commission's own direct contribution to the Chips Act — mainly the Chips for Europe Initiative, covering pilot lines and pre-competitive R&D — accounts for roughly 5% of the ~€86 billion the Act was meant to mobilize, public and private, by 2030. For comparison, the world's leading foundries and memory makers alone budgeted an estimated €405 billion in capacity investment over just 2020–2023.</p>
+      <p>Chips Act 2.0, proposed by the Commission in June 2026 and the subject of a joint 27-member-state declaration on September 29 urging an "ambitious and forward-looking" follow-up, restructures the bet. Draft text reviewed by industry press drops front-end leading-edge fabrication as the primary eligibility category, broadening state-aid eligibility to manufacturing equipment, specialty materials, chip design, mature-node production, 3D packaging and pilot lines for leading-edge nodes, and adds integrated photonics as a newly named enabling technology. Critically, it introduces demand-side instruments — procurement preferences and similar mechanisms meant to guarantee buyers for EU-fabricated chips — addressing a risk the original Act never priced in: subsidized capacity opening with no committed customer base.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> whoever controls the parts of the chip supply chain that subsidy money alone can't out-build — machines, materials, design know-how and guaranteed buyers — may end up with more real leverage than whoever just owns the most factories.</p>
+      <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Europe's pivot is a bet that upstream chokepoints and demand-guarantee mechanisms are a more defensible source of leverage than chasing foundry volume against TSMC, Samsung and Intel — a strategy worth tracking as other industrial-policy bets (a possible US CHIPS Act 2.0, Japan's Rapidus) run into the same problem: subsidies growing output slower than the market they're chasing grows demand.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://sciencebusiness.net/news/semiconductors/eu-governments-set-out-priorities-chips-act-20" target="_blank" rel="noopener">Science|Business — EU Governments Set Out Priorities for Chips Act 2.0</a></li>
+    <li><a href="https://www.theregister.com/on-prem/2025/04/28/eu-chips-act-heading-for-failure-time-for-chips-act-20/1479329" target="_blank" rel="noopener">The Register — EU Chips Act Heading for Failure, Time for Chips Act 2.0</a></li>
+    <li><a href="https://www.siliconrepublic.com/enterprise/eu-unlikely-to-hit-20pc-global-chip-market-share-by-2030" target="_blank" rel="noopener">Silicon Republic — EU Unlikely to Hit 20% Global Chip Market Share by 2030</a></li>
+    <li><a href="https://bits-chips.com/article/eu-chips-act-2-0-draft-drops-front-end-manufacturing-priority/" target="_blank" rel="noopener">Bits&amp;Chips — EU Chips Act 2.0 Draft Drops Front-End Manufacturing Priority</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+    var BASE_SHARE = 9.8;   // 2022 EU share, %, Court of Auditors
+    var SCALE_MAX = 24;     // meter scale, %
+    var TARGET = 20;        // original 2030 target, %
+    var TRACK_X = 24, TRACK_Y = 46, TRACK_W = 392, TRACK_H = 26, TRACK_R = 13;
+
+    function xForPct(pct) {
+      var clamped = Math.max(0, Math.min(SCALE_MAX, pct));
+      return TRACK_X + (clamped / SCALE_MAX) * TRACK_W;
+    }
+
+    // share(t) = BASE_SHARE * (mult/2)^(t/8), t in years-since-2022 (0..8)
+    // Global market assumed to double over 8 years; EU output grows by `mult`.
+    function shareAt(t, mult) {
+      return BASE_SHARE * Math.pow(mult / 2, t / 8);
+    }
+
+    var scene = document.getElementById('cs-scene');
+    var slider = document.getElementById('cs-slider');
+    var multVal = document.getElementById('cs-mult-val');
+    var yearEl = document.getElementById('cs-stat-year');
+    var shareEl = document.getElementById('cs-stat-share');
+    var gapEl = document.getElementById('cs-stat-gap');
+    var runBtn = document.getElementById('cs-run');
+    var resetBtn = document.getElementById('cs-reset');
+    var presetActual = document.getElementById('cs-preset-actual');
+    var presetTarget = document.getElementById('cs-preset-target');
+
+    var fillRect, markerLine, markerLabel, targetLine, targetLabel;
+
+    function buildScene() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+
+      var defs = document.createElementNS(SVG_NS, 'defs');
+      var clip = document.createElementNS(SVG_NS, 'clipPath');
+      clip.setAttribute('id', 'cs-clip');
+      var clipRect = document.createElementNS(SVG_NS, 'rect');
+      clipRect.setAttribute('x', TRACK_X);
+      clipRect.setAttribute('y', TRACK_Y);
+      clipRect.setAttribute('width', TRACK_W);
+      clipRect.setAttribute('height', TRACK_H);
+      clipRect.setAttribute('rx', TRACK_R);
+      clip.appendChild(clipRect);
+      defs.appendChild(clip);
+      scene.appendChild(defs);
+
+      var track = document.createElementNS(SVG_NS, 'rect');
+      track.setAttribute('x', TRACK_X);
+      track.setAttribute('y', TRACK_Y);
+      track.setAttribute('width', TRACK_W);
+      track.setAttribute('height', TRACK_H);
+      track.setAttribute('rx', TRACK_R);
+      track.setAttribute('fill', 'var(--surface)');
+      track.setAttribute('stroke', 'var(--border)');
+      scene.appendChild(track);
+
+      fillRect = document.createElementNS(SVG_NS, 'rect');
+      fillRect.setAttribute('x', TRACK_X);
+      fillRect.setAttribute('y', TRACK_Y);
+      fillRect.setAttribute('width', 0);
+      fillRect.setAttribute('height', TRACK_H);
+      fillRect.setAttribute('fill', 'var(--accent-b)');
+      fillRect.setAttribute('clip-path', 'url(#cs-clip)');
+      fillRect.setAttribute('class', 'cs-fill');
+      scene.appendChild(fillRect);
+
+      // scale ticks
+      [0, 5, 10, 15, 20, 25].forEach(function (v) {
+        var x = xForPct(v);
+        var tick = document.createElementNS(SVG_NS, 'line');
+        tick.setAttribute('x1', x); tick.setAttribute('x2', x);
+        tick.setAttribute('y1', TRACK_Y + TRACK_H + 4);
+        tick.setAttribute('y2', TRACK_Y + TRACK_H + 9);
+        tick.setAttribute('stroke', 'var(--muted)');
+        scene.appendChild(tick);
+
+        var lbl = document.createElementNS(SVG_NS, 'text');
+        lbl.setAttribute('x', x);
+        lbl.setAttribute('y', TRACK_Y + TRACK_H + 21);
+        lbl.setAttribute('text-anchor', 'middle');
+        lbl.setAttribute('class', 'mono');
+        lbl.setAttribute('font-size', '9');
+        lbl.setAttribute('fill', 'var(--muted)');
+        lbl.textContent = v + '%';
+        scene.appendChild(lbl);
+      });
+
+      // target line at 20%
+      var tx = xForPct(TARGET);
+      targetLine = document.createElementNS(SVG_NS, 'line');
+      targetLine.setAttribute('x1', tx); targetLine.setAttribute('x2', tx);
+      targetLine.setAttribute('y1', TRACK_Y - 8);
+      targetLine.setAttribute('y2', TRACK_Y + TRACK_H + 8);
+      targetLine.setAttribute('stroke', 'var(--accent-a)');
+      targetLine.setAttribute('stroke-width', '2');
+      targetLine.setAttribute('stroke-dasharray', '4 3');
+      scene.appendChild(targetLine);
+
+      targetLabel = document.createElementNS(SVG_NS, 'text');
+      targetLabel.setAttribute('x', tx);
+      targetLabel.setAttribute('y', TRACK_Y - 13);
+      targetLabel.setAttribute('text-anchor', 'middle');
+      targetLabel.setAttribute('class', 'mono');
+      targetLabel.setAttribute('font-size', '10');
+      targetLabel.setAttribute('font-weight', '700');
+      targetLabel.setAttribute('fill', 'var(--accent-a)');
+      targetLabel.textContent = '2030 target: 20%';
+      scene.appendChild(targetLabel);
+
+      // live marker above fill's leading edge
+      markerLine = document.createElementNS(SVG_NS, 'line');
+      markerLine.setAttribute('y1', TRACK_Y - 4);
+      markerLine.setAttribute('y2', TRACK_Y + TRACK_H + 4);
+      markerLine.setAttribute('stroke', 'var(--ink)');
+      markerLine.setAttribute('stroke-width', '1.5');
+      scene.appendChild(markerLine);
+
+      markerLabel = document.createElementNS(SVG_NS, 'text');
+      markerLabel.setAttribute('y', TRACK_Y - 13);
+      markerLabel.setAttribute('text-anchor', 'middle');
+      markerLabel.setAttribute('class', 'mono');
+      markerLabel.setAttribute('font-size', '11');
+      markerLabel.setAttribute('font-weight', '700');
+      markerLabel.setAttribute('fill', 'var(--ink)');
+      scene.appendChild(markerLabel);
+    }
+
+    function render(pct, year) {
+      var fillX = xForPct(pct);
+      fillRect.setAttribute('width', Math.max(0, fillX - TRACK_X));
+      markerLine.setAttribute('x1', fillX);
+      markerLine.setAttribute('x2', fillX);
+      markerLabel.setAttribute('x', fillX);
+      markerLabel.textContent = pct.toFixed(1) + '%';
+
+      yearEl.textContent = String(year);
+      shareEl.textContent = pct.toFixed(1) + '%';
+      var gap = TARGET - pct;
+      gapEl.textContent = gap > 0.05 ? gap.toFixed(1) + ' pts' : 'reached';
+    }
+
+    var mult = 2.4;
+    var timer = null;
+    var t = 0; // 0..8
+
+    function currentMult() {
+      return parseFloat(slider.value);
+    }
+
+    function updateMultLabel() {
+      multVal.textContent = currentMult().toFixed(1) + '×';
+    }
+
+    function stopTimer() {
+      if (timer) { clearInterval(timer); timer = null; }
+      runBtn.disabled = false;
+      runBtn.textContent = 'Run';
+    }
+
+    function goToStart() {
+      t = 0;
+      render(shareAt(0, currentMult()), 2022);
+    }
+
+    function goToEnd() {
+      t = 8;
+      render(shareAt(8, currentMult()), 2030);
+    }
+
+    function runSim() {
+      if (timer) return;
+      mult = currentMult();
+      if (reduceMotion) { goToEnd(); return; }
+      if (t >= 8) t = 0;
+      runBtn.disabled = true;
+      runBtn.textContent = 'Running…';
+      timer = setInterval(function () {
+        t++;
+        render(shareAt(t, mult), 2022 + t);
+        if (t >= 8) stopTimer();
+      }, 260);
+    }
+
+    function resetSim() {
+      stopTimer();
+      goToStart();
+    }
+
+    slider.addEventListener('input', function () {
+      updateMultLabel();
+      if (!timer) {
+        render(shareAt(t, currentMult()), 2022 + t);
+      }
+    });
+    presetActual.addEventListener('click', function () {
+      slider.value = '2.4';
+      updateMultLabel();
+      render(shareAt(t, currentMult()), 2022 + t);
+    });
+    presetTarget.addEventListener('click', function () {
+      slider.value = '4.1';
+      updateMultLabel();
+      render(shareAt(t, currentMult()), 2022 + t);
+    });
+    runBtn.addEventListener('click', runSim);
+    resetBtn.addEventListener('click', resetSim);
+
+    buildScene();
+    updateMultLabel();
+    if (reduceMotion) { goToEnd(); } else { goToStart(); }
+  })();
+</script>
+</body>
+</html>
