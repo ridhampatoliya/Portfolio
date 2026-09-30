@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-09-30","category":"GRID INFRASTRUCTURE","headline":"One Utility Quoted Google a 12-Year Wait Just to Study a Power Hookup. The Data Center Itself Takes Two","summary":"Google says some utilities need up to 12 years just to STUDY whether a data center can plug into the grid — longer than building one. The culprit is a queue where one withdrawal forces everyone behind it to restart. FERC's fix: study requests in batches, not one by one.","whyItMatters":"AI buildouts are now gated less by chip supply than by how fast a decades-old, one-at-a-time bureaucratic queue can be redesigned to move in parallel."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — One Utility Quoted Google a 12-Year Wait Just to Study a Power Hookup. The Data Center Itself Takes Two.</title>
+<meta name="description" content="Google says some utilities have quoted it 12 years just to study whether a data center can connect to the grid. The reason: a decades-old queue where one withdrawn project forces everyone behind it to restart. FERC's 2023 fix replaces that single-file line with batch processing." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #9a5b0c;
+    --accent-a-tint: #f6e7d0;
+    --accent-b: #0e6e7c;
+    --accent-b-tint: #d9eef1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #eab15e;
+      --accent-a-tint: #3a2712;
+      --accent-b: #5fd1df;
+      --accent-b-tint: #0f2b2e;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #eab15e;
+    --accent-a-tint: #3a2712;
+    --accent-b: #5fd1df;
+    --accent-b-tint: #0f2b2e;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #9a5b0c;
+    --accent-a-tint: #f6e7d0;
+    --accent-b: #0e6e7c;
+    --accent-b-tint: #d9eef1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-a);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-a);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: interconnection-queue race --- */
+  .iq-header { margin-bottom: 4px; }
+  .iq-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .iq-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.6;
+  }
+  .iq-mode-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .iq-mode-label {
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .iq-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 12px 8px;
+  }
+  .iq-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .iq-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 10.5px;
+    color: var(--muted);
+  }
+  .iq-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .iq-legend i {
+    width: 9px;
+    height: 9px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .iq-status {
+    margin-top: 14px;
+    min-height: 34px;
+    font-size: 13px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+  .iq-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .iq-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .iq-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .iq-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .iq-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .iq-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .iq-btn.iq-primary {
+    background: var(--accent-a);
+    border-color: var(--accent-a);
+    color: #1a1206;
+  }
+  .iq-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>September 30, 2026</span>
+    <span class="category-chip">GRID INFRASTRUCTURE</span>
+  </div>
+  <h1>One Utility Quoted Google a 12-Year Wait Just to Study a Power Hookup. The Data Center Itself Takes Two.</h1>
+  <p class="lede">AI's newest bottleneck isn't a chip or a mineral — it's a 20-year-old bureaucratic waiting line. For decades, the U.S. has studied requests to plug new power onto the grid largely in the order they arrive, one at a time, and each study assumes every project ahead of it gets built. When one drops out — which happens to most of them — everyone behind it can be sent back to square one. Regulators are now rewriting the line itself.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Google says some utilities have quoted it up to 12 years just to <em>study</em> whether a data center can connect to the grid — before any construction — longer than the data center itself takes to design and build. The reason traces to how "interconnection queues" have worked since the 1990s: a serial, first-come-first-served process where one withdrawn project forces everyone studied behind it to be restudied. Federal regulators ordered a fix in 2023 — study requests in batches instead of one by one — and PJM, the mid-Atlantic grid operator, says its first batch under the new rules is moving 800-plus projects through together, targeting interconnection agreements within one to two years instead of an open-ended wait.
+  </div>
+
+  <div class="card iq-card">
+    <div class="iq-header">
+      <h2 class="iq-title">The queue that resets itself</h2>
+      <p class="iq-caption mono">Simplified illustrative model, not real project data: 12 hypothetical interconnection requests (P1–P12) in line, where P4 withdraws partway through. Pick Serial (the pre-2023 one-at-a-time process) or Cluster (FERC Order No. 2023's batch process), then press Run to see how far that one withdrawal reaches back into the line. "Study rounds" are an abstract unit for pacing, not real years.</p>
+    </div>
+
+    <div class="iq-mode-row">
+      <span class="iq-mode-label mono">Queue rules:</span>
+      <div class="toggle" role="group" aria-label="Queue processing mode">
+        <button type="button" id="iq-mode-serial" aria-pressed="true">Serial (pre-2023)</button>
+        <button type="button" id="iq-mode-cluster" aria-pressed="false">Cluster (FERC 2023)</button>
+      </div>
+    </div>
+
+    <div class="iq-scene-wrap">
+      <svg class="iq-scene" id="iq-scene" viewBox="0 0 390 200" role="img" aria-label="A grid of 12 tiles representing interconnection requests, changing color as they are studied, connected, withdrawn, or sent back for restudy.">
+      </svg>
+    </div>
+    <div class="iq-legend">
+      <span><i style="background:var(--surface);border:1px solid var(--border);"></i>Queued</span>
+      <span><i style="background:var(--accent-a-tint);border:1px solid var(--accent-a);"></i>Studying</span>
+      <span><i style="background:var(--accent-b);"></i>Connected</span>
+      <span><i style="background:var(--surface);border:1px dashed var(--muted);"></i>Withdrawn</span>
+      <span><i style="background:var(--accent-a-tint);border:1px dashed var(--accent-a);"></i>Restudy</span>
+    </div>
+
+    <div class="iq-status mono" id="iq-status" aria-live="polite">Press Run to start the simulation.</div>
+
+    <div class="iq-stats">
+      <div class="iq-stat">
+        <span class="iq-stat-label mono">Study rounds</span>
+        <span class="iq-stat-value mono" id="iq-stat-time">0</span>
+      </div>
+      <div class="iq-stat">
+        <span class="iq-stat-label mono">Connected</span>
+        <span class="iq-stat-value mono" id="iq-stat-connected">0 / 11</span>
+      </div>
+      <div class="iq-stat">
+        <span class="iq-stat-label mono">Restudied by P4's exit</span>
+        <span class="iq-stat-value mono" id="iq-stat-restudy">0</span>
+      </div>
+    </div>
+
+    <div class="iq-controls">
+      <button type="button" class="iq-btn iq-primary" id="iq-run">Run</button>
+      <button type="button" class="iq-btn" id="iq-reset">Reset</button>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture the DMV, except instead of renewing a license, you're asking permission to plug a giant new power source into the electrical grid — and the line has been forming for twenty years.</p>
+      <p>That's roughly how America's "interconnection queue" has worked since the 1990s. Anyone wanting to add new power to the grid — a wind farm, a gas plant, or lately an AI data center that can draw as much electricity as a small city — gets studied by the local grid operator to make sure adding them won't overload the wires. For decades this happened one project at a time, in the order applications arrived, and each study assumed every project ahead of it would actually get built.</p>
+      <p>The problem: most don't. Historically, a large majority of projects that enter the queue eventually walk away — costs rise, financing falls through, plans change. But when an earlier project quits, the study behind it, which assumed that project's grid upgrades would exist, is now wrong. So everyone studied after it has to be restudied. It's a single-file line where someone leaving near the front sends everyone behind them back to the waiting room.</p>
+      <p>Google says this is now its biggest headache: one utility quoted the company 12 years just to <strong>study</strong> whether a data center could connect — before a single wire gets built. That's longer than the data center itself takes to design and construct.</p>
+      <p>In 2023, federal regulators ordered grid operators to stop studying requests one by one and start studying them in batches instead, so one withdrawal only delays its own batch, not everyone behind it. PJM, the mid-Atlantic grid operator, says its first batch under the new rules is moving 800-plus projects through together, targeting one to two years instead of the old queue's open-ended wait.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>For most of its history, U.S. generator interconnection ran as a serial, first-come-first-served process: each request was studied individually, in queue position, against a system-impact model that assumed every higher-queued project ahead of it would be built and would bear its allocated share of any needed network upgrades. That assumption is the process's structural flaw. Interconnection is a long-duration commitment — median time from application to commercial operation is now approaching five years nationally, and PJM data show AI-era generation and load projects reaching commercial operation in 2025 averaged upward of seven years: roughly three-plus years to a signed interconnection service agreement, then another four years to energization. Google's global head of sustainability and climate policy, Marsden Hanna, said in 2026 that some utilities have quoted the company interconnection study timelines alone — before construction — of up to 12 years, longer than a data center's own design-to-energization schedule.</p>
+      <p>Over that time horizon, withdrawal is the norm, not the exception: Lawrence Berkeley National Laboratory's "Queued Up 2026" report, tracking 38,201 project records across more than 50 transmission providers in the seven major ISO/RTO regions, documents historical completion rates for queued projects running well under 20%. Under the old serial rule, each withdrawal invalidates the shared cost-allocation and system-impact assumptions baked into every study behind it in line, forcing a re-study of the remaining queue — a cascade that compounds as queue depth grows, since national active-queue capacity is now roughly double the size of the country's entire existing generating fleet.</p>
+      <p>FERC Order No. 2023 (finalized 2023; implementation ongoing through 2026) mandates replacing serial studies with an annual cluster process: a fixed intake window, then a single system-impact study covering the whole batch simultaneously, with cost allocation fixed per cluster rather than recalculated on every individual exit, plus stricter financial-readiness deposits meant to discourage speculative queue entries. PJM's first cluster ("Cycle 1") is studying more than 800 projects totaling roughly 220 GW together and targets issuing interconnection agreements within one to two years; PJM states it has eliminated its backlog of unprocessed new requests. The bottleneck now shifting into view: transformer, switchgear and transmission-line lead times once a project clears study — a physical supply-chain constraint that study reform alone doesn't fix.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> chip supply is no longer the pacing item for AI buildouts — a paperwork queue designed in the 1990s is, and fixing it matters as much as fixing chip supply did.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> AI capacity growth is increasingly gated by transmission-study throughput rather than chip supply, and FERC's cluster-study reform is the first structural attempt to unwind decades of cascading-restudy delay — worth tracking alongside whether physical build-out (transformers, lines, substations) becomes the next chokepoint once study reform removes the first one.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#1a1206;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.networkworld.com/article/4117329/google-warns-transmission-delays-are-now-the-biggest-threat-to-data-center-expansion.html" target="_blank" rel="noopener">Network World — Google Warns Transmission Delays Are Now the Biggest Threat to Data Center Expansion</a></li>
+    <li><a href="https://natlawreview.com/article/ferc-finalizes-interconnection-queue-reforms" target="_blank" rel="noopener">The National Law Review — FERC Finalizes Interconnection Queue Reforms (Order No. 2023)</a></li>
+    <li><a href="https://insidelines.pjm.com/new-interconnection-process-delivers/" target="_blank" rel="noopener">PJM Inside Lines — New Interconnection Process Delivers</a></li>
+    <li><a href="https://emp.lbl.gov/publications/queued-2026-edition-characteristics" target="_blank" rel="noopener">Lawrence Berkeley National Laboratory — Queued Up: 2026 Edition</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+
+    var COLS = 3, ROWS = 4, N = 12;
+    var TILE_W = 110, TILE_H = 34, GAP_X = 12, GAP_Y = 12, START_X = 14, START_Y = 14;
+
+    function tilePos(i) {
+      var col = i % COLS, row = Math.floor(i / COLS);
+      return {
+        x: START_X + col * (TILE_W + GAP_X),
+        y: START_Y + row * (TILE_H + GAP_Y)
+      };
+    }
+
+    function buildSerialFrames() {
+      var state = new Array(N).fill('queued');
+      var frames = [];
+      var time = 0, connected = 0, restudied = 0;
+      function push(note) {
+        frames.push({ state: state.slice(), time: time, connected: connected, restudied: restudied, note: note });
+      }
+      push('Serial queue: requests studied one at a time, in order.');
+      for (var i = 0; i < N; i++) {
+        if (i === 3) {
+          state[i] = 'studying'; time += 1;
+          push('Studying P4...');
+          state[i] = 'withdrawn'; time += 1;
+          push('P4 has withdrawn from the queue.');
+          for (var j = i + 1; j < N; j++) state[j] = 'restudy';
+          restudied = N - 1 - i;
+          time += 2;
+          push('Cascading restudy: every one of the ' + restudied + ' projects behind P4 is sent back to square one.');
+          continue;
+        }
+        state[i] = 'studying'; time += 1;
+        push('Studying P' + (i + 1) + '...');
+        state[i] = 'approved'; connected += 1; time += 1;
+        push('P' + (i + 1) + ' connected to the grid.');
+      }
+      push('Done: 11 of 12 projects eventually connected, after ' + time + ' study rounds.');
+      return frames;
+    }
+
+    function buildClusterFrames() {
+      var state = new Array(N).fill('queued');
+      var frames = [];
+      var time = 0, connected = 0, restudied = 0;
+      function push(note) {
+        frames.push({ state: state.slice(), time: time, connected: connected, restudied: restudied, note: note });
+      }
+      push('Cluster queue: requests studied together in batches of 4.');
+      var batches = [[0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11]];
+      batches.forEach(function (batch, bi) {
+        batch.forEach(function (idx) { state[idx] = 'studying'; });
+        time += 1;
+        push('Studying batch ' + (bi + 1) + ' (P' + (batch[0] + 1) + '–P' + (batch[batch.length - 1] + 1) + ') together...');
+        var withdrawIdx = batch.indexOf(3);
+        if (withdrawIdx !== -1) {
+          state[3] = 'withdrawn';
+          batch.forEach(function (idx) { if (idx !== 3) state[idx] = 'restudy'; });
+          restudied = batch.length - 1;
+          time += 1;
+          push('P4 has withdrawn — only its own batch (' + restudied + ' projects) needs its cost split recalculated.');
+        }
+        batch.forEach(function (idx) {
+          if (state[idx] === 'studying' || state[idx] === 'restudy') {
+            state[idx] = 'approved'; connected += 1;
+          }
+        });
+        time += 1;
+        push('Batch ' + (bi + 1) + ' connected.');
+      });
+      push('Done: 11 of 12 projects connected, after ' + time + ' study rounds.');
+      return frames;
+    }
+
+    var scene = document.getElementById('iq-scene');
+    var statusEl = document.getElementById('iq-status');
+    var timeEl = document.getElementById('iq-stat-time');
+    var connectedEl = document.getElementById('iq-stat-connected');
+    var restudyEl = document.getElementById('iq-stat-restudy');
+    var runBtn = document.getElementById('iq-run');
+    var resetBtn = document.getElementById('iq-reset');
+    var modeSerialBtn = document.getElementById('iq-mode-serial');
+    var modeClusterBtn = document.getElementById('iq-mode-cluster');
+
+    var tileRects = [], tileLabels = [];
+
+    function stateColors(st) {
+      switch (st) {
+        case 'studying': return { fill: 'var(--accent-a-tint)', stroke: 'var(--accent-a)', dash: '0', text: 'var(--accent-a)' };
+        case 'approved': return { fill: 'var(--accent-b)', stroke: 'var(--accent-b)', dash: '0', text: '#ffffff' };
+        case 'withdrawn': return { fill: 'var(--surface)', stroke: 'var(--muted)', dash: '3 3', text: 'var(--muted)' };
+        case 'restudy': return { fill: 'var(--accent-a-tint)', stroke: 'var(--accent-a)', dash: '3 3', text: 'var(--accent-a)' };
+        default: return { fill: 'var(--surface)', stroke: 'var(--border)', dash: '0', text: 'var(--muted)' };
+      }
+    }
+
+    function buildScene() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+      for (var i = 0; i < N; i++) {
+        var pos = tilePos(i);
+        var rect = document.createElementNS(SVG_NS, 'rect');
+        rect.setAttribute('x', pos.x);
+        rect.setAttribute('y', pos.y);
+        rect.setAttribute('width', TILE_W);
+        rect.setAttribute('height', TILE_H);
+        rect.setAttribute('rx', 7);
+        rect.setAttribute('fill', 'var(--surface)');
+        rect.setAttribute('stroke', 'var(--border)');
+        scene.appendChild(rect);
+        tileRects.push(rect);
+
+        var label = document.createElementNS(SVG_NS, 'text');
+        label.setAttribute('x', pos.x + TILE_W / 2);
+        label.setAttribute('y', pos.y + TILE_H / 2 + 4);
+        label.setAttribute('text-anchor', 'middle');
+        label.setAttribute('class', 'mono');
+        label.setAttribute('font-size', '12');
+        label.setAttribute('font-weight', '700');
+        label.setAttribute('fill', 'var(--muted)');
+        label.textContent = 'P' + (i + 1);
+        scene.appendChild(label);
+        tileLabels.push(label);
+      }
+    }
+
+    function renderFrame(frame) {
+      for (var i = 0; i < N; i++) {
+        var c = stateColors(frame.state[i]);
+        tileRects[i].setAttribute('fill', c.fill);
+        tileRects[i].setAttribute('stroke', c.stroke);
+        tileRects[i].setAttribute('stroke-dasharray', c.dash);
+        tileLabels[i].setAttribute('fill', c.text);
+        var suffix = frame.state[i] === 'withdrawn' ? ' ✕' : (frame.state[i] === 'approved' ? ' ✓' : '');
+        tileLabels[i].textContent = 'P' + (i + 1) + suffix;
+      }
+      statusEl.textContent = frame.note;
+      timeEl.textContent = String(frame.time);
+      connectedEl.textContent = frame.connected + ' / 11';
+      restudyEl.textContent = String(frame.restudied);
+    }
+
+    var mode = 'serial';
+    var frames = buildSerialFrames();
+    var idx = 0;
+    var timer = null;
+
+    function setMode(newMode) {
+      stopTimer();
+      mode = newMode;
+      frames = mode === 'serial' ? buildSerialFrames() : buildClusterFrames();
+      modeSerialBtn.setAttribute('aria-pressed', String(mode === 'serial'));
+      modeClusterBtn.setAttribute('aria-pressed', String(mode === 'cluster'));
+      if (reduceMotion) {
+        idx = frames.length - 1;
+      } else {
+        idx = 0;
+      }
+      renderFrame(frames[idx]);
+    }
+
+    function stopTimer() {
+      if (timer) { clearInterval(timer); timer = null; }
+      runBtn.disabled = false;
+      runBtn.textContent = 'Run';
+    }
+
+    function runSim() {
+      if (timer) return;
+      if (reduceMotion) {
+        idx = frames.length - 1;
+        renderFrame(frames[idx]);
+        return;
+      }
+      if (idx >= frames.length - 1) idx = 0;
+      runBtn.disabled = true;
+      runBtn.textContent = 'Running…';
+      timer = setInterval(function () {
+        idx++;
+        renderFrame(frames[idx]);
+        if (idx >= frames.length - 1) stopTimer();
+      }, 420);
+    }
+
+    function resetSim() {
+      stopTimer();
+      idx = reduceMotion ? frames.length - 1 : 0;
+      renderFrame(frames[idx]);
+    }
+
+    modeSerialBtn.addEventListener('click', function () { setMode('serial'); });
+    modeClusterBtn.addEventListener('click', function () { setMode('cluster'); });
+    runBtn.addEventListener('click', runSim);
+    resetBtn.addEventListener('click', resetSim);
+
+    buildScene();
+    setMode('serial');
+  })();
+</script>
+</body>
+</html>
