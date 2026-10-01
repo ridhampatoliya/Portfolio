@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-01","category":"CHIP MATERIALS","headline":"The Company That Invented MSG Controls 95% of a Film Every AI Chip Needs. It Just Raised the Price 30%","summary":"Ajinomoto — yes, the MSG company — controls over 95% of the ABF film every advanced chip package needs. It just raised prices 30% as AI accelerators consume up to 18x more film than a PC chip, and Goldman Sachs sees the supply gap more than quadrupling by 2028.","whyItMatters":"A single Japanese chemical film, not a chip fab, may be setting the real ceiling on how many AI accelerators the world can build through 2028."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — The Company That Invented MSG Controls 95% of a Film Every AI Chip Needs. It Just Raised the Price 30%.</title>
+<meta name="description" content="Ajinomoto, the 100-plus-year-old Japanese seasoning company, controls more than 95% of the world's ABF film — the insulating layer inside every advanced chip substrate. It just raised prices 30% as AI accelerators consume up to 18x more film than a PC chip, and Goldman Sachs projects the supply gap more than quadrupling by 2028." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5541f;
+    --accent-a-tint: #f7e4d6;
+    --accent-b: #2d5fa8;
+    --accent-b-tint: #dce7f5;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e8936a;
+      --accent-a-tint: #3a2113;
+      --accent-b: #7fa8e8;
+      --accent-b-tint: #16233a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e8936a;
+    --accent-a-tint: #3a2113;
+    --accent-b: #7fa8e8;
+    --accent-b-tint: #16233a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5541f;
+    --accent-a-tint: #f7e4d6;
+    --accent-b: #2d5fa8;
+    --accent-b-tint: #dce7f5;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-a);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-a);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: ABF layer-stack builder --- */
+  .lb-header { margin-bottom: 4px; }
+  .lb-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .lb-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.6;
+  }
+  .lb-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .lb-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .lb-btn[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+  .lb-btn.lb-primary {
+    background: var(--accent-a);
+    border-color: var(--accent-a);
+    color: #2a1104;
+  }
+  .lb-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+  .lb-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px 8px;
+  }
+  .lb-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 260px;
+  }
+  .lb-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 10.5px;
+    color: var(--muted);
+  }
+  .lb-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .lb-legend i {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .lb-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .lb-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 180px;
+  }
+  .lb-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-a);
+  }
+  .lb-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .lb-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .lb-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .lb-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 15px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 1, 2026</span>
+    <span class="category-chip">CHIP MATERIALS</span>
+  </div>
+  <h1>The Company That Invented MSG Controls 95% of a Film Every AI Chip Needs. It Just Raised the Price 30%.</h1>
+  <p class="lede">Every advanced chip package — the thing an Nvidia GPU actually sits on — is built from alternating layers of copper wiring and an insulating film. Ajinomoto, the Japanese seasoning company, makes more than 95% of that film. Demand from AI accelerators has outrun its ability to supply it.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    ABF — Ajinomoto Build-up Film — is the dielectric layer inside the "substrate" under every advanced chip package, and Ajinomoto controls a reported 95%-plus of the global supply. In May 2026 it told substrate makers it was raising ABF prices roughly 30%, effective this quarter, as AI-accelerator packages — which need 8 to 16 ABF layers versus 4 to 6 for a PC chip — strain a material nobody outside the industry tracks. Goldman Sachs projects the global supply-demand gap widening from about 10% in the second half of 2026 to 21% in 2027 and 42% in 2028, and Ajinomoto's next major capacity expansion isn't expected until 2028.
+  </div>
+
+  <div class="card lb-card">
+    <div class="lb-header">
+      <h2 class="lb-title">Build an AI chip's substrate, one ABF layer at a time</h2>
+      <p class="lb-caption mono">Simplified cross-section, not to scale: each build-up layer alternates a copper routing layer with a sheet of ABF dielectric film. A PC chip's substrate needs about 4-6 layers; a 2026-class AI accelerator needs 8-16. This model scales film use with layer count only — real AI packages are also physically larger, which is why reported film consumption per package runs 10-18x a PC chip's, higher than the layer count alone implies. Drag the slider, pick a preset, or press Build.</p>
+    </div>
+
+    <div class="lb-presets" role="group" aria-label="Chip package presets">
+      <button type="button" class="lb-btn" id="lb-preset-pc" data-layers="6" aria-pressed="true">PC chip · 6L</button>
+      <button type="button" class="lb-btn" id="lb-preset-ai" data-layers="10" aria-pressed="false">AI accelerator · 10L</button>
+      <button type="button" class="lb-btn" id="lb-preset-next" data-layers="16" aria-pressed="false">Next-gen AI package · 16L</button>
+    </div>
+
+    <div class="lb-scene-wrap">
+      <svg class="lb-scene" id="lb-scene" viewBox="0 0 320 230" role="img" aria-label="Side view of a chip substrate growing layer by layer, alternating copper routing and ABF dielectric film, with a logic die and memory stacks placed on top once the stack is built."></svg>
+    </div>
+    <div class="lb-legend">
+      <span><i style="background:var(--accent-a);"></i>Copper routing layer</span>
+      <span><i style="background:var(--accent-b-tint);border:1px solid var(--accent-b);"></i>ABF dielectric film</span>
+      <span><i style="background:var(--ink);"></i>Logic die / HBM stack</span>
+    </div>
+
+    <div class="lb-controls">
+      <div class="lb-slider-row">
+        <label for="lb-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">Layers</label>
+        <input type="range" id="lb-slider" min="2" max="16" step="1" value="6" aria-label="Number of ABF layers, 2 through 16" />
+      </div>
+      <button type="button" class="lb-btn lb-primary" id="lb-build">▶ Build</button>
+      <button type="button" class="lb-btn" id="lb-reset">Reset</button>
+    </div>
+
+    <div class="lb-stats">
+      <div class="lb-stat">
+        <div class="lb-stat-label mono">Layers</div>
+        <div class="lb-stat-value mono" id="lb-stat-layers">6</div>
+      </div>
+      <div class="lb-stat">
+        <div class="lb-stat-label mono">ABF index (PC = 1.0×)</div>
+        <div class="lb-stat-value mono" id="lb-stat-index">1.0×</div>
+      </div>
+      <div class="lb-stat">
+        <div class="lb-stat-label mono">Package class</div>
+        <div class="lb-stat-value mono" id="lb-stat-class">PC / client</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Here's a strange supply-chain fact: the company that invented MSG — the savory seasoning in your instant ramen — also makes one of the most important materials in every AI chip on Earth.</p>
+      <p>Inside an Nvidia GPU package, the chip doesn't sit directly on a circuit board. It sits on a "substrate" — a hyper-miniaturized circuit board built in alternating layers, like a club sandwich, so thousands of microscopic wires can route signals between the chip and the memory stacked beside it. Each layer of that sandwich needs an insulating film to separate the copper wiring underneath from the wiring above. That film is called ABF — Ajinomoto Build-up Film — and Ajinomoto, the 100-plus-year-old Japanese seasoning company, controls more than 95% of the world's supply.</p>
+      <p>A phone or laptop chip needs maybe 4 to 6 of these layers. A 2026-class AI accelerator, crammed with memory and routing to match, needs 8 to 16 — and reported figures put total film use per AI package at 10 to 18 times that of an ordinary chip, once you account for the layers and the larger package size. Demand has outrun Ajinomoto's ability to supply it: in May, the company told substrate makers it was raising ABF prices 30%, effective this quarter, and analysts expect the supply-demand gap to more than quadruple by 2028. Building new capacity isn't fast either — Ajinomoto's next major expansion reportedly isn't due until 2028.</p>
+      <p>So next time someone says AI is bottlenecked on chips, remember: sometimes it's bottlenecked on a seasoning company's insulating tape.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>ABF — Ajinomoto Build-up Film — is a proprietary epoxy-resin dielectric film used to build the organic build-up substrates underneath every flip-chip BGA package, including the packages inside TSMC's CoWoS flow and every competing AI-accelerator packaging process. A substrate is built additively: a copper layer is patterned, an ABF sheet is laminated over it as the insulating dielectric, microvias are laser-drilled through the film to connect to the layer below, and the sequence repeats. A consumer PC or phone chip's substrate typically needs 4 to 6 of these ABF layers. A 2026-class AI accelerator package — routing thousands of high-speed I/O connections between a large logic die and several adjacent HBM stacks — needs 8 to 16 layers, and industry estimates put total ABF consumption per AI package at 10 to 18 times a standard chip's, reflecting both layer count and larger die/package area.</p>
+      <p>Ajinomoto holds a reported 95%-plus global share of ABF film, a position built over roughly three decades of process-qualification work that makes near-term substitution difficult — a rival film has to be re-qualified against each substrate maker's existing line, itself a year-plus process. In May 2026, Ajinomoto notified substrate manufacturers of a roughly 30% ABF price increase effective Q3 2026 (first reported by DigiTimes), citing AI-driven demand. Analysts at Goldman Sachs project the global ABF substrate supply-demand gap widening from roughly 10% in the second half of 2026 to 21% in 2027 and 42% in 2028, even as Taiwanese substrate fabricators — Unimicron, Kinsus, Nan Ya PCB — run near full utilization. Ajinomoto's reported capacity-expansion plans add no meaningful new supply until 2028, with a third dedicated plant not expected online before 2032, keeping pricing power concentrated upstream of TSMC, Nvidia, and every other chip designer. Separately, Chinese trade outlets reported in August that Ajinomoto would cut ABF allocations to mainland Chinese customers by 30%; Ajinomoto has not confirmed this, and whether it reflects AI-demand rationing or friction over China's own rare-earth export curbs remains unverified.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> a dependency most AI investors have never heard of — a single Japanese chemical film, not a chip fab — may be setting the real ceiling on how many AI accelerators the world can build through 2028.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> wafer capacity and HBM supply get most of the attention, but ABF is a single-supplier, slow-to-requalify material sitting underneath every advanced package — worth tracking alongside CoWoS and HBM as a third, under-discussed AI hardware bottleneck.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#2a1104;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.digitimes.com/news/a20260513PD230/ic-substrate-abf-substrate-demand-substrate-2026.html" target="_blank" rel="noopener">DigiTimes — Ajinomoto Raises ABF Substrate Film Prices 30%</a></li>
+    <li><a href="https://wccftech.com/msg-maker-ajinomoto-to-raise-prices-as-abf-substrate-supply-demand-gap-extends-to-2027/" target="_blank" rel="noopener">Wccftech — MSG Maker Ajinomoto to Raise Prices as ABF Substrate Supply-Demand Gap Extends to 2027</a></li>
+    <li><a href="https://www.atlaspcb.com/news/news-ajinomoto-abf-substrate-price-increase-2026/" target="_blank" rel="noopener">AtlasPCB — Ajinomoto Raises ABF Substrate Film Prices 30% as AI Demand Extends Supply Gap to 2027</a></li>
+    <li><a href="https://news.chemnet.com/news-8738.html" target="_blank" rel="noopener">ChemNet — Accounting for 95% of Global Market Share, Ajinomoto Will Cut Its Supply of ABF Films to Mainland China by 30%</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+    var PC_BASELINE = 6;
+    var MAX_LAYERS = 16;
+
+    var scene = document.getElementById('lb-scene');
+    var slider = document.getElementById('lb-slider');
+    var buildBtn = document.getElementById('lb-build');
+    var resetBtn = document.getElementById('lb-reset');
+    var presetPc = document.getElementById('lb-preset-pc');
+    var presetAi = document.getElementById('lb-preset-ai');
+    var presetNext = document.getElementById('lb-preset-next');
+    var statLayers = document.getElementById('lb-stat-layers');
+    var statIndex = document.getElementById('lb-stat-index');
+    var statClass = document.getElementById('lb-stat-class');
+
+    var BASE_Y = 205;
+    var LAYER_H = 9;
+    var LAYER_GAP = 1.5;
+    var STACK_X = 80, STACK_W = 160;
+
+    var boardRect, dieGroup;
+    var layerEls = [];
+
+    function buildScene() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+      layerEls = [];
+
+      var board = document.createElementNS(SVG_NS, 'rect');
+      board.setAttribute('x', 50);
+      board.setAttribute('y', BASE_Y + 4);
+      board.setAttribute('width', 220);
+      board.setAttribute('height', 10);
+      board.setAttribute('rx', 2);
+      board.setAttribute('fill', 'var(--surface)');
+      board.setAttribute('stroke', 'var(--border)');
+      scene.appendChild(board);
+      boardRect = board;
+
+      var boardLabel = document.createElementNS(SVG_NS, 'text');
+      boardLabel.setAttribute('x', 160);
+      boardLabel.setAttribute('y', BASE_Y + 24);
+      boardLabel.setAttribute('text-anchor', 'middle');
+      boardLabel.setAttribute('class', 'mono');
+      boardLabel.setAttribute('font-size', '9');
+      boardLabel.setAttribute('fill', 'var(--muted)');
+      boardLabel.textContent = 'package board';
+      scene.appendChild(boardLabel);
+
+      for (var i = 0; i < MAX_LAYERS; i++) {
+        var y = BASE_Y - (i + 1) * (LAYER_H + LAYER_GAP);
+        var rect = document.createElementNS(SVG_NS, 'rect');
+        rect.setAttribute('x', STACK_X);
+        rect.setAttribute('y', y);
+        rect.setAttribute('width', STACK_W);
+        rect.setAttribute('height', LAYER_H);
+        rect.setAttribute('rx', 1.5);
+        rect.setAttribute('visibility', 'hidden');
+        scene.appendChild(rect);
+        layerEls.push(rect);
+      }
+
+      var g = document.createElementNS(SVG_NS, 'g');
+      g.setAttribute('visibility', 'hidden');
+
+      var die = document.createElementNS(SVG_NS, 'rect');
+      die.setAttribute('width', 70);
+      die.setAttribute('height', 24);
+      die.setAttribute('rx', 3);
+      die.setAttribute('fill', 'var(--ink)');
+      g.appendChild(die);
+
+      var dieLabel = document.createElementNS(SVG_NS, 'text');
+      dieLabel.setAttribute('text-anchor', 'middle');
+      dieLabel.setAttribute('class', 'mono');
+      dieLabel.setAttribute('font-size', '8');
+      dieLabel.setAttribute('fill', 'var(--bg)');
+      dieLabel.textContent = 'logic die';
+      g.appendChild(dieLabel);
+
+      var hbm1 = document.createElementNS(SVG_NS, 'rect');
+      hbm1.setAttribute('width', 26);
+      hbm1.setAttribute('height', 24);
+      hbm1.setAttribute('rx', 3);
+      hbm1.setAttribute('fill', 'var(--accent-b)');
+      g.appendChild(hbm1);
+
+      var hbm2 = document.createElementNS(SVG_NS, 'rect');
+      hbm2.setAttribute('width', 26);
+      hbm2.setAttribute('height', 24);
+      hbm2.setAttribute('rx', 3);
+      hbm2.setAttribute('fill', 'var(--accent-b)');
+      g.appendChild(hbm2);
+
+      scene.appendChild(g);
+      dieGroup = { g: g, die: die, dieLabel: dieLabel, hbm1: hbm1, hbm2: hbm2 };
+    }
+
+    function layerColor(i) {
+      var copper = (i % 2 === 0);
+      return copper
+        ? { fill: 'var(--accent-a)', stroke: 'var(--accent-a)' }
+        : { fill: 'var(--accent-b-tint)', stroke: 'var(--accent-b)' };
+    }
+
+    function packageClass(n) {
+      if (n <= 6) return 'PC / client';
+      if (n <= 9) return 'Server CPU';
+      return 'AI accelerator';
+    }
+
+    function render(n) {
+      for (var i = 0; i < MAX_LAYERS; i++) {
+        if (i < n) {
+          var c = layerColor(i);
+          layerEls[i].setAttribute('visibility', 'visible');
+          layerEls[i].setAttribute('fill', c.fill);
+          layerEls[i].setAttribute('stroke', c.stroke);
+        } else {
+          layerEls[i].setAttribute('visibility', 'hidden');
+        }
+      }
+
+      var topY = BASE_Y - n * (LAYER_H + LAYER_GAP);
+      if (n > 0) {
+        dieGroup.g.setAttribute('visibility', 'visible');
+        var dieY = topY - 24;
+        dieGroup.die.setAttribute('x', 125);
+        dieGroup.die.setAttribute('y', dieY);
+        dieGroup.dieLabel.setAttribute('x', 160);
+        dieGroup.dieLabel.setAttribute('y', dieY + 15);
+        dieGroup.hbm1.setAttribute('x', 85);
+        dieGroup.hbm1.setAttribute('y', dieY);
+        dieGroup.hbm2.setAttribute('x', 209);
+        dieGroup.hbm2.setAttribute('y', dieY);
+      } else {
+        dieGroup.g.setAttribute('visibility', 'hidden');
+      }
+
+      statLayers.textContent = String(n);
+      statIndex.textContent = (n / PC_BASELINE).toFixed(1) + '×';
+      statClass.textContent = packageClass(n);
+
+      slider.value = String(n);
+      presetPc.setAttribute('aria-pressed', String(n === 6));
+      presetAi.setAttribute('aria-pressed', String(n === 10));
+      presetNext.setAttribute('aria-pressed', String(n === 16));
+    }
+
+    var buildTimer = null;
+
+    function stopBuild() {
+      if (buildTimer) { clearInterval(buildTimer); buildTimer = null; }
+      buildBtn.disabled = false;
+      buildBtn.textContent = '▶ Build';
+    }
+
+    function runBuild() {
+      var target = parseInt(slider.value, 10);
+      if (reduceMotion) {
+        render(target);
+        return;
+      }
+      if (buildTimer) return;
+      var cur = 0;
+      render(0);
+      buildBtn.disabled = true;
+      buildBtn.textContent = 'Building…';
+      buildTimer = setInterval(function () {
+        cur++;
+        render(cur);
+        if (cur >= target) stopBuild();
+      }, 140);
+    }
+
+    function resetScene() {
+      stopBuild();
+      render(0);
+    }
+
+    slider.addEventListener('input', function () {
+      stopBuild();
+      render(parseInt(slider.value, 10));
+    });
+    buildBtn.addEventListener('click', runBuild);
+    resetBtn.addEventListener('click', resetScene);
+    presetPc.addEventListener('click', function () { stopBuild(); render(6); });
+    presetAi.addEventListener('click', function () { stopBuild(); render(10); });
+    presetNext.addEventListener('click', function () { stopBuild(); render(16); });
+
+    buildScene();
+    render(reduceMotion ? 10 : 6);
+  })();
+</script>
+</body>
+</html>
