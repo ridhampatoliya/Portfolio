@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-02","category":"CHIP MANUFACTURING","headline":"Japan Has Spent Roughly $16 Billion Reviving Advanced Chipmaking. Its New 2-Nanometer Fab Still Has Zero Signed Customers","summary":"Rapidus is Japan's bet that a company with no chipmaking track record can vault straight to the 2-nanometer process TSMC and Samsung spent decades climbing toward. Its Hokkaido pilot line is running real 2nm test wafers — but after talking to 60-plus companies, zero have signed a volume order.","whyItMatters":"If Rapidus can't convert pilot-line wafers into paying customers before 2027-28, Japan's costliest industrial bet in decades stalls at exactly the stage where past leading-edge chip challengers have failed."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Japan Has Spent Roughly $16 Billion Reviving Advanced Chipmaking. Its New 2-Nanometer Fab Still Has Zero Signed Customers.</title>
+<meta name="description" content="Rapidus, Japan's government-backed chip startup, is running real 2-nanometer test wafers on a Hokkaido pilot line using technology transferred from IBM. After roughly $16 billion in public funding and talks with more than 60 companies, it has yet to sign a single volume customer." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a3362f;
+    --accent-a-tint: #f4ddd9;
+    --accent-b: #2e5870;
+    --accent-b-tint: #dbe8ee;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e3837a;
+      --accent-a-tint: #3a1a17;
+      --accent-b: #76b0cc;
+      --accent-b-tint: #132631;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e3837a;
+    --accent-a-tint: #3a1a17;
+    --accent-b: #76b0cc;
+    --accent-b-tint: #132631;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a3362f;
+    --accent-a-tint: #f4ddd9;
+    --accent-b: #2e5870;
+    --accent-b-tint: #dbe8ee;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-a);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-a);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the node ladder --- */
+  .nl-header { margin-bottom: 4px; }
+  .nl-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .nl-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.6;
+  }
+  .nl-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px 8px;
+  }
+  .nl-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 280px;
+  }
+  .nl-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 10.5px;
+    color: var(--muted);
+  }
+  .nl-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .nl-legend i {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .nl-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .nl-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 180px;
+  }
+  .nl-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-a);
+  }
+  .nl-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .nl-btn.nl-primary {
+    background: var(--accent-a);
+    border-color: var(--accent-a);
+    color: #fff;
+  }
+  .nl-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+  .nl-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  @media (max-width: 480px) {
+    .nl-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .nl-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .nl-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .nl-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 2, 2026</span>
+    <span class="category-chip">CHIP MANUFACTURING</span>
+  </div>
+  <h1>Japan Has Spent Roughly $16 Billion Reviving Advanced Chipmaking. Its New 2-Nanometer Fab Still Has Zero Signed Customers.</h1>
+  <p class="lede">Rapidus is Japan's bet that a company with no chipmaking track record can vault straight to the same 2-nanometer process Taiwan and South Korea spent decades climbing toward, one generation at a time. It's already running real 2nm test wafers through a pilot line in Hokkaido. It just hasn't gotten a single customer to sign a volume order.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Rapidus, founded in 2022 by Japan's government and eight companies, is building Japan's first leading-edge logic fab in roughly 35 years, using a 2-nanometer gate-all-around process transferred from IBM Research. Its Chitose, Hokkaido pilot line has been running 2nm test wafers on EUV tools since 2025, and Japan's cumulative government funding has reached roughly ¥2.6 trillion (about $16 billion) as of an April 2026 approval. CEO Atsuyoshi Koike has said Rapidus is in talks with more than 60 prospective customers and has quoted pricing to about 10 of them — but as of its most recent public comments, none has signed a volume agreement. Mass production is targeted for the second half of Japan's 2027 fiscal year, ramping to full volume in FY2028; outside estimates put the total capital needed to get there closer to ¥5 trillion (about $32 billion).
+  </div>
+
+  <div class="card nl-card">
+    <div class="nl-header">
+      <h2 class="nl-title">The node ladder: decades of climbing vs. one leap</h2>
+      <p class="nl-caption mono">Simplified, illustrative timeline — exact transition years vary by source and by manufacturer. The teal trail shows roughly when leading-edge foundries reached each process generation, climbing one rung at a time since 1990. The red trail shows Rapidus: no rung at all until its 2025 pilot line, then a direct jump to the 2nm rung targeted for 2027-28 — skipping the decades of intermediate nodes where that know-how is normally built. Drag the year slider or press Play.</p>
+    </div>
+
+    <div class="nl-scene-wrap">
+      <svg class="nl-scene" id="nl-scene" viewBox="0 0 360 220" role="img" aria-label="Step chart from 1990 to 2028: a teal line climbing one process-node rung at a time to 2-nanometer by around 2025, versus a red line flat at zero until 2025 then jumping straight to the same 2-nanometer rung by 2027-28."></svg>
+    </div>
+    <div class="nl-legend">
+      <span><i style="background:var(--accent-b);"></i>Leading foundries (TSMC/Samsung-class), by era</span>
+      <span><i style="background:var(--accent-a);"></i>Rapidus</span>
+    </div>
+
+    <div class="nl-controls">
+      <div class="nl-slider-row">
+        <label for="nl-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">Year</label>
+        <input type="range" id="nl-slider" min="1990" max="2028" step="1" value="1990" aria-label="Year, 1990 through 2028" />
+      </div>
+      <button type="button" class="nl-btn nl-primary" id="nl-play">▶ Play</button>
+      <button type="button" class="nl-btn" id="nl-reset">Reset</button>
+    </div>
+
+    <div class="nl-stats">
+      <div class="nl-stat">
+        <div class="nl-stat-label mono">Year</div>
+        <div class="nl-stat-value mono" id="nl-stat-year">1990</div>
+      </div>
+      <div class="nl-stat">
+        <div class="nl-stat-label mono">Leading node</div>
+        <div class="nl-stat-value mono" id="nl-stat-tsmc">~800nm</div>
+      </div>
+      <div class="nl-stat">
+        <div class="nl-stat-label mono">Rapidus status</div>
+        <div class="nl-stat-value mono" id="nl-stat-rapidus">No fab</div>
+      </div>
+      <div class="nl-stat">
+        <div class="nl-stat-label mono">Rapidus own track record</div>
+        <div class="nl-stat-value mono" id="nl-stat-track">N/A</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>In the late 1980s, Japan made more than half the world's chips. By 2022, that share had fallen to about 9%, and the country's chipmaking fell roughly a decade behind the leaders — Taiwan's TSMC, South Korea's Samsung, and the US's Intel. Rapidus, a company Japan's government and eight big corporations created from scratch in 2022, is the plan to get back in the game. Its bet: skip the long climb and go straight for 2-nanometer chips, among the smallest, most advanced transistors anyone can build today.</p>
+      <p>Here's why that's a big ask. Every company currently making leading-edge chips got there by climbing a ladder — one process generation at a time, for decades, learning from failures along the way. Rapidus doesn't have that ladder. Instead, it licensed the base recipe for its 2-nanometer "gate-all-around" transistors from IBM's research labs and is trying to turn that lab recipe into a real, reliable factory floor — at a single plant in frozen Hokkaido, with a workforce that's never run a leading-edge fab before.</p>
+      <p>The good news: it's working, at least technically. The pilot line is running real 2-nanometer test wafers. The not-so-good news: Japan's taxpayers have now put in roughly $16 billion, and Rapidus's own CEO says the company has pitched more than 60 companies and quoted prices to about 10 of them — and as of its latest public update, not one has signed an actual order. Mass production is supposed to start in 2027, ramping up through 2028. Until someone signs, this is still a very expensive bet that the ladder can be skipped.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Rapidus Corporation, incorporated in August 2022 by Japan's Ministry of Economy, Trade and Industry (METI) alongside eight founding companies (Toyota, Sony, NTT, NEC, SoftBank, Denso, Kioxia, and MUFG), is attempting to establish Japan's first domestic leading-edge logic foundry since the country's chipmaking share fell from over 50% of global production in the late 1980s to roughly 9% by 2022 — a decade or more behind current process leaders, per CSIS analysis. Its approach centers on a 2-nanometer-class gate-all-around (GAA, also called nanosheet) transistor process technology-transferred from IBM Research's Albany NanoTech Complex, with additional collaboration through Belgium's imec, rather than process knowledge accumulated through Rapidus's own iterative node history, since it has none.</p>
+      <p>The company's sole fab, IIM-1 in Chitose, Hokkaido, moved from construction to an operating pilot line through 2025, installing EUV lithography tools and running test wafers on the 2nm GAA process; Rapidus has also touted a "single-wafer" processing methodology — moving wafers through tools one at a time rather than in batches — intended to shorten yield-learning cycles relative to TSMC's and Samsung's batch processes, though this remains unproven at production scale. Rapidus closed a ¥267.6 billion (~$1.7 billion) funding round in February 2026 backed by the Japanese government and more than 30 private partners including Canon, Fujitsu, NTT, SoftBank, Sony, and Toyota; a further METI approval on April 11, 2026 brought cumulative Japanese government funding to roughly ¥2.6 trillion (about $16 billion). Independent estimates — including from the ASEAN+3 Macroeconomic Research Office — put the total capital required to reach stable, full-scale 2nm production closer to ¥5 trillion (roughly $32 billion), implying a meaningful funding gap still to close.</p>
+      <p>Commercially, CEO Atsuyoshi Koike has said Rapidus is in active discussions with more than 60 prospective customers and has issued preliminary pricing to roughly 10, reportedly targeting around $20,000 per 2nm-class wafer — undercutting TSMC's reported N2 pricing of roughly $30,000 — but as of its most recent public comments, no high-volume supply agreement has been signed. The company's roadmap targets 2nm production starting in the second half of Japan's fiscal 2027 (ending March 2028), scaling from an initial run rate near 6,000 wafer starts per month toward roughly 25,000 within the first year of full operation. Analysts at CSIS and elsewhere note the core risk: Rapidus lacks the decades of iterative yield and defect-learning experience that incumbent leading-edge foundries built organically, a gap that transferred technology alone has not historically closed for other would-be entrants to the leading edge.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> everyone obsesses over TSMC's near-monopoly on leading-edge chips, but Rapidus is the live test of whether a government can simply buy its way back onto that short list — and so far, money has bought working silicon, not a single paying customer.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Rapidus is the cleanest live test case for whether transferred process technology plus state capital can substitute for decades of organic yield-learning at the leading edge — a question with direct relevance to every other country now weighing a sovereign leading-edge fab bet.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.rapidus.inc/en/news_topics/information/rapidus-secures-267-6-billion-yen-in-funding-from-japan-government-and-private-sector-companies/" target="_blank" rel="noopener">Rapidus Corporation — Rapidus Secures 267.6 Billion Yen in Funding From Japan Government and Private-Sector Companies</a></li>
+    <li><a href="https://www.tomshardware.com/tech-industry/semiconductors/rapidus-fab-roadmap-examined" target="_blank" rel="noopener">Tom's Hardware — Rapidus Fab Roadmap Examined</a></li>
+    <li><a href="https://www.tomshardware.com/tech-industry/semiconductors/japanese-chipmaker-rapidus-to-offer-lower-wafer-pricing-than-tsmc-2nm-class-silicon-to-be-priced-around-usd20-000-on-2027-launch" target="_blank" rel="noopener">Tom's Hardware — Japanese Chipmaker Rapidus to Offer Lower Wafer Pricing Than TSMC</a></li>
+    <li><a href="https://www.csis.org/analysis/japan-seeks-revitalize-its-semiconductor-industry" target="_blank" rel="noopener">CSIS — Japan Seeks to Revitalize Its Semiconductor Industry</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+
+    var Y0 = 1990, Y1 = 2028;
+    var X0 = 44, X1 = 346;
+    var BASE_Y = 180, TOP_Y = 30;
+    var RUNG_H = (BASE_Y - TOP_Y) / 10; // rung -1..9 => 10 steps
+
+    var TSMC_ANCHORS = [
+      { year: 1990, nm: '~800nm', rung: 0 },
+      { year: 2000, nm: '~180nm', rung: 1 },
+      { year: 2005, nm: '~90nm', rung: 2 },
+      { year: 2010, nm: '~40nm', rung: 3 },
+      { year: 2014, nm: '~20nm', rung: 4 },
+      { year: 2017, nm: '~10nm', rung: 5 },
+      { year: 2019, nm: '~7nm', rung: 6 },
+      { year: 2022, nm: '~5nm', rung: 7 },
+      { year: 2024, nm: '~3nm', rung: 8 },
+      { year: 2025, nm: '~2nm', rung: 9 }
+    ];
+
+    function xForYear(y) {
+      return X0 + ((y - Y0) / (Y1 - Y0)) * (X1 - X0);
+    }
+    function yForRung(r) {
+      return BASE_Y - (r + 1) * RUNG_H;
+    }
+
+    var scene = document.getElementById('nl-scene');
+    var slider = document.getElementById('nl-slider');
+    var playBtn = document.getElementById('nl-play');
+    var resetBtn = document.getElementById('nl-reset');
+    var statYear = document.getElementById('nl-stat-year');
+    var statTsmc = document.getElementById('nl-stat-tsmc');
+    var statRapidus = document.getElementById('nl-stat-rapidus');
+    var statTrack = document.getElementById('nl-stat-track');
+
+    var tsmcPath, tsmcMarker, tsmcLabel, rapidusPath, rapidusMarker, rapidusLabel, axisLine;
+
+    function buildScene() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+
+      axisLine = document.createElementNS(SVG_NS, 'line');
+      axisLine.setAttribute('x1', X0);
+      axisLine.setAttribute('y1', BASE_Y);
+      axisLine.setAttribute('x2', X1);
+      axisLine.setAttribute('y2', BASE_Y);
+      axisLine.setAttribute('stroke', 'var(--border)');
+      axisLine.setAttribute('stroke-width', '1');
+      scene.appendChild(axisLine);
+
+      [1990, 2000, 2010, 2020, 2028].forEach(function (yr) {
+        var t = document.createElementNS(SVG_NS, 'text');
+        t.setAttribute('x', xForYear(yr));
+        t.setAttribute('y', BASE_Y + 16);
+        t.setAttribute('text-anchor', 'middle');
+        t.setAttribute('class', 'mono');
+        t.setAttribute('font-size', '9');
+        t.setAttribute('fill', 'var(--muted)');
+        t.textContent = String(yr);
+        scene.appendChild(t);
+      });
+
+      tsmcPath = document.createElementNS(SVG_NS, 'path');
+      tsmcPath.setAttribute('fill', 'none');
+      tsmcPath.setAttribute('stroke', 'var(--accent-b)');
+      tsmcPath.setAttribute('stroke-width', '2.5');
+      tsmcPath.setAttribute('stroke-linejoin', 'round');
+      scene.appendChild(tsmcPath);
+
+      rapidusPath = document.createElementNS(SVG_NS, 'path');
+      rapidusPath.setAttribute('fill', 'none');
+      rapidusPath.setAttribute('stroke', 'var(--accent-a)');
+      rapidusPath.setAttribute('stroke-width', '2.5');
+      rapidusPath.setAttribute('stroke-linejoin', 'round');
+      scene.appendChild(rapidusPath);
+
+      tsmcMarker = document.createElementNS(SVG_NS, 'circle');
+      tsmcMarker.setAttribute('r', 4.5);
+      tsmcMarker.setAttribute('fill', 'var(--accent-b)');
+      scene.appendChild(tsmcMarker);
+
+      tsmcLabel = document.createElementNS(SVG_NS, 'text');
+      tsmcLabel.setAttribute('class', 'mono');
+      tsmcLabel.setAttribute('font-size', '9');
+      tsmcLabel.setAttribute('fill', 'var(--accent-b)');
+      tsmcLabel.setAttribute('font-weight', '700');
+      scene.appendChild(tsmcLabel);
+
+      rapidusMarker = document.createElementNS(SVG_NS, 'circle');
+      rapidusMarker.setAttribute('r', 4.5);
+      rapidusMarker.setAttribute('fill', 'var(--accent-a)');
+      scene.appendChild(rapidusMarker);
+
+      rapidusLabel = document.createElementNS(SVG_NS, 'text');
+      rapidusLabel.setAttribute('class', 'mono');
+      rapidusLabel.setAttribute('font-size', '9');
+      rapidusLabel.setAttribute('fill', 'var(--accent-a)');
+      rapidusLabel.setAttribute('font-weight', '700');
+      scene.appendChild(rapidusLabel);
+    }
+
+    function tsmcRungAt(year) {
+      var r = TSMC_ANCHORS[0].rung;
+      for (var i = 0; i < TSMC_ANCHORS.length; i++) {
+        if (TSMC_ANCHORS[i].year <= year) r = TSMC_ANCHORS[i].rung;
+        else break;
+      }
+      return r;
+    }
+    function tsmcNmAt(year) {
+      var nm = TSMC_ANCHORS[0].nm;
+      for (var i = 0; i < TSMC_ANCHORS.length; i++) {
+        if (TSMC_ANCHORS[i].year <= year) nm = TSMC_ANCHORS[i].nm;
+        else break;
+      }
+      return nm;
+    }
+
+    function tsmcPathD(year) {
+      var d = 'M ' + xForYear(1990) + ' ' + yForRung(TSMC_ANCHORS[0].rung);
+      for (var i = 1; i < TSMC_ANCHORS.length; i++) {
+        var a = TSMC_ANCHORS[i];
+        if (a.year <= year) {
+          d += ' H ' + xForYear(a.year) + ' V ' + yForRung(a.rung);
+        } else {
+          d += ' H ' + xForYear(year);
+          return d;
+        }
+      }
+      d += ' H ' + xForYear(year);
+      return d;
+    }
+
+    function rapidusPathD(year) {
+      var d = 'M ' + xForYear(1990) + ' ' + yForRung(-1);
+      if (year < 2025) {
+        d += ' H ' + xForYear(year);
+        return d;
+      }
+      d += ' H ' + xForYear(2025) + ' V ' + yForRung(-0.4);
+      if (year < 2027) {
+        d += ' H ' + xForYear(year);
+        return d;
+      }
+      d += ' H ' + xForYear(2027) + ' V ' + yForRung(9);
+      d += ' H ' + xForYear(year);
+      return d;
+    }
+
+    function rapidusStateAt(year) {
+      if (year < 2025) return { label: 'No fab', short: 'No fab' };
+      if (year < 2027) return { label: 'Pilot line (Hokkaido)', short: 'Pilot line' };
+      return { label: '2nm target — mass production', short: '2nm target' };
+    }
+
+    function render(year) {
+      tsmcPath.setAttribute('d', tsmcPathD(year));
+      rapidusPath.setAttribute('d', rapidusPathD(year));
+
+      var tRung = tsmcRungAt(year);
+      var tx = xForYear(year), ty = yForRung(tRung);
+      tsmcMarker.setAttribute('cx', tx);
+      tsmcMarker.setAttribute('cy', ty);
+      tsmcLabel.setAttribute('x', Math.min(tx + 7, X1 - 34));
+      tsmcLabel.setAttribute('y', ty - 7);
+      tsmcLabel.textContent = tsmcNmAt(year);
+
+      var rState = rapidusStateAt(year);
+      var rRung = year < 2025 ? -1 : (year < 2027 ? -0.4 : 9);
+      var rx = xForYear(year), ry = yForRung(rRung);
+      rapidusMarker.setAttribute('cx', rx);
+      rapidusMarker.setAttribute('cy', ry);
+      rapidusLabel.setAttribute('x', Math.min(rx + 7, X1 - 70));
+      rapidusLabel.setAttribute('y', year >= 2027 ? ry + 14 : ry - 7);
+      rapidusLabel.textContent = rState.short;
+
+      statYear.textContent = String(year);
+      statTsmc.textContent = tsmcNmAt(year);
+      statRapidus.textContent = rState.label;
+      statTrack.textContent = year < 2025 ? 'N/A' : '0 yrs (IBM transfer)';
+
+      slider.value = String(year);
+    }
+
+    var playTimer = null;
+
+    function stopPlay() {
+      if (playTimer) { clearInterval(playTimer); playTimer = null; }
+      playBtn.disabled = false;
+      playBtn.textContent = '▶ Play';
+    }
+
+    function runPlay() {
+      if (reduceMotion) {
+        render(Y1);
+        return;
+      }
+      if (playTimer) return;
+      var cur = Y0;
+      render(Y0);
+      playBtn.disabled = true;
+      playBtn.textContent = 'Playing…';
+      playTimer = setInterval(function () {
+        cur++;
+        render(cur);
+        if (cur >= Y1) stopPlay();
+      }, 90);
+    }
+
+    function resetScene() {
+      stopPlay();
+      render(Y0);
+    }
+
+    slider.addEventListener('input', function () {
+      stopPlay();
+      render(parseInt(slider.value, 10));
+    });
+    playBtn.addEventListener('click', runPlay);
+    resetBtn.addEventListener('click', resetScene);
+
+    buildScene();
+    if (reduceMotion) {
+      render(Y1);
+    } else {
+      render(Y0);
+    }
+  })();
+</script>
+</body>
+</html>
