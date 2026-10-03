@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-03","category":"MEMORY MARKETS","headline":"Making an AI Memory Chip Eats the Wafer Capacity of Three Ordinary Ones. Ordinary Memory Just Got 98% More Expensive","summary":"Samsung, SK Hynix, and Micron are shifting fab capacity from ordinary DDR4 to AI's hungrier HBM chips, which burn roughly three times the wafer capacity per gigabyte. DRAM contract prices rose up to 98% in one quarter — and carmakers, hospitals, and network-gear makers are stuck short.","whyItMatters":"AI's memory diet is winning the bidding war against your car, your hospital's monitors, and your router — and the squeeze has no clear end date."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Making an AI Memory Chip Eats the Wafer Capacity of Three Ordinary Ones. Ordinary Memory Just Got 98% More Expensive.</title>
+<meta name="description" content="HBM, the stacked memory feeding Nvidia's AI accelerators, consumes roughly three times the silicon wafers of ordinary DRAM per gigabyte. As Samsung, SK Hynix, and Micron redirect capacity toward it, DDR4 is being phased out early and DRAM prices nearly doubled in a single quarter — squeezing cars, hospitals, and network gear." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5531f;
+    --accent-a-tint: #f5e2d2;
+    --accent-b: #2f6f93;
+    --accent-b-tint: #dcebf1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e8976a;
+      --accent-a-tint: #3a2414;
+      --accent-b: #7ec3dd;
+      --accent-b-tint: #122732;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e8976a;
+    --accent-a-tint: #3a2414;
+    --accent-b: #7ec3dd;
+    --accent-b-tint: #122732;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5531f;
+    --accent-a-tint: #f5e2d2;
+    --accent-b: #2f6f93;
+    --accent-b-tint: #dcebf1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-a);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-a);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the wafer tilt --- */
+  .wt-header { margin-bottom: 4px; }
+  .wt-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .wt-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.6;
+  }
+  .wt-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px 8px;
+  }
+  .wt-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 280px;
+  }
+  .wt-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 10.5px;
+    color: var(--muted);
+  }
+  .wt-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .wt-legend i {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .wt-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .wt-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 180px;
+  }
+  .wt-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-b);
+  }
+  .wt-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .wt-btn.wt-primary {
+    background: var(--accent-b);
+    border-color: var(--accent-b);
+    color: #fff;
+  }
+  .wt-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+  .wt-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  @media (max-width: 480px) {
+    .wt-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .wt-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .wt-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .wt-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 3, 2026</span>
+    <span class="category-chip">MEMORY MARKETS</span>
+  </div>
+  <h1>Making an AI Memory Chip Eats the Wafer Capacity of Three Ordinary Ones. Ordinary Memory Just Got 98% More Expensive.</h1>
+  <p class="lede">Samsung, SK Hynix, and Micron are racing to feed Nvidia's AI accelerators with a stacked memory chip called HBM — and HBM burns through roughly three times the silicon wafers of a standard memory chip to deliver the same amount of storage. Fabs only have so many wafers to go around, so the plain DDR4 memory running your car, your router, and the hospital monitor next to you is the one losing the bidding war.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    HBM's share of global DRAM wafer starts has climbed from roughly 8% in 2024 to about 23% in 2026, as all three major memory makers redirect fab capacity toward it. SK Hynix has reportedly booked its entire 2026 DRAM output; HBM itself is sold out for the year under multiyear deals. Samsung and SK Hynix have each sped up end-of-life plans for DDR4, and Micron told customers in June 2026 that DDR4/LPDDR4 automotive-grade supply will stay tight "beyond 2027." TrendForce pegs conventional DRAM contract prices up roughly 93-98% quarter-over-quarter in Q1 2026 alone — the fastest move on record — and the sectors most exposed (automotive, industrial, medical, defense, networking) typically can't redesign around newer chips quickly, since their parts go through multi-year qualification cycles.
+  </div>
+
+  <div class="card wt-card">
+    <div class="wt-header">
+      <h2 class="wt-title">The wafer tilt: one fab, two tenants, a shrinking floor</h2>
+      <p class="wt-caption mono">Simplified model, anchored to two reported data points: HBM's share of DRAM wafer starts industry-wide (~8% in 2024, ~23% in Q1 2026) and the resulting conventional-DRAM contract-price move (TrendForce reports roughly +93-98% QoQ in Q1 2026). The price curve between those points is an exponential fit, not a measured series — real pricing also depends on demand elasticity and contract terms. Drag the slider or press Run.</p>
+    </div>
+
+    <div class="wt-scene-wrap">
+      <svg class="wt-scene" id="wt-scene" viewBox="0 0 360 220" role="img" aria-label="A 5 by 5 grid of wafer tiles that turns from orange (legacy DRAM) to blue (HBM) as HBM's wafer share rises, next to a vertical bar showing the legacy DRAM price index climbing as that share grows."></svg>
+    </div>
+    <div class="wt-legend">
+      <span><i style="background:var(--accent-a);"></i>Legacy DRAM wafers (DDR4/DDR5)</span>
+      <span><i style="background:var(--accent-b);"></i>HBM wafers (for AI accelerators)</span>
+    </div>
+
+    <div class="wt-controls">
+      <div class="wt-slider-row">
+        <label for="wt-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">HBM wafer share</label>
+        <input type="range" id="wt-slider" min="8" max="23" step="1" value="8" aria-label="HBM share of DRAM wafer starts, 8 to 23 percent" />
+      </div>
+      <button type="button" class="wt-btn wt-primary" id="wt-play">▶ Run</button>
+      <button type="button" class="wt-btn" id="wt-reset">Reset</button>
+    </div>
+
+    <div class="wt-stats">
+      <div class="wt-stat">
+        <div class="wt-stat-label mono">≈Year</div>
+        <div class="wt-stat-value mono" id="wt-stat-year">2024</div>
+      </div>
+      <div class="wt-stat">
+        <div class="wt-stat-label mono">HBM wafer share</div>
+        <div class="wt-stat-value mono" id="wt-stat-share">8%</div>
+      </div>
+      <div class="wt-stat">
+        <div class="wt-stat-label mono">Legacy wafers left</div>
+        <div class="wt-stat-value mono" id="wt-stat-legacy">92%</div>
+      </div>
+      <div class="wt-stat">
+        <div class="wt-stat-label mono">Legacy price index</div>
+        <div class="wt-stat-value mono" id="wt-stat-price">100</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Every electronic device needs short-term memory — the chips (called DRAM) that hold data the processor is actively working with. Your phone has it, but so does your car's brakes-and-battery computer, your home router, and the monitor tracking a patient's heart rate in a hospital. For a decade, a basic version called DDR4 has quietly handled most of that job cheaply and reliably.</p>
+      <p>AI changed the math. Nvidia's newest AI chips need a specialized, much faster memory called HBM — stacked towers of memory dies glued directly onto the same package as the processor, so data can move fast enough to keep a hungry AI model fed. The catch: building HBM eats roughly three times as many silicon wafers (the round discs chips are etched onto) as building the same amount of ordinary memory, because stacking dies on top of each other and wiring them together is a much harder, lower-yield process.</p>
+      <p>Factories can only run so many wafers a month. So when Samsung, SK Hynix, and Micron pour more of their factories into HBM — chasing Nvidia's enormous, high-margin orders — something else has to shrink. That something is DDR4. All three companies have accelerated plans to stop making it, and regular DRAM prices have nearly doubled in a single quarter as a result. Carmakers, hospital-equipment makers, and network-gear builders — none of whom need AI chips — are now stuck bidding against the richest companies on Earth for a shrinking pool of ordinary memory, with no quick way to redesign around it.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>DRAM stores bits as charge on a capacitor per cell and is manufactured on dedicated memory process nodes distinct from logic. High Bandwidth Memory (HBM) re-engineers that same DRAM into vertically stacked dies — up to 12-16 high for HBM4 — connected by through-silicon vias (TSVs) and bonded to a base logic die, then mounted beside a GPU or accelerator on an interposer for much higher bandwidth per pin than a conventional DIMM. Because each stack requires multiple DRAM dies plus TSV drilling, micro-bump bonding, and additional test steps, and because stacking compounds yield loss across layers, TrendForce and other trade analysts estimate HBM consumes roughly three times the wafer starts of conventional DRAM per delivered gigabyte.</p>
+      <p>Industry-wide, HBM's share of total DRAM wafer starts has grown from roughly 8% in 2024 to about 23% in 2026, as Samsung, SK Hynix, and Micron reallocate capacity — largely on shared 1-alpha/1-beta-class nodes — toward HBM4 contracts tied to Nvidia's Rubin platform and other accelerators, which command far higher margins than commodity DRAM. SK Hynix has reportedly booked its entire 2026 DRAM output, and HBM is effectively sold out for the year under multiyear supply agreements. The squeeze surfaces first in legacy nodes: Samsung and SK Hynix have each issued accelerated end-of-life notices for DDR4 (SK Hynix reportedly targeting 1z-nm 8GB/16GB parts for discontinuation around Q2 2026), and Micron told customers in June 2026 that DDR4/LPDDR4 automotive-grade supply will stay constrained "beyond 2027."</p>
+      <p>TrendForce reported conventional DRAM contract prices rising roughly 93-98% quarter-over-quarter in Q1 2026 — the fastest move on record — with enterprise and server-grade modules seeing sharper spikes still (some high-density server DIMM quotes reportedly up to 300%), prompting OEMs including Dell, HP, and Lenovo to pass through 15-20% price increases. Because automotive, industrial, medical, defense, and networking equipment typically qualifies mature DRAM nodes over multi-year cycles, these sectors cannot simply redesign around newer, pricier memory on short notice, leaving them structurally exposed to a shortage industry voices increasingly describe as cyclical no longer, but structural.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> AI's memory diet is winning the bidding war against your car, your hospital's monitors, and your router — and the squeeze has no clear end date.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> a wafer-capacity tradeoff inside three companies' fabs is now setting the price and availability of memory for every industry that isn't buying AI accelerators — with qualification cycles too slow to route around it before 2027-28 at the earliest.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.networkworld.com/article/4113772/samsung-warns-of-memory-shortages-driving-industry-wide-price-surge-in-2026.html" target="_blank" rel="noopener">Network World — Samsung Warns of Memory Shortages Driving Industry-Wide Price Surge in 2026</a></li>
+    <li><a href="https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/01/ai-memory-boom-squeezes-legacy-dram-supply-pushing-prices-higher" target="_blank" rel="noopener">S&amp;P Global Market Intelligence — AI Memory Boom Squeezes Legacy DRAM Supply, Pushing Prices Higher</a></li>
+    <li><a href="https://www.trendforce.com/news/2025/09/02/news-samsung-sk-hynix-reportedly-delay-phase-out-to-2026-as-ddr4-becomes-unexpected-cash-cow/" target="_blank" rel="noopener">TrendForce — Samsung, SK Hynix Reportedly Delay DDR4 Phase-Out to 2026 as It Becomes an Unexpected Cash Cow</a></li>
+    <li><a href="https://www.eetasia.com/automakers-now-competing-with-ai-infra-developers-for-memory-supply/" target="_blank" rel="noopener">EE Times Asia — Automakers Now Competing With AI Infra Developers for Memory Supply</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+
+    var SHARE_MIN = 8, SHARE_MAX = 23;
+    var PRICE_AT_MIN = 100, PRICE_AT_MAX = 198;
+
+    var GRID_COLS = 5, GRID_ROWS = 5, TOTAL_TILES = GRID_COLS * GRID_ROWS;
+    var TILE_SIZE = 32, TILE_GAP = 5;
+    var GRID_X0 = 14, GRID_Y0 = 14;
+
+    var BAR_X = 268, BAR_W = 46;
+    var BAR_BASE_Y = 196, BAR_TOP_Y = 24;
+    var BAR_SCALE_MIN = 80, BAR_SCALE_MAX = 210; // price-index axis range for bar height
+
+    var scene = document.getElementById('wt-scene');
+    var slider = document.getElementById('wt-slider');
+    var playBtn = document.getElementById('wt-play');
+    var resetBtn = document.getElementById('wt-reset');
+    var statYear = document.getElementById('wt-stat-year');
+    var statShare = document.getElementById('wt-stat-share');
+    var statLegacy = document.getElementById('wt-stat-legacy');
+    var statPrice = document.getElementById('wt-stat-price');
+
+    var tiles = [];
+    var priceBar, priceLabel, axisLine, barBaseline;
+
+    function buildScene() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+      tiles = [];
+
+      for (var r = 0; r < GRID_ROWS; r++) {
+        for (var c = 0; c < GRID_COLS; c++) {
+          var rect = document.createElementNS(SVG_NS, 'rect');
+          var x = GRID_X0 + c * (TILE_SIZE + TILE_GAP);
+          var y = GRID_Y0 + r * (TILE_SIZE + TILE_GAP);
+          rect.setAttribute('x', x);
+          rect.setAttribute('y', y);
+          rect.setAttribute('width', TILE_SIZE);
+          rect.setAttribute('height', TILE_SIZE);
+          rect.setAttribute('rx', 4);
+          rect.setAttribute('fill', 'var(--accent-a)');
+          scene.appendChild(rect);
+          tiles.push(rect);
+        }
+      }
+
+      var gridLabel = document.createElementNS(SVG_NS, 'text');
+      gridLabel.setAttribute('x', GRID_X0);
+      gridLabel.setAttribute('y', GRID_Y0 + GRID_ROWS * (TILE_SIZE + TILE_GAP) + 10);
+      gridLabel.setAttribute('class', 'mono');
+      gridLabel.setAttribute('font-size', '8.5');
+      gridLabel.setAttribute('fill', 'var(--muted)');
+      gridLabel.textContent = 'FAB WAFER-START CAPACITY (25 TILES = 100%)';
+      scene.appendChild(gridLabel);
+
+      barBaseline = document.createElementNS(SVG_NS, 'line');
+      barBaseline.setAttribute('x1', BAR_X - 6);
+      barBaseline.setAttribute('y1', BAR_BASE_Y);
+      barBaseline.setAttribute('x2', BAR_X + BAR_W + 6);
+      barBaseline.setAttribute('y2', BAR_BASE_Y);
+      barBaseline.setAttribute('stroke', 'var(--border)');
+      barBaseline.setAttribute('stroke-width', '1');
+      scene.appendChild(barBaseline);
+
+      priceBar = document.createElementNS(SVG_NS, 'rect');
+      priceBar.setAttribute('x', BAR_X);
+      priceBar.setAttribute('width', BAR_W);
+      priceBar.setAttribute('rx', 5);
+      priceBar.setAttribute('fill', 'var(--accent-b)');
+      scene.appendChild(priceBar);
+
+      priceLabel = document.createElementNS(SVG_NS, 'text');
+      priceLabel.setAttribute('x', BAR_X + BAR_W / 2);
+      priceLabel.setAttribute('text-anchor', 'middle');
+      priceLabel.setAttribute('class', 'mono');
+      priceLabel.setAttribute('font-size', '11');
+      priceLabel.setAttribute('font-weight', '700');
+      priceLabel.setAttribute('fill', 'var(--ink)');
+      scene.appendChild(priceLabel);
+
+      var barCaption = document.createElementNS(SVG_NS, 'text');
+      barCaption.setAttribute('x', BAR_X + BAR_W / 2);
+      barCaption.setAttribute('y', BAR_BASE_Y + 14);
+      barCaption.setAttribute('text-anchor', 'middle');
+      barCaption.setAttribute('class', 'mono');
+      barCaption.setAttribute('font-size', '8');
+      barCaption.setAttribute('fill', 'var(--muted)');
+      barCaption.textContent = 'LEGACY DRAM';
+      scene.appendChild(barCaption);
+      var barCaption2 = document.createElementNS(SVG_NS, 'text');
+      barCaption2.setAttribute('x', BAR_X + BAR_W / 2);
+      barCaption2.setAttribute('y', BAR_BASE_Y + 24);
+      barCaption2.setAttribute('text-anchor', 'middle');
+      barCaption2.setAttribute('class', 'mono');
+      barCaption2.setAttribute('font-size', '8');
+      barCaption2.setAttribute('fill', 'var(--muted)');
+      barCaption2.textContent = 'PRICE INDEX';
+      scene.appendChild(barCaption2);
+    }
+
+    function priceForShare(share) {
+      var t = (share - SHARE_MIN) / (SHARE_MAX - SHARE_MIN);
+      return PRICE_AT_MIN * Math.pow(PRICE_AT_MAX / PRICE_AT_MIN, t);
+    }
+
+    function yearLabelForShare(share) {
+      var t = (share - SHARE_MIN) / (SHARE_MAX - SHARE_MIN);
+      if (t <= 0.05) return '2024';
+      if (t >= 0.95) return 'Q1 2026';
+      if (t < 0.5) return '2025';
+      return '2025-26';
+    }
+
+    function render(share) {
+      var hbmTiles = Math.round((share / 100) * TOTAL_TILES);
+      for (var i = 0; i < tiles.length; i++) {
+        tiles[i].setAttribute('fill', i < hbmTiles ? 'var(--accent-b)' : 'var(--accent-a)');
+      }
+
+      var price = priceForShare(share);
+      var clamped = Math.max(BAR_SCALE_MIN, Math.min(BAR_SCALE_MAX, price));
+      var frac = (clamped - BAR_SCALE_MIN) / (BAR_SCALE_MAX - BAR_SCALE_MIN);
+      var barH = frac * (BAR_BASE_Y - BAR_TOP_Y);
+      priceBar.setAttribute('y', BAR_BASE_Y - barH);
+      priceBar.setAttribute('height', Math.max(2, barH));
+      priceLabel.setAttribute('y', BAR_BASE_Y - barH - 8);
+      priceLabel.textContent = Math.round(price);
+
+      statYear.textContent = yearLabelForShare(share);
+      statShare.textContent = share + '%';
+      statLegacy.textContent = (100 - share) + '%';
+      statPrice.textContent = Math.round(price);
+
+      slider.value = String(share);
+    }
+
+    var playTimer = null;
+
+    function stopPlay() {
+      if (playTimer) { clearInterval(playTimer); playTimer = null; }
+      playBtn.disabled = false;
+      playBtn.textContent = '▶ Run';
+    }
+
+    function runPlay() {
+      if (reduceMotion) {
+        render(SHARE_MAX);
+        return;
+      }
+      if (playTimer) return;
+      var cur = SHARE_MIN;
+      render(cur);
+      playBtn.disabled = true;
+      playBtn.textContent = 'Running…';
+      playTimer = setInterval(function () {
+        cur++;
+        render(cur);
+        if (cur >= SHARE_MAX) stopPlay();
+      }, 140);
+    }
+
+    function resetScene() {
+      stopPlay();
+      render(SHARE_MIN);
+    }
+
+    slider.addEventListener('input', function () {
+      stopPlay();
+      render(parseInt(slider.value, 10));
+    });
+    playBtn.addEventListener('click', runPlay);
+    resetBtn.addEventListener('click', resetScene);
+
+    buildScene();
+    if (reduceMotion) {
+      render(SHARE_MAX);
+    } else {
+      render(SHARE_MIN);
+    }
+  })();
+</script>
+</body>
+</html>
