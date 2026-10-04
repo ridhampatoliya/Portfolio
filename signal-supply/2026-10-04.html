@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-04","category":"MARITIME POLICY","headline":"Shipping Carries 90% of World Trade and 3% of Its Carbon. The First Global Price on That Carbon Lost by 8 Votes","summary":"The IMO's first global carbon price on shipping -- up to $380 per tonne CO2e, covering roughly 60,000 cargo ships and 90% of world trade -- was days from final adoption in October 2025. A US-led push got it delayed a year by an 8-vote margin. The rematch is at MEPC 85, Nov 30-Dec 3, 2026.","whyItMatters":"If it survives the redo, it becomes the first mandatory global carbon price touching nearly all seaborne freight -- a new cost line for every chip, server rack, and EV battery that travels by container."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Shipping Carries 90% of World Trade and 3% of Its Carbon. The First Global Price on That Carbon Lost by 8 Votes.</title>
+<meta name="description" content="The IMO's Net-Zero Framework would be the first mandatory global carbon price on an entire transport industry, covering ~60,000 cargo ships. A US-led push adjourned its October 2025 adoption vote by an 8-vote margin; the rematch is at MEPC 85 this November." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c2601c;
+    --accent-a-tint: #f6e4d2;
+    --accent-b: #1b7f8e;
+    --accent-b-tint: #d9eef0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e8a35f;
+      --accent-a-tint: #3a2714;
+      --accent-b: #5fbccf;
+      --accent-b-tint: #122c30;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e8a35f;
+    --accent-a-tint: #3a2714;
+    --accent-b: #5fbccf;
+    --accent-b-tint: #122c30;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c2601c;
+    --accent-a-tint: #f6e4d2;
+    --accent-b: #1b7f8e;
+    --accent-b-tint: #d9eef0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-a);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-a);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the GFI meter --- */
+  .gm-header { margin-bottom: 4px; }
+  .gm-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .gm-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.6;
+  }
+  .gm-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px 8px;
+  }
+  .gm-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 220px;
+  }
+  .gm-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 10.5px;
+    color: var(--muted);
+  }
+  .gm-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .gm-legend i {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .gm-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .gm-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 200px;
+  }
+  .gm-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-b);
+  }
+  .gm-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .gm-btn.gm-primary {
+    background: var(--accent-b);
+    border-color: var(--accent-b);
+    color: #fff;
+  }
+  .gm-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+  .gm-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  @media (max-width: 480px) {
+    .gm-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .gm-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .gm-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .gm-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 13.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 4, 2026</span>
+    <span class="category-chip">MARITIME POLICY</span>
+  </div>
+  <h1>Shipping Carries 90% of World Trade and 3% of Its Carbon. The First Global Price on That Carbon Lost by 8 Votes.</h1>
+  <p class="lede">In April 2025, 63 countries at the UN's shipping body signed off on the outline of a first-of-its-kind idea: a single, mandatory carbon price covering almost every big cargo ship on Earth. Six months later, with final adoption days away, a procedural motion to delay it for a year passed by just 8 votes. The rematch is scheduled for this November — and almost everything that reaches you by container is riding on the outcome.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    The IMO's Net-Zero Framework would be the first mandatory, worldwide carbon price applied to an entire transport sector — not one country's fleet, but roughly 60,000 cargo and tanker ships doing an estimated 85-90% of international shipping's fuel-burning by volume. At an October 2025 extraordinary session in London, a US-led diplomatic campaign helped push through a vote to adjourn, 57 to 49, with 21 abstentions and 8 delegations absent — not a vote against the framework itself, but a procedural one that killed its adoption timeline for a year. Talks resumed via a working-group session September 1-4, 2026; the committee now aims to adopt the framework at MEPC 85, scheduled for November 30-December 3, 2026, with entry into force possible as early as March 2028 if that vote succeeds.
+  </div>
+
+  <div class="card gm-card">
+    <div class="gm-header">
+      <h2 class="gm-title">The GFI meter: where your ship lands sets the price</h2>
+      <p class="gm-caption mono">Drag the slider to set a ship's GHG Fuel Intensity (GFI) — grams of CO2-equivalent per megajoule of fuel, well-to-wake. Thresholds shown are the IMO's published 2028 targets (Direct Compliance 77.44, Base 89.57, against a 2008 baseline of 93.3). The dollar figure assumes an illustrative mid-size containership burning ~150 tonnes of fuel/day over a 14-day voyage (~86,100 GJ total) — real compliance is settled annually across a ship's whole year of fuel use, not per voyage. Press Run to sweep from dirty fuel to clean.</p>
+    </div>
+
+    <div class="gm-scene-wrap">
+      <svg class="gm-scene" id="gm-scene" viewBox="0 0 360 170" role="img" aria-label="A horizontal gauge from 50 to 100 grams CO2 equivalent per megajoule, divided into a surplus zone, a Tier 1 deficit zone priced at 100 dollars per tonne, and a Tier 2 deficit zone priced at 380 dollars per tonne, with a marker showing the current value."></svg>
+    </div>
+    <div class="gm-legend">
+      <span><i style="background:var(--accent-b);"></i>Surplus — earns tradable credit</span>
+      <span><i style="background:var(--accent-a);"></i>Tier 1 deficit — $100/t CO2e</span>
+      <span><i style="background:var(--ink);"></i>Tier 2 deficit — $380/t CO2e</span>
+    </div>
+
+    <div class="gm-controls">
+      <div class="gm-slider-row">
+        <label for="gm-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">Ship's GFI</label>
+        <input type="range" id="gm-slider" min="50" max="100" step="0.5" value="85" aria-label="Ship GHG Fuel Intensity, 50 to 100 grams CO2 equivalent per megajoule" />
+      </div>
+      <button type="button" class="gm-btn gm-primary" id="gm-play">▶ Run sweep</button>
+      <button type="button" class="gm-btn" id="gm-reset">Reset</button>
+    </div>
+
+    <div class="gm-stats">
+      <div class="gm-stat">
+        <div class="gm-stat-label mono">GFI</div>
+        <div class="gm-stat-value mono" id="gm-stat-gfi">85.0</div>
+      </div>
+      <div class="gm-stat">
+        <div class="gm-stat-label mono">Zone</div>
+        <div class="gm-stat-value mono" id="gm-stat-zone">Tier 1</div>
+      </div>
+      <div class="gm-stat">
+        <div class="gm-stat-label mono">Price signal</div>
+        <div class="gm-stat-value mono" id="gm-stat-price">$100/t</div>
+      </div>
+      <div class="gm-stat">
+        <div class="gm-stat-label mono">Est. voyage cost</div>
+        <div class="gm-stat-value mono" id="gm-stat-fee">$65,092</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture every big cargo ship on Earth — all roughly 60,000 container ships, tankers, and bulk carriers over about 5,000 gross tons — facing the same rule, enforced by the same global body, at the same time. That's what the United Nations' shipping agency, the IMO, tried to lock in during 2025: not a speed limit, but a cleanliness limit, measured by how much carbon pollution a ship's fuel produces per unit of energy it burns.</p>
+      <p>Here's the plain mechanic. Every ship gets an annual target for its fuel's carbon intensity — think miles-per-gallon, but for emissions instead of distance. There are actually two targets, a tough one and a looser one. Beat the tough target and you earn a tradable credit. Miss the looser one and you owe real money: $100 for every excess tonne of CO2-equivalent at first, jumping to $380 a tonne for the worst offenders. That money is meant to flow into a new global fund that helps pay for cleaner marine fuels and supports poorer countries during the switch.</p>
+      <p>It would be the first time any UN agency has put a mandatory, worldwide price on carbon for an entire transport industry, binding on nearly every large cargo ship everywhere, all at once. About 90% of the physical goods you own — the phone, the laptop, the car parts, the server racks behind every AI chatbot — crossed an ocean to get to you. This fee, if it survives, rides quietly along on that freight bill.</p>
+      <p>In October 2025, with final sign-off just days away, the United States led a push to delay the whole thing — and won, by a margin of just 8 votes out of roughly 135 cast. The world's governments reconvene this winter to try again.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The mechanism is the IMO's Net-Zero Framework, approved in principle by 63 states at MEPC 83 (April 2025) as draft amendments to MARPOL Annex VI. It sets annual GHG Fuel Intensity (GFI) targets — grams of CO2-equivalent per megajoule of fuel energy, measured well-to-wake — against a 2008 industry-average baseline of 93.3 gCO2e/MJ. Each compliance year carries two targets: a stricter Direct Compliance Target and a looser Base Target. For 2028, the first enforcement year, those sit at 77.44 and 89.57 gCO2e/MJ (17.0% and 4.0% below baseline respectively), tightening on a published schedule — 73.71/85.84 in 2030, 53.18/65.31 by 2035 — consistent with the IMO's 2050 net-zero goal.</p>
+      <p>A ship whose annual fleet-weighted GFI lands between the two targets incurs a Tier 1 deficit, covered with Tier 1 Remedial Units priced at a fixed $100 per tonne CO2-equivalent through 2030. A ship that misses even the looser Base Target incurs a steeper Tier 2 deficit on the additional gap, priced at $380 per tonne. Ships that beat the Direct Compliance Target generate tradable Surplus Units, bankable for two years, sellable to deficit ships or contributable to the IMO's new Net-Zero Fund — estimated by framework proponents to raise on the order of $10 billion annually at full implementation, earmarked for zero/near-zero fuel R&amp;D (green methanol, ammonia, biofuels) and support for Least Developed and Small Island Developing States.</p>
+      <p>Coverage: ships over 5,000 gross tonnage on international voyages, an estimated 60,000-vessel fleet responsible for roughly 85-90% of international shipping's fuel use, in a sector emitting on the order of 3% of global CO2 — more in a year than Germany. Formal adoption needed an October 14-17, 2025 extraordinary MEPC session; instead, a procedural motion to adjourn by a year passed 57 to 49 (21 abstentions, 8 absent), after a reported US diplomatic campaign — including threatened tariffs and port-fee retaliation against supportive flag states — joined by Saudi Arabia and others citing competitiveness concerns. A working group met September 1-4, 2026; adoption will be retried at MEPC 85 (November 30-December 3, 2026). If it passes, tacit-acceptance procedure puts earliest entry into force around March 1, 2028.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> if this fee survives the redo, it becomes the first line item every ocean-shipped chip, server rack, and EV battery quietly pays toward decarbonizing the ship that carried it — and the industry has six weeks to find out whether that's real or delayed another year.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> a $100-380/tCO2e global compliance cost would be the first mandatory carbon price touching nearly all seaborne freight — a new, structural line in landed cost for every fab tool, server rack, and battery pack that travels by container, and a template the aviation and trucking sectors are both watching.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.seatrade-maritime.com/regulations/imo-delays-adoption-of-net-zero-framework-by-year" target="_blank" rel="noopener">Seatrade Maritime — IMO Delays Adoption of Net Zero Framework by a Year</a></li>
+    <li><a href="https://www.dnv.com/news/2025/decision-on-the-imo-net-zero-framework-delayed-for-one-year/" target="_blank" rel="noopener">DNV — Decision on the IMO Net-Zero Framework Delayed for One Year</a></li>
+    <li><a href="https://www.carbonbrief.org/qa-how-countries-got-the-global-net-zero-shipping-deal-back-on-track/" target="_blank" rel="noopener">Carbon Brief — Q&amp;A: How Countries Got the Global Net-Zero Shipping Deal Back on Track</a></li>
+    <li><a href="https://www.velaw.com/insights/international-maritime-organization-approves-carbon-credit-scheme-for-shipping/" target="_blank" rel="noopener">Vinson &amp; Elkins — International Maritime Organization Approves Carbon Credit Scheme for Shipping</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+
+    var GFI_MIN = 50, GFI_MAX = 100;
+    var DCT = 77.44, BT = 89.57, BASELINE = 93.3;
+    var TIER1_PRICE = 100, TIER2_PRICE = 380;
+    var FUEL_PER_DAY = 150, VOYAGE_DAYS = 14, MJ_PER_TONNE = 41000;
+    var TOTAL_MJ = FUEL_PER_DAY * VOYAGE_DAYS * MJ_PER_TONNE;
+
+    var AX0 = 22, AX1 = 338, AY = 78;
+
+    var scene = document.getElementById('gm-scene');
+    var slider = document.getElementById('gm-slider');
+    var playBtn = document.getElementById('gm-play');
+    var resetBtn = document.getElementById('gm-reset');
+    var statGfi = document.getElementById('gm-stat-gfi');
+    var statZone = document.getElementById('gm-stat-zone');
+    var statPrice = document.getElementById('gm-stat-price');
+    var statFee = document.getElementById('gm-stat-fee');
+
+    var marker, markerLine, markerLabel;
+
+    function xAt(gfi) {
+      var t = (gfi - GFI_MIN) / (GFI_MAX - GFI_MIN);
+      return AX0 + t * (AX1 - AX0);
+    }
+
+    function el(tag, attrs, text) {
+      var e = document.createElementNS(SVG_NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      if (text !== undefined) e.textContent = text;
+      scene.appendChild(e);
+      return e;
+    }
+
+    function buildScene() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+
+      var xDct = xAt(DCT), xBt = xAt(BT), xBase = xAt(BASELINE);
+
+      el('rect', { x: AX0, y: AY - 14, width: xDct - AX0, height: 28, rx: 6, fill: 'var(--accent-b)', opacity: '0.85' });
+      el('rect', { x: xDct, y: AY - 14, width: xBt - xDct, height: 28, fill: 'var(--accent-a)', opacity: '0.85' });
+      el('rect', { x: xBt, y: AY - 14, width: AX1 - xBt, height: 28, rx: 6, fill: 'var(--ink)', opacity: '0.72' });
+
+      el('line', { x1: xDct, y1: AY - 22, x2: xDct, y2: AY + 22, stroke: 'var(--surface)', 'stroke-width': '1.5' });
+      el('line', { x1: xBt, y1: AY - 22, x2: xBt, y2: AY + 22, stroke: 'var(--surface)', 'stroke-width': '1.5' });
+      el('text', { x: xDct, y: AY + 36, 'text-anchor': 'middle', class: 'mono', 'font-size': '8', fill: 'var(--muted)' }, 'DCT 77.44');
+      el('text', { x: xBt, y: AY + 36, 'text-anchor': 'middle', class: 'mono', 'font-size': '8', fill: 'var(--muted)' }, 'BASE 89.57');
+
+      el('line', { x1: xBase, y1: AY - 26, x2: xBase, y2: AY + 26, stroke: 'var(--muted)', 'stroke-width': '1', 'stroke-dasharray': '2,2' });
+      el('text', { x: xBase, y: AY - 30, 'text-anchor': 'middle', class: 'mono', 'font-size': '8', fill: 'var(--muted)' }, '2008 baseline 93.3');
+
+      el('text', { x: AX0, y: AY + 54, 'text-anchor': 'start', class: 'mono', 'font-size': '8.5', fill: 'var(--muted)' }, '50 — clean fuel');
+      el('text', { x: AX1, y: AY + 54, 'text-anchor': 'end', class: 'mono', 'font-size': '8.5', fill: 'var(--muted)' }, '100 — dirty fuel');
+
+      markerLine = el('line', { x1: AX0, y1: AY - 30, x2: AX0, y2: AY + 30, stroke: 'var(--ink)', 'stroke-width': '2' });
+      marker = el('polygon', { points: '0,0 7,10 -7,10', fill: 'var(--ink)' });
+      markerLabel = el('text', { x: AX0, y: AY - 34, 'text-anchor': 'middle', class: 'mono', 'font-size': '10', 'font-weight': '700', fill: 'var(--ink)' }, '85.0');
+    }
+
+    function zoneFor(gfi) {
+      if (gfi <= DCT) return 'surplus';
+      if (gfi <= BT) return 'tier1';
+      return 'tier2';
+    }
+
+    function computeFee(gfi) {
+      if (gfi <= DCT) {
+        var surplusTonnes = (DCT - gfi) * TOTAL_MJ / 1e6;
+        return { zone: 'surplus', fee: 0, tonnes: surplusTonnes };
+      }
+      var tier1Gap = Math.min(gfi, BT) - DCT;
+      var tier1Tonnes = tier1Gap * TOTAL_MJ / 1e6;
+      var tier1Fee = tier1Tonnes * TIER1_PRICE;
+      var tier2Fee = 0, tier2Tonnes = 0;
+      if (gfi > BT) {
+        tier2Tonnes = (gfi - BT) * TOTAL_MJ / 1e6;
+        tier2Fee = tier2Tonnes * TIER2_PRICE;
+      }
+      return { zone: gfi > BT ? 'tier2' : 'tier1', fee: tier1Fee + tier2Fee, tier1Tonnes: tier1Tonnes, tier2Tonnes: tier2Tonnes };
+    }
+
+    function fmtMoney(n) {
+      return '$' + Math.round(n).toLocaleString('en-US');
+    }
+
+    function render(gfi) {
+      var x = xAt(gfi);
+      markerLine.setAttribute('x1', x);
+      markerLine.setAttribute('x2', x);
+      marker.setAttribute('transform', 'translate(' + x + ',' + (AY - 30) + ')');
+      markerLabel.setAttribute('x', x);
+      markerLabel.textContent = gfi.toFixed(1);
+
+      var result = computeFee(gfi);
+      statGfi.textContent = gfi.toFixed(1);
+
+      if (result.zone === 'surplus') {
+        statZone.textContent = 'Surplus';
+        statZone.style.color = 'var(--accent-b)';
+        statPrice.textContent = '+credit';
+        statFee.textContent = '+' + Math.round(result.tonnes).toLocaleString('en-US') + ' t CO2e';
+      } else if (result.zone === 'tier1') {
+        statZone.textContent = 'Tier 1';
+        statZone.style.color = 'var(--accent-a)';
+        statPrice.textContent = '$100/t';
+        statFee.textContent = fmtMoney(result.fee);
+      } else {
+        statZone.textContent = 'Tier 2';
+        statZone.style.color = 'var(--ink)';
+        statPrice.textContent = '$100 + $380/t';
+        statFee.textContent = fmtMoney(result.fee);
+      }
+
+      slider.value = String(gfi);
+    }
+
+    var playTimer = null;
+
+    function stopPlay() {
+      if (playTimer) { clearInterval(playTimer); playTimer = null; }
+      playBtn.disabled = false;
+      playBtn.textContent = '▶ Run sweep';
+    }
+
+    function runPlay() {
+      if (reduceMotion) {
+        render(GFI_MIN);
+        return;
+      }
+      if (playTimer) return;
+      var cur = GFI_MAX;
+      render(cur);
+      playBtn.disabled = true;
+      playBtn.textContent = 'Running…';
+      playTimer = setInterval(function () {
+        cur -= 1;
+        if (cur <= GFI_MIN) { cur = GFI_MIN; render(cur); stopPlay(); return; }
+        render(cur);
+      }, 90);
+    }
+
+    function resetScene() {
+      stopPlay();
+      render(85);
+    }
+
+    slider.addEventListener('input', function () {
+      stopPlay();
+      render(parseFloat(slider.value));
+    });
+    playBtn.addEventListener('click', runPlay);
+    resetBtn.addEventListener('click', resetScene);
+
+    buildScene();
+    render(85);
+  })();
+</script>
+</body>
+</html>
