@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-05","category":"CHIP TARIFFS","headline":"TSMC's Arizona Wafers Cost About 10% More to Make Than Taiwan's. A Threatened 200% Tariff Just Made Taiwan the Expensive Option","summary":"TSMC's Arizona investment is already $265 billion, up from $12 billion in 2020. Reports this week say its board is weighing a second US hub near Dallas with up to six more fabs -- because a 200% tariff threat dwarfs the mere 10% cost of building in America instead of Taiwan.","whyItMatters":"A tariff doesn't just tax a chip -- it taxes everything built on top of it, and TSMC is now pricing that risk into where it builds its most advanced factories."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — TSMC's Arizona Wafers Cost About 10% More to Make Than Taiwan's. A Threatened 200% Tariff Just Made Taiwan the Expensive Option.</title>
+<meta name="description" content="TSMC's confirmed US investment has grown from $12B to $265B since 2020, and reports say its board is weighing a second Texas hub that could top that again. Here's the cost math -- a ~10% operating premium in Arizona versus a threatened 200% tariff on Taiwan-made chips -- that explains why." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c23b22;
+    --accent-a-tint: #f7ddd4;
+    --accent-b: #2e6f9e;
+    --accent-b-tint: #dce8f0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e8765a;
+      --accent-a-tint: #3a1f16;
+      --accent-b: #6fa8d6;
+      --accent-b-tint: #15232e;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e8765a;
+    --accent-a-tint: #3a1f16;
+    --accent-b: #6fa8d6;
+    --accent-b-tint: #15232e;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c23b22;
+    --accent-a-tint: #f7ddd4;
+    --accent-b: #2e6f9e;
+    --accent-b-tint: #dce8f0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-a);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-a);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the tariff-math bars --- */
+  .tm-header { margin-bottom: 4px; }
+  .tm-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .tm-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.6;
+  }
+  .tm-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px 8px;
+  }
+  .tm-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 230px;
+  }
+  .tm-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 10.5px;
+    color: var(--muted);
+  }
+  .tm-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .tm-legend i {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .tm-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .tm-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 200px;
+  }
+  .tm-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-a);
+  }
+  .tm-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .tm-btn.tm-primary {
+    background: var(--accent-a);
+    border-color: var(--accent-a);
+    color: #fff;
+  }
+  .tm-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+  .tm-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  @media (max-width: 480px) {
+    .tm-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .tm-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .tm-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .tm-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 13.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 5, 2026</span>
+    <span class="category-chip">CHIP TARIFFS</span>
+  </div>
+  <h1>TSMC's Arizona Wafers Cost About 10% More to Make Than Taiwan's. A Threatened 200% Tariff Just Made Taiwan the Expensive Option.</h1>
+  <p class="lede">TSMC has pledged $265 billion to Arizona — more than 20 times its original 2020 commitment — and reports this week say its board is now weighing a second American hub near Dallas, with as many as six more fabs, potentially topping everything it's already promised. Nothing is signed. But the arithmetic behind the idea is almost embarrassingly simple: an independent cost study puts the extra expense of actually running a finished Arizona fab at only about 10% above Taiwan. A tariff threatened at up to 200% erases that gap at the first percentage point past ten.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    TSMC's confirmed US commitment has grown in four jumps since 2020 — $12B → $40B (2022) → $65B (2024) → $165B (March 2025) → $265B (July 2026) — funding at least seven logic fabs plus CoWoS advanced-packaging plants once built out. A separate, unconfirmed plan reported by TrendForce, Bloomberg and others in late September 2026 would add a second hub near Dallas with up to six more fabs, a sum that could exceed everything already committed to Arizona. As of this week, TSMC's board had not approved it and suppliers had not been told to prepare — a plan still being modeled, not executed.
+  </div>
+
+  <div class="card tm-card">
+    <div class="tm-header">
+      <h2 class="tm-title">Tariff math: when does "more expensive to build" flip?</h2>
+      <p class="tm-caption mono">Drag the slider to set a hypothetical tariff on chips made outside the US. The Taiwan bar is a landed-cost index starting at 100 and rising with the tariff; the Arizona bar is fixed at 110, reflecting TechInsights' ~10% estimate of Arizona's ongoing per-wafer processing premium over Taiwan. Simplified: this ignores the separate, much larger one-time construction-cost premium (roughly 40-100% by recent estimates, amortized over a fab's 15-20 year life) and applies regardless of tariffs. Press Run to sweep from 0% to 200%.</p>
+    </div>
+
+    <div class="tm-scene-wrap">
+      <svg class="tm-scene" id="tm-scene" viewBox="0 0 360 180" role="img" aria-label="Two bar chart comparing a landed cost index for Taiwan-made chips under a rising tariff against a fixed cost index for Arizona-made chips, with the bars crossing over around a ten percent tariff."></svg>
+    </div>
+    <div class="tm-legend">
+      <span><i style="background:var(--accent-b);"></i>Taiwan-made, landed in US (100 + tariff)</span>
+      <span><i style="background:var(--accent-a);"></i>Arizona-made (fixed, ~10% operating premium)</span>
+    </div>
+
+    <div class="tm-controls">
+      <div class="tm-slider-row">
+        <label for="tm-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">Tariff rate</label>
+        <input type="range" id="tm-slider" min="0" max="200" step="1" value="40" aria-label="Tariff rate on non-US-made chips, 0 to 200 percent" />
+      </div>
+      <button type="button" class="tm-btn tm-primary" id="tm-play">▶ Run sweep</button>
+      <button type="button" class="tm-btn" id="tm-reset">Reset</button>
+    </div>
+
+    <div class="tm-stats">
+      <div class="tm-stat">
+        <div class="tm-stat-label mono">Tariff</div>
+        <div class="tm-stat-value mono" id="tm-stat-tariff">40%</div>
+      </div>
+      <div class="tm-stat">
+        <div class="tm-stat-label mono">Taiwan landed</div>
+        <div class="tm-stat-value mono" id="tm-stat-taiwan">140</div>
+      </div>
+      <div class="tm-stat">
+        <div class="tm-stat-label mono">Arizona cost</div>
+        <div class="tm-stat-value mono" id="tm-stat-arizona">110</div>
+      </div>
+      <div class="tm-stat">
+        <div class="tm-stat-label mono">Cheaper option</div>
+        <div class="tm-stat-value mono" id="tm-stat-winner">Arizona</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Imagine you're the world's most important chipmaker, and the US government just told you: build more of your factories here, or we'll tax every chip you make somewhere else by up to 200%. That's roughly the position TSMC is in right now. The Taiwanese company already agreed to spend $265 billion building chip factories ("fabs") in Arizona — a number that's grown in four jumps since a $12 billion starting pledge in 2020. Now, according to multiple reports this week, TSMC's board is weighing something even bigger: a second American hub near Dallas, Texas, with as many as six more fabs, in a deal that could top everything it's already promised Arizona. Nothing is signed yet — TSMC hasn't told its suppliers to start preparing, a sign the decision isn't final.</p>
+      <p>Why would a company keep doubling down on a place that's genuinely pricier to build in? Actually constructing a fab in Arizona runs roughly 40-100% more than building the same plant in Taiwan, thanks to higher labor costs, permitting, and the fact that TSMC is importing an entire supply ecosystem that took Taiwan 40 years to grow. But the ongoing cost of running the finished factory and actually making wafers is only about 10% higher, according to an independent teardown-based study. That 10% number used to be TSMC's whole argument for keeping its best technology mostly in Taiwan. A 200% tariff threat erases that math instantly — at any tariff rate above roughly 10%, a tariffed Taiwan-made chip costs more landed in the US than one simply made in Arizona.</p>
+      <p>The bigger picture: around three-quarters of TSMC's revenue already comes from US customers — Nvidia, Apple, AMD, Intel. A tariff doesn't just tax a chip; it taxes everything built on top of it, from an iPhone to a server rack. TSMC weighing a second American mega-campus is less a vote of confidence in US manufacturing than a hedge against a tax nobody wants to find out is real.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>TSMC's US buildout is now a two-tier commitment. The confirmed tier: starting from a $12B pledge in 2020, expanded to $40B (2022), $65B (2024), and $165B in March 2025 — then boosted by a further $100B in July 2026 to an officially confirmed $265B. That funds Fab 21's multiple phases (N4 in high-volume production since Q4 2024, N3 targeted for 2H 2027, N2/A16 capacity planned by decade's end), at least four additional 2nm-class fabs committed in the July 2026 round, two CoWoS advanced-packaging facilities, and an R&amp;D center — the packaging capacity aimed squarely at the CoWoS bottleneck in HBM-stacked AI accelerator packages, not raw wafer starts.</p>
+      <p>The unconfirmed tier, reported by TrendForce, Bloomberg and SemiWiki in late September/early October 2026: TSMC is evaluating a second US hub, likely near Dallas, with up to six additional fabs and a price tag that could exceed the entire $265B already committed to Arizona. As of this week, TSMC's board had not approved the plan and suppliers had not been notified to prepare — standard signals that a mega-capex decision is still in internal modeling, not execution.</p>
+      <p>The economics explain the urgency. TechInsights' teardown-based cost study puts TSMC Arizona's per-wafer processing cost at only roughly 10% above Fab 15 in Taiwan — a gap narrow enough that a credible 200% tariff on non-US-made chips, floated by the Trump administration against firms that don't reshore, makes offshore production the irrational choice on pure landed cost, independent of the much larger one-time construction premium (roughly 40-100% by recent estimates, with earlier TSMC statements citing figures as high as 4-5x in the early capex-heavy phase) that gets amortized over a fab's 15-20 year operating life. With roughly 75.6% of TSMC's H1 2026 revenue already US-customer-driven, the firm is pricing a tariff regime in as a structural input rather than treating it as a bluff — turning fab siting into a tariff-arbitrage calculation as much as an industrial-policy one.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> a tariff doesn't just tax a chip — it taxes everything built on top of it, and TSMC is now pricing that risk into where it builds its most advanced factories.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> fab siting is becoming a tariff-arbitrage calculation as much as an industrial-policy one — with US customers already driving the bulk of TSMC's revenue, the firm is hedging against enacted tariffs, not merely lobbying against them.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.trendforce.com/news/2026/09/29/news-tsmc-reportedly-eyes-texas-expansion-that-could-top-us265b-vis-nxp-mulls-second-singapore-fab/" target="_blank" rel="noopener">TrendForce — TSMC Reportedly Eyes Texas Expansion That Could Top US$265B</a></li>
+    <li><a href="https://www.trendforce.com/news/2026/07/16/news-tsmc-boosts-arizona-investment-by-us100b-plans-4-more-fabs-for-2nm-and-advanced-packaging/" target="_blank" rel="noopener">TrendForce — TSMC Boosts Arizona Investment by US$100B, Plans 4 More Fabs for 2nm and Advanced Packaging</a></li>
+    <li><a href="https://www.tomshardware.com/tech-industry/producing-wafers-at-tsmc-arizona-is-only-10-percent-more-expensive-than-in-taiwan-techinsights" target="_blank" rel="noopener">Tom's Hardware — Producing Wafers at TSMC Arizona Is Only 10% More Expensive Than in Taiwan: TechInsights</a></li>
+    <li><a href="https://semiwiki.com/forum/threads/tsmc-weighs-adding-six-more-fabs-in-dallas-texas-after-arizona.25968/" target="_blank" rel="noopener">SemiWiki — TSMC Weighs Adding Six More Fabs in Dallas, Texas, After Arizona</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+
+    var TARIFF_MIN = 0, TARIFF_MAX = 200;
+    var BASE_INDEX = 100, ARIZONA_INDEX = 110;
+    var MAX_VALUE = BASE_INDEX * (1 + TARIFF_MAX / 100); // 300
+    var CHART_MAX = 320; // headroom above 300
+
+    var AY0 = 20, AY1 = 134; // chart top/bottom in svg coords
+    var BAR_W = 64;
+    var TAIWAN_X = 70, ARIZONA_X = 220;
+
+    var scene = document.getElementById('tm-scene');
+    var slider = document.getElementById('tm-slider');
+    var playBtn = document.getElementById('tm-play');
+    var resetBtn = document.getElementById('tm-reset');
+    var statTariff = document.getElementById('tm-stat-tariff');
+    var statTaiwan = document.getElementById('tm-stat-taiwan');
+    var statArizona = document.getElementById('tm-stat-arizona');
+    var statWinner = document.getElementById('tm-stat-winner');
+
+    var taiwanBar, taiwanLabel, arizonaBar, arizonaLabel, baseline, baselineLabel, breakevenMark;
+
+    function yFor(value) {
+      var t = value / CHART_MAX;
+      return AY1 - t * (AY1 - AY0);
+    }
+
+    function el(tag, attrs, text) {
+      var e = document.createElementNS(SVG_NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      if (text !== undefined) e.textContent = text;
+      scene.appendChild(e);
+      return e;
+    }
+
+    function buildScene() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+
+      el('line', { x1: 24, y1: AY1, x2: 336, y2: AY1, stroke: 'var(--border)', 'stroke-width': '1' });
+
+      var yArizona = yFor(ARIZONA_INDEX);
+      baseline = el('line', { x1: 24, y1: yArizona, x2: 336, y2: yArizona, stroke: 'var(--accent-a)', 'stroke-width': '1', 'stroke-dasharray': '3,3', opacity: '0.55' });
+      baselineLabel = el('text', { x: 177, y: yArizona - 6, 'text-anchor': 'middle', class: 'mono', 'font-size': '8', fill: 'var(--accent-a)' }, 'Arizona line — 110');
+
+      var yBreakeven = yFor(ARIZONA_INDEX);
+      breakevenMark = el('text', { x: 24, y: AY0 - 6, 'text-anchor': 'start', class: 'mono', 'font-size': '8.5', fill: 'var(--muted)' }, 'Breakeven tariff: ~10%');
+
+      taiwanBar = el('rect', { x: TAIWAN_X, y: AY1, width: BAR_W, height: 0, rx: 5, fill: 'var(--accent-b)' });
+      taiwanLabel = el('text', { x: TAIWAN_X + BAR_W / 2, y: AY1, 'text-anchor': 'middle', class: 'mono', 'font-size': '11', 'font-weight': '700', fill: 'var(--ink)' }, '100');
+      el('text', { x: TAIWAN_X + BAR_W / 2, y: AY1 + 18, 'text-anchor': 'middle', class: 'mono', 'font-size': '8.5', fill: 'var(--muted)' }, 'Taiwan, landed');
+
+      arizonaBar = el('rect', { x: ARIZONA_X, y: AY1, width: BAR_W, height: 0, rx: 5, fill: 'var(--accent-a)' });
+      arizonaLabel = el('text', { x: ARIZONA_X + BAR_W / 2, y: AY1, 'text-anchor': 'middle', class: 'mono', 'font-size': '11', 'font-weight': '700', fill: 'var(--ink)' }, '110');
+      el('text', { x: ARIZONA_X + BAR_W / 2, y: AY1 + 18, 'text-anchor': 'middle', class: 'mono', 'font-size': '8.5', fill: 'var(--muted)' }, 'Arizona, built-in-US');
+    }
+
+    function render(tariff) {
+      var taiwanValue = BASE_INDEX * (1 + tariff / 100);
+      var yTaiwan = yFor(taiwanValue);
+      var yArizona = yFor(ARIZONA_INDEX);
+
+      taiwanBar.setAttribute('y', yTaiwan);
+      taiwanBar.setAttribute('height', Math.max(0, AY1 - yTaiwan));
+      taiwanLabel.setAttribute('y', Math.max(AY0 + 10, yTaiwan - 8));
+      taiwanLabel.textContent = Math.round(taiwanValue);
+
+      arizonaBar.setAttribute('y', yArizona);
+      arizonaBar.setAttribute('height', Math.max(0, AY1 - yArizona));
+      arizonaLabel.setAttribute('y', yArizona - 8);
+      arizonaLabel.textContent = ARIZONA_INDEX;
+
+      var cheaper = taiwanValue <= ARIZONA_INDEX ? 'taiwan' : 'arizona';
+      taiwanBar.setAttribute('opacity', cheaper === 'taiwan' ? '1' : '0.55');
+      arizonaBar.setAttribute('opacity', cheaper === 'arizona' ? '1' : '0.55');
+
+      statTariff.textContent = Math.round(tariff) + '%';
+      statTaiwan.textContent = Math.round(taiwanValue);
+      statArizona.textContent = ARIZONA_INDEX;
+      statWinner.textContent = cheaper === 'taiwan' ? 'Taiwan' : 'Arizona';
+      statWinner.style.color = cheaper === 'taiwan' ? 'var(--accent-b)' : 'var(--accent-a)';
+
+      slider.value = String(tariff);
+    }
+
+    var playTimer = null;
+
+    function stopPlay() {
+      if (playTimer) { clearInterval(playTimer); playTimer = null; }
+      playBtn.disabled = false;
+      playBtn.textContent = '▶ Run sweep';
+    }
+
+    function runPlay() {
+      if (reduceMotion) {
+        render(TARIFF_MAX);
+        return;
+      }
+      if (playTimer) return;
+      var cur = TARIFF_MIN;
+      render(cur);
+      playBtn.disabled = true;
+      playBtn.textContent = 'Running…';
+      playTimer = setInterval(function () {
+        cur += 4;
+        if (cur >= TARIFF_MAX) { cur = TARIFF_MAX; render(cur); stopPlay(); return; }
+        render(cur);
+      }, 60);
+    }
+
+    function resetScene() {
+      stopPlay();
+      render(40);
+    }
+
+    slider.addEventListener('input', function () {
+      stopPlay();
+      render(parseFloat(slider.value));
+    });
+    playBtn.addEventListener('click', runPlay);
+    resetBtn.addEventListener('click', resetScene);
+
+    buildScene();
+    render(40);
+  })();
+</script>
+</body>
+</html>
