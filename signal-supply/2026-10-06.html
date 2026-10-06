@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-06","category":"AUTONOMOUS FREIGHT","headline":"A Federal Rule Caps Truckers at 11 Hours a Day. Aurora's Driverless Trucks Just Logged 225,000 Miles a Year Ignoring It — and Wall Street Shrugged","summary":"Aurora's driverless trucks are clocking 225,000+ miles a year each -- more than double a human driver's output -- because they're exempt from the federal rule capping truckers at 11 hours a day. Aurora wants 30,000 running by 2030. Investors are still skeptical of the economics.","whyItMatters":"The hard problem in self-driving freight was never just the AI -- it's a 1930s-era rest rule, and removing it is worth more to a carrier's bottom line than any single sensor upgrade."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — A Federal Rule Caps Truckers at 11 Hours a Day. Aurora's Driverless Trucks Just Logged 225,000 Miles a Year Ignoring It — and Wall Street Shrugged.</title>
+<meta name="description" content="Aurora's driverless trucks are already running 225,000+ miles a year each -- more than double a human-driven rig -- because they're exempt from the federal rule capping truckers at 11 hours a day. Aurora wants 30,000 of them on the road by 2030. Wall Street still isn't sold on the math." />
+<style>
+  :root {
+    --bg: #f2f0ea;
+    --surface: #ffffff;
+    --ink: #181410;
+    --muted: #6b6458;
+    --border: #e1dcd1;
+    --accent-a: #a85d12;
+    --accent-a-tint: #f3e2c9;
+    --accent-b: #30538f;
+    --accent-b-tint: #dde4f0;
+    --shadow: 0 1px 2px rgba(24, 20, 16, 0.04), 0 8px 24px rgba(24, 20, 16, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e0c09;
+      --surface: #1a1611;
+      --ink: #f3efe8;
+      --muted: #a89f90;
+      --border: #2c2620;
+      --accent-a: #e2a254;
+      --accent-a-tint: #352714;
+      --accent-b: #8aa8e0;
+      --accent-b-tint: #1b2436;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e0c09;
+    --surface: #1a1611;
+    --ink: #f3efe8;
+    --muted: #a89f90;
+    --border: #2c2620;
+    --accent-a: #e2a254;
+    --accent-a-tint: #352714;
+    --accent-b: #8aa8e0;
+    --accent-b-tint: #1b2436;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #f2f0ea;
+    --surface: #ffffff;
+    --ink: #181410;
+    --muted: #6b6458;
+    --border: #e1dcd1;
+    --accent-a: #a85d12;
+    --accent-a-tint: #f3e2c9;
+    --accent-b: #30538f;
+    --accent-b-tint: #dde4f0;
+    --shadow: 0 1px 2px rgba(24, 20, 16, 0.04), 0 8px 24px rgba(24, 20, 16, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-a);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-a);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the hours-of-service race --- */
+  .hos-header { margin-bottom: 4px; }
+  .hos-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .hos-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.6;
+  }
+  .hos-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px 8px;
+  }
+  .hos-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 190px;
+  }
+  .hos-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 10.5px;
+    color: var(--muted);
+  }
+  .hos-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .hos-legend i {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .hos-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .hos-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 200px;
+  }
+  .hos-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-a);
+  }
+  .hos-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .hos-btn.hos-primary {
+    background: var(--accent-a);
+    border-color: var(--accent-a);
+    color: #fff;
+  }
+  .hos-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+  .hos-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  @media (max-width: 480px) {
+    .hos-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .hos-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .hos-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .hos-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 13.5px;
+  }
+  .hos-note {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 14px 0 0;
+    line-height: 1.6;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 6, 2026</span>
+    <span class="category-chip">AUTONOMOUS FREIGHT</span>
+  </div>
+  <h1>A Federal Rule Caps Truckers at 11 Hours a Day. Aurora's Driverless Trucks Just Logged 225,000 Miles a Year Ignoring It — and Wall Street Shrugged.</h1>
+  <p class="lede">On September 23, Aurora Innovation told Wall Street its driverless 18-wheelers are already running more than double the annual miles of a human-driven rig — and laid out a plan to put 30,000 of them on US highways by 2030, pulling in over $5 billion a year. The stock fell about 10% that same day.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Aurora's driverless trucks have been hauling real freight since April 2025 on routes linking Fort Worth, El Paso, Phoenix and Houston, and have now passed 500,000 driverless miles. The company says it will exit 2026 with 200 trucks running fully driverless (roughly an $80M revenue run rate), scale toward 30,000 trucks and $5B in revenue by 2030, and is already charging about $2/mile for the service — while piloting a cheaper $0.85/mile "driver-as-a-service" model for carriers that own their own trucks. None of that erases the current math: about $2M in Q2 2026 revenue against roughly $266M in that quarter's operating losses.
+  </div>
+
+  <div class="card hos-card">
+    <div class="hos-header">
+      <h2 class="hos-title">The real speed limit: a 1930s rest rule vs. no rule at all</h2>
+      <p class="hos-caption mono">A simplified 7-day race at a flat 50 mph for both trucks. The human-driven truck follows the actual federal rule (49 CFR Part 395): drive 11 hours, then a mandatory 10 hours off, repeating. The driverless truck drives roughly 20 hours a day and stops only ~4 hours for fuel, trailer swaps and inspection — the schedule Aurora reports for its own fleet. This isolates just the daily rest-break rule; it ignores traffic, loading delays and (for the human truck) weekly hour caps, so it's a ceiling, not a forecast. Drag the slider or press Run.</p>
+    </div>
+
+    <div class="hos-scene-wrap">
+      <svg class="hos-scene" id="hos-scene" viewBox="0 0 360 160" role="img" aria-label="Two horizontal timelines over seven simulated days. The human-driven truck alternates eleven hours of driving with ten hours of mandatory rest. The driverless truck alternates twenty hours of driving with four hours of servicing, covering far more of each day in motion."></svg>
+    </div>
+    <div class="hos-legend">
+      <span><i style="background:var(--accent-a);"></i>Driving — human (11h max)</span>
+      <span><i style="background:var(--accent-b);"></i>Driving — driverless (~20h)</span>
+      <span><i style="background:var(--border);"></i>Resting / stopped</span>
+    </div>
+
+    <div class="hos-controls">
+      <div class="hos-slider-row">
+        <label for="hos-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">Sim hour</label>
+        <input type="range" id="hos-slider" min="0" max="168" step="1" value="0" aria-label="Simulated hour, 0 to 168 (seven days)" />
+      </div>
+      <button type="button" class="hos-btn hos-primary" id="hos-play">▶ Run 7-day race</button>
+      <button type="button" class="hos-btn" id="hos-reset">Reset</button>
+    </div>
+
+    <div class="hos-stats">
+      <div class="hos-stat">
+        <div class="hos-stat-label mono">Sim clock</div>
+        <div class="hos-stat-value mono" id="hos-stat-clock">Day 1 · Hr 0</div>
+      </div>
+      <div class="hos-stat">
+        <div class="hos-stat-label mono">Human truck</div>
+        <div class="hos-stat-value mono" id="hos-stat-human">0 mi</div>
+      </div>
+      <div class="hos-stat">
+        <div class="hos-stat-label mono">Driverless truck</div>
+        <div class="hos-stat-value mono" id="hos-stat-driverless">0 mi</div>
+      </div>
+      <div class="hos-stat">
+        <div class="hos-stat-label mono">Gap, live</div>
+        <div class="hos-stat-value mono" id="hos-stat-gap">—</div>
+      </div>
+    </div>
+
+    <p class="hos-note">Simplified model, not a prediction: at 50 mph with no other downtime, the 7-day race above converges to an idealized ceiling of ~229,000 human mi/yr vs. ~365,000 driverless mi/yr. Real trucks fall further below their own ceiling — loading, traffic and (for humans) weekly 60/70-hour caps eat more time — which is why Aurora reports an actual ~225,000 driverless mi/yr per truck today against roughly 100,000–120,000 for a solo long-haul driver.</p>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Think about why a long-haul trucker can't just drive straight through from Texas to Arizona. It's not fatigue alone — it's the law. Federal rules say a trucker can drive at most 11 hours, then must stop and rest for 10 hours straight, no matter how awake they feel. That clock, not the engine or the highway, sets the real speed limit on American freight.</p>
+      <p>Aurora Innovation, a self-driving trucking company, just told Wall Street it's found a way around that clock: take the driver out, and the rest rule disappears with him. Aurora's driverless trucks — hauling real freight for customers like Werner and Charger Logistics on routes linking Fort Worth, El Paso, Phoenix and Houston — are already covering more than 225,000 miles a year, each. A human-driven truck, bound by the rest rule plus loading delays and days off, typically manages 100,000 to 120,000. Same highway, same trailer, roughly double the output, because the truck never needs to sleep, eat, or go home for the weekend.</p>
+      <p>That's the pitch behind Aurora's September 23 announcement: 200 driverless trucks running by the end of this year, scaling to a startling 30,000 by 2030, and more than $5 billion in annual revenue. The catch: Aurora is still losing roughly $266 million a quarter while bringing in about $2 million in revenue, so it has to prove, truck by truck, that the math holds before the cash runs out. Investors weren't fully convinced — the stock dropped about 10% the day of the announcement.</p>
+      <p>The lesson for anyone watching trucking: the breakthrough in self-driving freight was never really about teaching a computer to see the road. It's about who gets to ignore a rule written for human bodies.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The rule in question is 49 CFR Part 395, enforced by the FMCSA: a commercial driver may drive a maximum of 11 hours within a 14-hour on-duty window, then must take 10 consecutive hours off-duty before driving again, with additional 60-hour/7-day and 70-hour/8-day caps and a 34-hour "restart" option for longer resets. These limits exist for a real safety reason — crash risk rises sharply after roughly 8 hours behind the wheel — but they also hard-cap how many revenue miles one human-driven tractor can produce. Fleet-wide, combination trucks average only about 62,000 miles a year (FHWA/DOE data); dedicated solo long-haul drivers running near the legal daily maximum still only reach roughly 100,000-120,000, well short of even the daily-rule ceiling, because weekly caps, dock dwell time and traffic eat further into the clock.</p>
+      <p>A driverless truck has no biological clock to legislate around. Aurora's Driver stack pairs FirstLight — a proprietary FMCW lidar inherited from the 2019 Blackmore acquisition, using the Doppler effect to measure both range and closing velocity on objects past 450 meters — with 360-degree camera arrays, imaging radar for weather penetration, and a redundant compute platform. The truck stops only for fuel, trailer swaps and scheduled inspection; Aurora reports its fleet running roughly 20 of every 24 hours, versus a human driver's legal ceiling of about 11 hours within a 14-hour window. That gap, not sensor accuracy, is the direct mechanical source of the >2x mileage advantage.</p>
+      <p>Commercially, Aurora is mid-transition from owning trucks and selling transport-as-a-service at roughly $2/mile — comparable to a conventional carrier's all-in rate — toward a model where carriers own the hardware and pay Aurora about $0.85/mile for the driving system alone. The company's 2030 targets (30,000 trucks, $5B revenue, ~60% gross margin) depend on a manufacturing ramp — upfitting partner Roush is targeting roughly a 1,000-truck/year run rate by October 2026 — scaling far faster than Aurora's current base of about 200 trucks and an ~$80M revenue run rate, against Q2 2026 operating losses north of $260 million.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> the hard problem in self-driving freight was never just the AI — it's a 1930s-era rest rule, and removing it is worth more to a carrier's bottom line than any single sensor upgrade.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> autonomy's economic case in trucking is a regulatory-arbitrage story as much as a technology one — the mileage gain comes from exemption from a rest rule, not from driving better, which is also why the manufacturing and capital-burn ramp, not the sensor stack, is now the binding constraint on scale.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://secure.businesswire.com/news/home/20260923278327/en/Aurora-Outlines-2030-Vision-to-Scale-to-30000-Driverless-Trucks-at-Analyst-and-Investor-Day" target="_blank" rel="noopener">BusinessWire — Aurora Outlines 2030 Vision to Scale to 30,000 Driverless Trucks at Analyst and Investor Day</a></li>
+    <li><a href="https://www.manufacturing.net/automotive/news/22975246/aurora-outlines-2030-vision-to-scale-to-30000-driverless-trucks" target="_blank" rel="noopener">Manufacturing.net — Aurora Outlines 2030 Vision to Scale to 30,000 Driverless Trucks</a></li>
+    <li><a href="https://truckingdive.com/news/aurora-says-lower-operating-costs-a-draw-to-prospective-customers/819539/" target="_blank" rel="noopener">Trucking Dive — Aurora Says Lower Operating Costs a Draw to Prospective Customers</a></li>
+    <li><a href="https://www.fmcsa.dot.gov/regulations/hours-service/interstate-truck-drivers-guide-hours-service" target="_blank" rel="noopener">FMCSA — Interstate Truck Driver's Guide to Hours of Service (49 CFR Part 395)</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+
+    var TOTAL_HOURS = 168; // 7 simulated days
+    var MPH = 50; // flat assumption, stated in caption
+    var HUMAN_DRIVE = 11, HUMAN_CYCLE = 21; // 11h drive + 10h mandatory rest
+    var AUTO_DRIVE = 20, AUTO_CYCLE = 24;   // ~20h drive + 4h fuel/inspection
+
+    var X0 = 30, X1 = 336;
+    var SCALE = (X1 - X0) / TOTAL_HOURS;
+    var AY_TOP = 18, AY_BOTTOM = 140;
+    var HUMAN_Y = 34, LANE_H = 26;
+    var AUTO_Y = 96;
+
+    var scene = document.getElementById('hos-scene');
+    var slider = document.getElementById('hos-slider');
+    var playBtn = document.getElementById('hos-play');
+    var resetBtn = document.getElementById('hos-reset');
+    var statClock = document.getElementById('hos-stat-clock');
+    var statHuman = document.getElementById('hos-stat-human');
+    var statDriverless = document.getElementById('hos-stat-driverless');
+    var statGap = document.getElementById('hos-stat-gap');
+
+    function el(tag, attrs, text) {
+      var e = document.createElementNS(SVG_NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      if (text !== undefined) e.textContent = text;
+      scene.appendChild(e);
+      return e;
+    }
+
+    function buildSegments(driveHours, cycleHours, totalHours) {
+      var segs = [];
+      var cycles = Math.ceil(totalHours / cycleHours);
+      for (var i = 0; i < cycles; i++) {
+        var cycleStart = i * cycleHours;
+        var driveEnd = Math.min(cycleStart + driveHours, totalHours);
+        if (driveEnd > cycleStart) segs.push({ start: cycleStart, end: driveEnd, type: 'drive' });
+        var stopEnd = Math.min(cycleStart + cycleHours, totalHours);
+        if (stopEnd > driveEnd) segs.push({ start: driveEnd, end: stopEnd, type: 'stop' });
+      }
+      return segs;
+    }
+
+    var humanSegs = buildSegments(HUMAN_DRIVE, HUMAN_CYCLE, TOTAL_HOURS);
+    var autoSegs = buildSegments(AUTO_DRIVE, AUTO_CYCLE, TOTAL_HOURS);
+
+    var humanRects = [], autoRects = [];
+    var cursorLine, cursorDot;
+
+    function milesFor(progress, driveHours, cycleHours) {
+      var cycles = Math.floor(progress / cycleHours);
+      var rem = progress - cycles * cycleHours;
+      var driveRem = Math.min(rem, driveHours);
+      return (cycles * driveHours + driveRem) * MPH;
+    }
+    function stateFor(progress, driveHours, cycleHours, driveLabel, stopLabel) {
+      var rem = progress % cycleHours;
+      return rem < driveHours ? driveLabel : stopLabel;
+    }
+
+    function buildScene() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+      humanRects = []; autoRects = [];
+
+      // day gridlines + labels
+      for (var d = 0; d <= 7; d++) {
+        var gx = X0 + d * 24 * SCALE;
+        el('line', { x1: gx, y1: AY_TOP, x2: gx, y2: AY_BOTTOM, stroke: 'var(--border)', 'stroke-width': '1' });
+        if (d < 7) {
+          var midx = X0 + (d * 24 + 12) * SCALE;
+          el('text', { x: midx, y: 150, 'text-anchor': 'middle', class: 'mono', 'font-size': '7', fill: 'var(--muted)' }, 'D' + (d + 1));
+        }
+      }
+
+      el('text', { x: X0, y: HUMAN_Y - 6, 'text-anchor': 'start', class: 'mono', 'font-size': '8', 'font-weight': '700', fill: 'var(--accent-a)' }, 'HUMAN-DRIVEN · 11h / 10h rest');
+      el('text', { x: X0, y: AUTO_Y - 6, 'text-anchor': 'start', class: 'mono', 'font-size': '8', 'font-weight': '700', fill: 'var(--accent-b)' }, 'DRIVERLESS · ~20h / 4h stop');
+
+      humanSegs.forEach(function (seg) {
+        var r = el('rect', {
+          x: X0 + seg.start * SCALE,
+          y: HUMAN_Y,
+          width: 0,
+          height: LANE_H,
+          rx: 3,
+          fill: seg.type === 'drive' ? 'var(--accent-a)' : 'var(--border)'
+        });
+        humanRects.push({ el: r, seg: seg });
+      });
+      autoSegs.forEach(function (seg) {
+        var r = el('rect', {
+          x: X0 + seg.start * SCALE,
+          y: AUTO_Y,
+          width: 0,
+          height: LANE_H,
+          rx: 3,
+          fill: seg.type === 'drive' ? 'var(--accent-b)' : 'var(--border)'
+        });
+        autoRects.push({ el: r, seg: seg });
+      });
+
+      cursorLine = el('line', { x1: X0, y1: AY_TOP - 2, x2: X0, y2: AY_BOTTOM, stroke: 'var(--ink)', 'stroke-width': '1.4' });
+      cursorDot = el('circle', { cx: X0, cy: AY_TOP - 2, r: '3', fill: 'var(--ink)' });
+    }
+
+    function renderLane(rects, progress) {
+      rects.forEach(function (item) {
+        var seg = item.seg;
+        var full = (seg.end - seg.start) * SCALE;
+        if (progress >= seg.end) {
+          item.el.setAttribute('width', full);
+          item.el.setAttribute('opacity', '1');
+        } else if (progress > seg.start) {
+          item.el.setAttribute('width', (progress - seg.start) * SCALE);
+          item.el.setAttribute('opacity', '1');
+        } else {
+          item.el.setAttribute('width', full);
+          item.el.setAttribute('opacity', '0.22');
+        }
+      });
+    }
+
+    function render(progress) {
+      progress = Math.max(0, Math.min(TOTAL_HOURS, progress));
+      renderLane(humanRects, progress);
+      renderLane(autoRects, progress);
+
+      var cx = X0 + progress * SCALE;
+      cursorLine.setAttribute('x1', cx);
+      cursorLine.setAttribute('x2', cx);
+      cursorDot.setAttribute('cx', cx);
+
+      var day, hr;
+      if (progress >= TOTAL_HOURS) { day = 7; hr = 24; }
+      else { day = Math.floor(progress / 24) + 1; hr = Math.round(progress % 24); }
+      statClock.textContent = 'Day ' + day + ' · Hr ' + hr;
+
+      var mH = milesFor(progress, HUMAN_DRIVE, HUMAN_CYCLE);
+      var mA = milesFor(progress, AUTO_DRIVE, AUTO_CYCLE);
+      var sH = stateFor(progress, HUMAN_DRIVE, HUMAN_CYCLE, 'driving', 'resting');
+      var sA = stateFor(progress, AUTO_DRIVE, AUTO_CYCLE, 'driving', 'stopped');
+
+      statHuman.textContent = Math.round(mH).toLocaleString() + ' mi';
+      statHuman.title = sH;
+      statDriverless.textContent = Math.round(mA).toLocaleString() + ' mi';
+      statDriverless.title = sA;
+
+      if (mH > 0) {
+        statGap.textContent = (mA / mH).toFixed(2) + '×';
+      } else {
+        statGap.textContent = '—';
+      }
+
+      slider.value = String(progress);
+    }
+
+    var playTimer = null;
+    function stopPlay() {
+      if (playTimer) { clearInterval(playTimer); playTimer = null; }
+      playBtn.disabled = false;
+      playBtn.textContent = '▶ Run 7-day race';
+    }
+    function runPlay() {
+      if (reduceMotion) {
+        render(TOTAL_HOURS);
+        return;
+      }
+      if (playTimer) return;
+      var cur = parseFloat(slider.value);
+      if (cur >= TOTAL_HOURS) cur = 0;
+      playBtn.disabled = true;
+      playBtn.textContent = 'Running…';
+      playTimer = setInterval(function () {
+        cur += 1;
+        if (cur >= TOTAL_HOURS) { render(TOTAL_HOURS); stopPlay(); return; }
+        render(cur);
+      }, 55);
+    }
+    function resetScene() {
+      stopPlay();
+      render(0);
+    }
+
+    slider.addEventListener('input', function () {
+      stopPlay();
+      render(parseFloat(slider.value));
+    });
+    playBtn.addEventListener('click', runPlay);
+    resetBtn.addEventListener('click', resetScene);
+
+    buildScene();
+    render(reduceMotion ? TOTAL_HOURS : 0);
+  })();
+</script>
+</body>
+</html>
