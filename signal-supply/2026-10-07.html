@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-07","category":"CARBON TARIFFS","headline":"Importing Steel Into the EU Now Means Importing Its Carbon Bill, Too. The Bill Just Rose 9% in One Quarter","summary":"The EU's carbon border tax on imported steel and aluminum just got pricier: the Q3 2026 certificate price jumped 9.4% to €82.32 per tonne of CO2. It's the new cost of exporting to Europe -- and by 2028, the same charge expands to roughly 180 everyday manufactured goods.","whyItMatters":"If you source steel, aluminum, or soon car parts and appliances from outside the EU, your landed cost now carries a quarterly-resetting, carbon-market-linked line item -- and it's rising faster than the metal itself."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Importing Steel Into the EU Now Means Importing Its Carbon Bill, Too. The Bill Just Rose 9% in One Quarter.</title>
+<meta name="description" content="The EU's carbon border tax on imported steel and aluminum just got pricier: the Q3 2026 certificate price jumped 9.4% to €82.32 per tonne of CO2, published October 5. Here's how CBAM works, why the price resets every quarter, and why it's about to expand to 180 more products." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5571f;
+    --accent-a-tint: #f6e4d6;
+    --accent-b: #1f7a63;
+    --accent-b-tint: #d9ede6;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e2884f;
+      --accent-a-tint: #32210f;
+      --accent-b: #4fb79a;
+      --accent-b-tint: #122b24;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e2884f;
+    --accent-a-tint: #32210f;
+    --accent-b: #4fb79a;
+    --accent-b-tint: #122b24;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5571f;
+    --accent-a-tint: #f6e4d6;
+    --accent-b: #1f7a63;
+    --accent-b-tint: #d9ede6;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-a);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-a);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the carbon-bill bars --- */
+  .cb-header { margin-bottom: 4px; }
+  .cb-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .cb-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.6;
+  }
+  .cb-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px 8px;
+  }
+  .cb-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 230px;
+  }
+  .cb-bar, .cb-marker, .cb-marker-label {
+    transition: y 0.5s ease, height 0.5s ease, opacity 0.3s ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cb-bar, .cb-marker, .cb-marker-label { transition: none; }
+  }
+  .cb-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 10.5px;
+    color: var(--muted);
+  }
+  .cb-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .cb-legend i {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .cb-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .cb-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 200px;
+  }
+  .cb-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-a);
+  }
+  .cb-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .cb-btn.cb-primary {
+    background: var(--accent-a);
+    border-color: var(--accent-a);
+    color: #fff;
+  }
+  .cb-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+  .cb-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  @media (max-width: 480px) {
+    .cb-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .cb-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .cb-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .cb-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 13.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 7, 2026</span>
+    <span class="category-chip">CARBON TARIFFS</span>
+  </div>
+  <h1>Importing Steel Into the EU Now Means Importing Its Carbon Bill, Too. The Bill Just Rose 9% in One Quarter.</h1>
+  <p class="lede">Since January 1, the European Union has required importers of steel, aluminum, cement and fertilizer to pay for the carbon emitted making those goods abroad — not just report it, actually pay for it. The price isn't fixed: the European Commission resets it every quarter to track what EU factories already pay under the bloc's own carbon market. On October 5, it set the number for Q3 at €82.32 per tonne of CO2, up 9.4% from Q2's €75.28 — the sharpest jump since the charge went live. And the mechanism is about to get much bigger: by 2028, roughly 180 more products, from car parts to washing machines, join the list.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    CBAM's quarterly certificate price has moved €75.36 (Q1 2026) → €75.28 (Q2) → €82.32 (Q3, published October 5) — tracking the EU's own emissions-trading price, which is exactly what it's designed to mirror. Using the EU's benchmark carbon intensity for unalloyed steel (an illustrative ~1.9 tonnes of CO2 per tonne, close to worldsteel's global average), that one quarterly swing alone added roughly €13 to the carbon charge on every imported tonne. Separately, on June 12, 2026, the EU Council agreed to extend CBAM — effective January 1, 2028 — to about 180 downstream products averaging 79% steel or aluminum content by the Commission's own screening, pulling an estimated 7,500 additional importers into scope for the first time.
+  </div>
+
+  <div class="card cb-card">
+    <div class="cb-header">
+      <h2 class="cb-title">The carbon add-on, one quarter at a time</h2>
+      <p class="cb-caption mono">Each bar is the carbon-cost added to one tonne of steel imported into the EU, using that quarter's real CBAM certificate price × an illustrative 1.9 tonnes of CO2 per tonne of steel (the EU's benchmark for unalloyed hot-rolled steel; actual intensity runs roughly 1.5–2.3 t depending on whether it's blast-furnace or scrap-fed). Step through Q1→Q3 2026 — the three quarters CBAM has been a real financial charge — or press Play.</p>
+    </div>
+
+    <div class="cb-scene-wrap">
+      <svg class="cb-scene" id="cb-scene" viewBox="0 0 360 180" role="img" aria-label="Three bars showing the carbon cost added per tonne of imported steel for Q1, Q2 and Q3 2026, rising from about 143 euros to about 156 euros, with the sharpest jump in Q3."></svg>
+    </div>
+    <div class="cb-legend">
+      <span><i style="background:var(--accent-a);"></i>Carbon cost added per tonne of imported steel (€)</span>
+      <span><i style="background:var(--accent-b); opacity:0.6;"></i>Q1 2026 level, for reference</span>
+    </div>
+
+    <div class="cb-controls">
+      <div class="cb-slider-row">
+        <label for="cb-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">Quarter</label>
+        <input type="range" id="cb-slider" min="0" max="2" step="1" value="0" aria-label="Quarter of 2026, Q1 through Q3" />
+      </div>
+      <button type="button" class="cb-btn cb-primary" id="cb-play">▶ Play</button>
+      <button type="button" class="cb-btn" id="cb-reset">Reset</button>
+    </div>
+
+    <div class="cb-stats">
+      <div class="cb-stat">
+        <div class="cb-stat-label mono">Quarter</div>
+        <div class="cb-stat-value mono" id="cb-stat-quarter">Q1 2026</div>
+      </div>
+      <div class="cb-stat">
+        <div class="cb-stat-label mono">Certificate price</div>
+        <div class="cb-stat-value mono" id="cb-stat-price">€75.36/t</div>
+      </div>
+      <div class="cb-stat">
+        <div class="cb-stat-label mono">Cost added/tonne</div>
+        <div class="cb-stat-value mono" id="cb-stat-cost">€143</div>
+      </div>
+      <div class="cb-stat">
+        <div class="cb-stat-label mono">Vs. prior quarter</div>
+        <div class="cb-stat-value mono" id="cb-stat-change">First charge</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Imagine two factories making the exact same ton of steel. One sits in Germany, and every tonne of carbon dioxide it emits already costs it money — Europe has priced carbon for its own industry for years. The other sits outside the EU, in a country that doesn't price carbon the same way, so its carbon is effectively free. For years, that gap let dirtier steel quietly undercut cleaner steel inside Europe — some companies even moved their messiest manufacturing steps abroad and shipped the metal back in, since the climate math stayed the same but someone else's smokestack did the damage. Economists call this "carbon leakage."</p>
+      <p>On January 1, 2026, the EU started closing that gap for real, not just on paper. Its Carbon Border Adjustment Mechanism — CBAM — now makes importers buy a "CBAM certificate" for every tonne of CO2 baked into the steel, aluminum, cement or fertilizer they bring into Europe, priced to match what an EU factory already pays. That price isn't fixed — it resets every three months to track the EU's own carbon market. It just jumped again: from €75.28 to €82.32 per tonne, a 9.4% rise in a single quarter, meaning the bill on imported carbon is now rising faster than the metal itself.</p>
+      <p>And the EU isn't stopping at raw steel. It's already agreed to extend CBAM in 2028 to roughly 180 manufactured goods — car parts, washing machines, bolts, machinery — basically anything made mostly of steel or aluminum. The message to exporters everywhere, from India to Turkey to the US: decarbonize your furnaces, or pay Europe for the privilege of not doing so.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>CBAM is a destination-based carbon tariff: the legal obligor is the EU importer, not the exporting producer. Since January 1, 2026 — the start of its "definitive" regime, after a three-year reporting-only phase — any importer bringing in more than 50 tonnes/year of covered goods (currently iron and steel, aluminum, cement, fertilizers, hydrogen and electricity) must track embedded emissions, and starting with certificate purchases from February 2027 (covering 2026-year imports, surrendered by September 30, 2027), must pay for them.</p>
+      <p>The certificate price isn't set independently — the European Commission publishes it quarterly as the weighted average auction-clearing price of EU ETS allowances for that period, so the embedded-carbon charge on an imported tonne of steel tracks what an EU steelmaker already pays for the same tonne of CO2 under the bloc's cap-and-trade system. Q1 2026 cleared at €75.36/tCO2, Q2 at €75.28 (essentially flat), and Q3 — published October 5, 2026 — at €82.32, a 9.4% quarter-on-quarter jump attributed to ETS allowance scarcity as the EU tightens its own emissions cap. Where an importer can't supply verified mill-level data, embedded emissions default to conservative EU benchmark values; actual direct-plus-indirect intensity for unalloyed hot-rolled steel runs roughly 1.5–2.3 tCO2 per tonne depending on production route (blast-furnace-BOF versus scrap-fed EAF) — this piece's visual simplifies that range to a single illustrative 1.9 t figure, close to worldsteel's global-average intensity.</p>
+      <p>The next structural shift: on June 12, 2026, the EU Council agreed to extend CBAM coverage, effective January 1, 2028, to roughly 180 downstream product codes — machinery, vehicle components, fabricated metal goods, appliances — averaging 79% steel/aluminum content by the Commission's own screening, pulling an estimated 7,500 additional importers into scope and converting CBAM from a raw-materials levy into a value-chain-wide carbon tariff aimed squarely at transshipment and minor-processing circumvention.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> if you buy anything made substantially of steel or aluminum from outside Europe — and by 2028, that list grows to include everyday manufactured goods — there's now a carbon surcharge attached, and it resets every three months to track Europe's own carbon price.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> CBAM converts the EU ETS price into a border-adjusted cost signal for importers, and that certificate price is now compounding on a quarterly cycle rather than an annual one — procurement and trade-compliance teams need a pricing model that resets four times a year, not once.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en" target="_blank" rel="noopener">European Commission — Carbon Border Adjustment Mechanism (official overview)</a></li>
+    <li><a href="https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism/price-cbam-certificates_en" target="_blank" rel="noopener">European Commission — Price of CBAM certificates (quarterly schedule and figures)</a></li>
+    <li><a href="https://www.steelorbis.com/steel-news/latest-news/eu-cbam-certificate-price-rises-to-8232-for-q3-2026-1481786.htm" target="_blank" rel="noopener">SteelOrbis — EU CBAM Certificate Price Rises to €82.32 for Q3 2026</a></li>
+    <li><a href="https://www.pwc.nl/en/insights-and-publications/tax-news/other/ec-proposes-cbam-expansion-to-180-downstream-products.html" target="_blank" rel="noopener">PwC Netherlands — EC Proposes CBAM Expansion to 180 Downstream Products</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+
+    var QUARTERS = [
+      { label: 'Q1 2026', price: 75.36 },
+      { label: 'Q2 2026', price: 75.28 },
+      { label: 'Q3 2026', price: 82.32 }
+    ];
+    var INTENSITY = 1.9; // illustrative tonnes CO2 per tonne of steel
+    var CHART_MAX = 180; // headroom above the ~156 max cost value
+
+    var AY0 = 20, AY1 = 134; // chart top/bottom in svg coords
+    var BAR_W = 56;
+    var BAR_XS = [48, 152, 256];
+
+    var scene = document.getElementById('cb-scene');
+    var slider = document.getElementById('cb-slider');
+    var playBtn = document.getElementById('cb-play');
+    var resetBtn = document.getElementById('cb-reset');
+    var statQuarter = document.getElementById('cb-stat-quarter');
+    var statPrice = document.getElementById('cb-stat-price');
+    var statCost = document.getElementById('cb-stat-cost');
+    var statChange = document.getElementById('cb-stat-change');
+
+    var bars = [], labels = [], markerLine, markerLabel;
+
+    function costFor(i) { return QUARTERS[i].price * INTENSITY; }
+    function yFor(value) {
+      var t = value / CHART_MAX;
+      return AY1 - t * (AY1 - AY0);
+    }
+
+    function el(tag, attrs, text) {
+      var e = document.createElementNS(SVG_NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      if (text !== undefined) e.textContent = text;
+      scene.appendChild(e);
+      return e;
+    }
+
+    function buildScene() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+      bars = []; labels = [];
+
+      el('line', { x1: 24, y1: AY1, x2: 336, y2: AY1, stroke: 'var(--border)', 'stroke-width': '1' });
+
+      var q1Cost = costFor(0);
+      var yQ1 = yFor(q1Cost);
+      markerLine = el('line', { x1: 24, y1: yQ1, x2: 336, y2: yQ1, stroke: 'var(--accent-b)', 'stroke-width': '1', 'stroke-dasharray': '3,3', opacity: '0.55', class: 'cb-marker' });
+      markerLabel = el('text', { x: 330, y: yQ1 - 6, 'text-anchor': 'end', class: 'mono cb-marker-label', 'font-size': '8', fill: 'var(--accent-b)' }, 'Q1 level — €' + Math.round(q1Cost));
+
+      for (var i = 0; i < QUARTERS.length; i++) {
+        var x = BAR_XS[i];
+        var bar = el('rect', { x: x, y: AY1, width: BAR_W, height: 0, rx: 5, fill: 'var(--accent-a)', class: 'cb-bar' });
+        var label = el('text', { x: x + BAR_W / 2, y: AY1, 'text-anchor': 'middle', class: 'mono', 'font-size': '11', 'font-weight': '700', fill: 'var(--ink)' }, '');
+        el('text', { x: x + BAR_W / 2, y: AY1 + 18, 'text-anchor': 'middle', class: 'mono', 'font-size': '8.5', fill: 'var(--muted)' }, QUARTERS[i].label);
+        el('text', { x: x + BAR_W / 2, y: AY1 + 29, 'text-anchor': 'middle', class: 'mono', 'font-size': '7.5', fill: 'var(--muted)' }, '€' + QUARTERS[i].price.toFixed(2) + '/t');
+        bars.push(bar);
+        labels.push(label);
+      }
+    }
+
+    function render(index) {
+      index = Math.max(0, Math.min(QUARTERS.length - 1, index));
+
+      for (var i = 0; i < QUARTERS.length; i++) {
+        var active = i <= index;
+        var cost = costFor(i);
+        var y = active ? yFor(cost) : AY1;
+        bars[i].setAttribute('y', y);
+        bars[i].setAttribute('height', Math.max(0, AY1 - y));
+        bars[i].setAttribute('opacity', i === index ? '1' : (active ? '0.55' : '0.12'));
+        labels[i].setAttribute('y', active ? Math.max(AY0 + 10, y - 8) : AY1 - 8);
+        labels[i].textContent = active ? '€' + Math.round(cost) : '';
+        labels[i].setAttribute('opacity', active ? '1' : '0');
+      }
+
+      var q = QUARTERS[index];
+      var cost = costFor(index);
+      statQuarter.textContent = q.label;
+      statPrice.textContent = '€' + q.price.toFixed(2) + '/t';
+      statCost.textContent = '€' + Math.round(cost);
+      if (index === 0) {
+        statChange.textContent = 'First charge';
+        statChange.style.color = 'var(--ink)';
+      } else {
+        var prev = QUARTERS[index - 1].price;
+        var pct = ((q.price - prev) / prev) * 100;
+        statChange.textContent = (pct >= 0 ? '+' : '') + pct.toFixed(1) + '%';
+        statChange.style.color = pct > 1 ? 'var(--accent-a)' : 'var(--ink)';
+      }
+
+      slider.value = String(index);
+    }
+
+    var playTimer = null;
+
+    function stopPlay() {
+      if (playTimer) { clearInterval(playTimer); playTimer = null; }
+      playBtn.disabled = false;
+      playBtn.textContent = '▶ Play';
+    }
+
+    function runPlay() {
+      if (reduceMotion) {
+        render(QUARTERS.length - 1);
+        return;
+      }
+      if (playTimer) return;
+      var cur = 0;
+      render(cur);
+      playBtn.disabled = true;
+      playBtn.textContent = 'Playing…';
+      playTimer = setInterval(function () {
+        cur += 1;
+        render(cur);
+        if (cur >= QUARTERS.length - 1) { stopPlay(); }
+      }, 900);
+    }
+
+    function resetScene() {
+      stopPlay();
+      render(0);
+    }
+
+    slider.addEventListener('input', function () {
+      stopPlay();
+      render(parseInt(slider.value, 10));
+    });
+    playBtn.addEventListener('click', runPlay);
+    resetBtn.addEventListener('click', resetScene);
+
+    buildScene();
+    render(reduceMotion ? QUARTERS.length - 1 : 0);
+  })();
+</script>
+</body>
+</html>
