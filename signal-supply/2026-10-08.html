@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-08","category":"QUANTUM HARDWARE","headline":"Quantum Chips Run Colder Than Deep Space. The Gas That Gets Them There Comes From Dismantled Nuclear Weapons — and a NATO Study Just Called It the Industry's Biggest Bottleneck","summary":"Quantum chips run colder than deep space, cooled by helium-3 -- a gas recovered almost entirely from servicing the US nuclear weapons stockpile. A May 2025 NATO study named the dilution refrigerator that holds it, not the qubit chip itself, as quantum computing's single biggest bottleneck.","whyItMatters":"Quantum computing's scaling limit may not be qubit count at all -- it's how much helium-3 a handful of weapons-maintenance programs can spare, and how fast three companies can build refrigerators to hold it."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Quantum Chips Run Colder Than Deep Space. The Gas That Gets Them There Comes From Dismantled Nuclear Weapons — and a NATO Study Just Called It the Industry's Biggest Bottleneck.</title>
+<meta name="description" content="Dilution refrigerators cool quantum chips to thousandths of a degree above absolute zero using helium-3, a gas recovered almost entirely from US nuclear-weapons stockpile maintenance. A May 2025 NATO study named the refrigerator itself, not the qubit, as quantum computing's biggest bottleneck." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b33c1f;
+    --accent-a-tint: #f5ddd4;
+    --accent-b: #1f6fa8;
+    --accent-b-tint: #dcebf5;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e2825a;
+      --accent-a-tint: #331b11;
+      --accent-b: #6fb3e2;
+      --accent-b-tint: #122330;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e2825a;
+    --accent-a-tint: #331b11;
+    --accent-b: #6fb3e2;
+    --accent-b-tint: #122330;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b33c1f;
+    --accent-a-tint: #f5ddd4;
+    --accent-b: #1f6fa8;
+    --accent-b-tint: #dcebf5;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-a);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-a);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the dilution-refrigerator cooling stages --- */
+  .qc-header { margin-bottom: 4px; }
+  .qc-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .qc-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.6;
+  }
+  .qc-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 12px 8px;
+  }
+  .qc-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 260px;
+  }
+  .qc-stage-text {
+    margin: 14px 0 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+    font-size: 13px;
+    line-height: 1.55;
+    min-height: 58px;
+  }
+  .qc-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 10.5px;
+    color: var(--muted);
+  }
+  .qc-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .qc-legend i {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .qc-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .qc-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 200px;
+  }
+  .qc-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-b);
+  }
+  .qc-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .qc-btn.qc-primary {
+    background: var(--accent-b);
+    border-color: var(--accent-b);
+    color: #fff;
+  }
+  .qc-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+  .qc-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  @media (max-width: 480px) {
+    .qc-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .qc-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .qc-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .qc-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 13.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 8, 2026</span>
+    <span class="category-chip">QUANTUM HARDWARE</span>
+  </div>
+  <h1>Quantum Chips Run Colder Than Deep Space. The Gas That Gets Them There Comes From Dismantled Nuclear Weapons — and a NATO Study Just Called It the Industry's Biggest Bottleneck.</h1>
+  <p class="lede">To keep a superconducting qubit coherent for even a few hundred microseconds, it has to sit inside a dilution refrigerator chilled to a few thousandths of a degree above absolute zero — colder than any patch of outer space, where the afterglow of the Big Bang still keeps things hovering around 2.7 K. The refrigerant that gets it there, helium-3, isn't mined or drilled. It's a byproduct of tritium — a nuclear-weapons material — slowly decaying, and almost the entire Western supply runs through three specialist manufacturers. In May 2025, a NATO-commissioned study scored the refrigerator itself, not the qubit, as the single most critical bottleneck for two of quantum computing's leading chip designs.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Helium-3 forms as tritium — a weapons-stockpile material with a 12.3-year half-life — decays; absent fresh tritium, the usable helium-3 yield from existing inventory shrinks roughly 5.6% a year. Reported bulk prices vary widely by source, from around $1,900–$2,600 per liter to, by one 2026 estimate, $6,000–$15,000 — up from near $100/liter less than two decades ago. Science reports the helium-3 charge alone can account for up to a quarter of the cost of a dilution refrigerator that itself can run upward of $600,000. The Western market for these refrigerators is concentrated in three firms — Bluefors (Finland, with US manufacturing in Syracuse, NY), Oxford Instruments (UK) and Janis Research (US) — with Bluefors and Oxford Instruments alone estimated at over 70% of it, per one industry analysis.
+  </div>
+
+  <div class="card qc-card">
+    <div class="qc-header">
+      <h2 class="qc-title">The five-stage trip to 15 millikelvin</h2>
+      <p class="qc-caption mono">Step through the cooling stages inside a real dilution refrigerator, from room temperature down to where the chip actually sits. Node spacing is illustrative, not linear — the real range spans four orders of magnitude, from 300 K to about 0.01 K. Press Next/Prev, drag the slider, or press Run.</p>
+    </div>
+
+    <div class="qc-scene-wrap">
+      <svg class="qc-scene" id="qc-scene" viewBox="0 0 360 200" role="img" aria-label="A vertical diagram of five cooling stages inside a dilution refrigerator, from a 300 kelvin top plate down to a 15 millikelvin mixing chamber where the quantum chip sits."></svg>
+    </div>
+    <p class="qc-stage-text mono" id="qc-stage-text"></p>
+    <div class="qc-legend">
+      <span><i style="background:var(--accent-b);"></i>Stage reached</span>
+      <span><i style="background:var(--border);"></i>Stage ahead</span>
+    </div>
+
+    <div class="qc-controls">
+      <div class="qc-slider-row">
+        <label for="qc-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">Stage</label>
+        <input type="range" id="qc-slider" min="0" max="4" step="1" value="0" aria-label="Cooling stage, top plate through mixing chamber" />
+      </div>
+      <button type="button" class="qc-btn" id="qc-prev">◀ Prev</button>
+      <button type="button" class="qc-btn" id="qc-next">Next ▶</button>
+      <button type="button" class="qc-btn qc-primary" id="qc-play">▶ Run</button>
+      <button type="button" class="qc-btn" id="qc-reset">Reset</button>
+    </div>
+
+    <div class="qc-stats">
+      <div class="qc-stat">
+        <div class="qc-stat-label mono">Stage</div>
+        <div class="qc-stat-value mono" id="qc-stat-name">Top plate</div>
+      </div>
+      <div class="qc-stat">
+        <div class="qc-stat-label mono">Temperature</div>
+        <div class="qc-stat-value mono" id="qc-stat-temp">300 K</div>
+      </div>
+      <div class="qc-stat">
+        <div class="qc-stat-label mono">Vs. room temp</div>
+        <div class="qc-stat-value mono" id="qc-stat-room">baseline</div>
+      </div>
+      <div class="qc-stat">
+        <div class="qc-stat-label mono">Vs. deep space (2.7K)</div>
+        <div class="qc-stat-value mono" id="qc-stat-space">warmer</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Inside every serious quantum computer sits a machine that looks a bit like an upside-down gold-plated wedding cake, called a dilution refrigerator. Its job is to get a chip down to about fifteen thousandths of a degree above absolute zero — colder, for what it's worth, than the leftover glow of the Big Bang still drifting through deep space, which sits around 2.7 degrees above that same zero point. At that temperature, superconducting qubits can hold a quantum state long enough to do something useful with it; at room temperature, they can't hold it at all.</p>
+      <p>Getting there takes a chain of cooling stages, each one colder than the last, finishing with a trick called "dilution": forcing two forms of helium that don't want to mix together anyway, which soaks up heat the same way sweat evaporating cools your skin. The helium doing the work, called helium-3, isn't dug out of the ground. It's a byproduct of tritium — itself a material from nuclear-weapons maintenance — slowly decaying. The US gets essentially its entire domestic supply from servicing its own warhead stockpile, and even that trickle shrinks a little every year the tritium isn't replenished.</p>
+      <p>Only three serious manufacturers build these refrigerators worldwide, and a NATO-funded study released in 2025 concluded that of everything standing between today's lab prototypes and a useful quantum computer, the refrigerator itself — not the chip — is the single biggest choke point for two of the field's leading designs. A quantum computing boom, it turns out, runs into the same wall a nuclear stockpile does.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>A dilution refrigerator cools superconducting- and spin-qubit platforms to their operating point (commonly 10–20 mK) through a staged cascade: a closed-cycle pulse-tube cooler brings the system from ~300 K to roughly 50 K and then ~4 K via regenerative gas expansion (no moving parts at the cold end), after which an incoming helium-3/helium-4 mixture begins to liquefy. Below the lambda point, the mixture phase-separates into a helium-3-rich phase floating atop a helium-4-rich superfluid phase; continuously pumping helium-3 vapor off the "still" (~0.7–1 K) drives helium-3 across that phase boundary in the mixing chamber, and because the phase transition is endothermic — helium-3 atoms crossing into the dilute phase absorb heat even as the system approaches absolute zero — the mixing chamber can be held continuously at 10–20 mK, unlike single-shot adiabatic-demagnetization or evaporative-cooling schemes.</p>
+      <p>The limiting input is helium-3 itself. It's produced almost exclusively as a decay product of tritium — a fusion-boosting and weapons material with a 12.3-year half-life — recovered when the US Department of Energy services aging warheads in the national stockpile; absent fresh tritium reservoirs, the helium-3 yield from existing inventory declines roughly 5.6% annually. Reported bulk prices vary sharply by source — from roughly $1,900–$2,600 per liter to, in one 2026 market estimate, $6,000–$15,000 — against a price near $100/liter as recently as the 2000s; Science's 2025 reporting notes the helium-3 charge alone can account for up to a quarter of the cost of a refrigerator that can otherwise exceed $600,000.</p>
+      <p>Manufacturing is concentrated in three firms with meaningful Western output — Bluefors (Finland, with US manufacturing in Syracuse, NY), Oxford Instruments (UK) and Janis Research (US) — with Bluefors and Oxford Instruments together estimated at over 70% of global share by one industry analysis. A May 2025 NATO Transatlantic Quantum Community assessment, scoring vulnerabilities across qubit modalities and seven enabling technologies, rated the dilution refrigerator the single most critical bottleneck for superconducting and some spin-qubit architectures — ahead of qubit fabrication itself.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> if quantum computing scales the way its backers hope, the limit won't be how clever the chip design is — it'll be how much helium-3 a handful of weapons-maintenance programs can spare, and how fast three companies can build refrigerators to hold it.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> capacity planning for superconducting-qubit roadmaps should treat dilution-refrigerator and helium-3 lead times as a hard constraint on deployment schedules, not a line item — this procurement chain competes directly with national tritium-reservoir maintenance cycles, a supply nobody in the quantum industry controls.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://warontherocks.com/2025/10/the-supply-chain-chokepoints-in-quantum/" target="_blank" rel="noopener">War on the Rocks — The Supply Chain Chokepoints in Quantum (NATO Transatlantic Quantum Community study)</a></li>
+    <li><a href="https://www.science.org/content/article/helium-3-runs-scarce-researchers-seek-new-ways-chill-quantum-computers" target="_blank" rel="noopener">Science — As Helium-3 Runs Scarce, Researchers Seek New Ways to Chill Quantum Computers</a></li>
+    <li><a href="https://postquantum.com/building-quantum-computers/quantum-cryogenic-infrastructure-helium3/" target="_blank" rel="noopener">Post-Quantum — Quantum Cryogenic Infrastructure and Helium-3 Guide</a></li>
+    <li><a href="https://bluefors.com/products/dilution-refrigerator-measurement-systems/" target="_blank" rel="noopener">Bluefors — Dilution Refrigerator Measurement Systems (manufacturer reference)</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+
+    var STAGES = [
+      {
+        name: 'Top plate',
+        temp: 300,
+        tempDisplay: '300 K',
+        text: 'Room temperature — where the fridge bolts to the lab bench, and where the cooling job begins.'
+      },
+      {
+        name: '1st pulse-tube stage',
+        temp: 50,
+        tempDisplay: '50 K',
+        text: 'A closed-cycle mechanical cooler — no moving parts at the cold end — does the first heavy lifting, the same basic principle as a gas-expansion cooler, engineered to go much further.'
+      },
+      {
+        name: '2nd pulse-tube stage',
+        temp: 4,
+        tempDisplay: '4 K',
+        text: 'Colder than liquid nitrogen. The incoming helium-3/helium-4 mixture gas begins to liquefy here, and most ordinary materials stop conducting heat well.'
+      },
+      {
+        name: 'Still',
+        temp: 0.8,
+        tempDisplay: '0.8 K',
+        text: 'Helium-3 evaporates from the mixture under continuous vacuum pumping — the "pump" that keeps drawing helium-3 back into circulation.'
+      },
+      {
+        name: 'Mixing chamber',
+        temp: 0.015,
+        tempDisplay: '15 mK',
+        text: 'Helium-3 forces its way into a helium-4-rich phase it doesn’t want to mix with. That forced mixing absorbs heat — like sweat evaporating cools skin — and is the only step that reaches temperatures this low continuously. The chip sits right here.'
+      }
+    ];
+
+    var AX = 56;
+    var AY0 = 26, AY1 = 182;
+    var N = STAGES.length;
+    var STEP = (AY1 - AY0) / (N - 1);
+
+    var scene = document.getElementById('qc-scene');
+    var slider = document.getElementById('qc-slider');
+    var prevBtn = document.getElementById('qc-prev');
+    var nextBtn = document.getElementById('qc-next');
+    var playBtn = document.getElementById('qc-play');
+    var resetBtn = document.getElementById('qc-reset');
+    var stageText = document.getElementById('qc-stage-text');
+    var statName = document.getElementById('qc-stat-name');
+    var statTemp = document.getElementById('qc-stat-temp');
+    var statRoom = document.getElementById('qc-stat-room');
+    var statSpace = document.getElementById('qc-stat-space');
+
+    var nodes = [], nameLabels = [], tempLabels = [], segs = [];
+
+    function yFor(i) { return AY0 + i * STEP; }
+
+    function el(tag, attrs, text) {
+      var e = document.createElementNS(SVG_NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      if (text !== undefined) e.textContent = text;
+      scene.appendChild(e);
+      return e;
+    }
+
+    function fmtRatio(r) {
+      if (r >= 1000) return Math.round(r / 100) * 100 + '×';
+      if (r >= 10) return Math.round(r) + '×';
+      return r.toFixed(1) + '×';
+    }
+
+    function buildScene() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+      nodes = []; nameLabels = []; tempLabels = []; segs = [];
+
+      // background dashed spine
+      el('line', { x1: AX, y1: AY0, x2: AX, y2: AY1, stroke: 'var(--border)', 'stroke-width': '2', 'stroke-dasharray': '2,3' });
+
+      for (var i = 0; i < N - 1; i++) {
+        var seg = el('line', { x1: AX, y1: yFor(i), x2: AX, y2: yFor(i + 1), stroke: 'var(--accent-b)', 'stroke-width': '2.5', opacity: '0' });
+        segs.push(seg);
+      }
+
+      for (i = 0; i < N; i++) {
+        var y = yFor(i);
+        var node = el('circle', { cx: AX, cy: y, r: '7', fill: 'var(--surface)', stroke: 'var(--border)', 'stroke-width': '2' });
+        nodes.push(node);
+        var nameLbl = el('text', { x: AX + 18, y: y - 4, class: 'mono', 'font-size': '10', 'font-weight': '700', fill: 'var(--ink)' }, STAGES[i].name);
+        var tempLbl = el('text', { x: AX + 18, y: y + 11, class: 'mono', 'font-size': '9.5', fill: 'var(--muted)' }, '');
+        nameLabels.push(nameLbl);
+        tempLabels.push(tempLbl);
+      }
+    }
+
+    function render(i) {
+      i = Math.max(0, Math.min(N - 1, i));
+
+      for (var k = 0; k < N; k++) {
+        var reached = k <= i;
+        nodes[k].setAttribute('fill', reached ? 'var(--accent-b)' : 'var(--surface)');
+        nodes[k].setAttribute('stroke', reached ? 'var(--accent-b)' : 'var(--border)');
+        nodes[k].setAttribute('r', k === i ? '8.5' : '7');
+        nameLabels[k].setAttribute('opacity', reached ? '1' : '0.4');
+        tempLabels[k].textContent = reached ? STAGES[k].tempDisplay : '—';
+      }
+      for (k = 0; k < segs.length; k++) {
+        segs[k].setAttribute('opacity', k < i ? '1' : '0');
+      }
+
+      var s = STAGES[i];
+      stageText.textContent = s.text;
+      statName.textContent = s.name;
+      statTemp.textContent = s.tempDisplay;
+      statRoom.textContent = i === 0 ? 'baseline' : fmtRatio(300 / s.temp) + ' colder';
+      statSpace.textContent = s.temp >= 2.7 ? 'warmer' : fmtRatio(2.7 / s.temp) + ' colder';
+
+      slider.value = String(i);
+      prevBtn.disabled = i === 0;
+      nextBtn.disabled = i === N - 1;
+    }
+
+    var current = 0;
+    var playTimer = null;
+
+    function stopPlay() {
+      if (playTimer) { clearInterval(playTimer); playTimer = null; }
+      playBtn.disabled = false;
+      playBtn.textContent = '▶ Run';
+    }
+
+    function goTo(i) {
+      stopPlay();
+      current = Math.max(0, Math.min(N - 1, i));
+      render(current);
+    }
+
+    function runPlay() {
+      if (reduceMotion) {
+        goTo(N - 1);
+        return;
+      }
+      if (playTimer) return;
+      current = 0;
+      render(current);
+      playBtn.disabled = true;
+      playBtn.textContent = 'Running…';
+      playTimer = setInterval(function () {
+        current += 1;
+        render(current);
+        if (current >= N - 1) stopPlay();
+      }, 1700);
+    }
+
+    prevBtn.addEventListener('click', function () { goTo(current - 1); });
+    nextBtn.addEventListener('click', function () { goTo(current + 1); });
+    slider.addEventListener('input', function () { goTo(parseInt(slider.value, 10)); });
+    playBtn.addEventListener('click', runPlay);
+    resetBtn.addEventListener('click', function () { goTo(0); });
+
+    buildScene();
+    current = reduceMotion ? N - 1 : 0;
+    render(current);
+  })();
+</script>
+</body>
+</html>
