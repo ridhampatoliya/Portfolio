@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-09","category":"MARITIME INSURANCE","headline":"A Tanker's Insurance Bill for One Trip Through Hormuz Went From $375,000 to $15 Million. The Cargo Didn't Get More Dangerous — the Pricing Did","summary":"Since Iran's war shut down normal Gulf shipping in February 2026, insurers invented a new weekly-repriced line item: war-risk premiums that have reached 10% of a tanker's value. The toll gets baked into oil and LNG prices -- and from there, into the power bill of every fab and data center running on Gulf gas.","whyItMatters":"Insurance syndicates can reprice a chokepoint's danger week to week, independent of whether supply actually breaks -- and that repricing shows up as a cost for everyone running energy-hungry fabs or data centers downstream."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — A Tanker's Insurance Bill for One Trip Through Hormuz Went From $375,000 to $15 Million. The Cargo Didn't Get More Dangerous — the Pricing Did.</title>
+<meta name="description" content="A 7-day-renewable insurance policy called 'war risk cover' has turned a routine tanker transit through the Strait of Hormuz into a line item worth millions. Here's how the mechanism works, and why it ends up on the power bill of chip fabs and AI data centers thousands of miles away." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c1440e;
+    --accent-a-tint: #f8ddd0;
+    --accent-b: #146a7a;
+    --accent-b-tint: #d8eef1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e88e5c;
+      --accent-a-tint: #32200f;
+      --accent-b: #5fb8c9;
+      --accent-b-tint: #0f2a30;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e88e5c;
+    --accent-a-tint: #32200f;
+    --accent-b: #5fb8c9;
+    --accent-b-tint: #0f2a30;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c1440e;
+    --accent-a-tint: #f8ddd0;
+    --accent-b: #146a7a;
+    --accent-b-tint: #d8eef1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-a);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-a);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the war-risk premium meter --- */
+  .wr-header { margin-bottom: 4px; }
+  .wr-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .wr-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.6;
+  }
+  .wr-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 16px 14px 10px;
+  }
+  .wr-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 150px;
+  }
+  .wr-timeline {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    margin-top: 2px;
+    font-size: 9.5px;
+    color: var(--muted);
+  }
+  .wr-timeline span {
+    flex: 1;
+    text-align: center;
+  }
+  .wr-timeline span.active {
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  .wr-note {
+    margin: 14px 0 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+    font-size: 13px;
+    line-height: 1.55;
+    min-height: 40px;
+  }
+  .wr-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .wr-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 220px;
+  }
+  .wr-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-a);
+  }
+  .wr-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .wr-btn.wr-primary {
+    background: var(--accent-a);
+    border-color: var(--accent-a);
+    color: #fff;
+  }
+  .wr-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+  .wr-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  @media (max-width: 480px) {
+    .wr-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .wr-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .wr-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .wr-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 13.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 9, 2026</span>
+    <span class="category-chip">MARITIME INSURANCE</span>
+  </div>
+  <h1>A Tanker's Insurance Bill for One Trip Through Hormuz Went From $375,000 to $15 Million. The Cargo Didn't Get More Dangerous — the Pricing Did.</h1>
+  <p class="lede">Since the US-Israeli war on Iran spilled into the Strait of Hormuz in late February 2026, a quarter of the world's seaborne oil and a fifth of its LNG have been moving through a waterway that regular marine insurance no longer covers. The gap is filled by "war risk" insurance — a separate policy, repriced roughly every seven days, that behaves less like a fixed cost and more like a live danger meter. At its peak this year, insurers were charging up to 10% of a ship's hull value for a single transit. That meter, not a shortage of oil or gas itself, is what's been quietly repricing energy for everyone downstream — including the chip fabs and data centers that run on it.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    War risk cover is quoted on roughly 7-day cycles, not annual ones, so a bad week in the news — a struck tanker, a mine report, a stalled talk — can add millions to a single ship's bill without a single barrel of oil or cubic meter of gas changing hands. Reported rates for Hormuz transits swung from a pre-war baseline near 0.1–0.25% of hull value to a peak of roughly 7.5–10% in July, per Marsh and Insurance Business, with Xinhua describing around 5% as an emerging norm later in the year. Sources disagree on the exact current figure, so treat any single number as an estimate within that range, not a settled price.
+  </div>
+
+  <div class="card wr-card">
+    <div class="wr-header">
+      <h2 class="wr-title">The 2026 Hormuz war-risk premium, as reported</h2>
+      <p class="wr-caption mono">Drag the slider to set a war-risk premium and see what it adds to one transit for an illustrative $150M tanker, or press Run to replay the year as reported by Marsh, Insurance Business and Xinhua. Figures are a single worked example, not every ship's actual bill — real premiums vary by vessel, route and underwriter, and sources disagree on exact current levels.</p>
+    </div>
+
+    <div class="wr-scene-wrap">
+      <svg class="wr-scene" id="wr-scene" viewBox="0 0 360 86" role="img" aria-label="A horizontal gauge from 0 to 10 percent showing the war-risk insurance premium as a share of a tanker's hull value, with a marker showing the current value."></svg>
+      <div class="wr-timeline" id="wr-timeline">
+        <span data-i="0">Late Feb<br/>pre-war</span>
+        <span data-i="1">March<br/>strikes begin</span>
+        <span data-i="2">July<br/>peak</span>
+        <span data-i="3">August<br/>plateau</span>
+        <span data-i="4">October<br/>today</span>
+      </div>
+    </div>
+    <p class="wr-note mono" id="wr-note"></p>
+
+    <div class="wr-controls">
+      <div class="wr-slider-row">
+        <label for="wr-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">Premium</label>
+        <input type="range" id="wr-slider" min="0.10" max="10" step="0.05" value="0.25" aria-label="War-risk premium, percent of hull value" />
+      </div>
+      <button type="button" class="wr-btn wr-primary" id="wr-play">▶ Run 2026</button>
+      <button type="button" class="wr-btn" id="wr-reset">Reset</button>
+    </div>
+
+    <div class="wr-stats">
+      <div class="wr-stat">
+        <div class="wr-stat-label mono">Premium</div>
+        <div class="wr-stat-value mono" id="wr-stat-pct">0.25%</div>
+      </div>
+      <div class="wr-stat">
+        <div class="wr-stat-label mono">Bill for this transit</div>
+        <div class="wr-stat-value mono" id="wr-stat-bill">$375,000</div>
+      </div>
+      <div class="wr-stat">
+        <div class="wr-stat-label mono">Vs. pre-war baseline</div>
+        <div class="wr-stat-value mono" id="wr-stat-mult">1×</div>
+      </div>
+      <div class="wr-stat">
+        <div class="wr-stat-label mono">Checkpoint</div>
+        <div class="wr-stat-value mono" id="wr-stat-check">Custom</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture buying car insurance, except instead of one annual premium, your insurer re-quotes you every single week based on how dangerous your commute looked that week. That's roughly what has happened to oil and gas tankers in the Strait of Hormuz this year.</p>
+      <p>The strait is a narrow passage between Iran and Oman that carries roughly a quarter of the world's seaborne oil and about a fifth of its liquefied natural gas (LNG). When a US-Israeli war on Iran broke out in late February 2026 and Iran began boarding ships, laying mines, and firing on tankers, ordinary marine insurance — which has excluded "acts of war" since roughly World War I — stopped covering transits through the strait. To even sail, shipowners now have to buy a second, separate policy: war-risk insurance, priced not once a year but roughly once a week, by underwriters who track the news as closely as any trader.</p>
+      <p>Before the war, that weekly add-on cost next to nothing — a small fraction of one percent of a ship's value. At the worst points this year, reported rates spiked to roughly 10%. For a $150 million tanker, that's the difference between a $375,000 line item and a $15 million one, for the exact same ship carrying the exact same cargo on the exact same route.</p>
+      <p>That bill doesn't stay with the shipowner — it gets folded into the price of the oil and gas on board. Which is how a crisis measured in missile strikes and mined water ends up, a few steps downstream, as a slightly higher power bill for a chip fab or an AI data center on the other side of the world.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Standard marine hull &amp; machinery (H&amp;M) and protection &amp; indemnity (P&amp;I) policies have carried a war exclusion clause since the aftermath of the First World War, when underwriters classified state-on-state conflict as an uninsurable, highly correlated risk rather than an ordinary marine peril. Coverage for that excluded risk is sold separately, as war risk insurance, typically underwritten on renewable terms as short as seven days rather than a standard annual policy — a structure that lets the market reprice continuously as a conflict evolves instead of committing to a year-long rate up front.</p>
+      <p>Pricing is anchored to the Lloyd's Market Association's Joint War Committee (JWC), whose "Listed Areas" flag higher-risk zones; being added to, or remaining on, that list is effectively what authorizes insurers to demand the extra premium. Reported rates for Hormuz transits in 2026 moved sharply and, per multiple outlets, inconsistently: from a pre-war baseline near 0.1–0.25% of a vessel's hull value, to a reported 3–10% at acute points — Marsh cited 7.5–10% in late July, Xinhua described roughly 5% as an emerging norm, and Insurance Business reported 3–8% still prevailing in late August. On a $150 million tanker, a 10% rate produces a $15 million premium for a single transit, against roughly $375,000 at a 0.25% pre-war rate.</p>
+      <p>A second constraint compounds price: Marsh estimates total global marine war-risk hull capacity at only $2.5–3 billion, so when many high-value vessels seek cover at once, capacity itself — not just incident frequency — becomes a pricing input. That premium passes through into freight and charter rates and from there into landed fuel costs: Hormuz carries an estimated 20–25% of global seaborne oil and roughly 20% of LNG, and Qatar's Ras Laffan complex (about a fifth of world LNG exports) briefly shut under force majeure in March 2026, pushing Asian spot LNG prices above $20/mmBtu — a direct input cost for the power-hungry fabs and data centers on the receiving end, independent of any disruption to chips or hardware themselves.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> insurers can reprice a chokepoint's danger week to week, long before — or even without — any actual shortage hitting the dock, and that repricing shows up as a real cost for anyone running power-hungry fabs or data centers downstream.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> war-risk premiums and the JWC Listed Areas framework are a leading, fast-moving indicator of chokepoint cost — one that reprices energy inputs for fabs and data centers on a weekly cycle, well ahead of the slower-moving physical-disruption data most capacity models rely on.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.insurancebusinessmag.com/asia/news/marine/hormuz-warrisk-rates-face-fresh-pressure-as-iranus-clashes-resume-588290.aspx" target="_blank" rel="noopener">Insurance Business Magazine — Hormuz war-risk rates face fresh pressure as Iran-US clashes resume</a></li>
+    <li><a href="https://www.spglobal.com/energy/en/news-research/latest-news/shipping/072226-middle-east-shipping-insurance-costs-rise-on-hormuz-risks-marsh" target="_blank" rel="noopener">S&amp;P Global Commodity Insights — Middle East shipping insurance costs rise on Hormuz risks: Marsh</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis" target="_blank" rel="noopener">Wikipedia — 2026 Strait of Hormuz crisis (background and timeline)</a></li>
+    <li><a href="https://www.hellenicshippingnews.com/?p=1126615" target="_blank" rel="noopener">Hellenic Shipping News / Wood Mackenzie — The Strait of Hormuz closure pressures LNG spot prices, threatens Northeast Asia demand</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+    var TANKER_VALUE = 150000000;
+
+    var CHECKPOINTS = [
+      { label: 'Late Feb 2026', pct: 0.25, note: 'Pre-war baseline. Hormuz transits carry essentially no extra insurance charge beyond standard hull cover — reported around 0.1–0.25% of a vessel’s value.' },
+      { label: 'March 2026', pct: 2.5, note: 'Strikes and mine-laying begin. War-risk underwriters add the strait to higher-alert pricing; premiums jump roughly tenfold within weeks.' },
+      { label: 'July 2026', pct: 8.75, note: 'Reported peak. Marsh cites 7.5–10% of hull value for Gulf transits — the range this gauge’s upper checkpoint uses the midpoint of.' },
+      { label: 'August 2026', pct: 5.5, note: 'A plateau, not a resolution. Insurance Business reports 3–8% still prevailing; the Joint War Committee’s listing conditions remain unmet.' },
+      { label: 'October 2026 (today)', pct: 5, note: 'Officials have called the strait “clear”; insurers, who have capital on the line, are still pricing meaningful risk. Treat today’s exact rate as an estimate — sources disagree.' }
+    ];
+
+    var GX0 = 18, GX1 = 342, GY = 46;
+    var SCALE_MAX = 10;
+
+    var scene = document.getElementById('wr-scene');
+    var slider = document.getElementById('wr-slider');
+    var playBtn = document.getElementById('wr-play');
+    var resetBtn = document.getElementById('wr-reset');
+    var note = document.getElementById('wr-note');
+    var statPct = document.getElementById('wr-stat-pct');
+    var statBill = document.getElementById('wr-stat-bill');
+    var statMult = document.getElementById('wr-stat-mult');
+    var statCheck = document.getElementById('wr-stat-check');
+    var timelineSpans = document.querySelectorAll('#wr-timeline span');
+
+    var track, fill, marker, markerLabel, ticks = [];
+
+    function el(tag, attrs, text) {
+      var e = document.createElementNS(SVG_NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      if (text !== undefined) e.textContent = text;
+      scene.appendChild(e);
+      return e;
+    }
+
+    function xFor(pct) {
+      var clamped = Math.max(0.1, Math.min(SCALE_MAX, pct));
+      return GX0 + (clamped / SCALE_MAX) * (GX1 - GX0);
+    }
+
+    function buildScene() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+      ticks = [];
+
+      track = el('line', { x1: GX0, y1: GY, x2: GX1, y2: GY, stroke: 'var(--border)', 'stroke-width': '6', 'stroke-linecap': 'round' });
+      fill = el('line', { x1: GX0, y1: GY, x2: GX0, y2: GY, stroke: 'var(--accent-a)', 'stroke-width': '6', 'stroke-linecap': 'round' });
+
+      var tickVals = [0.25, 2.5, 5, 7.5, 10];
+      for (var i = 0; i < tickVals.length; i++) {
+        var tx = xFor(tickVals[i]);
+        el('line', { x1: tx, y1: GY - 10, x2: tx, y2: GY + 10, stroke: 'var(--border)', 'stroke-width': '1.5' });
+        el('text', { x: tx, y: GY + 24, class: 'mono', 'font-size': '8.5', fill: 'var(--muted)', 'text-anchor': 'middle' }, tickVals[i] + '%');
+      }
+      el('text', { x: GX0, y: 14, class: 'mono', 'font-size': '9', fill: 'var(--muted)' }, '0%');
+      el('text', { x: GX1, y: 14, class: 'mono', 'font-size': '9', fill: 'var(--muted)', 'text-anchor': 'end' }, '10% of hull value');
+
+      marker = el('circle', { cx: GX0, cy: GY, r: '9', fill: 'var(--accent-a)', stroke: 'var(--surface)', 'stroke-width': '2.5' });
+      markerLabel = el('text', { x: GX0, y: GY - 16, class: 'mono', 'font-size': '10', 'font-weight': '700', fill: 'var(--ink)', 'text-anchor': 'middle' }, '0.25%');
+    }
+
+    function fmtMoney(n) {
+      return '$' + Math.round(n).toLocaleString('en-US');
+    }
+
+    function render(pct, checkpointIndex) {
+      var x = xFor(pct);
+      fill.setAttribute('x2', x);
+      marker.setAttribute('cx', x);
+      markerLabel.setAttribute('x', x);
+      markerLabel.textContent = pct.toFixed(2) + '%';
+
+      var bill = TANKER_VALUE * (pct / 100);
+      var baseline = TANKER_VALUE * 0.0025;
+      statPct.textContent = pct.toFixed(2) + '%';
+      statBill.textContent = fmtMoney(bill);
+      statMult.textContent = (bill / baseline).toFixed(1) + '×';
+
+      for (var i = 0; i < timelineSpans.length; i++) {
+        timelineSpans[i].classList.toggle('active', i === checkpointIndex);
+      }
+
+      if (checkpointIndex !== null && checkpointIndex !== undefined) {
+        statCheck.textContent = CHECKPOINTS[checkpointIndex].label;
+        note.textContent = CHECKPOINTS[checkpointIndex].note;
+      } else {
+        statCheck.textContent = 'Custom';
+        note.textContent = 'Custom premium — drag the slider to any value, or press Run to replay how reported Hormuz rates actually moved through 2026.';
+      }
+      slider.value = String(pct);
+    }
+
+    var playTimer = null;
+    var playIndex = 0;
+
+    function stopPlay() {
+      if (playTimer) { clearInterval(playTimer); playTimer = null; }
+      playBtn.disabled = false;
+      playBtn.textContent = '▶ Run 2026';
+    }
+
+    function runPlay() {
+      stopPlay();
+      if (reduceMotion) {
+        var last = CHECKPOINTS.length - 1;
+        render(CHECKPOINTS[last].pct, last);
+        return;
+      }
+      playIndex = 0;
+      render(CHECKPOINTS[0].pct, 0);
+      playBtn.disabled = true;
+      playBtn.textContent = 'Running…';
+      playTimer = setInterval(function () {
+        playIndex += 1;
+        if (playIndex >= CHECKPOINTS.length) { stopPlay(); return; }
+        render(CHECKPOINTS[playIndex].pct, playIndex);
+        if (playIndex === CHECKPOINTS.length - 1) stopPlay();
+      }, 1400);
+    }
+
+    slider.addEventListener('input', function () {
+      stopPlay();
+      render(parseFloat(slider.value), null);
+    });
+    playBtn.addEventListener('click', runPlay);
+    resetBtn.addEventListener('click', function () {
+      stopPlay();
+      render(CHECKPOINTS[0].pct, 0);
+    });
+
+    buildScene();
+    if (reduceMotion) {
+      var last = CHECKPOINTS.length - 1;
+      render(CHECKPOINTS[last].pct, last);
+    } else {
+      render(CHECKPOINTS[0].pct, 0);
+    }
+  })();
+</script>
+</body>
+</html>
