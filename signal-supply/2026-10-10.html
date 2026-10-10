@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-10","category":"EMERGENCY POWER","headline":"The US Government Has Let PJM Switch On AI Data Centers' Diesel Backup Generators as Grid Power Four Times in 2026. Two Days Ago, PJM Told Its Members to Expect a Fifth, This Winter","summary":"Four times in 2026, Washington has ordered AI data centers to switch on their diesel backup generators -- not for themselves, but to prop up the whole PJM grid during record demand. Two days before this edition, PJM briefed its members to expect a fifth order this winter.","whyItMatters":"Backup diesel generators bought for occasional blackouts have quietly become a real-time grid resource regulators now expect to call on repeatedly, turning AI's buildout pace into everyone else's electricity-reliability problem."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — The US Government Has Let PJM Switch On AI Data Centers' Diesel Backup Generators as Grid Power Four Times in 2026</title>
+<meta name="description" content="DOE has used emergency Section 202(c) authority four separate times in 2026 to let grid operator PJM dispatch AI data centers' diesel backup generators as real grid power. Two days ago, PJM briefed its members to expect a repeat this winter." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a8651c;
+    --accent-a-tint: #f5e7d6;
+    --accent-b: #2d5a73;
+    --accent-b-tint: #dcebf0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #dd9c53;
+      --accent-a-tint: #2e2213;
+      --accent-b: #6cafc9;
+      --accent-b-tint: #122a32;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #dd9c53;
+    --accent-a-tint: #2e2213;
+    --accent-b: #6cafc9;
+    --accent-b-tint: #122a32;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a8651c;
+    --accent-a-tint: #f5e7d6;
+    --accent-b: #2d5a73;
+    --accent-b-tint: #dcebf0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-a);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-a);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the grid-stress / 202(c) trigger meter --- */
+  .gs-header { margin-bottom: 4px; }
+  .gs-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .gs-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+    line-height: 1.6;
+  }
+  .gs-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 16px 14px 10px;
+  }
+  .gs-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 150px;
+  }
+  .gs-timeline {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    margin-top: 2px;
+    font-size: 9.5px;
+    color: var(--muted);
+  }
+  .gs-timeline span {
+    flex: 1;
+    text-align: center;
+  }
+  .gs-timeline span.active {
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  .gs-note {
+    margin: 14px 0 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+    font-size: 13px;
+    line-height: 1.55;
+    min-height: 40px;
+  }
+  .gs-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .gs-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 220px;
+  }
+  .gs-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-a);
+  }
+  .gs-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .gs-btn.gs-primary {
+    background: var(--accent-a);
+    border-color: var(--accent-a);
+    color: #fff;
+  }
+  .gs-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+  .gs-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  @media (max-width: 480px) {
+    .gs-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .gs-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .gs-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .gs-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 13.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 10, 2026</span>
+    <span class="category-chip">EMERGENCY POWER</span>
+  </div>
+  <h1>The US Government Has Let PJM Switch On AI Data Centers' Diesel Backup Generators as Grid Power Four Times in 2026. Two Days Ago, PJM Told Its Members to Expect a Fifth, This Winter.</h1>
+  <p class="lede">Section 202(c) of the Federal Power Act lets the Department of Energy override normal grid rules during a reliability emergency. In 2026, Washington has used that power four separate times to let PJM — the grid operator for 13 states and D.C. — direct AI data centers to switch to their own diesel backup generators, not to keep their own servers running, but to take load off the shared grid for everyone else. The latest briefing, filed two days before this edition, is about getting ready to do it again this winter.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    DOE issued at least four Section 202(c) emergency orders in 2026 authorizing PJM to dispatch data centers' backup diesel generators as last-resort grid power: Order 202-26-06 (Jan. 26), 202-26-23 (May 18), 202-26-32 (June 30), and 202-26-41 (Sept. 1). On October 8, PJM briefed its Operating Committee on all four as it prepares for winter — a season NERC's own risk assessment already flags as elevated, largely because of data-center demand growth.
+  </div>
+
+  <div class="card gs-card">
+    <div class="gs-header">
+      <h2 class="gs-title">The 202(c) trigger, as it played out across 2026</h2>
+      <p class="gs-caption mono">Drag the slider to set a "grid stress index" and watch PJM's alert ladder climb toward the point where DOE's emergency order kicks in, or press Replay to step through the four real orders issued in 2026 plus the winter ahead. The 0-100 stress index is an illustrative teaching scale, not an official PJM metric — the dates, order numbers and July demand record are real and sourced below.</p>
+    </div>
+
+    <div class="gs-scene-wrap">
+      <svg class="gs-scene" id="gs-scene" viewBox="0 0 360 86" role="img" aria-label="A horizontal gauge from 0 to 100 showing an illustrative grid stress index, with zones for normal, EEA1, EEA2, and EEA3 where the 202(c) order triggers, and a marker showing the current value."></svg>
+      <div class="gs-timeline" id="gs-timeline">
+        <span data-i="0">Jan 26<br/>Order 06</span>
+        <span data-i="1">May 18<br/>Order 23</span>
+        <span data-i="2">Jun 30<br/>Order 32</span>
+        <span data-i="3">Sep 1<br/>Order 41</span>
+        <span data-i="4">Winter<br/>ahead</span>
+      </div>
+    </div>
+    <p class="gs-note mono" id="gs-note"></p>
+
+    <div class="gs-controls">
+      <div class="gs-slider-row">
+        <label for="gs-slider" class="mono" style="font-size:11px; color:var(--muted); white-space:nowrap;">Stress</label>
+        <input type="range" id="gs-slider" min="0" max="100" step="1" value="20" aria-label="Illustrative grid stress index, 0 to 100" />
+      </div>
+      <button type="button" class="gs-btn gs-primary" id="gs-play">▶ Replay 2026</button>
+      <button type="button" class="gs-btn" id="gs-reset">Reset</button>
+    </div>
+
+    <div class="gs-stats">
+      <div class="gs-stat">
+        <div class="gs-stat-label mono">Stress index</div>
+        <div class="gs-stat-value mono" id="gs-stat-stress">20</div>
+      </div>
+      <div class="gs-stat">
+        <div class="gs-stat-label mono">Alert level</div>
+        <div class="gs-stat-value mono" id="gs-stat-level">Normal</div>
+      </div>
+      <div class="gs-stat">
+        <div class="gs-stat-label mono">202(c) order</div>
+        <div class="gs-stat-value mono" id="gs-stat-order">None issued</div>
+      </div>
+      <div class="gs-stat">
+        <div class="gs-stat-label mono">2026 orders so far</div>
+        <div class="gs-stat-value mono" id="gs-stat-count">0 of 4</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Every big data center keeps a fleet of diesel generators parked out back — insurance against a blackout, meant to run a few hours a year at most, mostly just for testing. In 2026, the US government started treating those generators as something else: a backup power plant for the whole neighborhood.</p>
+      <p>Here's the mechanism. Section 202(c) of a 90-year-old law lets the Department of Energy declare a grid emergency and temporarily override the normal rules. Four separate times this year — during a January deep freeze, a May heat emergency, the record-breaking Fourth of July weekend heat wave, and again in September — DOE used that power to let PJM, which runs the grid across 13 states and Washington, D.C., tell data centers and other huge electricity users to flip on their own diesel generators. Not to keep their own servers running through an outage, which is what the generators are normally for, but to take load off the shared grid so everyone else's lights stay on right as demand peaks.</p>
+      <p>It worked, visibly. During the July episode, PJM's demand hit a record 166,304 megawatts, breaking a mark that had stood since 2006, and residents near Ashburn, Virginia — home to the world's densest cluster of data centers — posted photos of black diesel smoke drifting over their neighborhoods on a 102°F day.</p>
+      <p>Two days before this edition, PJM briefed its members on all four 2026 orders while prepping for winter — a season grid watchdogs already call higher-risk than usual, largely because of data centers. The generators bought as insurance have quietly become a load-bearing part of the grid's actual plan.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The legal lever is Federal Power Act Section 202(c), which lets DOE issue short-term emergency orders directing generation and transmission assets to operate outside their normal permitted parameters — overriding environmental limits, interconnection rules, or standard economic dispatch — when grid reliability is at risk. DOE issued at least four 202(c) orders in 2026 that specifically authorize PJM to direct "backup generation resources" at data centers and other large loads (generally facilities of 50 MW or more) to self-generate as a last resort before, or during, a declared Energy Emergency Alert Level 3 — PJM's highest alert tier, one step short of controlled load shedding: Order 202-26-06 (Jan. 26, Winter Storm Fern), 202-26-23 (May 18, heat emergency), 202-26-32 (June 30, the heat wave that drove demand to a record 166,304 MW, past the 165,563 MW set in 2006), and 202-26-41 (Sept. 1). A separate set of 2026 orders (202-26-17, -24, -40) uses the same authority to keep specific utility-owned plants, like Constellation's Eddystone station, running past retirement — same statute, different asset class.</p>
+      <p>The emissions side is genuinely disputed, not just politically contested. Virginia's Department of Environmental Quality has begun treating these DOE-triggered dispatches as "emergency" operation, exempting them from the stricter annual run-hour and permit limits that apply to routine testing — a reclassification critics call a loophole. A Virginia legislative audit found data-center diesel generators account for under 4% of the region's NOx emissions. A Washington Post analysis built on Virginia Commonwealth University and University of Washington modeling of 132 Northern Virginia facilities estimated that, even run under an hour a week on average, their combined public-health burden is comparable to roughly five gas plants the size of the regional Possum Point station, with on the order of three or more associated premature deaths a year. Those two figures aren't measuring the same thing — emissions share versus modeled health burden — and neither has displaced the other; treat the gap as unresolved, not as one side being simply wrong.</p>
+      <p>The structural driver isn't going away. NERC's most recent winter reliability assessment already rated seven North American regions at elevated blackout risk, citing roughly 20 GW of new winter demand against under 10 GW of new capacity, with data centers named as the primary driver — which is why PJM's Oct. 8 "preparation for winter" briefing to its Operating Committee reads less like a retrospective and more like a forecast. Separately, the backup-generator supply chain is now a bottleneck of its own: Generac's data-center order backlog reached $1.6 billion in Q2 2026 (including $1 billion in new orders inside 90 days), and Caterpillar's power-generation segment revenue rose 41% year over year in Q1 2026 to $2.8 billion, both driven overwhelmingly by data-center demand.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> backup diesel generators bought for occasional blackouts have quietly become a real-time grid resource that regulators now expect to call on repeatedly — which turns AI's buildout pace into everyone else's electricity-reliability problem.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Section 202(c) has become a recurring, low-friction policy lever for converting idle behind-the-meter diesel capacity into grid-dispatchable reserve, which both masks and defers the underlying generation-vs-load-growth gap that NERC says data centers are driving.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.energy.gov/ceser/2026-doe-202c-orders" target="_blank" rel="noopener">US Department of Energy — 2026 DOE 202(c) Orders (full list)</a></li>
+    <li><a href="https://www.pjm.com/-/media/DotCom/committees-groups/committees/oc/2026/20261008/20261008-item-13---202c-update-in-preparation-for-winter-season-presentation.pdf" target="_blank" rel="noopener">PJM Operating Committee — "202(c) Update in Preparation for Winter Season," Oct. 8, 2026</a></li>
+    <li><a href="https://theenergymag.com/news/2026-07-01/doe-pjm-ai-backup-power" target="_blank" rel="noopener">The Energy Mag — DOE Lets PJM Tap AI Data Center Backup Power During Heat Wave</a></li>
+    <li><a href="https://dnyuz.com/2026/07/11/dark-smoke-rose-above-a-virginia-data-center-as-a-heat-wave-pushed-the-power-grid-close-to-its-limits/" target="_blank" rel="noopener">Business Insider (via DNYUZ) — Dark smoke rose above a Virginia data center as a heat wave pushed the power grid close to its limits</a></li>
+    <li><a href="https://www.bespacific.com/?p=125117" target="_blank" rel="noopener">beSpacific, citing The Washington Post / VCU &amp; University of Washington analysis — As data centers boom, Virginians breathe the exhaust of 10,000 diesel generators</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+
+    var ZONES = [
+      { max: 40, label: 'Normal' },
+      { max: 70, label: 'EEA1 — Watch' },
+      { max: 85, label: 'EEA2 — Warning' },
+      { max: 100, label: 'EEA3 → 202(c)' }
+    ];
+
+    var CHECKPOINTS = [
+      { label: 'Jan 26, 2026', stress: 78, order: 'Order 202-26-06', count: 1, note: 'Winter Storm Fern. DOE’s first 2026 order lets PJM direct data-center backup generation as a last resort before or during an EEA3.' },
+      { label: 'May 18, 2026', stress: 74, order: 'Order 202-26-23', count: 2, note: 'A separate heat emergency. Same authority, same mechanism, three-and-a-half months later.' },
+      { label: 'Jun 30–Jul 3, 2026', stress: 95, order: 'Order 202-26-32', count: 3, note: 'PJM demand hits a record 166,304 MW, breaking 2006’s 165,563 MW mark. Smoke from a Digital Realty site in Ashburn, VA is visible to residents.' },
+      { label: 'Sep 1, 2026', stress: 72, order: 'Order 202-26-41', count: 4, note: 'A fourth order inside nine months — this one bundled with directives to dispatch specific power plants, too.' },
+      { label: 'Winter 2026–27', stress: 68, order: 'Not yet issued', count: 4, note: 'No order has been filed yet. On Oct. 8, PJM briefed its Operating Committee on all four 2026 orders while preparing for winter — a season NERC’s latest assessment already flags as elevated risk, chiefly from data-center load growth.', forecast: true }
+    ];
+
+    var GX0 = 18, GX1 = 342, GY = 46;
+    var SCALE_MAX = 100;
+
+    var scene = document.getElementById('gs-scene');
+    var slider = document.getElementById('gs-slider');
+    var playBtn = document.getElementById('gs-play');
+    var resetBtn = document.getElementById('gs-reset');
+    var note = document.getElementById('gs-note');
+    var statStress = document.getElementById('gs-stat-stress');
+    var statLevel = document.getElementById('gs-stat-level');
+    var statOrder = document.getElementById('gs-stat-order');
+    var statCount = document.getElementById('gs-stat-count');
+    var timelineSpans = document.querySelectorAll('#gs-timeline span');
+
+    var track, marker, markerLabel, zoneRects = [];
+
+    function el(tag, attrs, text) {
+      var e = document.createElementNS(SVG_NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      if (text !== undefined) e.textContent = text;
+      scene.appendChild(e);
+      return e;
+    }
+
+    function xFor(v) {
+      var clamped = Math.max(0, Math.min(SCALE_MAX, v));
+      return GX0 + (clamped / SCALE_MAX) * (GX1 - GX0);
+    }
+
+    function zoneColor(i) {
+      return i < 2 ? 'var(--accent-b)' : 'var(--accent-a)';
+    }
+
+    function levelFor(v) {
+      for (var i = 0; i < ZONES.length; i++) {
+        if (v <= ZONES[i].max) return ZONES[i].label;
+      }
+      return ZONES[ZONES.length - 1].label;
+    }
+
+    function buildScene() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+      zoneRects = [];
+
+      track = el('line', { x1: GX0, y1: GY, x2: GX1, y2: GY, stroke: 'var(--border)', 'stroke-width': '6', 'stroke-linecap': 'round' });
+
+      var prev = 0;
+      for (var i = 0; i < ZONES.length; i++) {
+        var x0 = xFor(prev), x1 = xFor(ZONES[i].max);
+        el('line', { x1: x0, y1: GY, x2: x1, y2: GY, stroke: zoneColor(i), 'stroke-width': '6', 'stroke-linecap': 'butt', opacity: '0.28' });
+        prev = ZONES[i].max;
+      }
+
+      var tickVals = [0, 40, 70, 85, 100];
+      for (var t = 0; t < tickVals.length; t++) {
+        var tx = xFor(tickVals[t]);
+        el('line', { x1: tx, y1: GY - 10, x2: tx, y2: GY + 10, stroke: 'var(--border)', 'stroke-width': '1.5' });
+      }
+      el('text', { x: GX0, y: 14, class: 'mono', 'font-size': '9', fill: 'var(--muted)' }, 'Normal');
+      el('text', { x: GX1, y: 14, class: 'mono', 'font-size': '9', fill: 'var(--muted)', 'text-anchor': 'end' }, 'EEA3 → 202(c)');
+      el('text', { x: GX0, y: GY + 24, class: 'mono', 'font-size': '8.5', fill: 'var(--muted)' }, '0');
+      el('text', { x: GX1, y: GY + 24, class: 'mono', 'font-size': '8.5', fill: 'var(--muted)', 'text-anchor': 'end' }, '100');
+
+      marker = el('circle', { cx: GX0, cy: GY, r: '9', fill: 'var(--accent-a)', stroke: 'var(--surface)', 'stroke-width': '2.5' });
+      markerLabel = el('text', { x: GX0, y: GY - 16, class: 'mono', 'font-size': '10', 'font-weight': '700', fill: 'var(--ink)', 'text-anchor': 'middle' }, '20');
+    }
+
+    function render(v, checkpointIndex) {
+      var x = xFor(v);
+      marker.setAttribute('cx', x);
+      marker.setAttribute('fill', v > 85 ? 'var(--accent-a)' : 'var(--accent-b)');
+      markerLabel.setAttribute('x', x);
+      markerLabel.textContent = Math.round(v);
+
+      var level = levelFor(v);
+      statStress.textContent = Math.round(v);
+      statLevel.textContent = level;
+      statOrder.textContent = v > 85 ? 'Triggered (illustrative)' : 'None issued';
+
+      for (var i = 0; i < timelineSpans.length; i++) {
+        timelineSpans[i].classList.toggle('active', i === checkpointIndex);
+      }
+
+      if (checkpointIndex !== null && checkpointIndex !== undefined) {
+        var cp = CHECKPOINTS[checkpointIndex];
+        statOrder.textContent = cp.order;
+        statCount.textContent = cp.count + ' of 4' + (cp.forecast ? ' (+ forecast)' : '');
+        note.textContent = cp.note;
+      } else {
+        statCount.textContent = '0 of 4';
+        note.textContent = 'Custom stress level — drag the slider, or press Replay to step through the four real 2026 orders and the winter ahead.';
+      }
+      slider.value = String(v);
+    }
+
+    var playTimer = null;
+    var playIndex = 0;
+
+    function stopPlay() {
+      if (playTimer) { clearInterval(playTimer); playTimer = null; }
+      playBtn.disabled = false;
+      playBtn.textContent = '▶ Replay 2026';
+    }
+
+    function runPlay() {
+      stopPlay();
+      if (reduceMotion) {
+        var last = CHECKPOINTS.length - 1;
+        render(CHECKPOINTS[last].stress, last);
+        return;
+      }
+      playIndex = 0;
+      render(CHECKPOINTS[0].stress, 0);
+      playBtn.disabled = true;
+      playBtn.textContent = 'Running…';
+      playTimer = setInterval(function () {
+        playIndex += 1;
+        if (playIndex >= CHECKPOINTS.length) { stopPlay(); return; }
+        render(CHECKPOINTS[playIndex].stress, playIndex);
+        if (playIndex === CHECKPOINTS.length - 1) stopPlay();
+      }, 1500);
+    }
+
+    slider.addEventListener('input', function () {
+      stopPlay();
+      render(parseFloat(slider.value), null);
+    });
+    playBtn.addEventListener('click', runPlay);
+    resetBtn.addEventListener('click', function () {
+      stopPlay();
+      render(20, null);
+    });
+
+    buildScene();
+    if (reduceMotion) {
+      var last = CHECKPOINTS.length - 1;
+      render(CHECKPOINTS[last].stress, last);
+    } else {
+      render(20, null);
+    }
+  })();
+</script>
+</body>
+</html>
