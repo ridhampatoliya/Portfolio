@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-11","category":"TRADE FINANCE","headline":"The Document That Decides Who Owns a Ship's Cargo Is Still About 89% Paper. Carriers Have 4 Years Left on Their Promise to Make It 100% Digital","summary":"Ocean carriers issue roughly 45 million bills of lading a year, the paper that proves who owns cargo at sea. Nine major carriers promised 100% digital by 2030. The most recent count: about 1 in 9 is. The holdup isn't technology. It's a centuries-old legal trick that digitizing breaks.","whyItMatters":"The slowest link in global trade right now isn't a ship, a port, or a chip shortage, it's a single piece of paper that a 2023 industry pledge still hasn't made trustworthy to replace, in law, across borders."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — The Document That Decides Who Owns a Ship's Cargo Is Still About 89% Paper. Carriers Have 4 Years Left on Their Promise to Make It 100% Digital</title>
+<meta name="description" content="Ocean carriers issue roughly 45 million bills of lading a year, the single document that legally proves who owns cargo at sea. Nine major carriers pledged 100% digital by 2030; real adoption is still only about 11%. The reason isn't technology, it's a legal trick that digitizing breaks." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #96591f;
+    --accent-a-tint: #f3e6d3;
+    --accent-b: #28707f;
+    --accent-b-tint: #dcecee;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #dba563;
+      --accent-a-tint: #2b2013;
+      --accent-b: #6ec3d1;
+      --accent-b-tint: #13282b;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #dba563;
+    --accent-a-tint: #2b2013;
+    --accent-b: #6ec3d1;
+    --accent-b-tint: #13282b;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #96591f;
+    --accent-a-tint: #f3e6d3;
+    --accent-b: #28707f;
+    --accent-b-tint: #dcecee;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-a);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-a);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the title-transfer singularity simulator --- */
+  .bl-header { margin-bottom: 4px; }
+  .bl-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .bl-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.6;
+  }
+  .bl-modes {
+    display: inline-flex;
+    flex-wrap: wrap;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 3px;
+    background: var(--bg);
+    gap: 2px;
+    margin-bottom: 14px;
+  }
+  .bl-modes button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 7px 11px;
+    border-radius: 7px;
+    cursor: pointer;
+  }
+  .bl-modes button[aria-pressed="true"] {
+    background: var(--surface);
+    color: var(--ink);
+    box-shadow: var(--shadow);
+  }
+  .bl-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 12px 10px 8px;
+  }
+  .bl-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 170px;
+  }
+  .bl-timeline {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    margin-top: 4px;
+    font-size: 9.5px;
+    color: var(--muted);
+  }
+  .bl-timeline span {
+    flex: 1;
+    text-align: center;
+  }
+  .bl-timeline span.active {
+    color: var(--accent-a);
+    font-weight: 700;
+  }
+  .bl-note {
+    margin: 14px 0 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+    font-size: 13px;
+    line-height: 1.55;
+    min-height: 58px;
+  }
+  .bl-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .bl-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .bl-btn.bl-primary {
+    background: var(--accent-a);
+    border-color: var(--accent-a);
+    color: #fff;
+  }
+  .bl-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+  .bl-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  @media (max-width: 480px) {
+    .bl-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .bl-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .bl-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .bl-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 11, 2026</span>
+    <span class="category-chip">TRADE FINANCE</span>
+  </div>
+  <h1>The Document That Decides Who Owns a Ship's Cargo Is Still About 89% Paper. Carriers Have 4 Years Left on Their Promise to Make It 100% Digital.</h1>
+  <p class="lede">Ocean carriers issue roughly 45 million bills of lading a year — the single piece of paper that works as a receipt, a contract, and the one legal deed proving who owns a container's cargo while it's still at sea. In February 2023, nine of the biggest carriers promised to make all of them digital by 2030. The most recent public data puts real electronic adoption at about 11%.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    DCSA's nine member carriers — CMA CGM, Evergreen, Hapag-Lloyd, HMM, Maersk, MSC, ONE, Yang Ming, and ZIM, together carrying roughly three-quarters of global container trade — pledged in February 2023 to convert 50% of paper bills of lading to a standardized digital format within five years (by ~2028) and 100% by 2030, a shift DCSA estimated could save $6.5 billion a year directly and unlock $30-40 billion in new annual trade. The most recent figure (DCSA data, as of August 2025): roughly 11% adoption, up from about 1.2% in 2021 — behind the pace needed to hit 50% within two more years.
+  </div>
+
+  <div class="card bl-card">
+    <div class="bl-header">
+      <h2 class="bl-title">Can the seller sell the same cargo twice?</h2>
+      <p class="bl-caption mono">Pick a format for the title document, then press Run to watch a seller try to hand the same cargo's title to two buyers at once. Each format stops — or fails to stop — the double-sale at a different point. This is a simplified teaching model of the real "singularity" problem explained below, not a specific real shipment.</p>
+    </div>
+
+    <div class="bl-modes" role="group" aria-label="Document format">
+      <button type="button" data-mode="paper" aria-pressed="true">Paper Original</button>
+      <button type="button" data-mode="pdf" aria-pressed="false">Emailed PDF</button>
+      <button type="button" data-mode="ebl" aria-pressed="false">Digital eBL (MLETR)</button>
+    </div>
+
+    <div class="bl-scene-wrap">
+      <svg class="bl-scene" id="bl-scene" viewBox="0 0 360 130" role="img" aria-label="A diagram of a seller and two buyers, showing whether the cargo title document can be sent to both buyers at once."></svg>
+      <div class="bl-timeline" id="bl-timeline">
+        <span data-i="0">0: Start</span>
+        <span data-i="1">1: First transfer</span>
+        <span data-i="2">2: Second attempt</span>
+        <span data-i="3">3: Port claim</span>
+      </div>
+    </div>
+    <p class="bl-note mono" id="bl-note"></p>
+
+    <div class="bl-controls">
+      <button type="button" class="bl-btn bl-primary" id="bl-play">▶ Run</button>
+      <button type="button" class="bl-btn" id="bl-step">Step →</button>
+      <button type="button" class="bl-btn" id="bl-reset">Reset</button>
+    </div>
+
+    <div class="bl-stats">
+      <div class="bl-stat">
+        <div class="bl-stat-label mono">Step</div>
+        <div class="bl-stat-value mono" id="bl-stat-step">1 of 4</div>
+      </div>
+      <div class="bl-stat">
+        <div class="bl-stat-label mono">Seller</div>
+        <div class="bl-stat-value mono" id="bl-stat-seller">Holds original</div>
+      </div>
+      <div class="bl-stat">
+        <div class="bl-stat-label mono">Buyer A</div>
+        <div class="bl-stat-value mono" id="bl-stat-a">No document</div>
+      </div>
+      <div class="bl-stat">
+        <div class="bl-stat-label mono">Buyer B</div>
+        <div class="bl-stat-value mono" id="bl-stat-b">No document</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Imagine shipping a container of goods across an ocean. Before it leaves port, the carrier hands you one piece of paper — the bill of lading — that does three jobs at once: it's a receipt proving the goods were loaded, it's your contract with the shipping line, and most importantly, it's the only thing that lets anyone claim the cargo at the other end. Whoever physically holds that one page can walk up at the destination port and take the containers.</p>
+      <p>That "only one" part is the whole trick, and it's also why you can't just email a PDF instead. Turn the bill into a PDF and you can copy it infinitely — now two different buyers could each show up with an equally convincing copy and both try to claim the same cargo. Paper never had that problem, purely because it's physically scarce: there's one original, and whoever has it, has it. Digitizing that scarcity needs a legal fix, not just a format change — a system where exactly one party can control the digital record at any given moment, the way a single key controls a padlock, with courts and banks across multiple countries all agreeing to treat that control as real ownership.</p>
+      <p>Shipping lines carrying roughly three-quarters of the world's container trade promised in 2023 to get this done: half digital by around 2028, all of it by 2030. The most recent count is roughly 11% of the ~45 million bills issued every year — up from barely 1% five years earlier, but nowhere near on pace.</p>
+      <p>Until banks and courts everywhere trust the digital version as readily as the paper one, a huge share of world trade still runs on a document whose defining feature is that it can be lost, forged, or simply stuck in the wrong country's mail — and until it clears, nobody can prove, cleanly, who owns the cargo.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>A bill of lading performs three distinct legal functions: a receipt for goods loaded aboard, evidence of the contract of carriage, and — the hard one — a document of title, meaning possession of the paper is treated in law as constructive possession of the goods themselves. That third function makes it a negotiable instrument: endorsing the original transfers the right to claim the cargo to a new party, which is how goods are routinely bought and sold while still mid-ocean, and how banks accept a bill of lading as collateral under a letter of credit.</p>
+      <p>Digitizing the receipt and contract functions is trivial. Digitizing "document of title" requires replicating something paper does for free: singularity, the guarantee that at any instant exactly one party can exercise the rights the record represents. UNCITRAL's Model Law on Electronic Transferable Records (MLETR) solves this through "functional equivalence": an electronic record qualifies as a transferable document of title if a reliable method establishes the record's uniqueness, gives one party exclusive control (standing in for physical possession), and preserves the record's integrity. MLETR doesn't rewrite shipping law — it maps the electronic record onto the same legal concepts paper already satisfies.</p>
+      <p>Today's private eBL platforms (Bolero, essDocs, WaveBL, CargoX, TradeGo, edoxOnline, among others) already enforce singularity through closed, contractual registries — but only among their own members, a "club" model that doesn't interoperate by default. DCSA's member carriers have been pushing a standard eBL interoperability annex intended to let these platforms recognize each other's title records across the industry rather than only within one platform's walls.</p>
+      <p>DCSA's nine carrier members, representing roughly 73% of global container capacity, pledged in February 2023 to hit 50% eBL adoption within five years and 100% by 2030, projecting $6.5 billion in annual direct savings and $30-40 billion in enabled trade growth. Actual uptake: about 1.2% of ~45 million annual bills in 2021, rising to roughly 11% by August 2025 (the most recent widely reported DCSA figure at the time of writing). Legal readiness lags too: Bahrain was the first country to enact MLETR, in 2018, and France became the first EU member state to fully transpose it into domestic law in 2025, but ICC's Digital Standards Initiative still put only about 61.5% of global export value in economies that have enacted or formally committed to MLETR as of its April 2026 guide — and implementation varies even where the law exists (Singapore pairs its MLETR statute with state-run registry infrastructure; practitioners flag Germany's "functional equivalence" language as undefined in practice). On the finance side, a FIT Alliance survey found 82.5% of banks aware of eBLs but only 21.1% actually using them, because a bank underwriting a letter of credit in one jurisdiction can't always be certain an eBL would hold up as collateral in another.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> the slowest link in global trade right now isn't a ship, a port, or a chip shortage — it's a single piece of paper that a 2023 industry pledge still hasn't made trustworthy to replace, in law, across borders.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> every other link in the chain (fabs, ports, carriers) has digitized its operational data; the title-transfer layer underneath trade finance is the rare case where the blocker is legal "exclusive control," not bandwidth, compute, or sensors — and it's still gating how fast goods, and the money against them, can actually move.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://dcsa.org/newsroom/dcsas-member-carriers-commit-to-a-fully-standardised-electronic-bill-of-lading-by-2030" target="_blank" rel="noopener">Digital Container Shipping Association — press release: "DCSA's Member Carriers Commit to a Fully Standardised, Electronic Bill of Lading by 2030" (Feb. 15, 2023)</a></li>
+    <li><a href="https://www.mastermariners.org.au/news-international/6427-shipping-industry-pushes-toward-electronic-bills-of-lading-as-adoption-reaches-11-in-2025" target="_blank" rel="noopener">The Company of Master Mariners of Australia / Breakbulk — "Shipping Industry Pushes Toward Electronic Bills of Lading as Adoption Reaches 11% in 2025"</a></li>
+    <li><a href="https://www.gtreview.com/news/europe/analysis-tackling-functional-equivalence-to-make-mletr-work-in-germany/" target="_blank" rel="noopener">Global Trade Review — "Analysis: Tackling 'Functional Equivalence' to Make MLETR Work in Germany"</a></li>
+    <li><a href="https://iccwbo.org/news-publications/guide/enabling-digital-trade-through-legal-reform-a-guide-for-policymakers-and-practitioners/" target="_blank" rel="noopener">International Chamber of Commerce — "Enabling Digital Trade Through Legal Reform: A Guide for Policymakers and Practitioners" (April 2026)</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+
+    var SCENARIOS = {
+      paper: [
+        { seller: 'Holds original', a: 'No document', b: 'No document', aLine: 'none', bLine: 'none',
+          note: 'Seller holds the one and only paper original. Nothing has moved yet.' },
+        { seller: 'No title left', a: 'Holds the original', b: 'No document', aLine: 'good', bLine: 'none',
+          note: 'Seller couriers the physical original to Buyer A. Because only one copy exists, the seller now has nothing left to send anyone else.' },
+        { seller: 'No title left', a: 'Holds the original', b: 'Nothing to send', aLine: 'good', bLine: 'rejected',
+          note: 'Seller tries to courier a second "original" to Buyer B. There isn’t one — scarcity, not software, stops the double-sale before it starts.' },
+        { seller: 'No title left', a: 'Claimed cargo ✓', b: 'No document to show', aLine: 'good', bLine: 'rejected',
+          note: 'At the port, Buyer A presents the one real original and takes the cargo. Buyer B has nothing to present and can’t claim anything.' }
+      ],
+      pdf: [
+        { seller: 'Has a PDF', a: 'No document', b: 'No document', aLine: 'none', bLine: 'none',
+          note: 'Seller has a PDF of the bill of lading. Copying it costs nothing and loses nothing in the copy.' },
+        { seller: 'Still has the file', a: 'Holds a copy', b: 'No document', aLine: 'warn', bLine: 'none',
+          note: 'Seller emails a copy to Buyer A. The seller’s own copy doesn’t disappear — there’s no "only one" left to track.' },
+        { seller: 'Still has the file', a: 'Holds a copy', b: 'Holds a copy', aLine: 'warn', bLine: 'warn',
+          note: 'Seller emails an identical copy to Buyer B too. Nothing in a PDF prevents this — both copies look equally real.' },
+        { seller: 'Still has the file', a: 'Claimed cargo ✓', b: 'Also claimed cargo ✓', aLine: 'bad', bLine: 'bad',
+          note: 'Both buyers show up at the port with equally valid-looking documents — and both claim the same cargo. This is the fraud paper never had to defend against.' }
+      ],
+      ebl: [
+        { seller: 'Sole holder (registry)', a: 'Not the holder', b: 'Not the holder', aLine: 'none', bLine: 'none',
+          note: 'A shared registry — not a copyable file — tracks exactly one current holder. Today, that’s the seller.' },
+        { seller: 'Endorsed away', a: 'Sole holder (registry)', b: 'Not the holder', aLine: 'good', bLine: 'none',
+          note: 'Seller endorses the digital title to Buyer A. The registry updates instantly: Buyer A is now the only party with control — MLETR’s "exclusive control" test, enforced by the platform.' },
+        { seller: 'Endorsed away', a: 'Sole holder (registry)', b: 'Rejected by registry', aLine: 'good', bLine: 'rejected',
+          note: 'Seller tries to also endorse the title to Buyer B. The registry rejects it outright: Seller is no longer the recognized holder, so Seller has nothing left to give.' },
+        { seller: 'Endorsed away', a: 'Claimed cargo ✓', b: 'Rejected — not holder', aLine: 'good', bLine: 'rejected',
+          note: 'Buyer A, shown as sole holder in the registry, claims the cargo. Buyer B’s attempt is automatically rejected by the same single record.' }
+      ]
+    };
+
+    var modeButtons = document.querySelectorAll('.bl-modes button');
+    var scene = document.getElementById('bl-scene');
+    var playBtn = document.getElementById('bl-play');
+    var stepBtn = document.getElementById('bl-step');
+    var resetBtn = document.getElementById('bl-reset');
+    var note = document.getElementById('bl-note');
+    var statStep = document.getElementById('bl-stat-step');
+    var statSeller = document.getElementById('bl-stat-seller');
+    var statA = document.getElementById('bl-stat-a');
+    var statB = document.getElementById('bl-stat-b');
+    var timelineSpans = document.querySelectorAll('#bl-timeline span');
+
+    var mode = 'paper';
+    var step = 0;
+    var playTimer = null;
+
+    function el(tag, attrs, text) {
+      var e = document.createElementNS(SVG_NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      if (text !== undefined) e.textContent = text;
+      scene.appendChild(e);
+      return e;
+    }
+
+    function lineColor(kind) {
+      if (kind === 'good') return 'var(--accent-b)';
+      if (kind === 'warn') return 'var(--accent-a)';
+      if (kind === 'bad') return 'var(--accent-a)';
+      if (kind === 'rejected') return 'var(--accent-a)';
+      return 'var(--border)';
+    }
+    function lineDash(kind) {
+      if (kind === 'none') return '3,4';
+      if (kind === 'warn') return '5,3';
+      if (kind === 'rejected') return '5,3';
+      return 'none';
+    }
+    function lineWidth(kind) {
+      if (kind === 'good' || kind === 'bad') return '3';
+      return '2';
+    }
+
+    function drawConnector(x0, y0, x1, y1, kind) {
+      var attrs = {
+        x1: x0, y1: y0, x2: x1, y2: y1,
+        stroke: lineColor(kind),
+        'stroke-width': lineWidth(kind),
+        'stroke-linecap': 'round'
+      };
+      if (lineDash(kind) !== 'none') attrs['stroke-dasharray'] = lineDash(kind);
+      el('line', attrs);
+      if (kind === 'rejected') {
+        var mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
+        el('text', { x: mx, y: my + 4, class: 'mono', 'font-size': '13', 'font-weight': '700', fill: 'var(--accent-a)', 'text-anchor': 'middle' }, '✕');
+      }
+    }
+
+    function drawNode(x, y, w, h, title, status, highlight) {
+      el('rect', { x: x, y: y, width: w, height: h, rx: '9', fill: 'var(--surface)', stroke: highlight ? 'var(--accent-a)' : 'var(--border)', 'stroke-width': highlight ? '1.6' : '1' });
+      el('text', { x: x + w / 2, y: y + 15, class: 'mono', 'font-size': '8.5', 'font-weight': '700', fill: 'var(--muted)', 'text-anchor': 'middle', 'letter-spacing': '0.05em' }, title);
+      var words = status.split(' ');
+      var line1 = words.slice(0, Math.ceil(words.length / 2)).join(' ');
+      var line2 = words.slice(Math.ceil(words.length / 2)).join(' ');
+      el('text', { x: x + w / 2, y: y + 27, 'font-size': '9', 'font-weight': '700', fill: 'var(--ink)', 'text-anchor': 'middle' }, line1);
+      if (line2) el('text', { x: x + w / 2, y: y + 37, 'font-size': '9', 'font-weight': '700', fill: 'var(--ink)', 'text-anchor': 'middle' }, line2);
+    }
+
+    var SELLER = { x: 8, y: 45, w: 86, h: 42 };
+    var BUYER_A = { x: 266, y: 6, w: 86, h: 42 };
+    var BUYER_B = { x: 266, y: 84, w: 86, h: 42 };
+
+    function render() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+      var s = SCENARIOS[mode][step];
+
+      drawConnector(SELLER.x + SELLER.w, SELLER.y + 12, BUYER_A.x, BUYER_A.y + BUYER_A.h / 2, s.aLine);
+      drawConnector(SELLER.x + SELLER.w, SELLER.y + SELLER.h - 12, BUYER_B.x, BUYER_B.y + BUYER_B.h / 2, s.bLine);
+
+      drawNode(SELLER.x, SELLER.y, SELLER.w, SELLER.h, 'SELLER', s.seller, false);
+      drawNode(BUYER_A.x, BUYER_A.y, BUYER_A.w, BUYER_A.h, 'BUYER A', s.a, s.aLine === 'bad');
+      drawNode(BUYER_B.x, BUYER_B.y, BUYER_B.w, BUYER_B.h, 'BUYER B', s.b, s.bLine === 'bad');
+
+      note.textContent = s.note;
+      statStep.textContent = (step + 1) + ' of 4';
+      statSeller.textContent = s.seller;
+      statA.textContent = s.a;
+      statB.textContent = s.b;
+
+      for (var i = 0; i < timelineSpans.length; i++) {
+        timelineSpans[i].classList.toggle('active', i === step);
+      }
+      stepBtn.disabled = step >= SCENARIOS[mode].length - 1;
+    }
+
+    function setMode(newMode) {
+      stopPlay();
+      mode = newMode;
+      step = 0;
+      for (var i = 0; i < modeButtons.length; i++) {
+        modeButtons[i].setAttribute('aria-pressed', String(modeButtons[i].getAttribute('data-mode') === newMode));
+      }
+      render();
+    }
+
+    function stopPlay() {
+      if (playTimer) { clearInterval(playTimer); playTimer = null; }
+      playBtn.disabled = false;
+      playBtn.textContent = '▶ Run';
+    }
+
+    function runPlay() {
+      stopPlay();
+      if (reduceMotion) {
+        step = SCENARIOS[mode].length - 1;
+        render();
+        return;
+      }
+      step = 0;
+      render();
+      playBtn.disabled = true;
+      playBtn.textContent = 'Running…';
+      playTimer = setInterval(function () {
+        step += 1;
+        if (step >= SCENARIOS[mode].length) { stopPlay(); return; }
+        render();
+        if (step === SCENARIOS[mode].length - 1) stopPlay();
+      }, 1700);
+    }
+
+    for (var m = 0; m < modeButtons.length; m++) {
+      modeButtons[m].addEventListener('click', function (e) {
+        setMode(e.currentTarget.getAttribute('data-mode'));
+      });
+    }
+    playBtn.addEventListener('click', runPlay);
+    stepBtn.addEventListener('click', function () {
+      stopPlay();
+      if (step < SCENARIOS[mode].length - 1) step += 1;
+      render();
+    });
+    resetBtn.addEventListener('click', function () {
+      stopPlay();
+      step = 0;
+      render();
+    });
+
+    if (reduceMotion) step = SCENARIOS[mode].length - 1;
+    render();
+  })();
+</script>
+</body>
+</html>
