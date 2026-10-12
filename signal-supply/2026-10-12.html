@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-12","category":"DRONE TARIFFS","headline":"Washington Just Taxed Chinese Drones at 100%. It Still Can't Define What Counts as Not Chinese","summary":"In one August week Washington eased drone export rules for U.S. makers, taxed foreign drones up to 100%, and left allied manufacturers unable to confirm their tariff bracket, because the 'substantially all non-Chinese parts' test still isn't defined, weeks after it took effect.","whyItMatters":"Drones just inherited the chip industry's full playbook, export licenses, tariff tiers, rules of origin, except this time the rulebook didn't exist before the tariffs took effect."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — Washington Just Taxed Chinese Drones at 100%. It Still Can't Define What Counts as Not Chinese</title>
+<meta name="description" content="On the same August day Washington eased export rules for U.S. drone makers, it imposed tariffs up to 100% on imported drones, with a lower rate for allied-built ones, except nobody has defined what counts as allied enough to qualify." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #ad4a1f;
+    --accent-a-tint: #f6e3d6;
+    --accent-b: #235f86;
+    --accent-b-tint: #dce9f1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e8976a;
+      --accent-a-tint: #2e2016;
+      --accent-b: #7fb8dd;
+      --accent-b-tint: #142631;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e8976a;
+    --accent-a-tint: #2e2016;
+    --accent-b: #7fb8dd;
+    --accent-b-tint: #142631;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #ad4a1f;
+    --accent-a-tint: #f6e3d6;
+    --accent-b: #235f86;
+    --accent-b-tint: #dce9f1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-a);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-a);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the drone bill-of-materials origin simulator --- */
+  .dt-header { margin-bottom: 4px; }
+  .dt-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .dt-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.6;
+  }
+  .dt-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 12px 10px 8px;
+  }
+  .dt-scene {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 290px;
+  }
+  .dt-node-group { cursor: pointer; }
+  @media (prefers-reduced-motion: no-preference) {
+    .dt-node-group circle, .dt-node-group text { transition: fill 0.2s ease, stroke 0.2s ease; }
+  }
+  .dt-legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .dt-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .dt-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .dt-note {
+    margin: 14px 0 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+    font-size: 13px;
+    line-height: 1.55;
+    min-height: 40px;
+  }
+  .dt-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .dt-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .dt-btn.dt-primary {
+    background: var(--accent-a);
+    border-color: var(--accent-a);
+    color: #fff;
+  }
+  .dt-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  @media (max-width: 480px) {
+    .dt-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .dt-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .dt-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .dt-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 12, 2026</span>
+    <span class="category-chip">DRONE TARIFFS</span>
+  </div>
+  <h1>Washington Just Taxed Chinese Drones at 100%. It Still Can't Define What Counts as Not Chinese.</h1>
+  <p class="lede">On August 13, 2026, the U.S. did two things that look like they contradict each other, on the same day. It loosened export rules so American drone makers could sell more easily abroad, and it taxed drones and parts coming in at up to 100%, aimed squarely at an industry one Chinese company, DJI, is estimated to dominate with roughly 70% of the global market. Weeks later, the rule meant to spare allied manufacturers from that full rate still has no definition of what actually qualifies as spared.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    On August 13, 2026, BIS eased UAV export controls, narrowing ECCN 9A012 to drones with 3+ hours of endurance, the same day Proclamation 11055 imposed Section 232 tariffs of up to 100% on imported drones, effective September 3. Treaty allies (Japan, South Korea, Taiwan, Switzerland, Liechtenstein, the EU) are capped at 15%, the UK at 10%, but only if "substantially all" critical components are non-Chinese, a threshold Commerce has not yet defined. Eight days earlier, China's Ministry of Commerce had already tightened licensing on drone-component exports to the U.S.
+  </div>
+
+  <div class="card dt-card">
+    <div class="dt-header">
+      <h2 class="dt-title">Can a drone's parts bin earn it the cheap tariff?</h2>
+      <p class="dt-caption mono">Tap or tab to each part below and flip its origin. The bars show each part's assumed share of a drone's bill-of-materials cost (illustrative, not an official breakdown). The pass mark, 70% non-Chinese content, is this simulator's stand-in for Commerce's real "substantially all" rule, which has not actually been written yet.</p>
+    </div>
+
+    <div class="dt-scene-wrap">
+      <svg class="dt-scene" id="dt-scene" viewBox="0 0 360 290" role="img" aria-label="A hub-and-spoke diagram of six drone components you can toggle between Chinese-sourced and allied-sourced."></svg>
+    </div>
+    <div class="dt-legend">
+      <span><span class="dt-swatch" id="dt-sw-china"></span>China-sourced</span>
+      <span><span class="dt-swatch" id="dt-sw-allied"></span>Allied-sourced</span>
+    </div>
+    <p class="dt-note mono" id="dt-note">Starting point: every part sourced from China, roughly today's reality given DJI's market share and the Pearl River Delta's parts cluster.</p>
+
+    <div class="dt-controls">
+      <button type="button" class="dt-btn dt-primary" id="dt-allied">All allied-sourced</button>
+      <button type="button" class="dt-btn" id="dt-reset">Reset: all China-sourced</button>
+    </div>
+
+    <div class="dt-stats">
+      <div class="dt-stat">
+        <div class="dt-stat-label mono">Non-China content</div>
+        <div class="dt-stat-value mono" id="dt-stat-pct">0%</div>
+      </div>
+      <div class="dt-stat">
+        <div class="dt-stat-label mono">Tariff tier</div>
+        <div class="dt-stat-value mono" id="dt-stat-tier">100% (fails)</div>
+      </div>
+      <div class="dt-stat">
+        <div class="dt-stat-label mono">China-sourced parts</div>
+        <div class="dt-stat-value mono" id="dt-stat-china">6 of 6</div>
+      </div>
+      <div class="dt-stat">
+        <div class="dt-stat-label mono">Allied-sourced parts</div>
+        <div class="dt-stat-value mono" id="dt-stat-allied">0 of 6</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>On one day this past August, Washington did two things that look like they contradict each other. It made it easier for American drone companies to sell their drones overseas. And on that same day, it slapped a tax of up to 100% on drones and drone parts coming into the U.S., aimed squarely at Chinese-made hardware, since one company, DJI, is estimated to build something like 7 out of every 10 drones sold worldwide.</p>
+      <p>The logic: make foreign, especially Chinese, drones expensive enough and American buyers switch to U.S.-made ones, pulling factories here instead of Shenzhen. Friendly countries, Japan, South Korea, Taiwan, the EU, the UK, get a much lower rate, as low as 10%, but only if their drones are built from what the rule calls "substantially all" non-Chinese parts.</p>
+      <p>Here's the catch nobody can answer yet: the government never defined what "substantially all" means. Fifty-one percent of the cost? Ninety? Does one Chinese-made camera sensor disqualify an otherwise-American drone? Weeks after the rule took effect, allied drone makers still don't know which tariff bracket they'll land in, because almost every drone, wherever it's assembled, still depends on a global parts bin China dominates: batteries, motors, flight-control chips, camera sensors.</p>
+      <p>And eight days before any of this, China moved first, tightening its own export licensing on drone components headed to the U.S. That squeezes the very supply of parts that would let anyone, American or allied, build a genuinely "Chinese-free" drone. Three trade levers, pulling on one small, overlooked industry, all at once.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Two federal actions landed on the same day, August 13, 2026. First, the Commerce Department's Bureau of Industry and Security (BIS) finalized a rule narrowing ECCN 9A012, the export-control classification covering most unmanned aircraft, so only drones with 3+ hours of flight endurance stay subject to the strictest national-security licensing, and dropped wind-gust tolerance as a control parameter. That eases export friction for the bulk of commercial and prosumer drones U.S. manufacturers want to sell to allies.</p>
+      <p>Second, under Section 232 of the Trade Expansion Act, Proclamation 11055 imposed a tiered tariff on imported drones and critical components: 100% on drones over 25kg takeoff weight, on thermal-imaging-equipped drones, and on docking stations, effective September 3, 2026; a second 25% tier plus component-level tariffs phase in February 9, 2027. Treaty partners, Japan, South Korea, Taiwan, Switzerland, Liechtenstein, the EU, are capped at 15%, the UK at 10%, conditioned on a rule-of-origin test requiring "substantially all" critical components (flight controller, propulsion, batteries, optical payload, RF/comms) to originate in a qualifying country. As of the latest published guidance, Commerce has not issued the implementing regulation defining that threshold, leaving allied manufacturers unable to calculate, ahead of shipment, which bracket applies to a given SKU.</p>
+      <p>Eight days earlier, China's Ministry of Commerce issued Announcement No. 34, effective August 5, moving drone-related dual-use exports to the U.S. from general license to mandatory case-by-case review, tightening the component spigot (motors, cameras, lithium cells, flight-control ICs) both Chinese assemblers and many "allied" drone builders still draw from, since DJI alone holds an estimated 70%+ share of the global consumer and prosumer market, with much of its upstream parts base concentrated in the same Pearl River Delta cluster regardless of where final assembly happens.</p>
+      <p>The result mirrors the semiconductor playbook, export licensing, tariff tiers, rules of origin, applied to a far less vertically integrated industry, testing whether "substantially all" can even be verified at the component level before the next tariff tier phases in.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> the newest front in the chip-style trade war isn't chips, it's the camera and the flight-control board inside a drone, and the rulebook for which ones count as safe to buy didn't exist before the tariffs did.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Washington is running export-license-plus-tariff-tier-plus-rule-of-origin policy, the same three-lever structure used against Chinese chips, against a far more fragmented industry, without having published the certification standard the system depends on.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.arnoldporter.com/en/perspectives/advisories/2026/08/bis-issues-final-rule-easing-drone-export-controls-alongside-presidents-new-tariffs-on-drone-imports" target="_blank" rel="noopener">Arnold &amp; Porter — "BIS Issues Final Rule Easing Drone Export Controls Alongside President's New Tariffs on Drone Imports" (Aug. 2026)</a></li>
+    <li><a href="https://www.gtlaw.com/ar/insights/2026/8/president-trump-sets-new-drone-section-232-tariffs" target="_blank" rel="noopener">Greenberg Traurig — "President Trump Sets New Drone Section 232 Tariffs" (Aug. 2026)</a></li>
+    <li><a href="https://kpmg.com/us/en/taxnewsflash/news/2026/08/us-bis-eases-export-controls-uavs-related-technologies.html" target="_blank" rel="noopener">KPMG TaxNewsFlash — "US BIS Eases Export Controls on UAVs, Related Technologies" (Aug. 2026)</a></li>
+    <li><a href="https://globaltradealert.org/intervention/158218-china-government-tightens-export-controls-on-drone-related-dual-use-items-to-the-united-states" target="_blank" rel="noopener">Global Trade Alert — "China Government Tightens Export Controls on Drone-Related Dual-Use Items to the United States" (Aug. 5, 2026)</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+    var PASS_THRESHOLD = 70;
+
+    var PARTS = [
+      { id: 'fc', label: 'FLIGHT CTRL', full: 'Flight controller board', weight: 15 },
+      { id: 'cam', label: 'CAMERA', full: 'Imaging payload / camera module', weight: 15 },
+      { id: 'batt', label: 'BATTERY', full: 'Battery cells', weight: 25 },
+      { id: 'motor', label: 'MOTORS', full: 'Propulsion motors (x4)', weight: 20 },
+      { id: 'rf', label: 'RADIO/RF', full: 'Radio-frequency / comms module', weight: 10 },
+      { id: 'frame', label: 'FRAME', full: 'Airframe & molded plastics', weight: 15 }
+    ];
+
+    var state = PARTS.map(function () { return 'china'; });
+
+    var scene = document.getElementById('dt-scene');
+    var note = document.getElementById('dt-note');
+    var statPct = document.getElementById('dt-stat-pct');
+    var statTier = document.getElementById('dt-stat-tier');
+    var statChina = document.getElementById('dt-stat-china');
+    var statAllied = document.getElementById('dt-stat-allied');
+    var alliedBtn = document.getElementById('dt-allied');
+    var resetBtn = document.getElementById('dt-reset');
+    var swChina = document.getElementById('dt-sw-china');
+    var swAllied = document.getElementById('dt-sw-allied');
+
+    var cssVar = getComputedStyle(document.documentElement);
+    function colorFor(kind) {
+      return kind === 'allied' ? 'var(--accent-b)' : 'var(--accent-a)';
+    }
+    function tintFor(kind) {
+      return kind === 'allied' ? 'var(--accent-b-tint)' : 'var(--accent-a-tint)';
+    }
+
+    swChina.style.background = 'var(--accent-a)';
+    swAllied.style.background = 'var(--accent-b)';
+
+    var CX = 180, CY = 135, R = 92, NODE_R = 34;
+
+    function nodePos(i) {
+      var angle = (-90 + i * 60) * Math.PI / 180;
+      return { x: CX + R * Math.cos(angle), y: CY + R * Math.sin(angle) };
+    }
+
+    function el(tag, attrs, text) {
+      var e = document.createElementNS(SVG_NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      if (text !== undefined) e.textContent = text;
+      return e;
+    }
+
+    function nonChinaPct() {
+      var sum = 0;
+      for (var i = 0; i < PARTS.length; i++) {
+        if (state[i] === 'allied') sum += PARTS[i].weight;
+      }
+      return sum;
+    }
+
+    function render() {
+      while (scene.firstChild) scene.removeChild(scene.firstChild);
+
+      scene.appendChild(el('circle', { cx: CX, cy: CY, r: 38, fill: 'var(--surface)', stroke: 'var(--border)', 'stroke-width': '1.4' }));
+      scene.appendChild(el('text', { x: CX, y: CY - 5, class: 'mono', 'font-size': '9', 'font-weight': '700', fill: 'var(--muted)', 'text-anchor': 'middle', 'letter-spacing': '0.05em' }, 'ASSEMBLED'));
+      scene.appendChild(el('text', { x: CX, y: CY + 9, class: 'mono', 'font-size': '9', 'font-weight': '700', fill: 'var(--muted)', 'text-anchor': 'middle', 'letter-spacing': '0.05em' }, 'DRONE'));
+
+      for (var i = 0; i < PARTS.length; i++) {
+        var p = nodePos(i);
+        var kind = state[i];
+
+        scene.appendChild(el('line', {
+          x1: CX, y1: CY, x2: p.x, y2: p.y,
+          stroke: colorFor(kind), 'stroke-width': '1.6', 'stroke-opacity': '0.55'
+        }));
+
+        var g = el('g', {
+          class: 'dt-node-group',
+          tabindex: '0',
+          role: 'button',
+          'aria-pressed': String(kind === 'allied'),
+          'aria-label': PARTS[i].full + ', ' + PARTS[i].weight + ' percent of bill of materials, currently ' + (kind === 'allied' ? 'allied-sourced' : 'China-sourced') + '. Activate to toggle.'
+        });
+        g.appendChild(el('circle', { cx: p.x, cy: p.y, r: NODE_R, fill: tintFor(kind), stroke: colorFor(kind), 'stroke-width': '2' }));
+        g.appendChild(el('text', { x: p.x, y: p.y - 6, class: 'mono', 'font-size': '8', 'font-weight': '700', fill: colorFor(kind), 'text-anchor': 'middle', 'letter-spacing': '0.03em' }, PARTS[i].label));
+        g.appendChild(el('text', { x: p.x, y: p.y + 9, 'font-size': '11', 'font-weight': '800', fill: 'var(--ink)', 'text-anchor': 'middle' }, PARTS[i].weight + '%'));
+
+        (function (idx) {
+          g.addEventListener('click', function () { toggle(idx); });
+          g.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+              e.preventDefault();
+              toggle(idx);
+            }
+          });
+        })(i);
+
+        scene.appendChild(g);
+      }
+
+      var pct = nonChinaPct();
+      var passes = pct >= PASS_THRESHOLD;
+      var alliedCount = state.filter(function (s) { return s === 'allied'; }).length;
+
+      statPct.textContent = pct + '%';
+      statTier.textContent = passes ? '15% allied / 10% UK (passes)' : '100% (fails)';
+      statTier.style.color = passes ? 'var(--accent-b)' : 'var(--accent-a)';
+      statChina.textContent = (PARTS.length - alliedCount) + ' of ' + PARTS.length;
+      statAllied.textContent = alliedCount + ' of ' + PARTS.length;
+
+      if (pct === 0) {
+        note.textContent = 'Starting point: every part sourced from China, roughly today’s reality given DJI’s market share and the Pearl River Delta’s parts cluster.';
+      } else if (passes) {
+        note.textContent = 'At ' + pct + '% non-China content, this mix clears the illustrative 70% bar, in Commerce’s actual rule, it might take more or less than this, since the real threshold is still unpublished.';
+      } else {
+        note.textContent = 'At ' + pct + '% non-China content, this mix still falls short of the illustrative 70% bar, and would face the full 100% tariff tier under today’s rule.';
+      }
+    }
+
+    function toggle(idx) {
+      state[idx] = state[idx] === 'china' ? 'allied' : 'china';
+      render();
+    }
+
+    alliedBtn.addEventListener('click', function () {
+      state = PARTS.map(function () { return 'allied'; });
+      render();
+    });
+    resetBtn.addEventListener('click', function () {
+      state = PARTS.map(function () { return 'china'; });
+      render();
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
