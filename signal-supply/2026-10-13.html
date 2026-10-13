@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-13","category":"RAW MATERIALS","headline":"One Valley in Appalachia Supplies Over 80% of the Sand Inside Every Chip's Crucible. One of Its Two Miners Just Shut a Plant There","summary":"Nearly every chip is grown inside a quartz-glass crucible, and over 80% of the ultra-pure sand making those crucibles comes from one North Carolina valley mined by two companies. One just shut a Spruce Pine plant — not from a hurricane, but solar-market losses.","whyItMatters":"AI's chip boom and the solar industry draw on the exact same scarce raw material from the exact same two mines, so a slump in one market can shrink the supply the other depends on."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply — One Valley in Appalachia Supplies Over 80% of the Sand Inside Every Chip's Crucible</title>
+<meta name="description" content="Over 80% of the ultra-pure quartz sand used to make the crucibles every silicon ingot is grown in comes from two mines in one North Carolina valley. One of the two miners just shut a plant there — not from a hurricane this time, but from solar-market losses." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #ab6a26;
+    --accent-a-tint: #f5e8d4;
+    --accent-b: #296f93;
+    --accent-b-tint: #dbebf1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e3a862;
+      --accent-a-tint: #2e2316;
+      --accent-b: #7cc1de;
+      --accent-b-tint: #132a33;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e3a862;
+    --accent-a-tint: #2e2316;
+    --accent-b: #7cc1de;
+    --accent-b-tint: #132a33;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #ab6a26;
+    --accent-a-tint: #f5e8d4;
+    --accent-b: #296f93;
+    --accent-b-tint: #dbebf1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 30px;
+    max-width: 62ch;
+  }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p {
+    max-width: 66ch;
+    margin: 0 0 16px;
+    font-size: 16.5px;
+  }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 0 20px 60px;
+  }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol {
+    padding-left: 18px;
+    margin: 0;
+  }
+  footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--accent-a);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the crucible-pull purity simulator --- */
+  .cp-header { margin-bottom: 4px; }
+  .cp-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .cp-caption {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.6;
+  }
+  .cp-layout {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .cp-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+    flex: 0 0 auto;
+  }
+  #cp-canvas {
+    display: block;
+    width: 168px;
+    height: 220px;
+  }
+  .cp-side {
+    flex: 1 1 220px;
+    min-width: 220px;
+  }
+  .cp-slider-row {
+    margin-bottom: 4px;
+  }
+  .cp-slider-row label {
+    display: block;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .cp-slider-row input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent-a);
+  }
+  .cp-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10.5px;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    margin-top: 2px;
+  }
+  .cp-note {
+    margin: 14px 0 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+    font-size: 12.5px;
+    line-height: 1.55;
+    min-height: 40px;
+  }
+  .cp-controls {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .cp-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .cp-btn.cp-primary {
+    background: var(--accent-a);
+    border-color: var(--accent-a);
+    color: #fff;
+  }
+  .cp-btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  .cp-legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .cp-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .cp-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .cp-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 18px;
+  }
+  @media (max-width: 480px) {
+    .cp-stats { grid-template-columns: repeat(2, 1fr); }
+    .cp-layout { gap: 14px; }
+  }
+  .cp-stat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+  }
+  .cp-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .cp-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">← Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">🫖 Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">🔬 Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 13, 2026</span>
+    <span class="category-chip">RAW MATERIALS</span>
+  </div>
+  <h1>One Valley in Appalachia Supplies Over 80% of the Sand Inside Every Chip's Crucible. One of Its Two Miners Just Shut a Plant There.</h1>
+  <p class="lede">Every advanced chip begins as a cylinder of silicon grown inside a quartz-glass bowl called a crucible — and by various industry estimates, somewhere between 70% and over 80% of the ultra-pure sand that makes those bowls comes from a few square miles near Spruce Pine, North Carolina, mined by exactly two companies. Hurricane Helene shut both of their operations for weeks in 2024 and briefly spooked the entire chip and solar industries. In mid-2026, one of those two companies closed a plant there anyway — not from storm damage, but because the other half of its business can't pay its way anymore.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    BloombergNEF estimates Spruce Pine, NC supplies over 80% of the ultra-pure "crucible-grade" quartz sand used to make the vessels both chipmakers and solar-panel makers melt silicon in; other estimates put the figure between 70% and 90%. Only two companies mine it — Belgium's Sibelco and The Quartz Corp (TQC). Sibelco is spending $200 million (2023–2025) to double its output after Hurricane Helene's 2024 shutdown exposed the risk. In June 2026, TQC indefinitely closed its Altapass Highway plant in Spruce Pine, cutting 20–30 jobs — citing years of losses on the solar side of its business, not the storm.
+  </div>
+
+  <div class="card cp-card">
+    <div class="cp-header">
+      <h2 class="cp-title">Pull a crystal. Watch the sand decide its fate.</h2>
+      <p class="cp-caption mono">Set the crucible's quartz grade, then run a pull. Each row is a slice of the growing silicon ingot; a contaminant atom leaching off the crucible wall has a chance — set by the slider — of getting trapped in that slice as a lattice defect. Illustrative model: defect odds and "usable yield" are simplified for teaching, not real foundry numbers, and the ppm figure shown is an illustrative stand-in, not a measured value.</p>
+    </div>
+
+    <div class="cp-layout">
+      <div class="cp-scene-wrap">
+        <canvas id="cp-canvas" width="336" height="440" role="img" aria-label="A crucible of molten silicon at the bottom with a crystal ingot growing upward from it in rows, some rows showing contaminant defects."></canvas>
+      </div>
+      <div class="cp-side">
+        <div class="cp-slider-row">
+          <label for="cp-purity" id="cp-purity-label">Crucible quartz grade: 20% contamination setting (≈65 ppm-equivalent)</label>
+          <input type="range" id="cp-purity" min="0" max="100" value="20" step="1" />
+          <div class="cp-slider-labels">
+            <span>Spruce Pine grade</span>
+            <span>Ordinary sand-grade</span>
+          </div>
+        </div>
+        <p class="cp-note mono" id="cp-note">Ready to pull. Lower the slider toward "Spruce Pine grade" for a cleaner crystal, or push it toward "Ordinary sand-grade" to see why that sand never makes it into a real crucible.</p>
+        <div class="cp-controls">
+          <button type="button" class="cp-btn cp-primary" id="cp-run">Run pull</button>
+          <button type="button" class="cp-btn" id="cp-reset">Reset</button>
+        </div>
+        <div class="cp-legend">
+          <span><span class="cp-swatch" id="cp-sw-clean"></span>Clean lattice</span>
+          <span><span class="cp-swatch" id="cp-sw-defect"></span>Trapped defect</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cp-stats">
+      <div class="cp-stat">
+        <div class="cp-stat-label mono">Ingot pulled</div>
+        <div class="cp-stat-value mono" id="cp-stat-rows">0 / 20 rows</div>
+      </div>
+      <div class="cp-stat">
+        <div class="cp-stat-label mono">Lattice defects</div>
+        <div class="cp-stat-value mono" id="cp-stat-defects">0</div>
+      </div>
+      <div class="cp-stat">
+        <div class="cp-stat-label mono">Defect rate</div>
+        <div class="cp-stat-value mono" id="cp-stat-rate">0.0%</div>
+      </div>
+      <div class="cp-stat">
+        <div class="cp-stat-label mono">Est. usable yield</div>
+        <div class="cp-stat-value mono" id="cp-stat-yield">100%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Nearly every chip in your phone, laptop, or the data center running your favorite AI model started life as a block of silicon grown inside a glowing bowl of melted sand. The process is called the Czochralski method: engineers melt ultra-pure silicon at over 2,500°F inside a quartz-glass bowl, called a crucible, dip in a tiny seed crystal, and slowly pull it upward while spinning it — like drawing a single, perfect icicle out of a pot of lava. What comes out is a cylindrical "ingot" that gets sliced into the wafers every chip is etched onto.</p>
+      <p>The bowl matters as much as the sand inside it. For 20-plus hours, that crucible has to sit in near-molten heat without crumbling, warping, or shedding its own minerals into the silicon — because even trace amounts of the wrong metal (sodium, aluminum, lithium) leaking into the melt can wreck the crystal's structure and ruin the chip. Ordinary beach sand or desert sand is nowhere near clean enough, or structurally right, for that job. Each crucible is used exactly once, then thrown away.</p>
+      <p>The sand pure enough to survive it comes from a surprisingly small place: a cluster of quarries around Spruce Pine, North Carolina. By various industry estimates, that one valley supplies somewhere between 70% and more than 80% of the world's crucible-grade quartz, split between exactly two mining companies. When Hurricane Helene flooded the area in September 2024 and shut both mines down for weeks, chipmakers and solar manufacturers worldwide briefly panicked, because there's nowhere else to quickly buy this particular kind of sand.</p>
+      <p>Two years on, the two companies are heading in opposite directions. Sibelco is spending $200 million to double its output. The Quartz Corp just shut one of its own Spruce Pine plants in mid-2026 — not storm damage this time, but years of losses on the solar side of its business, even while chip demand for the "good sand" has never been higher. One small Appalachian valley is now straddling two very different markets, and how that tug-of-war plays out will quietly decide how easy it is to keep growing the silicon crystals the entire AI boom runs on.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Virtually all monocrystalline silicon — the feedstock for logic, memory, and most solar cells — is grown by the Czochralski (CZ) process: 9N-purity electronic-grade polysilicon is melted at roughly 1,420°C inside a fused-quartz-glass crucible, a single-crystal seed is dipped into the melt, and the seed and crucible counter-rotate as the seed is withdrawn at a controlled rate (on the order of a few millimeters per minute), growing a dislocation-free cylindrical ingot later wire-sawed into wafers.</p>
+      <p>The crucible, not the furnace, is the binding material constraint. It must survive a corrosive melt for 20-plus hours without devitrifying or mechanically deforming, while shedding minimal alkali metals (Na, K, Li), Al, Ti, or B into the melt — any of which diffuses into the growing crystal lattice, disrupting its structure or unpredictably doping it, and destroying device yield downstream. That tolerance makes quartz feedstock geology, not crucible engineering, the historical bottleneck. Qualifying natural quartz comes almost exclusively from certain low-temperature granitic pegmatites, where mineralogists studying pegmatite-hosted quartz worldwide attribute unusually low trace-element incorporation primarily to the chemistry of the parent melt rather than to any purification step applied afterward.</p>
+      <p>Spruce Pine, North Carolina's alaskite pegmatite district is the commercial anchor of that supply. Estimates of its global market share vary by source — a range of roughly 70% to 90% appears across reporting, with BloombergNEF's figure (cited by Grist and others) the most specific at "more than 80%" of crucible-grade sand for both the solar and semiconductor industries. Two companies, Belgium's Sibelco and The Quartz Corp (TQC), hold the mining rights there.</p>
+      <p>Synthetic fused silica is purer but not a drop-in substitute: crucible-design patents and manufacturer literature describe synthetic linings increasing melt-surface vibration — destabilizing the solid-liquid growth interface and raising re-pull rates — and costing substantially more per unit mass than natural quartz. Commercial crucibles therefore typically layer a thin, more-purified inner coat over a natural-quartz structural bulk, so natural feedstock from districts like Spruce Pine still underlies nearly every production crucible rather than being substitutable outright — which is why a hurricane shutting two mines for a few weeks in 2024 was enough to worry two separate global industries at once.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> AI's chip boom and the solar industry draw on the exact same scarce raw material from the exact same two mines — so a slump in one market can shrink the supply base the other one depends on, with no quick substitute waiting in the wings.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Crucible-grade quartz sits upstream of every silicon ingot pulled worldwide, and its supply base is two companies deep — a demand shock in solar-grade material can now contract capacity that chip-grade sourcing also depends on, independent of any chip-specific disruption.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://grist.org/technology/the-solar-supply-chain-runs-through-this-flooded-north-carolina-town/" target="_blank" rel="noopener">Grist — "The Solar Supply Chain Runs Through This Flooded North Carolina Town" (BloombergNEF's &gt;80% estimate)</a></li>
+    <li><a href="https://fortune.com/2024/10/02/hurricane-helene-shuts-down-quartz-mines-ai-chips-semiconductors" target="_blank" rel="noopener">Fortune — "Hurricane Helene Shuts Down Quartz Mines AI Chips Semiconductors" (Oct. 2024)</a></li>
+    <li><a href="https://www.sibelco.com/news/sibelco-announces-a-major-expansion-of-its-spruce-pine-usa-high-purity-quartz-operations" target="_blank" rel="noopener">Sibelco — "Sibelco Announces a Major Expansion of Its Spruce Pine, USA High-Purity Quartz Operations" ($200M, 2023–2025)</a></li>
+    <li><a href="https://wlos.com/news/local/20-to-30-jobs-lost-as-the-quartz-companys-closes-its-spruce-pine-location-indefinitely-altapass-highway-production-stabilizing-operations" target="_blank" rel="noopener">WLOS — "As Many as 30 Jobs Cut as The Quartz Corp. Closes Its Spruce Pine Location 'Indefinitely'" (2026)</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply · a daily tech + supply-chain brief · press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+      if (window.__cpRedraw) window.__cpRedraw();
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var MAX_ROWS = 20;
+    var CELLS_PER_ROW = 8;
+    var canvas = document.getElementById('cp-canvas');
+    var ctx = canvas.getContext('2d');
+    var slider = document.getElementById('cp-purity');
+    var sliderLabel = document.getElementById('cp-purity-label');
+    var note = document.getElementById('cp-note');
+    var runBtn = document.getElementById('cp-run');
+    var resetBtn = document.getElementById('cp-reset');
+    var statRows = document.getElementById('cp-stat-rows');
+    var statDefects = document.getElementById('cp-stat-defects');
+    var statRate = document.getElementById('cp-stat-rate');
+    var statYield = document.getElementById('cp-stat-yield');
+    var swClean = document.getElementById('cp-sw-clean');
+    var swDefect = document.getElementById('cp-sw-defect');
+
+    var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var rows = []; // each row: array of booleans, true = defect
+    var running = false;
+    var timer = null;
+    var activeDefectProb = defectProbFor(Number(slider.value));
+
+    function cssVar(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+
+    function defectProbFor(v) {
+      return 0.01 + (v / 100) * 0.44; // 1% at ultra-pure, 45% at ordinary sand-grade
+    }
+    function ppmFor(v) {
+      return Math.round(5 + v * 3); // illustrative ppm-equivalent, not a measured value
+    }
+
+    function updateSliderLabel() {
+      var v = Number(slider.value);
+      var tag = v <= 30 ? 'closer to Spruce Pine grade' : (v >= 70 ? 'closer to ordinary sand-grade' : 'a middling blend');
+      sliderLabel.textContent = 'Crucible quartz grade: ' + v + '% contamination setting (≈' + ppmFor(v) + ' ppm-equivalent, ' + tag + ')';
+    }
+
+    function computeStats() {
+      var cells = 0, defects = 0;
+      for (var r = 0; r < rows.length; r++) {
+        for (var c = 0; c < rows[r].length; c++) {
+          cells++;
+          if (rows[r][c]) defects++;
+        }
+      }
+      var rate = cells ? defects / cells : 0;
+      var yieldPct = Math.round(100 * Math.pow(1 - rate, 3));
+      statRows.textContent = rows.length + ' / ' + MAX_ROWS + ' rows';
+      statDefects.textContent = String(defects);
+      statRate.textContent = (rate * 100).toFixed(1) + '%';
+      statYield.textContent = yieldPct + '%';
+      return { cells: cells, defects: defects, rate: rate, yieldPct: yieldPct };
+    }
+
+    function draw() {
+      var w = canvas.width, h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+
+      var bg = cssVar('--bg') || '#eef1f5';
+      var surface = cssVar('--surface') || '#ffffff';
+      var border = cssVar('--border') || '#dde3ea';
+      var accentA = cssVar('--accent-a') || '#ab6a26';
+      var accentB = cssVar('--accent-b') || '#296f93';
+      var muted = cssVar('--muted') || '#59636f';
+
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, w, h);
+
+      // crucible bowl at the bottom
+      var bowlTopY = h - 110;
+      var bowlBottomY = h - 14;
+      var bowlTopHalfW = 95;
+      var bowlBottomHalfW = 48;
+      var cx = w / 2;
+
+      ctx.beginPath();
+      ctx.moveTo(cx - bowlTopHalfW, bowlTopY);
+      ctx.lineTo(cx - bowlBottomHalfW, bowlBottomY);
+      ctx.quadraticCurveTo(cx, bowlBottomY + 14, cx + bowlBottomHalfW, bowlBottomY);
+      ctx.lineTo(cx + bowlTopHalfW, bowlTopY);
+      ctx.closePath();
+      var grad = ctx.createLinearGradient(0, bowlTopY, 0, bowlBottomY);
+      grad.addColorStop(0, accentA);
+      grad.addColorStop(1, surface);
+      ctx.fillStyle = grad;
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = border;
+      ctx.stroke();
+
+      // melt surface glow
+      ctx.beginPath();
+      ctx.ellipse(cx, bowlTopY, bowlTopHalfW, 8, 0, 0, Math.PI * 2);
+      ctx.fillStyle = accentA;
+      ctx.fill();
+
+      // contaminant particles embedded in crucible wall, density scaled with current slider
+      var v = Number(slider.value);
+      var particleCount = Math.round(4 + (v / 100) * 22);
+      var seedBase = 1337;
+      for (var i = 0; i < particleCount; i++) {
+        var t = i / particleCount;
+        var side = i % 2 === 0 ? -1 : 1;
+        var px = cx + side * (bowlBottomHalfW + (bowlTopHalfW - bowlBottomHalfW) * t) * 0.92;
+        var py = bowlBottomY - t * (bowlBottomY - bowlTopY) * 0.94;
+        ctx.beginPath();
+        ctx.arc(px, py, 2.1, 0, Math.PI * 2);
+        ctx.fillStyle = muted;
+        ctx.globalAlpha = 0.55;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+
+      // seed rod
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(cx, 6);
+      ctx.lineTo(cx, bowlTopY - rows.length * rowHeight());
+      ctx.stroke();
+
+      // ingot rows, bottom (oldest, nearest melt) to top
+      var rh = rowHeight();
+      var cellW = 14;
+      var totalCellsW = CELLS_PER_ROW * cellW;
+      var left = cx - totalCellsW / 2;
+
+      for (var r = 0; r < rows.length; r++) {
+        var rowY = bowlTopY - (r + 1) * rh;
+        for (var c = 0; c < CELLS_PER_ROW; c++) {
+          var isDefect = rows[r][c];
+          ctx.fillStyle = isDefect ? accentA : accentB;
+          ctx.fillRect(left + c * cellW + 1, rowY + 1, cellW - 2, rh - 2);
+        }
+      }
+
+      // seed crystal cap at very top of pulled ingot
+      if (rows.length > 0) {
+        var capY = bowlTopY - rows.length * rh;
+        ctx.beginPath();
+        ctx.moveTo(left, capY);
+        ctx.lineTo(left + totalCellsW, capY);
+        ctx.lineTo(cx, capY - 16);
+        ctx.closePath();
+        ctx.fillStyle = surface;
+        ctx.strokeStyle = border;
+        ctx.lineWidth = 1.5;
+        ctx.fill();
+        ctx.stroke();
+      }
+    }
+
+    function rowHeight() {
+      return 15;
+    }
+
+    function randomRow(prob) {
+      var row = [];
+      for (var c = 0; c < CELLS_PER_ROW; c++) {
+        row.push(Math.random() < prob);
+      }
+      return row;
+    }
+
+    function finishRun() {
+      running = false;
+      runBtn.disabled = false;
+      slider.disabled = false;
+      runBtn.textContent = REDUCED ? 'Regenerate' : 'Run pull';
+      var s = computeStats();
+      note.textContent = 'Pull complete: ' + s.defects + ' of ' + s.cells + ' lattice cells trapped a contaminant (' + (s.rate * 100).toFixed(1) + '%), for an estimated ' + s.yieldPct + '% usable yield under this simplified model.';
+    }
+
+    function stepRun() {
+      if (rows.length >= MAX_ROWS) {
+        clearInterval(timer);
+        finishRun();
+        return;
+      }
+      rows.push(randomRow(activeDefectProb));
+      computeStats();
+      draw();
+      if (rows.length >= MAX_ROWS) {
+        clearInterval(timer);
+        finishRun();
+      }
+    }
+
+    function runPull() {
+      if (running) return;
+      rows = [];
+      running = true;
+      runBtn.disabled = true;
+      slider.disabled = true;
+      activeDefectProb = defectProbFor(Number(slider.value));
+      note.textContent = 'Pulling at this crucible’s contamination setting — held fixed for the length of this run, like a real crucible doesn’t change grade mid-pull.';
+
+      if (REDUCED) {
+        for (var i = 0; i < MAX_ROWS; i++) rows.push(randomRow(activeDefectProb));
+        draw();
+        finishRun();
+        return;
+      }
+
+      draw();
+      timer = setInterval(stepRun, 160);
+    }
+
+    function resetPull() {
+      if (timer) clearInterval(timer);
+      running = false;
+      rows = [];
+      runBtn.disabled = false;
+      slider.disabled = false;
+      runBtn.textContent = REDUCED ? 'Regenerate' : 'Run pull';
+      computeStats();
+      draw();
+      note.textContent = 'Ready to pull. Lower the slider toward "Spruce Pine grade" for a cleaner crystal, or push it toward "Ordinary sand-grade" to see why that sand never makes it into a real crucible.';
+    }
+
+    slider.addEventListener('input', function () {
+      updateSliderLabel();
+      if (REDUCED && !running) {
+        rows = [];
+        for (var i = 0; i < MAX_ROWS; i++) rows.push(randomRow(defectProbFor(Number(slider.value))));
+        computeStats();
+        draw();
+        note.textContent = 'Static preview at this contamination setting (motion is reduced on this device, so the full ingot renders instantly).';
+      } else if (!running) {
+        draw();
+      }
+    });
+
+    runBtn.addEventListener('click', runPull);
+    resetBtn.addEventListener('click', resetPull);
+
+    swClean.style.background = 'var(--accent-b)';
+    swDefect.style.background = 'var(--accent-a)';
+
+    window.__cpRedraw = draw;
+
+    updateSliderLabel();
+    if (REDUCED) {
+      runBtn.textContent = 'Regenerate';
+      for (var j = 0; j < MAX_ROWS; j++) rows.push(randomRow(defectProbFor(Number(slider.value))));
+      note.textContent = 'Static end-state shown (motion is reduced on this device). Move the slider or press Regenerate to redraw instantly.';
+    }
+    computeStats();
+    draw();
+  })();
+</script>
+</body>
+</html>
