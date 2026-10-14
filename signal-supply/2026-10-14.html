@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-14","category":"LITHOGRAPHY","headline":"One Dutch Company Builds the Only Machine That Can Print an Advanced Chip. It Just Said Demand Won't Be Satisfied Through 2028","summary":"ASML — the sole maker of EUV chipmaking machines — posted record €11.7B quarterly sales today, but its planned 2027–2028 capacity still won't clear the order backlog. China's slice of its shipments fell from 42% to 23% in a year.","whyItMatters":"A single company's build schedule now effectively rations how fast the entire chip industry — and the US-China tech race — can move."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; One Dutch Company Builds the Only Machine That Can Print an Advanced Chip</title>
+<meta name="description" content="ASML, the world's only maker of EUV lithography machines, posted record Q3 2026 sales today — but said its 2027-2028 capacity plans still won't meet demand. China's share of its shipments collapsed from 42% to 23% in a year." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c0541f;
+    --accent-a-tint: #f7e2d2;
+    --accent-b: #1f6f93;
+    --accent-b-tint: #dceef4;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e8935e;
+      --accent-a-tint: #2e2015;
+      --accent-b: #6fc0dd;
+      --accent-b-tint: #132a33;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e8935e;
+    --accent-a-tint: #2e2015;
+    --accent-b: #6fc0dd;
+    --accent-b-tint: #132a33;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c0541f;
+    --accent-a-tint: #f7e2d2;
+    --accent-b: #1f6f93;
+    --accent-b-tint: #dceef4;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the EUV capacity-vs-demand queue --- */
+  .lq-header { margin-bottom: 4px; }
+  .lq-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .lq-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+  .lq-layout { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+  .lq-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+    flex: 1 1 320px;
+    min-width: 280px;
+  }
+  #lq-canvas { display: block; width: 100%; height: 220px; }
+  .lq-side { flex: 1 1 220px; min-width: 220px; }
+  .lq-slider-row { margin-bottom: 4px; }
+  .lq-slider-row label {
+    display: block;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .lq-slider-row input[type="range"] { width: 100%; accent-color: var(--accent-a); }
+  .lq-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10.5px;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    margin-top: 2px;
+  }
+  .lq-note {
+    margin: 14px 0 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+    font-size: 12.5px;
+    line-height: 1.55;
+    min-height: 40px;
+  }
+  .lq-controls { margin-top: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .lq-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .lq-btn.lq-primary { background: var(--accent-a); border-color: var(--accent-a); color: #fff; }
+  .lq-btn:disabled { opacity: 0.5; cursor: default; }
+  .lq-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 11px; color: var(--muted); }
+  .lq-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .lq-swatch { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .lq-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .lq-stats { grid-template-columns: repeat(2, 1fr); }
+    .lq-layout { gap: 14px; }
+  }
+  .lq-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--bg); }
+  .lq-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .lq-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 14, 2026</span>
+    <span class="category-chip">LITHOGRAPHY</span>
+  </div>
+  <h1>One Dutch Company Builds the Only Machine That Can Print an Advanced Chip. It Just Said Demand Won't Be Satisfied Through 2028.</h1>
+  <p class="lede">Every logic chip advanced enough to matter &mdash; Nvidia's, Apple's, Samsung's, even China's own best fabs &mdash; is printed by a machine only one company on Earth has ever managed to build: ASML's EUV lithography system. Today ASML reported record Q3 2026 sales of &euro;11.7 billion, up 55% from a year ago, and said the capacity it's already planned to add through 2027 and 2028 still won't fully cover what customers are ordering. In the same report, China's slice of its machine shipments fell from about 42% a year ago to 23% &mdash; the clearest sign yet that a 2025 Chinese buying rush is fading just as the AI boom elsewhere accelerates.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    ASML is the sole commercial maker of EUV lithography machines, the tool every leading-edge chipmaker needs to print circuits a few atoms wide. Q3 2026: record &euro;11.7B total net sales (+55% year over year), &euro;5.0B net income, 57.5% gross margin. By destination, system sales split roughly Taiwan 32%, South Korea 31%, China 23%, United States 13% &mdash; versus about 42% to China in the same quarter last year. Full-year 2026 guidance: &euro;44&ndash;45B in sales, with China settling near 20% of the total. ASML's own order backlog stood at &euro;38.8B at the end of 2025, and management says its planned 2027&ndash;2028 capacity still won't fully clear it.
+  </div>
+
+  <div class="card lq-card">
+    <div class="lq-header">
+      <h2 class="lq-title">Run the queue: can ASML ever build its way out of the backlog?</h2>
+      <p class="lq-caption mono">Set how fast AI-driven chip demand grows each year, then press Run to step through 2024&ndash;2028. The blue bar is illustrative machine-building capacity, loosely modeled on ASML's own stated 2026 base (~65 EUV systems) and its guided +30% capacity jumps in 2027 and again in 2028. The orange bar is demand, compounding at your chosen rate. Unmet orders don't vanish &mdash; they carry over as backlog, stacked at right. Simplified teaching model, not ASML's real unit counts or forecast.</p>
+    </div>
+
+    <div class="lq-layout">
+      <div class="lq-scene-wrap">
+        <canvas id="lq-canvas" width="560" height="220" role="img" aria-label="Bar chart racing from 2024 to 2028, comparing EUV machine-building capacity against customer demand, with a growing stack of backlogged orders at the right."></canvas>
+      </div>
+      <div class="lq-side">
+        <div class="lq-slider-row">
+          <label for="lq-demand" id="lq-demand-label">AI demand growth per year: 20%</label>
+          <input type="range" id="lq-demand" min="0" max="45" value="20" step="1" />
+          <div class="lq-slider-labels">
+            <span>Flat demand</span>
+            <span>Boom-era surge</span>
+          </div>
+        </div>
+        <p class="lq-note mono" id="lq-note">Ready to run. Pick a demand-growth rate, then press Run to step year by year from 2024 to 2028.</p>
+        <div class="lq-controls">
+          <button type="button" class="lq-btn lq-primary" id="lq-run">Run</button>
+          <button type="button" class="lq-btn" id="lq-reset">Reset</button>
+        </div>
+        <div class="lq-legend">
+          <span><span class="lq-swatch" id="lq-sw-supply"></span>Machines built</span>
+          <span><span class="lq-swatch" id="lq-sw-demand"></span>Orders placed</span>
+          <span><span class="lq-swatch" id="lq-sw-backlog"></span>Backlog carried over</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="lq-stats">
+      <div class="lq-stat">
+        <div class="lq-stat-label mono">Year</div>
+        <div class="lq-stat-value mono" id="lq-stat-year">2024</div>
+      </div>
+      <div class="lq-stat">
+        <div class="lq-stat-label mono">Built this year</div>
+        <div class="lq-stat-value mono" id="lq-stat-built">0</div>
+      </div>
+      <div class="lq-stat">
+        <div class="lq-stat-label mono">Ordered this year</div>
+        <div class="lq-stat-value mono" id="lq-stat-ordered">0</div>
+      </div>
+      <div class="lq-stat">
+        <div class="lq-stat-label mono">Backlog (systems)</div>
+        <div class="lq-stat-value mono" id="lq-stat-backlog">0</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>There is exactly one company on the planet that can build the machine needed to print the finest circuits on an advanced computer chip. It's called ASML, it's Dutch, and it makes something called an EUV lithography machine. Nobody else has managed to build a working one &mdash; Japan's Nikon tried for close to two decades and gave up. Each ASML machine is roughly the size of a double-decker bus, weighs about as much as 120 cars, and costs upward of $180 million. Inside, it fires a laser at droplets of molten tin, tens of thousands of times a second, to make an extremely specific kind of light, then bounces that light through a vacuum chamber onto a silicon wafer to etch a pattern finer than a virus. TSMC, Samsung, Intel, and even China's best factories all need this exact machine if they want to make a genuinely advanced chip. There's no second supplier to call.</p>
+      <p>Today ASML reported its results for the past three months, and two numbers tell the real story. First: it sold a record &euro;11.7 billion worth of machines and services, up 55% from a year earlier, almost entirely riding the AI data-center boom. Second, and more telling: ASML said that even after already planning to expand production through 2027 and 2028, it still won't be able to build enough machines to satisfy everyone who wants one. Its order backlog was already &euro;38.8 billion at the end of last year &mdash; more than three years of today's revenue, just waiting to be built.</p>
+      <p>Meanwhile the destination of those machines is shifting fast. A year ago, China accounted for about 42% of what ASML shipped, largely a stockpiling rush as Chinese chipmakers rushed to buy whatever export rules still allowed before the rules tightened further. This quarter, China's share fell to 23%, with the freed-up machines going largely to Taiwan, South Korea, and the US &mdash; the places building the chips an AI boom actually needs.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>EUV lithography generates 13.5nm-wavelength light by firing a high-power CO&#8322; laser at a stream of microscopic molten-tin droplets roughly 50,000 times per second; each droplet is vaporized into a plasma that emits EUV radiation. Because EUV is absorbed by virtually all materials, including air and ordinary glass, the entire optical path runs in vacuum and uses multilayer molybdenum-silicon mirrors rather than refractive lenses to steer and focus the light onto the wafer. ASML spent roughly two decades turning this into a production tool, and no competitor &mdash; Nikon's own long-running EUV program included &mdash; has fielded a commercial rival. ASML's newer High-NA systems (numerical aperture 0.55 vs. 0.33) push resolution further still, but at roughly &euro;350&ndash;400 million per unit, uptake among TSMC and Samsung has so far been cautious.</p>
+      <p>Q3 2026 financials, reported today: total net sales &euro;11.7B (+55% YoY), net system sales &euro;8.4B, installed-base management (service/upgrades) &euro;3.289B, gross margin 57.5%, net income &euro;5.0B. Q4 2026 guidance: &euro;14.2&ndash;15.2B; full-year 2026 guidance: &euro;44&ndash;45B at roughly 56% gross margin. System-sales destination split: Taiwan 32%, South Korea 31%, China 23%, United States 13%, versus roughly 42% to China in Q3 2025. ASML's order backlog reached &euro;38.8B at the end of Q4 2025, and management reiterated that currently planned 2027 and 2028 capacity additions &mdash; on the order of 30% annual increases in Low-NA EUV output &mdash; will not fully clear outstanding customer demand.</p>
+      <p>The China swing reflects export-control mechanics layered on top of ordinary cyclicality. The Netherlands' dual-use export-licensing regime, coordinated with U.S. Entity List restrictions, already bars EUV system sales to China outright and has progressively narrowed which DUV immersion tools can still ship there. 2025's elevated China share (roughly a third of full-year revenue) was substantially front-loaded demand &mdash; Chinese fabs buying up still-exportable DUV tools ahead of anticipated further tightening &mdash; a surge ASML itself flagged as temporary. That stockpiling cycle is now unwinding toward the company's own full-year 2026 guidance of roughly 20% China revenue share, even as AI-driven EUV and DUV demand from Taiwan, Korea, and the US continues to outrun planned capacity.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> One company's annual build schedule is now the de facto rationing mechanism for the entire advanced chip industry &mdash; and its quarterly numbers are turning into one of the clearest live readouts of whether the AI boom or the US-China chip war is moving faster.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> With a single, non-substitutable supplier sitting at the top of the stack, EUV allocation functions as an exogenous capacity constraint on the whole leading-edge semiconductor industry; its regional sales mix is also one of the most liquid, frequently updated proxies available for how export controls are actually reshaping chipmaking capacity between the US, its allies, and China.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.sec.gov/Archives/edgar/data/0000937966/000162828026065813/pressreleasefinancialresul.htm" target="_blank" rel="noopener">ASML Holding N.V. &mdash; Form 6-K, Q3 2026 financial results press release (SEC filing, Oct. 14, 2026)</a></li>
+    <li><a href="https://www.investing.com/news/transcripts/earnings-call-transcript-asml-tops-q3-2026-estimates-but-shares-fall-93CH-4948118" target="_blank" rel="noopener">Investing.com &mdash; "Earnings call transcript: ASML tops Q3 2026 estimates but shares fall"</a></li>
+    <li><a href="https://www.stocktitan.net/articles/asml-q3-2026-earnings-ai-chip-machine-demand" target="_blank" rel="noopener">StockTitan &mdash; "ASML Q3 2026 Earnings: Orders, 2027 Supply and China"</a></li>
+    <li><a href="https://www.mbi-deepdives.com/asmls-china-question/" target="_blank" rel="noopener">MBI Deepdives &mdash; "ASML's China Question" (China revenue-share trend, 2025&ndash;2026)</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+      if (window.__lqRedraw) window.__lqRedraw();
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var YEARS = [2024, 2025, 2026, 2027, 2028];
+    var SUPPLY = [50, 58, 65, 85, 110]; // illustrative EUV-equivalent systems/year
+    var BASE_DEMAND = [52, 60, 72, 72, 72]; // pre-compounding baseline, illustrative
+
+    var canvas = document.getElementById('lq-canvas');
+    var ctx = canvas.getContext('2d');
+    var slider = document.getElementById('lq-demand');
+    var sliderLabel = document.getElementById('lq-demand-label');
+    var note = document.getElementById('lq-note');
+    var runBtn = document.getElementById('lq-run');
+    var resetBtn = document.getElementById('lq-reset');
+    var statYear = document.getElementById('lq-stat-year');
+    var statBuilt = document.getElementById('lq-stat-built');
+    var statOrdered = document.getElementById('lq-stat-ordered');
+    var statBacklog = document.getElementById('lq-stat-backlog');
+    var swSupply = document.getElementById('lq-sw-supply');
+    var swDemand = document.getElementById('lq-sw-demand');
+    var swBacklog = document.getElementById('lq-sw-backlog');
+
+    var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var step = 0; // index into YEARS already revealed (0 = none)
+    var running = false;
+    var timer = null;
+    var backlog = 0;
+    var history = []; // {year, built, ordered, backlog}
+    var activeGrowth = Number(slider.value) / 100;
+
+    function cssVar(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+
+    function demandFor(i, growth) {
+      return Math.round(BASE_DEMAND[i] * Math.pow(1 + growth, i));
+    }
+
+    function updateSliderLabel() {
+      sliderLabel.textContent = 'AI demand growth per year: ' + slider.value + '%';
+    }
+
+    function computeYear(i, growth) {
+      var built = SUPPLY[i];
+      var ordered = demandFor(i, growth);
+      var available = built - backlog;
+      if (available < 0) available = 0;
+      var metNew = Math.min(available, ordered);
+      backlog = backlog + ordered - Math.min(built, backlog + ordered);
+      if (backlog < 0) backlog = 0;
+      return { year: YEARS[i], built: built, ordered: ordered, backlog: backlog };
+    }
+
+    function updateStats(rec) {
+      statYear.textContent = String(rec.year);
+      statBuilt.textContent = String(rec.built);
+      statOrdered.textContent = String(rec.ordered);
+      statBacklog.textContent = String(rec.backlog);
+    }
+
+    function draw() {
+      var w = canvas.width, h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+
+      var bg = cssVar('--bg') || '#eef1f5';
+      var border = cssVar('--border') || '#dde3ea';
+      var accentA = cssVar('--accent-a') || '#c0541f';
+      var accentB = cssVar('--accent-b') || '#1f6f93';
+      var muted = cssVar('--muted') || '#59636f';
+      var ink = cssVar('--ink') || '#131820';
+
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, w, h);
+
+      var padL = 14, padR = 14, padT = 14, padB = 28;
+      var plotW = w - padL - padR;
+      var plotH = h - padT - padB;
+      var n = YEARS.length;
+      var colW = plotW / n;
+      var maxVal = 0;
+      for (var k = 0; k < history.length; k++) {
+        maxVal = Math.max(maxVal, history[k].built, history[k].ordered, history[k].backlog);
+      }
+      maxVal = Math.max(maxVal, 20);
+      var scale = (plotH - 10) / (maxVal * 1.15);
+
+      // baseline
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(padL, h - padB);
+      ctx.lineTo(w - padR, h - padB);
+      ctx.stroke();
+
+      for (var i = 0; i < n; i++) {
+        var colX = padL + i * colW;
+        var cx = colX + colW / 2;
+
+        ctx.font = '10px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+        ctx.fillStyle = muted;
+        ctx.textAlign = 'center';
+        ctx.fillText(String(YEARS[i]), cx, h - padB + 14);
+
+        if (i >= history.length) continue;
+        var rec = history[i];
+        var barW = Math.min(20, colW * 0.22);
+        var gap = 6;
+
+        var builtH = rec.built * scale;
+        var orderedH = rec.ordered * scale;
+        var backlogH = rec.backlog * scale;
+
+        var x0 = cx - (barW * 1.5 + gap);
+        ctx.fillStyle = accentB;
+        ctx.fillRect(x0, h - padB - builtH, barW, builtH);
+
+        var x1 = x0 + barW + gap;
+        ctx.fillStyle = accentA;
+        ctx.fillRect(x1, h - padB - orderedH, barW, orderedH);
+
+        var x2 = x1 + barW + gap;
+        ctx.fillStyle = ink;
+        ctx.globalAlpha = 0.55;
+        ctx.fillRect(x2, h - padB - backlogH, barW, backlogH);
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    function finishRun() {
+      running = false;
+      runBtn.disabled = false;
+      slider.disabled = false;
+      runBtn.textContent = REDUCED ? 'Regenerate' : 'Run';
+      var last = history[history.length - 1];
+      if (last.backlog > 0) {
+        note.textContent = 'By ' + last.year + ': ' + last.backlog + ' machine-equivalents of orders still unfilled, even with capacity expanded every year. That gap is the real-world story behind ASML saying its planned 2027-2028 supply still won’t meet demand.';
+      } else {
+        note.textContent = 'By ' + last.year + ': capacity caught up with demand at this growth rate — try a higher setting to see the backlog ASML is actually dealing with.';
+      }
+    }
+
+    function stepRun() {
+      if (step >= YEARS.length) {
+        clearInterval(timer);
+        finishRun();
+        return;
+      }
+      var rec = computeYear(step, activeGrowth);
+      history.push(rec);
+      updateStats(rec);
+      draw();
+      step++;
+      if (step >= YEARS.length) {
+        clearInterval(timer);
+        finishRun();
+      }
+    }
+
+    function runSim() {
+      if (running) return;
+      history = [];
+      backlog = 0;
+      step = 0;
+      running = true;
+      runBtn.disabled = true;
+      slider.disabled = true;
+      activeGrowth = Number(slider.value) / 100;
+      note.textContent = 'Running at a fixed ' + slider.value + '% annual demand growth — held steady for the whole run, like a multi-year planning assumption would be.';
+
+      if (REDUCED) {
+        while (step < YEARS.length) {
+          var rec = computeYear(step, activeGrowth);
+          history.push(rec);
+          step++;
+        }
+        updateStats(history[history.length - 1]);
+        draw();
+        finishRun();
+        return;
+      }
+
+      draw();
+      timer = setInterval(stepRun, 700);
+    }
+
+    function resetSim() {
+      if (timer) clearInterval(timer);
+      running = false;
+      history = [];
+      backlog = 0;
+      step = 0;
+      runBtn.disabled = false;
+      slider.disabled = false;
+      runBtn.textContent = REDUCED ? 'Regenerate' : 'Run';
+      statYear.textContent = String(YEARS[0]);
+      statBuilt.textContent = '0';
+      statOrdered.textContent = '0';
+      statBacklog.textContent = '0';
+      draw();
+      note.textContent = 'Ready to run. Pick a demand-growth rate, then press Run to step year by year from 2024 to 2028.';
+    }
+
+    slider.addEventListener('input', function () {
+      updateSliderLabel();
+      if (!running) draw();
+    });
+
+    runBtn.addEventListener('click', runSim);
+    resetBtn.addEventListener('click', resetSim);
+
+    swSupply.style.background = 'var(--accent-b)';
+    swDemand.style.background = 'var(--accent-a)';
+    swBacklog.style.background = 'var(--ink)';
+    swBacklog.style.opacity = '0.55';
+
+    window.__lqRedraw = draw;
+
+    updateSliderLabel();
+    if (REDUCED) {
+      runBtn.textContent = 'Regenerate';
+      note.textContent = 'Static view shown (motion is reduced on this device). Press Regenerate to compute the full 2024-2028 run instantly at your chosen growth rate.';
+    }
+    draw();
+  })();
+</script>
+</body>
+</html>
