@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-15","category":"ADVANCED PACKAGING","headline":"Samsung, TSMC, Intel and SK Hynix Have Never Shared an R&D Lab. A $5 Billion Building in California Just Put All Four Under One Roof","summary":"Applied Materials opened a $5B R&D campus Oct. 12 where Samsung, SK hynix, TSMC, Intel, Micron and Broadcom's engineers now share cleanrooms — unheard of for arch-rivals. The target: hybrid bonding, the atom-tight chip-stacking step that's now a bigger AI-chip bottleneck than lithography.","whyItMatters":"Packaging, not the lithography machine everyone talks about, is now the real pacing item for AI chip output — and the rivals just admitted none of them can fix it alone."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Samsung, TSMC, Intel and SK Hynix Have Never Shared an R&amp;D Lab</title>
+<meta name="description" content="Applied Materials opened a $5B shared R&amp;D campus where Samsung, SK hynix, TSMC, Intel, Micron and Broadcom's engineers now work side by side on advanced chip packaging &mdash; AI chips' real bottleneck." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a8752c;
+    --accent-a-tint: #f3e6cc;
+    --accent-b: #4a5fc1;
+    --accent-b-tint: #e1e4f7;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e0ad5f;
+      --accent-a-tint: #332710;
+      --accent-b: #8f9ae0;
+      --accent-b-tint: #1c2040;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e0ad5f;
+    --accent-a-tint: #332710;
+    --accent-b: #8f9ae0;
+    --accent-b-tint: #1c2040;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a8752c;
+    --accent-a-tint: #f3e6cc;
+    --accent-b: #4a5fc1;
+    --accent-b-tint: #e1e4f7;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: solo R&D vs shared-lab race --- */
+  .pk-header { margin-bottom: 4px; }
+  .pk-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .pk-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+  .pk-layout { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+  .pk-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+    flex: 1 1 320px;
+    min-width: 280px;
+  }
+  #pk-canvas { display: block; width: 100%; height: 220px; }
+  .pk-side { flex: 1 1 220px; min-width: 220px; }
+  .pk-slider-row { margin-bottom: 4px; }
+  .pk-slider-row label {
+    display: block;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .pk-slider-row input[type="range"] { width: 100%; accent-color: var(--accent-a); }
+  .pk-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10.5px;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    margin-top: 2px;
+  }
+  .pk-note {
+    margin: 14px 0 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+    font-size: 12.5px;
+    line-height: 1.55;
+    min-height: 40px;
+  }
+  .pk-controls { margin-top: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .pk-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .pk-btn.pk-primary { background: var(--accent-a); border-color: var(--accent-a); color: #fff; }
+  .pk-btn:disabled { opacity: 0.5; cursor: default; }
+  .pk-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 11px; color: var(--muted); }
+  .pk-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .pk-swatch { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .pk-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .pk-stats { grid-template-columns: repeat(2, 1fr); }
+    .pk-layout { gap: 14px; }
+  }
+  .pk-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--bg); }
+  .pk-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .pk-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 15, 2026</span>
+    <span class="category-chip">ADVANCED PACKAGING</span>
+  </div>
+  <h1>Samsung, TSMC, Intel and SK Hynix Have Never Shared an R&amp;D Lab. A $5 Billion Building in California Just Put All Four Under One Roof.</h1>
+  <p class="lede">Applied Materials, the equipment maker that sells machines to nearly the entire chip industry, opened a new $5 billion R&amp;D campus in Sunnyvale, California on October 12 &mdash; and for the first time, it's hosting engineers from Samsung, SK hynix, TSMC, Intel, Micron and Broadcom inside the same shared cleanrooms. These six companies spend billions trying to out-build each other every quarter. But on one specific problem &mdash; stacking chips together atom-tight instead of soldering them &mdash; Applied Materials is betting none of them can solve it fast enough alone, so it built them a building to stop trying separately.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Applied Materials' EPIC (Equipment and Process Innovation and Commercialization) Center opened October 12, 2026 in Sunnyvale: roughly 55,700 square meters total, including about 16,200 square meters of cleanroom space, at a total investment raised from an original $4 billion (announced 2023) to $5 billion as customer commitments grew. Confirmed participants working inside it: Samsung Electronics, SK hynix, TSMC, Intel, Micron, Broadcom, Advantest, Screen, Kioxia, and bonding-equipment specialist Besi. On October 1, 2026, Applied Materials and Besi &mdash; partners since a 2020 joint lab in Singapore, and more tightly tied since Applied took a 9% equity stake in Besi in April 2025 &mdash; expanded that partnership specifically around hybrid bonding, the glue-free stacking method now central to advanced AI chip packaging.
+  </div>
+
+  <div class="card pk-card">
+    <div class="pk-header">
+      <h2 class="pk-title">Run the race: solving a packaging problem solo vs. pooling the lab</h2>
+      <p class="pk-caption mono">Set how many rival teams pool their knowledge inside a shared lab (1 = working alone, 6 = Samsung, SK hynix, TSMC, Intel, Micron and Broadcom all pooling, like at EPIC), then press Run to step through 16 R&amp;D cycles. Both lines model the same hybrid-bonding defect problem closing toward "solved" &mdash; the gold line is one team working alone, the blue line is your chosen number of teams pooling discoveries. Illustrative learning-curve model with assumed rates, not Applied Materials' real defect data or timeline.</p>
+    </div>
+
+    <div class="pk-layout">
+      <div class="pk-scene-wrap">
+        <canvas id="pk-canvas" width="560" height="220" role="img" aria-label="Line chart over 16 R&D cycles comparing a solo team's progress toward solving a chip-bonding defect problem against a pooled-lab team's progress, with the pooled line rising faster and reaching full resolution sooner."></canvas>
+      </div>
+      <div class="pk-side">
+        <div class="pk-slider-row">
+          <label for="pk-teams" id="pk-teams-label">Rival teams pooling knowledge: 6 (all of them)</label>
+          <input type="range" id="pk-teams" min="1" max="6" value="6" step="1" />
+          <div class="pk-slider-labels">
+            <span>Working alone</span>
+            <span>All six, EPIC-style</span>
+          </div>
+        </div>
+        <p class="pk-note mono" id="pk-note">Ready to run. Pick how many teams pool knowledge, then press Run to step through 16 R&amp;D cycles.</p>
+        <div class="pk-controls">
+          <button type="button" class="pk-btn pk-primary" id="pk-run">Run</button>
+          <button type="button" class="pk-btn" id="pk-reset">Reset</button>
+        </div>
+        <div class="pk-legend">
+          <span><span class="pk-swatch" id="pk-sw-solo"></span>Solo team</span>
+          <span><span class="pk-swatch" id="pk-sw-shared"></span>Pooled lab</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pk-stats">
+      <div class="pk-stat">
+        <div class="pk-stat-label mono">Cycle</div>
+        <div class="pk-stat-value mono" id="pk-stat-cycle">0</div>
+      </div>
+      <div class="pk-stat">
+        <div class="pk-stat-label mono">Solo solved</div>
+        <div class="pk-stat-value mono" id="pk-stat-solo">0%</div>
+      </div>
+      <div class="pk-stat">
+        <div class="pk-stat-label mono">Pooled solved</div>
+        <div class="pk-stat-value mono" id="pk-stat-shared">0%</div>
+      </div>
+      <div class="pk-stat">
+        <div class="pk-stat-label mono">Cycles to 90% (pooled)</div>
+        <div class="pk-stat-value mono" id="pk-stat-cycles90">&mdash;</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Think of a cutting-edge AI chip today less like one slab of silicon and more like a club sandwich: a logic chip on the bottom, stacks of memory on top, all fused together so tightly that signals can hop between layers almost instantly. That fusing step &mdash; called "packaging" &mdash; has quietly become a bigger bottleneck for how many AI chips the world can actually build than the fancy machines that print the circuits in the first place. Chipmakers can etch transistors faster than they can stack and bond the finished pieces together without cracks, warps, or misalignment at a microscopic scale.</p>
+      <p>Normally, Samsung, TSMC, Intel, SK hynix, Micron and Broadcom guard their factories like bank vaults &mdash; they're each other's biggest competitors, and almost nothing leaves the building. But stacking chips this precisely &mdash; bonding bare silicon to bare silicon with no glue layer at all, aligned to within a sliver of a strand of DNA &mdash; is such a hard manufacturing problem that no single company's R&amp;D team can crack every piece of it fast enough alone.</p>
+      <p>So Applied Materials, the company that builds the machines nearly all of them buy, just opened a $5 billion research campus in Silicon Valley &mdash; and for the first time, it's putting engineers from these rival companies to work in the same shared cleanrooms, on the same packaging problem, at the same time. They're still bitter rivals on the finished product. But on this one upstream manufacturing step, everyone would rather pool the hard part than each spend years solving it in isolation &mdash; because right now, that shared bottleneck is capping how many AI chips any of them can actually ship.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Advanced packaging has been shifting from soldered "bump bonding" &mdash; chiplets connected through solder microbumps typically spaced 40&ndash;55 micrometers apart &mdash; to "hybrid bonding," which fuses the copper pads and dielectric surfaces of two wafers or dies directly, with no solder or adhesive layer, at pitches now below 10 micrometers and trending toward sub-2-micrometer pitches in some HBM and SoIC designs. Interconnect density scales roughly with the inverse square of pitch, so halving the bonding pitch can roughly quadruple vertical connections per square millimeter &mdash; exactly what's needed to stack logic dies under HBM memory fast enough for AI accelerators.</p>
+      <p>The catch is that hybrid bonding has almost zero tolerance for error: wafer warpage, surface particulates, or planarity deviations of a few nanometers can void a bond or short adjacent pads. Fixing that requires co-optimizing surface-activation chemistry, CMP polishing, sub-nanometer flatness metrology, and the bonding/dicing tools themselves &mdash; a combinatorial problem spanning multiple vendors and each chipmaker's own proprietary process recipe. Historically each company ran that validation loop separately inside its own fab, a cycle that can take 12&ndash;18 months per iteration and requires redundant pilot lines.</p>
+      <p>Applied Materials' EPIC (Equipment and Process Innovation and Commercialization) Center, opened October 12, 2026 in Sunnyvale, is built to shorten that loop: roughly 55,700 square meters, including about 16,200 square meters of cleanroom space, at a total investment raised from an original $4 billion (announced 2023) to $5 billion as customer commitments grew. Confirmed participants include Samsung Electronics, SK hynix, TSMC, Intel, Micron, Broadcom, Advantest, Screen, Kioxia, and bonding-equipment specialist Besi. On October 1, 2026, Applied Materials and Besi &mdash; partners since a 2020 joint lab in Singapore, and more tightly tied since Applied's 9% equity stake in Besi in April 2025 &mdash; expanded that collaboration specifically into die-to-wafer, die-to-die, and die-to-panel hybrid bonding and thermo-compression bonding platforms aimed at 3D-IC scaling. The bet: parallelizing process R&amp;D across competing customers inside one shared tool set cuts the number of redundant validation cycles the industry collectively has to run &mdash; relevant given TSMC's advanced-packaging (CoWoS) lines are still described as sold out heading into 2027 even as capacity is targeted to roughly double by 2028.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Packaging, not the lithography machine everyone talks about, is now the real pacing item for AI chip output &mdash; and the rivals who'd normally never cooperate just admitted none of them can fix it alone.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Advanced-packaging yield and throughput, not wafer-level lithography, is the binding constraint on AI accelerator output right now; pooling process R&amp;D across competing customers inside one shared facility is a structural bet that collective iteration speed beats proprietary secrecy once a bottleneck threatens everyone's shipments at once.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.appliedmaterials.com/us/en/newsroom/press-releases/021126-applied-materials-announces-samsung-electronics-will-join-new-epic-center.html" target="_blank" rel="noopener">Applied Materials &mdash; "Applied Materials Announces Samsung Electronics Will Join New EPIC Center" (press release)</a></li>
+    <li><a href="https://www.appliedmaterials.com/us/en/newsroom/press-releases/100126-applied-besi-expand-partnership.html" target="_blank" rel="noopener">Applied Materials &mdash; "Applied Materials and BESI Expand Partnership" (press release, Oct. 1, 2026)</a></li>
+    <li><a href="https://biz.heraldcorp.com/article/10900746" target="_blank" rel="noopener">The Korea Herald Business &mdash; report on the EPIC Center's October 12, 2026 opening</a></li>
+    <li><a href="https://www.trendforce.com/news/2026/09/14/news-tsmc-reportedly-targets-22-2nm-16-3nm-capacity-boost-by-mid-2027-cowos-to-double-by-2028/" target="_blank" rel="noopener">TrendForce &mdash; on TSMC's CoWoS advanced-packaging capacity plans through 2028</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+      if (window.__pkRedraw) window.__pkRedraw();
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var CYCLES = 16;
+    var BASE_RATE = 0.13; // solo team closes 13% of remaining gap per cycle
+
+    var canvas = document.getElementById('pk-canvas');
+    var ctx = canvas.getContext('2d');
+    var slider = document.getElementById('pk-teams');
+    var sliderLabel = document.getElementById('pk-teams-label');
+    var note = document.getElementById('pk-note');
+    var runBtn = document.getElementById('pk-run');
+    var resetBtn = document.getElementById('pk-reset');
+    var statCycle = document.getElementById('pk-stat-cycle');
+    var statSolo = document.getElementById('pk-stat-solo');
+    var statShared = document.getElementById('pk-stat-shared');
+    var statCycles90 = document.getElementById('pk-stat-cycles90');
+    var swSolo = document.getElementById('pk-sw-solo');
+    var swShared = document.getElementById('pk-sw-shared');
+
+    var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var step = 0; // number of cycles revealed so far
+    var running = false;
+    var timer = null;
+    var history = []; // {cycle, solo, shared}
+    var activeTeams = Number(slider.value);
+
+    function cssVar(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+
+    function sharedRate(teams) {
+      var r = BASE_RATE * (1 + 0.22 * (teams - 1));
+      return Math.min(r, 0.92);
+    }
+
+    function progressAt(cycle, rate) {
+      return 100 * (1 - Math.pow(1 - rate, cycle));
+    }
+
+    function cyclesTo(target, rate) {
+      if (rate <= 0) return null;
+      var n = Math.log(1 - target / 100) / Math.log(1 - rate);
+      n = Math.ceil(n);
+      return n > CYCLES ? null : n;
+    }
+
+    function updateSliderLabel() {
+      var v = Number(slider.value);
+      sliderLabel.textContent = 'Rival teams pooling knowledge: ' + v + (v === 6 ? ' (all of them)' : v === 1 ? ' (working alone)' : '');
+    }
+
+    function computeCycle(i, teams) {
+      var soloRate = BASE_RATE;
+      var poolRate = sharedRate(teams);
+      return {
+        cycle: i,
+        solo: progressAt(i, soloRate),
+        shared: progressAt(i, poolRate)
+      };
+    }
+
+    function updateStats(rec, teams) {
+      statCycle.textContent = String(rec.cycle);
+      statSolo.textContent = Math.round(rec.solo) + '%';
+      statShared.textContent = Math.round(rec.shared) + '%';
+      var c90 = cyclesTo(90, sharedRate(teams));
+      statCycles90.textContent = c90 === null ? '>' + CYCLES : String(c90);
+    }
+
+    function draw() {
+      var w = canvas.width, h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+
+      var bg = cssVar('--bg') || '#eef1f5';
+      var border = cssVar('--border') || '#dde3ea';
+      var accentA = cssVar('--accent-a') || '#a8752c';
+      var accentB = cssVar('--accent-b') || '#4a5fc1';
+      var muted = cssVar('--muted') || '#59636f';
+
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, w, h);
+
+      var padL = 30, padR = 14, padT = 14, padB = 26;
+      var plotW = w - padL - padR;
+      var plotH = h - padT - padB;
+
+      // gridlines at 0/50/100%
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 1;
+      [0, 50, 100].forEach(function (pct) {
+        var y = padT + plotH - (pct / 100) * plotH;
+        ctx.beginPath();
+        ctx.moveTo(padL, y);
+        ctx.lineTo(w - padR, y);
+        ctx.stroke();
+        ctx.font = '9px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+        ctx.fillStyle = muted;
+        ctx.textAlign = 'right';
+        ctx.fillText(pct + '%', padL - 4, y + 3);
+      });
+
+      ctx.font = '9px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = muted;
+      ctx.textAlign = 'center';
+      ctx.fillText('cycle 0', padL + 14, h - padB + 14);
+      ctx.fillText('cycle ' + CYCLES, w - padR - 20, h - padB + 14);
+
+      if (history.length < 2) return;
+
+      function plotLine(key, color) {
+        ctx.beginPath();
+        ctx.lineWidth = 2.2;
+        ctx.strokeStyle = color;
+        for (var i = 0; i < history.length; i++) {
+          var x = padL + (history[i].cycle / CYCLES) * plotW;
+          var y = padT + plotH - (history[i][key] / 100) * plotH;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+        var last = history[history.length - 1];
+        var lx = padL + (last.cycle / CYCLES) * plotW;
+        var ly = padT + plotH - (last[key] / 100) * plotH;
+        ctx.beginPath();
+        ctx.arc(lx, ly, 3.5, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+      }
+
+      plotLine('solo', accentA);
+      plotLine('shared', accentB);
+    }
+
+    function finishRun(teams) {
+      running = false;
+      runBtn.disabled = false;
+      slider.disabled = false;
+      runBtn.textContent = REDUCED ? 'Regenerate' : 'Run';
+      var last = history[history.length - 1];
+      var c90 = cyclesTo(90, sharedRate(teams));
+      if (c90 === null) {
+        note.textContent = 'With ' + teams + ' team(s) pooling, the model never quite clears 90% within ' + CYCLES + ' cycles — at low pooling, the problem just doesn’t converge fast enough. Solo sits at ' + Math.round(last.solo) + '% by cycle ' + CYCLES + '.';
+      } else {
+        note.textContent = 'With ' + teams + ' team(s) pooling, the model crosses 90% solved by cycle ' + c90 + '. A lone team is still only around ' + Math.round(last.solo) + '% there by cycle ' + CYCLES + ' — the gap this model is built to illustrate.';
+      }
+    }
+
+    function stepRun(teams) {
+      if (step > CYCLES) {
+        clearInterval(timer);
+        finishRun(teams);
+        return;
+      }
+      var rec = computeCycle(step, teams);
+      history.push(rec);
+      updateStats(rec, teams);
+      draw();
+      step++;
+      if (step > CYCLES) {
+        clearInterval(timer);
+        finishRun(teams);
+      }
+    }
+
+    function runSim() {
+      if (running) return;
+      history = [];
+      step = 0;
+      running = true;
+      runBtn.disabled = true;
+      slider.disabled = true;
+      activeTeams = Number(slider.value);
+      note.textContent = 'Running with ' + activeTeams + ' team(s) pooling knowledge, held fixed for the whole run.';
+
+      if (REDUCED) {
+        while (step <= CYCLES) {
+          var rec = computeCycle(step, activeTeams);
+          history.push(rec);
+          step++;
+        }
+        updateStats(history[history.length - 1], activeTeams);
+        draw();
+        finishRun(activeTeams);
+        return;
+      }
+
+      draw();
+      timer = setInterval(function () { stepRun(activeTeams); }, 220);
+    }
+
+    function resetSim() {
+      if (timer) clearInterval(timer);
+      running = false;
+      history = [];
+      step = 0;
+      runBtn.disabled = false;
+      slider.disabled = false;
+      runBtn.textContent = REDUCED ? 'Regenerate' : 'Run';
+      statCycle.textContent = '0';
+      statSolo.textContent = '0%';
+      statShared.textContent = '0%';
+      statCycles90.textContent = '—';
+      draw();
+      note.textContent = 'Ready to run. Pick how many teams pool knowledge, then press Run to step through 16 R&D cycles.';
+    }
+
+    slider.addEventListener('input', function () {
+      updateSliderLabel();
+    });
+
+    runBtn.addEventListener('click', runSim);
+    resetBtn.addEventListener('click', resetSim);
+
+    swSolo.style.background = 'var(--accent-a)';
+    swShared.style.background = 'var(--accent-b)';
+
+    window.__pkRedraw = draw;
+
+    updateSliderLabel();
+    if (REDUCED) {
+      runBtn.textContent = 'Regenerate';
+      note.textContent = 'Static view shown (motion is reduced on this device). Press Regenerate to compute the full 16-cycle run instantly at your chosen team count.';
+    }
+    draw();
+  })();
+</script>
+</body>
+</html>
