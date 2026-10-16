@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-16","category":"CHIP OWNERSHIP","headline":"Nexperia's Chips Cost About a Dime Each and Make Up Just 5% of the Auto-Chip Market. A Year-Long Ownership Fight Over Them Still Isn't Resolved","summary":"The Dutch government seized control of Nexperia, a Chinese-owned maker of penny-priced automotive chips, in September 2025. China blocked its chip exports in response, idling car plants worldwide. Courts in both countries are still fighting over who controls the company, with no resolution as of this week.","whyItMatters":"A supplier with roughly 5% of the auto-chip market, making parts worth pennies, proved that an ownership dispute — not just an export ban — can freeze global car production, because automotive-grade parts can't be swapped in quickly."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Nexperia's Dime-Chip Ownership Fight</title>
+<meta name="description" content="A Dutch seizure of Chinese-owned chipmaker Nexperia and Beijing's export retaliation idled car plants worldwide. A year on, courts in both countries still haven't decided who controls the company." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c0501a;
+    --accent-a-tint: #f7e3d2;
+    --accent-b: #2f5f7a;
+    --accent-b-tint: #e0ebf0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e68a4f;
+      --accent-a-tint: #3a2615;
+      --accent-b: #5fa3c4;
+      --accent-b-tint: #16262f;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e68a4f;
+    --accent-a-tint: #3a2615;
+    --accent-b: #5fa3c4;
+    --accent-b-tint: #16262f;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c0501a;
+    --accent-a-tint: #f7e3d2;
+    --accent-b: #2f5f7a;
+    --accent-b-tint: #e0ebf0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: weakest-link assembly-line simulator --- */
+  .wl-header { margin-bottom: 4px; }
+  .wl-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .wl-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+  .wl-layout { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+  .wl-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+    flex: 1 1 320px;
+    min-width: 280px;
+  }
+  #wl-canvas { display: block; width: 100%; height: 220px; }
+  .wl-side { flex: 1 1 220px; min-width: 220px; }
+  .wl-slider-row { margin-bottom: 4px; }
+  .wl-slider-row label {
+    display: block;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .wl-slider-row input[type="range"] { width: 100%; accent-color: var(--accent-a); }
+  .wl-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10.5px;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    margin-top: 2px;
+  }
+  .wl-note {
+    margin: 14px 0 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+    font-size: 12.5px;
+    line-height: 1.55;
+    min-height: 40px;
+  }
+  .wl-controls { margin-top: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .wl-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .wl-btn.wl-primary { background: var(--accent-a); border-color: var(--accent-a); color: #fff; }
+  .wl-btn:disabled { opacity: 0.5; cursor: default; }
+  .wl-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 11px; color: var(--muted); }
+  .wl-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .wl-swatch { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .wl-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .wl-stats { grid-template-columns: repeat(2, 1fr); }
+    .wl-layout { gap: 14px; }
+  }
+  .wl-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--bg); }
+  .wl-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .wl-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 16, 2026</span>
+    <span class="category-chip">CHIP OWNERSHIP</span>
+  </div>
+  <h1>Nexperia's Chips Cost About a Dime Each and Make Up Just 5% of the Auto-Chip Market. A Year-Long Ownership Fight Over Them Still Isn't Resolved.</h1>
+  <p class="lede">A little over a year ago, the Dutch government invoked a Cold War-era emergency law it had never once used, to seize control of a chipmaker from its Chinese parent. Beijing answered by blocking that chipmaker's exports from its Chinese factory, idling car plants on three continents within weeks. Courts in both countries are still deciding who actually owns the company.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    On September 30, 2025, the Dutch Ministry of Economic Affairs invoked the 1952 Goods Availability Act &mdash; its first-ever use &mdash; over "serious governance shortcomings" at Nexperia; days later the Enterprise Chamber, a Dutch corporate court, separately suspended Chinese parent Wingtech's voting rights and CEO Zhang Xuezheng, installing an independent trustee. China's commerce ministry retaliated by blocking exports of finished Nexperia chips from its Dongguan packaging and test site, which handles roughly 70% of Nexperia's output and sits inside a country that generates about 48% of its revenue (S&amp;P Global Mobility). Honda cut or halted output at plants in Mexico, the US, Canada, Japan and China between late October 2025 and January 2026. A year on: the Enterprise Chamber ordered a formal six-month investigation in February 2026; Wingtech sued Nexperia in a Chinese court in May 2026 for roughly $1.1&ndash;1.2 billion; a Dongguan court froze about $318 million in Nexperia-linked assets on August 28, 2026; and Wingtech's appeal to the Netherlands' Supreme Court isn't expected to be decided this year.
+  </div>
+
+  <div class="card wl-card">
+    <div class="wl-header">
+      <h2 class="wl-title">Run the line: why a nickel-and-dime chip shortage stalls a whole car</h2>
+      <p class="wl-caption mono">Set how available the disrupted supplier's parts are, then press Run to step through 10 days of production. The amber line is actual cars completed; the teal line is what you'd expect if you just averaged part availability across the car's components. Illustrative model: 8 part types per car, 2 sourced from the disrupted supplier, the other 6 held at a steady 97% availability, 50 cars attempted per day &mdash; not Nexperia's or Honda's real production figures.</p>
+    </div>
+
+    <div class="wl-layout">
+      <div class="wl-scene-wrap">
+        <canvas id="wl-canvas" width="560" height="220" role="img" aria-label="Line chart over 10 days comparing actual completed cars, which stays very low, against a naive estimate based on averaging part availability, which stays much higher."></canvas>
+      </div>
+      <div class="wl-side">
+        <div class="wl-slider-row">
+          <label for="wl-avail" id="wl-avail-label">Disrupted-supplier part availability: 40%</label>
+          <input type="range" id="wl-avail" min="0" max="100" value="40" step="5" />
+          <div class="wl-slider-labels">
+            <span>Fully blocked</span>
+            <span>Fully normal</span>
+          </div>
+        </div>
+        <p class="wl-note mono" id="wl-note">Ready to run. Set availability, then press Run to step through 10 days.</p>
+        <div class="wl-controls">
+          <button type="button" class="wl-btn wl-primary" id="wl-run">Run</button>
+          <button type="button" class="wl-btn" id="wl-reset">Reset</button>
+        </div>
+        <div class="wl-legend">
+          <span><span class="wl-swatch" id="wl-sw-actual"></span>Actual completions</span>
+          <span><span class="wl-swatch" id="wl-sw-naive"></span>Naive (averaged) estimate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wl-stats">
+      <div class="wl-stat">
+        <div class="wl-stat-label mono">Day</div>
+        <div class="wl-stat-value mono" id="wl-stat-day">0</div>
+      </div>
+      <div class="wl-stat">
+        <div class="wl-stat-label mono">Actual cars done</div>
+        <div class="wl-stat-value mono" id="wl-stat-actual">0</div>
+      </div>
+      <div class="wl-stat">
+        <div class="wl-stat-label mono">Naive estimate</div>
+        <div class="wl-stat-value mono" id="wl-stat-naive">0</div>
+      </div>
+      <div class="wl-stat">
+        <div class="wl-stat-label mono">Gap (cars)</div>
+        <div class="wl-stat-value mono" id="wl-stat-gap">0</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture the cheapest, least glamorous parts in a car &mdash; not the fancy AI chip, but tiny diodes and transistors, worth maybe a dime apiece, that manage power and protect circuits. A single car needs hundreds of them, from dozens of suppliers. If even one of these humble parts goes missing, the car can't be finished, because automotive parts aren't swapped same-day: a replacement has to pass months of safety testing before it's allowed anywhere near a vehicle.</p>
+      <p>One company, Nexperia, based in the Netherlands but owned by China's Wingtech since 2019, is the world's top supplier of exactly this kind of part by volume. About a year ago, the Dutch government &mdash; worried about its Chinese owner's control over a company it called important to European economic security &mdash; dusted off a 1952 emergency law it had never used before, and a Dutch court separately suspended the owner's voting rights and installed a new boss. Beijing hit back by blocking Nexperia's finished chips from leaving its Chinese factory, which handles most of the company's final packaging. Within weeks, Honda was idling assembly lines in Mexico, the US, Canada, Japan and China.</p>
+      <p>A year later, nothing is settled. Chinese courts have frozen Dutch-linked assets; the Chinese owner is suing for over a billion dollars and has appealed to the Netherlands' highest court; a Dutch investigation into the company's governance is still running. The chips at the center of it are worth pennies. The standoff over who controls the company that makes them is not.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>On September 30, 2025, the Dutch Ministry of Economic Affairs invoked the Goods Availability Act, a 1952 emergency-powers law never previously used, citing "serious governance shortcomings" at Nexperia and asserting ministerial authority to block or reverse management decisions seen as harmful to Dutch and EU economic security. Around the same time, the Enterprise Chamber &mdash; a separate corporate-law court &mdash; suspended Wingtech's voting rights and CEO Zhang Xuezheng, installing an independent trustee; that proceeding later produced a formal six-month investigation ordered in February 2026. China's commerce ministry retaliated by blocking exports of finished chips from Nexperia's Dongguan facility, which performs final packaging and test on roughly 70% of Nexperia's output, inside a country that accounts for about 48% of total revenue (S&amp;P Global Mobility).</p>
+      <p>Nexperia holds only about 5% of the global automotive discrete-chip market by revenue, per S&amp;P Global Mobility, but ranks #1 worldwide by shipment volume in small-signal diodes and transistors and #2 in automotive PowerMOS (TrendForce, citing Economic Daily News). That gap between small revenue share and large unit share is the mechanism: these parts are cheap, but automotive-grade qualification under standards like AEC-Q typically takes many months to over a year, so rival suppliers &mdash; Infineon, STMicroelectronics, onsemi, ROHM, Renesas &mdash; couldn't absorb displaced volume quickly even though they make comparable parts. TrendForce reported MOSFET and diode spot prices rising 5&ndash;20% in Q4 2025 with rush orders from Taiwan, and Honda cut or halted production at plants in Mexico, the US, Canada, Japan and China between late October 2025 and January 2026, though it didn't attribute every later adjustment directly to Nexperia.</p>
+      <p>The legal fight has only escalated since. Wingtech sued Nexperia and related entities in a Dongguan court in May 2026, seeking roughly 8 billion yuan (about $1.1&ndash;1.2 billion) and demanding Nexperia withdraw its Dutch proceedings; that court froze about 2.139 billion yuan (roughly $318 million) in Nexperia-linked onshore assets on August 28, 2026. Wingtech has appealed the Dutch control measures to the Netherlands' Supreme Court, which isn't expected to rule within 2026, and a Gelderland court conditionally allowed a Wingtech-affiliate petition for a witness hearing of three Nexperia directors on September 2, 2026. Nexperia's China entities have been deconsolidated from its financial reporting since October 1, 2025; its remaining non-China operations reported Q2 2026 revenue of $355.6 million, up 18.4% quarter-on-quarter, with positive net income and operating cash flow &mdash; recovering financially even as ownership, governance and the China export relationship all remain legally unresolved.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> A supplier with a small slice of the market, making parts worth pennies, proved that a fight over who owns a company can freeze car production worldwide just as effectively as an export ban &mdash; because you can't requalify a replacement part overnight.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Concentration risk in legacy, trailing-edge components doesn't show up in revenue-share statistics; it shows up in unit-share and qualification-cycle time, which is exactly where a governance dispute &mdash; not just an export control regime &mdash; can still take a 5%-share supplier and turn it into a global production chokepoint.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://news.bloomberglaw.com/tech-and-telecom-law/dutch-seize-chinese-owned-chipmaker-in-first-use-of-1952-law" target="_blank" rel="noopener">Bloomberg Law &mdash; on the Dutch government's first-ever use of the 1952 Goods Availability Act against Nexperia</a></li>
+    <li><a href="https://www.spglobal.com/automotive-insights/en/blogs/2025/10/dutch-takeover-of-chinese-owned-nexperia" target="_blank" rel="noopener">S&amp;P Global Mobility &mdash; on Nexperia's automotive discrete-chip market share and revenue exposure to China</a></li>
+    <li><a href="https://www.trendforce.com/news/2025/10/21/news-nexperia-export-ban-reportedly-drives-5-20-auto-chip-hikes-in-q4-taiwan-sees-rush-orders/" target="_blank" rel="noopener">TrendForce &mdash; on MOSFET/diode price hikes and rush orders following the Nexperia export ban</a></li>
+    <li><a href="https://www.scmp.com/tech/tech-war/article/3354611/wingtech-sues-dutch-unit-nexperia-us117b-battle-control-escalates" target="_blank" rel="noopener">South China Morning Post &mdash; on Wingtech's lawsuit against Nexperia and the escalating ownership battle</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+      if (window.__wlRedraw) window.__wlRedraw();
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var DAYS = 10;
+    var ATTEMPT_PER_DAY = 50;
+    var OTHER_PARTS_AVAIL = 0.97; // availability per non-disrupted part type
+    var OTHER_PARTS_COUNT = 6;
+    var DISRUPTED_PARTS_COUNT = 2;
+    var TOTAL_PARTS = OTHER_PARTS_COUNT + DISRUPTED_PARTS_COUNT;
+
+    var canvas = document.getElementById('wl-canvas');
+    var ctx = canvas.getContext('2d');
+    var slider = document.getElementById('wl-avail');
+    var sliderLabel = document.getElementById('wl-avail-label');
+    var note = document.getElementById('wl-note');
+    var runBtn = document.getElementById('wl-run');
+    var resetBtn = document.getElementById('wl-reset');
+    var statDay = document.getElementById('wl-stat-day');
+    var statActual = document.getElementById('wl-stat-actual');
+    var statNaive = document.getElementById('wl-stat-naive');
+    var statGap = document.getElementById('wl-stat-gap');
+    var swActual = document.getElementById('wl-sw-actual');
+    var swNaive = document.getElementById('wl-sw-naive');
+
+    var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var step = 0;
+    var running = false;
+    var timer = null;
+    var history = []; // {day, actual, naive}
+    var activeAvail = Number(slider.value);
+
+    function cssVar(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+
+    function rates(availPct) {
+      var a = availPct / 100;
+      var completionProb = Math.pow(a, DISRUPTED_PARTS_COUNT) * Math.pow(OTHER_PARTS_AVAIL, OTHER_PARTS_COUNT);
+      var naiveAvg = (DISRUPTED_PARTS_COUNT * a + OTHER_PARTS_COUNT * OTHER_PARTS_AVAIL) / TOTAL_PARTS;
+      return { completionProb: completionProb, naiveAvg: naiveAvg };
+    }
+
+    function buildHistory(availPct) {
+      var r = rates(availPct);
+      var h = [{ day: 0, actual: 0, naive: 0 }];
+      for (var i = 1; i <= DAYS; i++) {
+        var attempted = i * ATTEMPT_PER_DAY;
+        h.push({
+          day: i,
+          actual: Math.round(attempted * r.completionProb),
+          naive: Math.round(attempted * r.naiveAvg)
+        });
+      }
+      return h;
+    }
+
+    function updateSliderLabel() {
+      var v = Number(slider.value);
+      sliderLabel.textContent = 'Disrupted-supplier part availability: ' + v + '%';
+    }
+
+    function updateStats(rec) {
+      statDay.textContent = String(rec.day);
+      statActual.textContent = String(rec.actual);
+      statNaive.textContent = String(rec.naive);
+      statGap.textContent = String(rec.naive - rec.actual);
+    }
+
+    function draw() {
+      var w = canvas.width, h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+
+      var bg = cssVar('--bg') || '#eef1f5';
+      var border = cssVar('--border') || '#dde3ea';
+      var accentA = cssVar('--accent-a') || '#c0501a';
+      var accentB = cssVar('--accent-b') || '#2f5f7a';
+      var muted = cssVar('--muted') || '#59636f';
+
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, w, h);
+
+      var padL = 38, padR = 14, padT = 14, padB = 26;
+      var plotW = w - padL - padR;
+      var plotH = h - padT - padB;
+
+      var maxVal = ATTEMPT_PER_DAY * DAYS;
+      for (var k = 0; k < history.length; k++) {
+        maxVal = Math.max(maxVal, history[k].naive, history[k].actual);
+      }
+
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 1;
+      [0, 0.5, 1].forEach(function (frac) {
+        var y = padT + plotH - frac * plotH;
+        ctx.beginPath();
+        ctx.moveTo(padL, y);
+        ctx.lineTo(w - padR, y);
+        ctx.stroke();
+        ctx.font = '9px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+        ctx.fillStyle = muted;
+        ctx.textAlign = 'right';
+        ctx.fillText(String(Math.round(frac * maxVal)), padL - 4, y + 3);
+      });
+
+      ctx.font = '9px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = muted;
+      ctx.textAlign = 'center';
+      ctx.fillText('day 0', padL + 12, h - padB + 14);
+      ctx.fillText('day ' + DAYS, w - padR - 16, h - padB + 14);
+
+      if (history.length < 2) return;
+
+      function plotLine(key, color) {
+        ctx.beginPath();
+        ctx.lineWidth = 2.2;
+        ctx.strokeStyle = color;
+        for (var i = 0; i < history.length; i++) {
+          var x = padL + (history[i].day / DAYS) * plotW;
+          var y = padT + plotH - (history[i][key] / maxVal) * plotH;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+        var last = history[history.length - 1];
+        var lx = padL + (last.day / DAYS) * plotW;
+        var ly = padT + plotH - (last[key] / maxVal) * plotH;
+        ctx.beginPath();
+        ctx.arc(lx, ly, 3.5, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+      }
+
+      plotLine('naive', accentB);
+      plotLine('actual', accentA);
+    }
+
+    function finishRun(availPct) {
+      running = false;
+      runBtn.disabled = false;
+      slider.disabled = false;
+      runBtn.textContent = REDUCED ? 'Regenerate' : 'Run';
+      var last = history[history.length - 1];
+      note.textContent = 'At ' + availPct + '% part availability, averaging across all 8 part types would suggest about ' + last.naive + ' of ' + (ATTEMPT_PER_DAY * DAYS) + ' cars finish by day ' + DAYS + '. Because every part type is required, only ' + last.actual + ' actually do — a gap of ' + (last.naive - last.actual) + ' cars.';
+    }
+
+    function stepRun(availPct, fullHistory) {
+      if (step > DAYS) {
+        clearInterval(timer);
+        finishRun(availPct);
+        return;
+      }
+      history.push(fullHistory[step]);
+      updateStats(fullHistory[step]);
+      draw();
+      step++;
+      if (step > DAYS) {
+        clearInterval(timer);
+        finishRun(availPct);
+      }
+    }
+
+    function runSim() {
+      if (running) return;
+      activeAvail = Number(slider.value);
+      var fullHistory = buildHistory(activeAvail);
+      history = [fullHistory[0]];
+      step = 1;
+      running = true;
+      runBtn.disabled = true;
+      slider.disabled = true;
+      updateStats(fullHistory[0]);
+      note.textContent = 'Running at ' + activeAvail + '% disrupted-part availability, held fixed for all ' + DAYS + ' days.';
+
+      if (REDUCED) {
+        history = fullHistory;
+        step = DAYS + 1;
+        updateStats(fullHistory[fullHistory.length - 1]);
+        draw();
+        finishRun(activeAvail);
+        return;
+      }
+
+      draw();
+      timer = setInterval(function () { stepRun(activeAvail, fullHistory); }, 260);
+    }
+
+    function resetSim() {
+      if (timer) clearInterval(timer);
+      running = false;
+      history = [];
+      step = 0;
+      runBtn.disabled = false;
+      slider.disabled = false;
+      runBtn.textContent = REDUCED ? 'Regenerate' : 'Run';
+      statDay.textContent = '0';
+      statActual.textContent = '0';
+      statNaive.textContent = '0';
+      statGap.textContent = '0';
+      draw();
+      note.textContent = 'Ready to run. Set availability, then press Run to step through 10 days.';
+    }
+
+    slider.addEventListener('input', function () {
+      updateSliderLabel();
+    });
+
+    runBtn.addEventListener('click', runSim);
+    resetBtn.addEventListener('click', resetSim);
+
+    swActual.style.background = 'var(--accent-a)';
+    swNaive.style.background = 'var(--accent-b)';
+
+    window.__wlRedraw = draw;
+
+    updateSliderLabel();
+    if (REDUCED) {
+      runBtn.textContent = 'Regenerate';
+      note.textContent = 'Static view shown (motion is reduced on this device). Press Regenerate to compute the full 10-day run instantly at your chosen availability.';
+    }
+    draw();
+  })();
+</script>
+</body>
+</html>
