@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-17","category":"FLASH MEMORY","headline":"Kioxia Sold Out This Year's Entire NAND Flash Supply in January. Nine Months Later, Your SSD Still Isn't Getting Cheaper","summary":"Kioxia said in January its entire 2026 NAND output was already sold, with the shortage likely lasting into 2027. SanDisk, Samsung and Kingston have since raised SSD prices — some nearly 3x — because AI servers are eating flash memory capacity that used to go into consumer drives.","whyItMatters":"AI's hunger for flash storage is now setting the price of your laptop's SSD — and the fix, a new fab, takes years, not quarters."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Kioxia's Sold-Out NAND Year</title>
+<meta name="description" content="Kioxia said in January its 2026 flash memory output was already fully committed. SanDisk, Samsung and Kingston have since raised SSD prices — some nearly 3x — as AI servers out-bid consumer buyers for a fixed supply of NAND chips." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5541c;
+    --accent-a-tint: #f6e4d4;
+    --accent-b: #1f6f78;
+    --accent-b-tint: #dcecec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e68f55;
+      --accent-a-tint: #3a2616;
+      --accent-b: #4fb0ba;
+      --accent-b-tint: #142b2d;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e68f55;
+    --accent-a-tint: #3a2616;
+    --accent-b: #4fb0ba;
+    --accent-b-tint: #142b2d;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5541c;
+    --accent-a-tint: #f6e4d4;
+    --accent-b: #1f6f78;
+    --accent-b-tint: #dcecec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: bit-faucet allocation simulator --- */
+  .nf-header { margin-bottom: 4px; }
+  .nf-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .nf-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+  .nf-layout { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+  .nf-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+    flex: 1 1 320px;
+    min-width: 280px;
+  }
+  #nf-canvas { display: block; width: 100%; height: 220px; }
+  .nf-side { flex: 1 1 220px; min-width: 220px; }
+  .nf-slider-row { margin-bottom: 4px; }
+  .nf-slider-row label {
+    display: block;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .nf-slider-row input[type="range"] { width: 100%; accent-color: var(--accent-a); }
+  .nf-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10.5px;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    margin-top: 2px;
+  }
+  .nf-note {
+    margin: 14px 0 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+    font-size: 12.5px;
+    line-height: 1.55;
+    min-height: 40px;
+  }
+  .nf-controls { margin-top: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .nf-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .nf-btn.nf-primary { background: var(--accent-a); border-color: var(--accent-a); color: #fff; }
+  .nf-btn:disabled { opacity: 0.5; cursor: default; }
+  .nf-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 11px; color: var(--muted); }
+  .nf-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .nf-swatch { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .nf-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .nf-stats { grid-template-columns: repeat(2, 1fr); }
+    .nf-layout { gap: 14px; }
+  }
+  .nf-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--bg); }
+  .nf-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .nf-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 17, 2026</span>
+    <span class="category-chip">FLASH MEMORY</span>
+  </div>
+  <h1>Kioxia Sold Out This Year's Entire NAND Flash Supply in January. Nine Months Later, Your SSD Still Isn't Getting Cheaper.</h1>
+  <p class="lede">No factory burned down. No country blocked an export. A Kioxia executive just said, out loud, that the whole year's flash-memory output was already spoken for &mdash; and that the drought would likely run into 2027. The reason: AI servers want the same chips your laptop's SSD is made of, and they're willing to pay more to get served first.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    On January 22, 2026, Kioxia memory-business head Shunsuke Nakato told reporters at a Seoul event that the company's entire 2026 NAND production was already sold, that the era of the cheap 1TB SSD (around 7,000 yen, roughly $45) was over, and that the shortage would likely persist into 2027. Weeks later, SanDisk quietly raised prices across its own online store by as much as 2.8x &mdash; its flagship WD Black SN8100 8TB rose from a $999.99 MSRP to $2,572.99. By April, Samsung and Kingston had both pushed through further double-digit SSD price hikes. Industry trackers now put the cheapest 1TB SATA SSD at roughly $73 &mdash; more than 50% above its 2023 low. Phison CEO Khein-Seng Pua had already flagged the root cause in November 2025: spot prices for TLC 1-terabit NAND dies had more than doubled in four months, from $4.80 to $10.70, and new NAND fab capacity wouldn't fully come online until 2027 &mdash; with the squeeze potentially lasting up to a decade.
+  </div>
+
+  <div class="card nf-card">
+    <div class="nf-header">
+      <h2 class="nf-title">The bit faucet: a fixed pipe, two buyers, one line</h2>
+      <p class="nf-caption mono">Drag the slider to set how much of this production cycle's flash memory gets reserved for AI/enterprise contracts before anyone else is served. Press Run to watch the mix &mdash; and the price &mdash; move from a 2023-like baseline to today's reported squeeze. Illustrative model: total output is held fixed (new fabs take 2&ndash;3 years to add any), and the price line is calibrated to land near real reported figures (~$40 in 2023, ~$73 today) &mdash; not an official pricing formula.</p>
+    </div>
+
+    <div class="nf-layout">
+      <div class="nf-scene-wrap">
+        <canvas id="nf-canvas" width="560" height="220" role="img" aria-label="A horizontal bar split between AI and enterprise allocation and consumer allocation, plus a price gauge below it that rises as the AI share grows."></canvas>
+      </div>
+      <div class="nf-side">
+        <div class="nf-slider-row">
+          <label for="nf-share" id="nf-share-label">AI/enterprise reserved share: 67%</label>
+          <input type="range" id="nf-share" min="40" max="85" value="67" step="1" />
+          <div class="nf-slider-labels">
+            <span>Light demand</span>
+            <span>Heavy demand</span>
+          </div>
+        </div>
+        <p class="nf-note mono" id="nf-note">Ready to run. Drag the slider or press Run to animate from a 2023-like mix to today's.</p>
+        <div class="nf-controls">
+          <button type="button" class="nf-btn nf-primary" id="nf-run">Run</button>
+          <button type="button" class="nf-btn" id="nf-reset">Reset</button>
+        </div>
+        <div class="nf-legend">
+          <span><span class="nf-swatch" id="nf-sw-ai"></span>AI / enterprise share</span>
+          <span><span class="nf-swatch" id="nf-sw-consumer"></span>Consumer share</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="nf-stats">
+      <div class="nf-stat">
+        <div class="nf-stat-label mono">AI/ent. share</div>
+        <div class="nf-stat-value mono" id="nf-stat-ai">67%</div>
+      </div>
+      <div class="nf-stat">
+        <div class="nf-stat-label mono">Consumer share</div>
+        <div class="nf-stat-value mono" id="nf-stat-consumer">33%</div>
+      </div>
+      <div class="nf-stat">
+        <div class="nf-stat-label mono">Illustrative 1TB price</div>
+        <div class="nf-stat-value mono" id="nf-stat-price">$73</div>
+      </div>
+      <div class="nf-stat">
+        <div class="nf-stat-label mono">Vs. 2023 low</div>
+        <div class="nf-stat-value mono" id="nf-stat-delta">+52%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture a popcorn machine that makes a fixed amount of popcorn every hour, no matter how hungry the room gets. For years, that machine fed two groups fairly evenly: companies building laptops and USB drives, and companies building servers. Then AI showed up starving. AI data centers need the same flash-memory chips your SSD uses &mdash; not just for giant GPU clusters, but because AI servers are increasingly swapping old-fashioned spinning hard drives for SSDs to store and quickly serve the mountains of data these systems chew through. Those AI buyers sign contracts years ahead and pay whatever it takes to stand at the front of the line.</p>
+      <p>The amount of flash memory the world's factories can make barely changes from year to year. Building one of these factories, and getting its fantastically fiddly manufacturing process reliable &mdash; it stacks hundreds of microscopic memory cells on top of each other, one wafer-thin layer at a time &mdash; takes two to three years minimum, not months. So when AI buyers crowd the popcorn machine, there's less left for everyone else, cheap laptop SSD included.</p>
+      <p>That's exactly what a Kioxia executive admitted in January: the company's entire year of flash output was already sold, and the drought would likely run into 2027. Weeks later, SanDisk quietly hiked prices on some of its own store's SSDs by as much as 2.8 times. By spring, Samsung and Kingston had both raised prices again. The cheapest basic 1-terabyte SSD now costs around $73 &mdash; more than 50% above its cheapest point in 2023. There's no fire, no ban, no villain. Just a fixed pipe, and a much thirstier customer standing at the front of it.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>NAND flash stores data as trapped charge in floating-gate or charge-trap transistor cells; modern "3D NAND" stacks these cells vertically rather than shrinking them laterally. Commercial parts passed 176 layers years ago, and 2026 production clusters around the low-to-mid 200s to low 300s of layers depending on vendor, with Samsung and SK hynix both targeting roughly 400-layer generations this year. Each additional layer demands a correspondingly deeper, more precisely controlled high-aspect-ratio etch and fill step; yield and cycle time both get harder to hold as the stack gets taller, so bit output doesn't scale cleanly with added capex the way an extra logic-fab line can. A genuinely new NAND fab &mdash; not a process tweak &mdash; takes roughly two to three years from groundbreaking to volume shipments, which is why Phison CEO Khein-Seng Pua told reporters in November 2025 that new NAND lines wouldn't come fully online until 2027, and warned the shortage could persist for up to a decade.</p>
+      <p>Demand moved faster than supply can. AI infrastructure build-outs are shifting storage architecture away from spinning hard drives toward NAND-based SSDs for both training-data caching and inference-serving pipelines, and hyperscalers negotiate multi-year offtake agreements that let them jump the allocation queue ahead of spot-market consumer buyers. Pua cited spot TLC (triple-level-cell) 1-terabit NAND die prices rising from $4.80 in July 2025 to $10.70 by November &mdash; roughly a 123% increase in four months. That spot-price shock worked its way downstream: Kioxia's Shunsuke Nakato said in January that the company's full-year 2026 output was contractually committed; SanDisk raised its direct-store SSD prices by as much as 2.8x in February, with its WD Black SN8100 8TB rising from a $999.99 MSRP to $2,572.99 on SanDisk's own site; and Samsung and Kingston both pushed through further double-digit consumer SSD price increases by April. Several outlets now track the cheapest 1TB SATA SSDs at roughly $73, versus lows near $40&ndash;48 in 2023 &mdash; a persistent, structural squeeze rather than a one-quarter spike.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> AI's hunger for flash storage is now setting the price of your laptop's SSD &mdash; and the fix, a new fab, takes years, not quarters.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> NAND capacity is inelastic on any timescale shorter than a fab build, so AI offtake contracts are now the marginal buyer setting consumer SSD prices &mdash; a dynamic with no near-term exit, since the earliest meaningfully new capacity isn't expected before 2027.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://technews.tw/2026/01/22/kioxia-exec-says-the-ai-boom-means-the-era-of-the-cheap-1tb-ssd-is-over/" target="_blank" rel="noopener">TechNews &mdash; on Kioxia's Shunsuke Nakato saying 2026's NAND output was already sold and the cheap-1TB-SSD era is over</a></li>
+    <li><a href="https://www.club386.com/age-of-cheap-1tb-ssds-over-says-kioxia-exec/" target="_blank" rel="noopener">Club386 &mdash; on the cheapest 1TB SATA SSD climbing to roughly $73, over 50% above 2023 lows</a></li>
+    <li><a href="https://www.tomshardware.com/pc-components/ssds/sandisk-crushes-wallets-with-up-to-2-8x-ssd-price-hikes-as-nand-shortage-strangles-the-market-wd-black-sn8100-8tb-skyrockets-past-usd2-500-more-than-a-high-end-gaming-pc" target="_blank" rel="noopener">Tom's Hardware &mdash; on SanDisk raising its own store's SSD prices by up to 2.8x amid the NAND shortage</a></li>
+    <li><a href="https://in.whatpsu.com/articles/2150-Phison-CEO-Warns-That-NAND-Flash-Prices-Have-Doubled-in-the-Past-Six-Months" target="_blank" rel="noopener">whatPSU &mdash; on Phison CEO Khein-Seng Pua's comments on NAND spot-price doubling and new fab timelines</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+      if (window.__nfRedraw) window.__nfRedraw();
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var SHARE_MIN = 40, SHARE_MAX = 85;
+    var BASELINE_SHARE = 50; // consumer share at which price index = 100 (2023-like)
+    var BASELINE_PRICE = 48; // approx 2023-low dollar price for cheapest 1TB-class SSD
+    var ANIM_START = 50, ANIM_END = 67; // Run animates from a 2023-like mix to today's default
+
+    var canvas = document.getElementById('nf-canvas');
+    var ctx = canvas.getContext('2d');
+    var slider = document.getElementById('nf-share');
+    var sliderLabel = document.getElementById('nf-share-label');
+    var note = document.getElementById('nf-note');
+    var runBtn = document.getElementById('nf-run');
+    var resetBtn = document.getElementById('nf-reset');
+    var statAi = document.getElementById('nf-stat-ai');
+    var statConsumer = document.getElementById('nf-stat-consumer');
+    var statPrice = document.getElementById('nf-stat-price');
+    var statDelta = document.getElementById('nf-stat-delta');
+    var swAi = document.getElementById('nf-sw-ai');
+    var swConsumer = document.getElementById('nf-sw-consumer');
+
+    var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var running = false;
+    var timer = null;
+    var currentShare = Number(slider.value);
+
+    function cssVar(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+
+    function metrics(aiShare) {
+      var consumerShare = 100 - aiShare;
+      var priceIndex = 100 * BASELINE_SHARE / consumerShare;
+      var price = BASELINE_PRICE * priceIndex / 100;
+      var delta = (price / BASELINE_PRICE - 1) * 100;
+      return { aiShare: aiShare, consumerShare: consumerShare, price: price, delta: delta };
+    }
+
+    function updateSliderLabel(v) {
+      sliderLabel.textContent = 'AI/enterprise reserved share: ' + v + '%';
+    }
+
+    function updateStats(m) {
+      statAi.textContent = Math.round(m.aiShare) + '%';
+      statConsumer.textContent = Math.round(m.consumerShare) + '%';
+      statPrice.textContent = '$' + Math.round(m.price);
+      statDelta.textContent = (m.delta >= 0 ? '+' : '') + Math.round(m.delta) + '%';
+    }
+
+    function draw(aiShare) {
+      var w = canvas.width, h = canvas.height;
+      var m = metrics(aiShare);
+
+      var bg = cssVar('--bg') || '#eef1f5';
+      var border = cssVar('--border') || '#dde3ea';
+      var accentA = cssVar('--accent-a') || '#b5541c';
+      var accentB = cssVar('--accent-b') || '#1f6f78';
+      var muted = cssVar('--muted') || '#59636f';
+      var ink = cssVar('--ink') || '#131820';
+
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, w, h);
+
+      var padL = 16, padR = 16, padT = 26;
+      var barW = w - padL - padR;
+      var barH = 46;
+      var barY = padT;
+
+      // allocation bar
+      ctx.font = '10px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = muted;
+      ctx.textAlign = 'left';
+      ctx.fillText('THIS CYCLE\'S FIXED FLASH-MEMORY OUTPUT (100%)', padL, barY - 10);
+
+      var aiW = barW * (m.aiShare / 100);
+      var consumerW = barW - aiW;
+
+      roundRect(padL, barY, barW, barH, 8);
+      ctx.save();
+      ctx.clip();
+      ctx.fillStyle = accentA;
+      ctx.fillRect(padL, barY, aiW, barH);
+      ctx.fillStyle = accentB;
+      ctx.fillRect(padL + aiW, barY, consumerW, barH);
+      ctx.restore();
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 1.5;
+      roundRectPath(padL, barY, barW, barH, 8);
+      ctx.stroke();
+
+      ctx.font = '700 12px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = '#fff';
+      ctx.textAlign = 'left';
+      if (aiW > 70) ctx.fillText(Math.round(m.aiShare) + '% AI/ent.', padL + 10, barY + barH / 2 + 4);
+      ctx.textAlign = 'right';
+      if (consumerW > 70) ctx.fillText(Math.round(m.consumerShare) + '% consumer', padL + barW - 10, barY + barH / 2 + 4);
+
+      // price gauge
+      var gaugeY = barY + barH + 46;
+      var gaugeH = 14;
+      ctx.font = '10px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = muted;
+      ctx.textAlign = 'left';
+      ctx.fillText('ILLUSTRATIVE CHEAPEST 1TB SSD PRICE', padL, gaugeY - 10);
+
+      var minPrice = BASELINE_PRICE * (100 * BASELINE_SHARE / (100 - SHARE_MIN)) / 100;
+      var maxPrice = BASELINE_PRICE * (100 * BASELINE_SHARE / (100 - SHARE_MAX)) / 100;
+      var frac = (m.price - minPrice) / (maxPrice - minPrice);
+      frac = Math.max(0, Math.min(1, frac));
+
+      roundRect(padL, gaugeY, barW, gaugeH, 7);
+      ctx.fillStyle = border;
+      ctx.fill();
+      roundRect(padL, gaugeY, barW * frac, gaugeH, 7);
+      ctx.fillStyle = accentA;
+      ctx.fill();
+
+      ctx.font = '700 15px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = ink;
+      ctx.textAlign = 'left';
+      ctx.fillText('$' + Math.round(m.price), padL, gaugeY + gaugeH + 24);
+      ctx.font = '10.5px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = muted;
+      ctx.fillText('2023 low ~$' + BASELINE_PRICE + '  →  ' + (m.delta >= 0 ? '+' : '') + Math.round(m.delta) + '%', padL + 60, gaugeY + gaugeH + 24);
+
+      function roundRect(x, y, ww, hh, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + ww, y, x + ww, y + hh, r);
+        ctx.arcTo(x + ww, y + hh, x, y + hh, r);
+        ctx.arcTo(x, y + hh, x, y, r);
+        ctx.arcTo(x, y, x + ww, y, r);
+        ctx.closePath();
+      }
+      function roundRectPath(x, y, ww, hh, r) {
+        roundRect(x, y, ww, hh, r);
+      }
+    }
+
+    function finishAt(aiShare) {
+      currentShare = aiShare;
+      slider.value = String(aiShare);
+      updateSliderLabel(aiShare);
+      var m = metrics(aiShare);
+      updateStats(m);
+      draw(aiShare);
+      running = false;
+      runBtn.disabled = false;
+      slider.disabled = false;
+      runBtn.textContent = REDUCED ? 'Regenerate' : 'Run';
+      note.textContent = 'At ' + Math.round(m.aiShare) + '% reserved for AI/enterprise, only ' + Math.round(m.consumerShare) + '% of this fixed cycle is left for consumer SSDs — in this model, that prices the cheapest 1TB drive around $' + Math.round(m.price) + ', ' + (m.delta >= 0 ? '+' : '') + Math.round(m.delta) + '% versus the 2023 low.';
+    }
+
+    function runAnim() {
+      if (running) return;
+      running = true;
+      runBtn.disabled = true;
+      slider.disabled = true;
+
+      if (REDUCED) {
+        finishAt(ANIM_END);
+        note.textContent = 'Static end-state shown (motion is reduced on this device): today\'s roughly ' + ANIM_END + '% AI/enterprise reservation versus a 2023-like ' + ANIM_START + '% mix. Drag the slider to explore other mixes.';
+        return;
+      }
+
+      note.textContent = 'Running: tracking the mix from a 2023-like baseline up to today’s reported squeeze…';
+      var t0 = null;
+      var durationMs = 2200;
+      function frame(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min(1, (ts - t0) / durationMs);
+        var share = ANIM_START + (ANIM_END - ANIM_START) * p;
+        currentShare = share;
+        updateSliderLabel(Math.round(share));
+        slider.value = String(Math.round(share));
+        var m = metrics(share);
+        updateStats(m);
+        draw(share);
+        if (p < 1) {
+          timer = requestAnimationFrame(frame);
+        } else {
+          finishAt(ANIM_END);
+        }
+      }
+      timer = requestAnimationFrame(frame);
+    }
+
+    function resetSim() {
+      if (timer) cancelAnimationFrame(timer);
+      running = false;
+      runBtn.disabled = false;
+      slider.disabled = false;
+      runBtn.textContent = REDUCED ? 'Regenerate' : 'Run';
+      currentShare = ANIM_START;
+      slider.value = String(ANIM_START);
+      updateSliderLabel(ANIM_START);
+      var m = metrics(ANIM_START);
+      updateStats(m);
+      draw(ANIM_START);
+      note.textContent = 'Reset to a 2023-like mix. Drag the slider or press Run to animate forward to today.';
+    }
+
+    slider.addEventListener('input', function () {
+      var v = Number(slider.value);
+      currentShare = v;
+      updateSliderLabel(v);
+      var m = metrics(v);
+      updateStats(m);
+      draw(v);
+      note.textContent = 'At ' + v + '% reserved for AI/enterprise, ' + Math.round(m.consumerShare) + '% is left for consumer SSDs.';
+    });
+
+    runBtn.addEventListener('click', runAnim);
+    resetBtn.addEventListener('click', resetSim);
+
+    swAi.style.background = 'var(--accent-a)';
+    swConsumer.style.background = 'var(--accent-b)';
+
+    window.__nfRedraw = function () { draw(currentShare); };
+
+    updateSliderLabel(currentShare);
+    updateStats(metrics(currentShare));
+    if (REDUCED) {
+      runBtn.textContent = 'Regenerate';
+      note.textContent = 'Static view shown (motion is reduced on this device) at today’s default mix. Drag the slider or press Regenerate to recompute instantly.';
+    }
+    draw(currentShare);
+  })();
+</script>
+</body>
+</html>
