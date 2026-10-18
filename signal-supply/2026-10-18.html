@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-18","category":"SHIPBUILDING","headline":"China Builds 72% of the World's New Ships. The U.S. Tariff Meant to Answer That Comes Back in 22 Days","summary":"A U.S. tariff on Chinese-built and Chinese-owned ships, meant to revive a shipbuilding industry that now makes just 0.03% of world tonnage versus China's roughly 72-82%, was paused for a trade truce a year ago. That pause lapses Nov. 9 — an extension has been promised, but not yet made formal.","whyItMatters":"Nearly every chip, server and EV battery crosses an ocean on a ship this fee would tax — and nobody has made the extension official yet."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; The Port-Fee Truce's Countdown</title>
+<meta name="description" content="A U.S. tariff on Chinese-built and Chinese-owned ships was paused a year ago as part of a trade truce. That pause is scheduled to expire November 9 &mdash; and as of today, nobody has made its promised extension official." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #ab3a26;
+    --accent-a-tint: #f7e0d8;
+    --accent-b: #1f5f8b;
+    --accent-b-tint: #dceaf3;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e8785f;
+      --accent-a-tint: #3a2018;
+      --accent-b: #5aa8d6;
+      --accent-b-tint: #122733;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e8785f;
+    --accent-a-tint: #3a2018;
+    --accent-b: #5aa8d6;
+    --accent-b-tint: #122733;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #ab3a26;
+    --accent-a-tint: #f7e0d8;
+    --accent-b: #1f5f8b;
+    --accent-b-tint: #dceaf3;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: port-fee truce timeline scrubber --- */
+  .tf-header { margin-bottom: 4px; }
+  .tf-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .tf-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+  .tf-layout { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+  .tf-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+    flex: 1 1 320px;
+    min-width: 280px;
+  }
+  #tf-canvas { display: block; width: 100%; height: 190px; }
+  .tf-side { flex: 1 1 240px; min-width: 240px; }
+  .tf-slider-row { margin-bottom: 4px; }
+  .tf-slider-row label {
+    display: block;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .tf-slider-row input[type="range"] { width: 100%; accent-color: var(--accent-a); }
+  .tf-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10.5px;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    margin-top: 2px;
+  }
+  .tf-status-pill {
+    display: inline-block;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin: 10px 0 0;
+  }
+  .tf-note {
+    margin: 10px 0 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+    font-size: 12.5px;
+    line-height: 1.55;
+    min-height: 56px;
+  }
+  .tf-controls { margin-top: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .tf-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .tf-btn.tf-primary { background: var(--accent-a); border-color: var(--accent-a); color: #fff; }
+  .tf-btn:disabled { opacity: 0.5; cursor: default; }
+  .tf-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .tf-stats { grid-template-columns: repeat(2, 1fr); }
+    .tf-layout { gap: 14px; }
+  }
+  .tf-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--bg); }
+  .tf-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .tf-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 18, 2026</span>
+    <span class="category-chip">SHIPBUILDING</span>
+  </div>
+  <h1>China Builds 72% of the World's New Ships. The U.S. Tariff Meant to Answer That Comes Back in 22 Days.</h1>
+  <p class="lede">A U.S. tariff on Chinese-built and Chinese-owned ships was supposed to be running by now, stepping up every April through 2028. Instead, Washington and Beijing paused it a year ago as part of a trade truce &mdash; and that pause is scheduled to end at 11:59 p.m. Eastern on November 9. Nobody has made the promised extension official yet.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Under a Section 301 "shipbuilding" action, the U.S. set per-net-ton port fees on Chinese-owned/operated vessels ($50, stepping to $80 on April 17, 2026, then $110 in 2027, $140 in 2028) and on Chinese-built vessels under other flags ($18 stepping to $23, $28, $33). Days before the October 14, 2025 start date, Trump and Xi met in Busan and both sides suspended their fees for one year, effective November 10, 2025. On September 23, 2026, Treasury Secretary Scott Bessent said that truce would extend to January 10, 2027 &mdash; but as of the most recent reporting, the U.S. Trade Representative had not yet published the Federal Register notice that would make it legally binding. Absent that notice, the suspension lapses at 11:59 p.m. ET on November 9.
+  </div>
+
+  <div class="card tf-card">
+    <div class="tf-header">
+      <h2 class="tf-title">The truce clock: scrub through the fee's timeline</h2>
+      <p class="tf-caption mono">Drag the slider (or press Play) to move through seven real dates in this policy's life, from the fee's original start date to the proposed new truce deadline. Each stop shows the fee's status, the per-net-ton rate the written schedule specifies for that date, and what that rate would cost one hypothetical 50,000-net-ton containership on a single U.S. port call. Stage spacing on the timeline is schematic, not drawn to true elapsed time. Whether a lapsed pause resumes billing at the fee's original 2025 rate or at whatever rate the calendar schedule has since reached by that date is not settled in public reporting &mdash; the number shown is simply what the written schedule lists for each date.</p>
+    </div>
+
+    <div class="tf-layout">
+      <div class="tf-scene-wrap">
+        <canvas id="tf-canvas" width="560" height="190" role="img" aria-label="A horizontal timeline from October 2025 to January 2027 with a truce band showing fees paused, a marker for today, and a cliff marker at November 9, 2026."></canvas>
+      </div>
+      <div class="tf-side">
+        <div class="tf-slider-row">
+          <label for="tf-stage" id="tf-stage-label">Stage 5 of 7 &mdash; Oct 18, 2026 (today)</label>
+          <input type="range" id="tf-stage" min="0" max="6" value="4" step="1" />
+          <div class="tf-slider-labels">
+            <span>Oct 2025</span>
+            <span>Jan 2027</span>
+          </div>
+        </div>
+        <span class="tf-status-pill mono" id="tf-status">PAUSED</span>
+        <p class="tf-note mono" id="tf-note">Loading timeline&hellip;</p>
+        <div class="tf-controls">
+          <button type="button" class="tf-btn tf-primary" id="tf-play">Play</button>
+          <button type="button" class="tf-btn" id="tf-reset">Reset to today</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tf-stats">
+      <div class="tf-stat">
+        <div class="tf-stat-label mono">Date</div>
+        <div class="tf-stat-value mono" id="tf-stat-date">Oct 18, 2026</div>
+      </div>
+      <div class="tf-stat">
+        <div class="tf-stat-label mono">Scheduled rate</div>
+        <div class="tf-stat-value mono" id="tf-stat-rate">$80 / net ton</div>
+      </div>
+      <div class="tf-stat">
+        <div class="tf-stat-label mono">50k-NT ship, if billed</div>
+        <div class="tf-stat-value mono" id="tf-stat-cost">$4,000,000</div>
+      </div>
+      <div class="tf-stat">
+        <div class="tf-stat-label mono">Days to cliff</div>
+        <div class="tf-stat-value mono" id="tf-stat-days">22</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Look at almost any big ship in the water right now &mdash; the container ships, the oil tankers, the car carriers &mdash; and there's a good chance a Chinese shipyard built it. By some counts, Chinese yards took roughly 7 to 8 out of every 10 new ship orders placed worldwide this year. The United States, which built a huge share of the world's ships during World War II, now builds a rounding error: about three one-hundredths of one percent of the world's new ship tonnage in each of the last two years, ranking 19th globally, with American-built ships costing four to six times more than ones built abroad.</p>
+      <p>Washington treats this as more than an industrial embarrassment. A navy that has to fight a long war needs a healthy civilian shipbuilding and repair industry behind it &mdash; extra yards, extra workers, extra capacity to call on. The U.S. barely has that anymore. So in 2025, trade officials rolled out a tariff-like fee: any ship that's built in China, or owned or operated by a Chinese company, would pay a charge &mdash; by the ton &mdash; every time it called at a U.S. port, with the fee getting bigger each year through 2028. For an average container ship, that can mean millions of dollars added to a single voyage.</p>
+      <p>Then, right before it was due to start, the U.S. and China struck a one-year truce and froze the whole thing &mdash; the U.S. fee and China's matching retaliation fee on American ships, both. Why? Because nearly everything the world ships, including the machinery that builds AI data centers and chip factories, moves on vessels with some Chinese fingerprint on them. That truce is set to run out on November 9. A top U.S. official said in September that it would be pushed back two more months. Nobody has made that official yet.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The fee originates in USTR's Section 301 investigation into China's targeting of the maritime, logistics, and shipbuilding sectors, which produced two fee annexes assessed per net ton on arrival at a U.S. port, capped at five chargeable port calls per vessel per year. Annex I covers vessels owned or operated by a Chinese entity: $50/net ton effective October 14, 2025, stepping to $80 on April 17, 2026, $110 on April 17, 2027, and $140 on April 17, 2028. Annex II covers vessels built in China but owned/operated by non-Chinese carriers: the operator pays the greater of a per-net-ton fee ($18 &rarr; $23 &rarr; $28 &rarr; $33 on the same step dates) or a per-container charge, with carve-outs for empty/ballast calls, small and short-sea vessels, certain U.S.-flagged ships, and some long-term-chartered LNG/LPG carriers ordered before April 2025.</p>
+      <p>The policy targets a measured asymmetry. By UNCTAD-sourced tallies, the U.S. delivered roughly 0.03&ndash;0.04% of world gross tonnage in 2024 and 2025 combined, ranking 19th globally and averaging about 0.24% over the past decade on a declining trend; domestically built merchant ships are estimated to cost four to six times as much as foreign-built equivalents. China, meanwhile, took roughly 70&ndash;85% of 2026's new ship orders depending on the metric: Clarksons puts China at 72% of H1 2026 orders by compensated gross tonnage (versus South Korea's 19%), while China's own Ministry of Industry and Information Technology reports an 82.3% share of H1 new orders by deadweight tonnage. The spread between those two numbers reflects what each metric weights &mdash; DWT counts raw cargo capacity, while CGT adjusts for a ship type's build complexity &mdash; not a factual disagreement.</p>
+      <p>Days before the fee's scheduled start, Presidents Trump and Xi met in Busan and agreed to a broader trade truce: effective November 10, 2025, the U.S. suspended its Section 301 port fees for one year, China reciprocally suspended its own retaliatory port fees on U.S.-linked vessels, and both sides paused separately threatened 100% tariffs on ship-to-shore cranes and container chassis. On September 23, 2026, Treasury Secretary Scott Bessent said the two governments had agreed to extend that truce to January 10, 2027. As of the most recent reporting available, USTR had not yet published a Federal Register notice formalizing an extension specific to the port-fee suspension, which under the existing notice lapses at 11:59 p.m. ET on November 9, 2026 &mdash; after which the next qualifying port call would again owe a fee, at whichever rate the written schedule specifies for that date.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Nearly every chip, server and EV battery crosses an ocean on a ship this fee would tax &mdash; and nobody has made the extension official yet.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Semiconductor capital equipment, memory modules, finished servers and EV battery cells move almost entirely by containership on vessels overwhelmingly built or operated out of China, so a lapsed suspension would land as an unplanned, multimillion-dollar-per-call cost layered on top of existing chip and goods tariffs &mdash; with carriers and shippers currently unable to confirm which rate, if any, would even apply.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.seatrade-maritime.com/shipyards/china-leads-the-global-shipbuilding-market-in-q1" target="_blank" rel="noopener">Seatrade Maritime &mdash; on China's roughly 72&ndash;85% share of 2026 global shipbuilding orders across different tonnage metrics</a></li>
+    <li><a href="https://www.cato.org/blog/new-data-lays-bare-jones-acts-broken-shipbuilding-bargain" target="_blank" rel="noopener">Cato Institute &mdash; on U.S. commercial shipbuilding output (about 0.03&ndash;0.04% of world gross tonnage, 19th globally) and build-cost gap, citing UNCTAD data</a></li>
+    <li><a href="https://gcaptain.com/u-s-and-china-suspend-port-fees-central-to-trumps-shipbuilding-strategy/" target="_blank" rel="noopener">gCaptain &mdash; on the Busan truce suspending U.S. and Chinese port fees for one year starting November 10, 2025</a></li>
+    <li><a href="https://north-standard.com/insights-and-resources/resources/articles/us-china-busan-agreement-port-fee-truce-extended-to-10-january-2027" target="_blank" rel="noopener">North Standard &mdash; on Treasury Secretary Scott Bessent's announced extension of the truce to January 10, 2027</a></li>
+    <li><a href="https://hfw.com/insights/ustr-port-fees-updates-clarifications-proposed-modifications/" target="_blank" rel="noopener">HFW &mdash; on the Section 301 Annex I/Annex II per-net-ton fee schedule, step dates and exemptions</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+      if (window.__tfRedraw) window.__tfRedraw();
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var SHIP_NET_TONS = 50000;
+
+    var STAGES = [
+      {
+        date: 'Oct 14, 2025', short: 'Oct 2025',
+        title: 'Fees take effect as written',
+        status: 'ACTIVE (as written)', statusKind: 'active',
+        rateOwned: 50, rateBuilt: 18,
+        note: 'The original notice’s start date. Annex I (Chinese-owned/operated) and Annex II (Chinese-built) fees both begin, exactly as published — for now, briefly, un-paused.'
+      },
+      {
+        date: 'Nov 10, 2025', short: 'Nov 2025',
+        title: 'Busan truce pauses both sides’ fees',
+        status: 'PAUSED', statusKind: 'paused',
+        rateOwned: 50, rateBuilt: 18,
+        note: 'Days after taking effect, a Trump–Xi summit truce suspends the U.S. fee for one year. China reciprocally suspends its matching retaliatory fee on U.S.-linked ships.'
+      },
+      {
+        date: 'Apr 17, 2026', short: 'Apr 2026',
+        title: 'Schedule calls for a step-up to $80 / $23',
+        status: 'PAUSED', statusKind: 'paused',
+        rateOwned: 80, rateBuilt: 23,
+        note: 'The written schedule’s first escalation date arrives — but with the truce in force, nothing is actually billed. The step-up exists only on paper.'
+      },
+      {
+        date: 'Sep 23, 2026', short: 'Sep 2026',
+        title: 'Bessent announces a two-month extension',
+        status: 'PAUSED', statusKind: 'paused',
+        rateOwned: 80, rateBuilt: 23,
+        note: 'Treasury Secretary Scott Bessent says the U.S. and China agreed to push the truce deadline from Nov. 9 to Jan. 10, 2027 — a verbal commitment, not yet a published rule.'
+      },
+      {
+        date: 'Oct 18, 2026', short: 'Oct 2026',
+        title: 'Today: still no formal extension on the books',
+        status: 'PAUSED', statusKind: 'paused',
+        rateOwned: 80, rateBuilt: 23,
+        note: 'As of today, USTR has not published the Federal Register notice that would make Bessent’s announced extension legally binding. The clock on the existing suspension keeps running.'
+      },
+      {
+        date: 'Nov 9, 2026, 11:59pm ET', short: 'Nov 9',
+        title: 'The suspension’s legal deadline',
+        status: 'CLIFF', statusKind: 'cliff',
+        rateOwned: 80, rateBuilt: 23,
+        note: 'Unless USTR formally acts before this moment, the one-year pause simply expires — and the next qualifying U.S. port call owes a fee again.'
+      },
+      {
+        date: 'Jan 10, 2027 (proposed)', short: 'Jan 2027',
+        title: 'New truce end date, if formalized',
+        status: 'PROPOSED', statusKind: 'proposed',
+        rateOwned: 80, rateBuilt: 23,
+        note: 'If USTR formalizes the extension Bessent described, the pause would instead run through this date — pushing the real cliff back by two months.'
+      }
+    ];
+
+    var TODAY_INDEX = 4;
+    var CLIFF_INDEX = 5;
+    var CLIFF_MS = new Date('2026-11-09T23:59:00-05:00').getTime();
+    var TODAY_MS = new Date('2026-10-18T00:00:00-04:00').getTime();
+    var DAYS_TO_CLIFF = Math.max(0, Math.round((CLIFF_MS - TODAY_MS) / 86400000));
+
+    var canvas = document.getElementById('tf-canvas');
+    var ctx = canvas.getContext('2d');
+    var slider = document.getElementById('tf-stage');
+    var stageLabel = document.getElementById('tf-stage-label');
+    var statusPill = document.getElementById('tf-status');
+    var note = document.getElementById('tf-note');
+    var playBtn = document.getElementById('tf-play');
+    var resetBtn = document.getElementById('tf-reset');
+    var statDate = document.getElementById('tf-stat-date');
+    var statRate = document.getElementById('tf-stat-rate');
+    var statCost = document.getElementById('tf-stat-cost');
+    var statDays = document.getElementById('tf-stat-days');
+
+    var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var running = false;
+    var timer = null;
+    var currentStage = TODAY_INDEX;
+
+    function cssVar(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+
+    function fmtMoney(n) {
+      return '$' + n.toLocaleString('en-US');
+    }
+
+    function statusColors(kind) {
+      var accentA = cssVar('--accent-a') || '#ab3a26';
+      var accentB = cssVar('--accent-b') || '#1f5f8b';
+      var muted = cssVar('--muted') || '#59636f';
+      if (kind === 'active') return { bg: accentA, fg: '#fff' };
+      if (kind === 'cliff') return { bg: accentA, fg: '#fff' };
+      if (kind === 'proposed') return { bg: accentB, fg: '#fff' };
+      return { bg: muted, fg: '#fff' };
+    }
+
+    function updateInfo(i) {
+      var s = STAGES[i];
+      stageLabel.textContent = 'Stage ' + (i + 1) + ' of 7 — ' + s.date;
+      statusPill.textContent = s.status;
+      var colors = statusColors(s.statusKind);
+      statusPill.style.background = colors.bg;
+      statusPill.style.color = colors.fg;
+      note.textContent = s.note;
+      statDate.textContent = s.date;
+      statRate.textContent = '$' + s.rateOwned + ' / net ton';
+      var billed = (s.statusKind === 'active' || s.statusKind === 'cliff');
+      statCost.textContent = (billed ? '' : '(if billed) ') + fmtMoney(s.rateOwned * SHIP_NET_TONS);
+      statDays.textContent = (i <= TODAY_INDEX) ? String(DAYS_TO_CLIFF) : (i === CLIFF_INDEX ? '0' : '—');
+    }
+
+    function draw(i) {
+      var w = canvas.width, h = canvas.height;
+      var s = STAGES[i];
+
+      var bg = cssVar('--bg') || '#eef1f5';
+      var border = cssVar('--border') || '#dde3ea';
+      var accentA = cssVar('--accent-a') || '#ab3a26';
+      var accentB = cssVar('--accent-b') || '#1f5f8b';
+      var accentBTint = cssVar('--accent-b-tint') || '#dceaf3';
+      var muted = cssVar('--muted') || '#59636f';
+      var ink = cssVar('--ink') || '#131820';
+
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, w, h);
+
+      var padL = 20, padR = 20;
+      var lineY = 92;
+      var barW = w - padL - padR;
+      var n = STAGES.length;
+
+      function xAt(idx) { return padL + (barW * idx) / (n - 1); }
+
+      // truce band: index 1 (pause starts) to index 5 (cliff)
+      var bandX0 = xAt(1), bandX1 = xAt(CLIFF_INDEX);
+      ctx.fillStyle = accentBTint;
+      ctx.fillRect(bandX0, lineY - 14, bandX1 - bandX0, 28);
+      ctx.font = '9px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = accentB;
+      ctx.textAlign = 'center';
+      ctx.fillText('TRUCE — FEES PAUSED', (bandX0 + bandX1) / 2, lineY - 20);
+
+      // proposed-extension band: dashed, index 5 to 6
+      var extX0 = xAt(CLIFF_INDEX), extX1 = xAt(n - 1);
+      ctx.save();
+      ctx.setLineDash([4, 4]);
+      ctx.strokeStyle = accentB;
+      ctx.lineWidth = 1;
+      ctx.strokeRect(extX0, lineY - 14, extX1 - extX0, 28);
+      ctx.restore();
+      ctx.fillStyle = muted;
+      ctx.fillText('PROPOSED EXT.', (extX0 + extX1) / 2, lineY + 30);
+
+      // base line
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(padL, lineY);
+      ctx.lineTo(w - padR, lineY);
+      ctx.stroke();
+
+      // stage dots
+      for (var k = 0; k < n; k++) {
+        var x = xAt(k);
+        var colors = statusColors(STAGES[k].statusKind);
+        ctx.beginPath();
+        ctx.arc(x, lineY, k === i ? 8 : 5, 0, Math.PI * 2);
+        ctx.fillStyle = (k === i) ? colors.bg : border;
+        ctx.fill();
+        if (k === i) {
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = ink;
+          ctx.stroke();
+        }
+      }
+
+      // fixed flags: TODAY and CLIFF
+      ctx.font = '9px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = muted;
+      ctx.textAlign = 'center';
+      ctx.fillText('TODAY', xAt(TODAY_INDEX), lineY + 46);
+      ctx.fillStyle = accentA;
+      ctx.fillText('CLIFF: NOV 9', xAt(CLIFF_INDEX), lineY + 58);
+
+      // date labels for endpoints + current
+      ctx.font = '10px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = muted;
+      ctx.textAlign = 'left';
+      ctx.fillText(STAGES[0].short, xAt(0), 24);
+      ctx.textAlign = 'right';
+      ctx.fillText(STAGES[n - 1].short, xAt(n - 1), 24);
+      ctx.textAlign = 'center';
+      ctx.font = '700 11px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = ink;
+      ctx.fillText(s.short, xAt(i), 24);
+    }
+
+    function goTo(i) {
+      i = Math.max(0, Math.min(STAGES.length - 1, i));
+      currentStage = i;
+      slider.value = String(i);
+      updateInfo(i);
+      draw(i);
+    }
+
+    function stopPlay() {
+      running = false;
+      if (timer) clearTimeout(timer);
+      playBtn.disabled = false;
+      slider.disabled = false;
+      playBtn.textContent = REDUCED ? 'Replay stages' : 'Play';
+    }
+
+    function play() {
+      if (running) return;
+      running = true;
+      playBtn.disabled = true;
+      slider.disabled = true;
+      playBtn.textContent = 'Playing…';
+
+      if (REDUCED) {
+        goTo(TODAY_INDEX);
+        note.textContent = 'Static end-state shown (motion is reduced on this device): today’s status is PAUSED, 22 days from the Nov. 9 cliff. Drag the slider to explore other stages.';
+        stopPlay();
+        return;
+      }
+
+      var i = 0;
+      goTo(i);
+      function step() {
+        i++;
+        if (i >= STAGES.length) {
+          stopPlay();
+          return;
+        }
+        goTo(i);
+        timer = setTimeout(step, 1100);
+      }
+      timer = setTimeout(step, 1100);
+    }
+
+    slider.addEventListener('input', function () {
+      goTo(Number(slider.value));
+    });
+    playBtn.addEventListener('click', play);
+    resetBtn.addEventListener('click', function () {
+      stopPlay();
+      goTo(TODAY_INDEX);
+    });
+
+    window.__tfRedraw = function () { draw(currentStage); };
+
+    if (REDUCED) {
+      playBtn.textContent = 'Replay stages';
+    }
+    goTo(TODAY_INDEX);
+  })();
+</script>
+</body>
+</html>
