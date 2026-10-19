@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-19","category":"COBALT REFINING","headline":"China Refines 79% of the World's Cobalt. The Country That Mines 73% of It Just Banned Shipping the Raw Rock Out","summary":"The DRC mines about 73% of the world's cobalt but refines almost none of it — China refines roughly 79%. In August, Congo banned exporting unrefined cobalt and copper concentrate outright, betting it can force the valuable refining step to happen at home instead.","whyItMatters":"Every EV and most phone or laptop batteries run on cobalt that Congo digs up and China refines — and Congo just moved to keep more of that refining step for itself."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Congo's Concentrate Ban</title>
+<meta name="description" content="The DRC mines about 73% of the world's cobalt but refines almost none of it. This August it banned exporting the unrefined ore outright &mdash; a direct challenge to the Chinese refineries that process roughly 79% of the world's supply." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a8532a;
+    --accent-a-tint: #f6e0d4;
+    --accent-b: #1f4e9c;
+    --accent-b-tint: #dbe4f5;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e0875a;
+      --accent-a-tint: #3a2419;
+      --accent-b: #5b8fe0;
+      --accent-b-tint: #16233d;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e0875a;
+    --accent-a-tint: #3a2419;
+    --accent-b: #5b8fe0;
+    --accent-b-tint: #16233d;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a8532a;
+    --accent-a-tint: #f6e0d4;
+    --accent-b: #1f4e9c;
+    --accent-b-tint: #dbe4f5;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: cobalt-flow chokepoint simulator --- */
+  .cf-header { margin-bottom: 4px; }
+  .cf-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .cf-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+  .cf-layout { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+  .cf-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+    flex: 1 1 320px;
+    min-width: 280px;
+  }
+  #cf-canvas { display: block; width: 100%; height: 210px; }
+  .cf-side { flex: 1 1 240px; min-width: 240px; }
+  .cf-toggle-row { margin-bottom: 14px; }
+  .cf-toggle-row label {
+    display: block;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .cf-waiver-btn {
+    width: 100%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .cf-waiver-btn .cf-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .cf-note {
+    margin: 10px 0 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+    font-size: 12.5px;
+    line-height: 1.55;
+    min-height: 56px;
+  }
+  .cf-controls { margin-top: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .cf-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .cf-btn.cf-primary { background: var(--accent-a); border-color: var(--accent-a); color: #fff; }
+  .cf-btn:disabled { opacity: 0.5; cursor: default; }
+  .cf-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .cf-stats { grid-template-columns: repeat(2, 1fr); }
+    .cf-layout { gap: 14px; }
+  }
+  .cf-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--bg); }
+  .cf-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .cf-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 19, 2026</span>
+    <span class="category-chip">COBALT REFINING</span>
+  </div>
+  <h1>China Refines 79% of the World's Cobalt. The Country That Mines 73% of It Just Banned Shipping the Raw Rock Out.</h1>
+  <p class="lede">Nearly three-quarters of the world's mined cobalt comes out of the ground in one country, and almost none of it leaves that country refined. This August, the Democratic Republic of Congo moved to close that gap by law &mdash; banning the export of raw copper and cobalt concentrate outright, unless a miner can secure a one-year waiver. Whether that actually relocates where the world's EV and phone batteries get their cobalt refined depends on a capacity problem Congo hasn't solved yet.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    The DRC mined roughly 73% of the world's cobalt in 2025 (Cobalt Institute); China refined about 79% of it into battery-grade chemicals the same year. A four-month DRC export ban in 2025 was replaced by annual quotas &mdash; a 96,600-tonne base allocation for 2026, with the regime running through 2027. On June 29, 2026, DRC's mines, foreign-trade and economy ministers went further, signing an order that bans exporting unrefined copper and cobalt concentrate outright, effective August 6, with one-year "strategic" waivers available at the mines minister's discretion. Cobalt metal, trading below $10/lb before the 2025 ban, has traded near $25&ndash;26/lb through most of 2026.
+  </div>
+
+  <div class="card cf-card">
+    <div class="cf-header">
+      <h2 class="cf-title">Drive the chokepoint: what happens when the border closes to raw ore</h2>
+      <p class="cf-caption mono">A simplified model, not real reported tonnages: each month, Congo's mines produce a fixed batch of ore. Toggle whether the mines ministry grants a waiver letting unrefined concentrate leave anyway, then press Run. Grant waivers and ore keeps flowing straight out, same as always. Deny them and ore can only leave as fast as Congo's own, much smaller refining capacity allows &mdash; everything else queues at the border. Mine output and refining capacity below are illustrative placeholders sized to show the gap reporting describes, not measured rates.</p>
+    </div>
+
+    <div class="cf-layout">
+      <div class="cf-scene-wrap">
+        <canvas id="cf-canvas" width="560" height="210" role="img" aria-label="A flow diagram from a Congo cobalt mine through a border gate to either a China-refinery export path or a capacity-limited local refinery with a growing backlog."></canvas>
+      </div>
+      <div class="cf-side">
+        <div class="cf-toggle-row">
+          <label for="cf-waiver" id="cf-waiver-label">Border policy</label>
+          <button type="button" class="cf-waiver-btn" id="cf-waiver">
+            <span class="cf-dot" id="cf-waiver-dot"></span><span id="cf-waiver-text">Waivers: GRANTED &mdash; raw concentrate may export</span>
+          </button>
+        </div>
+        <p class="cf-note mono" id="cf-note">Loading simulation&hellip;</p>
+        <div class="cf-controls">
+          <button type="button" class="cf-btn cf-primary" id="cf-run">Run</button>
+          <button type="button" class="cf-btn" id="cf-reset">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cf-stats">
+      <div class="cf-stat">
+        <div class="cf-stat-label mono">Months run</div>
+        <div class="cf-stat-value mono" id="cf-stat-months">0</div>
+      </div>
+      <div class="cf-stat">
+        <div class="cf-stat-label mono">Exported raw (kt)</div>
+        <div class="cf-stat-value mono" id="cf-stat-exported">0</div>
+      </div>
+      <div class="cf-stat">
+        <div class="cf-stat-label mono">Refined in-country (kt)</div>
+        <div class="cf-stat-value mono" id="cf-stat-refined">0</div>
+      </div>
+      <div class="cf-stat">
+        <div class="cf-stat-label mono">Backlog waiting (kt)</div>
+        <div class="cf-stat-value mono" id="cf-stat-backlog">0</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Every lithium-ion battery that needs extra range or extra life &mdash; most EVs, a lot of laptops and phones &mdash; uses cobalt to keep the chemistry stable. Almost three-quarters of the world's cobalt comes out of the ground in one country: the Democratic Republic of Congo. But Congo barely refines any of it. For decades, miners there have dug up cobalt ore, done just enough processing to concentrate it into a transportable material, and shipped that raw product out &mdash; overwhelmingly to China, which turns roughly four out of every five tonnes of the world's mined cobalt into the battery-grade chemicals that actually go into a cell. Congo gets paid for digging. China gets paid for the harder, more valuable step of refining it.</p>
+      <p>Congo's government has been trying to change that math for years, with mixed results. In 2025 it banned cobalt exports outright for several months to stop a price crash, then replaced the ban with a quota system that still lets ore leave, just capped. This past August it took a sharper step: it banned exporting copper and cobalt concentrate &mdash; the raw, barely processed material &mdash; at all, unless a miner gets a special one-year waiver. The stated goal is to force companies to build, or use, refining capacity inside Congo first, so the country captures more of the profit instead of shipping its ore to someone else's smelters.</p>
+      <p>The catch: Congo doesn't yet have enough refining capacity to process what its mines dig up. So right now the rule works less like a wall and more like a toll booth handing out a lot of exceptions &mdash; a tension the simulation above lets you drive yourself.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The structural chokepoint: the Cobalt Institute's 2025 market report puts the DRC's share of global mined cobalt at 73% (down from 77% in 2024 as new supply ramps up in Indonesia and elsewhere), while China's share of global refined cobalt output was 79% the same year. The gap between those two figures is the trade this story is about &mdash; concentrate and cobalt hydroxide/sulphide intermediates (MHP/MCP) move from Congolese mines to Chinese smelters and refineries, which convert them into cobalt sulfate and cobalt metal for battery cathode-precursor makers.</p>
+      <p>Congo's regulator, ARECOMS, closed a four-month export ban in mid-2025 (triggered by metal prices that had fallen below roughly $10/lb) by replacing it with annual export quotas: a 2026 base allocation of 96,600 tonnes of contained cobalt (87,000t distributed pro rata to individual producers, 9,600t held in a discretionary strategic reserve), with the regime nominally running through the end of 2027 and unused allocations subject to forfeiture and reallocation. Analyst estimates cited by Fastmarkets put 2026 global cobalt supply at roughly 214,000&ndash;216,000 tonnes against demand of 221,000&ndash;231,000 tonnes &mdash; a structural deficit even with quotas in place, part of why cobalt metal, below $10/lb before the 2025 ban, was trading near $25&ndash;26/lb through most of 2026.</p>
+      <p>On June 29, 2026, DRC's mines, foreign-trade and economy ministers signed a further order &mdash; effective August 6 &mdash; prohibiting the export of copper and cobalt concentrates specifically, repealing a 2023 framework that had granted standing exemptions, and replacing it with a system under which the mines minister may grant one-year "strategic" waivers case by case. Exposure is uneven: Glencore and Ivanhoe Mines' Kamoa-Kakula complex, which export concentrate, face more direct pressure than CMOC, the world's single largest cobalt producer, whose Tenke Fungurume and Kisanfu operations already output cobalt hydroxide rather than raw concentrate. ARECOMS's chairman said in early October that quota volumes aren't being changed for now, given recent price softening &mdash; leaving the concentrate ban, not the quota, as the active lever on where the next refining capacity gets built.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Every EV and most phone or laptop batteries run on cobalt that Congo digs up and China refines &mdash; and Congo just moved to keep more of that refining step for itself.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Battery-grade cobalt chemistry remains bottlenecked at refining, not mining &mdash; and Congo's concentrate ban is the first serious attempt to relocate that step away from China's smelters, with uneven effects across Glencore, Ivanhoe and CMOC.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.kitco.com/news/off-the-wire/2026-08-06/congo-bans-copper-and-cobalt-concentrates-exports-official-order-says" target="_blank" rel="noopener">Kitco (Reuters wire) &mdash; on the June 29, 2026 ministerial order banning copper and cobalt concentrate exports, effective August 6, with one-year waivers</a></li>
+    <li><a href="https://www.engineeringnews.co.za/article/congo-bans-exports-of-copper-cobalt-concentrates-official-order-says-2026-08-06" target="_blank" rel="noopener">Engineering News &mdash; corroborating detail on the concentrate export ban and its repeal of the 2023 exemption framework</a></li>
+    <li><a href="https://www.cobaltinstitute.org/cobalt-market-report-2025/" target="_blank" rel="noopener">Cobalt Institute, Cobalt Market Report 2025 &mdash; on the DRC's roughly 73% share of global mined cobalt and China's roughly 79% share of global refined output</a></li>
+    <li><a href="https://www.fastmarkets.com/insights/drc-may-reduce-cobalt-quota-if-market-needs-rebalancing-arecoms-says-exclusive/" target="_blank" rel="noopener">Fastmarkets &mdash; on ARECOMS's 2026 export quota allocation, forecast supply/demand deficit, and the regulator's October stance on quota volumes</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+      if (window.__cfRedraw) window.__cfRedraw();
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var MINE_RATE = 12;        // kt/month mined (illustrative)
+    var LOCAL_CAPACITY = 4;    // kt/month local refinery can process (illustrative)
+
+    var canvas = document.getElementById('cf-canvas');
+    var ctx = canvas.getContext('2d');
+    var waiverBtn = document.getElementById('cf-waiver');
+    var waiverDot = document.getElementById('cf-waiver-dot');
+    var waiverText = document.getElementById('cf-waiver-text');
+    var note = document.getElementById('cf-note');
+    var runBtn = document.getElementById('cf-run');
+    var resetBtn = document.getElementById('cf-reset');
+    var statMonths = document.getElementById('cf-stat-months');
+    var statExported = document.getElementById('cf-stat-exported');
+    var statRefined = document.getElementById('cf-stat-refined');
+    var statBacklog = document.getElementById('cf-stat-backlog');
+
+    var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var state = {
+      waiversGranted: true,
+      months: 0,
+      exported: 0,
+      refined: 0,
+      backlog: 0
+    };
+    var running = false;
+    var timer = null;
+
+    function cssVar(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+
+    function updateWaiverUI() {
+      waiverDot.style.background = state.waiversGranted ? cssVar('--accent-b') : cssVar('--accent-a');
+      waiverText.textContent = state.waiversGranted
+        ? 'Waivers: GRANTED — raw concentrate may export'
+        : 'Waivers: DENIED — must refine before export';
+    }
+
+    function updateStats() {
+      statMonths.textContent = String(state.months);
+      statExported.textContent = state.exported.toFixed(0);
+      statRefined.textContent = state.refined.toFixed(0);
+      statBacklog.textContent = state.backlog.toFixed(0);
+    }
+
+    function updateNote() {
+      if (state.months === 0) {
+        note.textContent = 'Press Run to start the monthly clock. Flip the waiver toggle at any point — the mines minister has that discretion in real life too.';
+        return;
+      }
+      if (state.waiversGranted) {
+        note.textContent = state.backlog > 0
+          ? 'Waivers just reopened the export route: the backlog clears immediately, shipped out unrefined alongside this month’s new ore.'
+          : 'Ore leaves the gate unrefined, same as the decades-old pattern — mined in Congo, refined mostly in China.';
+      } else {
+        note.textContent = state.backlog > 0
+          ? 'Local refining capacity (illustrative: ' + LOCAL_CAPACITY + ' kt/mo) is well below mine output (' + MINE_RATE + ' kt/mo). The gap queues up as backlog at the border.'
+          : 'Backlog is clearing because in-country refining is keeping pace this month.';
+      }
+    }
+
+    function tick() {
+      state.months += 1;
+      if (state.waiversGranted) {
+        state.exported += (MINE_RATE + state.backlog);
+        state.backlog = 0;
+      } else {
+        var pool = state.backlog + MINE_RATE;
+        var processed = Math.min(LOCAL_CAPACITY, pool);
+        state.refined += processed;
+        state.backlog = pool - processed;
+      }
+      updateStats();
+      updateNote();
+      draw();
+    }
+
+    function draw() {
+      var w = canvas.width, h = canvas.height;
+      var bg = cssVar('--bg') || '#eef1f5';
+      var border = cssVar('--border') || '#dde3ea';
+      var accentA = cssVar('--accent-a') || '#a8532a';
+      var accentB = cssVar('--accent-b') || '#1f4e9c';
+      var muted = cssVar('--muted') || '#59636f';
+      var ink = cssVar('--ink') || '#131820';
+      var surface = cssVar('--surface') || '#ffffff';
+
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, w, h);
+
+      // header text
+      ctx.font = '700 11px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = ink;
+      ctx.textAlign = 'left';
+      ctx.fillText('Month ' + state.months, 14, 18);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = state.waiversGranted ? accentB : accentA;
+      ctx.fillText(state.waiversGranted ? 'WAIVERS: GRANTED' : 'WAIVERS: DENIED', w - 14, 18);
+
+      // nodes: mine -> gate -> branch
+      var mineX = 46, mineY = 70;
+      var gateX = 140, gateY = 70;
+
+      ctx.textAlign = 'center';
+      ctx.font = '9.5px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+
+      // mine node
+      ctx.beginPath();
+      ctx.arc(mineX, mineY, 20, 0, Math.PI * 2);
+      ctx.fillStyle = surface;
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 2;
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = ink;
+      ctx.fillText('MINE', mineX, mineY + 3);
+      ctx.fillStyle = muted;
+      ctx.fillText('DRC', mineX, mineY + 34);
+
+      // arrow mine -> gate
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(mineX + 21, mineY);
+      ctx.lineTo(gateX - 16, gateY);
+      ctx.stroke();
+
+      // gate node (diamond)
+      ctx.save();
+      ctx.translate(gateX, gateY);
+      ctx.rotate(Math.PI / 4);
+      ctx.fillStyle = state.waiversGranted ? cssVar('--accent-b-tint') : cssVar('--accent-a-tint');
+      ctx.strokeStyle = state.waiversGranted ? accentB : accentA;
+      ctx.lineWidth = 2;
+      ctx.fillRect(-15, -15, 30, 30);
+      ctx.strokeRect(-15, -15, 30, 30);
+      ctx.restore();
+      ctx.fillStyle = ink;
+      ctx.fillText('GATE', gateX, gateY + 3);
+      ctx.fillStyle = muted;
+      ctx.fillText(state.waiversGranted ? 'open' : 'closed', gateX, gateY + 34);
+
+      // branch targets
+      var topX = 260, topY = 36;
+      var botX = 260, botY = 118;
+      var endX = 540;
+
+      // path to China refinery (top)
+      ctx.lineWidth = state.waiversGranted ? 3 : 1.5;
+      ctx.strokeStyle = state.waiversGranted ? accentB : border;
+      if (!state.waiversGranted) { ctx.setLineDash([3, 4]); }
+      ctx.beginPath();
+      ctx.moveTo(gateX + 16, gateY - 6);
+      ctx.lineTo(topX, topY);
+      ctx.lineTo(endX - 90, topY);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // path to local refinery (bottom)
+      ctx.lineWidth = state.waiversGranted ? 1.5 : 3;
+      ctx.strokeStyle = state.waiversGranted ? border : accentA;
+      if (state.waiversGranted) { ctx.setLineDash([3, 4]); }
+      ctx.beginPath();
+      ctx.moveTo(gateX + 16, gateY + 6);
+      ctx.lineTo(botX, botY);
+      ctx.lineTo(endX - 90, botY);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // China refinery node
+      ctx.fillStyle = surface;
+      ctx.strokeStyle = accentB;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.roundRect(endX - 90, topY - 16, 80, 32, 8);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = ink;
+      ctx.font = '9px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillText('REFINE ABROAD', endX - 50, topY - 2);
+      ctx.fillStyle = muted;
+      ctx.fillText('(mostly China)', endX - 50, topY + 10);
+
+      // local refinery node + backlog bar
+      ctx.fillStyle = surface;
+      ctx.strokeStyle = accentA;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.roundRect(endX - 90, botY - 16, 80, 32, 8);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = ink;
+      ctx.font = '9px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillText('LOCAL REFINERY', endX - 50, botY - 2);
+      ctx.fillStyle = muted;
+      ctx.fillText('cap ' + LOCAL_CAPACITY + ' kt/mo', endX - 50, botY + 10);
+
+      // backlog stack (vertical bar under local refinery, growing with state.backlog)
+      var backlogMax = Math.max(40, state.backlog * 1.4);
+      var backlogH = Math.min(50, (state.backlog / backlogMax) * 50);
+      ctx.fillStyle = accentA;
+      ctx.globalAlpha = 0.75;
+      ctx.fillRect(endX - 90, botY + 24, 80, -backlogH);
+      ctx.globalAlpha = 1;
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 1;
+      ctx.strokeRect(endX - 90, botY + 24 - 50, 80, 50);
+      ctx.fillStyle = muted;
+      ctx.font = '8.5px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillText('backlog', endX - 50, botY + 40);
+
+      // scale caption
+      ctx.font = '8.5px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = muted;
+      ctx.textAlign = 'left';
+      ctx.fillText('illustrative: mine output ' + MINE_RATE + ' kt/mo — not a reported figure', 14, h - 10);
+    }
+
+    function stopRun() {
+      running = false;
+      if (timer) clearInterval(timer);
+      runBtn.textContent = REDUCED ? 'Advance 12 months' : 'Run';
+    }
+
+    function startRun() {
+      if (running) { stopRun(); return; }
+      if (REDUCED) {
+        for (var i = 0; i < 12; i++) tick();
+        return;
+      }
+      running = true;
+      runBtn.textContent = 'Pause';
+      timer = setInterval(tick, 900);
+    }
+
+    function reset() {
+      stopRun();
+      state.months = 0;
+      state.exported = 0;
+      state.refined = 0;
+      state.backlog = 0;
+      updateStats();
+      updateNote();
+      draw();
+    }
+
+    waiverBtn.addEventListener('click', function () {
+      state.waiversGranted = !state.waiversGranted;
+      updateWaiverUI();
+      updateNote();
+      draw();
+    });
+    runBtn.addEventListener('click', startRun);
+    resetBtn.addEventListener('click', reset);
+
+    window.__cfRedraw = function () { draw(); };
+
+    if (REDUCED) { runBtn.textContent = 'Advance 12 months'; }
+
+    updateWaiverUI();
+    updateStats();
+    updateNote();
+    draw();
+  })();
+</script>
+</body>
+</html>
