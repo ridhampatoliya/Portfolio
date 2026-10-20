@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-20","category":"CHIP PACKAGING","headline":"Taiwan and China Build Roughly 70% of the World's Packaged Chips. India Just Opened Three Plants to Compete — None of Which Can Fabricate One","summary":"India switched on three new chip plants in 2026 — Micron, Kaynes, CG Semi — with a fourth breaking ground. None of them etch a single transistor: they're OSAT plants that assemble, test and package wafers fabricated elsewhere, aimed at a back-end chokepoint Taiwan and China still dominate.","whyItMatters":"Chip packaging carries the same Taiwan-and-China concentration risk as front-end fabrication, and it's the stage India can credibly contest years before any Indian wafer fab ships a working chip."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; India's Back-Door Entry Into Chips</title>
+<meta name="description" content="India switched on its first chip plants in 2026 &mdash; Micron, Kaynes, CG Semi, with more coming. None of them can fabricate a transistor. They're OSAT plants: assembly, test and packaging, the back-end stage Taiwan and China still handle for roughly 70% of the world's chips." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f6e9d9;
+    --accent-b: #1f4e9c;
+    --accent-b-tint: #dbe4f5;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e0954f;
+      --accent-a-tint: #2c2013;
+      --accent-b: #5b8fe0;
+      --accent-b-tint: #16233d;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e0954f;
+    --accent-a-tint: #2c2013;
+    --accent-b: #5b8fe0;
+    --accent-b-tint: #16233d;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f6e9d9;
+    --accent-b: #1f4e9c;
+    --accent-b-tint: #dbe4f5;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: chip value-chain step-through --- */
+  .px-header { margin-bottom: 4px; }
+  .px-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .px-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+  .px-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 12px 8px 8px;
+  }
+  #px-svg { display: block; width: 100%; height: auto; }
+  .px-node-box { fill: var(--surface); stroke: var(--border); stroke-width: 2; transition: stroke 0.15s, fill 0.15s; }
+  .px-node-box.px-active { stroke-width: 3; }
+  .px-node-label { font: 700 10px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--ink); text-anchor: middle; }
+  .px-node-sub { font: 8.5px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); text-anchor: middle; }
+  .px-arrow { stroke: var(--border); stroke-width: 2; fill: none; }
+  .px-bracket { stroke: var(--muted); stroke-width: 1.5; fill: none; opacity: 0.6; }
+  .px-bracket-label { font: 700 9px ui-monospace, "SF Mono", Menlo, Consolas, monospace; text-anchor: middle; letter-spacing: 0.04em; }
+
+  .px-panel {
+    margin-top: 14px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+  .px-panel-title { font-size: 14.5px; font-weight: 700; margin: 0 0 6px; }
+  .px-panel-text { font-size: 13px; color: var(--muted); margin: 0 0 10px; line-height: 1.55; }
+  .px-badge {
+    display: inline-block;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .px-badge.yes { background: var(--accent-a-tint); color: var(--accent-a); }
+  .px-badge.no { background: var(--accent-b-tint); color: var(--accent-b); }
+
+  .px-controls { margin-top: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .px-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .px-btn.px-primary { background: var(--accent-a); border-color: var(--accent-a); color: #fff; }
+  .px-btn:disabled { opacity: 0.4; cursor: default; }
+  .px-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .px-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .px-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--bg); }
+  .px-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .px-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 20, 2026</span>
+    <span class="category-chip">CHIP PACKAGING</span>
+  </div>
+  <h1>Taiwan and China Build Roughly 70% of the World's Packaged Chips. India Just Opened Three Plants to Compete &mdash; None of Which Can Fabricate One.</h1>
+  <p class="lede">This year India switched on its first "semiconductor" plants, and a lot of the coverage made it sound like India had joined the chipmaking club. It hasn't &mdash; not the way you'd think. Every plant that opened is an OSAT facility: it assembles, tests and packages chips that were fabricated somewhere else. That's not a knock on the achievement. It's a real, if partial, bid to break into a back-end chokepoint Taiwan and China have quietly owned for decades.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    India's new chip plants are Outsourced Semiconductor Assembly and Test (OSAT) facilities, not wafer fabs. Micron's Sanand, Gujarat ATMP plant (roughly $2.75B, with the Indian government covering up to 50% of capex under the India Semiconductor Mission) began operations February 28, 2026; Kaynes Semicon's Sanand OSAT followed on March 31; CG Power's Semi OSAT targets commercial operations later this year; HCL&ndash;Foxconn broke ground near Delhi in February. None of them etch a transistor. Tata Electronics is separately building India's first actual wafer fab, at Dholera, Gujarat &mdash; not expected before 2028. Globally, Taiwan's ASE alone holds roughly 44.6% of the OSAT market (TrendForce, 2024), with Taiwan and China combined commonly put above 70%.
+  </div>
+
+  <div class="card px-card">
+    <div class="px-header">
+      <h2 class="px-title">Step through the chip's actual supply chain</h2>
+      <p class="px-caption mono">A chip passes through six stages before it ships. Press Next to walk through them &mdash; each one shows whether it happens in India's 2026 plants today. Node positions are illustrative, not to scale.</p>
+    </div>
+
+    <div class="px-scene-wrap">
+      <svg id="px-svg" viewBox="0 0 620 172" role="img" aria-label="A six-stage horizontal diagram of the semiconductor supply chain: design, wafer fabrication, wafer sort, assembly, packaging, and final test and ship. The first two stages are labeled front-end; the last four are labeled back-end, OSAT.">
+        <!-- arrows -->
+        <path class="px-arrow" d="M 72 70 L 92 70" marker-end="url(#px-arrowhead)"></path>
+        <path class="px-arrow" d="M 174 70 L 194 70" marker-end="url(#px-arrowhead)"></path>
+        <path class="px-arrow" d="M 276 70 L 296 70" marker-end="url(#px-arrowhead)"></path>
+        <path class="px-arrow" d="M 378 70 L 398 70" marker-end="url(#px-arrowhead)"></path>
+        <path class="px-arrow" d="M 480 70 L 500 70" marker-end="url(#px-arrowhead)"></path>
+        <defs>
+          <marker id="px-arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--border)"></path>
+          </marker>
+        </defs>
+
+        <!-- nodes: x centers at 42,144,246,348,450,552 ; box width 84 -->
+        <g id="px-node-0">
+          <rect class="px-node-box" x="0" y="46" width="84" height="48" rx="10"></rect>
+          <text class="px-node-label" x="42" y="67">DESIGN</text>
+          <text class="px-node-sub" x="42" y="81">blueprint</text>
+        </g>
+        <g id="px-node-1">
+          <rect class="px-node-box" x="102" y="46" width="84" height="48" rx="10"></rect>
+          <text class="px-node-label" x="144" y="67">WAFER</text>
+          <text class="px-node-sub" x="144" y="81">FAB</text>
+        </g>
+        <g id="px-node-2">
+          <rect class="px-node-box" x="204" y="46" width="84" height="48" rx="10"></rect>
+          <text class="px-node-label" x="246" y="67">WAFER</text>
+          <text class="px-node-sub" x="246" y="81">SORT</text>
+        </g>
+        <g id="px-node-3">
+          <rect class="px-node-box" x="306" y="46" width="84" height="48" rx="10"></rect>
+          <text class="px-node-label" x="348" y="67">ASSEMBLY</text>
+          <text class="px-node-sub" x="348" y="81">dice + bond</text>
+        </g>
+        <g id="px-node-4">
+          <rect class="px-node-box" x="408" y="46" width="84" height="48" rx="10"></rect>
+          <text class="px-node-label" x="450" y="67">PACKAGE</text>
+          <text class="px-node-sub" x="450" y="81">wire + seal</text>
+        </g>
+        <g id="px-node-5">
+          <rect class="px-node-box" x="510" y="46" width="84" height="48" rx="10"></rect>
+          <text class="px-node-label" x="552" y="63">FINAL TEST</text>
+          <text class="px-node-sub" x="552" y="76">&amp; SHIP</text>
+        </g>
+
+        <!-- brackets under node groups -->
+        <path class="px-bracket" d="M 2 110 L 2 116 L 184 116 L 184 110"></path>
+        <text class="px-bracket-label" x="93" y="128" fill="var(--accent-b)">FRONT-END</text>
+        <text class="px-bracket-label" x="93" y="140" fill="var(--muted)" style="font-weight:400;">(not yet in India)</text>
+
+        <path class="px-bracket" d="M 204 110 L 204 116 L 594 116 L 594 110"></path>
+        <text class="px-bracket-label" x="399" y="128" fill="var(--accent-a)">BACK-END &middot; OSAT</text>
+        <text class="px-bracket-label" x="399" y="140" fill="var(--muted)" style="font-weight:400;">(India's 2026 plants)</text>
+      </svg>
+    </div>
+
+    <div class="px-panel">
+      <p class="px-panel-title mono" id="px-stage-title">1. Design</p>
+      <p class="px-panel-text" id="px-stage-text">A fabless company draws the chip's logic in software &mdash; Nvidia, Qualcomm, Apple, or an Indian design firm backed by the Design-Linked Incentive scheme. No silicon touched yet.</p>
+      <span class="px-badge no" id="px-stage-badge">NOT A 2026 INDIA PLANT STAGE</span>
+    </div>
+
+    <div class="px-controls">
+      <button type="button" class="px-btn px-primary" id="px-prev">&larr; Prev</button>
+      <button type="button" class="px-btn px-primary" id="px-next">Next &rarr;</button>
+      <button type="button" class="px-btn" id="px-reset">Reset</button>
+    </div>
+
+    <div class="px-stats">
+      <div class="px-stat">
+        <div class="px-stat-label mono">Stage</div>
+        <div class="px-stat-value mono" id="px-stat-stage">1 / 6</div>
+      </div>
+      <div class="px-stat">
+        <div class="px-stat-label mono">Chain segment</div>
+        <div class="px-stat-value mono" id="px-stat-segment">FRONT-END</div>
+      </div>
+      <div class="px-stat">
+        <div class="px-stat-label mono">In India's 2026 plants</div>
+        <div class="px-stat-value mono" id="px-stat-india">NO</div>
+      </div>
+      <div class="px-stat">
+        <div class="px-stat-label mono">Taiwan+China OSAT share</div>
+        <div class="px-stat-value mono">&gt;70% (ref.)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>This year, India opened its first "semiconductor" plants, and the headlines made it sound like India had joined the chipmaking club alongside Taiwan, South Korea and the US. Micron switched on a $2.75 billion facility in Sanand, Gujarat, in February. Two more OSAT plants opened nearby within weeks. A fourth broke ground outside Delhi. Here's the part most of those headlines buried: not one of these plants can turn a blank disc of silicon into a working chip.</p>
+      <p>That step &mdash; carving billions of microscopic transistors onto a silicon wafer using lithography machines that cost more than a jumbo jet &mdash; is called wafer fabrication, or simply "the fab." It still happens almost nowhere outside Taiwan, South Korea, the US and Japan. What India just built is everything that happens <em>after</em> the fab: slicing the finished wafer into individual chips, testing them, wiring each one into its protective casing, and testing it again before it ships. In the industry, this back-end work has a name &mdash; OSAT, for Outsourced Semiconductor Assembly and Test.</p>
+      <p>It's less glamorous than "making chips from scratch," but it's genuinely valuable, and it's genuinely scarce: Taiwan and China together are estimated to handle more than 70% of the world's chip packaging today, with Taiwan's ASE alone commanding nearly 45% of the global OSAT market. Every phone, laptop and AI server in the world passes through that narrow pipeline. By building packaging plants instead of waiting on a fab, India picked the faster, cheaper way to grab a real piece of a real chokepoint. Tata is separately attempting the harder, far more expensive step &mdash; an actual wafer fab &mdash; but it won't open before 2028.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The semiconductor value chain splits cleanly into "front-end" and "back-end." Front-end is wafer fabrication: photolithography, ion implantation (doping), etching and deposition, building up transistor structures on a silicon wafer across hundreds of process steps &mdash; the domain of TSMC, Samsung, Intel and GlobalFoundries, requiring leading-edge fabs that now cost upward of $15&ndash;20 billion each. Back-end is ATMP/OSAT (Assembly, Test, Marking, Packaging / Outsourced Semiconductor Assembly and Test): wafer probe/sort, dicing, die attach, wire-bond or flip-chip interconnect, encapsulation, and final electrical test &mdash; far less capital-intensive per unit of output, but still precision clean-room work at scale.</p>
+      <p>India's 2026 entrants are squarely back-end. Micron's Sanand, Gujarat ATMP facility &mdash; roughly $2.75 billion, with the Indian government covering up to 50% of capex under the India Semiconductor Mission (ISM) &mdash; began operations February 28, 2026, importing wafers Micron fabricates elsewhere (the US, Japan, Singapore, Taiwan) and performing assembly, test, marking and packaging locally. Kaynes Semicon's Sanand OSAT followed on March 31; CG Power's Semi OSAT at the same hub targets commercial operations later this year; HCL&ndash;Foxconn broke ground on a plant at Jewar, Uttar Pradesh in February. Tata Electronics is running two separate, much larger tracks: a &#8377;27,000 crore (~$3.2B) OSAT/ATMP facility at Morigaon, Assam, and a &#8377;91,000+ crore (~$11B) wafer fab at Dholera, Gujarat &mdash; India's first attempt at actual front-end fabrication, targeting 2028, with reported mobilization of over 7,000 personnel. (Published ISM 2.0 capex-support tiers vary by source: some put ATMP/OSAT support as high as 50%, others describe a tiered 25&ndash;40% structure by packaging complexity; public reporting doesn't resolve the discrepancy as of this writing.)</p>
+      <p>The competitive landscape India is entering is concentrated. TrendForce data puts Taiwan's ASE at roughly 44.6% of the global OSAT market in 2024, with Amkor second (15.2%), and China's JCET (12%) and Tongfu Microelectronics (8%) close behind &mdash; five Chinese firms now sit in the global top 10, per 2025 rankings. Taiwan and China combined are commonly cited above 70% of world OSAT capacity, against a global OSAT market sized around $46.5&ndash;49.6 billion in 2026. India starts from near-zero share. The strategic logic mirrors the "fab diversification" push seen in chips generally: back-end concentration in Taiwan and China is as real a single point of failure as front-end concentration in Taiwan alone &mdash; and OSAT capacity, while far cheaper to build than a fab, is the stage India can actually move the needle on today.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Three new Indian plants won't make India a chipmaking power overnight, but they do chip away at the 70%-plus share Taiwan and China hold over the unglamorous back-end step every chip needs before it ships.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> OSAT/back-end packaging carries the same Taiwan-and-China concentration risk as front-end fabrication &mdash; and it's the stage India can credibly contest years before any Indian wafer fab ships a working chip.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://marklapedus.substack.com/p/ase-amkor-top-osat-rankings-but-china" target="_blank" rel="noopener">Mark LaPedus, citing TrendForce &mdash; on ASE's ~44.6% share of the 2024 global OSAT market, Amkor second, and Chinese OSAT firms rising</a></li>
+    <li><a href="https://www.tribuneindia.com/news/business/govt-approves-microns-2-7-bn-chip-plant-519282" target="_blank" rel="noopener">The Tribune &mdash; on the Indian government's approval and cost-sharing of Micron's Sanand ATMP (assembly, test, marking, packaging) plant</a></li>
+    <li><a href="https://ism.gov.in/" target="_blank" rel="noopener">India Semiconductor Mission (official) &mdash; on capital-expenditure support for ATMP/OSAT facilities under India's chip incentive schemes</a></li>
+    <li><a href="https://www.letsdatascience.com/news/india-accelerates-domestic-semiconductor-manufacturing-expan-cc6782d6" target="_blank" rel="noopener">LetsDataScience &mdash; roundup of India's 2026 OSAT openings (Kaynes, CG Semi, HCL&ndash;Foxconn) and Tata's Dholera fab and Assam OSAT plans</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var STAGES = [
+      {
+        title: '1. Design',
+        text: 'A fabless company draws the chip’s logic in software — Nvidia, Qualcomm, Apple, or an Indian design firm backed by the Design-Linked Incentive scheme. No silicon touched yet.',
+        india: false,
+        segment: 'FRONT-END'
+      },
+      {
+        title: '2. Wafer fabrication (“the fab”)',
+        text: 'Lithography machines etch billions of transistors into a blank silicon wafer across hundreds of process steps — a plant that costs upward of $15–20 billion. Still done almost nowhere outside Taiwan, South Korea, the US and Japan.',
+        india: false,
+        segment: 'FRONT-END'
+      },
+      {
+        title: '3. Wafer sort',
+        text: 'Each finished wafer carries hundreds of identical chip dies. Probes test every one electrically while the wafer is still whole, flagging the duds before anything is cut apart.',
+        india: true,
+        segment: 'BACK-END · OSAT'
+      },
+      {
+        title: '4. Assembly',
+        text: 'The wafer is diced into individual chips, and each good die is bonded onto the substrate that will carry it. This is the “A” in OSAT: Outsourced Semiconductor Assembly and Test.',
+        india: true,
+        segment: 'BACK-END · OSAT'
+      },
+      {
+        title: '5. Packaging',
+        text: 'Tiny gold or copper wires — or micro-bumps, for advanced packaging — connect the die’s circuits to the outside world, then the whole thing is sealed in resin, becoming the chip you’d actually recognize.',
+        india: true,
+        segment: 'BACK-END · OSAT'
+      },
+      {
+        title: '6. Final test & ship',
+        text: 'Every packaged chip is electrically tested again, binned by performance, and shipped to customers — into phones, laptops, AI servers.',
+        india: true,
+        segment: 'BACK-END · OSAT'
+      }
+    ];
+
+    var idx = 0;
+    var nodes = [];
+    for (var i = 0; i < 6; i++) {
+      nodes.push(document.querySelector('#px-node-' + i + ' .px-node-box'));
+    }
+
+    var prevBtn = document.getElementById('px-prev');
+    var nextBtn = document.getElementById('px-next');
+    var resetBtn = document.getElementById('px-reset');
+    var titleEl = document.getElementById('px-stage-title');
+    var textEl = document.getElementById('px-stage-text');
+    var badgeEl = document.getElementById('px-stage-badge');
+    var statStage = document.getElementById('px-stat-stage');
+    var statSegment = document.getElementById('px-stat-segment');
+    var statIndia = document.getElementById('px-stat-india');
+
+    function cssVar(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+
+    function render() {
+      var s = STAGES[idx];
+      for (var i = 0; i < nodes.length; i++) {
+        var active = i === idx;
+        nodes[i].classList.toggle('px-active', active);
+        nodes[i].style.stroke = active ? (s.india ? cssVar('--accent-a') : cssVar('--accent-b')) : cssVar('--border');
+        nodes[i].style.fill = active ? (s.india ? cssVar('--accent-a-tint') : cssVar('--accent-b-tint')) : cssVar('--surface');
+      }
+      titleEl.textContent = s.title;
+      textEl.textContent = s.text;
+      badgeEl.textContent = s.india ? 'IN INDIA’S 2026 PLANTS' : 'NOT A 2026 INDIA PLANT STAGE';
+      badgeEl.className = 'px-badge ' + (s.india ? 'yes' : 'no');
+      statStage.textContent = (idx + 1) + ' / 6';
+      statSegment.textContent = s.segment;
+      statIndia.textContent = s.india ? 'YES' : 'NO';
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === STAGES.length - 1;
+    }
+
+    prevBtn.addEventListener('click', function () { if (idx > 0) { idx--; render(); } });
+    nextBtn.addEventListener('click', function () { if (idx < STAGES.length - 1) { idx++; render(); } });
+    resetBtn.addEventListener('click', function () { idx = 0; render(); });
+
+    document.addEventListener('keydown', function (e) {
+      var tag = (e.target && e.target.tagName) || '';
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+      if (e.key === 'ArrowRight') { if (idx < STAGES.length - 1) { idx++; render(); } }
+      if (e.key === 'ArrowLeft') { if (idx > 0) { idx--; render(); } }
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
