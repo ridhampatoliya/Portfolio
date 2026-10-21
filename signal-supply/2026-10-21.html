@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-21","category":"POWER CHIPS","headline":"AI Servers Devour Dozens of One Unglamorous Chip Per Rack. Its Factory Lead Time Just Went From 21 Weeks to 40","summary":"The AI chip-shortage headlines are all about GPUs. The chip actually running late is the boring power-management chip that regulates voltage into every server. TrendForce says its lead time nearly doubled in 2026, built on factory capacity nobody has expanded in a decade.","whyItMatters":"The AI buildout's real 2026 pacing constraint isn't the GPU anyone can name — it's an overlooked power chip made on legacy factory capacity nobody expected to matter again."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; The Power Chip Behind the AI Chip Shortage</title>
+<meta name="description" content="The AI chip shortage you've heard about is GPUs. The one that's actually cutting into 2026 server shipments is a tiny, decades-old power chip &mdash; and its factory capacity hasn't grown in over a decade." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c2410c;
+    --accent-a-tint: #fbe8d9;
+    --accent-b: #0f6e68;
+    --accent-b-tint: #dcefec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #f0975a;
+      --accent-a-tint: #2e1d10;
+      --accent-b: #3fb3a8;
+      --accent-b-tint: #0f2420;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #f0975a;
+    --accent-a-tint: #2e1d10;
+    --accent-b: #3fb3a8;
+    --accent-b-tint: #0f2420;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c2410c;
+    --accent-a-tint: #fbe8d9;
+    --accent-b: #0f6e68;
+    --accent-b-tint: #dcefec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: power-chip capacity-rationing simulator --- */
+  .px-header { margin-bottom: 4px; }
+  .px-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .px-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+  .px-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 10px 6px;
+  }
+  #pq-svg { display: block; width: 100%; height: auto; }
+  .pq-track { fill: var(--surface); stroke: var(--border); stroke-width: 1.5; }
+  .pq-bar-ai { fill: var(--accent-b); }
+  .pq-bar-gen { fill: var(--accent-a); }
+  .pq-row-label { font: 700 11px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--ink); }
+  .pq-row-value { font: 700 13px ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
+  .pq-value-ai { fill: var(--accent-b); }
+  .pq-value-gen { fill: var(--accent-a); }
+  .pq-grid { stroke: var(--border); stroke-width: 1; }
+  .pq-grid-label { font: 9.5px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); text-anchor: middle; }
+  .pq-ref-line { stroke: var(--muted); stroke-width: 1.2; stroke-dasharray: 3 3; opacity: 0.75; }
+  .pq-ref-label { font: 700 9px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); }
+
+  .pq-controls { margin-top: 16px; }
+  .pq-slider-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .pq-slider-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    flex: 0 0 auto;
+  }
+  .pq-slider-row input[type="range"] {
+    flex: 1 1 160px;
+    min-width: 120px;
+    accent-color: var(--accent-a);
+  }
+  .pq-slider-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    min-width: 3.2em;
+    text-align: right;
+  }
+
+  .px-controls { margin-top: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .px-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .px-btn.px-primary { background: var(--accent-a); border-color: var(--accent-a); color: #fff; }
+  .px-btn:disabled { opacity: 0.5; cursor: default; }
+  .px-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .px-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .px-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--bg); }
+  .px-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .px-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 21, 2026</span>
+    <span class="category-chip">POWER CHIPS</span>
+  </div>
+  <h1>AI Servers Devour Dozens of One Unglamorous Chip Per Rack. Its Factory Lead Time Just Went From 21 Weeks to 40.</h1>
+  <p class="lede">Every headline about the AI chip shortage is about GPUs. The chip that's actually running late is the one nobody brags about &mdash; the little part that regulates the power flowing into every server. In 2026, it became real enough to cut industry-wide server shipment forecasts.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    TrendForce's April 15, 2026 report says lead times for power-management chips (PMICs) stretched from a 21&ndash;26-week baseline to 35&ndash;40 weeks, and for baseboard management controllers (BMCs) from 11&ndash;16 weeks to 21&ndash;26 weeks, as foundries funnel scarce 200mm ("8-inch") wafer capacity toward higher-margin AI-server orders first. TrendForce cut its 2026 total server shipment growth forecast from roughly 20% to 13% year-over-year as a direct result &mdash; even while holding AI-server shipment growth near 28&ndash;31%.
+  </div>
+
+  <div class="card px-card">
+    <div class="px-header">
+      <h2 class="px-title">Run the capacity-rationing mechanism yourself</h2>
+      <p class="px-caption mono">Two queues share one fixed pool of scarce 8-inch chip-factory capacity: AI-server orders and everyone else's. Drag the slider to reserve more of that capacity for AI orders, or press Run to animate today's approximate real-world tilt. Simplified model: the two queues' exact split isn't published &mdash; TrendForce reports one industry-wide PMIC lead-time range (21&ndash;40 weeks); this splits that single number into an illustrative "AI" vs. "general" pair to show the mechanism, with the ceiling pinned to the real reported figures.</p>
+    </div>
+
+    <div class="px-scene-wrap">
+      <svg id="pq-svg" viewBox="0 0 600 190" role="img" aria-label="A chart showing two queues competing for fixed chip-factory capacity: AI-server orders and general-server orders. A slider controls how much capacity is reserved for AI orders, and the general-order wait time grows as that share increases.">
+        <!-- gridlines at 0,10,20,30,40 weeks; track spans x=150..570, 0..45wk -->
+        <line class="pq-grid" x1="150" y1="18" x2="150" y2="150"></line>
+        <line class="pq-grid" x1="243.3" y1="18" x2="243.3" y2="150"></line>
+        <line class="pq-grid" x1="336.7" y1="18" x2="336.7" y2="150"></line>
+        <line class="pq-grid" x1="430" y1="18" x2="430" y2="150"></line>
+        <line class="pq-grid" x1="523.3" y1="18" x2="523.3" y2="150"></line>
+        <text class="pq-grid-label" x="150" y="164">0</text>
+        <text class="pq-grid-label" x="243.3" y="164">10wk</text>
+        <text class="pq-grid-label" x="336.7" y="164">20wk</text>
+        <text class="pq-grid-label" x="430" y="164">30wk</text>
+        <text class="pq-grid-label" x="523.3" y="164">40wk</text>
+
+        <!-- reference ceiling line at 40 weeks (reported top of real range) -->
+        <line class="pq-ref-line" x1="523.3" y1="14" x2="523.3" y2="150"></line>
+        <text class="pq-ref-label" x="528" y="26">reported ceiling</text>
+
+        <!-- AI row -->
+        <text class="pq-row-label" x="4" y="50">AI-PRIORITY</text>
+        <text class="pq-row-label" x="4" y="63">ORDERS</text>
+        <rect class="pq-track" x="150" y="36" width="420" height="30" rx="6"></rect>
+        <rect class="pq-bar-ai" id="pq-bar-ai" x="150" y="36" width="90" height="30" rx="6"></rect>
+        <text class="pq-row-value pq-value-ai" id="pq-val-ai" x="580" y="56">23 wk</text>
+
+        <!-- general row -->
+        <text class="pq-row-label" x="4" y="110">GENERAL-SERVER</text>
+        <text class="pq-row-label" x="4" y="123">ORDERS</text>
+        <rect class="pq-track" x="150" y="96" width="420" height="30" rx="6"></rect>
+        <rect class="pq-bar-gen" id="pq-bar-gen" x="150" y="96" width="90" height="30" rx="6"></rect>
+        <text class="pq-row-value pq-value-gen" id="pq-val-gen" x="580" y="116">23 wk</text>
+      </svg>
+    </div>
+
+    <div class="pq-controls">
+      <div class="pq-slider-row">
+        <label class="pq-slider-label" for="pq-slider">Capacity reserved for AI orders</label>
+        <input type="range" id="pq-slider" min="0" max="100" step="1" value="0" aria-valuetext="0 percent" />
+        <span class="pq-slider-value mono" id="pq-slider-readout">0%</span>
+      </div>
+    </div>
+
+    <div class="px-controls">
+      <button type="button" class="px-btn px-primary" id="pq-run">Run &rarr;</button>
+      <button type="button" class="px-btn" id="pq-reset">Reset</button>
+    </div>
+
+    <div class="px-stats">
+      <div class="px-stat">
+        <div class="px-stat-label mono">AI share (slider)</div>
+        <div class="px-stat-value mono" id="pq-stat-share">0%</div>
+      </div>
+      <div class="px-stat">
+        <div class="px-stat-label mono">AI-order wait</div>
+        <div class="px-stat-value mono" id="pq-stat-ai">23 wk</div>
+      </div>
+      <div class="px-stat">
+        <div class="px-stat-label mono">General-order wait</div>
+        <div class="px-stat-value mono" id="pq-stat-gen">23 wk</div>
+      </div>
+      <div class="px-stat">
+        <div class="px-stat-label mono">Reported real range</div>
+        <div class="px-stat-value mono">21&ndash;40 wk</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture an AI server rack as a power-hungry little city block, with the GPU as the factory at its center. Before electricity from the wall can reach that expensive, sensitive chip, it has to pass through dozens of small conversion stations that step voltage down and clean it up. Officially, those parts are called power management ICs (PMICs), working alongside a quieter cousin called the baseboard management controller (BMC) &mdash; the rack's nervous system. An ordinary server needs a handful of these. A modern AI server, packed with GPUs pulling far more current at far more precise voltages, needs many times more of them.</p>
+      <p>Here's the twist: these chips aren't built in the shiny new factories you read about, the ones racing to etch ever-smaller transistors. They're built in older factories running 200-millimeter ("8-inch") silicon wafers &mdash; a factory format the industry mostly stopped expanding more than a decade ago, because everyone assumed the future was all about shrinking chips, not regulating power. Nobody poured money into more 8-inch capacity, because nobody expected AI servers to quietly become the biggest customer for the least glamorous chip in the building.</p>
+      <p>Now that they have, foundries are doing the obvious thing with a limited resource: handing their scarce 8-inch capacity to whoever pays the most, which is AI customers. Everyone else &mdash; ordinary servers, cars, appliances, anything else that needs a cheap power chip &mdash; gets pushed toward the back of the line. TrendForce, the industry's main forecasting shop, says the wait for these chips has nearly doubled this year, long enough that it's now cutting how many ordinary servers the whole industry can even ship in 2026. The GPU was never the only bottleneck. It just had the better PR.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>PMICs and BMCs are overwhelmingly fabricated on 200mm (8-inch) wafers using BCD (Bipolar-CMOS-DMOS) processes at mature-node geometries, typically in the 28nm&ndash;180nm-class range &mdash; not because the industry can't do better, but because there's no economic reason to. The power-delivery and high-voltage blocks that dominate these dies are sized by breakdown-voltage and headroom requirements set by the physics of the signal, not by transistor density. Shrinking the process doesn't shrink the power stage, and finer geometries raise sub-threshold leakage, which actively hurts standby efficiency on parts designed for multi-year product lifespans. That's why PMIC fabrication stayed parked on 200mm capacity that has barely grown in wafer-start terms in over a decade: most equipment vendors stopped building new 200mm tools years ago, pushing the industry onto a thin secondary market for refurbished "cores."</p>
+      <p>AI servers broke the assumption that this capacity was adequate. A GPU-dense rack needs far more point-of-load conversion stages, at higher current density, than a general-purpose server &mdash; multiplying PMIC and BMC demand per unit even before counting unit growth. TrendForce's April 15, 2026 release quantified the squeeze: PMIC lead times stretched from a 21&ndash;26-week baseline to 35&ndash;40 weeks, and BMC lead times from 11&ndash;16 weeks to 21&ndash;26 weeks, as foundries reallocated scarce 8-inch BCD capacity toward higher-margin AI-server orders. The firm cut its 2026 total server shipment growth forecast from roughly 20% to 13% year-over-year as a direct result, even as it held (and later raised) its AI-server shipment forecast to around 28&ndash;31% growth. Global 8-inch utilization is projected to climb to roughly 85&ndash;90% in 2026 from 75&ndash;80% in 2025, even as total 8-inch capacity contracts slightly &mdash; TSMC and Samsung have both been trimming 200mm lines, and unconfirmed reports of a Samsung 8-inch fab closure add further downside risk. It's a textbook capacity-rationing problem: fixed legacy-node supply, a new high-margin buyer, and a scarce process nobody expected to matter again.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> The AI buildout's real pacing constraint in 2026 isn't the GPU everyone can name &mdash; it's a boring power chip made on factory technology nobody's expanded in years.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> 8-inch BCD capacity, not leading-edge logic capacity, is the binding constraint on 2026 general-purpose server shipments &mdash; a legacy-node chokepoint created entirely by AI-server demand reallocation.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.trendforce.com/presscenter/news/20260415-13013.html" target="_blank" rel="noopener">TrendForce (Apr 15, 2026) &mdash; PMIC lead times stretching to 35&ndash;40 weeks, BMC to 21&ndash;26 weeks, and the cut to 2026 total server shipment growth forecast (20% &rarr; 13%)</a></li>
+    <li><a href="https://www.theregister.com/on-prem/2026/04/23/ai-now-gobbling-up-power-and-management-chips-for-servers/5229166" target="_blank" rel="noopener">The Register (Apr 23, 2026) &mdash; on AI servers consuming scarce power and management-chip capacity at general-purpose servers' expense</a></li>
+    <li><a href="https://www.digitimes.com/news/a20260303PD224/pmic-demand-price-management-ic.html" target="_blank" rel="noopener">DigiTimes (Mar 3, 2026) &mdash; uPI Semi on tight power-IC supply through 2026, driven by AI-server demand for high-current-density chips</a></li>
+    <li><a href="https://www.trendforce.com/presscenter/news/20260113-12877.html" target="_blank" rel="noopener">TrendForce (Jan 13, 2026) &mdash; on rising AI-driven demand for power ICs, capacity cuts, and potential 8-inch foundry price hikes</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    // Illustrative capacity-rationing model.
+    // Real reported data (TrendForce): PMIC industry-wide lead time 21-26wk baseline -> 35-40wk now.
+    // This splits that single reported range into two illustrative queues (AI vs. general)
+    // to demonstrate the rationing mechanism; the exact AI/general split isn't published.
+    var BASELINE = 23;   // both queues start equal, near the reported ~21-26wk baseline
+    var AI_FLOOR = 19;   // AI orders get modestly faster as more capacity is reserved for them
+    var GEN_CEILING = 38; // general orders stretch toward the reported ~35-40wk ceiling
+    var RUN_TARGET = 85; // illustrative "today's approximate real-world tilt"
+
+    var slider = document.getElementById('pq-slider');
+    var readout = document.getElementById('pq-slider-readout');
+    var barAi = document.getElementById('pq-bar-ai');
+    var barGen = document.getElementById('pq-bar-gen');
+    var valAi = document.getElementById('pq-val-ai');
+    var valGen = document.getElementById('pq-val-gen');
+    var statShare = document.getElementById('pq-stat-share');
+    var statAi = document.getElementById('pq-stat-ai');
+    var statGen = document.getElementById('pq-stat-gen');
+    var runBtn = document.getElementById('pq-run');
+    var resetBtn = document.getElementById('pq-reset');
+
+    var TRACK_X = 150;
+    var WEEK_PX = (570 - 150) / 45; // pixels per week across the 0-45wk track
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    function weeksToWidth(wk) {
+      return Math.max(4, wk * WEEK_PX);
+    }
+
+    function render(p) {
+      var ai = lerp(BASELINE, AI_FLOOR, p / 100);
+      var gen = lerp(BASELINE, GEN_CEILING, p / 100);
+
+      barAi.setAttribute('width', weeksToWidth(ai).toFixed(1));
+      barGen.setAttribute('width', weeksToWidth(gen).toFixed(1));
+
+      var aiText = Math.round(ai) + ' wk';
+      var genText = Math.round(gen) + ' wk';
+      valAi.textContent = aiText;
+      valGen.textContent = genText;
+      statAi.textContent = aiText;
+      statGen.textContent = genText;
+
+      readout.textContent = p + '%';
+      statShare.textContent = p + '%';
+      slider.setAttribute('aria-valuetext', p + ' percent');
+    }
+
+    slider.addEventListener('input', function () {
+      cancelRun();
+      render(parseInt(slider.value, 10));
+    });
+
+    var rafId = null;
+    function cancelRun() {
+      if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+      runBtn.disabled = false;
+    }
+
+    function prefersReducedMotion() {
+      return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    runBtn.addEventListener('click', function () {
+      cancelRun();
+      var start = parseInt(slider.value, 10);
+      var end = RUN_TARGET;
+
+      if (prefersReducedMotion()) {
+        slider.value = end;
+        render(end);
+        return;
+      }
+
+      runBtn.disabled = true;
+      var duration = 1600;
+      var t0 = null;
+
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var elapsed = ts - t0;
+        var t = Math.min(1, elapsed / duration);
+        var eased = 1 - Math.pow(1 - t, 2);
+        var current = Math.round(lerp(start, end, eased));
+        slider.value = current;
+        render(current);
+        if (t < 1) {
+          rafId = requestAnimationFrame(step);
+        } else {
+          rafId = null;
+          runBtn.disabled = false;
+        }
+      }
+      rafId = requestAnimationFrame(step);
+    });
+
+    resetBtn.addEventListener('click', function () {
+      cancelRun();
+      slider.value = 0;
+      render(0);
+    });
+
+    render(0);
+  })();
+</script>
+</body>
+</html>
