@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-22","category":"ORBITAL COMPUTE","headline":"Starcloud Launched the First Data-Center GPU Into Orbit Last November. Its Next Satellite, Due to Fly This Month, Just Slipped to 2027","summary":"Starcloud put the first data-center-class GPU into orbit last November and ran an AI model with it. Its bigger follow-up satellite, due to launch this month with a more powerful chip, has reportedly slipped to 2027 — because cooling a GPU in a vacuum is far harder than powering one.","whyItMatters":"If orbital compute ever works at scale, it swaps Earth's power, land and water fights for a launch-cadence and radiator-manufacturing problem — but cooling physics, not funding, is what's actually setting the timeline."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Why Orbital AI Data Centers Keep Slipping Their Launch Dates</title>
+<meta name="description" content="Starcloud put the first data-center GPU into orbit last year. Its bigger follow-up, due this month, just slipped to 2027 &mdash; the physics of cooling a chip with no air to cool it with is why." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b45309;
+    --accent-a-tint: #fdf0dd;
+    --accent-b: #1d4ed8;
+    --accent-b-tint: #e3e9fb;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #f2a93d;
+      --accent-a-tint: #2e2210;
+      --accent-b: #6c8ff5;
+      --accent-b-tint: #171f3a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #f2a93d;
+    --accent-a-tint: #2e2210;
+    --accent-b: #6c8ff5;
+    --accent-b-tint: #171f3a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b45309;
+    --accent-a-tint: #fdf0dd;
+    --accent-b: #1d4ed8;
+    --accent-b-tint: #e3e9fb;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: radiator-area simulator --- */
+  .rc-header { margin-bottom: 4px; }
+  .rc-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .rc-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+  .rc-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 10px 6px;
+  }
+  #rc-svg { display: block; width: 100%; height: auto; max-width: 480px; margin: 0 auto; }
+  .rc-baseline { stroke: var(--border); stroke-width: 1.5; }
+  .rc-court { fill: none; stroke: var(--muted); stroke-width: 1.3; stroke-dasharray: 4 3; }
+  .rc-rad {
+    fill: var(--accent-b);
+    fill-opacity: 0.88;
+    stroke: var(--accent-b);
+    stroke-width: 1.5;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .rc-rad, .rc-rad-glow { transition: x 0.18s ease, y 0.18s ease, width 0.18s ease, height 0.18s ease, opacity 0.18s ease; }
+  }
+  .rc-rad-glow { fill: var(--accent-a); opacity: 0.35; }
+  .rc-label { font: 700 10.5px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); text-anchor: middle; }
+  .rc-label-strong { font: 700 11.5px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--ink); text-anchor: middle; }
+  .rc-overflow { font: 700 11px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--accent-a); text-anchor: middle; }
+
+  .rc-controls { margin-top: 16px; }
+  .rc-slider-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .rc-slider-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    flex: 0 0 auto;
+    min-width: 128px;
+  }
+  .rc-slider-row input[type="range"] {
+    flex: 1 1 160px;
+    min-width: 120px;
+    accent-color: var(--accent-a);
+  }
+  .rc-slider-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    min-width: 4.4em;
+    text-align: right;
+  }
+
+  .rc-btn-row { margin-top: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .rc-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .rc-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .rc-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .rc-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--bg); }
+  .rc-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .rc-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+  .rc-ground-note {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 22, 2026</span>
+    <span class="category-chip">ORBITAL COMPUTE</span>
+  </div>
+  <h1>Starcloud Launched the First Data-Center GPU Into Orbit Last November. Its Next Satellite, Due to Fly This Month, Just Slipped to 2027.</h1>
+  <p class="lede">Eleven months ago, a Seattle startup put a single Nvidia H100 into low Earth orbit and used it to run an AI model &mdash; proof that a data-center-class GPU can compute in space. The follow-up satellite, meant to prove this actually scales, was supposed to launch this month. It didn't, and the reason comes down to one unglamorous fact: there's no air up there to cool a chip with.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Starcloud flew its 60-kilogram Starcloud-1 satellite, carrying one Nvidia H100 GPU, on November 2, 2025, and ran AI inference and training workloads with it in orbit &mdash; a confirmed first. Starcloud-2, originally slated to launch this month with a newer Nvidia chip and roughly 100x Starcloud-1's power generation, has reportedly slipped to 2027. The gap between those two sentences is almost entirely about heat: in a vacuum, you can only shed it by radiating it away, and that scales far worse than the fans and water loops every data center on Earth already uses.
+  </div>
+
+  <div class="card rc-card">
+    <div class="rc-header">
+      <h2 class="rc-title">Size the radiator yourself</h2>
+      <p class="rc-caption mono">A simplified physics model, not a spacecraft design: assumes one flat, single-sided panel at a uniform steady temperature (emissivity 0.9), ignores structural mass, solar/Earth heat hitting the panel itself, and multi-surface geometry &mdash; real hardware is more complex. Drag "Heat to reject" (the GPUs' waste heat) and "Radiator temperature" and watch the panel area, computed from the Stefan&ndash;Boltzmann law, grow or shrink against a basketball court for scale.</p>
+    </div>
+
+    <div class="rc-scene-wrap">
+      <svg id="rc-svg" viewBox="0 0 480 230" role="img" aria-label="A diagram comparing a basketball court outline, fixed at 420 square meters, against a solid panel whose area is computed live from the heat load and radiator temperature sliders using the Stefan-Boltzmann law.">
+        <line class="rc-baseline" x1="20" y1="200" x2="460" y2="200"></line>
+        <text class="rc-label" x="105" y="216">GROUND / REFERENCE</text>
+        <text class="rc-label" x="355" y="216">RADIATOR PANEL NEEDED</text>
+
+        <rect class="rc-court" id="rc-court" x="40" y="77" width="123" height="123"></rect>
+        <text class="rc-label-strong" x="101.5" y="68">1 basketball court</text>
+        <text class="rc-label" x="101.5" y="81" dy="0">&#8776;420 m&sup2;</text>
+
+        <rect class="rc-rad-glow" id="rc-rad-glow" x="320" y="140" width="60" height="60"></rect>
+        <rect class="rc-rad" id="rc-rad" x="320" y="140" width="60" height="60"></rect>
+        <text class="rc-label-strong" id="rc-area-label" x="350" y="68">63 m&sup2;</text>
+        <text class="rc-overflow" id="rc-overflow-label" x="350" y="84" style="display:none;"></text>
+      </svg>
+    </div>
+
+    <div class="rc-controls">
+      <div class="rc-slider-row">
+        <label class="rc-slider-label" for="rc-heat">Heat to reject</label>
+        <input type="range" id="rc-heat" min="2" max="500" step="1" value="50" aria-valuetext="50 kilowatts" />
+        <span class="rc-slider-value mono" id="rc-heat-readout">50 kW</span>
+      </div>
+      <div class="rc-slider-row">
+        <label class="rc-slider-label" for="rc-temp">Radiator temperature</label>
+        <input type="range" id="rc-temp" min="-20" max="130" step="1" value="80" aria-valuetext="80 degrees Celsius" />
+        <span class="rc-slider-value mono" id="rc-temp-readout">80&deg;C</span>
+      </div>
+    </div>
+
+    <div class="rc-btn-row">
+      <button type="button" class="rc-btn" id="rc-reset">Reset to defaults</button>
+    </div>
+
+    <div class="rc-stats">
+      <div class="rc-stat">
+        <div class="rc-stat-label mono">Heat load</div>
+        <div class="rc-stat-value mono" id="rc-stat-heat">50 kW</div>
+      </div>
+      <div class="rc-stat">
+        <div class="rc-stat-label mono">Radiated flux</div>
+        <div class="rc-stat-value mono" id="rc-stat-flux">793 W/m&sup2;</div>
+      </div>
+      <div class="rc-stat">
+        <div class="rc-stat-label mono">Panel area needed</div>
+        <div class="rc-stat-value mono" id="rc-stat-area">63.1 m&sup2;</div>
+      </div>
+      <div class="rc-stat">
+        <div class="rc-stat-label mono">&#8776; basketball courts</div>
+        <div class="rc-stat-value mono" id="rc-stat-courts">0.15</div>
+      </div>
+    </div>
+
+    <div class="rc-ground-note">On Earth, rejecting this same heat load needs zero square meters of radiator &mdash; a fan and a water loop do it instead. That's the entire orbital-cooling problem in one comparison.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture the AI boom's biggest headache: building power plants, transformers, and water-cooled buildings fast enough to keep up with GPU demand. A handful of companies &mdash; a Seattle startup called Starcloud, Nvidia, SpaceX, and a startup literally named Orbital &mdash; think they've found a shortcut. Skip the power grid entirely. Put the data center in orbit, where the sun never sets and there's no utility company to beg for a hookup.</p>
+      <p>Last November, Starcloud proved the first piece works. It launched a 60-kilogram satellite, about the size of a mini-fridge, carrying a single Nvidia H100 &mdash; the same chip that powers plenty of today's AI data centers &mdash; and used it to run an AI model in orbit. That's the easy part.</p>
+      <p>The hard part is cooling. On Earth, a data center cools its chips with fans and chilled water &mdash; cheap, effective, boring. In the vacuum of space, none of that exists: there's no air to blow and no atmosphere to carry heat away by touch. The only way to get rid of waste heat is to radiate it outward as infrared light, the same way a hot stove warms your face from across a room without touching it. That effect is far weaker, per square meter, than moving air or water. So the bigger and more powerful an orbital data center gets, the bigger its radiator panels have to get &mdash; potentially bigger than the solar wings powering it in the first place.</p>
+      <p>That's reportedly why Starcloud's next, more powerful satellite &mdash; originally due to launch this month, carrying a newer Nvidia chip and a much bigger radiator &mdash; has slipped into 2027. The company's funding and valuation keep climbing into the billions anyway. Orbital data centers aren't science fiction anymore. They're just stuck on the same unglamorous problem every data center on Earth already solved with central air conditioning: where does the heat go?</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The case for orbital compute rests on one genuine physical advantage: solar collection. A ground-based photovoltaic panel loses a large share of incoming sunlight to atmospheric scattering and absorption and sits idle through night, cloud cover and low sun angles, which pushes real-world capacity factors to roughly 20&ndash;25%. A panel in the right orbit &mdash; a sun-synchronous dawn&ndash;dusk low-Earth orbit, or geostationary &mdash; sees unfiltered sunlight well over 99% of the time. Caltech researchers working on space-based solar power, including Ali Hajimiri and Sergio Pellegrino, put the resulting collection advantage at roughly 5&ndash;8x more energy per unit panel area than the same panel on Earth's surface, before any transmission loss, since this is about powering hardware on the satellite itself, not beaming power down.</p>
+      <p>The counterweight is heat rejection. Ground data centers dump waste heat via forced convection &mdash; moving air or water, which transfers heat far more effectively per unit area, at the temperature differentials chips tolerate, than radiation does. In vacuum, convection and conduction don't exist; the only channel left is thermal radiation, governed by the Stefan&ndash;Boltzmann law, P = &epsilon;&sigma;AT&#8308;. Because radiated flux scales with the fourth power of absolute temperature, running a radiator hotter shrinks the area it needs sharply &mdash; but GPU silicon has a hard junction-temperature ceiling that caps how hot the loop feeding it can realistically run. One published engineering preprint sizes a roughly 2kW thermal load to a 2m&times;3m, 5kg radiator operating near 80&deg;C. Hold that same physics and scale to the hundreds of kilowatts a useful GPU cluster draws, and required radiator area scales roughly linearly with heat load &mdash; which is why Nvidia CEO Jensen Huang has publicly called cooling, not power generation or compute, the actual bottleneck, estimating it could take years to solve at useful scale.</p>
+      <p><strong>Confirmed:</strong> Starcloud flew a single H100 to low Earth orbit on November 2, 2025, and ran inference and training workloads using Google's Gemma model &mdash; independently reported by multiple outlets. <strong>Reported, less certain:</strong> Starcloud-2, originally slated to launch this month carrying a Blackwell-class Nvidia GPU and roughly 100x Starcloud-1's power generation plus the largest deployable radiator yet flown on a private satellite, has reportedly slipped into 2027 per coverage since September; the company's valuation across funding rounds is cited anywhere from roughly $1.1 billion to $2.3 billion depending on which round and date a given source is describing &mdash; treat the exact figure as unsettled.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> If orbital compute ever works at scale, it trades Earth's power-grid, land and water fights for a launch-cadence and radiator-manufacturing problem &mdash; but cooling physics, not funding, is what's actually setting the timeline.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Heat rejection, bound by the Stefan&ndash;Boltzmann law rather than capital availability, is the binding constraint on orbital data-center scale &mdash; which is why the launch slip tracks a physics problem, not a funding one.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.datacenterfrontier.com/site-selection/article/55337494/starcloud-launches-orbital-ai-data-center-with-nvidia-h100-gpu" target="_blank" rel="noopener">Data Center Frontier &mdash; Starcloud's Nov. 2, 2025 launch of the Starcloud-1 satellite and its single Nvidia H100 GPU</a></li>
+    <li><a href="https://letsdatascience.com/news/nvidia-ceo-says-orbital-data-centers-remain-costly-3707833f" target="_blank" rel="noopener">Let's Data Science &mdash; Nvidia CEO Jensen Huang on why cooling, not power or cost, is the main obstacle to orbital data centers at scale</a></li>
+    <li><a href="https://www.tradingview.com/news/cryptobriefing:229a8c495094b:0-starcloud-plans-to-mine-bitcoin-in-space-with-upcoming-satellite-launch/" target="_blank" rel="noopener">CryptoBriefing / TradingView &mdash; reporting that Starcloud-2's launch, once targeted for October 2026, has slipped to 2027</a></li>
+    <li><a href="https://chic.caltech.edu/hajimiri-presents-world-economic-forum-wef-davos/" target="_blank" rel="noopener">Caltech Space Solar Power Project &mdash; researchers' estimate that space-based solar collection outperforms ground panels by roughly 5&ndash;8x</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    // Stefan-Boltzmann radiator-sizing model.
+    // Flux (W/m^2) = emissivity * sigma * T_kelvin^4; Area (m^2) = heat_watts / flux.
+    // Simplified: single flat one-sided panel, uniform steady temperature, no incident
+    // solar/Earth heat on the panel, no structural or multi-surface effects.
+    var EPSILON = 0.9;
+    var SIGMA = 5.67e-8;
+    var COURT_M2 = 420;       // ~28m x 15m basketball court, used purely as a human-scale reference
+    var MAX_DISPLAY_M2 = 900; // beyond this the panel rect is capped and an overflow label kicks in
+
+    var heatSlider = document.getElementById('rc-heat');
+    var tempSlider = document.getElementById('rc-temp');
+    var heatReadout = document.getElementById('rc-heat-readout');
+    var tempReadout = document.getElementById('rc-temp-readout');
+    var statHeat = document.getElementById('rc-stat-heat');
+    var statFlux = document.getElementById('rc-stat-flux');
+    var statArea = document.getElementById('rc-stat-area');
+    var statCourts = document.getElementById('rc-stat-courts');
+    var rad = document.getElementById('rc-rad');
+    var radGlow = document.getElementById('rc-rad-glow');
+    var areaLabel = document.getElementById('rc-area-label');
+    var overflowLabel = document.getElementById('rc-overflow-label');
+    var resetBtn = document.getElementById('rc-reset');
+
+    // court square: 123x123 px == 420 m^2 square-equivalent -> px per meter:
+    var COURT_SIDE_PX = 123;
+    var PX_PER_M = COURT_SIDE_PX / Math.sqrt(COURT_M2);
+    var MAX_SIDE_PX = PX_PER_M * Math.sqrt(MAX_DISPLAY_M2);
+    var BASELINE_Y = 200;
+    var RAD_CENTER_X = 350;
+
+    function render() {
+      var heatKw = parseInt(heatSlider.value, 10);
+      var tempC = parseInt(tempSlider.value, 10);
+      var heatW = heatKw * 1000;
+      var tempK = tempC + 273.15;
+      var flux = EPSILON * SIGMA * Math.pow(tempK, 4);
+      var area = heatW / flux;
+
+      heatReadout.textContent = heatKw + ' kW';
+      tempReadout.textContent = tempC + '°C';
+      heatSlider.setAttribute('aria-valuetext', heatKw + ' kilowatts');
+      tempSlider.setAttribute('aria-valuetext', tempC + ' degrees Celsius');
+
+      statHeat.textContent = heatKw + ' kW';
+      statFlux.textContent = Math.round(flux) + ' W/m²';
+      statArea.textContent = (area < 10 ? area.toFixed(2) : area < 100 ? area.toFixed(1) : Math.round(area)) + ' m²';
+      statCourts.textContent = (area / COURT_M2).toFixed(2);
+
+      var displayArea = Math.min(area, MAX_DISPLAY_M2);
+      var sidePx = Math.max(6, PX_PER_M * Math.sqrt(displayArea));
+      var x = RAD_CENTER_X - sidePx / 2;
+      var y = BASELINE_Y - sidePx;
+
+      rad.setAttribute('x', x.toFixed(1));
+      rad.setAttribute('y', y.toFixed(1));
+      rad.setAttribute('width', sidePx.toFixed(1));
+      rad.setAttribute('height', sidePx.toFixed(1));
+      radGlow.setAttribute('x', (x - 4).toFixed(1));
+      radGlow.setAttribute('y', (y - 4).toFixed(1));
+      radGlow.setAttribute('width', (sidePx + 8).toFixed(1));
+      radGlow.setAttribute('height', (sidePx + 8).toFixed(1));
+
+      var labelY = Math.min(68, y - 10);
+      areaLabel.setAttribute('y', labelY.toFixed(1));
+      areaLabel.textContent = (area < 100 ? area.toFixed(1) : Math.round(area)) + ' m²';
+
+      if (area > MAX_DISPLAY_M2) {
+        overflowLabel.style.display = '';
+        overflowLabel.setAttribute('y', (labelY + 16).toFixed(1));
+        overflowLabel.textContent = '≈ ' + (area / COURT_M2).toFixed(1) + ' courts — off canvas';
+      } else {
+        overflowLabel.style.display = 'none';
+      }
+    }
+
+    heatSlider.addEventListener('input', render);
+    tempSlider.addEventListener('input', render);
+    resetBtn.addEventListener('click', function () {
+      heatSlider.value = 50;
+      tempSlider.value = 80;
+      render();
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
