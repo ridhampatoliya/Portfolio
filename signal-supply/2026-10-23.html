@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-23","category":"URBAN MINING","headline":"A Dead Hard Drive Is a Richer Rare-Earth Mine Than Most Ore. Microsoft Just Recovered 90% of the Metal From 50,000 Pounds of Them","summary":"A hard drive's magnet is a far richer concentration of rare-earth metal than most mined ore. Microsoft just proved it can get that metal back out at scale, recovering roughly 90% of the neodymium, praseodymium and dysprosium from 50,000 pounds of retired data-center hard drives — and is now expanding the recycling sites to three continents.","whyItMatters":"As China tightens its grip on rare-earth refining, the AI boom's own retired hardware is turning into one of the only rare-earth supply chains that doesn't run through Beijing."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; A Dead Hard Drive Is a Richer Rare-Earth Mine Than Most Ore. Microsoft Just Recovered 90% of the Metal From 50,000 Pounds of Them</title>
+<meta name="description" content="A hard drive's magnet packs a far richer concentration of rare-earth metal than most mined ore. Microsoft just proved it can recover roughly 90% of it at scale &mdash; from its own retired data-center hardware." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #fcebd9;
+    --accent-b: #0f766e;
+    --accent-b-tint: #dcf1ee;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e2984f;
+      --accent-a-tint: #2e2010;
+      --accent-b: #45c4b5;
+      --accent-b-tint: #122524;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e2984f;
+    --accent-a-tint: #2e2010;
+    --accent-b: #45c4b5;
+    --accent-b-tint: #122524;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #fcebd9;
+    --accent-b: #0f766e;
+    --accent-b-tint: #dcf1ee;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: ore-grade comparator --- */
+  .om-header { margin-bottom: 4px; }
+  .om-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .om-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .om-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .om-tab {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .om-tab[aria-pressed="true"] { background: var(--accent-a); color: #fff; border-color: var(--accent-a); }
+
+  .om-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 20px 14px 10px;
+  }
+  #om-svg { display: block; width: 100%; height: auto; max-width: 480px; margin: 0 auto; }
+  .om-bar-bg { fill: var(--surface); stroke: var(--border); stroke-width: 1.5; }
+  .om-bar-fill { fill: var(--accent-a); }
+  @media (prefers-reduced-motion: no-preference) {
+    .om-bar-fill { transition: width 0.25s ease; }
+  }
+  .om-tick { stroke: var(--border); stroke-width: 1; }
+  .om-axis-label { font: 700 10px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); text-anchor: middle; }
+  .om-grade-label { font: 700 20px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--ink); text-anchor: middle; }
+  .om-grade-sub { font: 700 10.5px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); text-anchor: middle; letter-spacing: 0.05em; }
+
+  .om-controls { margin-top: 18px; }
+  .om-slider-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .om-slider-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    flex: 0 0 auto;
+    min-width: 128px;
+  }
+  .om-slider-row input[type="range"] {
+    flex: 1 1 160px;
+    min-width: 120px;
+    accent-color: var(--accent-a);
+  }
+  .om-slider-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    min-width: 6.5em;
+    text-align: right;
+  }
+
+  .om-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .om-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .om-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--bg); }
+  .om-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .om-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+  .om-ground-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 23, 2026</span>
+    <span class="category-chip">URBAN MINING</span>
+  </div>
+  <h1>A Dead Hard Drive Is a Richer Rare-Earth Mine Than Most Ore. Microsoft Just Recovered 90% of the Metal From 50,000 Pounds of Them.</h1>
+  <p class="lede">Somewhere inside every spinning hard drive is a small, strong permanent magnet made of neodymium, praseodymium and dysprosium &mdash; the same family of metals China dominates and has made steadily harder to buy. Starting last year, Microsoft began treating its own retired data-center hard drives as an ore body instead of landfill. The pilot processed about 50,000 pounds of them and recovered roughly 90% of the metal inside.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    In April 2025, Microsoft partnered with Western Digital and two specialty recyclers, Critical Materials Recycling and PedalPoint Recycling, on a pilot using an acid-free dissolution process &mdash; not conventional smelting &mdash; to pull neodymium, praseodymium, dysprosium, gold and copper out of roughly 50,000 pounds of shredded, end-of-life data-center hard drives and caddies. The partners report a 90% recovery yield and claim a 95% lower carbon footprint than mining and refining the same metals from ore; those are company-disclosed figures, and Microsoft has not publicly said how many pounds of rare-earth metal the pilot actually yielded. By February 2026, Microsoft said it would extend the approach to new recycling sites in Texas, Wales and Australia. The strategic backdrop: the U.S. Geological Survey puts China's share of global rare-earth refining capacity at roughly 90%, and Beijing's export-licensing rules now reach magnets built anywhere in the world if they contain even trace Chinese-origin material.
+  </div>
+
+  <div class="card om-card">
+    <div class="om-header">
+      <h2 class="om-title">Grade is the whole trick</h2>
+      <p class="om-caption mono">Illustrative, rounded figures, not Microsoft's own output data: typical mined rare-earth ore runs about 2% rare-earth oxide by weight; Mountain Pass, California &mdash; the richest deposit still operating &mdash; runs about 8%; a sintered neodymium magnet separated out of e-waste runs about 28% rare-earth metal by weight. These are concentrations, not yields &mdash; the 90% figure above describes Microsoft's recovery process, not this comparison. Pick a source, then drag the amount.</p>
+    </div>
+
+    <div class="om-tabs" role="group" aria-label="Rare-earth source">
+      <button type="button" class="om-tab" id="om-tab-2" data-grade="2" aria-pressed="true">Average ore &middot; 2%</button>
+      <button type="button" class="om-tab" id="om-tab-8" data-grade="8" aria-pressed="false">Mountain Pass ore &middot; 8%</button>
+      <button type="button" class="om-tab" id="om-tab-28" data-grade="28" aria-pressed="false">E-waste magnet &middot; 28%</button>
+    </div>
+
+    <div class="om-scene-wrap">
+      <svg id="om-svg" viewBox="0 0 480 110" role="img" aria-label="A horizontal bar where the filled portion shows what share, by weight, of the selected material is rare-earth metal.">
+        <rect class="om-bar-bg" x="40" y="30" width="400" height="36" rx="6"></rect>
+        <rect class="om-bar-fill" id="om-bar-fill" x="40" y="30" width="8" height="36" rx="6"></rect>
+        <line class="om-tick" x1="140" y1="30" x2="140" y2="66"></line>
+        <line class="om-tick" x1="240" y1="30" x2="240" y2="66"></line>
+        <line class="om-tick" x1="340" y1="30" x2="340" y2="66"></line>
+        <text class="om-axis-label" x="40" y="84">0%</text>
+        <text class="om-axis-label" x="140" y="84">25%</text>
+        <text class="om-axis-label" x="240" y="84">50%</text>
+        <text class="om-axis-label" x="340" y="84">75%</text>
+        <text class="om-axis-label" x="440" y="84">100%</text>
+        <text class="om-grade-label" id="om-grade-label" x="240" y="16">2% RARE-EARTH BY WEIGHT</text>
+      </svg>
+    </div>
+
+    <div class="om-controls">
+      <div class="om-slider-row">
+        <label class="om-slider-label" for="om-amount">Material processed</label>
+        <input type="range" id="om-amount" min="1000" max="500000" step="1000" value="50000" aria-valuetext="50,000 pounds" />
+        <span class="om-slider-value mono" id="om-amount-readout">50,000 lb</span>
+      </div>
+    </div>
+
+    <div class="om-stats" aria-live="polite">
+      <div class="om-stat">
+        <span class="om-stat-label mono">Grade</span>
+        <div class="om-stat-value mono" id="om-stat-grade">2%</div>
+      </div>
+      <div class="om-stat">
+        <span class="om-stat-label mono">Material processed</span>
+        <div class="om-stat-value mono" id="om-stat-amount">50,000 lb</div>
+      </div>
+      <div class="om-stat">
+        <span class="om-stat-label mono">Rare-earth content</span>
+        <div class="om-stat-value mono" id="om-stat-content">1,000 lb</div>
+      </div>
+      <div class="om-stat">
+        <span class="om-stat-label mono">Lb needed per 1 lb RE</span>
+        <div class="om-stat-value mono" id="om-stat-ratio">50</div>
+      </div>
+    </div>
+
+    <div class="om-ground-note">Microsoft's real pilot processed about 50,000 lb of shredded, end-of-life data-center hard drives and partners reported recovering roughly 90% of the metal present &mdash; a recycling-process yield, not the grade math above. The company hasn't disclosed the absolute pounds of rare-earth metal that pilot actually produced.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Inside every hard drive spinning away in a data center is a tiny but surprisingly powerful magnet, built from rare-earth metals most people have never heard of: neodymium, praseodymium, dysprosium. These are the magnets that snap a drive's read/write arm into position thousands of times a second. They're also the same family of metals used in EV motors, wind turbines and fighter-jet components &mdash; and China mines and refines the overwhelming majority of the world's supply, with export rules that have gotten tighter and harder to predict.</p>
+      <p>Here's the twist: once a hard drive gets old and gets pulled from service, that magnet doesn't disappear. It's sitting in a pile of shredded e-waste somewhere. Mining and recycling engineers have pointed out for years that a fistful of scrapped electronics can hold a far richer concentration of rare-earth metal than a fistful of dirt dug out of an actual mine. The problem has always been getting it back out economically, without a smelter and a mountain of acid.</p>
+      <p>Last year, Microsoft decided to try anyway. Working with hard-drive maker Western Digital and two specialty recyclers, it ran about 50,000 pounds of shredded, retired data-center hard drives through a chemical process designed to dissolve out the valuable metals selectively, rather than melting everything down in a furnace. The companies say they recovered roughly 90% of the rare-earth and precious metal that went in &mdash; neodymium, praseodymium, dysprosium, plus gold and copper &mdash; and claim doing it this way produces about 95% less carbon than digging the same metal out of the ground.</p>
+      <p>Microsoft has since said it's expanding the idea to new recycling sites in Texas, Wales and Australia. It's a rounding error next to global rare-earth demand today. But every AI data center on Earth is quietly generating more of exactly this kind of scrap, every single year, for the rest of the decade &mdash; and for the first time, someone is treating it like a mine instead of a dumpster.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The economics here rest on ore grade. A sintered neodymium-iron-boron (NdFeB) magnet &mdash; the type used in a hard drive's voice-coil actuator &mdash; runs roughly 25&ndash;32% rare-earth content by mass, chiefly neodymium and praseodymium, with smaller dysprosium and terbium additions for thermal stability at operating temperature. Compare that to mined ore: Mountain Pass, California's bastn&auml;site deposit, one of the richest still in commercial production, runs around 8% rare-earth oxide (REO); most operating deposits worldwide run closer to 1&ndash;3%. By concentration, a separated magnet is a higher-grade "deposit" than nearly anything still in the ground. The limiting factor has long been separation chemistry and collection logistics &mdash; sorting magnet-bearing scrap out of mixed waste streams and dissolving it cleanly &mdash; not scarcity of the metal itself.</p>
+      <p>In April 2025, Microsoft, Western Digital, and recyclers Critical Materials Recycling and PedalPoint Recycling launched a pilot applying an acid-free dissolution process &mdash; which selectively dissolves target metals from shredded feedstock rather than relying on high-temperature smelting or strong-acid leaching, the conventional e-waste recycling routes &mdash; to roughly 50,000 pounds (about 22.7 metric tons) of shredded, end-of-life data-center hard drives, mounting caddies and related hardware. The partners report recovering neodymium, praseodymium, dysprosium, gold and copper at a combined ~90% yield, with a life-cycle assessment claiming a 95% reduction in greenhouse-gas emissions versus primary mining and refining. Those figures are company-disclosed and not independently audited; one outlet reported that a Microsoft executive declined to disclose the absolute tonnage of rare-earth oxide actually recovered, so treat the percentages as self-reported pending third-party verification.</p>
+      <p>By February 2026, Microsoft said it would extend its Circular Centers model &mdash; a broader hardware reuse-and-recycling network it separately reports runs at a 90.9% overall component reuse/recycle rate &mdash; to new sites in San Antonio, Texas; Cardiff, Wales; and New South Wales, Australia. The strategic context: USGS estimates put China's share of global rare-earth separation and refining capacity at roughly 90%, and recent Chinese export-licensing rules extend jurisdiction to foreign-made magnets containing as little as 0.1% Chinese-origin rare-earth material by value, wherever they were manufactured &mdash; which makes a verifiably non-Chinese, recycled feedstock a genuine supply-chain hedge rather than purely an ESG exercise.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> As China tightens its grip on rare-earth refining, the AI boom's own retired hardware is turning into one of the only rare-earth supply chains that doesn't run through Beijing.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> A recycled, magnet-grade feedstock sidesteps both mined-ore scarcity and Chinese export licensing at once &mdash; which is why hyperscalers now have a cost and a security reason to treat their own hardware churn as a mine.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2025/04/17/sustainable-by-design-innovating-for-zero-waste/" target="_blank" rel="noopener">Microsoft &mdash; announcement of the rare-earth recovery pilot with Western Digital, Critical Materials Recycling and PedalPoint Recycling</a></li>
+    <li><a href="https://www.forbes.com/sites/tomcoughlin/2025/04/21/wdc-microsoft-and-material-recyclers-recover-rare-earths-from-hdds/" target="_blank" rel="noopener">Forbes (Tom Coughlin) &mdash; independent reporting on the pilot's volume, recovered materials and reported yield</a></li>
+    <li><a href="https://www.datacenterdynamics.com/en/news/western-digital-microsoft-launch-initiative-to-recycle-critical-minerals-from-disused-data-center-equipment/" target="_blank" rel="noopener">Data Center Dynamics &mdash; reporting on the initiative and the acid-free dissolution recycling method</a></li>
+    <li><a href="https://trellis.net/article/microsoft-mining-hard-drives-for-rare-earths/" target="_blank" rel="noopener">Trellis &mdash; reporting that Microsoft declined to disclose the absolute tonnage of rare-earth material recovered</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    // Grade x amount = theoretical rare-earth content. Grades are illustrative,
+    // rounded industry figures (see caption), not derived from Microsoft's own
+    // undisclosed pilot output.
+    var BAR_X = 40;
+    var BAR_W = 400;
+    var BAR_Y = 30;
+    var BAR_H = 36;
+
+    var tabs = [
+      document.getElementById('om-tab-2'),
+      document.getElementById('om-tab-8'),
+      document.getElementById('om-tab-28')
+    ];
+    var amountSlider = document.getElementById('om-amount');
+    var amountReadout = document.getElementById('om-amount-readout');
+    var barFill = document.getElementById('om-bar-fill');
+    var gradeLabel = document.getElementById('om-grade-label');
+    var statGrade = document.getElementById('om-stat-grade');
+    var statAmount = document.getElementById('om-stat-amount');
+    var statContent = document.getElementById('om-stat-content');
+    var statRatio = document.getElementById('om-stat-ratio');
+
+    var currentGrade = 2;
+
+    var GRADE_NAMES = { 2: 'AVERAGE ORE', 8: 'MOUNTAIN PASS ORE', 28: 'E-WASTE MAGNET' };
+
+    function fmt(n) {
+      return Math.round(n).toLocaleString('en-US');
+    }
+
+    function render() {
+      var amount = parseInt(amountSlider.value, 10);
+      var content = amount * (currentGrade / 100);
+      var ratio = 100 / currentGrade;
+
+      amountReadout.textContent = fmt(amount) + ' lb';
+      amountSlider.setAttribute('aria-valuetext', fmt(amount) + ' pounds');
+
+      var fillW = Math.max(4, BAR_W * (currentGrade / 100));
+      barFill.setAttribute('width', fillW.toFixed(1));
+
+      gradeLabel.textContent = currentGrade + '% RARE-EARTH BY WEIGHT — ' + GRADE_NAMES[currentGrade];
+
+      statGrade.textContent = currentGrade + '%';
+      statAmount.textContent = fmt(amount) + ' lb';
+      statContent.textContent = fmt(content) + ' lb';
+      statRatio.textContent = ratio < 10 ? ratio.toFixed(1) : fmt(ratio);
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        currentGrade = parseInt(tab.getAttribute('data-grade'), 10);
+        tabs.forEach(function (t) { t.setAttribute('aria-pressed', String(t === tab)); });
+        render();
+      });
+    });
+
+    amountSlider.addEventListener('input', render);
+
+    render();
+  })();
+</script>
+</body>
+</html>
