@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-24","category":"SEMICONDUCTORS","headline":"An AI Chip's Memory Stack Can Need Five Times More Testing Than an Ordinary Chip. Once It's Bonded, There's No Taking a Bad Layer Back Out","summary":"HBM memory can be nearly half an AI chip's cost, and a bad layer inside a bonded stack can't be fixed. Catching defects beforehand is funneling demand onto a tester duopoly — Advantest and Teradyne — both expected to report earnings this week.","whyItMatters":"If chip-testing capacity can't keep pace with AI chip demand, the next AI hardware bottleneck won't be fabs or export controls — it'll be two companies' order books."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; An AI Chip's Memory Stack Can Need Five Times More Testing Than an Ordinary Chip. Once It's Bonded, There's No Taking a Bad Layer Back Out</title>
+<meta name="description" content="HBM memory can be nearly half an AI chip's cost, and a bad layer inside a bonded stack can't be fixed after the fact. Catching defects before stacking is funneling AI-era demand onto just two chip-tester makers &mdash; Advantest and Teradyne." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c2410c;
+    --accent-a-tint: #fce7d6;
+    --accent-b: #1d4ed8;
+    --accent-b-tint: #dde6fb;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #f4976a;
+      --accent-a-tint: #30200f;
+      --accent-b: #7c9cff;
+      --accent-b-tint: #141b30;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #f4976a;
+    --accent-a-tint: #30200f;
+    --accent-b: #7c9cff;
+    --accent-b-tint: #141b30;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c2410c;
+    --accent-a-tint: #fce7d6;
+    --accent-b: #1d4ed8;
+    --accent-b-tint: #dde6fb;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: test-insertion race --- */
+  .tt-header { margin-bottom: 4px; }
+  .tt-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .tt-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .tt-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 10px 6px;
+  }
+  #tt-svg { display: block; width: 100%; height: auto; max-width: 620px; margin: 0 auto; }
+  .tt-lane-label { font: 700 10.5px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); text-anchor: middle; letter-spacing: 0.04em; }
+  .tt-chip-outline { fill: var(--surface); stroke: var(--border); stroke-width: 1.5; }
+  .tt-chip-outline.tt-active { stroke: var(--accent-b); fill: var(--accent-b-tint); }
+  .tt-layer { fill: var(--surface); stroke: var(--border); stroke-width: 1; }
+  .tt-layer.tt-active { fill: var(--accent-b); stroke: var(--accent-b); }
+  .tt-layer.tt-tested { fill: var(--accent-b-tint); stroke: var(--accent-b); }
+  .tt-bondbox { fill: none; stroke: none; stroke-width: 2; }
+  .tt-bondbox.tt-bonded { stroke: var(--accent-b); fill: var(--accent-b-tint); }
+  .tt-pill-bg { fill: var(--surface); stroke: var(--border); stroke-width: 1.5; }
+  .tt-pill-bg.tt-active { stroke: var(--accent-a); fill: var(--accent-a-tint); }
+  .tt-pill-text { font: 700 10px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); text-anchor: middle; }
+  .tt-pill-text.tt-active-text { fill: var(--accent-a); }
+  .tt-check { font-size: 16px; text-anchor: middle; opacity: 0; }
+  .tt-check.tt-show { opacity: 1; }
+  @media (prefers-reduced-motion: no-preference) {
+    .tt-layer, .tt-chip-outline, .tt-pill-bg, .tt-pill-text, .tt-check, .tt-bondbox { transition: fill 0.2s ease, stroke 0.2s ease, opacity 0.2s ease; }
+  }
+
+  .tt-controls { margin-top: 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+  .tt-slider-row { display: flex; align-items: center; gap: 10px; flex: 1 1 220px; }
+  .tt-slider-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .tt-slider-row input[type="range"] { flex: 1 1 120px; accent-color: var(--accent-b); }
+  .tt-slider-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    min-width: 3.5em;
+    text-align: right;
+  }
+  .tt-btns { display: flex; gap: 8px; }
+  .tt-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .tt-btn.tt-primary { background: var(--accent-b); color: #fff; border-color: var(--accent-b); }
+
+  .tt-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .tt-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .tt-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--surface); }
+  .tt-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .tt-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 13.5px;
+  }
+  .tt-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 24, 2026</span>
+    <span class="category-chip">SEMICONDUCTORS</span>
+  </div>
+  <h1>An AI Chip's Memory Stack Can Need Five Times More Testing Than an Ordinary Chip. Once It's Bonded, There's No Taking a Bad Layer Back Out.</h1>
+  <p class="lede">High-bandwidth memory (HBM) &mdash; the tower of stacked DRAM welded onto every serious AI chip &mdash; can account for nearly half the finished chip's cost. Once that stack is bonded, a flawed layer buried inside is unrecoverable. That math is funneling AI-era demand onto a two-company duopoly that builds almost every machine built to catch the flaw first &mdash; and both companies are expected to report earnings this week.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    HBM memory is built by stacking 4 to 16 ultra-thin DRAM dies and bonding them, through vertical through-silicon vias, onto a logic die &mdash; and because you cannot un-glue a finished stack to swap out one bad layer, fabs are pushed toward testing memory dies before they're ever stacked, then testing the bonded stack again, then the finished package, then often burning it in under heat. That multiplies the test insertions one AI chip needs relative to an ordinary chip. Nearly all of the specialized machines that do this testing are built by just two companies &mdash; Japan's Advantest and Massachusetts-based Teradyne &mdash; both expected to report quarterly results this week (around October 27&ndash;28), a live read on whether test capacity is keeping pace with AI chip demand or falling further behind it.
+  </div>
+
+  <div class="card tt-card">
+    <div class="tt-header">
+      <h2 class="tt-title">Why a bonded stack can't afford a bad layer</h2>
+      <p class="tt-caption mono">Simplified for illustration, not a real fab's exact flow: assumes one test touch per memory layer before stacking, plus one test of the bonded stack, one final package test and one burn-in. Real flows often substitute cheaper partial screening for full per-layer testing to save cost &mdash; but total test touches still scale with layer count, not chip count. Set the stack height (HBM ships in JEDEC-standard 4-Hi/8-Hi/12-Hi/16-Hi sizes), then press Run.</p>
+    </div>
+
+    <div class="tt-scene-wrap">
+      <svg id="tt-svg" viewBox="0 0 620 260" role="img" aria-label="Diagram comparing test touches for an ordinary chip versus a stacked HBM memory chip.">
+        <text class="tt-lane-label" x="130" y="18">ORDINARY CHIP</text>
+        <rect class="tt-chip-outline" id="tt-ord-chip" x="70" y="34" width="120" height="70" rx="8"></rect>
+
+        <rect class="tt-pill-bg" id="tt-ord-pill-1" x="60" y="118" width="140" height="22" rx="11"></rect>
+        <text class="tt-pill-text" id="tt-ord-pill-1-text" x="130" y="132">WAFER TEST</text>
+        <rect class="tt-pill-bg" id="tt-ord-pill-2" x="60" y="146" width="140" height="22" rx="11"></rect>
+        <text class="tt-pill-text" id="tt-ord-pill-2-text" x="130" y="160">FINAL TEST</text>
+        <text class="tt-check" id="tt-ord-check" x="130" y="196">&#9989; SHIPPED</text>
+
+        <text class="tt-lane-label" x="470" y="18">AI CHIP (HBM STACK)</text>
+        <rect class="tt-bondbox" id="tt-bondbox" x="415" y="30" width="110" height="80" rx="8"></rect>
+        <g id="tt-layers"></g>
+
+        <rect class="tt-pill-bg" id="tt-ai-pill-1" x="400" y="118" width="140" height="22" rx="11"></rect>
+        <text class="tt-pill-text" id="tt-ai-pill-1-text" x="470" y="132">KGD TEST &times; N</text>
+        <rect class="tt-pill-bg" id="tt-ai-pill-2" x="400" y="146" width="140" height="22" rx="11"></rect>
+        <text class="tt-pill-text" id="tt-ai-pill-2-text" x="470" y="160">BOND STACK</text>
+        <rect class="tt-pill-bg" id="tt-ai-pill-3" x="400" y="174" width="140" height="22" rx="11"></rect>
+        <text class="tt-pill-text" id="tt-ai-pill-3-text" x="470" y="188">FINAL TEST</text>
+        <rect class="tt-pill-bg" id="tt-ai-pill-4" x="400" y="202" width="140" height="22" rx="11"></rect>
+        <text class="tt-pill-text" id="tt-ai-pill-4-text" x="470" y="216">BURN-IN</text>
+        <text class="tt-check" id="tt-ai-check" x="470" y="246">&#9989; SHIPPED</text>
+      </svg>
+    </div>
+
+    <div class="tt-controls">
+      <div class="tt-slider-row">
+        <label class="tt-slider-label" for="tt-layers-slider">Stack height</label>
+        <input type="range" id="tt-layers-slider" min="4" max="16" step="4" value="8" aria-valuetext="8-Hi" />
+        <span class="tt-slider-value mono" id="tt-layers-readout">8-Hi</span>
+      </div>
+      <div class="tt-btns">
+        <button type="button" class="tt-btn tt-primary" id="tt-run-btn">Run &#9654;</button>
+        <button type="button" class="tt-btn" id="tt-reset-btn">Reset &#8634;</button>
+      </div>
+    </div>
+
+    <div class="tt-stats tabular" aria-live="polite">
+      <div class="tt-stat">
+        <span class="tt-stat-label mono">Stack height</span>
+        <div class="tt-stat-value mono" id="tt-stat-height">8-Hi</div>
+      </div>
+      <div class="tt-stat">
+        <span class="tt-stat-label mono">Ordinary chip touches</span>
+        <div class="tt-stat-value mono" id="tt-stat-ord">2</div>
+      </div>
+      <div class="tt-stat">
+        <span class="tt-stat-label mono">AI stack touches</span>
+        <div class="tt-stat-value mono" id="tt-stat-ai">11</div>
+      </div>
+      <div class="tt-stat">
+        <span class="tt-stat-label mono">Relative tester-time</span>
+        <div class="tt-stat-value mono" id="tt-stat-ratio">5.5&times;</div>
+      </div>
+    </div>
+
+    <div class="tt-note">Each extra touch also runs on a thinner, more fragile die: packing more layers into the same stack height means sawing and thinning each die down further, which is part of why a 12-Hi or 16-Hi stack is harder to test cleanly than a 4-Hi one &mdash; not just more work, but riskier work.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture a seven-layer wedding cake. If you only taste it after it's fully baked and iced, and it turns out the fourth layer from the bottom is bad, you can't fish it out &mdash; the whole cake is ruined. That's roughly the problem with the memory inside today's best AI chips.</p>
+      <p>An AI chip like the ones powering ChatGPT-style data centers isn't one piece of silicon. It's a logic chip with a tower of memory, called HBM, welded on top &mdash; built by stacking anywhere from 4 to 16 ultra-thin memory chips and bonding them together permanently. Once that stack is bonded, there's no opening it back up to swap out one flawed layer. And this memory tower isn't a cheap add-on: it can account for close to half the total cost of the finished AI chip. So a flaw found after bonding doesn't just waste a part &mdash; it can waste one of the most expensive parts of the whole chip.</p>
+      <p>That's why chipmakers try to test each memory layer before it ever gets stacked, test the stack again once it's bonded, test the finished, packaged part, and often "burn it in" by running it hot for hours to shake out anything that's going to fail early. An ordinary chip might get checked twice. An AI chip's memory can get checked five times or more, depending on how many layers are stacked.</p>
+      <p>Nearly all of that checking happens on giant, specialized machines called testers, built almost entirely by two companies: Japan's Advantest and Massachusetts-based Teradyne. There's no cheap third option &mdash; these machines take years to design and qualify. As AI chip demand exploded, demand for testers exploded right alongside it. Advantest just raised its profit forecast 21% and says it now builds roughly two-thirds of the world's logic-chip testers; Teradyne's revenue roughly doubled year-over-year last quarter on the same wave. Both are expected to report earnings this week &mdash; a live read on whether the testing bottleneck behind the AI boom is easing, or getting worse.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Chip test runs in discrete insertions. Wafer sort/probe test uses needle-tipped probe cards to contact bond pads on the still-whole wafer, screening gross defects and binning die by speed/power before the costly step of packaging is applied only to die likely to be good. Final/package test, after assembly, runs through the real package pins or interposer and exercises full functional, parametric and at-speed/at-voltage/at-temperature coverage; a failure here is usually scrapped outright, since rework after packaging is rarely economical. High-reliability parts add burn-in &mdash; extended operation under elevated voltage/temperature meant to force latent, "infant-mortality" defects to fail before shipment rather than in the field.</p>
+      <p>Advanced AI packages complicate that funnel. HBM stacks 4 to 16 DRAM dies (JEDEC-standard 4-Hi through 16-Hi configurations), connected vertically through through-silicon vias (TSVs), then bonds that stack to a logic die via thermal compression bonding &mdash; a step that can itself introduce defects such as opens, shorts and "head-in-pillow" connections, on top of mechanical stress from the wafer-thinning and sawing needed to make each die thin enough to stack. The textbook answer is known-good-die (KGD) testing: verifying each DRAM die individually before it's committed to the stack, since a flaw buried inside a bonded stack generally cannot be repaired. But full per-layer KGD screening is often not economical at AI-chip volumes, so fabs commonly mix cheaper partial pre-stack screening &mdash; including wafer-level burn-in &mdash; with full known-good-stack (KGS) testing after bonding. The stakes are real either way: HBM can account for close to half of a top-end AI chip's total bill of materials, so a defect caught only at final test destroys a disproportionately expensive part compared with a conventional, monolithic chip tested once or twice.</p>
+      <p>That dynamic is pushing test insertions, and tester-hours per chip, up faster than unit volumes &mdash; concentrating demand on a near-duopoly. Advantest, which estimates it now holds roughly two-thirds of the merchant SoC-tester market after gaining about 10 points of share in 2025, raised its operating-profit guidance roughly 21% (to &yen;454 billion) and is working to lift AI-tester production from about 3,000 units toward a 5,000-unit target its CEO has called a "bare minimum." Teradyne's Q2 2026 revenue reached $1.33 billion, up 104% year-over-year, with AI-linked demand exceeding 60% of total revenue and climbing. Both companies are expected to report quarterly results this week &mdash; Teradyne around October 27, Advantest around October 28 &mdash; the next data point on whether test capacity is catching up to AI chip demand or still falling behind it.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> If the machines that test AI chips can't keep up with demand, the next AI hardware shortage won't be about fabs or export rules &mdash; it'll be about two companies' order books.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Test-insertion count, not just fab or packaging capacity, is becoming a hard constraint on AI chip supply &mdash; concentrating leverage in a near-duopoly whose capital-equipment lead times run in years, not quarters.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.rcrwireless.com/20260130/test-measurement/advantest-rises-with-the-ai-tide" target="_blank" rel="noopener">RCR Wireless &mdash; Advantest's raised profit guidance, SoC-tester share gains and AI-tester unit ramp</a></li>
+    <li><a href="https://www.ajot.com/news/chatgpt-buzz-fuels-demand-for-chips-and-gear-advantest-says" target="_blank" rel="noopener">American Journal of Transportation (AJOT) &mdash; Advantest on AI-driven chip-test equipment demand</a></li>
+    <li><a href="https://www.nasdaq.com/articles/ter-rides-strong-ai-infrastructure-demand-sign-more-upside" target="_blank" rel="noopener">Nasdaq &mdash; Teradyne's AI-driven revenue growth and semiconductor test segment</a></li>
+    <li><a href="https://semiengineering.com/hbm-shifts-testing-left-to-preserve-ai-chip-yield/" target="_blank" rel="noopener">Semiconductor Engineering &mdash; why HBM stacking pushes known-good-die/known-good-stack testing earlier in the flow</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var LAYERS_NS = 'http://www.w3.org/2000/svg';
+    var slider = document.getElementById('tt-layers-slider');
+    var readout = document.getElementById('tt-layers-readout');
+    var layersGroup = document.getElementById('tt-layers');
+    var bondbox = document.getElementById('tt-bondbox');
+    var runBtn = document.getElementById('tt-run-btn');
+    var resetBtn = document.getElementById('tt-reset-btn');
+    var svg = document.getElementById('tt-svg');
+
+    var statHeight = document.getElementById('tt-stat-height');
+    var statOrd = document.getElementById('tt-stat-ord');
+    var statAi = document.getElementById('tt-stat-ai');
+    var statRatio = document.getElementById('tt-stat-ratio');
+
+    var ordChip = document.getElementById('tt-ord-chip');
+    var ordPill1 = document.getElementById('tt-ord-pill-1');
+    var ordPill1Text = document.getElementById('tt-ord-pill-1-text');
+    var ordPill2 = document.getElementById('tt-ord-pill-2');
+    var ordPill2Text = document.getElementById('tt-ord-pill-2-text');
+    var ordCheck = document.getElementById('tt-ord-check');
+
+    var aiPill1 = document.getElementById('tt-ai-pill-1');
+    var aiPill1Text = document.getElementById('tt-ai-pill-1-text');
+    var aiPill2 = document.getElementById('tt-ai-pill-2');
+    var aiPill2Text = document.getElementById('tt-ai-pill-2-text');
+    var aiPill3 = document.getElementById('tt-ai-pill-3');
+    var aiPill3Text = document.getElementById('tt-ai-pill-3-text');
+    var aiPill4 = document.getElementById('tt-ai-pill-4');
+    var aiPill4Text = document.getElementById('tt-ai-pill-4-text');
+    var aiCheck = document.getElementById('tt-ai-check');
+
+    var STACK_X = 420;
+    var STACK_Y = 34;
+    var STACK_W = 100;
+    var STACK_H = 72;
+
+    var timers = [];
+    var layerRects = [];
+
+    function reduceMotion() {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function clearTimers() {
+      timers.forEach(function (t) { clearTimeout(t); });
+      timers = [];
+    }
+
+    function buildLayers(n) {
+      layersGroup.innerHTML = '';
+      layerRects = [];
+      var h = STACK_H / n;
+      for (var i = 0; i < n; i++) {
+        var r = document.createElementNS(LAYERS_NS, 'rect');
+        r.setAttribute('class', 'tt-layer');
+        r.setAttribute('x', STACK_X);
+        r.setAttribute('y', STACK_Y + i * h);
+        r.setAttribute('width', STACK_W);
+        r.setAttribute('height', Math.max(h - 1, 1));
+        layersGroup.appendChild(r);
+        layerRects.push(r);
+      }
+    }
+
+    function clearAllStates() {
+      clearTimers();
+      ordChip.classList.remove('tt-active');
+      [ordPill1, ordPill2].forEach(function (p) { p.classList.remove('tt-active'); });
+      [ordPill1Text, ordPill2Text].forEach(function (p) { p.classList.remove('tt-active-text'); });
+      ordCheck.classList.remove('tt-show');
+
+      layerRects.forEach(function (r) { r.classList.remove('tt-active', 'tt-tested'); });
+      bondbox.classList.remove('tt-bonded');
+      [aiPill1, aiPill2, aiPill3, aiPill4].forEach(function (p) { p.classList.remove('tt-active'); });
+      [aiPill1Text, aiPill2Text, aiPill3Text, aiPill4Text].forEach(function (p) { p.classList.remove('tt-active-text'); });
+      aiCheck.classList.remove('tt-show');
+    }
+
+    function computeStats(n) {
+      var ord = 2;
+      var ai = n + 3;
+      var ratio = (ai / ord);
+      return { ord: ord, ai: ai, ratio: ratio };
+    }
+
+    function updateStats(n) {
+      var s = computeStats(n);
+      statHeight.textContent = n + '-Hi';
+      statOrd.textContent = String(s.ord);
+      statAi.textContent = String(s.ai);
+      statRatio.textContent = s.ratio.toFixed(1) + '×';
+      readout.textContent = n + '-Hi';
+      slider.setAttribute('aria-valuetext', n + '-Hi');
+      var label = 'Diagram comparing test touches: ordinary chip ' + s.ord + ', ' + n + '-Hi AI memory stack needs ' + s.ai + ' — about ' + s.ratio.toFixed(1) + ' times more.';
+      svg.setAttribute('aria-label', label);
+    }
+
+    function renderStatic(n) {
+      clearAllStates();
+      ordChip.classList.add('tt-active');
+      ordPill1.classList.add('tt-active'); ordPill1Text.classList.add('tt-active-text');
+      ordPill2.classList.add('tt-active'); ordPill2Text.classList.add('tt-active-text');
+      ordCheck.classList.add('tt-show');
+
+      layerRects.forEach(function (r) { r.classList.add('tt-tested'); });
+      bondbox.classList.add('tt-bonded');
+      [aiPill1, aiPill2, aiPill3, aiPill4].forEach(function (p) { p.classList.add('tt-active'); });
+      [aiPill1Text, aiPill2Text, aiPill3Text, aiPill4Text].forEach(function (p) { p.classList.add('tt-active-text'); });
+      aiCheck.classList.add('tt-show');
+      updateStats(n);
+    }
+
+    function runAnimation(n) {
+      clearAllStates();
+      updateStats(n);
+      var step = Math.max(90, Math.min(160, 900 / n));
+
+      timers.push(setTimeout(function () { ordChip.classList.add('tt-active'); }, 60));
+      timers.push(setTimeout(function () {
+        ordPill1.classList.add('tt-active'); ordPill1Text.classList.add('tt-active-text');
+      }, 160));
+      timers.push(setTimeout(function () {
+        ordPill1.classList.remove('tt-active'); ordPill1Text.classList.remove('tt-active-text');
+        ordPill2.classList.add('tt-active'); ordPill2Text.classList.add('tt-active-text');
+      }, 500));
+      timers.push(setTimeout(function () {
+        ordPill2.classList.remove('tt-active'); ordPill2Text.classList.remove('tt-active-text');
+        ordCheck.classList.add('tt-show');
+      }, 820));
+
+      timers.push(setTimeout(function () {
+        aiPill1.classList.add('tt-active'); aiPill1Text.classList.add('tt-active-text');
+      }, 60));
+
+      layerRects.forEach(function (r, i) {
+        timers.push(setTimeout(function () {
+          r.classList.add('tt-active');
+        }, 120 + i * step));
+        timers.push(setTimeout(function () {
+          r.classList.remove('tt-active');
+          r.classList.add('tt-tested');
+        }, 120 + i * step + step * 0.7));
+      });
+
+      var afterLayers = 120 + n * step + 150;
+      timers.push(setTimeout(function () {
+        aiPill1.classList.remove('tt-active'); aiPill1Text.classList.remove('tt-active-text');
+        aiPill2.classList.add('tt-active'); aiPill2Text.classList.add('tt-active-text');
+      }, afterLayers));
+      timers.push(setTimeout(function () {
+        bondbox.classList.add('tt-bonded');
+      }, afterLayers + 120));
+      timers.push(setTimeout(function () {
+        aiPill2.classList.remove('tt-active'); aiPill2Text.classList.remove('tt-active-text');
+        aiPill3.classList.add('tt-active'); aiPill3Text.classList.add('tt-active-text');
+      }, afterLayers + 420));
+      timers.push(setTimeout(function () {
+        aiPill3.classList.remove('tt-active'); aiPill3Text.classList.remove('tt-active-text');
+        aiPill4.classList.add('tt-active'); aiPill4Text.classList.add('tt-active-text');
+      }, afterLayers + 740));
+      timers.push(setTimeout(function () {
+        aiPill4.classList.remove('tt-active'); aiPill4Text.classList.remove('tt-active-text');
+        aiCheck.classList.add('tt-show');
+      }, afterLayers + 1060));
+    }
+
+    function rebuild() {
+      var n = parseInt(slider.value, 10);
+      buildLayers(n);
+      if (reduceMotion()) {
+        renderStatic(n);
+      } else {
+        clearAllStates();
+        updateStats(n);
+      }
+    }
+
+    slider.addEventListener('input', rebuild);
+    runBtn.addEventListener('click', function () {
+      var n = parseInt(slider.value, 10);
+      if (reduceMotion()) {
+        renderStatic(n);
+      } else {
+        runAnimation(n);
+      }
+    });
+    resetBtn.addEventListener('click', function () {
+      var n = parseInt(slider.value, 10);
+      clearAllStates();
+      updateStats(n);
+    });
+
+    rebuild();
+  })();
+</script>
+</body>
+</html>
