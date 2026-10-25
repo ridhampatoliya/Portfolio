@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-25","category":"AI FINANCE","headline":"Meta's Newest AI Data Center Cost $27 Billion. None of That Debt Is on Meta's Balance Sheet","summary":"Meta's $27B Hyperion AI data center is funded through a Blue Owl joint venture, not Meta's own books — Meta owns 20%, guarantees the lease for 16 years, and S&P still rated the bonds A+. This off-books structure now covers an estimated $135B industry-wide, and the BIS just flagged it as a 2008-style risk.","whyItMatters":"The debt financing AI's physical buildout increasingly sits off the books of the companies ordering it — which is exactly the structure central banks say could amplify, not absorb, a slowdown in AI spending."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Meta's Newest AI Data Center Cost $27 Billion. None of That Debt Is on Meta's Balance Sheet</title>
+<meta name="description" content="Meta's $27 billion Hyperion AI data center is funded through a Blue Owl joint venture, not Meta's own balance sheet. The same off-books trick now covers an estimated $135 billion of AI buildout debt industry-wide &mdash; and central banks just called it a systemic risk." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b45309;
+    --accent-a-tint: #fbead0;
+    --accent-b: #3949ab;
+    --accent-b-tint: #e2e5f9;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #f3b561;
+      --accent-a-tint: #2c2108;
+      --accent-b: #96a6ff;
+      --accent-b-tint: #171c35;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #f3b561;
+    --accent-a-tint: #2c2108;
+    --accent-b: #96a6ff;
+    --accent-b-tint: #171c35;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b45309;
+    --accent-a-tint: #fbead0;
+    --accent-b: #3949ab;
+    --accent-b-tint: #e2e5f9;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: who holds the debt --- */
+  .bs-header { margin-bottom: 4px; }
+  .bs-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .bs-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .bs-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 10px 6px;
+  }
+  #bs-svg { display: block; width: 100%; height: auto; max-width: 640px; margin: 0 auto; }
+  .bs-box { fill: var(--surface); stroke: var(--border); stroke-width: 1.5; }
+  .bs-box-title { font: 700 11.5px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--ink); text-anchor: middle; letter-spacing: 0.02em; }
+  .bs-box-sub { font: 500 9.5px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); text-anchor: middle; }
+  .bs-arrow { fill: none; stroke: var(--border); stroke-width: 2; }
+  .bs-arrow.bs-active { stroke: var(--accent-b); stroke-width: 2.6; }
+  .bs-arrow-dashed { fill: none; stroke: var(--border); stroke-width: 1.6; stroke-dasharray: 5 5; }
+  .bs-arrow-dashed.bs-active { stroke: var(--accent-a); stroke-width: 2.2; }
+  .bs-marker-fill { fill: var(--border); }
+  .bs-marker-fill-a { fill: var(--border); }
+  .bs-arrow-label { font: 700 9px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); text-anchor: middle; letter-spacing: 0.03em; }
+  .bs-arrow-label.bs-active-label { fill: var(--accent-b); }
+  .bs-arrow-label.bs-active-label-a { fill: var(--accent-a); }
+  .bs-badge-bg { fill: var(--accent-a-tint); stroke: var(--accent-a); stroke-width: 1.6; }
+  .bs-badge-text { font: 700 12px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--accent-a); text-anchor: middle; }
+  #bs-badge { transform: translate(0px, 0px); }
+  @media (prefers-reduced-motion: no-preference) {
+    #bs-badge { transition: transform 0.6s cubic-bezier(.4,0,.2,1); }
+    .bs-arrow, .bs-arrow-dashed, .bs-arrow-label { transition: stroke 0.2s ease, fill 0.2s ease, stroke-width 0.2s ease; }
+  }
+
+  .bs-controls { margin-top: 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+  .bs-toggle-row { display: flex; align-items: center; gap: 8px; flex: 1 1 260px; }
+  .bs-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .bs-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .bs-btn.bs-primary { background: var(--accent-b); color: #fff; border-color: var(--accent-b); }
+  .bs-btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+  .bs-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .bs-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .bs-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--surface); }
+  .bs-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .bs-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .bs-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 25, 2026</span>
+    <span class="category-chip">AI FINANCE</span>
+  </div>
+  <h1>Meta's Newest AI Data Center Cost $27 Billion. None of That Debt Is on Meta's Balance Sheet.</h1>
+  <p class="lede">Meta's Hyperion campus in rural Louisiana needed $27 billion to build. Meta didn't borrow it. A joint venture with private-credit firm Blue Owl Capital did &mdash; and that one structural trick, legal and now widespread across the AI buildout, is large enough that central banks have started calling it a financial-stability risk.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Meta owns just 20% of the venture that owns Hyperion. Funds managed by Blue Owl own the other 80% and hold the $27 billion in bonds that paid for it &mdash; anchored by PIMCO, with BlackRock buying over $3 billion more. Meta leases the finished campus and has guaranteed it'll keep paying for the next 16 years. That guarantee is why S&amp;P still rated the bonds A+, just one notch below Meta's own corporate rating &mdash; even though none of the $27 billion counts as Meta's debt.
+  </div>
+
+  <div class="card bs-card">
+    <div class="bs-header">
+      <h2 class="bs-title">Whose balance sheet is the $27 billion actually on?</h2>
+      <p class="bs-caption mono">Simplified from the real Hyperion deal: dollar splits for equity differ slightly across reports, so this uses the consistently-reported ~80/20 ownership split and the $27B bond figure. Toggle which structure you're looking at, then press Run to watch the money move.</p>
+    </div>
+
+    <div class="bs-scene-wrap">
+      <svg id="bs-svg" viewBox="0 0 640 290" role="img" aria-label="Diagram of Meta's Hyperion data center financing, showing debt sitting on the joint venture's books, guaranteed by Meta, instead of on Meta's own balance sheet.">
+        <rect class="bs-box" x="15" y="60" width="160" height="56" rx="8"></rect>
+        <text class="bs-box-title" x="95" y="82">META</text>
+        <text class="bs-box-sub" x="95" y="98">public co. &middot; AA- rated</text>
+
+        <rect class="bs-box" x="240" y="60" width="160" height="56" rx="8"></rect>
+        <text class="bs-box-title" x="320" y="78">JOINT VENTURE</text>
+        <text class="bs-box-sub" x="320" y="92">the SPV</text>
+        <text class="bs-box-sub" x="320" y="104">not consolidated</text>
+
+        <rect class="bs-box" x="465" y="60" width="160" height="56" rx="8"></rect>
+        <text class="bs-box-title" x="545" y="82">BOND INVESTORS</text>
+        <text class="bs-box-sub" x="545" y="98">PIMCO &middot; BlackRock</text>
+
+        <rect class="bs-box" x="240" y="208" width="160" height="56" rx="8"></rect>
+        <text class="bs-box-title" x="320" y="230">DATA CENTER</text>
+        <text class="bs-box-sub" x="320" y="246">Hyperion, LA &middot; 2+ GW</text>
+
+        <path class="bs-arrow" id="bs-eq-arrow" d="M177,88 L238,88" marker-end="url(#bs-arrowhead)"></path>
+        <text class="bs-arrow-label" id="bs-eq-label" x="207" y="76">EQUITY, 20%</text>
+
+        <path class="bs-arrow" id="bs-debt-arrow" d="M463,88 L402,88" marker-end="url(#bs-arrowhead)"></path>
+        <text class="bs-arrow-label" id="bs-debt-label" x="433" y="76">$27B BONDS</text>
+
+        <path class="bs-arrow" id="bs-build-arrow" d="M400,116 L400,206" marker-end="url(#bs-arrowhead)"></path>
+        <text class="bs-arrow-label" id="bs-build-label" x="430" y="162" transform="rotate(90 430 162)">BUILDS</text>
+
+        <path class="bs-arrow-dashed" id="bs-lease-arrow" d="M240,225 C145,225 100,180 95,118" marker-end="url(#bs-arrowhead-a)"></path>
+        <text class="bs-arrow-label" id="bs-lease-label" x="118" y="190">LEASES &amp; PAYS RENT</text>
+
+        <path class="bs-arrow-dashed" id="bs-guarantee-arrow" d="M95,58 C200,24 420,24 525,58" marker-end="url(#bs-arrowhead-a)"></path>
+        <text class="bs-arrow-label" id="bs-guarantee-label" x="320" y="42">META GUARANTEES PAYMENT, 16 YRS</text>
+
+        <g id="bs-badge">
+          <rect class="bs-badge-bg" x="240" y="134" width="160" height="26" rx="13"></rect>
+          <text class="bs-badge-text" x="320" y="151">$27B DEBT SITS HERE</text>
+        </g>
+
+        <defs>
+          <marker id="bs-arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path class="bs-marker-fill" d="M0,0 L8,4 L0,8 Z"></path>
+          </marker>
+          <marker id="bs-arrowhead-a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path class="bs-marker-fill-a" d="M0,0 L8,4 L0,8 Z"></path>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="bs-controls">
+      <div class="bs-toggle-row" role="group" aria-label="Financing structure">
+        <button type="button" class="bs-btn" id="bs-btn-actual" aria-pressed="true">Actual: off Meta's books</button>
+        <button type="button" class="bs-btn" id="bs-btn-classic" aria-pressed="false">Hypothetical: on Meta's books</button>
+      </div>
+      <div class="bs-btns">
+        <button type="button" class="bs-btn bs-primary" id="bs-run-btn">Run &#9654;</button>
+        <button type="button" class="bs-btn" id="bs-reset-btn">Reset &#8634;</button>
+      </div>
+    </div>
+
+    <div class="bs-stats tabular" aria-live="polite">
+      <div class="bs-stat">
+        <span class="bs-stat-label mono">Structure shown</span>
+        <div class="bs-stat-value mono" id="bs-stat-structure">Off Meta's books</div>
+      </div>
+      <div class="bs-stat">
+        <span class="bs-stat-label mono">On Meta's balance sheet</span>
+        <div class="bs-stat-value mono" id="bs-stat-onsheet">$0.0B</div>
+      </div>
+      <div class="bs-stat">
+        <span class="bs-stat-label mono">Meta's economic exposure</span>
+        <div class="bs-stat-value mono" id="bs-stat-exposure">$27.0B</div>
+      </div>
+      <div class="bs-stat">
+        <span class="bs-stat-label mono">Bond rating</span>
+        <div class="bs-stat-value mono" id="bs-stat-rating">A+ (S&amp;P)</div>
+      </div>
+    </div>
+
+    <div class="bs-note">The middle two numbers are the point: switching structures changes what Meta has to report as debt, but not what Meta is actually on the hook to pay if the venture can't. The lease-and-guarantee arrow stays live either way.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture a landlord building you a custom mansion. You don't take out the mortgage &mdash; the landlord's investors do. You put up a fifth of the cash to co-own the place, agree to rent it starting the day it's finished, and privately promise to keep paying rent, and cover part of the exit cost, for the next sixteen years even if you don't end up needing it. The bank is thrilled: you're good for it, so the loan is rated almost as safely as if you'd signed it yourself. It just isn't, on paper, your mortgage.</p>
+      <p>That's roughly what Meta did to build Hyperion, its newest AI data center campus, in rural Richland Parish, Louisiana. The campus needed $27 billion. Instead of Meta borrowing that money and listing it as debt on its own books, Meta formed a joint venture with Blue Owl Capital, a private-credit firm. Blue Owl's investors &mdash; fund giant PIMCO put up the most, BlackRock bought over $3 billion of the bonds &mdash; now own about 80% of the venture and hold all $27 billion of its debt. Meta owns the other 20%, leases the finished buildings, and has guaranteed it'll keep paying for 16 years. Because of that guarantee, S&amp;P still gave the bonds a solid A+ grade, one notch below Meta's own corporate credit rating, even though none of the $27 billion shows up as Meta's debt.</p>
+      <p>This trick, perfectly legal and increasingly common, is now how a huge share of the AI data center boom gets built. Private lenders are estimated to be holding well over $100 billion of this kind of debt, up from almost nothing three years ago, and central bankers have started warning it could snap back hard if AI spending ever slows.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The mechanism is a joint-venture special-purpose vehicle (SPV) structured to stay unconsolidated under U.S. GAAP's variable-interest-entity rules. Meta's Hyperion campus, a 2-plus-gigawatt AI compute site, sits inside a venture roughly 80%-owned by funds managed by Blue Owl Capital, with Meta holding the remaining 20% equity stake. The venture raised about $27 billion through a privately placed bond offering arranged by Morgan Stanley &mdash; PIMCO was the anchor buyer, BlackRock purchased more than $3 billion &mdash; with the bonds maturing around 2049.</p>
+      <p>Meta signs an initial four-year lease on the finished facility, renewable, and separately provides a payment guarantee covering roughly the first 16 years of the venture's debt service, plus a residual-value guarantee tied to the underlying assets. That guarantee is what let S&amp;P rate the bonds A+, one notch below Meta's own corporate issuer rating, despite the debt sitting on the SPV's books rather than Meta's consolidated balance sheet. The accounting rests on Meta not holding a "controlling financial interest" in the entity under ASC 810, even though its guarantee effectively backstops the credit &mdash; a structure commentators have compared to project financing long used for pipelines and power plants, now imported into AI compute.</p>
+      <p>The practice has scaled fast. Industry estimates put private-credit funds' AI data-center debt holdings at roughly $135 billion, up from about $40 billion in 2023, against a separate estimate that AI-related data-center capex could reach $2.9 trillion through 2028, with over half requiring external financing. The Bank for International Settlements' June 2026 Annual Economic Report explicitly flagged this debt-fueled, non-bank-intermediated financing chain as a risk resembling pre-2008 conditions, warning that a hyperscaler capex slowdown could leave AI-supply-chain borrowers unable to service debt. Oracle, which leans on similar leveraged structures for its own AI buildout, saw its five-year credit-default-swap spread hit roughly 2.03 percentage points in July 2026 &mdash; an 18-year high &mdash; after S&amp;P downgraded its issuer rating to BBB-, one notch above speculative grade.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> The debt financing AI's physical buildout &mdash; chips, power, concrete &mdash; increasingly sits off the books of the companies ordering it, which is exactly the structure central banks say could amplify, not absorb, a slowdown in AI spending.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Non-recourse-in-name-only SPV debt is becoming the dominant funding rail for AI data centers, concentrating risk in private-credit portfolios that are far less transparent, and far less regulated, than the hyperscalers' own audited balance sheets.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.datacenterdynamics.com/en/news/meta-forms-27-billion-joint-venture-with-blue-owl-to-fund-gigawatt-scale-ai-data-center-campus-in-louisiana" target="_blank" rel="noopener">Data Center Dynamics &mdash; Meta's $27B joint venture with Blue Owl for the Hyperion campus</a></li>
+    <li><a href="https://fortune.com/2025/10/31/metas-27-billion-bet-turns-ai-compute-into-wall-streets-hottest-new-investment/" target="_blank" rel="noopener">Fortune &mdash; how the Hyperion SPV is structured, and why Wall Street wants in</a></li>
+    <li><a href="https://cointelegraph.com/news/bis-sounds-alarm-on-ai-exuberance-as-debt-fueled-boom-risks-bust" target="_blank" rel="noopener">Cointelegraph &mdash; the BIS's June 2026 warning on debt-fueled AI data center financing</a></li>
+    <li><a href="https://www.sherwood.news/markets/markets-are-getting-more-concerned-about-oracles-ai-data-center-debt/" target="_blank" rel="noopener">Sherwood News &mdash; Oracle's AI-debt-driven credit-default-swap spike</a></li>
+    <li><a href="https://cybernews.com/ai-news/five-debt-hotspots-ai-data-centre-boom/" target="_blank" rel="noopener">Cybernews &mdash; private credit's roughly $135B exposure to AI data center debt</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var btnActual = document.getElementById('bs-btn-actual');
+    var btnClassic = document.getElementById('bs-btn-classic');
+    var runBtn = document.getElementById('bs-run-btn');
+    var resetBtn = document.getElementById('bs-reset-btn');
+    var badge = document.getElementById('bs-badge');
+
+    var eqArrow = document.getElementById('bs-eq-arrow');
+    var eqLabel = document.getElementById('bs-eq-label');
+    var debtArrow = document.getElementById('bs-debt-arrow');
+    var debtLabel = document.getElementById('bs-debt-label');
+    var buildArrow = document.getElementById('bs-build-arrow');
+    var buildLabel = document.getElementById('bs-build-label');
+    var leaseArrow = document.getElementById('bs-lease-arrow');
+    var leaseLabel = document.getElementById('bs-lease-label');
+    var guaranteeArrow = document.getElementById('bs-guarantee-arrow');
+    var guaranteeLabel = document.getElementById('bs-guarantee-label');
+
+    var statStructure = document.getElementById('bs-stat-structure');
+    var statOnSheet = document.getElementById('bs-stat-onsheet');
+    var statExposure = document.getElementById('bs-stat-exposure');
+    var statRating = document.getElementById('bs-stat-rating');
+
+    var BADGE_HOME_ACTUAL = 0;
+    var BADGE_HOME_CLASSIC = -225;
+
+    var state = 'actual';
+    var timers = [];
+
+    function reduceMotion() {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function clearTimers() {
+      timers.forEach(function (t) { clearTimeout(t); });
+      timers = [];
+    }
+
+    function clearHighlights() {
+      [eqArrow, debtArrow, buildArrow].forEach(function (a) { a.classList.remove('bs-active'); });
+      [leaseArrow, guaranteeArrow].forEach(function (a) { a.classList.remove('bs-active'); });
+      [eqLabel, debtLabel, buildLabel].forEach(function (l) { l.classList.remove('bs-active-label'); });
+      [leaseLabel, guaranteeLabel].forEach(function (l) { l.classList.remove('bs-active-label-a'); });
+    }
+
+    function placeBadge(targetState) {
+      var tx = targetState === 'actual' ? BADGE_HOME_ACTUAL : BADGE_HOME_CLASSIC;
+      badge.style.transform = 'translate(' + tx + 'px, 0px)';
+    }
+
+    function updateStats(targetState) {
+      if (targetState === 'actual') {
+        statStructure.textContent = "Off Meta's books";
+        statOnSheet.textContent = '$0.0B';
+        statExposure.textContent = '$27.0B';
+        statRating.textContent = 'A+ (S&P)';
+      } else {
+        statStructure.textContent = "On Meta's books";
+        statOnSheet.textContent = '$27.0B';
+        statExposure.textContent = '$27.0B';
+        statRating.textContent = "Rides Meta's own AA-";
+      }
+    }
+
+    function setButtons(targetState) {
+      btnActual.setAttribute('aria-pressed', String(targetState === 'actual'));
+      btnClassic.setAttribute('aria-pressed', String(targetState === 'classic'));
+    }
+
+    function setState(targetState, animate) {
+      state = targetState;
+      setButtons(targetState);
+      updateStats(targetState);
+
+      if (!animate || reduceMotion()) {
+        clearTimers();
+        clearHighlights();
+        placeBadge(targetState);
+        return;
+      }
+      runFlow(targetState);
+    }
+
+    function runFlow(targetState) {
+      clearTimers();
+      clearHighlights();
+
+      timers.push(setTimeout(function () {
+        eqArrow.classList.add('bs-active'); eqLabel.classList.add('bs-active-label');
+      }, 60));
+      timers.push(setTimeout(function () {
+        debtArrow.classList.add('bs-active'); debtLabel.classList.add('bs-active-label');
+      }, 420));
+      timers.push(setTimeout(function () {
+        buildArrow.classList.add('bs-active'); buildLabel.classList.add('bs-active-label');
+      }, 780));
+      timers.push(setTimeout(function () {
+        leaseArrow.classList.add('bs-active'); leaseLabel.classList.add('bs-active-label-a');
+      }, 1140));
+      timers.push(setTimeout(function () {
+        guaranteeArrow.classList.add('bs-active'); guaranteeLabel.classList.add('bs-active-label-a');
+      }, 1500));
+      timers.push(setTimeout(function () {
+        placeBadge(targetState);
+      }, 1860));
+      timers.push(setTimeout(function () {
+        clearHighlights();
+      }, 2600));
+    }
+
+    btnActual.addEventListener('click', function () { setState('actual', false); });
+    btnClassic.addEventListener('click', function () { setState('classic', false); });
+    runBtn.addEventListener('click', function () { setState(state, true); });
+    resetBtn.addEventListener('click', function () { setState('actual', false); });
+
+    setState('actual', false);
+  })();
+</script>
+</body>
+</html>
