@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-26","category":"GRID EQUIPMENT","headline":"An AI Data Center Can Be Built in 18 Months. The Transformer That Powers It Can Take Five Years","summary":"Hyperscalers can frame and fit out an AI data center in about 18 months. The giant transformer connecting it to the grid now takes two to five years to arrive, up from under two before 2020 — a mismatch analysts say is delaying or canceling close to half of 2026's planned U.S. data center capacity.","whyItMatters":"The AI buildout's real bottleneck isn't GPUs anymore — it's a 19th-century grid component now backlogged years behind the buildings it's meant to power."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; An AI Data Center Can Be Built in 18 Months. The Transformer That Powers It Can Take Five Years</title>
+<meta name="description" content="A hyperscale AI data center's shell goes up in about 18 months. The transformer that connects it to the grid now takes two to five years to arrive. That mismatch, not GPU supply, is the thing quietly delaying or canceling half of 2026's planned U.S. data center capacity." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c2410c;
+    --accent-a-tint: #fbe3d2;
+    --accent-b: #0f766e;
+    --accent-b-tint: #d9f0ec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #fb923c;
+      --accent-a-tint: #2e1708;
+      --accent-b: #5eead4;
+      --accent-b-tint: #0c2624;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #fb923c;
+    --accent-a-tint: #2e1708;
+    --accent-b: #5eead4;
+    --accent-b-tint: #0c2624;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c2410c;
+    --accent-a-tint: #fbe3d2;
+    --accent-b: #0f766e;
+    --accent-b-tint: #d9f0ec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the lead-time race --- */
+  .lt-header { margin-bottom: 4px; }
+  .lt-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .lt-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .lt-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 10px 10px;
+  }
+  #lt-svg { display: block; width: 100%; height: auto; max-width: 640px; margin: 0 auto; }
+  .lt-track-bg { fill: var(--surface); stroke: var(--border); stroke-width: 1.5; }
+  .lt-fill-a { fill: var(--accent-a); }
+  .lt-fill-b { fill: var(--accent-b); }
+  .lt-row-label { font: 700 10.5px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); text-anchor: end; letter-spacing: 0.04em; }
+  .lt-row-value { font: 700 12px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--ink); text-anchor: start; }
+  .lt-ref-line { stroke: var(--muted); stroke-width: 1.6; stroke-dasharray: 4 4; }
+  .lt-ref-label { font: 700 9px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); text-anchor: middle; letter-spacing: 0.02em; }
+  .lt-status { font: 700 11px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--ink); text-anchor: middle; }
+  #lt-fill-dc, #lt-fill-tx { transition: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    .lt-fill-done { filter: saturate(1.3); }
+  }
+
+  .lt-controls { margin-top: 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+  .lt-slider-row { display: flex; align-items: center; gap: 10px; flex: 1 1 260px; }
+  .lt-slider-row label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .lt-slider-row input[type="range"] { flex: 1; accent-color: var(--accent-b); }
+  .lt-ticks { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); margin-top: -8px; padding: 0 1px; }
+  .lt-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .lt-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .lt-btn.lt-primary { background: var(--accent-b); color: #fff; border-color: var(--accent-b); }
+
+  .lt-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .lt-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .lt-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--surface); }
+  .lt-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .lt-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .lt-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 26, 2026</span>
+    <span class="category-chip">GRID EQUIPMENT</span>
+  </div>
+  <h1>An AI Data Center Can Be Built in 18 Months. The Transformer That Powers It Can Take Five Years.</h1>
+  <p class="lede">Hyperscalers have gotten very good at pouring concrete and racking GPUs fast. What they can't speed up is the giant, custom-wound transformer that has to arrive before any of it draws real power &mdash; and its waitlist has gotten longer every year since 2020.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Around 2022, something flipped. Before that, a transformer ordered on day one of a project would typically arrive before the building was even finished &mdash; construction was the bottleneck. Wood Mackenzie's surveys now put average lead times for the largest grid transformers at 128&ndash;144 weeks, with some 2026 quotes above 160 &mdash; two to three times the ~78 weeks it takes to build the data center shell itself. Analysts estimate the mismatch is delaying or canceling close to half of the U.S. data center capacity planned to open in 2026.
+  </div>
+
+  <div class="card lt-card">
+    <div class="lt-header">
+      <h2 class="lt-title">Two timelines, one shared ruler</h2>
+      <p class="lt-caption mono">Drag the slider to the year a transformer gets ordered, then press Run to watch both builds race from zero. Transformer weeks are rounded, blended averages of Wood Mackenzie's large-power-transformer and generator-step-up survey data as reported in industry press; the 78-week data-center shell timeline is held constant across years for comparison.</p>
+    </div>
+
+    <div class="lt-scene-wrap">
+      <svg id="lt-svg" viewBox="0 0 640 150" role="img" aria-label="Two horizontal bars on a shared week scale: a data center shell that always finishes at week 78, and a grid transformer whose delivery time, selected by year, has grown from before that point to well beyond it.">
+        <line class="lt-ref-line" id="lt-ref-line" x1="319" y1="4" x2="319" y2="146"></line>
+        <text class="lt-ref-label" id="lt-ref-label" x="319" y="14">SHELL READY &middot; WK 78</text>
+
+        <text class="lt-row-label" x="128" y="52">DATA CENTER</text>
+        <rect class="lt-track-bg" x="140" y="34" width="460" height="28" rx="6"></rect>
+        <rect class="lt-fill-a" id="lt-fill-dc" x="140" y="34" width="0" height="28" rx="6"></rect>
+        <text class="lt-row-value tabular" id="lt-val-dc" x="610" y="52">0 wks</text>
+
+        <text class="lt-row-label" x="128" y="118">TRANSFORMER</text>
+        <rect class="lt-track-bg" x="140" y="100" width="460" height="28" rx="6"></rect>
+        <rect class="lt-fill-b" id="lt-fill-tx" x="140" y="100" width="0" height="28" rx="6"></rect>
+        <text class="lt-row-value tabular" id="lt-val-tx" x="610" y="118">0 wks</text>
+      </svg>
+    </div>
+
+    <div class="lt-controls">
+      <div class="lt-slider-row">
+        <label for="lt-year">Order year</label>
+        <input type="range" id="lt-year" min="0" max="5" step="1" value="5" aria-valuetext="2026" />
+        <span class="mono tabular" id="lt-year-label" style="font-weight:700; min-width:40px;">2026</span>
+      </div>
+      <div class="lt-btns">
+        <button type="button" class="lt-btn lt-primary" id="lt-run">Run &#9654;</button>
+        <button type="button" class="lt-btn" id="lt-reset">Reset &#8634;</button>
+      </div>
+    </div>
+    <div class="lt-ticks mono" aria-hidden="true">
+      <span>2019</span><span>2021</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span>
+    </div>
+
+    <div class="lt-stats tabular" aria-live="polite">
+      <div class="lt-stat">
+        <span class="lt-stat-label mono">Transformer lead time</span>
+        <div class="lt-stat-value mono" id="lt-stat-weeks">160 wks</div>
+      </div>
+      <div class="lt-stat">
+        <span class="lt-stat-label mono">After shell is ready</span>
+        <div class="lt-stat-value mono" id="lt-stat-gap">+82 wks</div>
+      </div>
+      <div class="lt-stat">
+        <span class="lt-stat-label mono">That's about</span>
+        <div class="lt-stat-value mono" id="lt-stat-years">1.6 yrs idle</div>
+      </div>
+      <div class="lt-stat">
+        <span class="lt-stat-label mono">vs. 2019 baseline</span>
+        <div class="lt-stat-value mono" id="lt-stat-vs2019">+105 wks</div>
+      </div>
+    </div>
+    <div class="lt-note">Both bars share the same week scale. In 2019 and 2021 the transformer bar finishes before the dashed line &mdash; the building was the slow part. From 2023 onward it finishes well past it, and the gap is the number of weeks a finished, staffed, fully-wired data center sits idle waiting for its own grid connection.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Finishing the shell of a hyperscale AI data center &mdash; the concrete, the steel, the cooling pipes, the racks &mdash; now takes roughly a year and a half. That's fast. The part that actually lets the building draw power from the grid is not.</p>
+      <p>Every big data center campus needs at least one enormous transformer, often called a generator step-up (GSU) unit, that converts grid or power-plant voltage to exactly what the campus needs. These aren't off-the-shelf parts you can grab from a warehouse. Each one is custom-wound &mdash; copper coils wrapped tightly around a core built from a special magnetic steel &mdash; to the voltage, size, and cooling spec of one specific site, by one of a small number of factories worldwide that know how to build them.</p>
+      <p>A few years ago, ordering one took about a year. Today, industry surveys put the average wait at two and a half to three years, and the largest, most custom orders have been quoted out to four or five. Demand simply tripled almost overnight: utilities replacing 40-year-old grid equipment, wind and solar farms needing new substations, and now dozens of AI campuses are all bidding for slots at the same handful of factories.</p>
+      <p>So picture it: the data center's walls, racks, and chillers are ready to flip on in 18 months. The transformer that has to arrive before any of it can draw real power won't show up for another year or two after that. Analysts now estimate close to half of the AI data center capacity U.S. companies planned to open in 2026 is being delayed or quietly shelved &mdash; not because of a chip shortage, but because of a piece of equipment nobody thought to stockpile.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The component at the center of this bottleneck is the generator step-up (GSU) transformer and its close cousin, the large power transformer (LPT) &mdash; custom-engineered, oil- or air-cooled units rated in the hundreds of megavolt-amperes, built to step voltage between a generation source or transmission tap (often 115&ndash;345 kV) and a site's own substation. Unlike distribution transformers, GSUs and LPTs are not stocked; each is wound to order from grain-oriented electrical steel (GOES) laminations and copper windings, a process that alone can run months, and the global GOES supply itself is concentrated among a handful of producers, Nippon Steel, voestalpine, and Baosteel among them.</p>
+      <p>Wood Mackenzie's lead-time survey shows the scale of the shift: pre-pandemic orders cleared in roughly 30&ndash;60 weeks; by the second quarter of 2025 the average had reached 128 weeks for LPTs and 144 weeks for GSUs, with some 2026 quotes for GSUs reported above 160. Unit prices have risen in step &mdash; Wood Mackenzie puts the increase at 77% for LPTs and 45% for GSUs since 2019 &mdash; while GSU order volumes are up roughly 274% over the same stretch, driven jointly by renewable-interconnection queues, utilities replacing an aging fleet (the average U.S. transformer in service is about 40 years old), and now AI campus demand competing for the same production slots. U.S. imports of high-voltage transformers from China rose from under 1,500 units in 2022 to more than 8,000 in 2025 as buyers chased any available capacity, per Wood Mackenzie data.</p>
+      <p>Bloomberg reporting citing Sightline Climate put large-transformer delivery at up to five years against an AI data center's typical sub-18-month shell-construction timeline &mdash; a structural mismatch analysts estimate puts close to half of the roughly 12&ndash;16 gigawatts of U.S. data center capacity slated for 2026 at risk of delay or cancellation. Hyperscalers are responding by pre-paying years ahead, taking equity stakes in transformer makers, and building captive generation (gas turbines, and in a few cases small modular reactors) to route around grid-interconnection equipment entirely.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> The AI buildout's real bottleneck isn't GPUs anymore &mdash; it's a 19th-century grid component now backlogged years behind the buildings it's meant to power.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Capacity planning for AI compute now has to be done in GSU-lead-time units, not construction-schedule units &mdash; and the handful of factories that wind these units, plus the electrical-steel supply behind them, are becoming as strategically important as the fabs themselves.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.woodmac.com/news/opinion/supply-shortages-and-an-inflexible-market-give-rise-to-high-power-transformer-lead-times/" target="_blank" rel="noopener">Wood Mackenzie &mdash; power transformer and GSU lead-time survey data, 2019&ndash;2025</a></li>
+    <li><a href="https://www.thestandard.com.hk/innovation/article/328687/US-AI-expansion-hit-by-power-shortages-half-planned-data-centers-delayed-or-canceled" target="_blank" rel="noopener">The Standard (HK), via Bloomberg &mdash; nearly half of planned US data centers delayed or canceled by power-equipment shortages</a></li>
+    <li><a href="https://www.powermag.com/the-transformer-crisis-an-industry-on-the-brink/" target="_blank" rel="noopener">POWER Magazine &mdash; inside the power transformer supply crisis</a></li>
+    <li><a href="https://www.kitco.com/news/off-the-wire/2026-07-09/us-power-companies-scramble-secure-equipment-surging-data-center" target="_blank" rel="noopener">Reuters, via Kitco &mdash; US power companies scramble to secure equipment as data center demand strains supply</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var YEARS = [2019, 2021, 2023, 2024, 2025, 2026];
+    var TX_WEEKS = [55, 65, 118, 128, 136, 160];
+    var DC_WEEKS = 78;
+    var SCALE_MAX = 200;
+    var TRACK_W = 460;
+    var PX_PER_WEEK = TRACK_W / SCALE_MAX;
+    var ANIM_MS = 2400;
+
+    var slider = document.getElementById('lt-year');
+    var yearLabel = document.getElementById('lt-year-label');
+    var fillDc = document.getElementById('lt-fill-dc');
+    var fillTx = document.getElementById('lt-fill-tx');
+    var valDc = document.getElementById('lt-val-dc');
+    var valTx = document.getElementById('lt-val-tx');
+    var runBtn = document.getElementById('lt-run');
+    var resetBtn = document.getElementById('lt-reset');
+
+    var statWeeks = document.getElementById('lt-stat-weeks');
+    var statGap = document.getElementById('lt-stat-gap');
+    var statYears = document.getElementById('lt-stat-years');
+    var statVs2019 = document.getElementById('lt-stat-vs2019');
+
+    var rafId = null;
+
+    function reduceMotion() {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function idx() { return parseInt(slider.value, 10); }
+
+    function updateStats(i) {
+      var txWeeks = TX_WEEKS[i];
+      var gap = txWeeks - DC_WEEKS;
+      var vs2019 = txWeeks - TX_WEEKS[0];
+      statWeeks.textContent = txWeeks + ' wks';
+      statGap.textContent = (gap >= 0 ? '+' : '') + gap + ' wks' + (gap < 0 ? ' early' : '');
+      statYears.textContent = Math.abs(gap / 52).toFixed(1) + (gap >= 0 ? ' yrs idle' : ' yrs early');
+      statVs2019.textContent = (vs2019 >= 0 ? '+' : '') + vs2019 + ' wks';
+    }
+
+    function setBarsInstant(i) {
+      var txWeeks = TX_WEEKS[i];
+      fillDc.setAttribute('width', DC_WEEKS * PX_PER_WEEK);
+      fillTx.setAttribute('width', txWeeks * PX_PER_WEEK);
+      valDc.textContent = DC_WEEKS + ' wks';
+      valTx.textContent = txWeeks + ' wks';
+      updateStats(i);
+    }
+
+    function setBarsZero(i) {
+      fillDc.setAttribute('width', 0);
+      fillTx.setAttribute('width', 0);
+      valDc.textContent = '0 wks';
+      valTx.textContent = '0 wks';
+      updateStats(i);
+    }
+
+    function animateRace(i) {
+      if (rafId) cancelAnimationFrame(rafId);
+      var txWeeks = TX_WEEKS[i];
+      var maxWeeks = Math.max(txWeeks, DC_WEEKS);
+      var start = null;
+
+      function frame(ts) {
+        if (start === null) start = ts;
+        var elapsed = ts - start;
+        var weeksElapsed = Math.min((elapsed / ANIM_MS) * SCALE_MAX, maxWeeks);
+
+        var dcNow = Math.min(weeksElapsed, DC_WEEKS);
+        var txNow = Math.min(weeksElapsed, txWeeks);
+
+        fillDc.setAttribute('width', dcNow * PX_PER_WEEK);
+        fillTx.setAttribute('width', txNow * PX_PER_WEEK);
+        valDc.textContent = Math.round(dcNow) + ' wks' + (dcNow >= DC_WEEKS ? ' ✓' : '');
+        valTx.textContent = Math.round(txNow) + ' wks' + (txNow >= txWeeks ? ' ✓' : '');
+
+        if (weeksElapsed < maxWeeks) {
+          rafId = requestAnimationFrame(frame);
+        } else {
+          valDc.textContent = DC_WEEKS + ' wks ✓';
+          valTx.textContent = txWeeks + ' wks ✓';
+          rafId = null;
+        }
+      }
+      rafId = requestAnimationFrame(frame);
+    }
+
+    slider.addEventListener('input', function () {
+      var i = idx();
+      yearLabel.textContent = YEARS[i];
+      slider.setAttribute('aria-valuetext', String(YEARS[i]));
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      setBarsInstant(i);
+    });
+
+    runBtn.addEventListener('click', function () {
+      var i = idx();
+      if (reduceMotion()) {
+        setBarsInstant(i);
+        return;
+      }
+      setBarsZero(i);
+      requestAnimationFrame(function () { animateRace(i); });
+    });
+
+    resetBtn.addEventListener('click', function () {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      setBarsInstant(idx());
+    });
+
+    setBarsInstant(idx());
+  })();
+</script>
+</body>
+</html>
