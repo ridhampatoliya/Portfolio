@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-28","category":"MARITIME NAVIGATION","headline":"GPS Jamming Knocked Out Navigation on More Than 1,100 Ships in a Single Day. Spoofing Is the Quieter Failure Mode — It Doesn't Tell the Crew Anything Is Wrong","summary":"Jamming floods the GPS frequency with noise until a ship's receiver goes blank — obvious, alarming, and exactly what hit over 1,100 vessels near Iran in February. Spoofing is worse: it feeds a receiver a fake signal that looks completely normal, so the crew sees a confident position that's simply wrong.","whyItMatters":"Ships, planes, and the ports that depend on them run on a navigation signal that's cheap to fake, and the scariest failure mode doesn't even trigger an alarm."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; GPS Jamming Knocked Out Navigation on More Than 1,100 Ships in a Single Day. Spoofing Is the Quieter Failure Mode</title>
+<meta name="description" content="Jamming floods the GPS frequency with noise until a ship's receiver goes blank. Spoofing feeds it a fake signal that looks completely normal, so the crew sees a confident position that's simply wrong. More than 1,100 ships lost navigation near Iran in a single day in February 2026." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b91c1c;
+    --accent-a-tint: #fbdede;
+    --accent-b: #1d4ed8;
+    --accent-b-tint: #dde7fb;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #f87171;
+      --accent-a-tint: #3a1414;
+      --accent-b: #60a5fa;
+      --accent-b-tint: #0f2240;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #f87171;
+    --accent-a-tint: #3a1414;
+    --accent-b: #60a5fa;
+    --accent-b-tint: #0f2240;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b91c1c;
+    --accent-a-tint: #fbdede;
+    --accent-b: #1d4ed8;
+    --accent-b-tint: #dde7fb;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: jam vs. spoof --- */
+  .gn-header { margin-bottom: 4px; }
+  .gn-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .gn-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .gn-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px 8px;
+  }
+  #gn-svg { display: block; width: 100%; height: auto; max-width: 600px; margin: 0 auto; }
+  .gn-group { opacity: 1; }
+  @media (prefers-reduced-motion: no-preference) {
+    .gn-group { transition: opacity 0.2s ease; }
+  }
+  .gn-label { font: 700 10px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); }
+  .gn-label-strong { font: 700 11px ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+
+  .gn-toggle { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; padding: 3px; background: var(--surface); gap: 2px; margin-top: 16px; flex-wrap: wrap; }
+  .gn-toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .gn-toggle button[aria-pressed="true"] { background: var(--accent-b); color: #fff; }
+
+  .gn-stage-panel { margin-top: 16px; }
+  .gn-stage-name { font-size: 16px; font-weight: 800; letter-spacing: -0.01em; margin: 0 0 4px; }
+  .gn-stage-desc { font-size: 13.5px; color: var(--muted); margin: 0; max-width: 58ch; }
+
+  .gn-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .gn-stats { grid-template-columns: repeat(1, 1fr); }
+  }
+  .gn-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--surface); }
+  .gn-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .gn-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .gn-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 28, 2026</span>
+    <span class="category-chip">MARITIME NAVIGATION</span>
+  </div>
+  <h1>GPS Jamming Knocked Out Navigation on More Than 1,100 Ships in a Single Day. Spoofing Is the Quieter Failure Mode &mdash; It Doesn't Tell the Crew Anything Is Wrong.</h1>
+  <p class="lede">Every ship crossing an ocean trusts a satellite signal faint enough to drown out with cheap hardware. One way to attack it makes the screen go blank. The other way is worse: it makes the screen lie, confidently, with no alarm at all.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    On February 28, 2026, electronic interference tied to the Israel-Iran conflict disrupted navigation on more than 1,100 commercial ships in a single day in and around the Strait of Hormuz &mdash; the waterway carrying roughly 20% of the world's oil and gas exports. Lloyd's List Intelligence logged over 1,700 separate GPS interference events on more than 650 vessels in the days that followed. Jamming, the cruder attack, at least tells a crew something's wrong. Spoofing doesn't &mdash; it hands the ship a false position that looks every bit as confident as a real one.
+  </div>
+
+  <div class="card gn-card">
+    <div class="gn-header">
+      <h2 class="gn-title">Jam vs. spoof: same target, opposite tells</h2>
+      <p class="gn-caption mono">A simplified diagram of one ship reading four GPS satellites. Positions and the 2.3-nmi offset are illustrative, chosen to make the mechanism clear, not measurements from a real incident. Switch modes below.</p>
+    </div>
+
+    <div class="gn-scene-wrap">
+      <svg id="gn-svg" viewBox="0 0 600 230" role="img" aria-label="Diagram of a ship receiving signals from four satellites. In clean mode all four signals converge on the ship's true position. In jam mode the signals are blocked and no position is reported. In spoof mode a rogue ground transmitter overpowers the real satellites and the ship reports a false position offset from its true location.">
+        <text x="300" y="16" text-anchor="middle" class="gn-label">GPS SATELLITES</text>
+        <g id="gn-sats"></g>
+
+        <g id="gn-lines-clean" class="gn-group"></g>
+        <g id="gn-lines-jam" class="gn-group"></g>
+        <g id="gn-lines-spoof" class="gn-group"></g>
+
+        <polygon points="310,168 300,186 320,186" fill="var(--ink)"></polygon>
+        <text x="310" y="204" text-anchor="middle" class="gn-label">ACTUAL SHIP POSITION</text>
+
+        <g id="gn-report-clean" class="gn-group"></g>
+        <g id="gn-report-jam" class="gn-group"></g>
+        <g id="gn-report-spoof" class="gn-group"></g>
+      </svg>
+    </div>
+
+    <div class="gn-toggle" role="group" aria-label="Signal mode">
+      <button type="button" id="gn-btn-clean" aria-pressed="true">Clean</button>
+      <button type="button" id="gn-btn-jam" aria-pressed="false">Jam</button>
+      <button type="button" id="gn-btn-spoof" aria-pressed="false">Spoof</button>
+    </div>
+
+    <div class="gn-stage-panel">
+      <p class="gn-stage-name mono" id="gn-stage-name">Clean signal</p>
+      <p class="gn-stage-desc" id="gn-stage-desc">All four satellites reach the receiver untouched. The computed fix matches the ship's real position exactly.</p>
+    </div>
+
+    <div class="gn-stats tabular" aria-live="polite">
+      <div class="gn-stat">
+        <span class="gn-stat-label mono">Signals received</span>
+        <div class="gn-stat-value mono" id="gn-stat-sats">4 / 4 genuine</div>
+      </div>
+      <div class="gn-stat">
+        <span class="gn-stat-label mono">Position error</span>
+        <div class="gn-stat-value mono" id="gn-stat-error">0 nmi</div>
+      </div>
+      <div class="gn-stat">
+        <span class="gn-stat-label mono">Alarm raised?</span>
+        <div class="gn-stat-value mono" id="gn-stat-alarm">No &mdash; nothing's wrong</div>
+      </div>
+    </div>
+    <div class="gn-note">Click &ldquo;Spoof&rdquo; last: the receiver still shows a clean, confident fix &mdash; it's just 2.3 nautical miles from where the ship actually is, and nothing on screen says so.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Every big ship, plane, and container crossing an ocean navigates by GPS: four or more satellites broadcasting a timing signal so faint that a receiver has to be tuned carefully to hear it at all. That faintness is also GPS's biggest weakness, because it's cheap to drown out or fake.</p>
+      <p>There are two very different ways to attack it. Jamming is the blunt version: flood the frequency with noise until a ship's receiver can't hear the real satellites anymore. The result is obvious &mdash; the screen goes blank, an alarm sounds, and the crew knows immediately something's wrong. That's effectively what happened to more than 1,100 commercial vessels in the Gulf on a single day in late February 2026, after fighting between Israel and Iran spilled into the Strait of Hormuz, the waterway that carries roughly a fifth of the world's oil and gas exports. Lloyd's List Intelligence logged over 1,700 separate interference events on more than 650 ships in the days that followed.</p>
+      <p>Spoofing is the sneakier version, and arguably the more dangerous one. Instead of jamming the signal, an attacker broadcasts a fake one that's stronger and looks completely legitimate &mdash; so the receiver locks onto it and reports a confident, consistent position. The catch: it's the wrong position. The crew sees nothing unusual on screen; the ship just quietly drifts off its real course, sometimes toward rocks, shoals, or another ship's path. The Baltic and Black Sea have both logged rising numbers of these incidents for years, mostly attributed to Russia, though no government has admitted responsibility.</p>
+      <p>The fix nobody's fully built yet: a backup navigation signal that's hard to fake, broadcast from the ground instead of space.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>GPS position-fixing works by trilateration: a receiver measures the time delay of signals from at least four satellites, each broadcasting a precise timestamp, and solves for the one location consistent with all four ranges. The signal reaching the surface is extraordinarily weak, and civilian GPS is broadcast unencrypted on a well-documented frequency and format &mdash; which makes it straightforward to overpower or imitate with inexpensive hardware.</p>
+      <p>Jamming floods that frequency with noise until the receiver can no longer achieve carrier lock on any satellite, producing a hard failure: no position, no velocity, an explicit fault indication. Spoofing instead transmits a counterfeit signal set, synchronized and stronger than the genuine one, that the receiver's tracking loop accepts as real; the receiver then computes and reports a false position with no fault flag at all, because from the receiver's perspective nothing is wrong. That asymmetry &mdash; a jammed receiver screams, a spoofed one lies calmly &mdash; is why maritime security researchers treat spoofing as the more operationally dangerous failure mode.</p>
+      <p>The scale is no longer theoretical. Windward's tracking identified disrupted navigation on more than 1,100 commercial vessels across UAE, Qatari, Omani, and Iranian waters on February 28, 2026, as the Israel-Iran conflict escalated; Lloyd's List Intelligence separately logged 1,735 discrete GPS interference events affecting 655 vessels through March 3. The Strait of Hormuz those ships were transiting carries roughly 20% of global oil and gas trade by volume. The Baltic shows a parallel, slower-moving pattern: a joint Baltic-state submission to ICAO attributed disruption affecting roughly 123,000 flights between January and April 2025 to Russia-linked sources, and Danish authorities recorded record interference levels near Bornholm in August 2026, including one disruption that persisted for a full day versus a typical sub-20-minute episode.</p>
+      <p>The proposed hedge is eLoran &mdash; a terrestrial, high-power radio signal reported by its backers to be roughly 1.3 million times stronger than GPS and far harder to jam &mdash; but adoption is fragmented: South Korea and Russia are building national systems, the U.S. Coast Guard's program lost funding years ago, and Europe is split, with France and Germany leaning on Galileo instead.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Ships, planes, and the ports that depend on them run on a navigation signal that's cheap to fake, and the scariest failure mode doesn't even trigger an alarm.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Position, navigation, and timing underpin shipping schedules, port operations, and insurance pricing across global trade &mdash; and the industry's primary PNT source still has no authenticated, universally adopted backup.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.occrp.org/en/news/more-than-1100-ships-hit-by-widespread-gps-disruption-after-iran-strikes" target="_blank" rel="noopener">OCCRP &mdash; more than 1,100 ships hit by GPS disruption after Iran strikes, February 2026</a></li>
+    <li><a href="https://san.com/cc/electronic-warfare-disrupts-global-shipping-amid-israel-iran-war/" target="_blank" rel="noopener">SAN &mdash; electronic warfare disrupts global shipping amid the Israel-Iran war</a></li>
+    <li><a href="https://news.err.ee/1609792437/svt-gps-disruption-has-affected-123-000-flights-in-the-baltic-region" target="_blank" rel="noopener">ERR News (via SVT) &mdash; GPS disruption has affected 123,000 flights in the Baltic region</a></li>
+    <li><a href="https://www.eurointegration.com.ua/eng/news/2026/08/10/7243248/" target="_blank" rel="noopener">Eurointegration &mdash; Denmark records record-level GPS disruptions near Bornholm, August 2026</a></li>
+    <li><a href="https://gcaptain.com/europe-calls-time-on-ship-navigation-scheme-despite-risks-at-sea/" target="_blank" rel="noopener">gCaptain &mdash; Europe's split over eLoran as a GPS backup for shipping</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var SAT_X = [120, 240, 360, 480];
+    var SAT_Y = 30;
+    var SHIP_X = 310, SHIP_Y = 172;
+    var SPOOF_X = 400, SPOOF_Y = 92;
+    var ROGUE_X = 90, ROGUE_Y = 150;
+    var NS = 'http://www.w3.org/2000/svg';
+
+    function el(tag, attrs) {
+      var e = document.createElementNS(NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      return e;
+    }
+
+    var satsGroup = document.getElementById('gn-sats');
+    SAT_X.forEach(function (x, i) {
+      satsGroup.appendChild(el('polygon', { points: (x-7)+','+(SAT_Y+8)+' '+(x+7)+','+(SAT_Y+8)+' '+x+','+(SAT_Y-8), fill: 'var(--muted)' }));
+      var t = el('text', { x: x, y: SAT_Y + 22, 'text-anchor': 'middle', class: 'gn-label' });
+      t.textContent = 'SV' + (i + 1);
+      satsGroup.appendChild(t);
+    });
+
+    var cleanLines = document.getElementById('gn-lines-clean');
+    SAT_X.forEach(function (x) {
+      cleanLines.appendChild(el('line', { x1: x, y1: SAT_Y + 8, x2: SHIP_X, y2: SHIP_Y, stroke: 'var(--accent-b)', 'stroke-width': '1.5', opacity: '0.85' }));
+    });
+
+    var jamLines = document.getElementById('gn-lines-jam');
+    SAT_X.forEach(function (x) {
+      var midx = x + (SHIP_X - x) * 0.45;
+      var midy = SAT_Y + 8 + (SHIP_Y - (SAT_Y + 8)) * 0.45;
+      jamLines.appendChild(el('line', { x1: x, y1: SAT_Y + 8, x2: midx, y2: midy, stroke: 'var(--border)', 'stroke-width': '1.5', 'stroke-dasharray': '3,4' }));
+    });
+    jamLines.appendChild(el('line', { x1: SHIP_X - 14, y1: SHIP_Y - 24, x2: SHIP_X + 14, y2: SHIP_Y + 4, stroke: 'var(--accent-a)', 'stroke-width': '3', 'stroke-linecap': 'round' }));
+    jamLines.appendChild(el('line', { x1: SHIP_X + 14, y1: SHIP_Y - 24, x2: SHIP_X - 14, y2: SHIP_Y + 4, stroke: 'var(--accent-a)', 'stroke-width': '3', 'stroke-linecap': 'round' }));
+
+    var spoofLines = document.getElementById('gn-lines-spoof');
+    SAT_X.forEach(function (x) {
+      spoofLines.appendChild(el('line', { x1: x, y1: SAT_Y + 8, x2: SHIP_X, y2: SHIP_Y, stroke: 'var(--border)', 'stroke-width': '1.5', 'stroke-dasharray': '2,4', opacity: '0.6' }));
+    });
+    spoofLines.appendChild(el('polygon', { points: (ROGUE_X-6)+','+(ROGUE_Y+10)+' '+(ROGUE_X+6)+','+(ROGUE_Y+10)+' '+(ROGUE_X+6)+','+(ROGUE_Y-2)+' '+ROGUE_X+','+(ROGUE_Y-14)+' '+(ROGUE_X-6)+','+(ROGUE_Y-2), fill: 'var(--accent-a)' }));
+    var rogueLabel = el('text', { x: ROGUE_X, y: ROGUE_Y + 24, 'text-anchor': 'middle', class: 'gn-label' });
+    rogueLabel.textContent = 'ROGUE TX';
+    spoofLines.appendChild(rogueLabel);
+    spoofLines.appendChild(el('line', { x1: ROGUE_X, y1: ROGUE_Y - 10, x2: SPOOF_X, y2: SPOOF_Y, stroke: 'var(--accent-a)', 'stroke-width': '2' }));
+    spoofLines.appendChild(el('line', { x1: SHIP_X, y1: SHIP_Y, x2: SPOOF_X, y2: SPOOF_Y, stroke: 'var(--accent-a)', 'stroke-width': '1', 'stroke-dasharray': '2,3', opacity: '0.7' }));
+
+    var reportClean = document.getElementById('gn-report-clean');
+    reportClean.appendChild(el('circle', { cx: SHIP_X, cy: SHIP_Y - 8, r: '10', fill: 'none', stroke: 'var(--accent-b)', 'stroke-width': '2' }));
+    var cleanTag = el('text', { x: SHIP_X + 18, y: SHIP_Y - 4, class: 'gn-label-strong', fill: 'var(--accent-b)' });
+    cleanTag.textContent = 'FIX: MATCH';
+    reportClean.appendChild(cleanTag);
+
+    var reportJam = document.getElementById('gn-report-jam');
+    var jamTag = el('text', { x: SHIP_X + 22, y: SHIP_Y - 4, class: 'gn-label-strong', fill: 'var(--accent-a)' });
+    jamTag.textContent = 'NO FIX';
+    reportJam.appendChild(jamTag);
+
+    var reportSpoof = document.getElementById('gn-report-spoof');
+    reportSpoof.appendChild(el('circle', { cx: SPOOF_X, cy: SPOOF_Y, r: '9', fill: 'var(--accent-a-tint)', stroke: 'var(--accent-a)', 'stroke-width': '2' }));
+    var spoofTag = el('text', { x: SPOOF_X + 14, y: SPOOF_Y - 6, class: 'gn-label-strong', fill: 'var(--accent-a)' });
+    spoofTag.textContent = 'REPORTED FIX';
+    reportSpoof.appendChild(spoofTag);
+    var spoofTag2 = el('text', { x: SPOOF_X + 14, y: SPOOF_Y + 8, class: 'gn-label', fill: 'var(--accent-a)' });
+    spoofTag2.textContent = '(2.3 nmi off, no alarm)';
+    reportSpoof.appendChild(spoofTag2);
+
+    var MODES = {
+      clean: {
+        groups: ['gn-lines-clean', 'gn-report-clean'],
+        name: 'Clean signal',
+        desc: "All four satellites reach the receiver untouched. The computed fix matches the ship's real position exactly.",
+        sats: '4 / 4 genuine', error: '0 nmi', alarm: "No — nothing's wrong"
+      },
+      jam: {
+        groups: ['gn-lines-jam', 'gn-report-jam'],
+        name: 'Jamming',
+        desc: 'Noise floods the GPS frequency. The receiver can’t lock onto any satellite, so it stops reporting a position at all — and says so.',
+        sats: '0 / 4 locked', error: 'No fix', alarm: 'Yes — screen goes blank'
+      },
+      spoof: {
+        groups: ['gn-lines-spoof', 'gn-report-spoof'],
+        name: 'Spoofing',
+        desc: 'A ground transmitter overpowers the real satellites with a fake, stronger signal. The receiver trusts it completely and reports a confident, wrong position.',
+        sats: '4 / 4 (fake)', error: '2.3 nmi', alarm: "No — looks normal"
+      }
+    };
+    var ALL_GROUP_IDS = ['gn-lines-clean', 'gn-lines-jam', 'gn-lines-spoof', 'gn-report-clean', 'gn-report-jam', 'gn-report-spoof'];
+
+    var btns = {
+      clean: document.getElementById('gn-btn-clean'),
+      jam: document.getElementById('gn-btn-jam'),
+      spoof: document.getElementById('gn-btn-spoof')
+    };
+    var stageName = document.getElementById('gn-stage-name');
+    var stageDesc = document.getElementById('gn-stage-desc');
+    var statSats = document.getElementById('gn-stat-sats');
+    var statError = document.getElementById('gn-stat-error');
+    var statAlarm = document.getElementById('gn-stat-alarm');
+
+    function setMode(mode) {
+      ALL_GROUP_IDS.forEach(function (id) {
+        document.getElementById(id).style.display = 'none';
+      });
+      var m = MODES[mode];
+      m.groups.forEach(function (id) { document.getElementById(id).style.display = ''; });
+
+      Object.keys(btns).forEach(function (k) { btns[k].setAttribute('aria-pressed', String(k === mode)); });
+
+      stageName.textContent = m.name;
+      stageDesc.textContent = m.desc;
+      statSats.textContent = m.sats;
+      statError.textContent = m.error;
+      statAlarm.textContent = m.alarm;
+    }
+
+    btns.clean.addEventListener('click', function () { setMode('clean'); });
+    btns.jam.addEventListener('click', function () { setMode('jam'); });
+    btns.spoof.addEventListener('click', function () { setMode('spoof'); });
+
+    setMode('clean');
+  })();
+</script>
+</body>
+</html>
