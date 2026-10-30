@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-30","category":"FREIGHT RATES","headline":"Global Ocean Freight Rates Have Jumped 130% Since February. Not One Ship Sank — They're Just Taking a 3,000-Mile Detour","summary":"Ocean freight rates have jumped about 130% since February — not because ships disappeared, but because hundreds are sailing 3,000 extra miles around Africa to dodge the Red Sea. The detour alone can shrink a trade lane's effective capacity by roughly a quarter, no wrecks required.","whyItMatters":"Those extra African miles are a quiet tax on everything shipped from Asia to Europe — including a lot of tech hardware — and nobody had to lose a single ship for it to show up in the price."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Global Ocean Freight Rates Have Jumped 130% Since February. Not One Ship Sank &mdash; They're Just Taking a 3,000-Mile Detour</title>
+<meta name="description" content="Ocean freight rates are up about 130% since February 2026. Not because ships vanished, but because hundreds are sailing 3,000 extra miles around Africa to dodge the Red Sea — a detour that quietly shrinks a trade lane's effective capacity." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5541c;
+    --accent-a-tint: #f6e2d2;
+    --accent-b: #146b7a;
+    --accent-b-tint: #d7eef1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #f2a05c;
+      --accent-a-tint: #3a2714;
+      --accent-b: #38c7d9;
+      --accent-b-tint: #0d2a30;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #f2a05c;
+    --accent-a-tint: #3a2714;
+    --accent-b: #38c7d9;
+    --accent-b-tint: #0d2a30;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5541c;
+    --accent-a-tint: #f6e2d2;
+    --accent-b: #146b7a;
+    --accent-b-tint: #d7eef1;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the Suez-vs-Cape route race --- */
+  .rr-header { margin-bottom: 4px; }
+  .rr-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .rr-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .rr-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px 8px;
+  }
+  #rr-svg { display: block; width: 100%; height: auto; max-width: 600px; margin: 0 auto; }
+  .rr-lanelabel { font: 700 10px ui-monospace, "SF Mono", Menlo, Consolas, monospace; text-anchor: start; }
+  .rr-sublabel { font: 500 9px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); text-anchor: start; }
+
+  .rr-controls { display: flex; align-items: center; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+  .rr-btn {
+    border: none;
+    background: var(--accent-b);
+    color: #fff;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 9px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .rr-btn.secondary {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+  .rr-state-note { font-size: 11.5px; color: var(--muted); }
+
+  .rr-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
+  @media (max-width: 480px) {
+    .rr-stats { grid-template-columns: repeat(1, 1fr); }
+  }
+  .rr-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--surface); }
+  .rr-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .rr-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .rr-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .rr-note strong { color: var(--ink); }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 30, 2026</span>
+    <span class="category-chip">FREIGHT RATES</span>
+  </div>
+  <h1>Global Ocean Freight Rates Have Jumped 130% Since February. Not One Ship Sank &mdash; They're Just Taking a 3,000-Mile Detour.</h1>
+  <p class="lede">Drewry's benchmark container index has been sitting near $4,400&ndash;$4,600 a box through October, more than double where it was in February. No ship was lost and no factory burned down. Hundreds of vessels are simply sailing around Africa instead of through the Suez Canal &mdash; and that detour alone behaves like shrinking the world's merchant fleet.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Since Houthi attacks on Red Sea shipping escalated, most big container lines have rerouted Asia&ndash;Europe strings around the Cape of Good Hope instead of through Suez. On the reference Shenzhen&ndash;Rotterdam run, that swaps a roughly 10,000-nautical-mile, 31-day voyage for a roughly 13,000-mile, 41-day one &mdash; UNCTAD's figures. Because every ship takes proportionally longer per round trip, the same vessels complete fewer trips a year; analysts at UBS estimated this cuts effective Asia&ndash;Europe capacity by about a quarter. Trade trackers still counted roughly 250&ndash;300 ships on the Cape routing in October 2026. Layer renewed Middle East tensions on top, and Jefferies says global container rates are up about 130% since a February 2026 baseline &mdash; which is exactly what Drewry's index has been pricing in all month.
+  </div>
+
+  <div class="card rr-card">
+    <div class="rr-header">
+      <h2 class="rr-title">Same ship, same speed, two routes &mdash; watch the gap compound</h2>
+      <p class="rr-caption mono">Two identical cargo ships leave Shenzhen for Rotterdam at the same time, cruising at the same speed. One threads the Suez Canal; one goes around Africa instead. Lanes are drawn to the same distance scale, so the Cape lane is genuinely drawn ~30% longer. Press Run to sail a simulated year (~15 real seconds) and watch how many fewer round trips the detour completes. Figures are simplified point-to-point averages (UNCTAD), and "round trip" here ignores port/loading days &mdash; real schedules vary by lane and carrier.</p>
+    </div>
+
+    <div class="rr-scene-wrap">
+      <svg id="rr-svg" viewBox="0 0 600 230" role="img" aria-label="Diagram of two shipping lanes from Shenzhen to Rotterdam: a shorter Suez Canal lane and a visibly longer Cape of Good Hope lane drawn to the same distance scale, each with a ship marker that travels back and forth between the two ports.">
+        <g id="rr-lanes"></g>
+        <g id="rr-labels"></g>
+        <g id="rr-ships"></g>
+      </svg>
+    </div>
+
+    <div class="rr-controls">
+      <button type="button" class="rr-btn" id="rr-run">Run</button>
+      <button type="button" class="rr-btn secondary" id="rr-reset">Reset</button>
+      <span class="rr-state-note mono" id="rr-state-note">Paused</span>
+    </div>
+
+    <div class="rr-stats tabular" aria-live="polite">
+      <div class="rr-stat">
+        <span class="rr-stat-label mono">Simulated day / 365</span>
+        <div class="rr-stat-value mono" id="rr-stat-day">0</div>
+      </div>
+      <div class="rr-stat">
+        <span class="rr-stat-label mono">Suez round trips/yr</span>
+        <div class="rr-stat-value mono" id="rr-stat-suez">0</div>
+      </div>
+      <div class="rr-stat">
+        <span class="rr-stat-label mono">Cape round trips/yr</span>
+        <div class="rr-stat-value mono" id="rr-stat-cape">0</div>
+      </div>
+    </div>
+    <div class="rr-note">Right now the Cape ship is completing <strong id="rr-stat-pct" class="mono tabular">&mdash;</strong> as many round trips per year as the Suez ship &mdash; a live stand-in for the roughly 25% "effective capacity" loss analysts attributed to the Cape diversion. Nothing sank; the fleet just got relatively smaller.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture a fleet of delivery trucks that normally take the highway between two warehouses. The highway becomes dangerous, so every truck starts taking a backroad detour that's about 30% longer. Nobody's truck gets stolen or breaks down &mdash; but because every round trip now takes longer, the fleet can make fewer deliveries per week. That's roughly what's happening right now to the ships carrying nearly everything in a store near you, from phone chargers to flat-screen TVs to the specialized tools that make chips.</p>
+      <p>Since Houthi militants in Yemen started attacking ships in the Red Sea, most big container lines stopped sailing through the Suez Canal, the famous Egyptian shortcut between Asia and Europe. Instead, they go the old-fashioned way: around the southern tip of Africa, past the Cape of Good Hope. A trip from southern China to Rotterdam that used to cover about 10,000 nautical miles and take roughly a month now covers around 13,000 miles and takes about 41 days &mdash; ten extra days, one way.</p>
+      <p>Multiply that across hundreds of ships and you get a strange effect: the world's shipping fleet hasn't lost a single vessel, but it's doing meaningfully less work, because every ship is stuck on a longer loop. Analysts estimated that when the detour was near-universal, it ate up roughly a quarter of the capacity on the Asia&ndash;Europe route. That's a big part of why the price to ship a standard 40-foot container has climbed toward $4,400&ndash;$4,600 recently &mdash; and why, per the bank Jefferies, global freight rates are up about 130% since February 2026. Somebody pays that bill eventually; it's usually baked quietly into the price of whatever's inside the box.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The relevant distinction is nominal versus effective capacity. Nominal capacity is how much cargo (in TEU, twenty-foot-equivalent units) the global container fleet could carry if every ship sailed the shortest route. Effective capacity is what the fleet actually delivers per unit time, which depends on round-trip duration: a vessel that takes longer per loop completes fewer loops per year, so it delivers fewer TEU-miles of throughput even though its hull hasn't changed.</p>
+      <p>Since Houthi attacks escalated in the Red Sea and Bab-el-Mandeb strait, most major container lines rerouted Asia&ndash;Europe strings around the Cape of Good Hope rather than through Suez. UNCTAD's reference comparison (Shenzhen&ndash;Rotterdam) puts the Suez routing at roughly 10,000 nautical miles and 31 days, versus roughly 13,000 nautical miles and 41 days via the Cape &mdash; about 30% more distance and 32% more transit time for the identical origin-destination pair. When diversions were near-total in 2023&ndash;2024, UBS analysts estimated this cut effective Asia&ndash;Europe carrying capacity by about 25%, even as the nominal global fleet kept growing through scheduled newbuild deliveries.</p>
+      <p>As of October 2026 the diversion is partial but still substantial: trade trackers cited by Ship Universe put roughly 250&ndash;300 vessels still routing via the Cape, down from an estimated 380 ships and 5.4 million TEU earlier in the year, as some alliances test a partial return to Suez. That ongoing uncertainty, layered on renewed regional tensions, feeds directly into pricing: Drewry's World Container Index, an eight-route composite, held in the $4,350&ndash;$4,590-per-40-foot-container range through October 2026 (Shanghai&ndash;Rotterdam near $3,686 and Shanghai&ndash;Genoa near $4,151 on October 29), and Jefferies estimated on October 19 that global container rates have risen about 130% since a February 2026 baseline of roughly $2,000&ndash;$2,500. Current levels remain well below 2021's pandemic-era extremes, when spot rates on some lanes briefly topped five figures per box &mdash; this is a capacity-reallocation repricing, not an absolute vessel shortage.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Those extra African miles are a quiet tax on everything shipped from Asia to Europe &mdash; including a lot of tech hardware &mdash; and nobody had to lose a single ship for it to show up in the price.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> The Cape detour shows how geography, not hull count, sets effective ocean-freight capacity &mdash; a mechanism that will resurface any time a chokepoint like Suez, Panama, or Hormuz gets contested, regardless of how big the nominal fleet is.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.drewry.co.uk/supply-chain-advisors/world-container-index-assessed-by-drewry" target="_blank" rel="noopener">Drewry &mdash; World Container Index, weekly composite freight-rate assessment (October 2026 readings)</a></li>
+    <li><a href="https://aninews.in/news/business/global-container-freight-prices-surge-130-since-february-amid-middle-east-tensions-jefferies20261019150947/" target="_blank" rel="noopener">ANI News &mdash; "Global container freight prices surge 130% since February amid Middle East tensions: Jefferies," October 19, 2026</a></li>
+    <li><a href="https://unctad.org/system/files/official-document/rmt2024ch2_en.pdf" target="_blank" rel="noopener">UNCTAD &mdash; Review of Maritime Transport, chapter on Red Sea rerouting distance and transit-time comparisons</a></li>
+    <li><a href="https://www.shipuniverse.com/signal/cape-diversions-ease-slightly-but-europe-asia-networks-are-still-built-around-the-long-way/" target="_blank" rel="noopener">Ship Universe &mdash; tracking of vessels still diverting via the Cape of Good Hope vs. returning to Suez, citing Linerlytica</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+    var NS = 'http://www.w3.org/2000/svg';
+    function el(tag, attrs) {
+      var e = document.createElementNS(NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      return e;
+    }
+
+    // Distances/times: UNCTAD reference, Shenzhen-Rotterdam, simplified.
+    var SUEZ_NM = 10000, SUEZ_DAYS = 31;
+    var CAPE_NM = 13000, CAPE_DAYS = 41;
+    var SCALE = 0.036; // px per nautical mile, chosen so Suez lane = 360px
+    var X0 = 50;
+    var SUEZ_X1 = X0 + SUEZ_NM * SCALE;
+    var CAPE_X1 = X0 + CAPE_NM * SCALE;
+    var SUEZ_Y = 70, CAPE_Y = 160;
+    var SUEZ_RT = SUEZ_DAYS * 2; // round trip days, ignoring port/loading time
+    var CAPE_RT = CAPE_DAYS * 2;
+    var YEAR_DAYS = 365;
+
+    var lanesGroup = document.getElementById('rr-lanes');
+    var labelsGroup = document.getElementById('rr-labels');
+    var shipsGroup = document.getElementById('rr-ships');
+
+    function drawLane(y, x1, color, portLabel) {
+      lanesGroup.appendChild(el('line', { x1: X0, y1: y, x2: x1, y2: y, stroke: color, 'stroke-width': '5', 'stroke-linecap': 'round', opacity: '0.28' }));
+      lanesGroup.appendChild(el('circle', { cx: X0, cy: y, r: '4', fill: color }));
+      lanesGroup.appendChild(el('circle', { cx: x1, cy: y, r: '4', fill: color }));
+    }
+    drawLane(SUEZ_Y, SUEZ_X1, 'var(--accent-a)');
+    drawLane(CAPE_Y, CAPE_X1, 'var(--accent-b)');
+
+    function label(x, y, text, cls, color) {
+      var t = el('text', { x: x, y: y, class: cls });
+      if (color) t.setAttribute('fill', color);
+      t.textContent = text;
+      labelsGroup.appendChild(t);
+    }
+    label(X0, SUEZ_Y - 16, 'SUEZ CANAL ROUTE', 'rr-lanelabel', 'var(--accent-a)');
+    label(X0, SUEZ_Y + 20, '≈ 10,000 nm · 31 days one-way', 'rr-sublabel');
+    label(X0, CAPE_Y - 16, 'CAPE OF GOOD HOPE ROUTE', 'rr-lanelabel', 'var(--accent-b)');
+    label(X0, CAPE_Y + 20, '≈ 13,000 nm · 41 days one-way (≈+30% distance)', 'rr-sublabel');
+    label(X0 - 2, SUEZ_Y - 42, 'SHENZHEN', 'rr-sublabel');
+    label(SUEZ_X1 - 48, SUEZ_Y - 42, 'ROTTERDAM', 'rr-sublabel');
+    label(CAPE_X1 - 48, CAPE_Y - 42, 'ROTTERDAM', 'rr-sublabel');
+
+    var suezShip = el('circle', { cx: X0, cy: SUEZ_Y, r: '7', fill: 'var(--accent-a)' });
+    var capeShip = el('circle', { cx: X0, cy: CAPE_Y, r: '7', fill: 'var(--accent-b)' });
+    shipsGroup.appendChild(suezShip);
+    shipsGroup.appendChild(capeShip);
+
+    function posFor(simDay, roundTripDays, oneWayDays, x0, x1) {
+      var phase = simDay % roundTripDays;
+      if (phase <= oneWayDays) {
+        return x0 + (x1 - x0) * (phase / oneWayDays);
+      }
+      var t = (phase - oneWayDays) / oneWayDays;
+      return x1 - (x1 - x0) * t;
+    }
+
+    var simDay = 0;
+    var running = false;
+    var rafId = null;
+    var lastT = null;
+    var DAYS_PER_MS = 365 / 14600; // ~1 simulated year over ~14.6 real seconds
+    var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var statDay = document.getElementById('rr-stat-day');
+    var statSuez = document.getElementById('rr-stat-suez');
+    var statCape = document.getElementById('rr-stat-cape');
+    var statPct = document.getElementById('rr-stat-pct');
+    var stateNote = document.getElementById('rr-state-note');
+    var btnRun = document.getElementById('rr-run');
+    var btnReset = document.getElementById('rr-reset');
+
+    function render() {
+      suezShip.setAttribute('cx', posFor(simDay, SUEZ_RT, SUEZ_DAYS, X0, SUEZ_X1).toFixed(1));
+      capeShip.setAttribute('cx', posFor(simDay, CAPE_RT, CAPE_DAYS, X0, CAPE_X1).toFixed(1));
+      var suezTrips = Math.floor(simDay / SUEZ_RT);
+      var capeTrips = Math.floor(simDay / CAPE_RT);
+      statDay.textContent = Math.floor(Math.min(simDay, YEAR_DAYS)) + ' / 365';
+      statSuez.textContent = String(suezTrips);
+      statCape.textContent = String(capeTrips);
+      // Use the steady-state ratio (round-trip days are fixed), not the two whole-number
+      // trip counts above, which jump unevenly early on and would misrepresent the rate.
+      statPct.textContent = simDay > 0 ? Math.round((SUEZ_RT / CAPE_RT) * 100) + '%' : '—';
+    }
+
+    function frame(ts) {
+      if (!running) return;
+      if (lastT === null) lastT = ts;
+      var dt = Math.min(ts - lastT, 60);
+      lastT = ts;
+      simDay += dt * DAYS_PER_MS;
+      if (simDay >= YEAR_DAYS) {
+        simDay = YEAR_DAYS;
+        render();
+        pause();
+        stateNote.textContent = 'Finished: 1 simulated year elapsed';
+        return;
+      }
+      render();
+      rafId = requestAnimationFrame(frame);
+    }
+
+    function start() {
+      if (running) return;
+      running = true;
+      lastT = null;
+      stateNote.textContent = 'Sailing…';
+      rafId = requestAnimationFrame(frame);
+    }
+    function pause() {
+      running = false;
+      if (rafId) cancelAnimationFrame(rafId);
+    }
+    function reset() {
+      pause();
+      simDay = 0;
+      render();
+      stateNote.textContent = reducedMotion ? 'Static snapshot (reduced motion) — press Run to animate' : 'Paused';
+    }
+
+    btnRun.addEventListener('click', function () {
+      if (running) { pause(); stateNote.textContent = 'Paused'; return; }
+      if (reducedMotion && simDay >= YEAR_DAYS) { simDay = 0; }
+      start();
+    });
+    btnReset.addEventListener('click', reset);
+
+    if (reducedMotion) {
+      simDay = YEAR_DAYS;
+      render();
+      stateNote.textContent = 'Static snapshot (reduced motion) — press Run to animate';
+    } else {
+      render();
+    }
+  })();
+</script>
+</body>
+</html>
