@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-10-31","category":"CHIP COLLATERAL","headline":"Nvidia Wants Wall Street to Lend $500 Billion Against Its Chips. Nobody Can Agree How Fast Those Chips Hit Zero","summary":"Nvidia is helping arrange up to $500 billion in Wall Street financing for AI infrastructure, pledging GPUs themselves as collateral. Hyperscalers depreciate those chips over five to six years; skeptics like Michael Burry argue real obsolescence hits in two to three. Nobody prices that gap the same way.","whyItMatters":"If AI's physical collateral ages faster than its paperwork assumes, the first crack in a downturn won't show up in a fab — it'll show up in a loan covenant."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Nvidia Wants Wall Street to Lend $500 Billion Against Its Chips. Nobody Can Agree How Fast Those Chips Hit Zero.</title>
+<meta name="description" content="Nvidia is helping line up to $500 billion in Wall Street financing for AI infrastructure, using GPUs as loan collateral. Hyperscalers and short-sellers can't agree on how fast those GPUs actually depreciate &mdash; and that gap is the whole risk." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a8392b;
+    --accent-a-tint: #f6ded9;
+    --accent-b: #2f5aa0;
+    --accent-b-tint: #dbe6f3;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #ef7a67;
+      --accent-a-tint: #3a1f1a;
+      --accent-b: #7aa6e8;
+      --accent-b-tint: #16233a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #ef7a67;
+    --accent-a-tint: #3a1f1a;
+    --accent-b: #7aa6e8;
+    --accent-b-tint: #16233a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #a8392b;
+    --accent-a-tint: #f6ded9;
+    --accent-b: #2f5aa0;
+    --accent-b-tint: #dbe6f3;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the collateral-gap chart --- */
+  .cg-header { margin-bottom: 4px; }
+  .cg-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .cg-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .cg-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px 8px 4px;
+  }
+  #cg-canvas { display: block; width: 100%; height: 260px; }
+
+  .cg-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; padding: 0 4px; }
+  .cg-legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .cg-swatch { width: 16px; height: 3px; border-radius: 2px; display: inline-block; }
+
+  .cg-controls { margin-top: 18px; }
+  .cg-slider-row { display: flex; align-items: center; gap: 12px; }
+  .cg-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-a);
+    height: 22px;
+  }
+  .cg-slider-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-weight: 700;
+    font-size: 14px;
+    min-width: 92px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .cg-presets { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .cg-preset-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 7px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .cg-preset-btn:hover { color: var(--ink); border-color: var(--accent-b); }
+
+  .cg-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .cg-stats { grid-template-columns: repeat(1, 1fr); }
+  }
+  .cg-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--surface); }
+  .cg-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .cg-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .cg-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .cg-note strong { color: var(--ink); }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>October 31, 2026</span>
+    <span class="category-chip">CHIP COLLATERAL</span>
+  </div>
+  <h1>Nvidia Wants Wall Street to Lend $500 Billion Against Its Chips. Nobody Can Agree How Fast Those Chips Hit Zero.</h1>
+  <p class="lede">In August, Nvidia said it was lining up as much as $500 billion in Wall Street financing for AI data centers &mdash; secured not by buildings or contracts, but by the GPUs themselves. The whole plan rests on one number nobody can agree on: how many years before an AI chip is worth nothing.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Nvidia is working with six asset managers &mdash; Apollo, Blackstone, BlackRock, Brookfield, Goldman Sachs, and KKR &mdash; to mobilize up to $500 billion for AI infrastructure, with compute capacity pledged as collateral. CEO Jensen Huang said Nvidia could backstop "up to 25%" of that, roughly $125 billion, though Nvidia has also said no such commitment is final. Meanwhile Meta depreciates its servers over 5.5 years and Amazon over 5, while short-seller Michael Burry argues &mdash; unverified, by his own account on X &mdash; that the real economic life of an AI chip is closer to 2&ndash;3 years. The precedent deal, CoreWeave's $8.5 billion GPU-backed loan, is the first real test of whether any of this holds up.
+  </div>
+
+  <div class="card cg-card">
+    <div class="cg-header">
+      <h2 class="cg-title">Drag the "how long does a GPU last?" slider</h2>
+      <p class="cg-caption mono">A simplified model: $500B of financing amortizes in a straight line over a hypothetical 5-year loan term (dashed blue line). GPU collateral value declines in a straight line to zero over whatever "useful life" you set (solid red line). Wherever collateral value falls below the loan balance still owed, that's an uncovered gap &mdash; shaded red. The dashed grey line marks Nvidia's publicly stated backstop ceiling, scaled to match its real ~25%/$125B figure. This is an illustrative model, not the real deal's undisclosed terms.</p>
+    </div>
+
+    <div class="cg-scene-wrap">
+      <canvas id="cg-canvas" role="img" aria-label="Line chart comparing a loan balance amortizing over 5 years against a GPU collateral value declining to zero over a chosen useful-life number of years, with the gap between them shaded when the loan balance exceeds collateral value."></canvas>
+    </div>
+
+    <div class="cg-legend">
+      <span class="cg-legend-item"><span class="cg-swatch" style="background:var(--accent-b);"></span>Loan balance owed (5-yr amortization)</span>
+      <span class="cg-legend-item"><span class="cg-swatch" style="background:var(--accent-a);"></span>GPU collateral value (your slider)</span>
+      <span class="cg-legend-item"><span class="cg-swatch" style="background:var(--muted);"></span>Nvidia's $125B backstop ceiling</span>
+    </div>
+
+    <div class="cg-controls">
+      <div class="cg-slider-row">
+        <input type="range" id="cg-slider" min="2" max="6" step="0.5" value="6" aria-label="Assumed GPU useful life in years" />
+        <span class="cg-slider-value tabular" id="cg-slider-value">6.0 yrs</span>
+      </div>
+      <div class="cg-presets">
+        <button type="button" class="cg-preset-btn" data-val="6">Meta: 5.5&ndash;6 yrs</button>
+        <button type="button" class="cg-preset-btn" data-val="5">Amazon: 5 yrs</button>
+        <button type="button" class="cg-preset-btn" data-val="3">Burry: 2&ndash;3 yrs</button>
+      </div>
+    </div>
+
+    <div class="cg-stats tabular" aria-live="polite">
+      <div class="cg-stat">
+        <span class="cg-stat-label mono">Peak uncovered gap</span>
+        <div class="cg-stat-value mono" id="cg-stat-gap">$0B</div>
+      </div>
+      <div class="cg-stat">
+        <span class="cg-stat-label mono">Backstop breached at year</span>
+        <div class="cg-stat-value mono" id="cg-stat-year">&mdash;</div>
+      </div>
+      <div class="cg-stat">
+        <span class="cg-stat-label mono">Status</span>
+        <div class="cg-stat-value mono" id="cg-stat-status">Covered</div>
+      </div>
+    </div>
+    <div class="cg-note">At the useful life you've chosen, the collateral gap peaks at <strong id="cg-note-gap" class="mono tabular">$0B</strong> against a <strong>$125B</strong> backstop. Slide it down to 2&ndash;3 years &mdash; Burry's estimate &mdash; and watch whether Nvidia's promised cushion still covers the hole.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Imagine financing a fleet of delivery trucks with a bank loan where the trucks themselves are the collateral. If you stop paying, the bank repossesses the trucks and sells them to cover what's owed. That works fine as long as everyone roughly agrees on how fast a truck loses value. Now swap "trucks" for "AI chips," and you've got Nvidia's new financing plan &mdash; except nobody agrees on the depreciation schedule at all.</p>
+      <p>In August 2026, Nvidia announced it was working with six of Wall Street's biggest firms &mdash; Apollo, Blackstone, BlackRock, Brookfield, Goldman Sachs, and KKR &mdash; to arrange up to $500 billion in financing for AI data centers. The twist: much of the collateral backing that debt isn't a building, it's racks of GPUs. CEO Jensen Huang said Nvidia itself might guarantee up to a quarter of any shortfall, around $125 billion, if the chips end up worth less than expected.</p>
+      <p>Here's the catch. Cloud giant Meta currently assumes its servers keep earning their value for 5.5 years. Amazon just shortened its own assumption to 5 years, because AI hardware is improving so fast that older chips fall behind. Investor Michael Burry has gone much further, arguing publicly (though he hasn't opened his books to prove it) that a real AI chip is economically dead in 2 to 3 years, once a faster, cheaper model replaces it &mdash; which would mean years of industry profits have quietly been overstated.</p>
+      <p>There's already a live test case: CoreWeave, an AI cloud company, closed an $8.5 billion loan this year backed by GPUs plus a Meta contract &mdash; the first such deal ever rated investment-grade. If it holds up, it's the template for the $500 billion plan. If GPU values crack faster than the loan gets paid down, somebody ends up holding chips worth less than what's still owed on them.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The underlying risk is a maturity/value mismatch between an amortizing liability and a depreciating asset &mdash; structurally identical to the risk sitting under any asset-backed security, from mortgage bonds to aircraft leases, except the asset here is semiconductor hardware on an unusually compressed replacement cadence (Hopper &rarr; Blackwell &rarr; Rubin, roughly annual).</p>
+      <p>In August 2026, Nvidia disclosed non-binding arrangements with six asset managers (Apollo, Blackstone, BlackRock, Brookfield, Goldman Sachs, KKR) to mobilize up to $500 billion in financing capacity for AI infrastructure. Structurally, special-purpose vehicles raise debt against compute capacity &mdash; GPUs plus associated customer contracts &mdash; then lease that capacity to operators. Huang stated Nvidia could backstop "up to 25% of an opportunity," implying a ceiling near $125 billion, though Nvidia has publicly denied any binding $125B commitment, and reporting is split on whether $500B represents committed capital or an aspirational capacity target.</p>
+      <p>The precedent instrument is CoreWeave's $8.5 billion delayed-draw term loan, closed March 2026: the first GPU-backed facility to receive investment-grade ratings (Moody's A3, DBRS A-low), structured through a bankruptcy-remote special-purpose subsidiary, collateralized by GPU servers plus a multibillion-dollar Meta compute contract.</p>
+      <p>The open variable is the useful-life assumption driving straight-line depreciation, which determines how fast book collateral value falls relative to loan amortization. Public hyperscalers disagree with each other: Meta extended server/network useful life to 5.5 years effective January 2025 (cutting 2025 depreciation expense by an estimated $2.9 billion), while Amazon shortened a subset of servers from 6 to 5 years, citing accelerating AI hardware turnover, taking a one-time accelerated-depreciation charge reported at roughly $700&ndash;920 million across outlets (figures vary by source). Michael Burry has argued publicly &mdash; a claim CNBC said it could not independently verify &mdash; that true AI-chip economic life is closer to 2&ndash;3 years, which would imply hyperscalers understate cumulative depreciation by tens of billions annually. Countervailing evidence: Bernstein analyst Stacy Rasgon notes 5-year-old A100s still carry solid margins, and CoreWeave renewed an expiring H100 contract within 5% of its original price &mdash; real-world resale/lease value decaying slower than the bear case assumes. Which curve is closer to true determines whether $500 billion of GPU-backed debt behaves like investment-grade paper or like 2007-vintage subprime collateral.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> If AI's physical collateral ages faster than its paperwork assumes, the first crack in a downturn won't show up in a chip fab &mdash; it'll show up in a loan covenant.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Hundreds of billions in planned fab capacity, power contracts, and chip orders are now downstream of an accounting estimate &mdash; useful life &mdash; that two hyperscalers can't even agree on with each other.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://fortune.com/2026/08/11/nvidia-500-billion-ai-financing/" target="_blank" rel="noopener">Fortune &mdash; "Nvidia's $500 billion AI financing plan divides Wall Street," August 11, 2026</a></li>
+    <li><a href="https://www.businesswire.com/news/home/20260330529766/en/CoreWeave-Closes-Landmark-$8.5-Billion-Financing-Facility-Achieving-First-Investment-Grade-Rated-GPU-backed-Financing" target="_blank" rel="noopener">Businesswire / CoreWeave Investor Relations &mdash; "CoreWeave Closes Landmark $8.5 Billion Financing Facility," March 30, 2026</a></li>
+    <li><a href="https://www.barchart.com/story/news/36576792/how-fast-does-an-ai-chip-depreciate-and-why-does-it-matter-for-nvidia-stock" target="_blank" rel="noopener">Barchart &mdash; "How Fast Does an AI Chip Depreciate, and Why Does It Matter for Nvidia Stock?"</a></li>
+    <li><a href="https://www.fool.com/investing/2025/12/02/michael-burry-just-sent-a-warning-to-artificial-in" target="_blank" rel="noopener">The Motley Fool &mdash; "Michael Burry Just Sent a Warning to Artificial Intelligence Stocks," December 2, 2025</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var LOAN_TERM = 5;      // years, illustrative straight-line amortization
+    var TOTAL = 500;        // $B, matches Nvidia's stated financing target
+    var BACKSTOP = 125;     // $B, matches Huang's stated ~25% backstop ceiling
+    var X_MAX = 6;          // years shown on chart
+
+    var canvas = document.getElementById('cg-canvas');
+    var ctx = canvas.getContext('2d');
+    var slider = document.getElementById('cg-slider');
+    var sliderValueEl = document.getElementById('cg-slider-value');
+    var statGap = document.getElementById('cg-stat-gap');
+    var statYear = document.getElementById('cg-stat-year');
+    var statStatus = document.getElementById('cg-stat-status');
+    var noteGap = document.getElementById('cg-note-gap');
+
+    var cssVar = function (name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    };
+
+    function loanBalance(t) {
+      return TOTAL * Math.max(0, 1 - t / LOAN_TERM);
+    }
+    function collateralValue(t, L) {
+      return TOTAL * Math.max(0, 1 - t / L);
+    }
+    function stats(L) {
+      var peakGap = Math.max(0, TOTAL * (1 - L / LOAN_TERM));
+      var crossYear = null;
+      if (peakGap > BACKSTOP) {
+        var rate = TOTAL * (1 / L - 1 / LOAN_TERM);
+        crossYear = BACKSTOP / rate;
+      }
+      return { peakGap: peakGap, crossYear: crossYear };
+    }
+
+    var W = 0, H = 260, M = { l: 48, r: 14, t: 16, b: 28 };
+    function resize() {
+      var rect = canvas.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      W = rect.width;
+      canvas.width = Math.max(1, Math.round(W * dpr));
+      canvas.height = Math.max(1, Math.round(H * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      draw(parseFloat(slider.value));
+    }
+
+    function xPix(t) { return M.l + (t / X_MAX) * (W - M.l - M.r); }
+    function yPix(v) { return M.t + (1 - v / TOTAL) * (H - M.t - M.b); }
+
+    function draw(L) {
+      var ink = cssVar('--ink'), muted = cssVar('--muted'), border = cssVar('--border');
+      var accentA = cssVar('--accent-a'), accentB = cssVar('--accent-b');
+
+      ctx.clearRect(0, 0, W, H);
+
+      // y gridlines
+      ctx.font = '10px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = muted;
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 1;
+      [0, 125, 250, 375, 500].forEach(function (v) {
+        var y = yPix(v);
+        ctx.beginPath();
+        ctx.moveTo(M.l, y);
+        ctx.lineTo(W - M.r, y);
+        ctx.stroke();
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('$' + v + 'B', M.l - 6, y);
+      });
+
+      // x gridlines
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      for (var yr = 0; yr <= X_MAX; yr++) {
+        var x = xPix(yr);
+        ctx.fillText('Yr ' + yr, x, H - M.b + 6);
+      }
+
+      // backstop ceiling dashed line
+      var yBack = yPix(BACKSTOP);
+      ctx.save();
+      ctx.setLineDash([5, 4]);
+      ctx.strokeStyle = muted;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(M.l, yBack);
+      ctx.lineTo(W - M.r, yBack);
+      ctx.stroke();
+      ctx.restore();
+
+      // sample curves
+      var N = 120, pts = [];
+      for (var i = 0; i <= N; i++) {
+        var t = (i / N) * X_MAX;
+        pts.push({ t: t, loan: loanBalance(t), coll: collateralValue(t, L) });
+      }
+
+      // shaded gap (only exists when loan > collateral, i.e. L < LOAN_TERM)
+      if (L < LOAN_TERM) {
+        ctx.beginPath();
+        pts.forEach(function (p, idx) {
+          var x = xPix(p.t), y = yPix(p.loan);
+          if (idx === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        });
+        for (var j = pts.length - 1; j >= 0; j--) {
+          ctx.lineTo(xPix(pts[j].t), yPix(pts[j].coll));
+        }
+        ctx.closePath();
+        ctx.fillStyle = accentA;
+        ctx.globalAlpha = 0.16;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+
+      // loan balance line (dashed, accent-b)
+      ctx.save();
+      ctx.setLineDash([6, 5]);
+      ctx.strokeStyle = accentB;
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      pts.forEach(function (p, idx) {
+        var x = xPix(p.t), y = yPix(p.loan);
+        if (idx === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+      ctx.restore();
+
+      // collateral value line (solid, accent-a)
+      ctx.strokeStyle = accentA;
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      pts.forEach(function (p, idx) {
+        var x = xPix(p.t), y = yPix(p.coll);
+        if (idx === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+
+      // axes
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(M.l, M.t);
+      ctx.lineTo(M.l, H - M.b);
+      ctx.lineTo(W - M.r, H - M.b);
+      ctx.stroke();
+
+      updateStats(L);
+    }
+
+    function updateStats(L) {
+      var s = stats(L);
+      sliderValueEl.textContent = L.toFixed(1) + ' yrs';
+      statGap.textContent = '$' + Math.round(s.peakGap) + 'B';
+      noteGap.textContent = '$' + Math.round(s.peakGap) + 'B';
+      if (s.crossYear === null) {
+        statYear.textContent = 'Never';
+        statStatus.textContent = 'Covered';
+        statStatus.style.color = '';
+      } else {
+        statYear.textContent = 'Yr ' + s.crossYear.toFixed(1);
+        statStatus.textContent = 'Exceeds backstop';
+        statStatus.style.color = 'var(--accent-a)';
+      }
+    }
+
+    slider.addEventListener('input', function () {
+      draw(parseFloat(slider.value));
+    });
+    document.querySelectorAll('.cg-preset-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        slider.value = btn.getAttribute('data-val');
+        draw(parseFloat(slider.value));
+      });
+    });
+
+    window.addEventListener('resize', resize);
+    resize();
+  })();
+</script>
+</body>
+</html>
