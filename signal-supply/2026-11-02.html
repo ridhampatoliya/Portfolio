@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-02","category":"PASSIVE COMPONENTS","headline":"Two Companies Make an Estimated 85% of the Capacitor Hiding Inside Every AI Server. Buyers Are Now Signing Chip-Style Contracts to Get Them","summary":"AI servers need thousands of tiny ceramic capacitors to buffer their GPUs' power spikes. Two companies, Murata and Samsung Electro-Mechanics, supply an estimated 85% of the premium kind, whose prices have jumped 50–60% since February — pushing buyers into chip-style multiyear supply contracts.","whyItMatters":"The AI boom's next shortage isn't a chip — it's the nameless capacitor that keeps chips from browning out, and two companies control most of the good ones."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Two Companies Make an Estimated 85% of the Capacitor Hiding Inside Every AI Server. Buyers Are Now Signing Chip-Style Contracts to Get Them.</title>
+<meta name="description" content="AI servers need thousands of tiny ceramic capacitors to buffer their GPUs' power spikes. Two companies supply an estimated 85% of the premium kind, whose prices have jumped 50-60% since February, pushing buyers into chip-style multiyear supply contracts." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b07324;
+    --accent-a-tint: #f5e7d2;
+    --accent-b: #1f7d82;
+    --accent-b-tint: #daeceb;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e2a658;
+      --accent-a-tint: #392a15;
+      --accent-b: #4fb8bc;
+      --accent-b-tint: #123130;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e2a658;
+    --accent-a-tint: #392a15;
+    --accent-b: #4fb8bc;
+    --accent-b-tint: #123130;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b07324;
+    --accent-a-tint: #f5e7d2;
+    --accent-b: #1f7d82;
+    --accent-b-tint: #daeceb;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: AI-server MLCC demand vs. capacity --- */
+  .mc-header { margin-bottom: 4px; }
+  .mc-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .mc-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .mc-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 12px;
+  }
+  #mc-canvas { display: block; width: 100%; height: 190px; }
+
+  .mc-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 14px; padding: 0 2px; }
+  .mc-legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .mc-swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  .mc-swatch.line { width: 16px; height: 3px; border-radius: 2px; }
+
+  .mc-controls { margin-top: 20px; }
+  .mc-slider-row { display: flex; align-items: center; gap: 12px; }
+  .mc-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-a);
+    height: 22px;
+  }
+  .mc-slider-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-weight: 700;
+    font-size: 13px;
+    min-width: 56px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+  }
+  .mc-buttons { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .mc-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .mc-btn:hover { border-color: var(--accent-b); }
+  .mc-btn.primary { background: var(--accent-a); color: #fff; border-color: var(--accent-a); }
+
+  .mc-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .mc-stats { grid-template-columns: repeat(1, 1fr); }
+  }
+  .mc-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--surface); }
+  .mc-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .mc-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .mc-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .mc-note strong { color: var(--ink); }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 2, 2026</span>
+    <span class="category-chip">PASSIVE COMPONENTS</span>
+  </div>
+  <h1>Two Companies Make an Estimated 85% of the Capacitor Hiding Inside Every AI Server. Buyers Are Now Signing Chip-Style Contracts to Get Them.</h1>
+  <p class="lede">It's smaller than a grain of rice, costs a few cents, and nobody budgets for it &mdash; until AI servers started needing thousands of the good ones per board. The multilayer ceramic capacitor, or MLCC, just became the AI boom's newest shortage, and two companies control most of the premium supply.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    An MLCC is a tiny ceramic capacitor that smooths out electrical noise on a circuit board; ordinary electronics use billions of cheap ones a year. AI accelerator boards need far more of the high-end kind, because GPUs draw power in huge, fast bursts that cheaper capacitors can't buffer. Spot prices for those premium, AI-server-grade parts have jumped roughly 50&ndash;60% since late February 2026, versus 15&ndash;20% for ordinary MLCCs, and TrendForce expects the high-end shortage to run through at least the first half of 2027. Two companies &mdash; Japan's Murata and South Korea's Samsung Electro-Mechanics &mdash; are estimated to supply around 85% of that premium segment between them, and buyers are now locking in multiyear reserved-capacity contracts, the kind once reserved for leading-edge chip foundries, just to secure capacitors.
+  </div>
+
+  <div class="card mc-card">
+    <div class="mc-header">
+      <h2 class="mc-title">Drag the year to watch the gap open up</h2>
+      <p class="mc-caption mono">An illustrative index (2025 = 1.0&times;) of AI-server MLCC demand vs. industry manufacturing capacity, shaped to match Goldman Sachs' reported projection that demand more than quadruples from 2025 to 2030 while capacity grows roughly 10% a year. Yearly points are modeled, not individually reported figures &mdash; the shape of the gap is the point, not the exact number for any single year.</p>
+    </div>
+
+    <div class="mc-scene-wrap">
+      <canvas id="mc-canvas" role="img" aria-label="Line chart showing an index of AI-server capacitor demand rising to over four times its 2025 level by 2030, while manufacturing capacity rises to only about 1.6 times, opening a widening gap."></canvas>
+    </div>
+
+    <div class="mc-legend">
+      <span class="mc-legend-item"><span class="mc-swatch line" style="background:var(--accent-a);"></span>AI-server MLCC demand</span>
+      <span class="mc-legend-item"><span class="mc-swatch line" style="background:var(--accent-b);"></span>Industry manufacturing capacity</span>
+      <span class="mc-legend-item"><span class="mc-swatch" style="background:var(--accent-a-tint); border:1px solid var(--accent-a);"></span>The gap</span>
+    </div>
+
+    <div class="mc-controls">
+      <div class="mc-slider-row">
+        <input type="range" id="mc-slider" min="0" max="5" step="1" value="0" aria-label="Year, from 2025 to 2030" />
+        <span class="mc-slider-value tabular" id="mc-slider-value">2025</span>
+      </div>
+      <div class="mc-buttons">
+        <button type="button" class="mc-btn primary" id="mc-run">&#9654; Run to 2030</button>
+        <button type="button" class="mc-btn" id="mc-reset">Reset to 2025</button>
+      </div>
+    </div>
+
+    <div class="mc-stats tabular" aria-live="polite">
+      <div class="mc-stat">
+        <span class="mc-stat-label mono">Demand index</span>
+        <div class="mc-stat-value mono" id="mc-stat-demand">1.0&times;</div>
+      </div>
+      <div class="mc-stat">
+        <span class="mc-stat-label mono">Capacity index</span>
+        <div class="mc-stat-value mono" id="mc-stat-capacity">1.0&times;</div>
+      </div>
+      <div class="mc-stat">
+        <span class="mc-stat-label mono">Demand &divide; capacity</span>
+        <div class="mc-stat-value mono" id="mc-stat-gap">1.0&times;</div>
+      </div>
+    </div>
+    <div class="mc-note">Capacity is physical: thin-layer ceramic stacking and kiln-firing lines take years and heavy capital to add, and only a handful of makers can hit the yields the premium tier needs. Demand is software-paced &mdash; it moves as fast as GPU shipment plans do. That mismatch, not a lack of raw materials, is why the shortage is concentrated in the high end rather than across MLCCs generally.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Think of a capacitor as a tiny shock absorber for electricity. When a chip suddenly demands a lot more power &mdash; the way an AI GPU does when it ramps from idle to full tilt in a fraction of a millisecond &mdash; a capacitor sitting right next to it soaks up that jolt so the voltage doesn't crash. Every circuit board is covered in them, most of them cheap, forgettable, ceramic specks called MLCCs: multilayer ceramic capacitors. A phone might have a few hundred. An AI server board, built around chips that gulp power far more violently, needs thousands &mdash; and needs the expensive, high-performance kind, not the bargain bin.</p>
+      <p>That's the squeeze. As AI data centers have multiplied, demand for premium MLCCs has shot up, and prices for the AI-grade parts are up an estimated 50&ndash;60% since late February &mdash; more than triple the price rise for everyday capacitors. Analysts at TrendForce expect that shortage to stick around through at least mid-2027. Worse for buyers: almost all of the good stuff comes from just two companies, Murata in Japan and Samsung Electro-Mechanics in South Korea, which together are estimated to control roughly 85% of this top-shelf segment.</p>
+      <p>So buyers are doing something new: signing multi-year supply contracts for capacitors, the same kind of long-term commitment customers usually sign with a chip foundry like TSMC to guarantee they get wafers. Nobody used to need a long-term contract for a part that costs a few cents. Now they do, because Goldman Sachs expects AI-server capacitor demand to more than quadruple by 2030, while the companies that make them can only add about 10% more capacity a year. The unglamorous part is becoming the bottleneck.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>An MLCC is built from alternating layers of a high-permittivity ceramic dielectric (typically barium-titanate-based, class II formulations such as X7R/X5R for this application) and screen-printed metal electrodes, stacked hundreds of layers deep, co-fired, then diced and terminated. Capacitance scales with dielectric constant and electrode overlap area, and inversely with dielectric-layer thickness, so manufacturers push capacitance higher by thinning each ceramic layer (now sub-micron in leading parts) while adding more layers &mdash; a precision lamination and kiln-firing process where yield degrades sharply as layers get thinner, which is why only a handful of makers can produce the high-capacitance tier at volume and acceptable cost.</p>
+      <p>AI accelerator power-delivery networks need exactly that tier: GPUs step from idle to peak draw in microseconds, producing current slew rates (di/dt) far steeper than a CPU's, and the bulk/decoupling capacitance sitting near the voltage-regulator stage has to absorb that transient without letting rail voltage sag outside tolerance. That requires high-CV, low-ESL/ESR parts in large quantities per board &mdash; the premium segment, not commodity MLCCs used for simple filtering, which is why the shortage and price spike are concentrated there rather than across the MLCC market broadly.</p>
+      <p>On numbers: TrendForce-sourced reporting puts broad spot MLCC prices up roughly 15&ndash;20% since a rally beginning in late February 2026, with AI-server-grade high-capacitance parts up 50&ndash;60% over the same stretch, and expects the high-end shortage to persist through 1H 2027; Samsung Electro-Mechanics reported MLCC average selling prices up 13.9% year over year in 1H26, and Japanese suppliers are expected to pursue further increases in 1Q27 pricing negotiations beginning this November. Goldman Sachs projects AI-server MLCC demand growing more than fourfold from 2025 to 2030 against roughly 10%-a-year capacity growth. By most industry trackers Murata holds on the order of 35&ndash;40% of the overall MLCC market and Samsung Electro-Mechanics about 24%; in the AI-server-grade segment specifically, industry estimates (less precisely sourced, treat as directional) put the two combined near 85%, roughly 45% and 40% respectively &mdash; concentration severe enough that hyperscalers and GPU OEMs have begun signing multiyear reserved-capacity agreements, a contract structure historically associated with leading-edge wafer capacity, to guarantee allocation instead of buying on the spot market.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> The AI boom's next shortage isn't a chip &mdash; it's the nameless capacitor that keeps chips from browning out, and two companies control most of the good ones.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Power-delivery passives are becoming as allocation-constrained as leading-edge silicon, and the fix &mdash; more thin-layer ceramic capacity &mdash; is years out, not quarters.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.koreaherald.com/article/10762449" target="_blank" rel="noopener">The Korea Herald &mdash; "Supply agreements once reserved for chips are spreading to capacitors as AI demand outpaces production"</a></li>
+    <li><a href="https://www.trendforce.com/presscenter/news/20261029-13284.html" target="_blank" rel="noopener">TrendForce Press Center &mdash; MLCC market update, October 29, 2026</a></li>
+    <li><a href="https://passive-components.eu/mlcc-manufacturers-consider-price-increase-as-ai-demand-outpaces-supply/" target="_blank" rel="noopener">Passive Components (EU) &mdash; "MLCC manufacturers consider price increase as AI demand outpaces supply"</a></li>
+    <li><a href="https://www.microchipusa.com/industry-news/ai-server-demand-drives-new-mlcc-supply-and-pricing-pressure" target="_blank" rel="noopener">Microchip USA &mdash; "AI Server Demand Drives New MLCC Supply and Pricing Pressure"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    // Illustrative index, 2025 = 1.0x. Shaped to match Goldman Sachs' reported
+    // ">4x by 2030" demand projection and ~10%/yr capacity growth; not individually
+    // reported per-year figures.
+    var YEARS = [2025, 2026, 2027, 2028, 2029, 2030];
+    var DEMAND = [1.0, 1.3, 1.75, 2.4, 3.3, 4.3];
+    var CAPACITY = [1.0, 1.1, 1.21, 1.33, 1.46, 1.61];
+
+    var canvas = document.getElementById('mc-canvas');
+    var ctx = canvas.getContext('2d');
+    var slider = document.getElementById('mc-slider');
+    var sliderValueEl = document.getElementById('mc-slider-value');
+    var runBtn = document.getElementById('mc-run');
+    var resetBtn = document.getElementById('mc-reset');
+    var statDemand = document.getElementById('mc-stat-demand');
+    var statCapacity = document.getElementById('mc-stat-capacity');
+    var statGap = document.getElementById('mc-stat-gap');
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var cssVar = function (name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    };
+
+    var W = 0, H = 190;
+    var padL = 34, padR = 10, padT = 18, padB = 24;
+
+    function resize() {
+      var rect = canvas.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      W = rect.width;
+      canvas.width = Math.max(1, Math.round(W * dpr));
+      canvas.height = Math.max(1, Math.round(H * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      draw(parseFloat(slider.value));
+    }
+
+    function xAt(i) {
+      var usableW = W - padL - padR;
+      return padL + (i / (YEARS.length - 1)) * usableW;
+    }
+    function yAt(v) {
+      var maxV = 4.6;
+      var usableH = H - padT - padB;
+      return padT + usableH - (v / maxV) * usableH;
+    }
+
+    function draw(idx) {
+      ctx.clearRect(0, 0, W, H);
+
+      // gridlines + y labels
+      ctx.strokeStyle = cssVar('--border');
+      ctx.lineWidth = 1;
+      ctx.font = '600 9px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = cssVar('--muted');
+      ctx.textBaseline = 'middle';
+      [1, 2, 3, 4].forEach(function (v) {
+        var y = yAt(v);
+        ctx.beginPath();
+        ctx.moveTo(padL, y);
+        ctx.lineTo(W - padR, y);
+        ctx.stroke();
+        ctx.fillText(v + '×', 4, y);
+      });
+
+      // x labels (years)
+      ctx.textBaseline = 'alphabetic';
+      ctx.textAlign = 'center';
+      for (var i = 0; i < YEARS.length; i++) {
+        ctx.fillStyle = (i <= idx) ? cssVar('--ink') : cssVar('--muted');
+        ctx.fillText(String(YEARS[i]), xAt(i), H - 6);
+      }
+      ctx.textAlign = 'left';
+
+      var n = Math.min(idx, YEARS.length - 1);
+
+      // gap fill between the two curves, up to current index
+      if (n > 0) {
+        ctx.beginPath();
+        ctx.moveTo(xAt(0), yAt(DEMAND[0]));
+        for (var a = 1; a <= n; a++) ctx.lineTo(xAt(a), yAt(DEMAND[a]));
+        for (var b = n; b >= 0; b--) ctx.lineTo(xAt(b), yAt(CAPACITY[b]));
+        ctx.closePath();
+        ctx.fillStyle = cssVar('--accent-a-tint');
+        ctx.fill();
+      }
+
+      function drawLine(data, color) {
+        ctx.beginPath();
+        ctx.moveTo(xAt(0), yAt(data[0]));
+        for (var k = 1; k <= n; k++) ctx.lineTo(xAt(k), yAt(data[k]));
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2.5;
+        ctx.lineJoin = 'round';
+        ctx.stroke();
+        for (var m = 0; m <= n; m++) {
+          ctx.beginPath();
+          ctx.arc(xAt(m), yAt(data[m]), 3, 0, Math.PI * 2);
+          ctx.fillStyle = color;
+          ctx.fill();
+        }
+      }
+      drawLine(CAPACITY, cssVar('--accent-b'));
+      drawLine(DEMAND, cssVar('--accent-a'));
+    }
+
+    function updateStats(idxFloat) {
+      var idx = Math.round(idxFloat);
+      idx = Math.max(0, Math.min(YEARS.length - 1, idx));
+      var d = DEMAND[idx], c = CAPACITY[idx];
+      statDemand.textContent = d.toFixed(2) + '×';
+      statCapacity.textContent = c.toFixed(2) + '×';
+      statGap.textContent = (d / c).toFixed(2) + '×';
+      sliderValueEl.textContent = String(YEARS[idx]);
+    }
+
+    function render(idxFloat) {
+      draw(idxFloat);
+      updateStats(idxFloat);
+    }
+
+    slider.addEventListener('input', function () {
+      render(parseFloat(slider.value));
+    });
+
+    var animRaf = null;
+    function animateTo(target, duration) {
+      if (animRaf) cancelAnimationFrame(animRaf);
+      var start = parseFloat(slider.value);
+      var t0 = null;
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min(1, (ts - t0) / duration);
+        var val = start + (target - start) * p;
+        slider.value = val;
+        render(val);
+        if (p < 1) {
+          animRaf = requestAnimationFrame(step);
+        }
+      }
+      animRaf = requestAnimationFrame(step);
+    }
+
+    runBtn.addEventListener('click', function () {
+      if (prefersReducedMotion) {
+        slider.value = YEARS.length - 1;
+        render(YEARS.length - 1);
+      } else {
+        slider.value = 0;
+        render(0);
+        animateTo(YEARS.length - 1, 1800);
+      }
+    });
+    resetBtn.addEventListener('click', function () {
+      if (animRaf) cancelAnimationFrame(animRaf);
+      slider.value = 0;
+      render(0);
+    });
+
+    window.addEventListener('resize', resize);
+    resize();
+    if (prefersReducedMotion) {
+      slider.value = YEARS.length - 1;
+      render(YEARS.length - 1);
+    } else {
+      render(0);
+    }
+  })();
+</script>
+</body>
+</html>
