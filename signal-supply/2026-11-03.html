@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-03","category":"LITHOGRAPHY","headline":"Before EUV Light Can Print a Transistor, It Has to Bounce Off a Mirror That Can't Have a Single Flaw. Two Companies Make Nearly All of Them","summary":"Before EUV light can print a chip, it bounces off a mirror built from ~40 ultra-thin metal layers on glass — and a single buried speck of dust becomes a permanent defect printed onto every wafer. Only two companies, AGC and Hoya, reliably make that mirror defect-free at scale.","whyItMatters":"Everyone talks about ASML's EUV machines as the chokepoint under every advanced chip. There's a quieter one underneath that one — two companies' glass."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Before EUV Light Can Print a Transistor, It Has to Bounce Off a Mirror That Can't Have a Single Flaw. Two Companies Make Nearly All of Them.</title>
+<meta name="description" content="EUV lithography can't use lenses, so it reflects light off a multilayer mirror called a mask blank. A single buried particle becomes a permanent defect printed onto every chip made from it &mdash; and only two companies, AGC and Hoya, reliably make that mirror defect-free at volume." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c15a2e;
+    --accent-a-tint: #f7e0d2;
+    --accent-b: #4a4fd6;
+    --accent-b-tint: #e3e3fb;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #eb8a5e;
+      --accent-a-tint: #3a2416;
+      --accent-b: #9a9ef5;
+      --accent-b-tint: #201f3d;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #eb8a5e;
+    --accent-a-tint: #3a2416;
+    --accent-b: #9a9ef5;
+    --accent-b-tint: #201f3d;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c15a2e;
+    --accent-a-tint: #f7e0d2;
+    --accent-b: #4a4fd6;
+    --accent-b-tint: #e3e3fb;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: EUV mask-blank defect telescoping --- */
+  .mc-header { margin-bottom: 4px; }
+  .mc-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .mc-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .mc-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 12px;
+  }
+  #mc-canvas { display: block; width: 100%; height: 260px; }
+
+  .mc-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 14px; padding: 0 2px; }
+  .mc-legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .mc-swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  .mc-swatch.line { width: 16px; height: 3px; border-radius: 2px; }
+
+  .mc-controls { margin-top: 20px; }
+  .mc-slider-row { display: flex; align-items: center; gap: 12px; }
+  .mc-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-a);
+    height: 22px;
+  }
+  .mc-slider-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-weight: 700;
+    font-size: 13px;
+    min-width: 66px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+  }
+  .mc-buttons { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .mc-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .mc-btn:hover { border-color: var(--accent-b); }
+  .mc-btn.primary { background: var(--accent-a); color: #fff; border-color: var(--accent-a); }
+
+  .mc-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .mc-stats { grid-template-columns: repeat(1, 1fr); }
+  }
+  .mc-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--surface); }
+  .mc-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .mc-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .mc-stat-value.pass { color: var(--accent-b); }
+  .mc-stat-value.fail { color: var(--accent-a); }
+  .mc-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .mc-note strong { color: var(--ink); }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 3, 2026</span>
+    <span class="category-chip">LITHOGRAPHY</span>
+  </div>
+  <h1>Before EUV Light Can Print a Transistor, It Has to Bounce Off a Mirror That Can't Have a Single Flaw. Two Companies Make Nearly All of Them.</h1>
+  <p class="lede">It's a six-inch square of glass coated with roughly forty paper-thin layers of metal, and before ASML's record-priced lithography machines can print a single transistor, every advanced chip in the world has to start here. A speck of dust caught under those layers doesn't go away &mdash; it rides straight to the top and gets printed onto every wafer that blank ever makes.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    EUV lithography uses 13.5-nanometer light that's absorbed by almost everything, so chipmakers can't use lenses &mdash; they reflect the light off a "mask blank": roughly 40 alternating layers of molybdenum and silicon on ultra-flat glass, tuned to act as a mirror. A single particle trapped during that multilayer deposition becomes a permanent "phase defect" that still shows up at the top after dozens of layers and prints onto every chip made from that blank &mdash; there's no repairing it once it's buried, so flawed blanks are simply scrapped. Only two companies, Japan's AGC and Hoya, reliably hit the defect-free bar the industry needs at volume; independent trade-press estimates put their combined share of qualified EUV blank supply at more than 90%. A Korean challenger, S&amp;S Tech, began sampling blanks to Samsung in March 2026 &mdash; and qualification can still take six months to over a year.
+  </div>
+
+  <div class="card mc-card">
+    <div class="mc-header">
+      <h2 class="mc-title">Grow the mirror, then see if the flaw survives</h2>
+      <p class="mc-caption mono">A simplified cross-section of an EUV mask blank's multilayer mirror, viewed edge-on. Deposit all 40 layers over a single contaminant particle and watch whether its bump is smoothed away or still pokes through the top &mdash; which is what decides whether that blank gets used or scrapped. Layer thicknesses, bump sizes, and the smoothing rate are exaggerated and simplified for legibility, not a precise model of real deposition physics.</p>
+    </div>
+
+    <div class="mc-scene-wrap">
+      <canvas id="mc-canvas" role="img" aria-label="Side-view diagram of a 40-layer mirror stack being deposited over a contaminant particle, showing the particle's bump shrinking with each layer but potentially still reaching the top surface as a printable defect."></canvas>
+    </div>
+
+    <div class="mc-legend">
+      <span class="mc-legend-item"><span class="mc-swatch" style="background:var(--accent-a);"></span>Molybdenum layer</span>
+      <span class="mc-legend-item"><span class="mc-swatch" style="background:var(--accent-b);"></span>Silicon layer</span>
+      <span class="mc-legend-item"><span class="mc-swatch line" style="background:var(--muted);"></span>Printable-defect threshold</span>
+    </div>
+
+    <div class="mc-controls">
+      <div class="mc-slider-row">
+        <input type="range" id="mc-slider" min="0" max="100" step="5" value="45" aria-label="Contaminant particle size in nanometers, illustrative scale" />
+        <span class="mc-slider-value tabular" id="mc-slider-value">45 nm</span>
+      </div>
+      <div class="mc-buttons">
+        <button type="button" class="mc-btn primary" id="mc-run">&#9654; Deposit 40 layers</button>
+        <button type="button" class="mc-btn" id="mc-reset">Reset to bare blank</button>
+      </div>
+    </div>
+
+    <div class="mc-stats tabular" aria-live="polite">
+      <div class="mc-stat">
+        <span class="mc-stat-label mono">Layers deposited</span>
+        <div class="mc-stat-value mono" id="mc-stat-layers">0 / 40</div>
+      </div>
+      <div class="mc-stat">
+        <span class="mc-stat-label mono">Bump at surface</span>
+        <div class="mc-stat-value mono" id="mc-stat-bump">45.0 nm</div>
+      </div>
+      <div class="mc-stat">
+        <span class="mc-stat-label mono">Verdict</span>
+        <div class="mc-stat-value mono" id="mc-stat-verdict">&mdash;</div>
+      </div>
+    </div>
+    <div class="mc-note">Real EUV blanks target defects down near the tens-of-nanometer scale &mdash; far smaller than almost any particle in an ordinary clean room. Because the flaw is sealed under every layer deposited after it, there's no polishing or patching it out once the stack is built. <strong>That single constraint, more than any patent, is why volume EUV-blank supply has stayed down to two companies.</strong></div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Every advanced chip in the world &mdash; the ones inside your phone, your car, and the servers training AI &mdash; starts, improbably, with a mirror. Not a bathroom mirror; a mirror built from roughly forty pairs of alternating molybdenum and silicon layers, each only a few atoms thick, stacked onto a six-inch square of ultra-pure glass. That stack is called an EUV mask blank, and it's the raw material that chipmakers' own mask shops etch a circuit pattern onto before it ever goes near one of ASML's famous extreme-ultraviolet lithography machines.</p>
+      <p>Why a mirror and not a lens? The light used to print today's smallest transistors &mdash; extreme ultraviolet, or EUV &mdash; is so energetic that it gets absorbed by almost everything, including ordinary glass and even air. Nothing can focus it the way a camera lens focuses visible light. So engineers reflect it instead, bouncing it off that precisely tuned multilayer stack the way you'd bounce a flashlight beam off a mirror.</p>
+      <p>Here's the catch: if even one microscopic speck of dust lands on the glass before the first layer goes down, every layer deposited on top of it conforms around that bump &mdash; and the bump doesn't fully disappear. By the fortieth layer, it can still be poking up just enough to get printed onto every single chip made with that blank, forever. There's no fixing it after the fact; the blank just gets thrown away.</p>
+      <p>Making that defect-free glass at scale turns out to be absurdly hard &mdash; hard enough that only two companies, Japan's AGC and Hoya, reliably do it at volume, together supplying an estimated 90%-plus of the world's qualified EUV mask blanks. A South Korean challenger, S&amp;S Tech, is trying to break in, but qualifying can take over a year. Before anyone worries about chip tariffs or GPU shortages, this is where the chain actually starts.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>EUV lithography uses 13.5 nm light, a wavelength absorbed by virtually all materials, so refractive optics are not viable &mdash; the entire optical path, from source collector through projection optics to the mask itself, is reflective. The mask (reticle) is built on a blank: a low-thermal-expansion-glass substrate roughly 6 inches square, coated with on the order of 40&ndash;50 alternating bilayers of molybdenum (~2.1 nm) and silicon (~4.1 nm), engineered so each interface reflection constructively interferes near-normal incidence &mdash; a Bragg reflector tuned to 13.5 nm that reaches roughly 65&ndash;70% peak reflectivity. A capping layer and an absorber pattern sit on top; the absorber is what actually gets patterned to form the circuit.</p>
+      <p>The defect problem is structural, not incidental. A particle or pit at the substrate, or trapped mid-stack during sputter deposition, propagates upward through every subsequent bilayer as a "phase defect" &mdash; a local disruption of the reflected wavefront rather than a simple blocked spot, which is harder to compensate for in mask design than an absorber-layer defect. Because the multilayer is buried under dozens of subsequent depositions, it can't be inspected or repaired mid-process; a blank found defective after full deposition is scrapped outright. Historical SEMATECH-era programs targeted zero "killer" defects down to tens of nanometers in diameter for leading nodes &mdash; a yield bar that for years outpaced available substrate-polishing and deposition tooling.</p>
+      <p>That bar is also why blank supply has stayed concentrated. AGC and Hoya are, by their own disclosures, the two qualified volume suppliers to the industry; AGC describes itself as the only maker handling the full process in-house, from glass substrate through multilayer coating, and both companies have added capacity specifically for EUV blanks (Hoya's Singapore plant, AGC's dedicated blank lines) rather than the larger, more fragmented DUV mask-blank market. Independent trade-press estimates put the two combined at more than 90% of qualified EUV blank supply industry-wide. South Korea's S&amp;S Tech, sampling blanks to Samsung since March 2026, is the most advanced attempt to add a third qualified source, with reported qualification cycles of six months to over a year.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Everyone talks about ASML's EUV machines as the chokepoint under every advanced chip. There's a quieter one underneath that one &mdash; two companies' glass.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Mask-blank qualification, not scanner output, is increasingly the real ceiling on EUV-node capacity &mdash; and it's a bar only two companies have cleared at volume.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.agc.com/en/news/detail/1203819_2814.html" target="_blank" rel="noopener">AGC &mdash; EUV mask blank capacity and process announcement</a></li>
+    <li><a href="https://www.hoya.com/ir/2023/en/review/it.html" target="_blank" rel="noopener">Hoya &mdash; Information Technology Business review (photomasks and mask blanks)</a></li>
+    <li><a href="https://semiengineering.com/euv-mask-blank-biz-heats-up" target="_blank" rel="noopener">SemiEngineering &mdash; "EUV Mask Blank Biz Heats Up"</a></li>
+    <li><a href="https://sst.semiconductor-digest.com/?p=52957" target="_blank" rel="noopener">Semiconductor Digest &mdash; "Defect-Free Mask Blanks: Next EUV Challenge"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    // Illustrative model, not a precise simulation of real deposition physics:
+    // each deposited layer "smooths" the buried particle's bump by a fixed
+    // decay factor. Small bumps vanish well before layer 40; large ones still
+    // poke through the top and cross the printable-defect threshold.
+    var N_LAYERS = 40;
+    var DECAY = 0.94;
+    var PX_PER_NM = 0.34;
+    var THRESHOLD_NM = 4;
+
+    var canvas = document.getElementById('mc-canvas');
+    var ctx = canvas.getContext('2d');
+    var slider = document.getElementById('mc-slider');
+    var sliderValueEl = document.getElementById('mc-slider-value');
+    var runBtn = document.getElementById('mc-run');
+    var resetBtn = document.getElementById('mc-reset');
+    var statLayers = document.getElementById('mc-stat-layers');
+    var statBump = document.getElementById('mc-stat-bump');
+    var statVerdict = document.getElementById('mc-stat-verdict');
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var cssVar = function (name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    };
+
+    var W = 0, H = 260;
+    var padL = 14, padR = 14, padT = 56, padB = 34;
+    var layerStepPx = 0;
+    var deposited = 0; // 0..N_LAYERS
+
+    function resize() {
+      var rect = canvas.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      W = rect.width;
+      canvas.width = Math.max(1, Math.round(W * dpr));
+      canvas.height = Math.max(1, Math.round(H * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      layerStepPx = (H - padT - padB) / N_LAYERS;
+      draw();
+    }
+
+    function bumpNmAtLayer(i, sizeNm) {
+      // i = 0 is the first layer directly over the particle.
+      return sizeNm * Math.pow(DECAY, i);
+    }
+
+    function currentTopBumpNm(sizeNm) {
+      if (deposited === 0) return sizeNm;
+      return bumpNmAtLayer(deposited - 1, sizeNm);
+    }
+
+    function draw() {
+      var sizeNm = parseFloat(slider.value);
+      ctx.clearRect(0, 0, W, H);
+
+      var baseY = H - padB;
+      var centerX = W * 0.5;
+      var bumpHalfWidth = Math.min(70, W * 0.16);
+
+      // substrate block
+      ctx.fillStyle = cssVar('--border');
+      ctx.fillRect(padL, baseY, W - padL - padR, 6);
+      ctx.font = '600 9px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = cssVar('--muted');
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillText('ULTRA-LOW-EXPANSION GLASS SUBSTRATE', padL, baseY + 18);
+
+      // printable-defect threshold line, referenced to the final (40th) layer position
+      var topLayerY = baseY - N_LAYERS * layerStepPx;
+      var thresholdY = topLayerY - THRESHOLD_NM * PX_PER_NM;
+      ctx.save();
+      ctx.setLineDash([4, 4]);
+      ctx.strokeStyle = cssVar('--muted');
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(padL, thresholdY);
+      ctx.lineTo(W - padR, thresholdY);
+      ctx.stroke();
+      ctx.restore();
+
+      // the particle itself, before any layers
+      if (deposited === 0) {
+        ctx.beginPath();
+        ctx.arc(centerX, baseY - 4, Math.max(3, Math.min(9, sizeNm * 0.09)), 0, Math.PI * 2);
+        ctx.fillStyle = cssVar('--accent-a');
+        ctx.fill();
+      }
+
+      // layers, bottom to top
+      for (var i = 0; i < deposited; i++) {
+        var y = baseY - i * layerStepPx - layerStepPx;
+        var bumpPx = bumpNmAtLayer(i, sizeNm) * PX_PER_NM;
+        var color = (i % 2 === 0) ? cssVar('--accent-a') : cssVar('--accent-b');
+
+        ctx.beginPath();
+        ctx.moveTo(padL, y);
+        ctx.lineTo(centerX - bumpHalfWidth, y);
+        ctx.quadraticCurveTo(centerX, y - bumpPx, centerX + bumpHalfWidth, y);
+        ctx.lineTo(W - padR, y);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.lineJoin = 'round';
+        ctx.stroke();
+      }
+
+      // verdict marker at the top once fully deposited
+      if (deposited === N_LAYERS) {
+        var topBump = currentTopBumpNm(sizeNm);
+        var topY = baseY - N_LAYERS * layerStepPx - topBump * PX_PER_NM;
+        var failed = topBump > THRESHOLD_NM;
+        ctx.beginPath();
+        ctx.arc(centerX, topY, 4, 0, Math.PI * 2);
+        ctx.fillStyle = failed ? cssVar('--accent-a') : cssVar('--accent-b');
+        ctx.fill();
+
+        ctx.font = '700 11px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+        ctx.fillStyle = failed ? cssVar('--accent-a') : cssVar('--accent-b');
+        ctx.textAlign = 'center';
+        ctx.fillText(failed ? 'KILLER DEFECT — SCRAPPED' : 'SMOOTHED — BLANK PASSES', centerX, Math.max(14, topY - 12));
+        ctx.textAlign = 'left';
+      }
+
+      ctx.font = '600 9px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = cssVar('--muted');
+      ctx.textAlign = 'right';
+      ctx.fillText('printable-defect threshold', W - padR, thresholdY - 6);
+      ctx.textAlign = 'left';
+    }
+
+    function updateStats() {
+      var sizeNm = parseFloat(slider.value);
+      sliderValueEl.textContent = sizeNm.toFixed(0) + ' nm';
+      statLayers.textContent = deposited + ' / ' + N_LAYERS;
+      var topBump = currentTopBumpNm(sizeNm);
+      statBump.textContent = topBump.toFixed(1) + ' nm';
+      statBump.className = 'mc-stat-value mono';
+      if (deposited === N_LAYERS) {
+        var failed = topBump > THRESHOLD_NM;
+        statVerdict.textContent = failed ? 'KILLER DEFECT' : 'PASSES';
+        statVerdict.className = 'mc-stat-value mono ' + (failed ? 'fail' : 'pass');
+      } else if (deposited === 0) {
+        statVerdict.textContent = '—';
+        statVerdict.className = 'mc-stat-value mono';
+      } else {
+        statVerdict.textContent = 'depositing…';
+        statVerdict.className = 'mc-stat-value mono';
+      }
+    }
+
+    function render() {
+      draw();
+      updateStats();
+    }
+
+    slider.addEventListener('input', function () {
+      render();
+    });
+
+    var animRaf = null;
+    function animateDeposit() {
+      if (animRaf) cancelAnimationFrame(animRaf);
+      deposited = 0;
+      render();
+      var start = null;
+      var durationPerLayer = 38;
+      function step(ts) {
+        if (!start) start = ts;
+        var elapsed = ts - start;
+        var target = Math.min(N_LAYERS, Math.floor(elapsed / durationPerLayer));
+        if (target !== deposited) {
+          deposited = target;
+          render();
+        }
+        if (deposited < N_LAYERS) {
+          animRaf = requestAnimationFrame(step);
+        }
+      }
+      animRaf = requestAnimationFrame(step);
+    }
+
+    runBtn.addEventListener('click', function () {
+      if (prefersReducedMotion) {
+        deposited = N_LAYERS;
+        render();
+      } else {
+        animateDeposit();
+      }
+    });
+    resetBtn.addEventListener('click', function () {
+      if (animRaf) cancelAnimationFrame(animRaf);
+      deposited = 0;
+      render();
+    });
+
+    window.addEventListener('resize', resize);
+    resize();
+    if (prefersReducedMotion) {
+      deposited = N_LAYERS;
+      render();
+    } else {
+      deposited = 0;
+      render();
+    }
+  })();
+</script>
+</body>
+</html>
