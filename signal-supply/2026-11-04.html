@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-04","category":"LIQUID COOLING","headline":"A Modern AI Rack Draws About 130 Kilowatts. Fans Stop Working Around 30 — and the Part That Replaced Them Is in Short Supply","summary":"A modern Nvidia AI rack draws roughly 130 kilowatts — eight-plus times what ordinary fans can cool. The fix, a Coolant Distribution Unit, comes from a thin supplier base (Vertiv leads with under 30% share) expanding slower than AI data centers are being built.","whyItMatters":"Everyone tracks the GPU shortage. The thermal hardware that lets a GPU rack run at full power is a thinner, less-watched supply chain underneath it."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; A Modern AI Rack Draws About 130 Kilowatts. Fans Stop Working Around 30 &mdash; and the Part That Replaced Them Is in Short Supply.</title>
+<meta name="description" content="A modern Nvidia GB200 rack draws around 130 kilowatts of power in one cabinet. Ordinary fans can cool roughly 30. The box that bridges that gap, the Coolant Distribution Unit, comes from a thin supplier base that's expanding slower than AI data centers are being built." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c23b2e;
+    --accent-a-tint: #f8ddd8;
+    --accent-b: #1f78b4;
+    --accent-b-tint: #dcecf7;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #ef7a65;
+      --accent-a-tint: #3a1f1a;
+      --accent-b: #6cb6e8;
+      --accent-b-tint: #142a35;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #ef7a65;
+    --accent-a-tint: #3a1f1a;
+    --accent-b: #6cb6e8;
+    --accent-b-tint: #142a35;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c23b2e;
+    --accent-a-tint: #f8ddd8;
+    --accent-b: #1f78b4;
+    --accent-b-tint: #dcecf7;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: air-cooling ceiling vs liquid-cooling CDU capacity --- */
+  .mc-header { margin-bottom: 4px; }
+  .mc-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .mc-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .mc-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 12px;
+  }
+  #mc-canvas { display: block; width: 100%; height: 280px; }
+
+  .mc-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 14px; padding: 0 2px; }
+  .mc-legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .mc-swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  .mc-swatch.line { width: 16px; height: 3px; border-radius: 2px; }
+
+  .mc-controls { margin-top: 20px; }
+  .mc-slider-row { display: flex; align-items: center; gap: 12px; }
+  .mc-slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent-b);
+    height: 22px;
+  }
+  .mc-slider-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-weight: 700;
+    font-size: 13px;
+    min-width: 72px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+  }
+  .mc-buttons { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .mc-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .mc-btn:hover { border-color: var(--accent-b); }
+  .mc-btn.primary { background: var(--accent-b); color: #fff; border-color: var(--accent-b); }
+
+  .mc-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 480px) {
+    .mc-stats { grid-template-columns: repeat(1, 1fr); }
+  }
+  .mc-stat { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--surface); }
+  .mc-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .mc-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .mc-stat-value.ok { color: var(--accent-b); }
+  .mc-stat-value.bad { color: var(--accent-a); }
+  .mc-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .mc-note strong { color: var(--ink); }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 4, 2026</span>
+    <span class="category-chip">LIQUID COOLING</span>
+  </div>
+  <h1>A Modern AI Rack Draws About 130 Kilowatts. Fans Stop Working Around 30 &mdash; and the Part That Replaced Them Is in Short Supply.</h1>
+  <p class="lede">A GPU rack from a few years ago pulled roughly 15 kilowatts, and a fan could keep it cool &mdash; the same trick that's cooled computers since the 1960s. Nvidia's current flagship rack pulls around 130 kilowatts in the same footprint. Air physically can't carry that much heat away. The box that can is harder to build than it sounds, and nobody can make enough of them.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    An Nvidia GB200 NVL72 rack draws roughly 120&ndash;132 kilowatts, by vendor spec sheets &mdash; well past the point where ordinary airflow can remove heat fast enough, commonly cited around 30 kilowatts per rack. Above that line, liquid cooling isn't an optimization; Nvidia specifies it as a requirement. The part that makes it possible is the Coolant Distribution Unit (CDU): a heat-exchanger box that pumps a sealed coolant loop through cold plates on every chip without ever mixing fluids with the building's water system. Demand for CDUs is reportedly outpacing what cooling vendors can build, and even the market leader, Vertiv, holds under a third of global CDU revenue &mdash; there's no single company positioned to just scale up and close the gap the way one fab might for chips.
+  </div>
+
+  <div class="card mc-card">
+    <div class="mc-header">
+      <h2 class="mc-title">Push a rack past 30 kilowatts and watch which one survives</h2>
+      <p class="mc-caption mono">Drag the slider to set a rack's power draw. Left is a fan-cooled rack with a fixed air-cooling ceiling; right is the same rack with a Coolant Distribution Unit (CDU) feeding liquid-cooled cold plates. Ceilings (&asymp;30 kW for air, &asymp;230 kW for a modern in-rack CDU) are simplified, rounded figures from vendor specs and industry benchmarks &mdash; real limits vary by rack design, airflow, and climate. "Homes" uses a rough 1.2 kW average continuous U.S. household draw.</p>
+    </div>
+
+    <div class="mc-scene-wrap">
+      <canvas id="mc-canvas" role="img" aria-label="Two server racks side by side, one air-cooled and one liquid-cooled with a CDU, each showing a heat gauge that fills as rack power draw increases, with the air-cooled rack overheating well before the liquid-cooled one."></canvas>
+    </div>
+
+    <div class="mc-legend">
+      <span class="mc-legend-item"><span class="mc-swatch" style="background:var(--accent-b);"></span>Within cooling capacity</span>
+      <span class="mc-legend-item"><span class="mc-swatch" style="background:var(--accent-a);"></span>Over capacity &mdash; overheating</span>
+      <span class="mc-legend-item"><span class="mc-swatch line" style="background:var(--muted);"></span>Cooling ceiling</span>
+    </div>
+
+    <div class="mc-controls">
+      <div class="mc-slider-row">
+        <input type="range" id="mc-slider" min="10" max="250" step="5" value="20" aria-label="Rack power draw in kilowatts" />
+        <span class="mc-slider-value tabular" id="mc-slider-value">20 kW</span>
+      </div>
+      <div class="mc-buttons">
+        <button type="button" class="mc-btn primary" id="mc-run">&#9654; Ramp power 10&rarr;250 kW</button>
+        <button type="button" class="mc-btn" id="mc-reset">Reset</button>
+      </div>
+    </div>
+
+    <div class="mc-stats tabular" aria-live="polite">
+      <div class="mc-stat">
+        <span class="mc-stat-label mono">Rack power draw</span>
+        <div class="mc-stat-value mono" id="mc-stat-power">20 kW</div>
+      </div>
+      <div class="mc-stat">
+        <span class="mc-stat-label mono">Air-cooled rack</span>
+        <div class="mc-stat-value mono" id="mc-stat-air">&mdash;</div>
+      </div>
+      <div class="mc-stat">
+        <span class="mc-stat-label mono">Liquid-cooled rack</span>
+        <div class="mc-stat-value mono" id="mc-stat-liquid">&mdash;</div>
+      </div>
+    </div>
+    <div class="mc-note">At 130 kW &mdash; a real GB200 NVL72 rack &mdash; the air-cooled version is already deep into overheat territory while the liquid-cooled version is barely past half its CDU's rated capacity. <strong>That gap is why every GPU generation since has made the CDU, not the fan, the part standing between a rack and running at full power.</strong></div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>A rack of GPUs a few years ago drew about 15 kilowatts &mdash; roughly fifteen hair dryers running flat out. A fan blowing across the servers could carry that heat away, the same basic trick that's cooled computers since the 1960s.</p>
+      <p>Nvidia's current flagship rack, the GB200 NVL72, draws around 130 kilowatts in that same footprint &mdash; enough continuous power to run roughly a hundred typical homes, out of one cabinet barely wider than a refrigerator. At that density, air just can't carry the heat away fast enough. Blow harder and you mostly get a wind tunnel of hot air circling back on itself. Industry benchmarks put the practical ceiling for air cooling around 30 kilowatts per rack. Past that, you need to put liquid directly onto the chip.</p>
+      <p>That's the job of a part almost nobody outside data centers has heard of: the Coolant Distribution Unit, or CDU. Picture a radiator about the size of a vending machine sitting at the end of the row. It pumps a sealed loop of coolant through cold plates clamped onto every GPU, picks up the heat, and hands it off &mdash; through a heat exchanger, never mixing fluids &mdash; to the building's main water system. No CDU, and the rack can't run at full power without overheating and shutting itself down.</p>
+      <p>Here's the squeeze: AI data centers are being built faster than the CDU industry can make these things. One major cooling vendor said recently it's racing to expand two factories just to cover a fraction of the AI capacity coming online this year. Vertiv, the single biggest CDU maker, holds under a third of the global market &mdash; meaning even the leader can't single-handedly close the gap. The GPU everyone talks about being sold out is only half the story. So, more quietly, is the box that keeps it from cooking itself.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Thermal design power scales with transistor density and clock, and the current GPU generation has outrun air's achievable heat-transfer rate. A single Nvidia GB200 NVL72 rack &mdash; 36 Grace CPUs paired with 72 Blackwell GPUs over NVLink &mdash; carries a published rack-level draw in the roughly 120&ndash;132 kW range, versus on the order of 15 kW for air-cooled racks only a couple of GPU generations back. Air cooling removes heat via convection into a moving airstream; its ceiling is set by achievable airflow volume and the delta-T a server can tolerate before thermal throttling, which caps most air-cooled racks around 30 kW in practice. Past that, direct liquid cooling isn't an optimization &mdash; Nvidia specifies it as a requirement for GB200-class deployments.</p>
+      <p>Mechanically: cold plates with internal microchannels sit in direct thermal contact with the GPU and CPU dies (via their heat spreaders), circulating a treated-water or dielectric coolant loop that's fully sealed and isolated from the facility's chilled-water loop. The Coolant Distribution Unit is the interface between those two loops &mdash; a plate heat exchanger plus redundant pumps, filtration, and leak/flow sensing, with in-rack units sized to 200&ndash;250 kW of rejected heat, enough for a full GB200 cabinet with margin. It's what lets a facility keep its existing chilled-water plant while running a separate, higher-purity loop next to silicon worth tens of thousands of dollars per chip that can't tolerate particulate contamination or corrosion.</p>
+      <p>Manufacturing a CDU at AI-cluster volume means precision-brazed heat exchangers, redundant pump assemblies, and sensor packages engineered to run unattended for years &mdash; a narrower, more specialized supplier base than server chassis. One market tracker puts Vertiv, the category leader, at under 30% of 2025 global CDU revenue, with Schneider Electric, Boyd Thermal, CoolIT, and nVent splitting most of the rest; none has the single-vendor dominance of an Nvidia or TSMC in their own layers of the stack. Trade press reports demand for liquid cooling rising faster than vendors anticipated, pushing expansion rounds &mdash; one cooling-system maker, LiquidStack, said it's scaling two plants to cover roughly 3 GW of near-term capacity &mdash; that are still running behind the pace of GPU rack deployment.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Everyone tracks the GPU shortage. The thermal hardware that lets a GPU rack actually run at full power is a thinner, less-watched supply chain underneath it.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> CDU capacity, not GPU allocation, is increasingly the gating factor on how fast new AI racks can actually be energized at rated power.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.supermicro.com/en/products/rack/srs-gb200-nvl72" target="_blank" rel="noopener">Supermicro &mdash; SRS-GB200-NVL72 rack spec (rack power, in-rack CDU capacity)</a></li>
+    <li><a href="https://www.fierce-network.com/cloud/ai-boom-heats-demand-data-center-cooling-tech" target="_blank" rel="noopener">Fierce Network &mdash; "AI boom heats up demand for data center cooling tech"</a></li>
+    <li><a href="https://www.giiresearch.com/report/qyr1993569-coolant-distribution-units-cdu-global-market-share.html" target="_blank" rel="noopener">QYResearch via GII &mdash; Coolant Distribution Units (CDU) global market share and ranking</a></li>
+    <li><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-aims-to-solve-ais-water-consumption-problems-with-direct-to-chip-cooling-claims-300x-improvement-with-closed-loop-systems" target="_blank" rel="noopener">Tom's Hardware &mdash; Nvidia on direct-to-chip liquid cooling for AI racks</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    // Simplified, illustrative model: fixed cooling ceilings for an air-cooled
+    // rack (~30 kW) and a CDU-fed liquid-cooled rack (~230 kW), not a precise
+    // thermal simulation. "Heat level" is just draw/ceiling, clamped for display.
+    var AIR_CEILING = 30;
+    var LIQUID_CEILING = 230;
+    var HOME_KW = 1.2;
+
+    var canvas = document.getElementById('mc-canvas');
+    var ctx = canvas.getContext('2d');
+    var slider = document.getElementById('mc-slider');
+    var sliderValueEl = document.getElementById('mc-slider-value');
+    var runBtn = document.getElementById('mc-run');
+    var resetBtn = document.getElementById('mc-reset');
+    var statPower = document.getElementById('mc-stat-power');
+    var statAir = document.getElementById('mc-stat-air');
+    var statLiquid = document.getElementById('mc-stat-liquid');
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var cssVar = function (name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    };
+
+    var W = 0, H = 280;
+
+    function resize() {
+      var rect = canvas.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      W = rect.width;
+      canvas.width = Math.max(1, Math.round(W * dpr));
+      canvas.height = Math.max(1, Math.round(H * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      draw();
+    }
+
+    function statusFor(power, ceiling) {
+      var ratio = power / ceiling;
+      if (ratio <= 0.8) return { label: 'OK', ok: true, ratio: ratio };
+      if (ratio <= 1.0) return { label: 'NEAR LIMIT', ok: true, ratio: ratio };
+      return { label: 'OVERHEATING', ok: false, ratio: ratio };
+    }
+
+    function drawGauge(x, w, label, power, ceiling) {
+      var baseY = H - 40;
+      var topY = 40;
+      var gaugeH = baseY - topY;
+      var gaugeW = Math.min(64, w * 0.4);
+      var gx = x + (w - gaugeW) / 2;
+
+      var st = statusFor(power, ceiling);
+      var fillRatio = Math.min(1.15, st.ratio);
+      var fillH = gaugeH * Math.min(1, fillRatio);
+      var color = st.ok ? cssVar('--accent-b') : cssVar('--accent-a');
+
+      // outline
+      ctx.strokeStyle = cssVar('--border');
+      ctx.lineWidth = 2;
+      ctx.strokeRect(gx, topY, gaugeW, gaugeH);
+
+      // fill from bottom
+      ctx.fillStyle = color;
+      ctx.fillRect(gx + 2, baseY - fillH + 2, gaugeW - 4, Math.max(0, fillH - 4));
+
+      // overflow marker if over 100%
+      if (fillRatio > 1) {
+        ctx.fillStyle = cssVar('--accent-a');
+        ctx.beginPath();
+        var ox = gx + gaugeW / 2;
+        var oy = topY - 10;
+        ctx.moveTo(ox, oy - 8);
+        ctx.lineTo(ox - 7, oy + 4);
+        ctx.lineTo(ox + 7, oy + 4);
+        ctx.closePath();
+        ctx.fill();
+      }
+
+      // ceiling line (always at top of gauge = 100%)
+      ctx.save();
+      ctx.setLineDash([4, 4]);
+      ctx.strokeStyle = cssVar('--muted');
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(gx - 10, topY);
+      ctx.lineTo(gx + gaugeW + 10, topY);
+      ctx.stroke();
+      ctx.restore();
+
+      // labels
+      ctx.font = '700 11px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = cssVar('--ink');
+      ctx.textAlign = 'center';
+      ctx.fillText(label, x + w / 2, 22);
+
+      ctx.font = '600 9px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = cssVar('--muted');
+      ctx.fillText('ceiling ≈ ' + ceiling + ' kW', x + w / 2, topY - 14);
+
+      ctx.font = '700 10px ui-monospace, SF Mono, Menlo, Consolas, monospace';
+      ctx.fillStyle = color;
+      ctx.fillText(st.label, x + w / 2, baseY + 22);
+
+      ctx.textAlign = 'left';
+    }
+
+    function draw() {
+      var power = parseFloat(slider.value);
+      ctx.clearRect(0, 0, W, H);
+
+      var half = W / 2;
+      drawGauge(0, half, 'AIR-COOLED RACK', power, AIR_CEILING);
+      drawGauge(half, half, 'LIQUID-COOLED RACK (CDU)', power, LIQUID_CEILING);
+
+      // divider
+      ctx.strokeStyle = cssVar('--border');
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(half, 10);
+      ctx.lineTo(half, H - 10);
+      ctx.stroke();
+    }
+
+    function updateStats() {
+      var power = parseFloat(slider.value);
+      sliderValueEl.textContent = power.toFixed(0) + ' kW';
+      statPower.textContent = power.toFixed(0) + ' kW (≈' + Math.round(power / HOME_KW) + ' homes)';
+
+      var airSt = statusFor(power, AIR_CEILING);
+      statAir.textContent = airSt.label;
+      statAir.className = 'mc-stat-value mono ' + (airSt.ok ? 'ok' : 'bad');
+
+      var liqSt = statusFor(power, LIQUID_CEILING);
+      statLiquid.textContent = liqSt.label;
+      statLiquid.className = 'mc-stat-value mono ' + (liqSt.ok ? 'ok' : 'bad');
+    }
+
+    function render() {
+      draw();
+      updateStats();
+    }
+
+    slider.addEventListener('input', function () {
+      if (rampRaf) { cancelAnimationFrame(rampRaf); rampRaf = null; }
+      render();
+    });
+
+    var rampRaf = null;
+    function animateRamp() {
+      if (rampRaf) cancelAnimationFrame(rampRaf);
+      var start = null;
+      var duration = 6000;
+      var from = 10, to = 250;
+      slider.value = from;
+      render();
+      function step(ts) {
+        if (!start) start = ts;
+        var t = Math.min(1, (ts - start) / duration);
+        var val = Math.round((from + (to - from) * t) / 5) * 5;
+        slider.value = val;
+        render();
+        if (t < 1) {
+          rampRaf = requestAnimationFrame(step);
+        } else {
+          rampRaf = null;
+        }
+      }
+      rampRaf = requestAnimationFrame(step);
+    }
+
+    runBtn.addEventListener('click', function () {
+      if (prefersReducedMotion) {
+        slider.value = 130;
+        render();
+      } else {
+        animateRamp();
+      }
+    });
+    resetBtn.addEventListener('click', function () {
+      if (rampRaf) { cancelAnimationFrame(rampRaf); rampRaf = null; }
+      slider.value = 20;
+      render();
+    });
+
+    window.addEventListener('resize', resize);
+    resize();
+    render();
+  })();
+</script>
+</body>
+</html>
