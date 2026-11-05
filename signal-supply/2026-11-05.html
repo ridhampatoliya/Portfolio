@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-05","category":"SHADOW FLEET","headline":"Sanctioned Tankers Flying Russia's Own Flag Jumped From 3% to 21% in Nine Months. That's Not the Scheme Shrinking — It's Getting Harder to Board","summary":"The G7's Russian-oil price cap works by denying Western insurance, not banning sales. A tracked fleet of opaque tankers has ballooned past 2,180 vessels, and more now fly Russia's real flag rather than a fake one. Trackers answered with satellites — neither side is winning.","whyItMatters":"A sanctions regime built on insurance and flags is now an arms race between spoofed ship transponders and the satellites built to catch them."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Sanctioned Tankers Flying Russia's Own Flag Jumped From 3% to 21% in Nine Months.</title>
+<meta name="description" content="The G7's price cap on Russian oil works by cutting off Western insurance, not by banning sales. A tracked fleet of opaque tankers that never needed that insurance has passed 2,180 vessels, and researchers find more of them now fly Russia's actual flag instead of a fake one &mdash; a harder target, not a shrinking scheme." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #bd4426;
+    --accent-a-tint: #f8e1d8;
+    --accent-b: #1f7a8c;
+    --accent-b-tint: #daf0f3;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #ef8a63;
+      --accent-a-tint: #3a2017;
+      --accent-b: #5fc3d6;
+      --accent-b-tint: #123238;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #ef8a63;
+    --accent-a-tint: #3a2017;
+    --accent-b: #5fc3d6;
+    --accent-b-tint: #123238;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #bd4426;
+    --accent-a-tint: #f8e1d8;
+    --accent-b: #1f7a8c;
+    --accent-b-tint: #daf0f3;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: how a sanctioned barrel disappears (step-through pipeline) --- */
+  .sf-header { margin-bottom: 4px; }
+  .sf-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .sf-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .sf-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 16px 12px 10px;
+  }
+  #sf-canvas { display: block; width: 100%; height: 120px; }
+
+  .sf-stage-card {
+    margin-top: 16px;
+    padding: 16px 18px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .sf-stage-kicker {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 10.5px;
+    color: var(--accent-b);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .sf-stage-title { font-size: 16px; font-weight: 800; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .sf-stage-body { font-size: 14px; color: var(--muted); margin: 0 0 12px; }
+  .sf-stage-stat {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+  }
+  .sf-stage-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 9.5px;
+    color: var(--muted);
+  }
+  .sf-stage-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-weight: 700;
+    font-size: 14.5px;
+    color: var(--accent-b);
+  }
+
+  .sf-controls { margin-top: 18px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .sf-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .sf-btn:hover:not(:disabled) { border-color: var(--accent-b); }
+  .sf-btn:disabled { opacity: 0.4; cursor: default; }
+  .sf-btn.primary { background: var(--accent-b); color: #fff; border-color: var(--accent-b); }
+  .sf-progress {
+    margin-left: auto;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .sf-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .sf-note strong { color: var(--ink); }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 5, 2026</span>
+    <span class="category-chip">SHADOW FLEET</span>
+  </div>
+  <h1>Sanctioned Tankers Flying Russia's Own Flag Jumped From 3% to 21% in Nine Months. That's Not the Scheme Shrinking &mdash; It's Getting Harder to Board.</h1>
+  <p class="lede">A modern AI accelerator isn't the only thing built from layers designed to obscure what's inside. A Western oil-sanctions regime runs on one lever &mdash; deny Western insurance to any cargo priced too high &mdash; and a growing fleet of tankers has simply stopped needing that insurance at all. Researchers who track the fleet monthly just found its ships switching from fake foreign flags to Russia's real one. That's a harder target, not a retreating one.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    The G7's price cap on Russian oil doesn't ban the oil &mdash; it bars Western insurers, shipowners and financiers from touching any cargo sold above $60 a barrel, on the bet that sellers have no alternative to Western-dominated marine insurance. The workaround: a fleet of aging tankers, bought through opaque shell companies and flagged with little-scrutinized registries, that never needed that insurance to begin with. The Kyiv School of Economics Institute, which tracks this fleet every month, found the share of its ships flying Russia's own flag &mdash; rather than a borrowed foreign one &mdash; jumped from 3% to 21% in nine months. A separate September 2026 study by the Centre for Research on Energy and Clean Air (CREA) found vessels using <em>false</em> foreign flags falling, from a peak of 101 in October 2025 to 45 by June 2026 &mdash; not because the scheme is shrinking, but because more ships are simply registering as genuinely Russian instead, which changes the politics of ever boarding one. Maritime-intelligence firm Windward says its tracked "dark fleet" &mdash; ships that go quiet or fake their position &mdash; passed 2,180 vessels in Q2 2026, with disappearing acts surging nearly fivefold in a single quarter. Rival tracker Kpler just answered by bolting daily satellite imagery onto its own network.
+  </div>
+
+  <div class="card sf-card">
+    <div class="sf-header">
+      <h2 class="sf-title">How a sanctioned barrel disappears &mdash; and how it gets found again</h2>
+      <p class="sf-caption mono">Step through the six-stage pipeline a shadow-fleet cargo typically moves through. Each stage's figure is a real, independently reported number (sources below) &mdash; the pipeline sequence itself is simplified for teaching, since real voyages skip steps or repeat them.</p>
+    </div>
+
+    <div class="sf-scene-wrap">
+      <svg id="sf-canvas" viewBox="0 0 640 120" role="img" aria-label="A six-stage pipeline diagram: buy, flag, skip insurance, transfer, go dark, hunt. The current stage is highlighted."></svg>
+    </div>
+
+    <div class="sf-stage-card" aria-live="polite">
+      <div class="sf-stage-kicker mono" id="sf-kicker">STAGE 1 OF 6 &middot; BUY</div>
+      <h3 class="sf-stage-title" id="sf-stage-title">A shell company buys an aging tanker</h3>
+      <p class="sf-stage-body" id="sf-stage-body">Entities registered somewhere that doesn't ask who really owns a ship acquire a tanker old enough that a conventional owner would be retiring it.</p>
+      <div class="sf-stage-stat tabular">
+        <span class="sf-stage-stat-label" id="sf-stat-label">EU SANCTIONS LIST</span>
+        <span class="sf-stage-stat-value" id="sf-stat-value">342 vessels listed</span>
+      </div>
+    </div>
+
+    <div class="sf-controls">
+      <button type="button" class="sf-btn" id="sf-prev">&larr; Prev</button>
+      <button type="button" class="sf-btn primary" id="sf-play">&#9654; Play all 6</button>
+      <button type="button" class="sf-btn" id="sf-next">Next &rarr;</button>
+      <button type="button" class="sf-btn" id="sf-reset">Reset</button>
+      <span class="sf-progress tabular" id="sf-progress">Stage 1 / 6</span>
+    </div>
+    <div class="sf-note">This is a teaching sequence, not a specific tracked voyage: real shadow-fleet cargoes don't always hit every stage in this order. <strong>But every figure shown is a real, dated, independently published number.</strong></div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Imagine a rule that says no Western delivery company, insurer, or truck-rental firm may help move a package worth more than a set price. That's roughly what the G7 did to Russian oil in 2022: a $60-a-barrel price cap, enforced not by physically stopping tankers at sea but by cutting off Western shipping and insurance to anyone who carries oil sold for more.</p>
+      <p>Russia's answer was simple: stop needing Western shipping and insurance. Buyers linked to Moscow quietly bought up old, often near-retirement tankers &mdash; frequently through shell companies registered somewhere that doesn't ask who really owns a ship &mdash; then registered them under obscure flag registries that rarely inspect anything. A fleet assembled this way was never going to need a Western insurer's blessing, so the price cap simply doesn't touch it.</p>
+      <p>Researchers who track this fleet every month found something telling: the share of these tankers now flying Russia's actual flag, instead of a borrowed foreign one, jumped from 3% to 21% in under a year. That matters because boarding a ship that's lying about its flag is one kind of confrontation; boarding a ship that's honestly flying Russia's own flag is another, riskier one. A separate study found the number of tankers using fake foreign flags has actually fallen &mdash; not because the scheme shrank, but because more ships stopped bothering to hide and just registered as Russian.</p>
+      <p>These tankers also increasingly vanish from tracking altogether, switching off or faking the location beacon every ship is required to broadcast. One tracking firm counted its "dark fleet" pass 2,180 vessels this spring, with disappearing acts jumping nearly fivefold in a single quarter. So trackers are fighting back with more satellites. Neither side has won.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The G7/EU/Australia price cap, effective since December 5, 2022, is a services-denial mechanism rather than a trade embargo: it bars firms domiciled in capping jurisdictions &mdash; shipowners, P&amp;I (protection and indemnity) insurers, reinsurers, and financiers &mdash; from servicing Russian-origin seaborne crude sold above $60/barrel. Because the bulk of global marine liability cover has historically run through the Western-dominated International Group of P&amp;I Clubs, the cap assumed sellers had no credible alternative.</p>
+      <p>The workaround defeats that assumption at the ownership layer. Opaque single-purpose entities acquire aging tankers and flag them under open registries that apply minimal beneficial-ownership scrutiny, producing a fleet structurally outside Western cover from the start. The Kyiv School of Economics (KSE) Institute, which runs a monthly Russian Shadow Fleet Tracker, documents the next phase: the share of shadow tankers flying Russia's own flag, rather than a third-country flag of convenience, rose from 3% to 21% over nine months into early 2026. A September 2026 analysis by the Centre for Research on Energy and Clean Air (CREA) found the inverse metric &mdash; vessels using <em>false</em> foreign flags &mdash; falling, from a peak of 101 in October 2025 to 45 by June 2026, and argues this is substitution, not retreat: a genuinely Russian-flagged vessel changes the legal and diplomatic calculus of any interdiction, versus a vessel merely lying about its registry.</p>
+      <p>Identification is the remaining enforcement lever, and it's degrading too. Tankers increasingly disable or spoof their AIS (Automatic Identification System) transponder &mdash; the VHF position broadcast mandated under SOLAS &mdash; especially around ship-to-ship transfers used to obscure cargo provenance. Maritime-intelligence firm Windward's Q2 2026 risk report put its tracked "dark fleet" past 2,180 vessels, roughly half under active sanctions, and recorded a nearly fivefold quarter-on-quarter jump in vessels going AIS-dark, with Russian-linked shipping alone logging almost 4,000 transponder blackout events. Rival tracker Kpler has responded by integrating daily Airbus SPOT optical satellite imagery into its AIS feed, specifically to cross-reference vessels through reporting gaps in the Gulf, Black Sea, Baltic, and Red Sea &mdash; treating enforcement as a remote-sensing and data-fusion problem now that the identity layer itself is compromised.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> A sanctions regime built entirely on insurance and flags is now an arms race between spoofed ship transponders and the satellites built to catch them.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> As the identity layer (flags, AIS) degrades as a control point, enforcement is shifting to a remote-sensing and data-fusion problem &mdash; the same category of technology racing to track everything else at sea.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://kyivindependent.com/europes-crackdown-halves-shadow-fleet-ships-sailing-under-false-flags-report-says/" target="_blank" rel="noopener">Kyiv Independent &mdash; "Europe's crackdown halves shadow fleet ships sailing under false flags, report says" (CREA analysis)</a></li>
+    <li><a href="https://sanctions.kse.ua/en/share-of-russian-flagged-shadow-tankers-jumps-from-3-to-21-in-nine-months/" target="_blank" rel="noopener">KSE Institute &mdash; Russian Shadow Fleet Tracker: "Share of Russian-flagged shadow tankers jumps from 3% to 21% in nine months"</a></li>
+    <li><a href="https://go.wnwd.com/q2-2026-top-9-maritime-risks" target="_blank" rel="noopener">Windward &mdash; Q2 2026 Top Maritime Risks report (dark fleet size and AIS-disablement surge)</a></li>
+    <li><a href="https://gcaptain.com/kpler-expands-dark-fleet-tracking-with-airbus-satellite-deal/" target="_blank" rel="noopener">gCaptain &mdash; "Kpler Expands Dark Fleet Tracking With Airbus Satellite Deal"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var SVGNS = 'http://www.w3.org/2000/svg';
+
+    var STAGES = [
+      {
+        kicker: 'BUY',
+        title: "A shell company buys an aging tanker",
+        body: "Entities registered somewhere that doesn't ask who really owns a ship acquire a tanker old enough that a conventional owner would be retiring it.",
+        statLabel: 'EU SANCTIONS LIST',
+        statValue: '342 vessels listed'
+      },
+      {
+        kicker: 'FLAG',
+        title: "It's flagged under a registry that barely looks",
+        body: "Historically an obscure third-country “flag of convenience.” Increasingly, it's just Russia's own flag — a harder target to board than a ship merely lying about its registry.",
+        statLabel: 'RUSSIAN-FLAG SHARE OF SHADOW FLEET',
+        statValue: '3% → 21% in 9 months'
+      },
+      {
+        kicker: 'SKIP INSURANCE',
+        title: 'It sails without needing Western cover',
+        body: 'The G7 price cap only bites if a Western insurer or shipowner is involved. This fleet was built specifically not to need one.',
+        statLabel: 'SHARE OF RUSSIAN CRUDE EXPORTS, SHADOW FLEET',
+        statValue: '≈75–81% (2026 monthly range)'
+      },
+      {
+        kicker: 'TRANSFER',
+        title: 'Cargo moves ship-to-ship at sea',
+        body: 'Transferring oil between tankers mid-voyage, away from port inspectors, blurs where a barrel actually originated by the time it reaches a buyer.',
+        statLabel: 'STATUS',
+        statValue: 'Provenance obscured'
+      },
+      {
+        kicker: 'GO DARK',
+        title: 'The transponder goes quiet — or lies',
+        body: 'Ships disable or spoof their AIS beacon, the position broadcast every vessel is legally required to send, especially around a transfer.',
+        statLabel: "TRACKED 'DARK FLEET', Q2 2026",
+        statValue: '2,180+ vessels (≈ 5x more dark incidents)'
+      },
+      {
+        kicker: 'HUNT',
+        title: 'Trackers fuse satellites to relocate it',
+        body: 'With ship-reported identity no longer trustworthy, tracking firms cross-reference AIS gaps against independent satellite imagery to physically relocate vessels.',
+        statLabel: 'NEW CAPABILITY, OCT 2026',
+        statValue: 'Daily Airbus satellite imagery added'
+      }
+    ];
+
+    var canvas = document.getElementById('sf-canvas');
+    var kicker = document.getElementById('sf-kicker');
+    var stageTitle = document.getElementById('sf-stage-title');
+    var stageBody = document.getElementById('sf-stage-body');
+    var statLabel = document.getElementById('sf-stat-label');
+    var statValue = document.getElementById('sf-stat-value');
+    var progress = document.getElementById('sf-progress');
+    var prevBtn = document.getElementById('sf-prev');
+    var nextBtn = document.getElementById('sf-next');
+    var playBtn = document.getElementById('sf-play');
+    var resetBtn = document.getElementById('sf-reset');
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var current = prefersReducedMotion ? STAGES.length - 1 : 0;
+    var playTimer = null;
+
+    var cssVar = function (name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    };
+
+    function buildNodes() {
+      while (canvas.firstChild) canvas.removeChild(canvas.firstChild);
+      var n = STAGES.length;
+      var margin = 60;
+      var w = 640, h = 120;
+      var step = (w - margin * 2) / (n - 1);
+      var y = 46;
+
+      var line = document.createElementNS(SVGNS, 'line');
+      line.setAttribute('x1', margin);
+      line.setAttribute('y1', y);
+      line.setAttribute('x2', w - margin);
+      line.setAttribute('y2', y);
+      line.setAttribute('stroke', cssVar('--border'));
+      line.setAttribute('stroke-width', '2');
+      canvas.appendChild(line);
+
+      for (var i = 0; i < n; i++) {
+        var cx = margin + step * i;
+        var circle = document.createElementNS(SVGNS, 'circle');
+        circle.setAttribute('cx', cx);
+        circle.setAttribute('cy', y);
+        circle.setAttribute('r', 11);
+        circle.setAttribute('data-idx', i);
+        circle.setAttribute('fill', cssVar('--surface'));
+        circle.setAttribute('stroke', cssVar('--border'));
+        circle.setAttribute('stroke-width', '2');
+        circle.style.cursor = 'pointer';
+        circle.addEventListener('click', (function (idx) {
+          return function () { stopPlay(); current = idx; render(); };
+        })(i));
+        canvas.appendChild(circle);
+
+        var num = document.createElementNS(SVGNS, 'text');
+        num.setAttribute('x', cx);
+        num.setAttribute('y', y + 4);
+        num.setAttribute('text-anchor', 'middle');
+        num.setAttribute('font-size', '10');
+        num.setAttribute('font-family', 'ui-monospace, SF Mono, Menlo, Consolas, monospace');
+        num.setAttribute('font-weight', '700');
+        num.setAttribute('data-numidx', i);
+        num.textContent = String(i + 1);
+        canvas.appendChild(num);
+
+        var label = document.createElementNS(SVGNS, 'text');
+        label.setAttribute('x', cx);
+        label.setAttribute('y', y + 30);
+        label.setAttribute('text-anchor', 'middle');
+        label.setAttribute('font-size', '9');
+        label.setAttribute('font-family', 'ui-monospace, SF Mono, Menlo, Consolas, monospace');
+        label.setAttribute('letter-spacing', '0.02em');
+        label.setAttribute('fill', cssVar('--muted'));
+        label.setAttribute('data-lblidx', i);
+        label.textContent = STAGES[i].kicker;
+        canvas.appendChild(label);
+      }
+    }
+
+    function updateNodes() {
+      var circles = canvas.querySelectorAll('circle[data-idx]');
+      var nums = canvas.querySelectorAll('text[data-numidx]');
+      circles.forEach(function (c) {
+        var idx = parseInt(c.getAttribute('data-idx'), 10);
+        if (idx === current) {
+          c.setAttribute('fill', cssVar('--accent-b'));
+          c.setAttribute('stroke', cssVar('--accent-b'));
+          c.setAttribute('r', 13);
+        } else if (idx < current) {
+          c.setAttribute('fill', cssVar('--accent-b-tint'));
+          c.setAttribute('stroke', cssVar('--accent-b'));
+          c.setAttribute('r', 11);
+        } else {
+          c.setAttribute('fill', cssVar('--surface'));
+          c.setAttribute('stroke', cssVar('--border'));
+          c.setAttribute('r', 11);
+        }
+      });
+      nums.forEach(function (t) {
+        var idx = parseInt(t.getAttribute('data-numidx'), 10);
+        t.setAttribute('fill', idx === current ? '#ffffff' : (idx < current ? cssVar('--accent-b') : cssVar('--muted')));
+      });
+    }
+
+    function render() {
+      updateNodes();
+      var s = STAGES[current];
+      kicker.textContent = 'STAGE ' + (current + 1) + ' OF ' + STAGES.length + ' · ' + s.kicker;
+      stageTitle.textContent = s.title;
+      stageBody.textContent = s.body;
+      statLabel.textContent = s.statLabel;
+      statValue.textContent = s.statValue;
+      progress.textContent = 'Stage ' + (current + 1) + ' / ' + STAGES.length;
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === STAGES.length - 1;
+    }
+
+    function stopPlay() {
+      if (playTimer) { clearInterval(playTimer); playTimer = null; playBtn.textContent = '▶ Play all 6'; }
+    }
+
+    prevBtn.addEventListener('click', function () { stopPlay(); current = Math.max(0, current - 1); render(); });
+    nextBtn.addEventListener('click', function () { stopPlay(); current = Math.min(STAGES.length - 1, current + 1); render(); });
+    resetBtn.addEventListener('click', function () {
+      stopPlay();
+      current = prefersReducedMotion ? STAGES.length - 1 : 0;
+      render();
+    });
+
+    playBtn.addEventListener('click', function () {
+      if (prefersReducedMotion) {
+        current = STAGES.length - 1;
+        render();
+        return;
+      }
+      if (playTimer) { stopPlay(); return; }
+      current = 0;
+      render();
+      playBtn.textContent = '⏸ Playing…';
+      playTimer = setInterval(function () {
+        current += 1;
+        if (current >= STAGES.length) {
+          current = STAGES.length - 1;
+          render();
+          stopPlay();
+          return;
+        }
+        render();
+      }, 1700);
+    });
+
+    window.addEventListener('resize', function () {
+      buildNodes();
+      updateNodes();
+    });
+
+    buildNodes();
+    render();
+  })();
+</script>
+</body>
+</html>
