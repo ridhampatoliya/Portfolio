@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-06","category":"CHIP DESIGN SOFTWARE","headline":"Three Companies License the Software That Designs Every Advanced Chip. In 2025, Washington Switched China's Off — With a Memo, Not a Ship","summary":"Synopsys, Cadence and Siemens EDA control roughly three-quarters of the software used to design any advanced chip on Earth. In May 2025, a Commerce Department notice cut China off from it. Six weeks later, a trade truce switched it back on — no port, ship or factory involved either time.","whyItMatters":"Every other chokepoint in chip supply chains is a thing you can point to — a machine, a mineral, a ship. This one is pure permission, revocable by memo."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Three Companies License the Software That Designs Every Advanced Chip.</title>
+<meta name="description" content="Synopsys, Cadence and Siemens EDA control roughly three-quarters of the software used to design any advanced chip on Earth. In May 2025 a Commerce Department notice cut China off from it; six weeks later a trade truce switched it back on. No port, ship or factory involved either time." />
+<style>
+  :root {
+    --bg: #f0f0ec;
+    --surface: #ffffff;
+    --ink: #161512;
+    --muted: #5c5b55;
+    --border: #ddddd4;
+    --accent-a: #a8611b;
+    --accent-a-tint: #f4e2ce;
+    --accent-b: #2f5fa8;
+    --accent-b-tint: #dce6f5;
+    --shadow: 0 1px 2px rgba(20, 20, 16, 0.04), 0 8px 24px rgba(20, 20, 16, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0c0c0a;
+      --surface: #171713;
+      --ink: #f1f0ea;
+      --muted: #a3a197;
+      --border: #2a2a24;
+      --accent-a: #e2924a;
+      --accent-a-tint: #3a2714;
+      --accent-b: #6f9ce0;
+      --accent-b-tint: #142338;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c0c0a;
+    --surface: #171713;
+    --ink: #f1f0ea;
+    --muted: #a3a197;
+    --border: #2a2a24;
+    --accent-a: #e2924a;
+    --accent-a-tint: #3a2714;
+    --accent-b: #6f9ce0;
+    --accent-b-tint: #142338;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #f0f0ec;
+    --surface: #ffffff;
+    --ink: #161512;
+    --muted: #5c5b55;
+    --border: #ddddd4;
+    --accent-a: #a8611b;
+    --accent-a-tint: #f4e2ce;
+    --accent-b: #2f5fa8;
+    --accent-b-tint: #dce6f5;
+    --shadow: 0 1px 2px rgba(20, 20, 16, 0.04), 0 8px 24px rgba(20, 20, 16, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the chip-design pipeline and its license switch --- */
+  .ed-header { margin-bottom: 4px; }
+  .ed-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .ed-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .ed-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 16px 12px 10px;
+  }
+  #ed-canvas { display: block; width: 100%; height: 120px; }
+
+  .ed-banner {
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .ed-banner.licensed { background: var(--accent-b-tint); color: var(--accent-b); }
+  .ed-banner.revoked { background: var(--accent-a-tint); color: var(--accent-a); }
+
+  .ed-stage-card {
+    margin-top: 16px;
+    padding: 16px 18px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .ed-stage-kicker {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 10.5px;
+    color: var(--accent-b);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .ed-stage-title { font-size: 16px; font-weight: 800; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .ed-stage-body { font-size: 14px; color: var(--muted); margin: 0 0 12px; }
+  .ed-stage-stat {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+  }
+  .ed-stage-stat-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 9.5px;
+    color: var(--muted);
+  }
+  .ed-stage-stat-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-weight: 700;
+    font-size: 14.5px;
+    color: var(--accent-b);
+  }
+
+  .ed-controls { margin-top: 18px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .ed-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .ed-btn:hover:not(:disabled) { border-color: var(--accent-b); }
+  .ed-btn:disabled { opacity: 0.4; cursor: default; }
+  .ed-btn.primary { background: var(--accent-b); color: #fff; border-color: var(--accent-b); }
+  .ed-btn.license { background: var(--accent-a); color: #fff; border-color: var(--accent-a); }
+  .ed-progress {
+    margin-left: auto;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .ed-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .ed-note strong { color: var(--ink); }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 6, 2026</span>
+    <span class="category-chip">CHIP DESIGN SOFTWARE</span>
+  </div>
+  <h1>Three Companies License the Software That Designs Every Advanced Chip. In 2025, Washington Switched China's Off &mdash; With a Memo, Not a Ship.</h1>
+  <p class="lede">Every chokepoint in this newsletter so far has been a thing you could point to: a machine, a mineral, a port. This one is different. It's a login screen. Three companies' software sits between every chip idea on Earth and an actual, working transistor &mdash; and for six weeks in 2025, one government notice decided whether China's chip engineers could open it.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Synopsys, Cadence, and Siemens EDA together hold roughly three-quarters of the global market for electronic design automation (EDA) software &mdash; the tools that turn a chip idea into a manufacturable layout. No advanced chip, anywhere, reaches a fab without passing through at least one of their products. In May 2025, the U.S. Commerce Department told all three they'd need a government license to keep selling and supporting that software for customers in China. Synopsys pulled its full-year guidance; both firms disclosed roughly a tenth of their revenue tied to China. Roughly six weeks later, the restriction was quietly rescinded as part of a broader trade truce in which China eased its own rare-earth export curbs. No tanker changed course. No factory opened or closed. The entire exchange happened inside paperwork.
+  </div>
+
+  <div class="card ed-card">
+    <div class="ed-header">
+      <h2 class="ed-title">The six steps between a chip idea and a fab &mdash; and what a revoked license actually touches</h2>
+      <p class="ed-caption mono">Step through the pipeline a chip design moves through before it ever reaches a factory. Then flip the license switch to see why the 2025 export rule touched all six stages at once, not just one. Stage-to-vendor mapping is simplified for teaching &mdash; real tool stacks mix and overlap vendors.</p>
+    </div>
+
+    <div class="ed-scene-wrap">
+      <svg id="ed-canvas" viewBox="0 0 640 120" role="img" aria-label="A six-stage pipeline diagram: design, verify, synthesize, place and route, sign off, tape out. The current stage is highlighted, and all stages dim when the license switch is set to revoked."></svg>
+      <div class="ed-banner licensed tabular" id="ed-banner">LICENSED &middot; new design work and tool updates flow end to end</div>
+    </div>
+
+    <div class="ed-stage-card" aria-live="polite">
+      <div class="ed-stage-kicker mono" id="ed-kicker">STAGE 1 OF 6 &middot; DESIGN</div>
+      <h3 class="ed-stage-title" id="ed-stage-title">An engineer writes the chip's logic as code</h3>
+      <p class="ed-stage-body" id="ed-stage-body">Before a single transistor exists, the chip's intended behavior is written in a hardware description language &mdash; Verilog or VHDL &mdash; the way an app's behavior is written in software code.</p>
+      <div class="ed-stage-stat tabular">
+        <span class="ed-stage-stat-label" id="ed-stat-label">DOMINANT TOOLS</span>
+        <span class="ed-stage-stat-value" id="ed-stat-value">Synopsys VCS &middot; Cadence Xcelium</span>
+      </div>
+    </div>
+
+    <div class="ed-controls">
+      <button type="button" class="ed-btn" id="ed-prev">&larr; Prev</button>
+      <button type="button" class="ed-btn primary" id="ed-play">&#9654; Play all 6</button>
+      <button type="button" class="ed-btn" id="ed-next">Next &rarr;</button>
+      <button type="button" class="ed-btn license" id="ed-license" aria-pressed="false">Flip license: revoke</button>
+      <span class="ed-progress tabular" id="ed-progress">Stage 1 / 6</span>
+    </div>
+    <div class="ed-note">A revoked export license doesn't delete software already installed. It blocks new licenses, renewals, updates and vendor support for customers in the restricted country &mdash; which is why, in practice, it stalls new design starts and leading-edge work at <strong>every</strong> stage, not just one. <strong>Every figure shown is a real, independently reported number (sources below).</strong></div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Before any advanced chip &mdash; the one in your phone, your car, Nvidia's latest AI accelerator &mdash; becomes a physical object, someone has to design it using specialized software. This software, called EDA (electronic design automation), is what lets engineers describe how billions of microscopic switches should connect, then checks that the resulting blueprint will actually work and can actually be manufactured. It's less like a drafting tool and more like the compiler, debugger, and building inspector for a chip, rolled into one.</p>
+      <p>Here's the strange part: almost this entire industry runs through three companies. Synopsys and Cadence, both American, and Siemens EDA, part of the German industrial giant, together control roughly three-quarters of this software market. There is effectively no cutting-edge chip on the planet that didn't pass through at least one of their products on its way from idea to factory.</p>
+      <p>In May 2025, the U.S. government used that fact as leverage. It told the three companies they needed a government license to keep selling and supporting their design software for Chinese customers &mdash; treating a sale of software the same way it treats a sale of a missile component. All three complied. Synopsys later said the disruption to its China business, combined with a rough quarter, helped drive its stock to its worst single-day drop in decades.</p>
+      <p>Then, about six weeks later, Washington reversed course, as part of a broader trade deal in which China eased its own restrictions on exporting rare-earth minerals. Nobody moved a ship. Nobody opened or closed a factory. The entire episode happened and ended inside a software license agreement &mdash; which is exactly what makes it worth noticing: this chokepoint has no customs line, no port, and no travel time. It can be switched off, or back on, by a memo.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Electronic design automation covers the software toolchain a chip passes through on its way from RTL (register-transfer level) description to a fab-ready GDSII file: functional simulation and formal verification, logic synthesis, physical place-and-route, parasitic extraction, and physical signoff &mdash; design-rule checking (DRC) and layout-versus-schematic (LVS) verification against a specific process node's manufacturing rules. Market trackers put combined share for the "Big Three" &mdash; Synopsys (~31%), Cadence (~30%), and Siemens EDA (~13%) &mdash; at roughly three-quarters of a global EDA market estimated at $15&ndash;18 billion a year (estimates vary by methodology and whether adjacent IP/Ansys-style simulation revenue is included). Within that, concentration is uneven by sub-step: Siemens' Calibre alone is widely cited as holding more than 70% of the physical-signoff/DRC market, a chokepoint inside the chokepoint.</p>
+      <p>On May 29&ndash;30, 2025, Synopsys, Cadence, and Siemens EDA each disclosed receiving informal notice from the Bureau of Industry and Security that new export-control rules required a license to sell or support EDA software for customers in China, citing risk of diversion to Chinese military end use. Synopsys suspended full-year guidance, citing roughly 10% of its ~$1.6 billion quarterly revenue tied to Chinese customers; it later reported a 34% single-day stock decline &mdash; its worst in over three decades &mdash; alongside an 8% drop in its Design IP segment that CEO Sassine Ghazi attributed in part to deals disrupted by the restriction. Cadence disclosed roughly 12% of prior-year revenue tied to China and confirmed its own license requirement. BIS rescinded the EDA-specific restriction in early July 2025, inside six weeks of imposing it, as part of a wider bilateral trade framework under which China eased its own April 2025 rare-earth export controls.</p>
+      <p>China's policy response has centered on Empyrean Technology (Huada Jiutian), the largest domestic EDA vendor, historically holding only a single-digit share of even China's own domestic EDA spend as foreign tools remained dominant inside China itself. Through 2026, Chinese industry reporting (TrendForce, citing government and company disclosures) describes the number of EDA tool categories in "large-scale commercial use" domestically rising from 17 to 26, alongside Empyrean's push into AI-assisted layout/verification and full-flow memory-design tools aligned with Huawei's published chip-design methodology. That is real progress toward substitution, not yet parity: covering more tool categories is not the same as covering the full, leading-edge flow the Big Three still dominate end to end.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Every other chokepoint in this newsletter is a thing you can point to &mdash; a machine, a mineral, a ship. This one is pure permission, and it's revocable by memo, with no port or shipping lane in between.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> EDA sits structurally upstream of every other chip chokepoint &mdash; fabs, lithography, advanced packaging &mdash; and because it's delivered as a license rather than a shipment, it's the fastest-switching control the U.S. currently holds over China's leading-edge chip design capacity.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://techcrunch.com/2025/05/30/us-imposes-new-rules-to-curb-semiconductor-design-software-sales-to-china/" target="_blank" rel="noopener">TechCrunch &mdash; "US imposes new rules to curb semiconductor design software sales to China"</a></li>
+    <li><a href="https://www.techspot.com/news/108550-us-lifts-chip-design-software-export-ban-china.html" target="_blank" rel="noopener">TechSpot &mdash; "US lifts chip design software export ban to China after rare earths deal"</a></li>
+    <li><a href="https://newsletter.semianalysis.com/p/eda-market-primer" target="_blank" rel="noopener">SemiAnalysis &mdash; "EDA Market Primer" (market structure and concentration)</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Empyrean_Technology" target="_blank" rel="noopener">Wikipedia &mdash; Empyrean Technology (China's domestic EDA leader)</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var SVGNS = 'http://www.w3.org/2000/svg';
+
+    var STAGES = [
+      {
+        kicker: 'DESIGN',
+        title: "An engineer writes the chip's logic as code",
+        body: "Before a single transistor exists, the chip's intended behavior is written in a hardware description language — Verilog or VHDL — the way an app's behavior is written in software code.",
+        statLabel: 'DOMINANT TOOLS',
+        statValue: 'Synopsys VCS · Cadence Xcelium'
+      },
+      {
+        kicker: 'VERIFY',
+        title: 'Billions of logic states get simulated before anything is built',
+        body: 'A bug caught here costs nothing. The same bug caught after fabrication can mean a scrapped mask set — or a recalled chip.',
+        statLabel: 'SHARE OF SCHEDULE SPENT ON VERIFICATION',
+        statValue: 'Often 60–70%+ of a design cycle'
+      },
+      {
+        kicker: 'SYNTHESIZE',
+        title: "Code becomes a blueprint of logic gates",
+        body: 'Synthesis software translates the behavioral code into an actual network of logic gates, sized and timed for one specific manufacturing process.',
+        statLabel: 'SYNTHESIS TOOL LEADER',
+        statValue: 'Synopsys Design/Fusion Compiler'
+      },
+      {
+        kicker: 'PLACE & ROUTE',
+        title: 'Billions of transistors get physically arranged on the die',
+        body: 'Software decides exactly where every gate sits and how to wire it, trading off speed, power, and the die area a fab is charging for.',
+        statLabel: 'PLACE-AND-ROUTE LEADERS',
+        statValue: 'Cadence Innovus · Synopsys IC Compiler'
+      },
+      {
+        kicker: 'SIGN OFF',
+        title: "The layout is checked against the fab's manufacturing rules",
+        body: "One tool, Siemens' Calibre, dominates this single step badly enough that it's a chokepoint inside the chokepoint.",
+        statLabel: "CALIBRE'S SHARE OF DRC SIGN-OFF",
+        statValue: 'Est. 70%+ of that market'
+      },
+      {
+        kicker: 'TAPE-OUT',
+        title: 'The finished design ships to the fab as a file',
+        body: 'A GDSII file — the design’s final form — goes to TSMC, Samsung, or Intel. Nothing before this step required a ship, a truck, or a border crossing.',
+        statLabel: 'WHAT ACTUALLY MOVES',
+        statValue: 'A file, not a shipment'
+      }
+    ];
+
+    var canvas = document.getElementById('ed-canvas');
+    var banner = document.getElementById('ed-banner');
+    var kicker = document.getElementById('ed-kicker');
+    var stageTitle = document.getElementById('ed-stage-title');
+    var stageBody = document.getElementById('ed-stage-body');
+    var statLabel = document.getElementById('ed-stat-label');
+    var statValue = document.getElementById('ed-stat-value');
+    var progress = document.getElementById('ed-progress');
+    var prevBtn = document.getElementById('ed-prev');
+    var nextBtn = document.getElementById('ed-next');
+    var playBtn = document.getElementById('ed-play');
+    var licenseBtn = document.getElementById('ed-license');
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var current = prefersReducedMotion ? STAGES.length - 1 : 0;
+    var licensed = true;
+    var playTimer = null;
+
+    var cssVar = function (name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    };
+
+    function buildNodes() {
+      while (canvas.firstChild) canvas.removeChild(canvas.firstChild);
+      var n = STAGES.length;
+      var margin = 60;
+      var w = 640, h = 120;
+      var step = (w - margin * 2) / (n - 1);
+      var y = 46;
+
+      var line = document.createElementNS(SVGNS, 'line');
+      line.setAttribute('x1', margin);
+      line.setAttribute('y1', y);
+      line.setAttribute('x2', w - margin);
+      line.setAttribute('y2', y);
+      line.setAttribute('stroke', cssVar('--border'));
+      line.setAttribute('stroke-width', '2');
+      canvas.appendChild(line);
+
+      for (var i = 0; i < n; i++) {
+        var cx = margin + step * i;
+        var circle = document.createElementNS(SVGNS, 'circle');
+        circle.setAttribute('cx', cx);
+        circle.setAttribute('cy', y);
+        circle.setAttribute('r', 11);
+        circle.setAttribute('data-idx', i);
+        circle.setAttribute('fill', cssVar('--surface'));
+        circle.setAttribute('stroke', cssVar('--border'));
+        circle.setAttribute('stroke-width', '2');
+        circle.style.cursor = 'pointer';
+        circle.addEventListener('click', (function (idx) {
+          return function () { stopPlay(); current = idx; render(); };
+        })(i));
+        canvas.appendChild(circle);
+
+        var num = document.createElementNS(SVGNS, 'text');
+        num.setAttribute('x', cx);
+        num.setAttribute('y', y + 4);
+        num.setAttribute('text-anchor', 'middle');
+        num.setAttribute('font-size', '10');
+        num.setAttribute('font-family', 'ui-monospace, SF Mono, Menlo, Consolas, monospace');
+        num.setAttribute('font-weight', '700');
+        num.setAttribute('data-numidx', i);
+        num.textContent = String(i + 1);
+        canvas.appendChild(num);
+
+        var label = document.createElementNS(SVGNS, 'text');
+        label.setAttribute('x', cx);
+        label.setAttribute('y', y + 30);
+        label.setAttribute('text-anchor', 'middle');
+        label.setAttribute('font-size', '9');
+        label.setAttribute('font-family', 'ui-monospace, SF Mono, Menlo, Consolas, monospace');
+        label.setAttribute('letter-spacing', '0.02em');
+        label.setAttribute('fill', cssVar('--muted'));
+        label.setAttribute('data-lblidx', i);
+        label.textContent = STAGES[i].kicker;
+        canvas.appendChild(label);
+      }
+    }
+
+    function updateNodes() {
+      var circles = canvas.querySelectorAll('circle[data-idx]');
+      var nums = canvas.querySelectorAll('text[data-numidx]');
+      circles.forEach(function (c) {
+        var idx = parseInt(c.getAttribute('data-idx'), 10);
+        if (!licensed) {
+          c.setAttribute('fill', idx === current ? cssVar('--accent-a') : cssVar('--accent-a-tint'));
+          c.setAttribute('stroke', cssVar('--accent-a'));
+          c.setAttribute('r', idx === current ? 13 : 11);
+          return;
+        }
+        if (idx === current) {
+          c.setAttribute('fill', cssVar('--accent-b'));
+          c.setAttribute('stroke', cssVar('--accent-b'));
+          c.setAttribute('r', 13);
+        } else if (idx < current) {
+          c.setAttribute('fill', cssVar('--accent-b-tint'));
+          c.setAttribute('stroke', cssVar('--accent-b'));
+          c.setAttribute('r', 11);
+        } else {
+          c.setAttribute('fill', cssVar('--surface'));
+          c.setAttribute('stroke', cssVar('--border'));
+          c.setAttribute('r', 11);
+        }
+      });
+      nums.forEach(function (t) {
+        var idx = parseInt(t.getAttribute('data-numidx'), 10);
+        if (!licensed) {
+          t.setAttribute('fill', idx === current ? '#ffffff' : cssVar('--accent-a'));
+          return;
+        }
+        t.setAttribute('fill', idx === current ? '#ffffff' : (idx < current ? cssVar('--accent-b') : cssVar('--muted')));
+      });
+    }
+
+    function updateBanner() {
+      if (licensed) {
+        banner.className = 'ed-banner licensed tabular';
+        banner.textContent = 'LICENSED · new design work and tool updates flow end to end · 6 / 6 stages usable';
+      } else {
+        banner.className = 'ed-banner revoked tabular';
+        banner.textContent = 'REVOKED · new design starts and tool updates blocked at every stage · 0 / 6 stages usable for new work';
+      }
+    }
+
+    function render() {
+      updateNodes();
+      updateBanner();
+      var s = STAGES[current];
+      kicker.textContent = 'STAGE ' + (current + 1) + ' OF ' + STAGES.length + ' · ' + s.kicker;
+      stageTitle.textContent = s.title;
+      stageBody.textContent = s.body;
+      statLabel.textContent = s.statLabel;
+      statValue.textContent = s.statValue;
+      progress.textContent = 'Stage ' + (current + 1) + ' / ' + STAGES.length;
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === STAGES.length - 1;
+    }
+
+    function stopPlay() {
+      if (playTimer) { clearInterval(playTimer); playTimer = null; playBtn.textContent = '▶ Play all 6'; }
+    }
+
+    prevBtn.addEventListener('click', function () { stopPlay(); current = Math.max(0, current - 1); render(); });
+    nextBtn.addEventListener('click', function () { stopPlay(); current = Math.min(STAGES.length - 1, current + 1); render(); });
+
+    licenseBtn.addEventListener('click', function () {
+      licensed = !licensed;
+      licenseBtn.setAttribute('aria-pressed', String(!licensed));
+      licenseBtn.textContent = licensed ? 'Flip license: revoke' : 'Flip license: restore';
+      render();
+    });
+
+    playBtn.addEventListener('click', function () {
+      if (prefersReducedMotion) {
+        current = STAGES.length - 1;
+        render();
+        return;
+      }
+      if (playTimer) { stopPlay(); return; }
+      current = 0;
+      render();
+      playBtn.textContent = '⏸ Playing…';
+      playTimer = setInterval(function () {
+        current += 1;
+        if (current >= STAGES.length) {
+          current = STAGES.length - 1;
+          render();
+          stopPlay();
+          return;
+        }
+        render();
+      }, 1700);
+    });
+
+    window.addEventListener('resize', function () {
+      buildNodes();
+      updateNodes();
+    });
+
+    buildNodes();
+    render();
+  })();
+</script>
+</body>
+</html>
