@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-07","category":"CHIP TEST EQUIPMENT","headline":"Two Companies Build an Estimated 90% of the World's Chip-Testing Machines. An AI Accelerator Now Spends 40 Times Longer on One Than a Phone's Chip Does","summary":"Advantest and Teradyne build an estimated 85-90% of the world's chip-testing machines. A phone chip clears one in about 30 seconds; a modern AI accelerator can take 20 minutes or longer — quietly making the last station before shipment one of the AI boom's tightest bottlenecks.","whyItMatters":"Wafer fabs get the headlines, but the machine spending 20 minutes per chip at the very last step can cap how many AI accelerators ship this quarter just as easily."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Two Companies Build an Estimated 90% of the World's Chip-Testing Machines.</title>
+<meta name="description" content="Advantest and Teradyne build an estimated 85-90% of the world's chip-testing machines. A phone chip clears one in about 30 seconds; a modern AI accelerator can take 20 minutes or longer, making the last station before shipment one of the AI boom's tightest bottlenecks." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c2410c;
+    --accent-a-tint: #fbe4d5;
+    --accent-b: #0e7490;
+    --accent-b-tint: #d9eef2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #fb923c;
+      --accent-a-tint: #3a2113;
+      --accent-b: #22d3ee;
+      --accent-b-tint: #0f2b32;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #fb923c;
+    --accent-a-tint: #3a2113;
+    --accent-b: #22d3ee;
+    --accent-b-tint: #0f2b32;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c2410c;
+    --accent-a-tint: #fbe4d5;
+    --accent-b: #0e7490;
+    --accent-b-tint: #d9eef2;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the tester throughput race --- */
+  .tt-header { margin-bottom: 4px; }
+  .tt-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .tt-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .tt-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 12px 8px;
+  }
+  #tt-canvas { display: block; width: 100%; height: auto; }
+
+  .tt-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .tt-slider-label {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .tt-controls input[type="range"] {
+    flex: 1;
+    min-width: 120px;
+    max-width: 220px;
+    accent-color: var(--accent-b);
+  }
+  .tt-btn {
+    border: 1px solid var(--accent-b);
+    background: var(--accent-b);
+    color: #fff;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .tt-btn:disabled { opacity: 0.55; cursor: default; }
+  .tt-progress {
+    font-size: 11px;
+    color: var(--muted);
+    margin-left: auto;
+  }
+
+  .tt-stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .tt-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .tt-stat-label {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .tt-stat-value {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .tt-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .tt-note strong { color: var(--ink); }
+
+  @media (max-width: 480px) {
+    .tt-stats { grid-template-columns: 1fr; }
+    .tt-progress { margin-left: 0; width: 100%; }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 7, 2026</span>
+    <span class="category-chip">CHIP TEST EQUIPMENT</span>
+  </div>
+  <h1>Two Companies Build an Estimated 90% of the World's Chip-Testing Machines. An AI Accelerator Now Spends 40 Times Longer on One Than a Phone's Chip Does.</h1>
+  <p class="lede">Every bottleneck this newsletter has covered so far sits somewhere you could point a camera at &mdash; a fab, a port, a mine. This one hides in the last room a chip visits before it ships, inside a machine built by one of exactly two companies on Earth &mdash; and it spends roughly forty times longer checking an AI chip than it spends on the one in your phone.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Automated test equipment (ATE) &mdash; the machines that check every chip works before it leaves the factory &mdash; is a near-duopoly: industry trackers put Advantest's and Teradyne's combined share of the global market at roughly 85&ndash;90%. On its own, that wouldn't be unusual; concentrated equipment markets are normal in chipmaking. What makes it a live bottleneck right now is dwell time. A mainstream smartphone chip clears a tester in roughly 30 seconds. A reticle-sized AI accelerator wired to several stacks of HBM memory can occupy that identical machine for 20 minutes or longer &mdash; an estimated 40 times as long. Because one tester holds one chip at a time, that gap caps throughput almost one-for-one: Teradyne's semiconductor-test business broke $1 billion in quarterly revenue for the first time in Q1 2026, and Advantest says it's racing to expand capacity &mdash; but the specialized probe cards those testers need can now take five to six months to build, per one of its subsidiaries.
+  </div>
+
+  <div class="card tt-card">
+    <div class="tt-header">
+      <h2 class="tt-title">Same machine, forty times the wait: a tester throughput race</h2>
+      <p class="tt-caption mono">Run one identical tester for a chosen stretch of simulated time &mdash; once testing phone chips (~30s each), once testing AI accelerators (~20min each; both figures are simplified, rounded industry estimates). Both bars share one scale, set by the phone lane's total, so the gap is drawn to scale. Pick a run length, then press Run.</p>
+    </div>
+
+    <div class="tt-scene-wrap">
+      <svg id="tt-canvas" viewBox="0 0 640 150" role="img" aria-label="Two lanes, a phone-chip tester and an AI-chip tester, each filling a bar as simulated time passes. The AI lane fills far more slowly because each chip takes about forty times longer to test."></svg>
+    </div>
+
+    <div class="tt-controls">
+      <label class="tt-slider-label mono" for="tt-hours">SIM. RUN: <span class="tabular" id="tt-hours-val">4</span>H</label>
+      <input type="range" id="tt-hours" min="1" max="8" step="1" value="4" />
+      <button type="button" class="tt-btn" id="tt-run">&#9654; Run</button>
+      <span class="tt-progress mono tabular" id="tt-progress">Elapsed: 0.0h / 4h</span>
+    </div>
+
+    <div class="tt-stats">
+      <div class="tt-stat">
+        <span class="tt-stat-label mono">PHONE CHIPS TESTED</span>
+        <span class="tt-stat-value tabular" id="tt-phone-count">0</span>
+      </div>
+      <div class="tt-stat">
+        <span class="tt-stat-label mono">AI CHIPS TESTED</span>
+        <span class="tt-stat-value tabular" id="tt-ai-count">0</span>
+      </div>
+      <div class="tt-stat">
+        <span class="tt-stat-label mono">THROUGHPUT GAP</span>
+        <span class="tt-stat-value tabular" id="tt-ratio">&mdash;</span>
+      </div>
+    </div>
+
+    <div class="tt-note">One identical tester, run for the same stretch of time. Phone-chip dwell time (~30 seconds) and AI-accelerator dwell time (~20 minutes) are simplified, rounded figures drawn from industry reporting on AI test times &mdash; real dwell time varies by die size and test depth. <strong>The roughly 40&times; gap in effective throughput is the same mechanism Advantest and Teradyne are racing to build capacity around.</strong></div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Before an AI chip or a phone chip leaves the factory, it has to prove it actually works. It gets plugged into a machine called a tester, which pokes at every circuit with tiny electrical probes and checks that the whole thing passes. Here's the part almost nobody outside chip manufacturing knows: essentially two companies build nearly all of these machines worldwide &mdash; a Japanese firm, Advantest, and an American one, Teradyne. Between them, they're estimated to supply somewhere around 85 to 90 percent of the global market. That's already the kind of chokepoint this newsletter tracks every day &mdash; a mineral refiner, a lithography maker, a design-software vendor. This one is just quieter, because nobody argues about testers the way they argue about GPUs.</p>
+      <p>The twist is what's happening inside that machine. A chip for your phone is a relatively modest electrical puzzle and clears the tester in about half a minute. A modern AI accelerator &mdash; dense with transistors and stacked memory &mdash; is a much bigger puzzle to check, and it can sit in that same machine for 20 minutes or more. That's roughly 40 times longer, per chip. A tester doesn't care what it's testing; it can only handle one chip at a time. So if an AI chip ties up the machine 40 times longer than a phone chip would, that one machine's effective output for AI chips collapses to a sliver of what it could do for ordinary ones &mdash; and you can't just buy more testers overnight. The specialized probe cards they need, the needle-like connectors that actually touch the chip, now take months to build.</p>
+      <p>Everyone's been watching the chip fabs for the AI boom's next shortage. The quieter one might be the room where the chips get checked on their way out the door.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Automated test equipment (ATE) qualifies every die before packaging and shipment: functional and parametric test against the pin/pad interface, speed-binning, and &mdash; for high-power parts &mdash; a burn-in step at elevated voltage and temperature to screen early-life failures. The ATE market is a structural duopoly. Industry trackers and sell-side research put Advantest's and Teradyne's combined share of global tester revenue at roughly 85&ndash;90%, with the exact figure varying by methodology (some trackers include probe-card and handler revenue, others don't). Within that, Advantest's share of the AI/SoC-tester sub-segment specifically is reported to have risen from about 56% to 66% between calendar 2024 and 2025, as its V93000 platform became a default qualification tool for Nvidia- and Broadcom-class accelerators.</p>
+      <p>The AI-specific constraint is dwell time, not unit count. A mainstream mobile SoC clears a tester in roughly 30&ndash;60 seconds. A reticle-limited AI accelerator paired with multiple HBM3E stacks &mdash; more I/O to exercise, more logic to pattern, and memory that itself needs roughly twice the per-stack test time of HBM2E &mdash; can occupy the identical machine for 20 minutes or longer: an estimated 20&ndash;40x multiplier over a mobile part (figures are industry estimates, not vendor-published benchmarks, and vary with die size and test-pattern depth). Because effective tester throughput is fleet size divided by per-unit dwell time, a 20&ndash;40x increase in dwell time compresses capacity by roughly the same factor, unless the installed base grows at a matching rate or multi-site/parallel test schemes claw some of it back.</p>
+      <p>Capacity isn't elastic on a useful timescale. Teradyne's Semiconductor Test segment generated $1.111 billion in Q1 2026 &mdash; about 87% of the company's record $1.282 billion quarterly revenue, per its SEC filing &mdash; crossing $1 billion in a single quarter for the first time, with management attributing roughly 70% of total revenue to AI-related demand. One level further downstream, Advantest's probe-card subsidiary has said a single advanced probe card for a large AI die now takes five to six months to build. Front-end wafer and HBM capacity has been 2026's headline AI supply constraint; the tester-and-probe-card layer sitting directly behind it is the less-visible one.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Everyone's watching wafer fabs and HBM lines for the AI boom's next shortage. The quieter one is the room at the very end of the line, built almost entirely by two companies, where an AI chip can tie up the machine roughly forty times longer than the one in your phone.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Front-end capacity (CoWoS, HBM) gets the headlines, but ATE dwell time is a multiplicative constraint one step further downstream &mdash; and because it scales with die complexity rather than wafer starts, it doesn't ease just because fabs add capacity.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.sec.gov/Archives/edgar/data/0000097210/000119312526188706/ter-ex99_1.htm" target="_blank" rel="noopener">Teradyne, Inc. &mdash; Q1 2026 earnings release (SEC Form 8-K, Exhibit 99.1)</a></li>
+    <li><a href="https://www.bloomberg.com/news/articles/2026-01-28/advantest-rushes-to-boost-ai-chip-tester-capacity-to-meet-demand" target="_blank" rel="noopener">Bloomberg &mdash; "Advantest Rushes to Boost AI Chip Tester Capacity to Meet Demand"</a></li>
+    <li><a href="https://bits-chips.com/magazine/bc202607-state-of-semicon/?pagenr=21" target="_blank" rel="noopener">Bits&amp;Chips &mdash; "State of Semicon" (AI-tester share shift, probe-card lead times)</a></li>
+    <li><a href="https://seekingalpha.com/article/4932578-advantest-q1-ai-inference-is-turning-semiconductor-test-into-a-structural-toll-road" target="_blank" rel="noopener">Seeking Alpha &mdash; "Advantest: AI Inference Is Turning Semiconductor Test Into A Structural Toll Road"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var SVGNS = 'http://www.w3.org/2000/svg';
+    var PHONE_SEC = 30;
+    var AI_SEC = 1200;
+    var ANIM_MS = 4200;
+    var TRACK_W = 578;
+
+    var svg = document.getElementById('tt-canvas');
+    var hoursSlider = document.getElementById('tt-hours');
+    var hoursVal = document.getElementById('tt-hours-val');
+    var runBtn = document.getElementById('tt-run');
+    var progressEl = document.getElementById('tt-progress');
+    var phoneCountEl = document.getElementById('tt-phone-count');
+    var aiCountEl = document.getElementById('tt-ai-count');
+    var ratioEl = document.getElementById('tt-ratio');
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var state = 'idle';
+    var animId = null;
+    var animStart = null;
+    var lastFraction = 0;
+    var els = {};
+
+    var cssVar = function (name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    };
+
+    function makeEl(tag, attrs) {
+      var e = document.createElementNS(SVGNS, tag);
+      for (var k in attrs) { e.setAttribute(k, attrs[k]); }
+      return e;
+    }
+
+    function buildRow(key, translateY, label, sub, accentVar) {
+      var g = makeEl('g', { transform: 'translate(12,' + translateY + ')' });
+
+      var labelText = makeEl('text', { x: 0, y: 12, 'font-size': 11.5, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', 'font-weight': 700, fill: cssVar('--ink') });
+      labelText.textContent = label;
+      g.appendChild(labelText);
+
+      var subText = makeEl('text', { x: 0, y: 25, 'font-size': 10, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', fill: cssVar('--muted') });
+      subText.textContent = sub;
+      g.appendChild(subText);
+
+      var iconY = 34, iconSize = 30;
+      var iconBox = makeEl('rect', { x: 0, y: iconY, width: iconSize, height: iconSize, rx: 6, fill: cssVar('--surface'), stroke: cssVar('--border'), 'stroke-width': 1.5 });
+      g.appendChild(iconBox);
+
+      var cx = iconSize / 2, cy = iconY + iconSize / 2;
+      var spinner = makeEl('line', { x1: cx, y1: cy, x2: cx, y2: iconY + 5, stroke: cssVar(accentVar), 'stroke-width': 2.5, 'stroke-linecap': 'round' });
+      g.appendChild(spinner);
+
+      var barX = 46, barY = iconY, barW = TRACK_W, barH = iconSize;
+      var track = makeEl('rect', { x: barX, y: barY, width: barW, height: barH, rx: 6, fill: cssVar('--bg'), stroke: cssVar('--border'), 'stroke-width': 1.5 });
+      g.appendChild(track);
+
+      var fill = makeEl('rect', { x: barX + 3, y: barY + 3, width: 0, height: barH - 6, rx: 5, fill: cssVar(accentVar) });
+      g.appendChild(fill);
+
+      svg.appendChild(g);
+      els[key] = { fill: fill, spinner: spinner, iconCenter: [cx, cy] };
+    }
+
+    function buildScene() {
+      while (svg.firstChild) { svg.removeChild(svg.firstChild); }
+      els = {};
+      buildRow('phone', 8, 'PHONE CHIP TESTER', '~30s per chip (simplified)', '--accent-b');
+      buildRow('ai', 78, 'AI CHIP TESTER', '~20min per chip (simplified)', '--accent-a');
+    }
+
+    function setSpinner(row, angleDeg) {
+      var cx = row.iconCenter[0], cy = row.iconCenter[1];
+      row.spinner.setAttribute('transform', 'rotate(' + angleDeg.toFixed(1) + ' ' + cx + ' ' + cy + ')');
+    }
+
+    function render(hours, fraction) {
+      lastFraction = fraction;
+      var totalSec = hours * 3600;
+      var elapsedSec = totalSec * fraction;
+      var phoneCount = Math.floor(elapsedSec / PHONE_SEC);
+      var aiCount = Math.floor(elapsedSec / AI_SEC);
+      var finalPhone = Math.max(1, Math.floor(totalSec / PHONE_SEC));
+
+      els.phone.fill.setAttribute('width', Math.max(0, TRACK_W * Math.min(1, phoneCount / finalPhone) - 6).toFixed(1));
+      els.ai.fill.setAttribute('width', Math.max(0, TRACK_W * Math.min(1, aiCount / finalPhone) - 6).toFixed(1));
+
+      setSpinner(els.phone, ((elapsedSec % PHONE_SEC) / PHONE_SEC) * 360);
+      setSpinner(els.ai, ((elapsedSec % AI_SEC) / AI_SEC) * 360);
+
+      phoneCountEl.textContent = phoneCount.toLocaleString();
+      aiCountEl.textContent = aiCount.toLocaleString();
+      ratioEl.textContent = aiCount > 0 ? (phoneCount / aiCount).toFixed(0) + '×' : '—';
+      progressEl.textContent = 'Elapsed: ' + (elapsedSec / 3600).toFixed(1) + 'h / ' + hours + 'h';
+    }
+
+    function currentHours() {
+      return parseInt(hoursSlider.value, 10);
+    }
+
+    function step(ts) {
+      if (!animStart) { animStart = ts; }
+      var frac = Math.min(1, (ts - animStart) / ANIM_MS);
+      render(currentHours(), frac);
+      if (frac < 1) {
+        animId = requestAnimationFrame(step);
+      } else {
+        finishRun();
+      }
+    }
+
+    function startRun() {
+      state = 'running';
+      runBtn.disabled = true;
+      runBtn.textContent = 'Running…';
+      hoursSlider.disabled = true;
+      if (prefersReducedMotion) {
+        render(currentHours(), 1);
+        finishRun();
+        return;
+      }
+      animStart = null;
+      animId = requestAnimationFrame(step);
+    }
+
+    function finishRun() {
+      state = 'done';
+      runBtn.disabled = false;
+      runBtn.textContent = '↻ Reset';
+      hoursSlider.disabled = false;
+    }
+
+    function resetToIdle() {
+      state = 'idle';
+      runBtn.textContent = '▶ Run';
+      render(currentHours(), 0);
+    }
+
+    runBtn.addEventListener('click', function () {
+      if (state === 'done') { resetToIdle(); return; }
+      if (state === 'idle') { startRun(); }
+    });
+
+    hoursSlider.addEventListener('input', function () {
+      hoursVal.textContent = hoursSlider.value;
+      if (state !== 'running') {
+        state = 'idle';
+        runBtn.textContent = '▶ Run';
+        render(currentHours(), 0);
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      buildScene();
+      render(currentHours(), lastFraction);
+    });
+
+    buildScene();
+    if (prefersReducedMotion) {
+      render(currentHours(), 1);
+      state = 'done';
+      runBtn.textContent = '↻ Reset';
+    } else {
+      render(currentHours(), 0);
+    }
+  })();
+</script>
+</body>
+</html>
