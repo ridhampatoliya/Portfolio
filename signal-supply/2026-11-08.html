@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-08","category":"SILICON WAFERS","headline":"Five Companies Make an Estimated 80% of the World's Advanced Silicon Wafers. One of Them Just Said a 10% Price Hike Won't Cover Its Costs","summary":"Five companies supply an estimated 80% of the blank silicon wafers every chip is built on. AI and HBM demand is pushing capacity toward 99% utilization by 2028, and after the last cycle's glut, the makers who'd need to expand are moving slower than demand.","whyItMatters":"Everyone watches GPUs and HBM for the next AI shortage. This one sits a layer further back, in the blank disc nothing else can exist without."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Five Companies Make an Estimated 80% of the World's Advanced Silicon Wafers.</title>
+<meta name="description" content="Five companies supply an estimated 80% of the blank silicon wafers every chip is built on. AI and HBM demand is pushing capacity toward 99% utilization by 2028, and the makers who'd need to expand are still scarred from the last glut." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b45309;
+    --accent-a-tint: #f7e8d2;
+    --accent-b: #4338ca;
+    --accent-b-tint: #e4e1fb;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #fbbf24;
+      --accent-a-tint: #3a2c10;
+      --accent-b: #a5b4fc;
+      --accent-b-tint: #262a4a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #fbbf24;
+    --accent-a-tint: #3a2c10;
+    --accent-b: #a5b4fc;
+    --accent-b-tint: #262a4a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b45309;
+    --accent-a-tint: #f7e8d2;
+    --accent-b: #4338ca;
+    --accent-b-tint: #e4e1fb;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the wafer squeeze --- */
+  .ws-header { margin-bottom: 4px; }
+  .ws-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .ws-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .ws-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 12px 10px;
+  }
+  #ws-canvas { display: block; width: 100%; height: auto; }
+
+  .ws-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .ws-slider-label {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .ws-controls input[type="range"] {
+    flex: 1;
+    min-width: 140px;
+    max-width: 280px;
+    accent-color: var(--accent-b);
+  }
+  .ws-btn {
+    border: 1px solid var(--accent-b);
+    background: transparent;
+    color: var(--accent-b);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+
+  .ws-stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .ws-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .ws-stat-label {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .ws-stat-value {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .ws-pill {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .ws-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .ws-note strong { color: var(--ink); }
+
+  @media (max-width: 480px) {
+    .ws-stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 8, 2026</span>
+    <span class="category-chip">SILICON WAFERS</span>
+  </div>
+  <h1>Five Companies Make an Estimated 80% of the World's Advanced Silicon Wafers. One of Them Just Said a 10% Price Hike Won't Cover Its Costs.</h1>
+  <p class="lede">Every chip this newsletter has covered &mdash; the AI accelerator, the HBM stack, the power chip, the capacitor riding next to it &mdash; starts life the same way: as a blank, mirror-polished disc of ultra-pure silicon. Five companies make nearly all of them. The last time demand spiked this hard, they overbuilt, got stuck with a glut, and lost money for years. This time, they're not blinking first.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Shin-Etsu and SUMCO (Japan), GlobalWafers (Taiwan), Siltronic (Germany), and SK Siltron (South Korea) supply an estimated 80% of the world's 300mm silicon wafers &mdash; the standard size behind nearly all modern logic and memory chips (the top ten suppliers reach roughly 92%). AI accelerators and the HBM stacked beside them are now competing for that same wafer supply just as ordinary chip demand recovers. UBS estimated in September 2026 that global 12-inch wafer utilization will climb from 84% in 2026 to about 99% by 2028, and could approach 104% &mdash; past what factories can physically supply &mdash; by 2029 if nobody adds capacity. It says prices would need to rise 40&ndash;50% to make new fabs worth building. SUMCO has already told the market a 10% hike for 2027 contracts "won't cover its costs," and Shin-Etsu told analysts on an October 27 call that price increases have begun landing on some customers. None of the five has announced the kind of new-fab commitment that would meaningfully change the 2029 trajectory.
+  </div>
+
+  <div class="card ws-card">
+    <div class="ws-header">
+      <h2 class="ws-title">The wafer squeeze: how much slack is left before 2029</h2>
+      <p class="ws-caption mono">Drag the slider to add new wafer capacity through 2029 and watch utilization and price respond. The three starred years (2026, 2028, 2029) use published UBS-cited estimates; 2027 is interpolated for a smoother line. The price curve is a simplified illustrative model built to show the mechanism UBS describes (a steep response once utilization nears 100%) &mdash; not an exact price forecast.</p>
+    </div>
+
+    <div class="ws-scene-wrap">
+      <svg id="ws-canvas" viewBox="0 0 640 300" role="img" aria-label="Two stacked charts from 2026 to 2029: wafer utilization climbing toward a 100 percent capacity ceiling, and a price index that rises gently then steeply once utilization nears the ceiling. A slider lets you add new committed capacity, which lowers both curves."></svg>
+    </div>
+
+    <div class="ws-controls">
+      <label class="ws-slider-label mono" for="ws-expansion">NEW CAPACITY COMMITTED BY 2029: <span class="tabular" id="ws-expansion-val">0</span> PTS</label>
+      <input type="range" id="ws-expansion" min="0" max="20" step="1" value="0" />
+      <button type="button" class="ws-btn" id="ws-reset">&#8635; Reset</button>
+    </div>
+
+    <div class="ws-stats">
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">2029 UTILIZATION</span>
+        <span class="ws-stat-value tabular" id="ws-util-2029">103.7%</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">2029 PRICE INDEX (2026=100)</span>
+        <span class="ws-stat-value tabular" id="ws-price-2029">195</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">STATUS</span>
+        <span class="ws-stat-value" id="ws-status"><span class="ws-pill" id="ws-status-pill">SHORTAGE</span></span>
+      </div>
+    </div>
+
+    <div class="ws-note">Baseline (slider at 0) uses UBS-cited figures: 84% utilization in 2026, ~99% in 2028, and ~103.7% &mdash; i.e., past full capacity &mdash; in 2029 absent new fabs. <strong>Notice that dragging the slider high enough to erase the squeeze pushes 2029's price index back toward (or below) 2026's level</strong> &mdash; which is close to the oversupply pattern that burned wafer makers in 2023&ndash;2025 and made them this cautious in the first place.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Before a chip becomes anything &mdash; an AI accelerator, a phone processor, the sensor in your car &mdash; it starts as a blank disc of silicon, sliced thin and polished until it's flatter and smoother than almost anything else humans manufacture. That disc is a wafer: the canvas every chipmaker paints transistors onto. Nobody prints a single circuit until the canvas exists. Here's the part almost nobody outside the industry tracks: just five companies make nearly all of the advanced, 12-inch wafers modern chips are built on &mdash; two Japanese firms (Shin-Etsu and SUMCO), one Taiwanese (GlobalWafers), one German (Siltronic), and one South Korean (SK Siltron). Together, they're estimated to supply roughly 80% of the world's advanced wafer supply.</p>
+      <p>These five have been burned before. After the pandemic-era chip shortage, they built more capacity &mdash; then demand cratered from 2023 through 2025, prices fell, and some of that new capacity sat half-used, losing money. They learned a lesson: don't overbuild. Now AI chips and the memory stacked next to them are eating wafer capacity fast, right as demand for ordinary chips &mdash; phones, cars, appliances &mdash; is recovering too. Analysts at UBS think wafer factories could be running at 99% of capacity by 2028, and could be asked to produce more than they're physically able to by 2029, if nobody builds anything new.</p>
+      <p>So far, nobody's building. SUMCO has told customers that even a 10% price increase for next year's contracts "won't cover its costs" &mdash; supplier-speak for "we need a lot more than that before we'll even think about expanding." Shin-Etsu told analysts in late October that price increases have already started landing on some customers' invoices. The fabs get the headlines. The blank discs feeding them might be the quieter story.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Every semiconductor device begins as a Czochralski-grown monocrystalline silicon ingot, sliced into wafers and polished to sub-nanometer flatness before a single lithography step occurs. Supply of the dominant 300mm (12-inch) format &mdash; used for essentially all leading-edge logic, DRAM, and NAND &mdash; is structurally concentrated: industry trackers put the combined share of the top five suppliers (Shin-Etsu, SUMCO, GlobalWafers, Siltronic, SK Siltron) at roughly 80% of 300mm volume, with the top ten reaching about 92%. Individual company shares vary by methodology and year, so treat any single-company percentage as approximate.</p>
+      <p>The current squeeze is a capacity-cycle story, not a feedstock story &mdash; polysilicon itself isn't scarce. After over-expanding into the 2021&ndash;2022 shortage, wafer suppliers absorbed a demand air pocket from 2023 through 2025 as PC, smartphone, and legacy-chip orders fell; utilization and pricing both slid, and new fab investment slowed sharply. AI accelerators and the HBM stacked alongside them now compete for the same 300mm substrate capacity as recovering legacy and automotive demand, and new ingot-pulling and polishing capacity typically takes two to three years to bring online &mdash; too slow to answer a demand spike within the same cycle. UBS estimated in a September 2026 note that 12-inch wafer utilization could climb from roughly 84% in 2026 to about 99% in 2028, and toward 103.7% by 2029 absent new capacity: demand nominally exceeding what installed capacity can physically supply. The bank argues suppliers would need price increases on the order of 40&ndash;50% to clear the cost-of-capital hurdle for new fabs; short of that, it expects wafer prices to rise over 20% annually in 2027 and 2028 even without major new supply.</p>
+      <p>Early price signals back the model: SUMCO said in mid-2026 that a 10% increase on 2027 contracts "won't cover its costs," and Shin-Etsu told analysts on an October 27, 2026 earnings call that price increases have begun for some customers, with broader resets tied to contract renewals in late 2027 or later. The main variable that could cap how far prices run is Chinese domestic wafer capacity, which is expanding faster than the incumbent five and gives chipmakers outside the leading edge some near-term leverage.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Everyone's watching GPUs and HBM for the next AI shortage. This one sits a layer further back &mdash; in the blank disc nothing else can exist without &mdash; and the five companies who make it are moving slower than demand, on purpose.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Wafer-fab capex decisions lock in roughly three years before they show up as shipped capacity, so the 2029 outcome is largely already determined by what the big five commit to in the next few quarters &mdash; which is exactly why their current reluctance to expand matters now, not later.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://technews.tw/2026/09/24/silicon-wafer-prices-to-surge-40-in-2027-as-ai-demand-squeezes-the-chip-supply-chain/" target="_blank" rel="noopener">TechNews &mdash; "Silicon Wafer Prices to Surge 40% in 2027 as AI Demand Squeezes the Chip Supply Chain" (UBS report coverage)</a></li>
+    <li><a href="https://www.ctol.digital/news/silicon-wafer-makers-seek-steep-2027-price-hikes-as-china-adds-supply/" target="_blank" rel="noopener">CTOL Digital &mdash; "Silicon Wafer Makers Seek Steep 2027 Price Hikes As China Adds Supply"</a></li>
+    <li><a href="https://xenospectrum.com/en/shinetsu-wafer-price-outside-contract/" target="_blank" rel="noopener">Xenospectrum &mdash; "Shin-Etsu: Wafer Price Increases Have Begun Outside Existing Contracts"</a></li>
+    <li><a href="https://averroes.ai/blog/silicon-wafer-manufacturers" target="_blank" rel="noopener">Averroes &mdash; "Top Silicon Wafer Manufacturers and Suppliers in 2026" (market-share estimates)</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var SVGNS = 'http://www.w3.org/2000/svg';
+    var YEARS = ['2026', '2027', '2028', '2029'];
+    var BASELINE_UTIL = [84, 91.5, 99, 103.7];
+    var RAMP = [0, 0.15, 0.5, 1.0];
+
+    var PA_TOP = 10, PA_BOTTOM = 150;
+    var PB_TOP = 180, PB_BOTTOM = 255;
+    var X0 = 50, X3 = 626;
+    var UTIL_MIN = 78, UTIL_MAX = 108;
+    var PRICE_MIN = 85, PRICE_MAX = 215;
+
+    var svg = document.getElementById('ws-canvas');
+    var slider = document.getElementById('ws-expansion');
+    var sliderVal = document.getElementById('ws-expansion-val');
+    var resetBtn = document.getElementById('ws-reset');
+    var util2029El = document.getElementById('ws-util-2029');
+    var price2029El = document.getElementById('ws-price-2029');
+    var statusPill = document.getElementById('ws-status-pill');
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var animId = null;
+    var displayed = BASELINE_UTIL.slice();
+
+    var cssVar = function (name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    };
+
+    function makeEl(tag, attrs) {
+      var e = document.createElementNS(SVGNS, tag);
+      for (var k in attrs) { e.setAttribute(k, attrs[k]); }
+      return e;
+    }
+
+    function xAt(i) { return X0 + (i / 3) * (X3 - X0); }
+    function yUtil(v) {
+      var t = (v - UTIL_MIN) / (UTIL_MAX - UTIL_MIN);
+      return PA_BOTTOM - t * (PA_BOTTOM - PA_TOP);
+    }
+    function yPrice(p) {
+      var t = (p - PRICE_MIN) / (PRICE_MAX - PRICE_MIN);
+      return PB_BOTTOM - t * (PB_BOTTOM - PB_TOP);
+    }
+
+    function utilForYear(i, expansion) {
+      return Math.max(70, BASELINE_UTIL[i] - expansion * RAMP[i]);
+    }
+    function priceForUtil(utilPct) {
+      var u = utilPct / 100;
+      var base = 100 + (Math.min(u, 0.95) - 0.84) * 150;
+      if (u > 0.95) { base += (u - 0.95) * 900; }
+      return base;
+    }
+
+    function statusFor(util2029) {
+      if (util2029 >= 100) { return { text: 'SHORTAGE', color: '--accent-a' }; }
+      if (util2029 >= 95) { return { text: 'TIGHT', color: '--accent-a' }; }
+      return { text: 'BALANCED', color: '--accent-b' };
+    }
+
+    function buildStatic() {
+      while (svg.firstChild) { svg.removeChild(svg.firstChild); }
+
+      // panel A gridlines + ceiling
+      [80, 90, 100, 110].forEach(function (v) {
+        if (v < UTIL_MIN || v > UTIL_MAX) { return; }
+        var y = yUtil(v);
+        var line = makeEl('line', { x1: X0, y1: y, x2: X3, y2: y, stroke: cssVar('--border'), 'stroke-width': 1 });
+        svg.appendChild(line);
+        var lbl = makeEl('text', { x: X0 - 8, y: y + 3, 'text-anchor': 'end', 'font-size': 9, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', fill: cssVar('--muted') });
+        lbl.textContent = v + '%';
+        svg.appendChild(lbl);
+      });
+      var ceiling = makeEl('line', { x1: X0, y1: yUtil(100), x2: X3, y2: yUtil(100), stroke: cssVar('--accent-a'), 'stroke-width': 1.5, 'stroke-dasharray': '5,4' });
+      svg.appendChild(ceiling);
+      var ceilLbl = makeEl('text', { x: X3, y: yUtil(100) - 6, 'text-anchor': 'end', 'font-size': 9.5, 'font-weight': 700, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', fill: cssVar('--accent-a') });
+      ceilLbl.textContent = 'FULL CAPACITY';
+      svg.appendChild(ceilLbl);
+      var paLabel = makeEl('text', { x: X0, y: PA_TOP - 2, 'font-size': 10, 'font-weight': 700, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', fill: cssVar('--ink') });
+      paLabel.textContent = 'WAFER UTILIZATION';
+      svg.appendChild(paLabel);
+
+      // panel B baseline + label
+      var baseline = makeEl('line', { x1: X0, y1: yPrice(100), x2: X3, y2: yPrice(100), stroke: cssVar('--border'), 'stroke-width': 1, 'stroke-dasharray': '3,3' });
+      svg.appendChild(baseline);
+      var baseLbl = makeEl('text', { x: X0 - 8, y: yPrice(100) + 3, 'text-anchor': 'end', 'font-size': 9, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', fill: cssVar('--muted') });
+      baseLbl.textContent = '100';
+      svg.appendChild(baseLbl);
+      var pbLabel = makeEl('text', { x: X0, y: PB_TOP - 2, 'font-size': 10, 'font-weight': 700, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', fill: cssVar('--ink') });
+      pbLabel.textContent = 'PRICE INDEX (2026 = 100)';
+      svg.appendChild(pbLabel);
+
+      // x-axis year labels
+      YEARS.forEach(function (yr, i) {
+        var lbl = makeEl('text', { x: xAt(i), y: PB_BOTTOM + 20, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', fill: cssVar('--muted') });
+        lbl.textContent = yr;
+        svg.appendChild(lbl);
+      });
+
+      // dynamic groups
+      var utilPath = makeEl('path', { fill: 'none', stroke: cssVar('--accent-b'), 'stroke-width': 2.5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+      svg.appendChild(utilPath);
+      var utilDots = [], utilLabels = [], priceBars = [], priceLabels = [];
+      for (var i = 0; i < 4; i++) {
+        var dot = makeEl('circle', { r: 4.5, fill: cssVar('--accent-b'), stroke: cssVar('--surface'), 'stroke-width': 1.5 });
+        svg.appendChild(dot);
+        utilDots.push(dot);
+        var ulbl = makeEl('text', { 'text-anchor': 'middle', 'font-size': 10.5, 'font-weight': 700, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', fill: cssVar('--ink') });
+        svg.appendChild(ulbl);
+        utilLabels.push(ulbl);
+
+        var barW = 34;
+        var bar = makeEl('rect', { width: barW, fill: cssVar('--accent-a'), rx: 3 });
+        svg.appendChild(bar);
+        priceBars.push(bar);
+        var plbl = makeEl('text', { 'text-anchor': 'middle', 'font-size': 10, 'font-weight': 700, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', fill: cssVar('--ink') });
+        svg.appendChild(plbl);
+        priceLabels.push(plbl);
+      }
+
+      return { utilPath: utilPath, utilDots: utilDots, utilLabels: utilLabels, priceBars: priceBars, priceLabels: priceLabels };
+    }
+
+    var els = buildStatic();
+
+    function draw(utilValues) {
+      var d = '';
+      for (var i = 0; i < 4; i++) {
+        var x = xAt(i), y = yUtil(utilValues[i]);
+        d += (i === 0 ? 'M' : 'L') + x.toFixed(1) + ',' + y.toFixed(1) + ' ';
+        els.utilDots[i].setAttribute('cx', x);
+        els.utilDots[i].setAttribute('cy', y);
+        els.utilLabels[i].setAttribute('x', x);
+        els.utilLabels[i].setAttribute('y', y - 11);
+        els.utilLabels[i].textContent = utilValues[i].toFixed(1) + '%';
+
+        var price = priceForUtil(utilValues[i]);
+        var barW = 34;
+        var yTop = yPrice(price);
+        var yBase = yPrice(100);
+        var top = Math.min(yTop, yBase), h = Math.abs(yBase - yTop);
+        els.priceBars[i].setAttribute('x', x - barW / 2);
+        els.priceBars[i].setAttribute('y', top);
+        els.priceBars[i].setAttribute('height', Math.max(1, h));
+        els.priceLabels[i].setAttribute('x', x);
+        els.priceLabels[i].setAttribute('y', top - 6);
+        els.priceLabels[i].textContent = Math.round(price);
+      }
+      els.utilPath.setAttribute('d', d.trim());
+
+      var status = statusFor(utilValues[3]);
+      util2029El.textContent = utilValues[3].toFixed(1) + '%';
+      price2029El.textContent = Math.round(priceForUtil(utilValues[3]));
+      statusPill.textContent = status.text;
+      statusPill.style.color = cssVar(status.color);
+      statusPill.style.background = cssVar(status.color + '-tint');
+    }
+
+    function targetValues(expansion) {
+      var out = [];
+      for (var i = 0; i < 4; i++) { out.push(utilForYear(i, expansion)); }
+      return out;
+    }
+
+    function animateTo(target) {
+      if (animId) { cancelAnimationFrame(animId); animId = null; }
+      if (prefersReducedMotion) {
+        displayed = target;
+        draw(displayed);
+        return;
+      }
+      var start = displayed.slice();
+      var t0 = null;
+      var DUR = 380;
+      function step(ts) {
+        if (!t0) { t0 = ts; }
+        var frac = Math.min(1, (ts - t0) / DUR);
+        var eased = 1 - Math.pow(1 - frac, 3);
+        var cur = start.map(function (v, i) { return v + (target[i] - v) * eased; });
+        displayed = cur;
+        draw(cur);
+        if (frac < 1) {
+          animId = requestAnimationFrame(step);
+        } else {
+          animId = null;
+        }
+      }
+      animId = requestAnimationFrame(step);
+    }
+
+    slider.addEventListener('input', function () {
+      sliderVal.textContent = slider.value;
+      animateTo(targetValues(parseFloat(slider.value)));
+    });
+    resetBtn.addEventListener('click', function () {
+      slider.value = 0;
+      sliderVal.textContent = '0';
+      animateTo(targetValues(0));
+    });
+
+    window.addEventListener('resize', function () {
+      els = buildStatic();
+      draw(displayed);
+    });
+
+    draw(displayed);
+  })();
+</script>
+</body>
+</html>
