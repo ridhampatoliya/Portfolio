@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-11","category":"PACKAGING CAPACITY","headline":"TSMC Is Reportedly Weighing a 20% Price Hike on CoWoS — the Step That Turns a Bare Chip Into an AI Accelerator. Fabricating the Chip Was Never the Bottleneck","summary":"Taiwanese press reports say TSMC is weighing a price hike of up to 20% on CoWoS, the delicate process of gluing a GPU die to its HBM memory stacks. The reason: packaging capacity, not raw wafer output, is now the real ceiling on how many AI accelerators the world can ship.","whyItMatters":"Every “GPU shortage” story for the next two years is really a packaging-capacity story — and the cost of that bottleneck is about to show up in AI infrastructure budgets, not just chip orders."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; TSMC May Raise CoWoS Packaging Prices 20%. Making the Chip Was Never the Hard Part.</title>
+<meta name="description" content="Taiwanese press reports say TSMC is weighing a price hike of up to 20% on CoWoS, the delicate process of gluing a GPU die to its HBM memory stacks. The reason: packaging capacity, not raw wafer output, is now the real ceiling on how many AI accelerators the world can ship." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5530f;
+    --accent-a-tint: #fbe7d4;
+    --accent-b: #0f766e;
+    --accent-b-tint: #d9f0ec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #f0a868;
+      --accent-a-tint: #3a2512;
+      --accent-b: #5eead4;
+      --accent-b-tint: #0f2e2a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #f0a868;
+    --accent-a-tint: #3a2512;
+    --accent-b: #5eead4;
+    --accent-b-tint: #0f2e2a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5530f;
+    --accent-a-tint: #fbe7d4;
+    --accent-b: #0f766e;
+    --accent-b-tint: #d9f0ec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the packaging backlog --- */
+  .ws-header { margin-bottom: 4px; }
+  .ws-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .ws-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .ws-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 12px 10px;
+  }
+  #ws-canvas { display: block; width: 100%; height: auto; }
+
+  .ws-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .ws-slider-label {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .ws-controls input[type="range"] {
+    flex: 1;
+    min-width: 140px;
+    max-width: 280px;
+    accent-color: var(--accent-b);
+  }
+  .ws-btn {
+    border: 1px solid var(--accent-b);
+    background: transparent;
+    color: var(--accent-b);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .ws-btn.primary { background: var(--accent-b); color: #fff; }
+
+  .ws-stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .ws-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .ws-stat-label {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .ws-stat-value {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .ws-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .ws-note strong { color: var(--ink); }
+
+  @media (max-width: 480px) {
+    .ws-stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 11, 2026</span>
+    <span class="category-chip">PACKAGING CAPACITY</span>
+  </div>
+  <h1>TSMC Is Reportedly Weighing a 20% Price Hike on CoWoS &mdash; the Step That Turns a Bare Chip Into an AI Accelerator. Fabricating the Chip Was Never the Bottleneck.</h1>
+  <p class="lede">For two years the AI chip shortage got blamed on wafer fabs maxed out making dies. The part actually running out of room is the one after that &mdash; gluing a GPU die to its memory &mdash; and TSMC may now charge up to 20% more just to ration it.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Taiwan's Commercial Times and Economic Daily reported on October 27, 2026 &mdash; relayed by TrendForce, Tom's Hardware, and Igor's Lab &mdash; that TSMC is weighing a price increase of up to 20% on CoWoS, its advanced chip-packaging process, and is reportedly skipping its usual price renegotiations with packaging-equipment suppliers. Lead times on that equipment have stretched from roughly 3&ndash;6 months to as long as 8. Analysts estimate CoWoS capacity will run somewhere around 106,000&ndash;130,000+ wafers a month in 2026, with the industry aiming for roughly 200,000 by 2027 &mdash; yet Nvidia alone is estimated to reserve 50&ndash;65% of it, and at least one analyst projects 2026 demand will still outstrip supply by 20&ndash;27%. TSMC has not officially confirmed the price move.
+  </div>
+
+  <div class="card ws-card">
+    <div class="ws-header">
+      <h2 class="ws-title">The packaging backlog: why more chips don't mean more AI accelerators</h2>
+      <p class="ws-caption mono">Drag "packaging bays" to try different capacity scenarios, then hit Run to watch the backlog play out over a simulated 28 weeks. Illustrative model, not TSMC's real figures &mdash; see the note below for the assumptions.</p>
+    </div>
+
+    <div class="ws-scene-wrap">
+      <svg id="ws-canvas" viewBox="0 0 640 300" role="img" aria-label="Two tracks: fab output filling steadily regardless of capacity, and a packaging backlog that grows, holds flat, or shrinks depending on how many packaging bays are available."></svg>
+    </div>
+
+    <div class="ws-controls">
+      <label class="ws-slider-label mono" for="ws-bays">PACKAGING BAYS (CAPACITY SCENARIO): <span class="tabular" id="ws-bays-val">2</span></label>
+      <input type="range" id="ws-bays" min="2" max="6" step="1" value="2" />
+    </div>
+    <div class="ws-controls">
+      <label class="ws-slider-label mono" for="ws-week">WEEKS SIMULATED: <span class="tabular" id="ws-week-val">14</span></label>
+      <input type="range" id="ws-week" min="0" max="28" step="1" value="14" />
+    </div>
+    <div class="ws-controls" style="margin-top: 4px;">
+      <button type="button" class="ws-btn primary" id="ws-run">&#9654; Run</button>
+      <button type="button" class="ws-btn" id="ws-reset">&#8635; Reset</button>
+    </div>
+
+    <div class="ws-stats">
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">WEEK</span>
+        <span class="ws-stat-value tabular" id="ws-week-stat">14</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">DIES WAITING ON COWOS</span>
+        <span class="ws-stat-value tabular" id="ws-backlog">27</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">BACKLOG TREND</span>
+        <span class="ws-stat-value" id="ws-trend">GROWING</span>
+      </div>
+    </div>
+
+    <div class="ws-note">Simplified on purpose: the fab's output is held constant here because wafer fabrication isn't the real constraint &mdash; each packaging bay is assumed to finish one chip-equivalent every 4 weeks, starting from a hypothetical backlog of 20. Two bays is roughly today's squeeze; four is close to what capacity plans target for 2027; even six &mdash; beyond anything currently planned &mdash; only drains the backlog slowly, which tracks analyst warnings that the gap could persist into 2027&ndash;2028.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>An AI chip like Nvidia's Blackwell isn't really one chip. It's a tiny, tightly packed neighborhood: a giant "brain" die surrounded by several stacks of ultra-fast memory (HBM) that it constantly reaches into, all glued onto a silicon base with microscopic wiring, which then gets mounted onto a circuit board. That gluing-and-wiring step is called packaging, and TSMC's version of it is called CoWoS &mdash; Chip-on-Wafer-on-Substrate.</p>
+      <p>For a while, the bottleneck in AI chips was simple: not enough raw silicon. TSMC and its rivals could only make so many wafers. But that's no longer the real limit. Today, TSMC can produce more brain dies and more memory stacks than it can actually stitch together into finished, shippable chips. Packaging &mdash; the fiddly, precision step that has to happen last &mdash; is now the ceiling.</p>
+      <p>Taiwanese media reported in late October that TSMC is weighing raising CoWoS prices by as much as 20%, and is even skipping its usual haggling with the companies that sell it packaging equipment, because that equipment is backordered for months. Think of a bakery that can mix unlimited batter and has unlimited ovens, but only a couple of people who can pipe the frosting &mdash; and decorating is the one step nobody can skip before the cake ships.</p>
+      <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> "GPU shortage" headlines for the next couple of years are really packaging-capacity headlines, and a 20% packaging surcharge flows straight into what every AI cloud and data-center builder pays per chip.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>CoWoS (Chip-on-Wafer-on-Substrate) is TSMC's 2.5D advanced-packaging platform: a logic die and several HBM stacks are placed onto a silicon interposer carrying through-silicon vias (TSVs) and redistribution layers, which is itself diced from its own wafer. The dies are reflow-bonded to the interposer at sub-10-micron alignment tolerances, underfilled, and the resulting module is mounted onto an organic substrate. Because that alignment step can't be parallelized the way lithography can, packaging throughput scales on a completely different curve than wafer-start throughput &mdash; which is why raw fab capacity stopped being the limiting variable for finished AI accelerators.</p>
+      <p>Analyst estimates of 2026 CoWoS capacity vary by source: Goldman Sachs has put it near 106,000 wafers a month, while Commercial Times-sourced analysts cite figures above 130,000, with industry plans targeting roughly 200,000 a month by 2027 as TSMC works to roughly double its prior run rate. Nvidia is estimated by various analysts to reserve somewhere between about 50% and 65% of available CoWoS capacity across Blackwell and the coming Rubin generation. Blackwell Ultra's interposer reportedly uses a reticle size around 3.3 times a standard reticle, adding further strain on packaging tools, and final test time is reported at roughly 4 times Hopper's for Blackwell packages, with Rubin potentially needing around 7 times as long.</p>
+      <p>Against that backdrop, Commercial Times and Economic Daily reported on October 27, 2026 that TSMC and its OSAT partners are weighing CoWoS price increases of up to 20%, while reportedly skipping customary price renegotiations with packaging-equipment suppliers; those suppliers' lead times have reportedly stretched from roughly 3&ndash;6 months to as long as 8. TSMC has not officially confirmed either the increase or a start date, and multiple outlets note the figure likely wouldn't apply uniformly across customers. Even accounting for planned expansion, at least one analyst estimate puts 2026 CoWoS demand outstripping supply by roughly 20&ndash;27%, and TSMC's Arizona packaging lines aren't expected to contribute meaningful volume before 2027 at the earliest.</p>
+      <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> A packaging-capacity ceiling, not a wafer-capacity ceiling, now sets the real production rate for AI accelerators &mdash; which means CapEx plans, cloud GPU pricing, and chip-collateral loan models all need to track CoWoS allocation, not just TSMC's advanced-node wafer starts.</p>
+    </div>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.trendforce.com/news/2026/10/27/news-tsmc-reportedly-eyes-20-cowos-price-hike-skips-equipment-price-renegotiations-amid-ai-demand-surge/" target="_blank" rel="noopener">TrendForce &mdash; "TSMC Reportedly Eyes 20% CoWoS Price Hike, Skips Equipment Price Renegotiations Amid AI Demand Surge"</a></li>
+    <li><a href="https://www.tomshardware.com/tech-industry/semiconductors/tsmc-reportedly-weighs-20-percent-cowos-price-increase-as-nvidia-blackwell-and-rubin-chips-put-pressure-on-packaging-capacity-equipment-lead-times-stretch-to-eight-months" target="_blank" rel="noopener">Tom's Hardware &mdash; "TSMC reportedly weighs 20% CoWoS price increase as Nvidia Blackwell and Rubin chips put pressure on packaging capacity"</a></li>
+    <li><a href="https://www.igorslab.de/en/tsmc-considers-20-percent-higher-cowos-prices-ai-accelerator-costs/" target="_blank" rel="noopener">Igor's Lab &mdash; "TSMC considers 20 percent higher CoWoS prices: AI accelerator costs"</a></li>
+    <li><a href="https://xenospectrum.com/en/tsmc-cowos-packaging-capacity-price-hike-analysis/" target="_blank" rel="noopener">Xenospectrum &mdash; "TSMC CoWoS Prices Reportedly Set to Rise Up to 20% as AI Chip Demand Strains Packaging Capacity"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var SVGNS = 'http://www.w3.org/2000/svg';
+
+    var FAB_RATE = 1;        // dies arriving per week (fixed; fab is not the bottleneck)
+    var BAY_CYCLE = 4;       // weeks for one bay to finish one chip-equivalent
+    var BACKLOG0 = 20;       // starting hypothetical backlog
+    var MAX_WEEK = 28;
+    var PRODUCED_CAP = FAB_RATE * MAX_WEEK; // 28
+    var BACKLOG_CAP = 40;    // chart scale ceiling
+
+    var TRACK_X0 = 70, TRACK_X1 = 600;
+    var FAB_Y = 90, BACKLOG_Y = 200;
+
+    var svg = document.getElementById('ws-canvas');
+    var baysSlider = document.getElementById('ws-bays');
+    var baysValEl = document.getElementById('ws-bays-val');
+    var weekSlider = document.getElementById('ws-week');
+    var weekValEl = document.getElementById('ws-week-val');
+    var runBtn = document.getElementById('ws-run');
+    var resetBtn = document.getElementById('ws-reset');
+    var weekStatEl = document.getElementById('ws-week-stat');
+    var backlogEl = document.getElementById('ws-backlog');
+    var trendEl = document.getElementById('ws-trend');
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var displayedWeek = parseFloat(weekSlider.value);
+    var bays = parseInt(baysSlider.value, 10);
+    var animId = null;
+
+    var cssVar = function (name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    };
+
+    function makeEl(tag, attrs) {
+      var e = document.createElementNS(SVGNS, tag);
+      for (var k in attrs) { e.setAttribute(k, attrs[k]); }
+      return e;
+    }
+
+    function xForWeek(w) {
+      return TRACK_X0 + (Math.min(w, MAX_WEEK) / MAX_WEEK) * (TRACK_X1 - TRACK_X0);
+    }
+
+    function backlogAt(w, b) {
+      var rate = FAB_RATE - (b / BAY_CYCLE);
+      var raw = BACKLOG0 + rate * w;
+      return Math.max(0, Math.min(BACKLOG_CAP, raw));
+    }
+
+    function trendLabel(b) {
+      var rate = FAB_RATE - (b / BAY_CYCLE);
+      if (rate > 0.05) { return 'GROWING'; }
+      if (rate < -0.05) { return 'SHRINKING'; }
+      return 'FLAT (MATCHES DEMAND)';
+    }
+
+    function clearSvg() { while (svg.firstChild) { svg.removeChild(svg.firstChild); } }
+
+    function render() {
+      clearSvg();
+      var w = displayedWeek;
+      var backlog = backlogAt(w, bays);
+
+      var axis = makeEl('line', { x1: TRACK_X0, y1: 250, x2: TRACK_X1, y2: 250, stroke: cssVar('--border'), 'stroke-width': 1 });
+      svg.appendChild(axis);
+      for (var wk = 0; wk <= MAX_WEEK; wk += 4) {
+        var tx = xForWeek(wk);
+        var tick = makeEl('line', { x1: tx, y1: 246, x2: tx, y2: 254, stroke: cssVar('--border'), 'stroke-width': 1 });
+        svg.appendChild(tick);
+        var tlabel = makeEl('text', { x: tx, y: 268, 'text-anchor': 'middle', 'font-size': 9, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', fill: cssVar('--muted') });
+        tlabel.textContent = 'W' + wk;
+        svg.appendChild(tlabel);
+      }
+
+      var fLabel = makeEl('text', { x: TRACK_X0, y: FAB_Y - 18, 'font-size': 10, 'font-weight': 700, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', fill: cssVar('--ink') });
+      fLabel.textContent = 'DIES ARRIVING FROM THE FAB (CUMULATIVE)';
+      svg.appendChild(fLabel);
+      var fTrackBg = makeEl('rect', { x: TRACK_X0, y: FAB_Y, width: TRACK_X1 - TRACK_X0, height: 10, rx: 5, fill: cssVar('--border') });
+      svg.appendChild(fTrackBg);
+      var fFillW = (xForWeek(w) - TRACK_X0);
+      var fFill = makeEl('rect', { x: TRACK_X0, y: FAB_Y, width: Math.max(0, fFillW), height: 10, rx: 5, fill: cssVar('--accent-b') });
+      svg.appendChild(fFill);
+      var fNote = makeEl('text', { x: TRACK_X0, y: FAB_Y + 24, 'font-size': 9, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', fill: cssVar('--muted') });
+      fNote.textContent = 'fixed rate — wafer fab is not the constraint';
+      svg.appendChild(fNote);
+
+      var bLabel = makeEl('text', { x: TRACK_X0, y: BACKLOG_Y - 18, 'font-size': 10, 'font-weight': 700, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', fill: cssVar('--ink') });
+      bLabel.textContent = 'DIES WAITING FOR COWOS PACKAGING (BACKLOG)';
+      svg.appendChild(bLabel);
+      var bTrackBg = makeEl('rect', { x: TRACK_X0, y: BACKLOG_Y, width: TRACK_X1 - TRACK_X0, height: 10, rx: 5, fill: cssVar('--border') });
+      svg.appendChild(bTrackBg);
+      var bFillW = (backlog / BACKLOG_CAP) * (TRACK_X1 - TRACK_X0);
+      var bFill = makeEl('rect', { x: TRACK_X0, y: BACKLOG_Y, width: Math.max(0, bFillW), height: 10, rx: 5, fill: cssVar('--accent-a') });
+      svg.appendChild(bFill);
+      var bMarker = makeEl('circle', { cx: TRACK_X0 + Math.max(0, bFillW), cy: BACKLOG_Y + 5, r: 6, fill: cssVar('--ink') });
+      svg.appendChild(bMarker);
+
+      var bNote = makeEl('text', { x: TRACK_X0, y: BACKLOG_Y + 46, 'font-size': 10, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', fill: cssVar('--muted') });
+      bNote.textContent = bays + ' packaging bay' + (bays === 1 ? '' : 's') + ' · trend: ' + trendLabel(bays);
+      svg.appendChild(bNote);
+
+      var title = makeEl('text', { x: TRACK_X0, y: 30, 'font-size': 11, 'font-weight': 700, 'font-family': 'ui-monospace, SF Mono, Menlo, Consolas, monospace', fill: cssVar('--muted') });
+      title.textContent = 'FAB OUTPUT VS. PACKAGING BACKLOG, WEEK BY WEEK';
+      svg.appendChild(title);
+
+      weekValEl.textContent = Math.round(w);
+      weekStatEl.textContent = Math.round(w);
+      backlogEl.textContent = Math.round(backlog);
+      trendEl.textContent = trendLabel(bays);
+    }
+
+    function setWeek(w, fromSlider) {
+      displayedWeek = Math.max(0, Math.min(MAX_WEEK, w));
+      if (!fromSlider) { weekSlider.value = displayedWeek; }
+      render();
+    }
+
+    function setBays(b, fromSlider) {
+      bays = Math.max(2, Math.min(6, b));
+      if (!fromSlider) { baysSlider.value = bays; }
+      baysValEl.textContent = bays;
+      render();
+    }
+
+    function animateRun() {
+      if (animId) { return; }
+      if (prefersReducedMotion) {
+        setWeek(MAX_WEEK, false);
+        return;
+      }
+      var start = displayedWeek;
+      var target = MAX_WEEK;
+      var t0 = null;
+      var DUR = 2600;
+      function step(ts) {
+        if (!t0) { t0 = ts; }
+        var frac = Math.min(1, (ts - t0) / DUR);
+        setWeek(start + (target - start) * frac, false);
+        if (frac < 1) {
+          animId = requestAnimationFrame(step);
+        } else {
+          animId = null;
+        }
+      }
+      animId = requestAnimationFrame(step);
+    }
+
+    weekSlider.addEventListener('input', function () {
+      if (animId) { cancelAnimationFrame(animId); animId = null; }
+      setWeek(parseFloat(weekSlider.value), true);
+    });
+    baysSlider.addEventListener('input', function () {
+      setBays(parseInt(baysSlider.value, 10), true);
+    });
+    runBtn.addEventListener('click', function () { animateRun(); });
+    resetBtn.addEventListener('click', function () {
+      if (animId) { cancelAnimationFrame(animId); animId = null; }
+      setWeek(0, false);
+    });
+
+    window.addEventListener('resize', render);
+
+    render();
+  })();
+</script>
+</body>
+</html>
