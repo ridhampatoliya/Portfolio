@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-13","category":"CUSTOM SILICON","headline":"Broadcom's AI Chip Business Grew 221% in One Quarter. Almost None of Those Chips Carry Broadcom's Name","summary":"Six AI giants now design their own chips to cut loose from Nvidia. Nearly all of that design work still funnels through just two outside firms, Broadcom and Marvell — and Broadcom just told investors its biggest customer in 2027 won't even be Google.","whyItMatters":"The alternative to Nvidia's grip on AI compute isn't a wide-open market — it's a different, equally concentrated chokepoint one layer down the stack."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Broadcom's AI Chip Business Grew 221% in One Quarter. Almost None of Those Chips Carry Broadcom's Name.</title>
+<meta name="description" content="Google, Amazon, Meta, Microsoft, Anthropic and OpenAI are all building their own AI chips to cut loose from Nvidia. Nearly all of that design work still funnels through just two outside firms, Broadcom and Marvell." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f6e9dc;
+    --accent-b: #0f7d75;
+    --accent-b-tint: #d9efec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e0954f;
+      --accent-a-tint: #2c2013;
+      --accent-b: #4fc9bd;
+      --accent-b-tint: #0f2b28;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e0954f;
+    --accent-a-tint: #2c2013;
+    --accent-b: #4fc9bd;
+    --accent-b-tint: #0f2b28;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f6e9dc;
+    --accent-b: #0f7d75;
+    --accent-b-tint: #d9efec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: step-through chip pipeline --- */
+  .ws-header { margin-bottom: 4px; }
+  .ws-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .ws-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .ws-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 16px 14px 14px;
+  }
+  #ws-canvas { display: block; width: 100%; height: auto; }
+  .ws-node-rect { transition: stroke 0.25s ease, fill 0.25s ease, stroke-width 0.25s ease; }
+  @media (prefers-reduced-motion: reduce) {
+    .ws-node-rect { transition: none; }
+  }
+
+  .ws-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ws-dots { display: flex; gap: 6px; align-items: center; }
+  .ws-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    border: 1px solid var(--accent-b);
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+  }
+  .ws-dot[aria-current="true"] { background: var(--accent-b); }
+  .ws-btn {
+    border: 1px solid var(--accent-b);
+    background: transparent;
+    color: var(--accent-b);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .ws-btn.primary { background: var(--accent-b); color: #fff; border-color: var(--accent-b); }
+  .ws-btn:disabled { opacity: 0.4; cursor: default; }
+
+  .ws-stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .ws-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .ws-stat-label {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .ws-stat-value {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .ws-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 3.2em;
+  }
+  .ws-note strong { color: var(--accent-b); }
+
+  @media (max-width: 480px) {
+    .ws-stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 13, 2026</span>
+    <span class="category-chip">CUSTOM SILICON</span>
+  </div>
+  <h1>Broadcom's AI Chip Business Grew 221% in One Quarter. Almost None of Those Chips Carry Broadcom's Name.</h1>
+  <p class="lede">Google, Amazon, Meta, Microsoft, Anthropic, and OpenAI are all building their own AI chips to cut loose from Nvidia. Almost none of them do the hard engineering alone: an estimated ~95% of that design work funnels through just two outside firms, Broadcom and Marvell. Broadcom just told investors its biggest customer in 2027 won't even be Google &mdash; it'll be Anthropic.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    In its fiscal Q3 2026 results (reported Sept 2026), Broadcom said AI semiconductor revenue hit $16.7 billion for the quarter, up 221% year over year and 56% of total revenue, with Q4 guided to $21.7 billion. CEO Hock Tan told analysts Anthropic "is on track to become our largest XPU customer in 2027 and sustain that in 2028," with Anthropic deploying 5 gigawatts of custom TPU v8i capacity in 2027 and 10 more in 2028. Tom's Hardware's analysis puts Broadcom and Marvell's combined share of the hyperscale custom-AI-chip co-design market at roughly 95%; Counterpoint Research separately projects Broadcom's own share at about 60% by 2027, with Marvell slipping to 8%, and estimates TSMC fabricates roughly 99% of the wafers for the top 10 AI-server-ASIC shippers.
+  </div>
+
+  <div class="card ws-card">
+    <div class="ws-header">
+      <h2 class="ws-title">Step through how a hyperscaler's "own" AI chip actually gets made</h2>
+      <p class="ws-caption mono">Use Next/Prev or the dots to move through the five stages behind Google's TPU, Amazon's Trainium, Meta's MTIA, Microsoft's Maia, and Anthropic's and OpenAI's new custom chips. Watch which stage stays the same no matter whose name is on the final product.</p>
+    </div>
+
+    <div class="ws-scene-wrap">
+      <svg id="ws-canvas" viewBox="0 0 640 500" role="img" aria-label="A vertical five-stage pipeline: Spec, Co-design, Fabrication, Packaging, Deployment. The Co-design stage is flagged with a badge reading approximately 95 percent, two firms, because Broadcom and Marvell handle nearly all of this stage regardless of which hyperscaler the chip belongs to.">
+        <rect id="ws-node-0" class="ws-node-rect" x="40" y="20" width="560" height="70" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2" />
+        <text x="60" y="48" font-weight="700" font-size="14" fill="var(--ink)">1. SPEC</text>
+        <text x="60" y="68" font-size="12" fill="var(--muted)">Hyperscaler defines the chip it wants</text>
+
+        <line x1="320" y1="90" x2="320" y2="108" stroke="var(--muted)" stroke-width="2" marker-end="url(#ws-arrow)" />
+
+        <rect id="ws-node-1" class="ws-node-rect" x="40" y="110" width="560" height="70" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2" />
+        <text x="60" y="138" font-weight="700" font-size="14" fill="var(--ink)">2. CO-DESIGN</text>
+        <text x="60" y="158" font-size="12" fill="var(--muted)">Outside partner turns spec into silicon</text>
+        <g>
+          <rect x="430" y="118" width="150" height="22" rx="11" fill="var(--accent-a)" />
+          <text x="505" y="133" font-size="10.5" font-weight="700" fill="#fff" text-anchor="middle">~95%: 2 FIRMS</text>
+        </g>
+
+        <line x1="320" y1="180" x2="320" y2="198" stroke="var(--muted)" stroke-width="2" marker-end="url(#ws-arrow)" />
+
+        <rect id="ws-node-2" class="ws-node-rect" x="40" y="200" width="560" height="70" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2" />
+        <text x="60" y="228" font-weight="700" font-size="14" fill="var(--ink)">3. FABRICATION</text>
+        <text x="60" y="248" font-size="12" fill="var(--muted)">Foundry builds the physical wafer</text>
+
+        <line x1="320" y1="270" x2="320" y2="288" stroke="var(--muted)" stroke-width="2" marker-end="url(#ws-arrow)" />
+
+        <rect id="ws-node-3" class="ws-node-rect" x="40" y="290" width="560" height="70" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2" />
+        <text x="60" y="318" font-weight="700" font-size="14" fill="var(--ink)">4. PACKAGING</text>
+        <text x="60" y="338" font-size="12" fill="var(--muted)">Logic die is bonded to HBM stacks</text>
+
+        <line x1="320" y1="360" x2="320" y2="378" stroke="var(--muted)" stroke-width="2" marker-end="url(#ws-arrow)" />
+
+        <rect id="ws-node-4" class="ws-node-rect" x="40" y="380" width="560" height="70" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2" />
+        <text x="60" y="408" font-weight="700" font-size="14" fill="var(--ink)">5. DEPLOYMENT</text>
+        <text x="60" y="428" font-size="12" fill="var(--muted)">Ships under the hyperscaler's own brand</text>
+
+        <defs>
+          <marker id="ws-arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="var(--muted)" />
+          </marker>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="ws-controls">
+      <button type="button" class="ws-btn" id="ws-prev">&#8592; Prev</button>
+      <div class="ws-dots" role="tablist" aria-label="Pipeline stage">
+        <button type="button" class="ws-dot" data-step="0" aria-current="true" aria-label="Stage 1"></button>
+        <button type="button" class="ws-dot" data-step="1" aria-label="Stage 2"></button>
+        <button type="button" class="ws-dot" data-step="2" aria-label="Stage 3"></button>
+        <button type="button" class="ws-dot" data-step="3" aria-label="Stage 4"></button>
+        <button type="button" class="ws-dot" data-step="4" aria-label="Stage 5"></button>
+      </div>
+      <button type="button" class="ws-btn primary" id="ws-next">Next &#8594;</button>
+    </div>
+
+    <div class="ws-stats">
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">STAGE</span>
+        <span class="ws-stat-value tabular" id="ws-stat-stage">1 / 5 &mdash; SPEC</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono" id="ws-stat-label">KEY NUMBER</span>
+        <span class="ws-stat-value tabular" id="ws-stat-value">6</span>
+      </div>
+    </div>
+
+    <div class="ws-note" id="ws-explain"><strong>6 companies</strong> &mdash; Google, Amazon, Meta, Microsoft, Anthropic, and OpenAI &mdash; have each committed to shipping a custom AI chip instead of relying only on Nvidia GPUs.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture six of the biggest tech companies deciding they're tired of buying the same off-the-shelf AI chip from Nvidia, so each one hires an architect to design them a custom house instead &mdash; a chip built exactly for their own AI workloads. That's the story you usually hear: Google has its TPU, Amazon has Trainium, Meta has MTIA, Microsoft has Maia, and now Anthropic and OpenAI are getting their own custom chips too.</p>
+      <p>Here's the part that doesn't make the headlines: almost none of these companies actually know how to turn a rough sketch of a chip into something a factory can build. That's an extremely specialized skill, and nearly every one of them hires the same couple of outside firms to do it &mdash; Broadcom and Marvell. By one analysis, those two firms handle roughly 95% of this "co-design" work combined, across virtually every hyperscaler's program.</p>
+      <p>So the industry's big "escape from Nvidia" story is real in one sense &mdash; these companies really are buying fewer general-purpose Nvidia GPUs. But the actual engineering bottleneck didn't disappear; it just moved one step down the chain, into a market that's just as concentrated. Broadcom just told Wall Street its AI chip-design business grew 221% in a single quarter, and that its single biggest customer next year won't be its longtime anchor client Google &mdash; it'll be Anthropic, a company that had no custom chip at all a couple of years ago.</p>
+      <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> if you're counting on hyperscalers' custom chips to break Nvidia's pricing power, the leverage didn't vanish &mdash; it landed on two companies most people have never heard of.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>A custom AI accelerator (an ASIC, or application-specific integrated circuit, as opposed to a merchant GPU) still has to go through physical design, SerDes and high-speed interconnect IP integration, HBM memory-controller integration, verification, and tape-out before a foundry can build it. Hyperscalers typically define the architecture and workload-specific requirements, but the deep, leading-edge physical-design and packaging-integration expertise required to execute that spec is concentrated in a small number of design-services firms. Tom's Hardware's analysis of the custom-AI-ASIC landscape puts Broadcom's and Marvell's combined share of this co-design market at roughly 95%; other estimates (Hashrate Index, citing Bloomberg Intelligence) put Broadcom alone around 70% and Marvell around 20&ndash;25%, while Counterpoint Research's January 2026 forecast projects Broadcom at about 60% and Marvell falling to about 8% of design-service share by 2027, with Alchip near 18%. The spread reflects differing methodologies (unit share vs. dollar share vs. design-win count), but every estimate agrees the market is a near-duopoly.</p>
+      <p>Broadcom's own disclosures quantify how fast this is scaling. Fiscal Q3 2026 AI semiconductor revenue was $16.7 billion, up 221% year over year and 56% of total company revenue ($29.6 billion, up 86% YoY); Q4 guidance calls for $21.7 billion in AI semiconductor revenue (up 236% YoY), implying roughly $58 billion for fiscal 2026 overall. Management's multi-year guidance has AI semiconductor revenue roughly doubling to ~$115 billion in fiscal 2027 and doubling again to ~$230 billion in fiscal 2028. CEO Hock Tan told analysts Anthropic is on track to overtake Google as Broadcom's largest XPU (custom accelerator) customer in 2027 and hold that position in 2028, with Anthropic committing to 5 gigawatts of custom TPU v8i capacity in 2027 and an incremental 10 gigawatts in 2028. Separately, Marvell has disclosed roughly $1.5 billion in fiscal 2026 custom XPU revenue (principally tied to AWS Trainium), guided to grow at least 20% in fiscal 2027 and double again in fiscal 2028.</p>
+      <p>Crucially, diversifying the design layer doesn't diversify the foundry layer: Counterpoint estimates TSMC fabricates roughly 99% of the wafers for the top 10 companies shipping AI server ASICs &mdash; frequently on the same leading-edge nodes Nvidia itself uses, and feeding into the same CoWoS-class advanced-packaging capacity covered in this newsletter's November 11 edition on TSMC's packaging price hikes.</p>
+      <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> "custom silicon" reduces hyperscalers' dependence on Nvidia's margins, but it does not disperse supply-chain risk &mdash; it concentrates a new, structurally similar chokepoint around two design-services firms and one foundry.</p>
+    </div>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.fierce-network.com/broadband/broadcom-predicts-ai-chip-revenue-double-2027" target="_blank" rel="noopener">Fierce Network &mdash; "Broadcom predicts AI chip revenue to double in 2027"</a></li>
+    <li><a href="https://www.datacenterdynamics.com/en/news/broadcom-slams-ai-silicon-fueled-q3-promises-double-double-on-the-way/" target="_blank" rel="noopener">Data Center Dynamics &mdash; "Broadcom slams AI-silicon-fueled Q3, promises 'double, double' on the way"</a></li>
+    <li><a href="https://www.tomshardware.com/tech-industry/semiconductors/custom-ai-asics-examined-from-broadcom-to-mtia" target="_blank" rel="noopener">Tom's Hardware &mdash; "The custom AI ASIC state of play: Broadcom deals, Google TPUs, Meta MTIA &amp; beyond"</a></li>
+    <li><a href="https://finance.yahoo.com/news/broadcom-and-tsmc-to-emerge-as-big-winners-in-the-custom-ai-chip-boom-130336239.html" target="_blank" rel="noopener">Yahoo Finance &mdash; "Broadcom and TSMC to emerge as big winners in the custom AI chip boom" (citing Counterpoint Research)</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var STEPS = [
+      {
+        stage: '1 / 5 &mdash; SPEC',
+        label: 'DISCLOSED CUSTOM-SILICON PROGRAMS',
+        value: '6',
+        explain: '<strong>6 companies</strong> &mdash; Google, Amazon, Meta, Microsoft, Anthropic, and OpenAI &mdash; have each committed to shipping a custom AI chip instead of relying only on Nvidia GPUs.'
+      },
+      {
+        stage: '2 / 5 &mdash; CO-DESIGN',
+        label: 'COMBINED SHARE: 2 DESIGN PARTNERS',
+        value: '~95%',
+        explain: '<strong>Broadcom + Marvell ≈ 95%</strong> of the hyperscale custom-AI-chip co-design market, by one analysis &mdash; turning a hyperscaler’s architecture into manufacturable silicon, SerDes IP, and HBM memory integration.'
+      },
+      {
+        stage: '3 / 5 &mdash; FABRICATION',
+        label: 'OF TOP-10 ASIC SHIPMENTS, BY WAFER',
+        value: '~99%',
+        explain: '<strong>TSMC ≈ 99%</strong> of the wafers for the top 10 AI-server-ASIC shippers, per Counterpoint Research &mdash; often the very same foundry and node Nvidia itself uses.'
+      },
+      {
+        stage: '4 / 5 &mdash; PACKAGING',
+        label: 'PACKAGING CLASS REQUIRED',
+        value: '2.5D/3D',
+        explain: 'The finished logic die still has to be bonded to HBM stacks through <strong>CoWoS-class advanced packaging</strong> &mdash; the same capacity crunch covered in this newsletter’s Nov 11 edition on TSMC’s packaging price hikes.'
+      },
+      {
+        stage: '5 / 5 &mdash; DEPLOYMENT',
+        label: 'TIMES BROADCOM/MARVELL IS BRANDED ON IT',
+        value: '0',
+        explain: 'The finished chip ships as Google’s TPU, Amazon’s Trainium, Meta’s MTIA, or Microsoft’s Maia &mdash; <strong>branded entirely as the hyperscaler’s own silicon.</strong>'
+      }
+    ];
+
+    var nodes = [0, 1, 2, 3, 4].map(function (i) { return document.getElementById('ws-node-' + i); });
+    var dots = Array.prototype.slice.call(document.querySelectorAll('.ws-dot'));
+    var prevBtn = document.getElementById('ws-prev');
+    var nextBtn = document.getElementById('ws-next');
+    var statStage = document.getElementById('ws-stat-stage');
+    var statLabel = document.getElementById('ws-stat-label');
+    var statValue = document.getElementById('ws-stat-value');
+    var explain = document.getElementById('ws-explain');
+
+    var current = 0;
+
+    function render() {
+      nodes.forEach(function (node, i) {
+        if (i === current) {
+          node.setAttribute('stroke', 'var(--accent-b)');
+          node.setAttribute('stroke-width', '3');
+          node.setAttribute('fill', 'var(--accent-b-tint)');
+        } else {
+          node.setAttribute('stroke', 'var(--border)');
+          node.setAttribute('stroke-width', '2');
+          node.setAttribute('fill', 'var(--surface)');
+        }
+      });
+      dots.forEach(function (d, i) { d.setAttribute('aria-current', String(i === current)); });
+
+      var s = STEPS[current];
+      statStage.innerHTML = s.stage;
+      statLabel.textContent = s.label;
+      statValue.textContent = s.value;
+      explain.innerHTML = s.explain;
+
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === STEPS.length - 1;
+    }
+
+    function goTo(i) {
+      current = Math.max(0, Math.min(STEPS.length - 1, i));
+      render();
+    }
+
+    prevBtn.addEventListener('click', function () { goTo(current - 1); });
+    nextBtn.addEventListener('click', function () { goTo(current + 1); });
+    dots.forEach(function (d) {
+      d.addEventListener('click', function () { goTo(parseInt(d.getAttribute('data-step'), 10)); });
+    });
+
+    document.querySelector('.ws-card').addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') goTo(current + 1);
+      if (e.key === 'ArrowLeft') goTo(current - 1);
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
