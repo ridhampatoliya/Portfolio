@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-15","category":"SOFTWARE SUPPLY CHAIN","headline":"Hackers Just Hijacked 10 Trusted Code Libraries. Their New Command Center Lives on the Ethereum Blockchain — Where No One Can Take It Offline","summary":"On Nov. 4, security firm Sonatype found malware inside 10 hijacked, trusted npm packages — the open-source code sitting inside 97% of commercial software. Its trick: hide the hacker's control-server address inside an Ethereum transaction, so there's no server or domain anyone can seize to shut it down.","whyItMatters":"Open-source packages sit inside almost all modern software, and a control server that lives on a public blockchain can't be seized, blocked, or taken down the way a server can."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Hackers Just Hijacked 10 Trusted Code Libraries</title>
+<meta name="description" content="On Nov. 4, 2026, Sonatype found malware hidden inside 10 hijacked npm packages that gets its marching orders from an Ethereum transaction instead of a server &mdash; so there's nothing for defenders to seize." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c45a1f;
+    --accent-a-tint: #f9e3d2;
+    --accent-b: #1f8f82;
+    --accent-b-tint: #d9f0ec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e88a4a;
+      --accent-a-tint: #2e1d10;
+      --accent-b: #3fcdbb;
+      --accent-b-tint: #0f2924;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e88a4a;
+    --accent-a-tint: #2e1d10;
+    --accent-b: #3fcdbb;
+    --accent-b-tint: #0f2924;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c45a1f;
+    --accent-a-tint: #f9e3d2;
+    --accent-b: #1f8f82;
+    --accent-b-tint: #d9f0ec;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: unkillable mailbox / takedown simulator --- */
+  .ws-header { margin-bottom: 4px; }
+  .ws-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .ws-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .ws-scene-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 16px 14px 14px;
+  }
+  #ws-canvas { display: block; width: 100%; height: auto; }
+
+  .ws-legend { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 10px; font-size: 11.5px; color: var(--muted); }
+  .ws-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .ws-swatch { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+  .ws-mode-row {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ws-mode-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+
+  .ws-controls {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ws-btn {
+    border: 1px solid var(--accent-a);
+    background: transparent;
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .ws-btn.primary { background: var(--accent-a); color: #fff; border-color: var(--accent-a); }
+  .ws-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  .ws-stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .ws-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .ws-stat-label {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .ws-stat-value {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .ws-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 4.8em;
+  }
+  .ws-note strong { color: var(--accent-a); }
+
+  @media (max-width: 480px) {
+    .ws-stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 15, 2026</span>
+    <span class="category-chip">SOFTWARE SUPPLY CHAIN</span>
+  </div>
+  <h1>Hackers Just Hijacked 10 Trusted Code Libraries. Their New Command Center Lives on the Ethereum Blockchain &mdash; Where No One Can Take It Offline.</h1>
+  <p class="lede">On November 4, security researchers at Sonatype caught attackers hiding inside ten hijacked, previously-trusted packages on npm &mdash; the free, open-source building blocks sitting inside an estimated 97% of commercial software. Their trick wasn't a smarter virus. It was moving the control panel onto the Ethereum blockchain: public infrastructure that no company, court, or government can switch off.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Sonatype's Research Labs found a malicious loader &mdash; tracked as sonatype-2026-010515 and nicknamed "PolinRider" &mdash; appended to 12 releases across 10 hijacked npm packages. Instead of calling a server defenders could seize, it reads the latest outbound transaction from a specific Ethereum wallet, decodes a command-server address hidden in that transaction's bytes, and fetches its next payload from there. Block that address, and the attacker just sends a new transaction &mdash; cost: a few cents &mdash; and every infected machine finds it automatically on its next check-in. Researchers have tied earlier versions of this technique to North Korea-linked operations, though that attribution for this specific wave remains Sonatype's working assessment, not a settled fact.
+  </div>
+
+  <div class="card ws-card">
+    <div class="ws-header">
+      <h2 class="ws-title">Block the address. Watch who finds their way back online.</h2>
+      <p class="ws-caption mono">Simplified demo of the two architectures. 12 dots = infected machines checking in on a schedule; the center hub = wherever they currently find instructions. Pick a mode, then hit "Block this address." Illustrative only &mdash; not real addresses or IOCs, and real defenders block network traffic, not literal wallets.</p>
+    </div>
+
+    <div class="ws-scene-wrap">
+      <canvas id="ws-canvas" width="640" height="340" role="img" aria-label="A diagram of 12 infected machines connected to a central command server. Blocking the server in traditional mode permanently disconnects every machine. Blocking it in blockchain mode disconnects them briefly, then a new Ethereum transaction restores the connection automatically."></canvas>
+    </div>
+
+    <div class="ws-legend">
+      <span><span class="ws-swatch" style="background:var(--accent-b);"></span>Connected &amp; receiving orders</span>
+      <span><span class="ws-swatch" style="background:var(--accent-a);"></span>Blocked / disconnected</span>
+    </div>
+
+    <div class="ws-mode-row">
+      <span class="ws-mode-label">C2 architecture</span>
+      <div class="toggle" role="group" aria-label="Command-and-control architecture">
+        <button type="button" class="ws-mode-btn" id="mode-traditional" aria-pressed="true">Traditional server</button>
+        <button type="button" class="ws-mode-btn" id="mode-blockchain" aria-pressed="false">Blockchain dead-drop</button>
+      </div>
+    </div>
+
+    <div class="ws-controls">
+      <button type="button" class="ws-btn primary" id="ws-block">&#9940; Block this address</button>
+      <button type="button" class="ws-btn" id="ws-reset">&#8634; Reset</button>
+    </div>
+
+    <div class="ws-stats">
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">TAKEDOWNS ATTEMPTED</span>
+        <span class="ws-stat-value tabular" id="ws-stat-takedowns">0</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">MACHINES STILL RECEIVING ORDERS</span>
+        <span class="ws-stat-value tabular" id="ws-stat-connected">12 / 12</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">COST TO RELOCATE C2</span>
+        <span class="ws-stat-value tabular" id="ws-stat-cost">&mdash;</span>
+      </div>
+    </div>
+
+    <div class="ws-note" id="ws-explain" aria-live="polite">Both architectures start the same way: twelve infected machines, checking in on a schedule, all pointed at one current address. The difference only shows up the moment someone tries to take that address down.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Almost no software is built entirely from scratch anymore. Developers pull in free, open-source building blocks &mdash; small packages that handle routine jobs like formatting dates or parsing files &mdash; and stack thousands of them together. By one widely cited industry audit, open-source code makes up roughly 97% of the average commercial codebase. Nobody reads all of it line by line; you mostly just trust that whoever maintains a package is who they claim to be.</p>
+      <p>That trust is exactly what a hacking campaign is exploiting. On November 4, researchers at security firm Sonatype found that attackers had quietly taken over the accounts behind ten previously-trusted code libraries on npm, the biggest catalog for JavaScript, and slipped a malicious loader into new versions &mdash; the kind of update millions of projects pull in automatically, often without anyone noticing.</p>
+      <p>Here's the clever part. Malware normally has to "phone home" to a server to get its next instructions, and that server is also its weak point: security teams or law enforcement can take it offline, and the whole operation goes dark. This loader skips that risk. Instead, it checks a specific Ethereum wallet's most recent transaction, decodes a hidden address buried inside it, and uses that to find its real command server.</p>
+      <p>Why does that matter? Ethereum is a public ledger that no single company or government owns or can switch off. If defenders block today's server, the attackers just send a new transaction &mdash; costing them pennies &mdash; and every infected computer finds the new instructions automatically, the next time it checks in. There's no office to raid, no company to subpoena, no domain to seize. The hiding place is permanent public infrastructure, repurposed as an unkillable mailbox.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The npm registry hosts well over three million JavaScript packages, and Synopsys/Black Duck's 2025 OSSRA report puts open-source code in roughly 97% of commercial codebases, with a majority of the average codebase's files originating upstream. That breadth is the attack surface: a maintainer-account takeover on even a lightly-watched package can reach every downstream project that auto-pulls a semver-range update.</p>
+      <p>On November 3&ndash;4, 2026, Sonatype's Research Labs identified a loader it tracks as sonatype-2026-010515, nicknamed "PolinRider," appended to 12 malicious releases across 10 hijacked, previously legitimate npm packages &mdash; several of which had gone years without an update, the low-scrutiny maintainer profile attackers favor. OX Security independently corroborated the find.</p>
+      <p>The mechanism is a blockchain dead-drop, a pattern researchers call EtherHiding (or, in its zero-value-transfer variant, NullReceiver). Rather than hardcoding a C2 domain or IP &mdash; both seizable &mdash; the loader queries public Ethereum RPC endpoints, with a Blockscout API fallback for redundancy, to read the latest outbound transaction from a specific wallet (address 0x1eef0849eda15d87f64e51c73c8442cf3c8bcef3, also logged independently by GitGuardian in late October). It decodes a destination IP from that transaction's recipient-address bytes and fetches an obfuscated next-stage payload from it.</p>
+      <p>The operational payoff is censorship-resistance: Ethereum has no registrar, no hosting provider, and no administrator who can null-route an address. Relocating infrastructure costs the attacker a single on-chain transaction &mdash; a few cents in gas &mdash; read automatically by every infected host at its next check-in, with no coordinated re-infection required. Sonatype ties this loader to earlier May and August 2026 campaigns using the same wallet dead-drop pattern, and researchers &mdash; including Google's Threat Intelligence Group, on related EtherHiding cases &mdash; link the broader technique to North Korea-linked operations, though attribution for this specific November wave remains an assessment in progress rather than a confirmed finding.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> open-source packages are the raw material of almost all modern software, and a control server that lives on a public blockchain can't be seized, blocked, or taken down the way a server can.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> dependency trust is the softest point in the modern software supply chain, and a C2 architecture with no seizable domain or IP shifts the economics of takedown permanently in the attacker's favor.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.sonatype.com/blog/polinrider-loader-reappears-in-hijacked-npm-packages" target="_blank" rel="noopener">Sonatype &mdash; "PolinRider Loader Reappears in Hijacked npm Packages"</a></li>
+    <li><a href="https://www.ox.security/blog/polinrider-returns-hijacked-npm-packages-use-ethereum-blockchain-to-conceal-malware-infrastructure/" target="_blank" rel="noopener">OX Security &mdash; "PolinRider Returns: Hijacked npm Packages Use Ethereum Blockchain to Conceal Malware Infrastructure"</a></li>
+    <li><a href="https://thehackernews.com/2026/08/trojanized-npm-packages-decode-c2-ip.html" target="_blank" rel="noopener">The Hacker News &mdash; "Trojanized npm Packages Decode C2 IP From Ethereum Transactions"</a></li>
+    <li><a href="https://www.blackduck.com/resources/analyst-reports/open-source-security-risk-analysis/" target="_blank" rel="noopener">Black Duck / Synopsys &mdash; 2025 Open Source Security and Risk Analysis (OSSRA) Report</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var canvas = document.getElementById('ws-canvas');
+    var ctx = canvas.getContext('2d');
+    var W = 640, H = 340;
+    var CX = 320, CY = 190, R = 130;
+    var NODE_COUNT = 12;
+
+    var modeBtnTrad = document.getElementById('mode-traditional');
+    var modeBtnChain = document.getElementById('mode-blockchain');
+    var blockBtn = document.getElementById('ws-block');
+    var resetBtn = document.getElementById('ws-reset');
+    var statTakedowns = document.getElementById('ws-stat-takedowns');
+    var statConnected = document.getElementById('ws-stat-connected');
+    var statCost = document.getElementById('ws-stat-cost');
+    var explain = document.getElementById('ws-explain');
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var mode = 'traditional';
+    var connected = true;
+    var takedowns = 0;
+    var flashHub = false;
+    var rafHandle = null;
+    var timeoutHandle = null;
+
+    function nodePos(i) {
+      var angle = (i / NODE_COUNT) * Math.PI * 2 - Math.PI / 2;
+      return { x: CX + R * Math.cos(angle), y: CY + R * Math.sin(angle) };
+    }
+
+    function colorA() { return getComputedStyle(document.documentElement).getPropertyValue('--accent-a').trim() || '#c45a1f'; }
+    function colorB() { return getComputedStyle(document.documentElement).getPropertyValue('--accent-b').trim() || '#1f8f82'; }
+    function colorMuted() { return getComputedStyle(document.documentElement).getPropertyValue('--muted').trim() || '#59636f'; }
+    function colorInk() { return getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#131820'; }
+    function colorSurface() { return getComputedStyle(document.documentElement).getPropertyValue('--surface').trim() || '#ffffff'; }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+
+      var lineColor = connected ? colorB() : colorA();
+      var hubColor = connected ? colorB() : colorA();
+
+      for (var i = 0; i < NODE_COUNT; i++) {
+        var p = nodePos(i);
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(CX, CY);
+        ctx.strokeStyle = lineColor;
+        ctx.globalAlpha = connected ? 0.55 : 0.3;
+        ctx.lineWidth = 1.5;
+        if (!connected) ctx.setLineDash([4, 5]); else ctx.setLineDash([]);
+        ctx.stroke();
+      }
+      ctx.setLineDash([]);
+      ctx.globalAlpha = 1;
+
+      for (var j = 0; j < NODE_COUNT; j++) {
+        var q = nodePos(j);
+        ctx.beginPath();
+        ctx.arc(q.x, q.y, 9, 0, Math.PI * 2);
+        ctx.fillStyle = connected ? colorB() : colorMuted();
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = colorSurface();
+        ctx.stroke();
+      }
+
+      var hubR = flashHub ? 34 : 28;
+      ctx.beginPath();
+      ctx.arc(CX, CY, hubR, 0, Math.PI * 2);
+      ctx.fillStyle = hubColor;
+      ctx.fill();
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = colorSurface();
+      ctx.stroke();
+
+      ctx.fillStyle = colorSurface();
+      ctx.font = '700 11px ui-monospace, "SF Mono", Menlo, Consolas, monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(connected ? 'C2' : 'X', CX, CY + 1);
+
+      ctx.fillStyle = colorInk();
+      ctx.font = '700 11px ui-monospace, "SF Mono", Menlo, Consolas, monospace';
+      ctx.textAlign = 'center';
+      var label = mode === 'traditional' ? 'SINGLE SERVER / IP' : 'ETHEREUM DEAD-DROP';
+      ctx.fillText(label, CX, 30);
+
+      ctx.fillStyle = colorMuted();
+      ctx.font = '10px ui-monospace, "SF Mono", Menlo, Consolas, monospace';
+      ctx.fillText('12 infected machines, checking in on a schedule', CX, H - 14);
+    }
+
+    function updateStats() {
+      statTakedowns.textContent = String(takedowns);
+      statConnected.textContent = (connected ? NODE_COUNT : 0) + ' / ' + NODE_COUNT;
+      statCost.textContent = mode === 'traditional' ? 'N/A — stays down' : '~$0.01 in gas';
+      blockBtn.disabled = mode === 'traditional' && takedowns > 0 && !connected;
+    }
+
+    function setExplain(text) {
+      explain.innerHTML = text;
+    }
+
+    function clearTimers() {
+      if (rafHandle) { cancelAnimationFrame(rafHandle); rafHandle = null; }
+      if (timeoutHandle) { clearTimeout(timeoutHandle); timeoutHandle = null; }
+    }
+
+    function doBlock() {
+      if (mode === 'traditional' && !connected) return;
+      clearTimers();
+      takedowns++;
+      connected = false;
+      flashHub = true;
+      draw();
+      updateStats();
+
+      if (mode === 'traditional') {
+        setExplain('Defenders seized the server\'s IP. With no fallback address baked in, the malware has nothing left to query &mdash; it stays <strong>permanently offline</strong> unless the attacker manually re-infects every machine with new instructions, which rarely happens at scale. This is why a single C2 server has always been malware\'s weak point.');
+        flashHub = false;
+        draw();
+      } else {
+        setExplain('Defenders blocked that address. The attacker is publishing a new Ethereum transaction right now &mdash; cost: a few cents in gas &hellip;');
+        var delay = reduceMotion ? 0 : 900;
+        timeoutHandle = setTimeout(function () {
+          connected = true;
+          flashHub = false;
+          draw();
+          updateStats();
+          setExplain('&hellip; done. All 12 infected machines found the new address automatically on their next check-in &mdash; <strong>no reinfection needed</strong>. There is no registrar, host, or server operator to pressure, because the "address book" is a public ledger nobody controls. This is close to what Sonatype documented on November 4: a loader that survives takedowns by reading a wallet\'s latest transaction instead of calling a fixed server.');
+        }, delay);
+      }
+    }
+
+    function doReset() {
+      clearTimers();
+      connected = true;
+      takedowns = 0;
+      flashHub = false;
+      draw();
+      updateStats();
+      setExplain('Both architectures start the same way: twelve infected machines, checking in on a schedule, all pointed at one current address. The difference only shows up the moment someone tries to take that address down.');
+    }
+
+    function setMode(next) {
+      mode = next;
+      modeBtnTrad.setAttribute('aria-pressed', String(mode === 'traditional'));
+      modeBtnChain.setAttribute('aria-pressed', String(mode === 'blockchain'));
+      doReset();
+    }
+
+    modeBtnTrad.addEventListener('click', function () { setMode('traditional'); });
+    modeBtnChain.addEventListener('click', function () { setMode('blockchain'); });
+    blockBtn.addEventListener('click', doBlock);
+    resetBtn.addEventListener('click', doReset);
+
+    if (reduceMotion) {
+      draw();
+      updateStats();
+      setExplain('Motion is reduced on this device, so this panel shows the end state directly: click "Block this address" to see each architecture\'s outcome instantly &mdash; permanent disconnection for a single server, versus automatic reconnection for an Ethereum dead-drop.');
+    } else {
+      draw();
+      updateStats();
+    }
+
+    window.addEventListener('resize', draw);
+  })();
+</script>
+</body>
+</html>
