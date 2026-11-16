@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-16","category":"POWER SEMICONDUCTORS","headline":"Carmakers Overbuilt Silicon-Carbide Factories for an EV Boom That Slowed. Nvidia's New 800-Volt Racks Just Offered to Buy the Leftovers","summary":"AI racks are outgrowing ordinary data-center wiring, so Nvidia is pushing the industry to 800-volt DC power, which needs chips (silicon carbide) that factories built for a slower-than-expected EV boom, not AI. Infineon locked in more of that spare capacity on October 16.","whyItMatters":"AI's power-delivery bottleneck just got wired into the same silicon-carbide supply chain electric cars depend on, so a shortage or a glut in one market now ripples straight into the other."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Carmakers Overbuilt Silicon-Carbide Factories for an EV Boom That Slowed</title>
+<meta name="description" content="AI's push to 800-volt data-center power runs on silicon-carbide chips &mdash; the same chips automakers over-ordered for electric vehicles that sold more slowly than planned. Infineon just locked in more of that spare capacity." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f6e9dc;
+    --accent-b: #2f6fa8;
+    --accent-b-tint: #dde8f3;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e0954f;
+      --accent-a-tint: #2c2013;
+      --accent-b: #5fa3d6;
+      --accent-b-tint: #142230;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e0954f;
+    --accent-a-tint: #2c2013;
+    --accent-b: #5fa3d6;
+    --accent-b-tint: #142230;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f6e9dc;
+    --accent-b: #2f6fa8;
+    --accent-b-tint: #dde8f3;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: 500kW rack, voltage vs. copper & switch type --- */
+  .ws-header { margin-bottom: 4px; }
+  .ws-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .ws-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .pv-visual-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 14px 10px;
+  }
+  #pv-svg { display: block; width: 100%; height: auto; }
+  .pv-rect { transition: y 0.5s ease, height 0.5s ease, fill 0.5s ease; }
+  .pv-badge-rect { transition: fill 0.4s ease, x 0.4s ease, width 0.4s ease; }
+  .pv-badge-text { transition: fill 0.4s ease; }
+  @media (prefers-reduced-motion: reduce) {
+    .pv-rect, .pv-badge-rect, .pv-badge-text { transition: none; }
+  }
+
+  .pv-slider-row { margin-top: 16px; }
+  .pv-slider-row input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent-a);
+  }
+  .pv-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .pv-presets {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .pv-preset-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .pv-preset-btn:hover { border-color: var(--accent-b); }
+
+  .ws-mode-row {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ws-controls {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ws-btn {
+    border: 1px solid var(--accent-a);
+    background: transparent;
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .ws-btn.primary { background: var(--accent-a); color: #fff; border-color: var(--accent-a); }
+  .ws-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  .ws-stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .ws-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 10px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .ws-stat-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  .ws-stat-value {
+    font-size: 15.5px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .ws-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 4.8em;
+  }
+  .ws-note strong { color: var(--accent-a); }
+
+  @media (max-width: 480px) {
+    .ws-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 16, 2026</span>
+    <span class="category-chip">POWER SEMICONDUCTORS</span>
+  </div>
+  <h1>Carmakers Overbuilt Silicon-Carbide Factories for an EV Boom That Slowed. Nvidia's New 800-Volt Racks Just Offered to Buy the Leftovers.</h1>
+  <p class="lede">On October 16, Infineon locked in a new multi-year deal to buy silicon-carbide wafers from Wolfspeed &mdash; one of several such deals signed this year as chipmakers scramble to feed a market nobody originally built this capacity for. Automakers spent the early 2020s wiring up silicon-carbide fabs for electric vehicles. EV sales grew slower than planned. Now Nvidia's new 800-volt AI racks need the very same chips to survive currents that would otherwise melt their own internal wiring &mdash; and the leftover EV capacity just found a second customer.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Nvidia says a 1-megawatt AI rack wired the old way needs up to 200 kilograms of copper busbar just to carry its own current without overheating. Move the rack's internal power bus from roughly 54 volts to 800 volts DC, and the same power flows through about half the current &mdash; Nvidia's own estimate is over 150% more power through the same copper cross-section. The catch: switching and rectifying cleanly at 800 volts requires 1,200-volt silicon-carbide (SiC) transistors, not ordinary silicon &mdash; and the factories that make them were built, and overbuilt, for electric cars.
+  </div>
+
+  <div class="card pv-card">
+    <div class="ws-header">
+      <h2 class="ws-title">Same 500 kW rack, three bus voltages. Drag it.</h2>
+      <p class="ws-caption mono">Simplified model of one AI rack's internal power bus. Power delivered is held fixed at 500 kW (a representative rack load; real racks today span roughly 50&ndash;1,000 kW) and conductor current density is held fixed, so only voltage, current, copper and switch type change. Drag the slider, tap a preset, or press Run.</p>
+    </div>
+
+    <div class="pv-visual-wrap">
+      <svg id="pv-svg" viewBox="0 0 640 210" role="img" aria-label="A diagram of a copper busbar connecting a wall-power icon to a GPU rack icon. The busbar's thickness shrinks as bus voltage rises from 48 to 800 volts, and a badge below switches from ordinary silicon to silicon carbide once voltage passes 400 volts.">
+        <circle cx="46" cy="90" r="26" fill="none" stroke="var(--border)" stroke-width="2"></circle>
+        <text x="46" y="94" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="9" fill="var(--muted)">GRID</text>
+        <circle cx="594" cy="90" r="26" fill="none" stroke="var(--border)" stroke-width="2"></circle>
+        <text x="594" y="94" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="9" fill="var(--muted)">RACK</text>
+        <rect id="pv-bar" class="pv-rect" x="82" y="83" width="476" height="14" rx="3" fill="var(--accent-a)"></rect>
+        <text x="320" y="45" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="var(--ink)" id="pv-bar-label">COPPER BUSBAR &mdash; 100% (baseline)</text>
+        <rect id="pv-badge-rect" class="pv-badge-rect" x="195" y="150" width="250" height="36" rx="18" fill="var(--accent-b-tint)"></rect>
+        <text id="pv-badge-text" class="pv-badge-text" x="320" y="173" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.5" font-weight="700" fill="var(--accent-b)">ORDINARY SILICON SWITCHES OK</text>
+      </svg>
+    </div>
+
+    <div class="pv-slider-row">
+      <input type="range" id="pv-voltage" min="48" max="800" step="1" value="48" aria-label="Rack bus voltage, 48 to 800 volts" />
+      <div class="pv-ticks" aria-hidden="true"><span>48V</span><span>400V</span><span>800V</span></div>
+      <div class="pv-presets">
+        <button type="button" class="pv-preset-btn" data-v="48">48V &mdash; legacy</button>
+        <button type="button" class="pv-preset-btn" data-v="400">400V &mdash; EV-class</button>
+        <button type="button" class="pv-preset-btn" data-v="800">800V &mdash; Nvidia std.</button>
+      </div>
+    </div>
+
+    <div class="ws-controls">
+      <button type="button" class="ws-btn primary" id="pv-run">&#9654; Run sweep: 48V &rarr; 800V</button>
+      <button type="button" class="ws-btn" id="pv-reset">&#8634; Reset</button>
+    </div>
+
+    <div class="ws-stats">
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">BUS VOLTAGE</span>
+        <span class="ws-stat-value tabular" id="pv-stat-v">48 V</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">CURRENT</span>
+        <span class="ws-stat-value tabular" id="pv-stat-i">10,417 A</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">COPPER NEEDED</span>
+        <span class="ws-stat-value tabular" id="pv-stat-cu">100%</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">SWITCH CHIP</span>
+        <span class="ws-stat-value" id="pv-stat-chip" style="font-size:12.5px;">Silicon</span>
+      </div>
+    </div>
+
+    <div class="ws-note" id="pv-explain" aria-live="polite">This is roughly today's legacy 54-volt-class rack design. A 500&nbsp;kW load at 48V already draws over 10,000 amps &mdash; which is why the busbar has to be this thick, and why ordinary silicon switches are still fine at this voltage.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture plugging a hair dryer into a wall socket, then picture pushing the same kind of electricity into a server rack that draws as much power as 150 houses. The newest AI racks already pull 200&ndash;600 kilowatts, and Nvidia's next generation is designed for a full megawatt. The old way of wiring that up &mdash; relatively low-voltage power pushed through thick copper bars bolted onto the back of the rack &mdash; runs into a hard limit: at low voltage, moving a lot of power means pushing a lot of current, and current is what makes wires heat up. Keep the voltage low, and you just keep adding copper to stop the bars from overheating. Nvidia says a single 1-megawatt rack, wired the old way, needs up to 200 kilograms of copper busbar &mdash; more metal than an adult rhinoceros weighs.</p>
+      <p>The fix, which Nvidia is pushing as a new industry standard, is to raise the voltage way up, to 800 volts &mdash; more than triple what's in a typical electric car's battery pack. Higher voltage moves the same power with less current, the same way raising water pressure lets you use a thinner pipe. The catch: ordinary silicon switches start leaking and overheating past a few hundred volts. The chips that handle 800 volts safely are made from silicon carbide (SiC), a tougher crystal than standard silicon.</p>
+      <p>Here's the twist. Nobody built silicon-carbide factories for data centers &mdash; they built them for electric cars, which also need high voltage to charge fast and drive far. EV sales grew more slowly than those factories expected, leaving spare capacity sitting idle. Chipmakers like Wolfspeed and Infineon are now redirecting that leftover capacity toward Nvidia's racks, signing new supply deals as recently as mid-October. Whether AI alone can soak up the leftover EV chips fast enough to matter is still an open question.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Rack-level power draw in frontier AI deployments has climbed from under 50 kW a few years ago to a current range of roughly 200&ndash;600 kW, with Nvidia and McKinsey both citing 1 MW as the near-term design target for platforms like Nvidia's next-generation "Kyber" rack, expected around 2027. At that density, delivering power through conventional 480/415 VAC three-phase distribution &mdash; standard in today's data centers &mdash; would require more than 700 amps per phase, per McKinsey's analysis. Because resistive loss in a conductor scales with I&sup2;R, and copper cross-section has to grow with current to hold current density (and heat) roughly constant, that current level forces enormous conductor mass: Nvidia states a 54-volt busbar architecture needs up to 200 kg of copper per 1 MW rack.</p>
+      <p>The industry's answer is to move the rack's internal distribution bus to 800 volts DC. Since power equals current times voltage, raising bus voltage for the same power lowers current proportionally, which &mdash; for a fixed current density &mdash; shrinks the required copper cross-section by roughly the same factor. McKinsey estimates a 40&ndash;50% cut in copper mass for solid-state-transformer-based 800VDC designs; Nvidia claims its 800VDC architecture pushes over 150% more power through an equivalent copper cross-section versus a 54VDC design. (Both figures come from parties selling the new architecture, not independent audits.)</p>
+      <p>The tradeoff shows up in semiconductors, not metal. Switching and rectifying at 800 volts with acceptable efficiency needs power transistors rated near 1,200 volts, and ordinary silicon devices at that blocking voltage carry high conduction losses and poor thermal behavior. Wolfspeed &mdash; a silicon-carbide supplier with an obvious stake in the outcome &mdash; claims 1,200V SiC MOSFETs cut AC-DC and DC-DC conversion losses 25&ndash;40% versus silicon; gallium nitride, which tops out at lower blocking voltages, instead handles the higher-frequency conversion stages closer to the GPU. The supply irony: 150mm/200mm SiC wafer capacity at Wolfspeed, Infineon, onsemi, STMicro and ROHM was built chasing electric-vehicle demand that arrived more slowly than forecast, leaving fabs underused. On October 16, Infineon extended a multi-year 200mm wafer deal with Wolfspeed explicitly to secure AI-rack volume &mdash; redeploying automotive-era SiC capacity into a market analysts doubt AI alone can fully absorb before 2027&ndash;28.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> AI's power-delivery bottleneck just got wired into the same silicon-carbide supply chain electric cars depend on &mdash; so a shortage, or a glut, in one market now ripples straight into the other.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> 800VDC racks tie AI capex directly to wide-bandgap semiconductor capacity planned around automotive demand cycles, so EV demand swings now double as a leading indicator for AI power-delivery lead times.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.mckinsey.com/industries/industrials/our-insights/the-shift-to-800-volt-dc-at-data-centers-implications-for-providers" target="_blank" rel="noopener">McKinsey &mdash; "The Shift to 800-Volt DC at Data Centers: Implications for Providers"</a></li>
+    <li><a href="https://developer.nvidia.com/blog/nvidia-800-v-hvdc-architecture-will-power-the-next-generation-of-ai-factories/" target="_blank" rel="noopener">NVIDIA Developer Blog &mdash; "NVIDIA 800 V HVDC Architecture Will Power the Next Generation of AI Factories"</a></li>
+    <li><a href="https://www.eenewseurope.com/en/infineon-secures-200mm-sic-wafer-supply-deal-with-wolfspeed/" target="_blank" rel="noopener">eeNews Europe &mdash; "Infineon Secures 200mm SiC Wafer Supply Deal With Wolfspeed"</a></li>
+    <li><a href="https://sourceability.com/post/power-semiconductor-market-shifts-as-ai-demand-tailors-investments" target="_blank" rel="noopener">Sourceability &mdash; "Power Semiconductor Market Shifts as AI Demand Tailors Investments"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var POWER_W = 500000; // fixed 500 kW rack load, stated assumption
+    var BASE_V = 48;
+    var BAR_MAX_H = 54; // px, at relative copper = 100%
+    var BAR_Y_CENTER = 90;
+    var THRESHOLD_V = 400;
+
+    var slider = document.getElementById('pv-voltage');
+    var bar = document.getElementById('pv-bar');
+    var barLabel = document.getElementById('pv-bar-label');
+    var badgeRect = document.getElementById('pv-badge-rect');
+    var badgeText = document.getElementById('pv-badge-text');
+    var statV = document.getElementById('pv-stat-v');
+    var statI = document.getElementById('pv-stat-i');
+    var statCu = document.getElementById('pv-stat-cu');
+    var statChip = document.getElementById('pv-stat-chip');
+    var explain = document.getElementById('pv-explain');
+    var runBtn = document.getElementById('pv-run');
+    var resetBtn = document.getElementById('pv-reset');
+    var presetBtns = document.querySelectorAll('.pv-preset-btn');
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var sweepHandle = null;
+
+    function fmtInt(n) {
+      return Math.round(n).toLocaleString('en-US');
+    }
+
+    function render(v) {
+      v = Math.max(48, Math.min(800, v));
+      var current = POWER_W / v;
+      var relCopper = (BASE_V / v) * 100;
+      var barH = Math.max(3, BAR_MAX_H * (relCopper / 100));
+
+      bar.setAttribute('y', String(BAR_Y_CENTER - barH / 2));
+      bar.setAttribute('height', String(barH));
+      barLabel.textContent = 'COPPER BUSBAR — ' + relCopper.toFixed(relCopper < 10 ? 1 : 0) + '% of 48V baseline';
+
+      statV.textContent = fmtInt(v) + ' V';
+      statI.textContent = fmtInt(current) + ' A';
+      statCu.textContent = relCopper.toFixed(relCopper < 10 ? 1 : 0) + '%';
+
+      if (v >= THRESHOLD_V) {
+        badgeRect.setAttribute('fill', 'var(--accent-a-tint)');
+        badgeText.setAttribute('fill', 'var(--accent-a)');
+        badgeText.textContent = 'NEEDS 1,200V SILICON CARBIDE (SiC)';
+        statChip.textContent = 'Silicon carbide';
+        statChip.style.color = 'var(--accent-a)';
+      } else {
+        badgeRect.setAttribute('fill', 'var(--accent-b-tint)');
+        badgeText.setAttribute('fill', 'var(--accent-b)');
+        badgeText.textContent = 'ORDINARY SILICON SWITCHES OK';
+        statChip.textContent = 'Silicon';
+        statChip.style.color = 'var(--ink)';
+      }
+
+      if (v <= 48) {
+        setExplain('This is roughly today\'s legacy 54-volt-class rack design. A 500 kW load at 48V already draws over 10,000 amps — which is why the busbar has to be this thick, and why ordinary silicon switches are still fine at this voltage.');
+      } else if (v < THRESHOLD_V) {
+        setExplain('Current is dropping and the busbar is getting thinner as voltage climbs — but below about 400V, ordinary silicon switches still handle the job fine.');
+      } else if (v < 800) {
+        setExplain('Past roughly 400V, leakage and conduction losses in ordinary silicon switches get bad enough that the industry reaches for <strong>silicon-carbide (SiC)</strong> transistors instead — the same chips automakers use in EV powertrains.');
+      } else {
+        setExplain('This is Nvidia\'s new 800V standard, aimed at megawatt-class racks like its "Kyber" platform (~2027). Current and copper are both way down — but every amp now has to pass through a 1,200V-rated <strong>silicon-carbide</strong> switch, which is why SiC supply, not copper, is the thing to watch.');
+      }
+    }
+
+    function setExplain(html) {
+      explain.innerHTML = html;
+    }
+
+    function onSlide() {
+      render(parseFloat(slider.value, 10));
+    }
+
+    function clearSweep() {
+      if (sweepHandle) { cancelAnimationFrame(sweepHandle); sweepHandle = null; }
+    }
+
+    function runSweep() {
+      clearSweep();
+      if (reduceMotion) {
+        slider.value = '800';
+        render(800);
+        return;
+      }
+      var start = parseFloat(slider.value, 10) <= 48 ? 48 : 48;
+      var duration = 2400;
+      var t0 = null;
+      slider.value = String(start);
+      render(start);
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var p = Math.min(1, (ts - t0) / duration);
+        var v = start + (800 - start) * p;
+        slider.value = String(v);
+        render(v);
+        if (p < 1) sweepHandle = requestAnimationFrame(step);
+      }
+      sweepHandle = requestAnimationFrame(step);
+    }
+
+    function doReset() {
+      clearSweep();
+      slider.value = '48';
+      render(48);
+    }
+
+    slider.addEventListener('input', function () { clearSweep(); onSlide(); });
+    runBtn.addEventListener('click', runSweep);
+    resetBtn.addEventListener('click', doReset);
+    for (var i = 0; i < presetBtns.length; i++) {
+      presetBtns[i].addEventListener('click', function (e) {
+        clearSweep();
+        var v = parseFloat(e.currentTarget.getAttribute('data-v'), 10);
+        slider.value = String(v);
+        render(v);
+      });
+    }
+
+    render(48);
+  })();
+</script>
+</body>
+</html>
