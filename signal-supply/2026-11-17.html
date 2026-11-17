@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-17","category":"FIBER OPTICS","headline":"China's One-Year Truce on an Obscure Metal Expires in 10 Days. It's the Dopant That Lets Light Bend Through Every Strand of AI Fiber","summary":"China's suspended ban on exporting germanium — the metal doped into every strand of fiber-optic cable — expires Nov 27. Licensing curbs stay regardless. Prices have already doubled as AI data centers buy record amounts of fiber to wire GPU clusters together.","whyItMatters":"A single Chinese trade decision in 10 days touches the supply of the dopant inside the optical fiber wiring every AI GPU cluster on Earth."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; China's One-Year Truce on an Obscure Metal Expires in 10 Days</title>
+<meta name="description" content="China's suspended ban on exporting germanium &mdash; the metal doped into the glass core of nearly every fiber-optic strand &mdash; expires November 27. The licensing regime underneath it doesn't go away either way, and AI data centers are buying fiber at a record clip." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #ad7418;
+    --accent-a-tint: #f6ead2;
+    --accent-b: #1b8fa0;
+    --accent-b-tint: #d9eef0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #e3a855;
+      --accent-a-tint: #2b2015;
+      --accent-b: #4fc6d6;
+      --accent-b-tint: #112a2d;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #e3a855;
+    --accent-a-tint: #2b2015;
+    --accent-b: #4fc6d6;
+    --accent-b-tint: #112a2d;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #ad7418;
+    --accent-a-tint: #f6ead2;
+    --accent-b: #1b8fa0;
+    --accent-b-tint: #d9eef0;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: germanium-doped fiber core, total internal reflection --- */
+  .ws-header { margin-bottom: 4px; }
+  .ws-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .ws-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .fv-visual-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 14px 10px;
+  }
+  #fv-svg { display: block; width: 100%; height: auto; }
+  #fv-core, #fv-clad-top, #fv-clad-bottom { transition: fill 0.4s ease, stroke 0.4s ease; }
+  #fv-badge-rect, #fv-badge-text { transition: fill 0.4s ease; }
+  #fv-ray { transition: stroke 0.3s ease; }
+  @media (prefers-reduced-motion: reduce) {
+    #fv-core, #fv-clad-top, #fv-clad-bottom, #fv-badge-rect, #fv-badge-text, #fv-ray { transition: none; }
+  }
+
+  .fv-slider-row { margin-top: 16px; }
+  .fv-slider-row input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent-a);
+  }
+  .fv-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .fv-presets {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .fv-preset-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .fv-preset-btn:hover { border-color: var(--accent-b); }
+
+  .ws-controls {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ws-btn {
+    border: 1px solid var(--accent-a);
+    background: transparent;
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .ws-btn.primary { background: var(--accent-a); color: #fff; border-color: var(--accent-a); }
+  .ws-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  .ws-stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .ws-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 10px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .ws-stat-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  .ws-stat-value {
+    font-size: 15.5px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .ws-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 4.8em;
+  }
+  .ws-note strong { color: var(--accent-a); }
+
+  @media (max-width: 480px) {
+    .ws-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 17, 2026</span>
+    <span class="category-chip">FIBER OPTICS</span>
+  </div>
+  <h1>China's One-Year Truce on an Obscure Metal Expires in 10 Days. It's the Dopant That Lets Light Bend Through Every Strand of AI Fiber.</h1>
+  <p class="lede">On November 9, 2025, China's Ministry of Commerce suspended its ban on exporting germanium &mdash; along with gallium and antimony &mdash; to the United States, part of the trade truce struck that fall between Presidents Trump and Xi. The suspension runs out November 27, 2026, ten days after this edition lands, and Beijing hasn't publicly signaled whether it will renew it. Germanium is an obscure, brittle metal almost nobody outside a chemistry class has heard of. It also happens to be the ingredient doped into the glass core of nearly every strand of fiber-optic cable &mdash; including the optical links now wiring AI GPU clusters together inside data centers.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Optical fiber only works because its glass core is doped with germanium dioxide (GeO&#8322;) to bend light just enough that it bounces down the middle of the strand instead of leaking out the sides &mdash; a property called total internal reflection. China supplies roughly two-thirds of the world's germanium, almost entirely as a byproduct of zinc smelting, so output can't simply ramp up when a price spike hits. Beijing banned exporting it to the US in December 2024, suspended that ban for a year in November 2025, and that suspension lapses November 27 &mdash; ten days from today. Licensing requirements and a ban on sales to military end-users stay in force no matter what happens next.
+  </div>
+
+  <div class="card fv-card">
+    <div class="ws-header">
+      <h2 class="ws-title">Dial the germanium doping. Watch the light try to escape.</h2>
+      <p class="ws-caption mono">Simplified step-index model of one ray crossing a fiber's core&ndash;cladding boundary. Cladding index is fixed at a representative 1.4440; core index is modeled as rising ~0.0025 per mol% GeO&#8322; doping (illustrative, not a precise fiber-design spec). This single ray enters at a fixed 85&deg; angle to the boundary normal &mdash; real fiber carries a continuous range of angles (modes) at once &mdash; and the bounce angle is drawn steeper than reality so it's visible. Drag the slider, tap a preset, or press Launch.</p>
+    </div>
+
+    <div class="fv-visual-wrap">
+      <svg id="fv-svg" viewBox="0 0 640 210" role="img" aria-label="Cross-section of an optical fiber showing cladding bands above and below a core band. A ray of light bounces down the core when enough germanium dopant is present, or escapes into the cladding when there isn't enough.">
+        <circle cx="46" cy="90" r="26" fill="none" stroke="var(--border)" stroke-width="2"></circle>
+        <text x="46" y="94" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="9" fill="var(--muted)">LASER</text>
+        <circle cx="594" cy="90" r="26" fill="none" stroke="var(--border)" stroke-width="2"></circle>
+        <text x="594" y="94" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="9" fill="var(--muted)">DET.</text>
+        <text id="fv-core-label" x="320" y="30" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="var(--ink)">CORE INDEX n&#8321; = 1.4440 &mdash; no doping</text>
+        <rect id="fv-clad-top" x="82" y="45" width="476" height="30" rx="4" fill="var(--bg)" stroke="var(--border)" stroke-width="1"></rect>
+        <rect id="fv-core" x="82" y="75" width="476" height="30" rx="4" fill="var(--accent-a-tint)" stroke="var(--accent-a)" stroke-width="1"></rect>
+        <rect id="fv-clad-bottom" x="82" y="105" width="476" height="30" rx="4" fill="var(--bg)" stroke="var(--border)" stroke-width="1"></rect>
+        <path id="fv-ray" d="M 82,90 L 82,90" fill="none" stroke="var(--accent-a)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <circle id="fv-marker" cx="82" cy="90" r="4" fill="var(--accent-a)"></circle>
+        <rect id="fv-badge-rect" x="195" y="150" width="250" height="36" rx="18" fill="var(--accent-a-tint)"></rect>
+        <text id="fv-badge-text" x="320" y="173" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="var(--accent-a)">LOST &mdash; LEAKS INTO CLADDING</text>
+      </svg>
+    </div>
+
+    <div class="fv-slider-row">
+      <input type="range" id="fv-dopant" min="0" max="5" step="0.1" value="0" aria-label="Germanium doping, 0 to 5 mol percent GeO2" />
+      <div class="fv-ticks" aria-hidden="true"><span>0%</span><span>2.5%</span><span>5%</span></div>
+      <div class="fv-presets">
+        <button type="button" class="fv-preset-btn" data-v="0">0% &mdash; pure silica</button>
+        <button type="button" class="fv-preset-btn" data-v="2">2% &mdash; below threshold</button>
+        <button type="button" class="fv-preset-btn" data-v="4">4% &mdash; typical telecom fiber</button>
+      </div>
+    </div>
+
+    <div class="ws-controls">
+      <button type="button" class="ws-btn primary" id="fv-run">&#9654; Launch pulse</button>
+      <button type="button" class="ws-btn" id="fv-reset">&#8634; Reset to 0%</button>
+    </div>
+
+    <div class="ws-stats">
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">GE DOPING</span>
+        <span class="ws-stat-value tabular" id="fv-stat-dopant">0.0%</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">CORE INDEX n&#8321;</span>
+        <span class="ws-stat-value tabular" id="fv-stat-n">1.4440</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">CRITICAL ANGLE</span>
+        <span class="ws-stat-value tabular" id="fv-stat-angle">90.0&deg;</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">STATUS</span>
+        <span class="ws-stat-value" id="fv-stat-status" style="font-size:13px;">Lost</span>
+      </div>
+    </div>
+
+    <div class="ws-note" id="fv-explain" aria-live="polite">With no germanium, the core and cladding are the same glass &mdash; there's no refractive-index boundary to reflect off. Light just crosses straight through, the way it would through a plain window. This is why &ldquo;fiber&rdquo; without a dopant isn't really a waveguide at all.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Every AI data center is stitched together with thin strands of glass &mdash; fiber-optic cable &mdash; carrying pulses of light between racks of GPUs instead of electricity through copper. For that light to travel any real distance without leaking out the sides, the glass core has to be laced with a pinch of an obscure, brittle metal called germanium. Mixed into the core as the fiber is made, germanium bends light just enough that it keeps bouncing down the dead center of the strand &mdash; a trick called total internal reflection &mdash; instead of escaping through the walls. Without it, "fiber" is just a very thin, very expensive window.</p>
+      <p>China supplies roughly two-thirds of the world's germanium, and it doesn't even mine it directly &mdash; germanium is a leftover captured while smelting zinc ore, so its supply rises and falls with the zinc business, not with anyone's actual demand for germanium. In December 2024, Beijing added germanium, along with gallium and antimony, to its export-control list and banned shipping it to the US outright, retaliation for American chip-equipment restrictions. A year ago, as part of the trade truce between Presidents Trump and Xi, China hit pause on that specific ban &mdash; but didn't cancel it. That pause runs out November 27, ten days from today. Even while it's paused, US buyers still need Beijing's permission for every shipment, and sales to anyone flagged as a military buyer stay blocked no matter what.</p>
+      <p>Meanwhile, AI's hunger for fiber keeps growing: modern GPU clusters are wired rack-to-rack with optical links so thousands of chips can act like one giant computer, and germanium prices have already more than doubled since 2024 as the AI buildout competes with everyone else for a metal that was never easy to scale up in the first place.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Optical fiber guides light down a glass core via total internal reflection (TIR), which requires the core's refractive index (n&#8321;) to exceed the surrounding cladding's (n&#8322;). Pure fused silica alone doesn't provide enough contrast for a practical waveguide, so manufacturers dope the core with germanium dioxide (GeO&#8322;) during preform fabrication &mdash; typically via modified chemical vapor deposition (MCVD) or outside vapor deposition (OVD) &mdash; raising n&#8321; by an amount tied to dopant concentration. GeO&#8322; is the industry-standard core dopant because it integrates into the silica lattice without materially increasing attenuation, and its refractive-index contribution scales predictably with concentration, which is what lets manufacturers engineer a fiber's numerical aperture and mode structure to spec.</p>
+      <p>Germanium itself isn't mined as a primary ore. It's recovered almost entirely as a byproduct &mdash; mostly from sphalerite (zinc sulfide) smelting residues, with a smaller share from coal fly ash &mdash; so its output is hostage to decisions made in the zinc and coal industries, not to germanium demand. That structural inelasticity is a large part of why a price spike can't simply be answered with more supply. China's refining dominance, commonly put at around two-thirds of global output (a precise, current country-level USGS breakdown isn't itemized), traces directly to its large zinc-smelting base.</p>
+      <p>On the trade side: China's Ministry of Commerce added germanium, gallium, and antimony to its dual-use export control list in December 2024 (Announcement No. 46), banning outright exports to the US. MOFCOM Announcement No. 72, issued November 9, 2025 as part of the broader Trump-Xi de-escalation, suspended that US-specific ban until November 27, 2026 &mdash; but left the underlying licensing regime and a military-end-user prohibition in force. US buyers can still obtain germanium, but only with case-by-case sign-off from Beijing, and the suspension itself is a unilateral, revocable grant rather than a negotiated, binding commitment.</p>
+      <p>Price action backs up the supply strain: USGS put germanium metal's annual average European price at $4,100/kg in 2025, roughly double 2024's $1,991/kg, and trade trackers reported China-linked benchmarks pushing toward record territory through 2026. Corning &mdash; the largest Western fiber maker &mdash; has cited AI-driven demand explicitly in new capacity announcements, adding a second, independent source of upward pressure on top of the supply-side fragility.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> A metal most people have never heard of sits inside the literal wiring of the AI boom, and the country that supplies most of it has a decision about selling it to the US coming up in 10 days.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Germanium sits at the intersection of two inelastic supply chains &mdash; zinc-byproduct economics and a revocable, unilateral Chinese export suspension &mdash; directly underneath the optical interconnect layer that AI clusters depend on to scale.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.fastmarkets.com/insights/china-suspends-export-prohibition-on-superhard-materials-us/" target="_blank" rel="noopener">Fastmarkets &mdash; "China suspends export prohibition on gallium, germanium, antimony, superhard materials to US"</a></li>
+    <li><a href="https://www.engineeringnews.co.za/article/china-halts-ban-on-gallium-germanium-antimony-exports-to-us-but-controls-remain-2025-11-10" target="_blank" rel="noopener">Engineering News &mdash; "China halts ban on gallium, germanium, antimony exports to US, but controls remain"</a></li>
+    <li><a href="https://chinaglobalsouth.com/2025/11/10/china-pauses-u-s-targeted-curbs-on-gallium-germanium" target="_blank" rel="noopener">China Global South &mdash; "China Pauses U.S.-Targeted Curbs on Gallium &amp; Germanium"</a></li>
+    <li><a href="https://www.metalnomist.com/2026/10/china-germanium-prices-hit-record-high.html" target="_blank" rel="noopener">Metalnomist &mdash; "China Germanium Prices Hit Record High as Demand Destruction Emerges"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var N_CLAD = 1.4440;
+    var K_PER_PCT = 0.0025; // illustrative index rise per mol% GeO2, stated as a simplification
+    var RAY_ANGLE_DEG = 85; // fixed angle-to-normal for this one ray (a simplification)
+    var RENDER_ANGLE_DEG = 10; // drawing angle only, exaggerated vs. RAY_ANGLE_DEG so bounces are visible
+    var FIBER_X0 = 82, FIBER_X1 = 558;
+    var CORE_TOP = 77, CORE_BOTTOM = 103, CORE_CENTER = 90;
+    var THRESHOLD_PCT = 2.2; // approx. crossover where RAY_ANGLE_DEG > critical angle
+
+    var slider = document.getElementById('fv-dopant');
+    var core = document.getElementById('fv-core');
+    var coreLabel = document.getElementById('fv-core-label');
+    var rayPath = document.getElementById('fv-ray');
+    var marker = document.getElementById('fv-marker');
+    var badgeRect = document.getElementById('fv-badge-rect');
+    var badgeText = document.getElementById('fv-badge-text');
+    var statDopant = document.getElementById('fv-stat-dopant');
+    var statN = document.getElementById('fv-stat-n');
+    var statAngle = document.getElementById('fv-stat-angle');
+    var statStatus = document.getElementById('fv-stat-status');
+    var explain = document.getElementById('fv-explain');
+    var runBtn = document.getElementById('fv-run');
+    var resetBtn = document.getElementById('fv-reset');
+    var presetBtns = document.querySelectorAll('.fv-preset-btn');
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var animHandle = null;
+
+    function coreIndex(dopant) { return N_CLAD + K_PER_PCT * dopant; }
+    function criticalAngleDeg(nCore) {
+      var s = N_CLAD / nCore;
+      if (s >= 1) return 90;
+      return Math.asin(s) * 180 / Math.PI;
+    }
+    function isGuided(dopant) {
+      var thetaC = criticalAngleDeg(coreIndex(dopant));
+      return RAY_ANGLE_DEG > thetaC;
+    }
+
+    function buildPoints(dopant) {
+      var guided = isGuided(dopant);
+      var slope = Math.tan(RENDER_ANGLE_DEG * Math.PI / 180);
+      var pts = [[FIBER_X0, CORE_CENTER]];
+      var x = FIBER_X0, y = CORE_CENTER, dir = 1, escaped = false;
+      var dx = 3;
+      while (x < FIBER_X1) {
+        var nx = Math.min(x + dx, FIBER_X1);
+        var ny = y + dir * slope * (nx - x);
+        if (!escaped) {
+          if (ny >= CORE_BOTTOM) { ny = CORE_BOTTOM; if (guided) { dir = -1; } else { escaped = true; } }
+          else if (ny <= CORE_TOP) { ny = CORE_TOP; if (guided) { dir = 1; } else { escaped = true; } }
+        }
+        pts.push([nx, ny]);
+        x = nx; y = ny;
+        if (escaped && (ny > 140 || ny < 40)) break;
+      }
+      return { pts: pts, guided: guided };
+    }
+
+    function pointsToPath(pts) {
+      var d = 'M ' + pts[0][0] + ',' + pts[0][1];
+      for (var i = 1; i < pts.length; i++) d += ' L ' + pts[i][0] + ',' + pts[i][1];
+      return d;
+    }
+
+    function render(dopant, animate) {
+      dopant = Math.max(0, Math.min(5, dopant));
+      var nCore = coreIndex(dopant);
+      var thetaC = criticalAngleDeg(nCore);
+      var guided = RAY_ANGLE_DEG > thetaC;
+      var built = buildPoints(dopant);
+      var color = guided ? 'var(--accent-b)' : 'var(--accent-a)';
+
+      coreLabel.textContent = 'CORE INDEX n₁ = ' + nCore.toFixed(4) + (dopant < 0.05 ? ' — no doping' : '');
+      statDopant.textContent = dopant.toFixed(1) + '%';
+      statN.textContent = nCore.toFixed(4);
+      statAngle.textContent = thetaC.toFixed(1) + '°';
+      statStatus.textContent = guided ? 'Guided' : 'Lost';
+      statStatus.style.color = guided ? 'var(--accent-b)' : 'var(--accent-a)';
+
+      core.setAttribute('fill', guided ? 'var(--accent-b-tint)' : 'var(--accent-a-tint)');
+      core.setAttribute('stroke', color);
+
+      if (guided) {
+        badgeRect.setAttribute('fill', 'var(--accent-b-tint)');
+        badgeText.setAttribute('fill', 'var(--accent-b)');
+        badgeText.textContent = 'GUIDED — REACHES DETECTOR';
+      } else {
+        badgeRect.setAttribute('fill', 'var(--accent-a-tint)');
+        badgeText.setAttribute('fill', 'var(--accent-a)');
+        badgeText.textContent = 'LOST — LEAKS INTO CLADDING';
+      }
+
+      rayPath.setAttribute('stroke', color);
+      marker.setAttribute('fill', color);
+
+      if (dopant < 0.05) {
+        setExplain('With no germanium, the core and cladding are the same glass — there’s no refractive-index boundary to reflect off. Light just crosses straight through, the way it would through a plain window. This is why “fiber” without a dopant isn’t really a waveguide at all.');
+      } else if (!guided) {
+        setExplain('The core is now slightly denser-index glass than the cladding, but not dense enough: at this ray’s angle, light still crosses the boundary and bends away into the cladding instead of reflecting. Push the doping higher to close that gap.');
+      } else if (dopant < 4) {
+        setExplain('Past about ' + THRESHOLD_PCT.toFixed(1) + ' mol% GeO₂ in this simplified model, the index contrast is large enough that this ray’s angle exceeds the critical angle — it reflects at every bounce (total internal reflection) and rides the core all the way to the detector.');
+      } else {
+        setExplain('This is roughly the doping range real telecom single-mode fiber operates in. Doping much higher than this raises scattering losses and cost without much extra guiding margin — which is part of why germanium in fiber isn’t a problem you can simply dope your way around.');
+      }
+
+      animatePath(built.pts, animate && !reduceMotion);
+    }
+
+    function setExplain(html) { explain.innerHTML = html; }
+
+    function animatePath(pts, animate) {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      var d = pointsToPath(pts);
+      rayPath.setAttribute('d', d);
+      var len = rayPath.getTotalLength();
+
+      if (!animate) {
+        rayPath.style.strokeDasharray = 'none';
+        rayPath.style.strokeDashoffset = '0';
+        var endPt = pts[pts.length - 1];
+        marker.setAttribute('cx', endPt[0]);
+        marker.setAttribute('cy', endPt[1]);
+        return;
+      }
+
+      rayPath.style.strokeDasharray = String(len);
+      rayPath.style.strokeDashoffset = String(len);
+      marker.setAttribute('cx', pts[0][0]);
+      marker.setAttribute('cy', pts[0][1]);
+
+      var duration = 1400;
+      var t0 = null;
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var p = Math.min(1, (ts - t0) / duration);
+        rayPath.style.strokeDashoffset = String(len * (1 - p));
+        var pt = rayPath.getPointAtLength(len * p);
+        marker.setAttribute('cx', pt.x);
+        marker.setAttribute('cy', pt.y);
+        if (p < 1) { animHandle = requestAnimationFrame(step); }
+        else { animHandle = null; }
+      }
+      animHandle = requestAnimationFrame(step);
+    }
+
+    function onSlide() { render(parseFloat(slider.value), false); }
+
+    slider.addEventListener('input', onSlide);
+    runBtn.addEventListener('click', function () { render(parseFloat(slider.value), true); });
+    resetBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      slider.value = '0';
+      render(0, false);
+    });
+    for (var i = 0; i < presetBtns.length; i++) {
+      presetBtns[i].addEventListener('click', function (e) {
+        var v = parseFloat(e.currentTarget.getAttribute('data-v'), 10);
+        slider.value = String(v);
+        render(v, true);
+      });
+    }
+
+    render(0, false);
+  })();
+</script>
+</body>
+</html>
