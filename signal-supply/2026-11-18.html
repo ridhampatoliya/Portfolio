@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-18","category":"LIDAR SENSORS","headline":"Luminar's Stock Topped a $7 Billion Market Cap on Its First Trading Day. It Just Sold Its Lidar Business for $33 Million","summary":"Luminar's stock topped a $7B market cap on day one. It just sold its lidar business for $33M after Volvo walked away — because Chinese solid-state lidar makers can mass-manufacture sensors like chips. Now Rivian's \"domestic\" fix for Uber's robotaxi fleet may still run through a Chinese partner.","whyItMatters":"Robotaxi sensors are running the same mass-manufacturing playbook that already won memory, solar, and batteries for China — and ‘reshoring’ may mean relocating assembly, not the underlying process advantage."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Luminar's Stock Topped $7 Billion. It Just Sold for $33 Million</title>
+<meta name="description" content="Luminar, America's best-funded lidar pioneer, filed for bankruptcy and sold its sensor business for $33 million after Volvo walked away. The reason it lost to Chinese rivals isn't exotic &mdash; it's manufacturing architecture, and robotaxi fleets are now betting billions on who solved it." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c23d1f;
+    --accent-a-tint: #f8ddd3;
+    --accent-b: #1868b0;
+    --accent-b-tint: #dbe9f6;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #ff8a56;
+      --accent-a-tint: #33201a;
+      --accent-b: #5fb0ff;
+      --accent-b-tint: #102a3d;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #ff8a56;
+    --accent-a-tint: #33201a;
+    --accent-b: #5fb0ff;
+    --accent-b-tint: #102a3d;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #c23d1f;
+    --accent-a-tint: #f8ddd3;
+    --accent-b: #1868b0;
+    --accent-b-tint: #dbe9f6;
+    --shadow: 0 1px 2px rgba(20, 26, 34, 0.04), 0 8px 24px rgba(20, 26, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: lidar time-of-flight + mechanical vs solid-state manufacturing --- */
+  .ws-header { margin-bottom: 4px; }
+  .ws-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .ws-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .fv-visual-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 14px 10px;
+  }
+  #fv-svg { display: block; width: 100%; height: auto; }
+  #fv-car, #fv-badge-rect, #fv-badge-text { transition: fill 0.4s ease, stroke 0.4s ease; }
+  #fv-beam { transition: stroke 0.3s ease; }
+  .fv-mech-ring {
+    transform-origin: 70px 100px;
+    animation: fv-spin 3s linear infinite;
+  }
+  @keyframes fv-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) {
+    #fv-car, #fv-badge-rect, #fv-badge-text, #fv-beam, .fv-mech-ring { transition: none; animation: none; }
+  }
+
+  .fv-slider-row { margin-top: 16px; }
+  .fv-slider-row input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent-a);
+  }
+  .fv-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .fv-arch-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .fv-arch-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+
+  .ws-controls {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ws-btn {
+    border: 1px solid var(--accent-a);
+    background: transparent;
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .ws-btn.primary { background: var(--accent-a); color: #fff; border-color: var(--accent-a); }
+  .ws-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  .ws-stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .ws-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 10px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .ws-stat-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  .ws-stat-value {
+    font-size: 15.5px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .ws-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 4.8em;
+  }
+  .ws-note strong { color: var(--accent-a); }
+
+  @media (max-width: 480px) {
+    .ws-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 18, 2026</span>
+    <span class="category-chip">LIDAR SENSORS</span>
+  </div>
+  <h1>Luminar's Stock Topped a $7 Billion Market Cap on Its First Trading Day. It Just Sold Its Lidar Business for $33 Million.</h1>
+  <p class="lede">Luminar was the most famous name in American lidar &mdash; the laser sensors that give self-driving cars and robotaxis their 3D vision. It went public via a SPAC merger in December 2020 at a reported $3.4 billion valuation with Volvo as its flagship partner, and its stock market cap topped $7 billion on day one of trading. On December 15, 2025, after Volvo walked away as a customer and Luminar missed debt payments, it filed for Chapter 11 bankruptcy. Its lidar business sold off in bankruptcy court for $33 million. The buyers weren't picking over a failed technology &mdash; they were picking over the one lidar architecture that couldn't be mass-manufactured as cheaply as China's.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Lidar comes in two architectures that measure distance the identical way &mdash; timing how long a laser pulse takes to bounce back &mdash; but build the beam-steering very differently. Mechanical lidar spins a laser/detector assembly on a motor; solid-state lidar steers the beam electronically on a flat chip with no moving parts, so it can be mass-produced on the same high-volume lines China already runs for smartphone cameras and MEMS microphones. Depending on the year and the measure, Chinese suppliers &mdash; led by Hesai and RoboSense &mdash; have supplied somewhere between roughly two-thirds and more than four-fifths of the world's lidar units. Luminar bet on the harder, costlier mechanical path. Now Uber is paying Rivian up to $1.25 billion to field robotaxis, and Rivian is reportedly weighing building its "own" lidar domestically &mdash; possibly with a Chinese partner.
+  </div>
+
+  <div class="card fv-card">
+    <div class="ws-header">
+      <h2 class="ws-title">Fire a pulse. Watch the clock that lidar actually runs on.</h2>
+      <p class="ws-caption mono">Simplified time-of-flight model: distance = (speed of light &times; round-trip time) &divide; 2. Drag the distance slider, switch the sensor architecture, then press Fire pulse. The pulse travel is slowed down roughly 100 million&times; so you can see it &mdash; the stat below shows the real, computed time. "Moving parts," "factory output," and "unit cost" are illustrative order-of-magnitude figures based on reported industry ranges, not a spec for any one product.</p>
+    </div>
+
+    <div class="fv-visual-wrap">
+      <svg id="fv-svg" viewBox="0 0 640 210" role="img" aria-label="A lidar sensor on the left fires a laser beam at a car silhouette on the right, which travels out and back. The sensor icon switches between a spinning mechanical head and a flat solid-state chip depending on the selected architecture.">
+        <text id="fv-arch-label" x="320" y="24" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="var(--ink)">ARCHITECTURE: MECHANICAL &mdash; SPINNING HEAD</text>
+
+        <line x1="40" y1="140" x2="600" y2="140" stroke="var(--border)" stroke-width="1"></line>
+
+        <g id="fv-mech-icon">
+          <circle class="fv-mech-ring" cx="70" cy="100" r="30" fill="none" stroke="var(--accent-a)" stroke-width="2" stroke-dasharray="4 6"></circle>
+          <circle cx="70" cy="100" r="14" fill="var(--accent-a-tint)" stroke="var(--accent-a)" stroke-width="1.5"></circle>
+          <rect x="58" y="134" width="24" height="8" rx="2" fill="var(--muted)" opacity="0.5"></rect>
+        </g>
+        <g id="fv-solid-icon" style="display:none;">
+          <rect x="48" y="86" width="44" height="28" rx="4" fill="var(--accent-a-tint)" stroke="var(--accent-a)" stroke-width="1.5"></rect>
+          <line x1="56" y1="92" x2="56" y2="108" stroke="var(--accent-a)" stroke-width="1.5"></line>
+          <line x1="66" y1="92" x2="66" y2="108" stroke="var(--accent-a)" stroke-width="1.5"></line>
+          <line x1="76" y1="92" x2="76" y2="108" stroke="var(--accent-a)" stroke-width="1.5"></line>
+          <line x1="84" y1="92" x2="84" y2="108" stroke="var(--accent-a)" stroke-width="1.5"></line>
+        </g>
+
+        <path id="fv-beam" d="M 108,96 L 108,96 L 108,104 L 108,104" fill="none" stroke="var(--accent-b)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <circle id="fv-pulse" cx="108" cy="96" r="4" fill="var(--accent-b)"></circle>
+
+        <g id="fv-car">
+          <rect x="300" y="85" width="46" height="26" rx="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5"></rect>
+          <circle cx="310" cy="112" r="5" fill="var(--ink)"></circle>
+          <circle cx="336" cy="112" r="5" fill="var(--ink)"></circle>
+        </g>
+        <text id="fv-dist-label" x="323" y="135" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="10" fill="var(--muted)">60 m away</text>
+
+        <rect id="fv-badge-rect" x="195" y="160" width="250" height="34" rx="17" fill="var(--accent-b-tint)"></rect>
+        <text id="fv-badge-text" x="320" y="182" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="var(--accent-b)">ROUND TRIP: 400.3 NS</text>
+      </svg>
+    </div>
+
+    <div class="fv-slider-row">
+      <input type="range" id="fv-dist" min="10" max="150" step="5" value="60" aria-label="Target distance in meters, 10 to 150" />
+      <div class="fv-ticks" aria-hidden="true"><span>10 m</span><span>80 m</span><span>150 m</span></div>
+    </div>
+
+    <div class="fv-arch-row">
+      <span class="fv-arch-label mono">Architecture:</span>
+      <div class="toggle" role="group" aria-label="Lidar architecture">
+        <button type="button" class="fv-arch-btn" id="btn-mech" aria-pressed="true">Mechanical</button>
+        <button type="button" class="fv-arch-btn" id="btn-solid" aria-pressed="false">Solid-State</button>
+      </div>
+    </div>
+
+    <div class="ws-controls">
+      <button type="button" class="ws-btn primary" id="fv-run">&#9654; Fire pulse</button>
+      <button type="button" class="ws-btn" id="fv-reset">&#8634; Reset</button>
+    </div>
+
+    <div class="ws-stats">
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">DISTANCE</span>
+        <span class="ws-stat-value tabular" id="fv-stat-dist">60 m</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">ROUND-TRIP TIME</span>
+        <span class="ws-stat-value tabular" id="fv-stat-time">400.3 ns</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">MOVING PARTS</span>
+        <span class="ws-stat-value tabular" id="fv-stat-parts">500+</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">EST. UNIT COST</span>
+        <span class="ws-stat-value tabular" id="fv-stat-cost">$1,000+</span>
+      </div>
+    </div>
+
+    <div class="ws-note" id="fv-explain" aria-live="polite">This head spins a laser/detector assembly many times a second, syncing power and data across a rotating interface &mdash; slip rings or optical couplers. It's accurate and rugged, but every unit needs precision motors, bearings, and hand calibration. That's the opposite of a process you can run at chip-fab volumes, and it was Luminar's approach.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Think of lidar as a bat's echolocation, but with laser light instead of sound. A sensor fires rapid pulses of invisible laser light; some of that light bounces off a car or a curb and comes back. Because light travels at a fixed, known speed, the sensor can time that round trip down to billionths of a second and work out exactly how far away everything around it is, thousands of times a second, building a constantly updating 3D map of the road.</p>
+      <p>Early self-driving pioneers like Luminar built that sensor the hard way: a spinning mechanical turret, with a laser and detector mounted on a rotating head that has to stay precisely balanced while whirling around dozens of times per second. It's accurate, but every unit needs careful hand assembly and calibration &mdash; like a wind-up watch, not a printed circuit board.</p>
+      <p>Chinese manufacturers Hesai and RoboSense made a different bet: solid-state lidar, where the beam gets steered electronically on a flat chip instead of a spinning motor. No motor, no bearings, nothing to balance &mdash; just etch it like any other chip and stamp out millions. That manufacturing edge is a big reason Chinese suppliers have ended up making somewhere between two-thirds and more than four-fifths of the world's lidar units, depending on who's counting and which year.</p>
+      <p>Luminar bet on the pricier mechanical approach and partnered with Volvo. When Volvo walked away in late 2025, Luminar collapsed into bankruptcy within weeks &mdash; a company whose stock once valued it above $7 billion sold its entire lidar business for $33 million. Now the stakes are rising: Uber is paying Rivian up to $1.25 billion to build tens of thousands of robotaxis, and robotaxis need a lot of cheap, reliable lidar. US lawmakers don't want Chinese-made sensors feeding what an American self-driving car can "see" &mdash; so Rivian is reportedly weighing building its own lidar domestically, possibly in partnership with a Chinese firm. Sensors turned out to be the new chips: whoever can mass-manufacture them like a chip wins.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Lidar ranges by time-of-flight (ToF): a pulsed laser, typically at 905nm or 1550nm, emits a pulse; a photodetector captures the return; distance is computed as d = c&middot;t/2, where c is the speed of light and t is round-trip time. A target 60 meters out returns its pulse in roughly 400 nanoseconds &mdash; the timing precision the whole system has to hit, repeatedly, across a wide field of view, to assemble a usable point cloud.</p>
+      <p>The architectural fork is in how the beam covers that field of view. Mechanical spinning lidar &mdash; Velodyne's original 64-beam design, and Luminar's own architecture &mdash; mounts multiple laser/detector pairs on a rotating assembly, transferring power and data across the rotating interface via slip rings or optical couplers. That yields a dense, reliable 360&deg; field of view, but it requires precision motors, bearings, and tight mechanical tolerances assembled largely by hand &mdash; a process that doesn't scale the way chip fabrication does.</p>
+      <p>Solid-state alternatives eliminate the rotating assembly entirely. MEMS lidar, RoboSense's core approach, uses microscopic mirrors etched via standard semiconductor lithography that oscillate electrically to steer the beam; flash lidar illuminates the whole scene at once with no steering at all. Both can run on largely the same high-yield, high-volume fab lines China already operates for smartphone camera modules and MEMS microphones &mdash; which is why Hesai and RoboSense could ramp into the hundreds of thousands to low millions of units a year while mechanical-architecture builders stayed in the tens of thousands. S&amp;P Global Mobility put Chinese suppliers above 80% of global lidar sales in 2023; other breakdowns by year and segment put Hesai, RoboSense, and Huawei combined closer to two-thirds to three-quarters &mdash; the exact figure moves, the direction doesn't.</p>
+      <p>Luminar, which went public via a roughly $3.4 billion SPAC merger in December 2020 with Volvo as its design-win partner, filed Chapter 11 in the US Bankruptcy Court for the Southern District of Texas (Case No. 25-90807) on December 15, 2025, after Volvo terminated its supply agreement and Luminar missed debt payments. Its lidar assets sold to MicroVision for $33 million; a separate semiconductor unit sold to Quantum Computing Inc. for $110 million. Meanwhile, Uber has committed up to $1.25 billion through 2031 to help Rivian field autonomous vehicles, starting with roughly 10,000 robotaxis in San Francisco and Miami in 2028. Reuters reported in May 2026 that Rivian is in active talks to build lidar domestically, "possibly in partnership with" a Chinese firm, after US lawmakers raised national-security concerns about Chinese-made sensors feeding perception data into American autonomous vehicles. Reshoring final assembly doesn't necessarily reshore the solid-state manufacturing process advantage that made the Chinese approach cheap in the first place.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Robotaxi sensors are running the same cheap-mass-manufacturing playbook that already won memory, solar, and batteries for China &mdash; and "reshoring" may end up meaning relocated assembly, not a relocated advantage.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> A manufacturing-architecture choice, not a sensing breakthrough, decided who supplies the "eyes" for the next decade of autonomous vehicles &mdash; and that choice is now colliding with US national-security review of robotaxi supply chains.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://finance.yahoo.com/news/luminar-technologies-pursues-chapter-11-121842916.html" target="_blank" rel="noopener">Yahoo Finance / just-auto &mdash; "Luminar Technologies pursues Chapter 11 amid restructuring push"</a></li>
+    <li><a href="https://www.spglobal.com/automotive-insights/en/blogs/2024/6/briefcase-chinese-suppliers-gain-strong-foothold-lidar-market" target="_blank" rel="noopener">S&amp;P Global Mobility &mdash; "Briefcase: Chinese suppliers gain strong foothold in lidar market"</a></li>
+    <li><a href="https://finance.yahoo.com/sectors/technology/articles/exclusive-rivian-mulls-making-own-001144199.html" target="_blank" rel="noopener">Reuters via Yahoo Finance &mdash; "Exclusive: Rivian mulls making its own lidar sensors, possibly in partnership with Chinese firms"</a></li>
+    <li><a href="https://thedriven.io/2026/03/23/uber-backs-rivian-with-us1-25bn-to-deploy-up-to-50000-robotaxis/" target="_blank" rel="noopener">The Driven &mdash; "Uber backs Rivian with US$1.25bn to deploy up to 50,000 robotaxis"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var C = 299792458; // m/s
+    var NS_PER_METER_ROUND_TRIP = (2 / C) * 1e9; // ~6.671
+
+    var LIDAR_X = 108;
+    var CAR_X0 = 170, CAR_X1 = 560; // pixel range for car position
+    var DIST_MIN = 10, DIST_MAX = 150;
+
+    var ARCH = {
+      mech: {
+        label: 'ARCHITECTURE: MECHANICAL — SPINNING HEAD',
+        parts: '500+',
+        cost: '$1,000+',
+        explain: 'This head spins a laser/detector assembly many times a second, syncing power and data across a rotating interface — slip rings or optical couplers. It’s accurate and rugged, but every unit needs precision motors, bearings, and hand calibration. That’s the opposite of a process you can run at chip-fab volumes, and it was Luminar’s approach.'
+      },
+      solid: {
+        label: 'ARCHITECTURE: SOLID-STATE — MEMS CHIP',
+        parts: '0',
+        cost: '~$200',
+        explain: 'No motor, no bearings — the beam is steered by microscopic mirrors etched straight into a chip (or not steered at all, for flash lidar). That means it can run on the same high-yield, high-volume lines used for smartphone camera modules and MEMS microphones — the production model Hesai and RoboSense scaled into millions of units a year.'
+      }
+    };
+
+    var slider = document.getElementById('fv-dist');
+    var btnMech = document.getElementById('btn-mech');
+    var btnSolid = document.getElementById('btn-solid');
+    var archLabel = document.getElementById('fv-arch-label');
+    var mechIcon = document.getElementById('fv-mech-icon');
+    var solidIcon = document.getElementById('fv-solid-icon');
+    var beamPath = document.getElementById('fv-beam');
+    var pulse = document.getElementById('fv-pulse');
+    var carGroup = document.getElementById('fv-car');
+    var distLabel = document.getElementById('fv-dist-label');
+    var badgeText = document.getElementById('fv-badge-text');
+    var statDist = document.getElementById('fv-stat-dist');
+    var statTime = document.getElementById('fv-stat-time');
+    var statParts = document.getElementById('fv-stat-parts');
+    var statCost = document.getElementById('fv-stat-cost');
+    var explain = document.getElementById('fv-explain');
+    var runBtn = document.getElementById('fv-run');
+    var resetBtn = document.getElementById('fv-reset');
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var animHandle = null;
+    var arch = 'mech';
+
+    function distToX(d) {
+      var p = (d - DIST_MIN) / (DIST_MAX - DIST_MIN);
+      return CAR_X0 + p * (CAR_X1 - CAR_X0);
+    }
+
+    function setArch(next) {
+      arch = next;
+      btnMech.setAttribute('aria-pressed', String(arch === 'mech'));
+      btnSolid.setAttribute('aria-pressed', String(arch === 'solid'));
+      mechIcon.style.display = arch === 'mech' ? '' : 'none';
+      solidIcon.style.display = arch === 'solid' ? '' : 'none';
+      var a = ARCH[arch];
+      archLabel.textContent = a.label;
+      statParts.textContent = a.parts;
+      statCost.textContent = a.cost;
+      explain.textContent = a.explain;
+    }
+
+    function render(dist, animate) {
+      dist = Math.max(DIST_MIN, Math.min(DIST_MAX, dist));
+      var carX = distToX(dist);
+      var tNs = dist * NS_PER_METER_ROUND_TRIP;
+
+      carGroup.setAttribute('transform', 'translate(' + (carX - 300) + ',0)');
+      distLabel.setAttribute('x', String(carX + 23));
+      distLabel.textContent = dist + ' m away';
+
+      statDist.textContent = dist + ' m';
+      statTime.textContent = tNs.toFixed(1) + ' ns';
+      badgeText.textContent = 'ROUND TRIP: ' + tNs.toFixed(1) + ' NS';
+
+      var frontX = carX; // left edge of car, where beam lands
+      var pts = [[LIDAR_X, 96], [frontX, 96], [frontX, 104], [LIDAR_X, 104]];
+      animatePath(pts, animate && !reduceMotion);
+    }
+
+    function pointsToPath(pts) {
+      var d = 'M ' + pts[0][0] + ',' + pts[0][1];
+      for (var i = 1; i < pts.length; i++) d += ' L ' + pts[i][0] + ',' + pts[i][1];
+      return d;
+    }
+
+    function animatePath(pts, animate) {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      var d = pointsToPath(pts);
+      beamPath.setAttribute('d', d);
+      var len = beamPath.getTotalLength();
+
+      if (!animate) {
+        beamPath.style.strokeDasharray = 'none';
+        beamPath.style.strokeDashoffset = '0';
+        var endPt = pts[pts.length - 1];
+        pulse.setAttribute('cx', endPt[0]);
+        pulse.setAttribute('cy', endPt[1]);
+        return;
+      }
+
+      beamPath.style.strokeDasharray = String(len);
+      beamPath.style.strokeDashoffset = String(len);
+      pulse.setAttribute('cx', pts[0][0]);
+      pulse.setAttribute('cy', pts[0][1]);
+
+      var duration = 1200;
+      var t0 = null;
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var p = Math.min(1, (ts - t0) / duration);
+        beamPath.style.strokeDashoffset = String(len * (1 - p));
+        var pt = beamPath.getPointAtLength(len * p);
+        pulse.setAttribute('cx', pt.x);
+        pulse.setAttribute('cy', pt.y);
+        if (p < 1) { animHandle = requestAnimationFrame(step); }
+        else { animHandle = null; }
+      }
+      animHandle = requestAnimationFrame(step);
+    }
+
+    function onSlide() { render(parseInt(slider.value, 10), false); }
+
+    slider.addEventListener('input', onSlide);
+    btnMech.addEventListener('click', function () { setArch('mech'); });
+    btnSolid.addEventListener('click', function () { setArch('solid'); });
+    runBtn.addEventListener('click', function () { render(parseInt(slider.value, 10), true); });
+    resetBtn.addEventListener('click', function () {
+      if (animHandle) { cancelAnimationFrame(animHandle); animHandle = null; }
+      slider.value = '60';
+      setArch('mech');
+      render(60, false);
+    });
+
+    setArch('mech');
+    render(60, false);
+  })();
+</script>
+</body>
+</html>
