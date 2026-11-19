@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-19","category":"PHOTORESIST","headline":"Three Japanese Companies Supply Up to 85% of the World's EUV Photoresist. An Oil Blockade 2,000 Miles Away Nearly Choked Off What It's Made From","summary":"EUV lithography's real fragile point isn't ASML's $400M machine — it's the light-sensitive chemical painted on the wafer first. Three Japanese firms make up to 85% of it from a solvent cracked from Middle Eastern naphtha, and the Strait of Hormuz's 2026 closure nearly cut that off.","whyItMatters":"Leading-edge chip supply is bounded not just by lithography tool capacity but by a concentrated, petrochemical-dependent resist supply chain where even a brief feedstock shock can take a year to fully absorb."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; EUV Photoresist's Oil-Tanker Chokepoint</title>
+<meta name="description" content="Three Japanese companies supply up to 85% of the world's EUV photoresist, made from a solvent cracked from Middle Eastern naphtha. When the Strait of Hormuz effectively closed in 2026, Japan's crackers throttled output and photoresist makers warned Samsung and SK Hynix of disruption." />
+<style>
+  :root {
+    --bg: #f1f0ea;
+    --surface: #ffffff;
+    --ink: #181612;
+    --muted: #625d54;
+    --border: #ded9cd;
+    --accent-a: #9a5b1f;
+    --accent-a-tint: #f2e2cc;
+    --accent-b: #1f6fa8;
+    --accent-b-tint: #d9ebf5;
+    --shadow: 0 1px 2px rgba(24, 22, 18, 0.04), 0 8px 24px rgba(24, 22, 18, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f0d0a;
+      --surface: #1b1814;
+      --ink: #f2efe8;
+      --muted: #a39d8e;
+      --border: #2e2a22;
+      --accent-a: #ffae63;
+      --accent-a-tint: #3a2814;
+      --accent-b: #63b8e8;
+      --accent-b-tint: #10283a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f0d0a;
+    --surface: #1b1814;
+    --ink: #f2efe8;
+    --muted: #a39d8e;
+    --border: #2e2a22;
+    --accent-a: #ffae63;
+    --accent-a-tint: #3a2814;
+    --accent-b: #63b8e8;
+    --accent-b-tint: #10283a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #f1f0ea;
+    --surface: #ffffff;
+    --ink: #181612;
+    --muted: #625d54;
+    --border: #ded9cd;
+    --accent-a: #9a5b1f;
+    --accent-a-tint: #f2e2cc;
+    --accent-b: #1f6fa8;
+    --accent-b-tint: #d9ebf5;
+    --shadow: 0 1px 2px rgba(24, 22, 18, 0.04), 0 8px 24px rgba(24, 22, 18, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: photoresist supply-chain step-through --- */
+  .ws-header { margin-bottom: 4px; }
+  .ws-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .ws-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .pr-visual-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 14px 14px 10px;
+  }
+  #pr-svg { display: block; width: 100%; height: auto; }
+  .pr-box-rect, .pr-box-text, .pr-box-sub { transition: fill 0.35s ease, stroke 0.35s ease; }
+  @media (prefers-reduced-motion: reduce) {
+    .pr-box-rect, .pr-box-text, .pr-box-sub { transition: none; }
+  }
+
+  .pr-stage-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .ws-controls {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ws-btn {
+    border: 1px solid var(--accent-a);
+    background: transparent;
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .ws-btn.primary { background: var(--accent-a); color: #fff; border-color: var(--accent-a); }
+  .ws-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  .ws-stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .ws-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 10px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .ws-stat-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  .ws-stat-value {
+    font-size: 14.5px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .ws-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 4.8em;
+  }
+  .ws-note strong { color: var(--accent-a); }
+
+  @media (max-width: 480px) {
+    .ws-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 19, 2026</span>
+    <span class="category-chip">PHOTORESIST</span>
+  </div>
+  <h1>Three Japanese Companies Supply Up to 85% of the World's EUV Photoresist. An Oil Blockade 2,000 Miles Away Nearly Choked Off What It's Made From.</h1>
+  <p class="lede">ASML's lithography machines get all the attention as chipmaking's single point of failure. But earlier this year, the thing that actually rattled Samsung's and SK Hynix's most advanced chip lines wasn't a $400 million lithography tool &mdash; it was a light-sensitive liquid painted onto the wafer before that machine even switches on, and the oil tankers that make its key ingredient.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Photoresist isn't scarce because the chemistry is exotic &mdash; it's scarce because almost all of the EUV-grade formula is made by three Japanese companies, using an ultra-pure solvent cracked from naphtha, a byproduct of the same Middle Eastern crude oil that stopped flowing smoothly once the Israel-Iran war spilled into the Strait of Hormuz in early March 2026. Switching chemical suppliers mid-crisis doesn't help fast: requalifying a new photoresist source takes on the order of a year, longer at leading-edge nodes &mdash; so even a short disruption upstream can take a year to fully absorb downstream.
+  </div>
+
+  <div class="card pr-card">
+    <div class="ws-header">
+      <h2 class="ws-title">Step through the chain from an oil tanker to a printed transistor.</h2>
+      <p class="ws-caption mono">Press Next to walk the five links between the Strait of Hormuz and a finished chip. Figures are rounded from multiple 2026 industry reports (TrendForce, SCMP, Seoul Economic Daily, BigGo Finance) describing the shortage as of late April 2026 &mdash; I found no independently confirmed reporting on the shortage's severity past that date, so treat current status as unresolved, not settled.</p>
+    </div>
+
+    <div class="pr-visual-wrap">
+      <svg id="pr-svg" viewBox="0 0 640 150" role="img" aria-label="A five-stage pipeline diagram: Hormuz Transit, Naphtha to Solvent, Photoresist, EUV Lithography, Chip Output. The current stage is highlighted, with arrows showing the disruption flowing left to right.">
+        <defs>
+          <marker id="pr-arrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L8,4 L0,8 z" fill="var(--muted)"></path>
+          </marker>
+        </defs>
+        <line x1="110" y1="50" x2="138" y2="50" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#pr-arrow)"></line>
+        <line x1="240" y1="50" x2="268" y2="50" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#pr-arrow)"></line>
+        <line x1="370" y1="50" x2="398" y2="50" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#pr-arrow)"></line>
+        <line x1="500" y1="50" x2="528" y2="50" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#pr-arrow)"></line>
+
+        <g>
+          <rect class="pr-box-rect" data-idx="0" x="10" y="16" width="100" height="68" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"></rect>
+          <text class="pr-box-text" data-idx="0" x="60" y="46" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="var(--ink)">HORMUZ</text>
+          <text class="pr-box-sub" data-idx="0" x="60" y="64" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="9.5" fill="var(--muted)">oil transit</text>
+        </g>
+        <g>
+          <rect class="pr-box-rect" data-idx="1" x="140" y="16" width="100" height="68" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"></rect>
+          <text class="pr-box-text" data-idx="1" x="190" y="46" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="var(--ink)">NAPHTHA &#8594;</text>
+          <text class="pr-box-sub" data-idx="1" x="190" y="60" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="var(--ink)">SOLVENT</text>
+        </g>
+        <g>
+          <rect class="pr-box-rect" data-idx="2" x="270" y="16" width="100" height="68" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"></rect>
+          <text class="pr-box-text" data-idx="2" x="320" y="46" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="var(--ink)">PHOTO-</text>
+          <text class="pr-box-sub" data-idx="2" x="320" y="62" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="var(--ink)">RESIST</text>
+        </g>
+        <g>
+          <rect class="pr-box-rect" data-idx="3" x="400" y="16" width="100" height="68" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"></rect>
+          <text class="pr-box-text" data-idx="3" x="450" y="46" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="var(--ink)">EUV</text>
+          <text class="pr-box-sub" data-idx="3" x="450" y="64" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="9.5" fill="var(--muted)">lithography</text>
+        </g>
+        <g>
+          <rect class="pr-box-rect" data-idx="4" x="530" y="16" width="100" height="68" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"></rect>
+          <text class="pr-box-text" data-idx="4" x="580" y="46" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="var(--ink)">CHIP</text>
+          <text class="pr-box-sub" data-idx="4" x="580" y="64" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="9.5" fill="var(--muted)">output</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="pr-stage-row" aria-hidden="true">
+      <span>1. HORMUZ</span><span>2. SOLVENT</span><span>3. RESIST</span><span>4. EUV</span><span>5. CHIP</span>
+    </div>
+
+    <div class="ws-controls">
+      <button type="button" class="ws-btn" id="pr-prev">&larr; Prev</button>
+      <button type="button" class="ws-btn primary" id="pr-next">Next &rarr;</button>
+      <button type="button" class="ws-btn" id="pr-reset">&#8634; Reset</button>
+    </div>
+
+    <div class="ws-stats">
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">STAGE</span>
+        <span class="ws-stat-value tabular" id="pr-stat-stage">1 / 5</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono" id="pr-label-1">SHARE OF WORLD OIL</span>
+        <span class="ws-stat-value tabular" id="pr-stat-1">~25%</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono" id="pr-label-2">STATUS SINCE</span>
+        <span class="ws-stat-value" id="pr-stat-2" style="font-size:12.5px;">Early March 2026</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono" id="pr-label-3">KEY PLAYERS</span>
+        <span class="ws-stat-value" id="pr-stat-3" style="font-size:12px;">Iran, Israel, tankers</span>
+      </div>
+    </div>
+
+    <div class="ws-note" id="pr-explain" aria-live="polite">Since the Israel-Iran war spilled into the Strait of Hormuz in early March 2026, the waterway that normally carries roughly a quarter of the world's seaborne oil (and about a fifth of its LNG) has been effectively closed to ordinary shipping. That's where this chain starts &mdash; a chip chemical's supply problem that began as an oil-tanker problem.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Before a chipmaking laser ever touches a silicon wafer, the wafer gets coated with a thin layer of liquid called photoresist &mdash; think of it like a light-sensitive paint. Wherever light hits it, through a stencil-like mask, the chemistry changes, so a later step can wash away exactly the right spots and carve out the pattern of a chip's billions of transistors. The $400 million EUV machines that fire that light get all the headlines. The paint rarely does.</p>
+      <p>It should. Three Japanese companies &mdash; JSR, Tokyo Ohka Kogyo, and Shin-Etsu Chemical &mdash; are estimated to supply as much as 85% of the world's EUV-grade photoresist. You can't just swap to a different brand mid-crisis, either: a new resist formula needs roughly a year of testing before a fab trusts it on wafers that can cost tens of thousands of dollars each.</p>
+      <p>Here's the twist that connects a chip chemical to an oil war: photoresist (along with related coatings and the glue used to stack memory chips) is made using an ultra-pure solvent that's cracked from naphtha &mdash; a byproduct of crude oil refining. Japan's photoresist industry gets more than 40% of that naphtha from the Middle East. When the Israel-Iran war spilled into the Strait of Hormuz in early March 2026 and the strait effectively closed to normal shipping, six of Japan's twelve naphtha-cracking plants reportedly cut output. By late April, Shin-Etsu, TOK, and JSR had reportedly warned Samsung and SK Hynix that their raw-material supply could be disrupted, and said they were weighing alternate solvent sources in South Korea or China &mdash; which, again, restarts that year-long qualification clock.</p>
+      <p>Chipmakers reportedly held about six months of buffer stock when that warning went out. Whether that buffer has since run dry, nobody's independently confirmed as of this writing. Either way, the lesson holds: the fragile link in advanced chipmaking wasn't the lithography machine. It was a jar of liquid chemistry, three steps removed from an oil tanker stuck in a queue.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Photoresist is a photosensitive polymer formulation spin-coated onto a wafer prior to exposure. The dominant chemistry for both EUV (13.5nm) and ArF-immersion deep-UV (193nm) lithography is the chemically amplified resist (CAR): exposure generates acid catalytically, which then drives polymer cross-linking or chain scission during a post-exposure bake, amplifying a small absorbed-photon signal into a large solubility contrast that development (typically a TMAH solution) can resolve. EUV resist chemistry faces an added constraint &mdash; the resolution/line-width-roughness/sensitivity (RLS) trilemma &mdash; because comparatively few EUV photons are absorbed per exposed feature despite their higher individual energy (~92 eV), pushing stochastic defectivity higher. That's part of why alternative chemistries, like the tin-oxide metal-oxide resists (MOR) JSR acquired via Inpria, are being pursued alongside conventional CAR for EUV.</p>
+      <p>Formulating CAR or MOR photoresist &mdash; plus the bottom anti-reflective coatings (BARC), spin-on hardmasks (SOH), and temporary bonding adhesives used to stack HBM dies &mdash; depends on ultra-high-purity propylene glycol monomethyl ether and its acetate (PGME/PGMEA) as carrier solvent. PGME/PGMEA is produced from propylene oxide, itself derived from naphtha cracking. One industry estimate puts JSR, Tokyo Ohka Kogyo (TOK), and Shin-Etsu Chemical at close to 85% of global EUV photoresist production volume; a separate, older estimate puts the top four Japanese suppliers (adding Fujifilm) at roughly 76% of the broader photoresist market in 2023. The figures aren't directly comparable, but both describe extreme concentration in a small number of Japanese formulators.</p>
+      <p>Since early March 2026, the Strait of Hormuz has been effectively closed to normal shipping after the Israel-Iran war spilled into the strait, curtailing Middle Eastern crude and naphtha feedstock. By late April, TrendForce reported Japan's photoresist supply chain's reliance on Middle East naphtha at over 40%, and multiple Asian outlets (SCMP, Seoul Economic Daily, BigGo Finance via The Elec) reported six of Japan's twelve naphtha-cracking centers had cut output, with Shin-Etsu, TOK, and JSR warning Samsung and SK Hynix of potential PGME/PGMEA disruption &mdash; EUV-dependent leading-edge nodes flagged as most exposed. Analysts cited typical chipmaker safety-stock buffers of roughly six months as of that reporting. I found no independently confirmed reporting past April 2026 on whether that buffer has since been exhausted or the naphtha flow has normalized, so the current severity should be treated as unresolved rather than settled. Requalifying an alternate PGME/PGMEA source, per multiple reports, takes on the order of a year, longer at leading-edge nodes &mdash; meaning even a brief feedstock disruption can propagate into a year-long supply-chain adjustment.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> The thing standing between a $400 million EUV machine and a working chip can be a chemical formula three companies control &mdash; and that formula runs on oil that has to cross a strait a war can close.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Leading-edge lithography's resilience is bounded not just by ASML's tool capacity but by a concentrated, petrochemical-dependent resist supply chain whose year-long requalification timelines turn even brief feedstock shocks into extended risk.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.trendforce.com/news/2026/04/24/news-japan-photoresist-suppliers-flag-shortage-amid-40-middle-east-naphtha-reliance-risks-for-chipmakers/" target="_blank" rel="noopener">TrendForce &mdash; "Japan Photoresist Suppliers Flag Shortage Amid &gt;40% Middle East Naphtha Reliance, Risks for Chipmakers"</a></li>
+    <li><a href="https://www.scmp.com/tech/article/3351192/asias-chipmakers-feel-heat-naphtha-crunch-hits-photoresist-supply" target="_blank" rel="noopener">South China Morning Post &mdash; "Asia's Chipmakers Feel the Heat as Naphtha Crunch Hits Photoresist Supply"</a></li>
+    <li><a href="https://en.sedaily.com/international/2026/04/25/hormuz-blockade-triggers-photoresist-crunch-hitting-samsung" target="_blank" rel="noopener">Seoul Economic Daily &mdash; "Hormuz Blockade Triggers Photoresist Crunch, Hitting Samsung and SK Hynix"</a></li>
+    <li><a href="https://finance.biggo.com/news/a_9-v50BOIb5Xxavlwut" target="_blank" rel="noopener">BigGo Finance &mdash; "Strait of Hormuz Blockade Threatens Semiconductor Supply Chain, Japanese Photoresist Giants Warn Samsung, SK Hynix"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var STAGES = [
+      {
+        label1: 'SHARE OF WORLD OIL', stat1: '~25%',
+        label2: 'STATUS SINCE', stat2: 'Early March 2026',
+        label3: 'KEY PLAYERS', stat3: 'Iran, Israel, tankers',
+        explain: 'Since the Israel-Iran war spilled into the Strait of Hormuz in early March 2026, the waterway that normally carries roughly a quarter of the world’s seaborne oil (and about a fifth of its LNG) has been effectively closed to ordinary shipping. That’s where this chain starts — a chip chemical’s supply problem that began as an oil-tanker problem.'
+      },
+      {
+        label1: 'JAPAN’S MIDEAST RELIANCE', stat1: '>40%',
+        label2: 'CRACKERS AFFECTED', stat2: '6 of 12 (reported)',
+        label3: 'WHAT’S MADE HERE', stat3: 'PGME / PGMEA solvent',
+        explain: 'Photoresist’s carrier solvent, PGME/PGMEA, is cracked from naphtha, a byproduct of crude oil refining. Japan’s photoresist industry depends on Middle Eastern naphtha for more than 40% of that feedstock, per TrendForce. By late April 2026, six of Japan’s twelve naphtha-cracking plants had reportedly cut output.'
+      },
+      {
+        label1: 'TOP 3 SUPPLIERS’ SHARE', stat1: 'up to ~85%',
+        label2: 'THE FIRMS', stat2: 'JSR, TOK, Shin-Etsu',
+        label3: 'ALT. SOURCES EYED', stat3: 'South Korea, China',
+        explain: 'JSR, Tokyo Ohka Kogyo, and Shin-Etsu Chemical are estimated to supply as much as 85% of the world’s EUV photoresist. All three reportedly warned customers of possible raw-material disruption and said they were weighing alternate solvent sources in South Korea or China.'
+      },
+      {
+        label1: 'FABS WARNED', stat1: 'Samsung, SK Hynix',
+        label2: 'MOST EXPOSED', stat2: 'Leading-edge / EUV nodes',
+        label3: 'WHY', stat3: 'Tightest resist specs',
+        explain: 'Leading-edge fabs running EUV lithography were flagged as the most exposed, since EUV resist formulations are the most tightly specified and hardest to substitute without a lengthy requalification process.'
+      },
+      {
+        label1: 'REQUALIFICATION TIME', stat1: '~1 year+',
+        label2: 'REPORTED BUFFER (APR ’26)', stat2: '~6 months',
+        label3: 'STATUS TODAY', stat3: 'Unconfirmed past April',
+        explain: 'Chipmakers reportedly held roughly six months of safety stock when suppliers’ April 2026 warnings went out. Swapping to an alternate PGME/PGMEA source takes on the order of a year to requalify, longer at leading-edge nodes — so even a short feedstock shock can take a year to fully absorb.'
+      }
+    ];
+
+    var idx = 0;
+    var boxRects = [];
+    for (var i = 0; i < 5; i++) {
+      boxRects.push(document.querySelector('.pr-box-rect[data-idx="' + i + '"]'));
+    }
+    var statStage = document.getElementById('pr-stat-stage');
+    var label1 = document.getElementById('pr-label-1');
+    var stat1 = document.getElementById('pr-stat-1');
+    var label2 = document.getElementById('pr-label-2');
+    var stat2 = document.getElementById('pr-stat-2');
+    var label3 = document.getElementById('pr-label-3');
+    var stat3 = document.getElementById('pr-stat-3');
+    var explain = document.getElementById('pr-explain');
+    var prevBtn = document.getElementById('pr-prev');
+    var nextBtn = document.getElementById('pr-next');
+    var resetBtn = document.getElementById('pr-reset');
+
+    function render() {
+      var s = STAGES[idx];
+      for (var i = 0; i < boxRects.length; i++) {
+        if (i === idx) {
+          boxRects[i].setAttribute('fill', 'var(--accent-b-tint)');
+          boxRects[i].setAttribute('stroke', 'var(--accent-b)');
+          boxRects[i].setAttribute('stroke-width', '2.5');
+        } else {
+          boxRects[i].setAttribute('fill', 'var(--surface)');
+          boxRects[i].setAttribute('stroke', 'var(--border)');
+          boxRects[i].setAttribute('stroke-width', '1.5');
+        }
+      }
+      statStage.textContent = (idx + 1) + ' / 5';
+      label1.textContent = s.label1; stat1.textContent = s.stat1;
+      label2.textContent = s.label2; stat2.textContent = s.stat2;
+      label3.textContent = s.label3; stat3.textContent = s.stat3;
+      explain.textContent = s.explain;
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === STAGES.length - 1;
+    }
+
+    prevBtn.addEventListener('click', function () { if (idx > 0) { idx--; render(); } });
+    nextBtn.addEventListener('click', function () { if (idx < STAGES.length - 1) { idx++; render(); } });
+    resetBtn.addEventListener('click', function () { idx = 0; render(); });
+
+    document.addEventListener('keydown', function (e) {
+      var card = document.querySelector('.pr-card');
+      if (!card) return;
+      var tag = (e.target && e.target.tagName) || '';
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+      if (e.key === 'ArrowRight') { if (idx < STAGES.length - 1) { idx++; render(); } }
+      if (e.key === 'ArrowLeft') { if (idx > 0) { idx--; render(); } }
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
