@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-21","category":"AI CHIP EXPORTS","headline":"Nvidia Booked $2.4 Billion Selling AI Chips to China Last Quarter. This Quarter It's Shipping Zero — Even Though Washington Still Says Yes","summary":"Nvidia sold China $2.4B of export-approved AI chips last quarter, then quietly stopped shipping and is guiding to zero. Roughly 600,000 H200s sit stuck in Hong Kong warehouses awaiting Beijing's clearance, while Washington just closed a separate cloud-rental loophole the same week.","whyItMatters":"Export controls aren't a single on/off switch — they're a chain of discretionary checkpoints, and this week shows Beijing can work that same chokepoint logic right back at Washington."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Nvidia Stopped Shipping China's Already-Approved AI Chips</title>
+<meta name="description" content="Nvidia had a valid U.S. export license and $2.4 billion in prior-quarter sales to China, then shipped zero this quarter. The chips are stuck in Hong Kong awaiting Beijing clearance, while Washington just closed a separate cloud-rental loophole the same week." />
+<style>
+  :root {
+    --bg: #eef1f4;
+    --surface: #ffffff;
+    --ink: #13181e;
+    --muted: #596270;
+    --border: #dbe1e8;
+    --accent-a: #b8381f;
+    --accent-a-tint: #f7e0da;
+    --accent-b: #1f6f9c;
+    --accent-b-tint: #dcebf2;
+    --shadow: 0 1px 2px rgba(19, 24, 30, 0.04), 0 8px 24px rgba(19, 24, 30, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #ff7a56;
+      --accent-a-tint: #3a1a10;
+      --accent-b: #5bc2f2;
+      --accent-b-tint: #0d2a36;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #ff7a56;
+    --accent-a-tint: #3a1a10;
+    --accent-b: #5bc2f2;
+    --accent-b-tint: #0d2a36;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f4;
+    --surface: #ffffff;
+    --ink: #13181e;
+    --muted: #596270;
+    --border: #dbe1e8;
+    --accent-a: #b8381f;
+    --accent-a-tint: #f7e0da;
+    --accent-b: #1f6f9c;
+    --accent-b-tint: #dcebf2;
+    --shadow: 0 1px 2px rgba(19, 24, 30, 0.04), 0 8px 24px rgba(19, 24, 30, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the four gates --- */
+  .ws-header { margin-bottom: 4px; }
+  .ws-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .ws-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .gates-visual-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+  }
+  #gates-canvas { display: block; width: 100%; height: auto; border-radius: 6px; }
+
+  .gate-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+  .gate-btn {
+    flex: 1 1 auto;
+    min-width: 140px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 9px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+  }
+  .gate-btn[aria-pressed="true"] {
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    border-color: var(--accent-b);
+  }
+  .gate-btn[aria-pressed="false"] {
+    background: var(--accent-a-tint);
+    color: var(--accent-a);
+    border-color: var(--accent-a);
+  }
+
+  .ws-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ws-btn {
+    border: 1px solid var(--accent-a);
+    background: transparent;
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .ws-btn.primary { background: var(--accent-a); color: #fff; border-color: var(--accent-a); }
+  .ws-btn.secondary { border-color: var(--accent-b); color: var(--accent-b); }
+  .ws-btn.secondary.primary { background: var(--accent-b); color: #fff; border-color: var(--accent-b); }
+  .ws-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  .ws-stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .ws-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 10px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .ws-stat-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  .ws-stat-value {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .ws-stat-value.warn { color: var(--accent-a); }
+  .ws-stat-value.good { color: var(--accent-b); }
+
+  .ws-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 3.2em;
+  }
+  .ws-note strong { color: var(--accent-a); }
+
+  @media (max-width: 480px) {
+    .ws-stats { grid-template-columns: repeat(1, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 21, 2026</span>
+    <span class="category-chip">AI CHIP EXPORTS</span>
+  </div>
+  <h1>Nvidia Booked $2.4 Billion Selling AI Chips to China Last Quarter. This Quarter It's Shipping Zero &mdash; Even Though Washington Still Says Yes.</h1>
+  <p class="lede">Three parties each hold a veto over whether an export-approved Nvidia chip reaches a Chinese AI lab: Washington, Beijing, and Nvidia itself. This month, two of the three are quietly using it &mdash; and none of them will say exactly why.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    An export control is never one switch &mdash; it's a chain of separate, discretionary checkpoints, and the whole shipment stops if any single link in that chain goes quiet. Right now the direct-import route to China is jammed by Beijing's own customs discretion, not Washington's, while a brand-new U.S. rule just closed a completely different route (renting the same compute remotely through a data center in a third country) from the other end.
+  </div>
+
+  <div class="card gates-card">
+    <div class="ws-header">
+      <h2 class="ws-title">Four checkpoints stand between an Nvidia chip and a Chinese AI lab. Flip them, then try shipping.</h2>
+      <p class="ws-caption mono">This is a simplified model of two real routes as reported in mid-November 2026: Direct Import (US export license &rarr; Beijing customs clearance &rarr; Nvidia's own shipping decision) and Cloud Rental (a licensed third-country data center). Each real "gate" is actually a case-by-case judgment call, not a literal switch &mdash; but the pass/fail chain logic is real. Toggle any gate, then send a chip down either route to see what happens; press Reset to restore the reported state as of Nov 21, 2026.</p>
+    </div>
+
+    <div class="gates-visual-wrap">
+      <canvas id="gates-canvas" width="640" height="240" role="img" aria-label="A diagram of two routes from Nvidia to a Chinese AI lab: a direct-import route with three checkpoints, and a cloud-rental route with one checkpoint, each shown as open or closed."></canvas>
+    </div>
+
+    <div class="gate-row" role="group" aria-label="Checkpoint toggles">
+      <button type="button" class="gate-btn" id="gate-us" aria-pressed="true">US EXPORT LICENSE: OPEN</button>
+      <button type="button" class="gate-btn" id="gate-beijing" aria-pressed="false">BEIJING CUSTOMS: CLOSED</button>
+      <button type="button" class="gate-btn" id="gate-nvidia" aria-pressed="false">NVIDIA SHIPS IT: CLOSED</button>
+      <button type="button" class="gate-btn" id="gate-cloud" aria-pressed="false">CLOUD-RENTAL LICENSE: CLOSED</button>
+    </div>
+
+    <div class="ws-controls">
+      <button type="button" class="ws-btn primary" id="run-direct">&#9654; Try Direct Import</button>
+      <button type="button" class="ws-btn secondary" id="run-cloud">&#9654; Try Cloud Rental</button>
+      <button type="button" class="ws-btn" id="gates-reset">&#8634; Reset to Nov 21, 2026</button>
+    </div>
+
+    <div class="ws-stats">
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">GATES OPEN</span>
+        <span class="ws-stat-value tabular" id="stat-open">1 / 4</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">DELIVERED (SESSION)</span>
+        <span class="ws-stat-value tabular" id="stat-delivered">0</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">LAST ATTEMPT</span>
+        <span class="ws-stat-value" id="stat-last" style="font-size:12px;">None yet</span>
+      </div>
+    </div>
+
+    <div class="ws-note" id="gates-explain" aria-live="polite">Toggle a gate, or press a route button to send a chip. As reported, the direct-import route is blocked at Beijing customs, and the cloud-rental route is blocked by a new U.S. rule effective November 19, 2026 &mdash; so right now, neither route delivers.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture buying a car that needs three separate green lights before it can leave the lot: the manufacturer has to agree to sell it, your own country has to let it cross the border, and &mdash; this is the strange part &mdash; the dealership can still refuse to hand over the keys at the very last second, even after everyone else already said yes. That's roughly the situation right now with one of the most important products in the world economy: Nvidia's H200, an AI chip built to train and run the models behind today's AI tools.</p>
+      <p>Last quarter, Nvidia actually sold $2.4 billion worth of these chips to Chinese buyers &mdash; real money, real hardware, shipped out the door, under a license the U.S. government had already approved. This quarter, on a November 17 earnings call, the company's finance chief (now also its interim CEO, after Jensen Huang abruptly resigned on November 11 following a personal scandal) told investors Nvidia expects to ship close to none. She didn't explain why.</p>
+      <p>Here's the twist: Washington's approval for the H200 hasn't changed. The holdup looks like it's happening on China's side instead. Reports put roughly 600,000 of these chips sitting, boxed, in warehouses in Hong Kong &mdash; a free port that's legally outside mainland China's customs border &mdash; waiting for a Beijing clearance that simply hasn't arrived. China spent years publicly pushing the U.S. to unblock these chips. Now that Washington has partly relented, it looks like Beijing itself is the one slow-walking the paperwork, possibly to protect its own chipmakers or to hold leverage in a wider trade standoff.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>On Nvidia's fiscal Q3 FY2027 earnings call (November 17, 2026), CFO Colette Kress &mdash; now also interim CEO following Jensen Huang's November 11 resignation &mdash; disclosed $2.4 billion in licensed Hopper-architecture data-center revenue from China for the quarter ended October 25. Those sales moved under the existing Commerce Department export license covering the H200, a carve-out that survives even though Nvidia's newer Blackwell and Rubin architectures remain fully embargoed from China under separate Bureau of Industry and Security (BIS) end-use controls. Kress told analysts that Q4 guidance assumes effectively no China data-center compute revenue &mdash; not because the license changed, but because Nvidia itself has stopped shipping, for reasons it hasn't disclosed.</p>
+      <p>The likelier explanation sits on the import side, not the export side. Multiple outlets, citing Reuters, report that roughly 600,000 H200 units are held in bonded warehouses in Hong Kong &mdash; a free port outside mainland customs territory &mdash; after Chinese authorities declined to clear large-volume imports onto the mainland. Beijing hasn't published a formal ban; the pattern looks more like discretionary slow-walking, consistent with 2026 guidance steering state-linked buyers toward domestic accelerators (Huawei's Ascend line, Cambricon) even where raw performance still trails Nvidia's silicon.</p>
+      <p>A separate front closed the same week. BIS issued an interim final rule, "Addressing Remote Access to Advanced Semiconductors," effective November 19, 2026, targeting a workaround where a Chinese entity skips importing hardware and instead rents equivalent compute remotely from a data center outside China. The rule adds license requirements on data centers in Macau and in a Commerce-designated jurisdiction list that multiple law-firm trackers say explicitly names Malaysia, Singapore, Indonesia, Thailand, and Brazil, once a facility's compute passes an aggregate threshold of 12 million "Total Processing Performance" units &mdash; a BIS metric sizing chip compute capacity across one site or several "linked" data centers. It also rescinds the prior AI Diffusion Rule's tiered-country framework and gives data centers already above threshold a 90-day window to seek a license.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> A chip doesn't need an enemy to stop moving &mdash; it just needs any one of three gatekeepers, buyer's government, seller's government, or the seller itself, to go quiet. Right now two of three have.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Two chokepoints closed from opposite directions in the same ten days: Beijing's customs discretion is jamming the direct-import route, while Washington's new rule just licensed the remote-access bypass. Export control, in practice, is a chain of discretionary checkpoints, not a single switch &mdash; and this week both ends of the chain moved at once.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.tweaktown.com/news/114771/nvidia-stops-shipping-licensed-hopper-ai-chips-including-h200-to-china/index.html" target="_blank" rel="noopener">TweakTown &mdash; "Nvidia Stops Shipping Licensed Hopper AI Chips, Including H200, to China"</a></li>
+    <li><a href="https://finance.yahoo.com/news/china-blocks-nvidias-h200-shipments-113514733.html" target="_blank" rel="noopener">Yahoo Finance / Reuters &mdash; "China Blocks Nvidia's H200 Shipments"</a></li>
+    <li><a href="https://www.klgates.com/thought-leadership/BIS-Targets-Remote-Access-to-Advanced-Computing-New-Controls-for-Semiconductor-Companies-and-Data-Centers-11-18-2026" target="_blank" rel="noopener">K&amp;L Gates &mdash; "BIS Targets Remote Access to Advanced Computing"</a></li>
+    <li><a href="https://www.cnbc.com/2026/11/12/nvidia-jensen-huang-ceo-live-updates.html" target="_blank" rel="noopener">CNBC &mdash; "Nvidia CEO Jensen Huang Resigns: Live Updates"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var canvas = document.getElementById('gates-canvas');
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width, H = canvas.height;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var LANE_A_Y = 62;  // direct import
+    var LANE_B_Y = 182; // cloud rental
+    var START_X0 = 8, START_X1 = 78;
+    var END_X0 = 562, END_X1 = 632;
+    var BOX_H = 36;
+
+    // gate boxes: [x0, x1] on each lane
+    var GATE_US = [94, 212];
+    var GATE_BEIJING = [228, 346];
+    var GATE_NVIDIA = [362, 480];
+    var GATE_CLOUD = [94, 480];
+
+    var gateBtns = {
+      us: document.getElementById('gate-us'),
+      beijing: document.getElementById('gate-beijing'),
+      nvidia: document.getElementById('gate-nvidia'),
+      cloud: document.getElementById('gate-cloud')
+    };
+    var gateLabels = {
+      us: 'US EXPORT LICENSE',
+      beijing: 'BEIJING CUSTOMS',
+      nvidia: 'NVIDIA SHIPS IT',
+      cloud: 'CLOUD-RENTAL LICENSE'
+    };
+    var runDirectBtn = document.getElementById('run-direct');
+    var runCloudBtn = document.getElementById('run-cloud');
+    var resetBtn = document.getElementById('gates-reset');
+    var statOpen = document.getElementById('stat-open');
+    var statDelivered = document.getElementById('stat-delivered');
+    var statLast = document.getElementById('stat-last');
+    var explain = document.getElementById('gates-explain');
+
+    var REAL_STATE = { us: true, beijing: false, nvidia: false, cloud: false };
+    var gates = { us: true, beijing: false, nvidia: false, cloud: false };
+    var delivered = 0;
+    var token = null; // {lane:'A'|'B', x, y, status:'moving'|'blocked'|'delivered', blockedKey}
+    var rafId = null;
+    var animBusy = false;
+
+    function cssVar(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || '#888888';
+    }
+    function hexToRgb(hex) {
+      hex = hex.replace('#', '');
+      if (hex.length === 3) hex = hex.split('').map(function (c) { return c + c; }).join('');
+      var num = parseInt(hex, 16);
+      return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+    }
+    function hexAlpha(hex, a) {
+      var c = hexToRgb(hex);
+      return 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + a + ')';
+    }
+
+    function updateGateButton(key) {
+      var btn = gateBtns[key];
+      var isOpen = gates[key];
+      btn.setAttribute('aria-pressed', String(isOpen));
+      btn.textContent = gateLabels[key] + ': ' + (isOpen ? 'OPEN' : 'CLOSED');
+    }
+
+    function updateStatOpen() {
+      var n = 0;
+      for (var k in gates) { if (gates[k]) n++; }
+      statOpen.textContent = n + ' / 4';
+    }
+
+    function box(x0, x1, y, label, open, hasFluidLike) {
+      var yc = y;
+      var y0 = yc - BOX_H / 2, y1 = yc + BOX_H / 2;
+      var isGate = open !== undefined;
+      ctx.save();
+      if (isGate) {
+        ctx.fillStyle = open ? hexAlpha(cssVar('--accent-b'), 0.16) : hexAlpha(cssVar('--accent-a'), 0.16);
+        ctx.strokeStyle = open ? cssVar('--accent-b') : cssVar('--accent-a');
+      } else {
+        ctx.fillStyle = hexAlpha(cssVar('--muted'), 0.12);
+        ctx.strokeStyle = cssVar('--muted');
+      }
+      ctx.lineWidth = 1.5;
+      roundRect(x0, y0, x1 - x0, y1 - y0, 6);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = isGate ? (open ? cssVar('--accent-b') : cssVar('--accent-a')) : cssVar('--ink');
+      ctx.font = '9px ui-monospace, monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      wrapText(label, (x0 + x1) / 2, yc, x1 - x0 - 8);
+      ctx.restore();
+    }
+
+    function roundRect(x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+    }
+
+    function wrapText(text, cx, cy, maxWidth) {
+      var words = text.split(' ');
+      var lines = [];
+      var line = '';
+      for (var i = 0; i < words.length; i++) {
+        var test = line ? line + ' ' + words[i] : words[i];
+        if (ctx.measureText(test).width > maxWidth && line) {
+          lines.push(line);
+          line = words[i];
+        } else {
+          line = test;
+        }
+      }
+      if (line) lines.push(line);
+      var lh = 10.5;
+      var startY = cy - ((lines.length - 1) * lh) / 2;
+      for (var j = 0; j < lines.length; j++) {
+        ctx.fillText(lines[j], cx, startY + j * lh);
+      }
+    }
+
+    function arrow(x0, x1, y) {
+      ctx.save();
+      ctx.strokeStyle = cssVar('--border');
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(x0, y);
+      ctx.lineTo(x1, y);
+      ctx.stroke();
+      ctx.fillStyle = cssVar('--border');
+      ctx.beginPath();
+      ctx.moveTo(x1, y);
+      ctx.lineTo(x1 - 6, y - 4);
+      ctx.lineTo(x1 - 6, y + 4);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+
+      ctx.fillStyle = cssVar('--muted');
+      ctx.font = '9px ui-monospace, monospace';
+      ctx.textAlign = 'left';
+      ctx.fillText('DIRECT IMPORT', 8, LANE_A_Y - 34);
+      ctx.fillText('CLOUD RENTAL', 8, LANE_B_Y - 34);
+
+      // Lane A: direct import
+      box(START_X0, START_X1, LANE_A_Y, 'NVIDIA H200');
+      arrow(START_X1 + 2, GATE_US[0] - 2, LANE_A_Y);
+      box(GATE_US[0], GATE_US[1], LANE_A_Y, 'US LICENSE', gates.us);
+      arrow(GATE_US[1] + 2, GATE_BEIJING[0] - 2, LANE_A_Y);
+      box(GATE_BEIJING[0], GATE_BEIJING[1], LANE_A_Y, 'BEIJING CUSTOMS', gates.beijing);
+      arrow(GATE_BEIJING[1] + 2, GATE_NVIDIA[0] - 2, LANE_A_Y);
+      box(GATE_NVIDIA[0], GATE_NVIDIA[1], LANE_A_Y, 'NVIDIA SHIPS', gates.nvidia);
+      arrow(GATE_NVIDIA[1] + 2, END_X0 - 2, LANE_A_Y);
+      box(END_X0, END_X1, LANE_A_Y, 'CHINA AI LAB');
+
+      // Lane B: cloud rental
+      box(START_X0, START_X1, LANE_B_Y, 'NVIDIA H200');
+      arrow(START_X1 + 2, GATE_CLOUD[0] - 2, LANE_B_Y);
+      box(GATE_CLOUD[0], GATE_CLOUD[1], LANE_B_Y, '3RD-COUNTRY DATA CENTER LICENSE', gates.cloud);
+      arrow(GATE_CLOUD[1] + 2, END_X0 - 2, LANE_B_Y);
+      box(END_X0, END_X1, LANE_B_Y, 'CHINA AI LAB');
+
+      if (token) {
+        ctx.save();
+        var color = token.status === 'blocked' ? cssVar('--accent-a') : (token.status === 'delivered' ? cssVar('--accent-b') : cssVar('--ink'));
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(token.x, token.y, 7, 0, Math.PI * 2);
+        ctx.fill();
+        if (token.status === 'blocked') {
+          ctx.strokeStyle = '#ffffff';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(token.x - 3, token.y - 3); ctx.lineTo(token.x + 3, token.y + 3);
+          ctx.moveTo(token.x + 3, token.y - 3); ctx.lineTo(token.x - 3, token.y + 3);
+          ctx.stroke();
+        } else if (token.status === 'delivered') {
+          ctx.strokeStyle = '#ffffff';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(token.x - 3, token.y);
+          ctx.lineTo(token.x - 1, token.y + 3);
+          ctx.lineTo(token.x + 3, token.y - 3);
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+    }
+
+    function laneSequence(laneKey) {
+      if (laneKey === 'direct') {
+        return {
+          y: LANE_A_Y,
+          stops: [
+            { x: START_X1, key: null },
+            { x: (GATE_US[0] + GATE_US[1]) / 2, key: 'us' },
+            { x: (GATE_BEIJING[0] + GATE_BEIJING[1]) / 2, key: 'beijing' },
+            { x: (GATE_NVIDIA[0] + GATE_NVIDIA[1]) / 2, key: 'nvidia' },
+            { x: END_X0, key: null }
+          ]
+        };
+      }
+      return {
+        y: LANE_B_Y,
+        stops: [
+          { x: START_X1, key: null },
+          { x: (GATE_CLOUD[0] + GATE_CLOUD[1]) / 2, key: 'cloud' },
+          { x: END_X0, key: null }
+        ]
+      };
+    }
+
+    function finalOutcome(laneKey) {
+      var seq = laneSequence(laneKey);
+      for (var i = 0; i < seq.stops.length; i++) {
+        var key = seq.stops[i].key;
+        if (key && !gates[key]) {
+          return { blocked: true, key: key, x: seq.stops[i].x, y: seq.y };
+        }
+      }
+      var last = seq.stops[seq.stops.length - 1];
+      return { blocked: false, x: last.x, y: seq.y };
+    }
+
+    function setLast(text) {
+      statLast.textContent = text;
+    }
+
+    function finishRun(laneKey, outcome) {
+      if (outcome.blocked) {
+        token = { x: outcome.x, y: outcome.y, status: 'blocked' };
+        var routeName = laneKey === 'direct' ? 'Direct import' : 'Cloud rental';
+        setLast(routeName + ' — blocked');
+        explain.innerHTML = 'Blocked at <strong>' + gateLabels[outcome.key] + '</strong>. ' + blockMessage(outcome.key);
+      } else {
+        token = { x: outcome.x, y: outcome.y, status: 'delivered' };
+        delivered++;
+        statDelivered.textContent = String(delivered);
+        var routeName2 = laneKey === 'direct' ? 'Direct import' : 'Cloud rental';
+        setLast(routeName2 + ' — delivered');
+        explain.textContent = 'Delivered. Every gate on this route is open right now, so the chip reaches the lab.';
+      }
+      draw();
+    }
+
+    function blockMessage(key) {
+      if (key === 'us') return 'Washington has not approved an export license for this chip class.';
+      if (key === 'beijing') return 'As reported in mid-November 2026, Beijing has not cleared large-volume H200 imports onto the mainland — roughly 600,000 units reportedly sit in Hong Kong bonded warehouses.';
+      if (key === 'nvidia') return 'Nvidia itself has stopped shipping licensed Hopper-class chips to China, as disclosed on its Nov 17, 2026 earnings call, without explaining why.';
+      if (key === 'cloud') return 'A new U.S. rule effective Nov 19, 2026 now requires a license for this volume of remote compute access from a third-country data center.';
+      return '';
+    }
+
+    function runLane(laneKey) {
+      if (animBusy) return;
+      var outcome = finalOutcome(laneKey);
+      if (reduceMotion) {
+        finishRun(laneKey, outcome);
+        return;
+      }
+      animBusy = true;
+      runDirectBtn.disabled = true;
+      runCloudBtn.disabled = true;
+      var seq = laneSequence(laneKey);
+      var stopIdx = 1;
+      // find index of blocking stop, or go to final stop
+      for (var i = 1; i < seq.stops.length; i++) {
+        var key = seq.stops[i].key;
+        stopIdx = i;
+        if (key && !gates[key]) break;
+        if (i === seq.stops.length - 1) break;
+      }
+      var segIndex = 0;
+      var segStart = seq.stops[0];
+      var segEnd = seq.stops[1];
+      var segT = 0;
+      var SEG_MS = 420;
+      token = { x: segStart.x, y: seq.y, status: 'moving' };
+
+      function step() {
+        segT += 16 / SEG_MS;
+        if (segT >= 1) {
+          segT = 1;
+        }
+        token.x = segStart.x + (segEnd.x - segStart.x) * segT;
+        draw();
+        if (segT >= 1) {
+          if (segIndex >= stopIdx - 1) {
+            var outcome2 = finalOutcome(laneKey);
+            animBusy = false;
+            runDirectBtn.disabled = false;
+            runCloudBtn.disabled = false;
+            finishRun(laneKey, outcome2);
+            return;
+          }
+          segIndex++;
+          segStart = seq.stops[segIndex];
+          segEnd = seq.stops[segIndex + 1];
+          segT = 0;
+        }
+        rafId = requestAnimationFrame(step);
+      }
+      rafId = requestAnimationFrame(step);
+    }
+
+    function resetGates() {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      animBusy = false;
+      runDirectBtn.disabled = false;
+      runCloudBtn.disabled = false;
+      gates.us = REAL_STATE.us;
+      gates.beijing = REAL_STATE.beijing;
+      gates.nvidia = REAL_STATE.nvidia;
+      gates.cloud = REAL_STATE.cloud;
+      for (var k in gateBtns) { updateGateButton(k); }
+      updateStatOpen();
+      token = null;
+      setLast('None yet');
+      explain.textContent = 'Toggle a gate, or press a route button to send a chip. As reported, the direct-import route is blocked at Beijing customs, and the cloud-rental route is blocked by a new U.S. rule effective November 19, 2026 — so right now, neither route delivers.';
+      draw();
+    }
+
+    Object.keys(gateBtns).forEach(function (key) {
+      gateBtns[key].addEventListener('click', function () {
+        gates[key] = !gates[key];
+        updateGateButton(key);
+        updateStatOpen();
+        token = null;
+        draw();
+      });
+    });
+
+    runDirectBtn.addEventListener('click', function () { runLane('direct'); });
+    runCloudBtn.addEventListener('click', function () { runLane('cloud'); });
+    resetBtn.addEventListener('click', resetGates);
+
+    for (var k0 in gateBtns) { updateGateButton(k0); }
+    updateStatOpen();
+    draw();
+  })();
+</script>
+</body>
+</html>
