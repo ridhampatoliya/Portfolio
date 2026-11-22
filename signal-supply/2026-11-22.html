@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-22","category":"GRID BATTERIES","headline":"Tariffs on Chinese Grid Batteries Hit 55% This Year. The Rule That Could Restrict Them Outright Lands in 32 Days","summary":"US tariffs on Chinese grid batteries jumped from about 37.5% to 55% in January 2026. China still supplies roughly half of US lithium battery imports by value, and a security rule due December 24 could restrict Chinese battery storage outright just as AI data centers drive record demand for it.","whyItMatters":"AI's grid buildout now runs through a battery supply chain that's about 80% Chinese — and a national-security rule landing in a month could decide which batteries are even legal to install."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; The Grid Battery Rule Landing in 32 Days</title>
+<meta name="description" content="US tariffs on Chinese grid-scale batteries jumped from about 37.5% to 55% in January 2026. A national-security rule due December 24 could restrict Chinese battery storage outright, right as AI data centers drive record demand for it." />
+<style>
+  :root {
+    --bg: #eef1f4;
+    --surface: #ffffff;
+    --ink: #13181d;
+    --muted: #59636e;
+    --border: #dde3e9;
+    --accent-a: #b5611a;
+    --accent-a-tint: #f6e4cf;
+    --accent-b: #1f7a73;
+    --accent-b-tint: #dcefec;
+    --shadow: 0 1px 2px rgba(19, 24, 29, 0.04), 0 8px 24px rgba(19, 24, 29, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #f0a850;
+      --accent-a-tint: #352610;
+      --accent-b: #4fd1c0;
+      --accent-b-tint: #0e2a27;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #f0a850;
+    --accent-a-tint: #352610;
+    --accent-b: #4fd1c0;
+    --accent-b-tint: #0e2a27;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f4;
+    --surface: #ffffff;
+    --ink: #13181d;
+    --muted: #59636e;
+    --border: #dde3e9;
+    --accent-a: #b5611a;
+    --accent-a-tint: #f6e4cf;
+    --accent-b: #1f7a73;
+    --accent-b-tint: #dcefec;
+    --shadow: 0 1px 2px rgba(19, 24, 29, 0.04), 0 8px 24px rgba(19, 24, 29, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the tariff + chokepoint stack --- */
+  .ws-header { margin-bottom: 4px; }
+  .ws-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .ws-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .stack-visual-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+  }
+  #stack-canvas { display: block; width: 100%; height: auto; border-radius: 6px; }
+
+  .stage-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+  .stage-btn {
+    flex: 1 1 auto;
+    min-width: 150px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 9px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+  }
+  .stage-btn[aria-pressed="true"] {
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    border-color: var(--accent-b);
+  }
+
+  .ws-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ws-btn {
+    border: 1px solid var(--accent-a);
+    background: transparent;
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .ws-btn.primary { background: var(--accent-a); color: #fff; border-color: var(--accent-a); }
+  .ws-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  .ws-stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .ws-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 10px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .ws-stat-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  .ws-stat-value {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .ws-stat-value.warn { color: var(--accent-a); }
+  .ws-stat-value.good { color: var(--accent-b); }
+
+  .ws-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 3.2em;
+  }
+  .ws-note strong { color: var(--accent-a); }
+
+  @media (max-width: 480px) {
+    .ws-stats { grid-template-columns: repeat(1, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 22, 2026</span>
+    <span class="category-chip">GRID BATTERIES</span>
+  </div>
+  <h1>Tariffs on Chinese Grid Batteries Hit 55% This Year. The Rule That Could Restrict Them Outright Lands in 32 Days.</h1>
+  <p class="lede">The battery packs that store solar power overnight, smooth out a shaky grid, and increasingly back up AI data centers almost all use the same chemistry &mdash; and the US still gets roughly half of them, by value, from China. Washington just gave itself until December 24 to decide which ones it will still allow onto the grid.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    This isn't just a tariff story &mdash; it's a price shock stacked on top of a looming availability shock. Even a Chinese-made grid battery that clears customs at a now-55% tariff could still be restricted from federally connected projects or clean-energy tax credits once the Department of Energy's national-security rule lands, regardless of what it costs.
+  </div>
+
+  <div class="card stack-visual-wrap-outer">
+    <div class="ws-header">
+      <h2 class="ws-title">Same battery, same year, two separate chokepoints. Step through what happened to it.</h2>
+      <p class="ws-caption mono">Illustrative cost stack, not a live price feed. The $75/kWh base is a trade-press estimate of the delivered cost of a Chinese-made lithium-ion storage cell; tariff rates are as reported for 2025 vs. the Jan. 1, 2026 increase. Step through the three stages to see a pure price shock (tariffs) followed by a different kind of shock &mdash; a national-security rule that can restrict use regardless of price.</p>
+    </div>
+
+    <div class="stack-visual-wrap">
+      <canvas id="stack-canvas" width="640" height="300" role="img" aria-label="A bar chart showing the landed cost per kilowatt-hour of a Chinese-made grid battery cell rising from about 103 dollars before 2026 to about 116 dollars after a January 2026 tariff increase, followed by a pending December 2026 national-security rule that could restrict use of the battery regardless of its price."></canvas>
+    </div>
+
+    <div class="stage-row" role="group" aria-label="Timeline stages">
+      <button type="button" class="stage-btn" id="stage-0" aria-pressed="true">PRE-2026 TARIFFS</button>
+      <button type="button" class="stage-btn" id="stage-1" aria-pressed="false">NOW: JAN. 2026 HIKE</button>
+      <button type="button" class="stage-btn" id="stage-2" aria-pressed="false">PENDING: DEC. 24 RULE</button>
+    </div>
+
+    <div class="ws-controls">
+      <button type="button" class="ws-btn" id="stage-prev">&#8592; Prev</button>
+      <button type="button" class="ws-btn primary" id="stage-next">Next &#8594;</button>
+      <button type="button" class="ws-btn" id="stage-reset">&#8634; Reset</button>
+    </div>
+
+    <div class="ws-stats">
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">TARIFF RATE</span>
+        <span class="ws-stat-value tabular" id="stat-tariff">37.5%</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">LANDED COST / KWH</span>
+        <span class="ws-stat-value tabular" id="stat-cost">$103</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">STATUS</span>
+        <span class="ws-stat-value" id="stat-status" style="font-size:12px;">Tariffed, legal to import</span>
+      </div>
+    </div>
+
+    <div class="ws-note" id="stack-explain" aria-live="polite">Before January 1, 2026: combined Section 301 and existing duties put tariffs on Chinese lithium batteries and BESS products at roughly 37.5%, on top of an estimated $75/kWh delivered cell cost.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Think about what actually backs up the grid when the sun goes down, or when an AI data center needs power the instant a utility can't deliver it: a shipping-container-sized box full of lithium batteries, built almost the same way whether it's serving your neighborhood or a hyperscale server farm. For the past few years, the cheapest and most popular version of that box has used a battery chemistry called LFP (lithium iron phosphate) &mdash; safer and cheaper than the kind in your phone, and overwhelmingly made in China.</p>
+      <p>That's been a quiet dependency for a while, and it just got loud. On January 1, 2026, U.S. tariffs on Chinese-made batteries and battery storage systems jumped from around 37.5% to around 55% &mdash; meaning a battery that cost roughly $75 per unit of storage before now effectively costs well over $115 once it clears customs. Then in August, the White House went further: it declared a national emergency over foreign-made equipment on the power grid, naming battery storage systems specifically, and gave the Department of Energy 120 days to write rules on what's actually allowed. That clock runs out December 24, 2026 &mdash; 32 days from today.</p>
+      <p>Nobody yet knows exactly what those rules will say. But the stakes are real: researchers at Rystad Energy estimate China supplied roughly half of all U.S. lithium-ion battery imports by value in the year through last June. A handful of American and Korean-owned factories, in Indiana and Tennessee, started making this battery chemistry domestically this year, but nowhere near at the scale needed to replace Chinese supply fast. If the new rule restricts Chinese batteries further, it won't just make them pricier &mdash; in some cases, it could make them simply off-limits, right as AI data centers and grid operators need more of them than ever.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Grid-scale battery energy storage systems (BESS) overwhelmingly use lithium iron phosphate (LFP) cells rather than the nickel-based chemistries common in EVs and consumer electronics, because LFP trades some energy density for a flatter discharge curve, better thermal stability, and lower fire-propagation risk when racked densely in a stationary enclosure. Industry trackers put LFP at roughly 92% of new U.S. BESS deployments in 2026, up from about 77% in 2023, and China is estimated to account for more than 80% of global lithium-ion cell manufacturing capacity, with LFP cell production concentrated there even more heavily.</p>
+      <p>Two distinct trade-policy actions are now compounding on top of that concentration. First, a scheduled Section 301 tariff increase on non-EV lithium-ion batteries took effect for goods entered on or after January 1, 2026; trade press reported combined tariffs on Chinese batteries and BESS products rising from roughly 37.5% to roughly 55% at that date, on top of a delivered cell cost industry sources put around $75/kWh &mdash; implying a landed cost north of $115/kWh before freight, installation, and interconnection are added. Second, and separately, a presidential executive order signed August 26, 2026 declared a national emergency over foreign-produced equipment connected to the bulk power system, naming battery energy storage systems, grid-connected inverters, and uninterruptible power supplies as covered equipment. That order directs the Department of Energy to issue implementing rules within 120 days, a deadline landing December 24, 2026, and separate "foreign entity of concern" restrictions under the 2025 tax law already disqualify some China-linked storage projects from investment and production tax credits.</p>
+      <p>Critically, these two instruments work through different mechanisms: a tariff raises price but leaves a product legal to import, while a national-security determination under the executive order could restrict specific equipment on security grounds regardless of price. As of this writing, DOE's implementing rule hasn't been published, so its scope &mdash; which project types, which equipment classes, whether existing installations are grandfathered &mdash; is the open variable. Domestic capacity is ramping: Samsung SDI began LFP production at its Indiana facility in October 2026, and Ultium Cells started LFP stationary-storage cell production in Tennessee in July. Neither yet approaches the scale of Chinese imports, which Rystad Energy put at roughly 50% of all U.S. lithium-ion battery import value in the twelve months through June 2026.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> AI's grid buildout now runs through a battery supply chain that's roughly 80% Chinese &mdash; and a rule landing in a month could decide which batteries are even legal to install, not just how much they cost.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> A tariff and a national-security determination are different tools that happen to be landing on the same product in the same year &mdash; one prices Chinese LFP storage out, the other could disqualify it outright, just as hyperscale power demand makes grid batteries more strategically important than ever.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.rystadenergy.com/news/us-executive-order-targets-chinese-grid-hardware-but-battery-storage-serving-ai-d" target="_blank" rel="noopener">Rystad Energy &mdash; "US Executive Order Targets Chinese Grid Hardware, but Battery Storage Serving AI Data Centers Is More Exposed"</a></li>
+    <li><a href="https://source.benchmarkminerals.com/article/us-battery-imports-fall-to-five-year-low-after-section-301-tariffs-raised-to-25-" target="_blank" rel="noopener">Benchmark Minerals &mdash; "US Battery Imports Fall to Five-Year Low After Section 301 Tariffs Raised to 25%"</a></li>
+    <li><a href="https://www.energy.gov/node/4860229" target="_blank" rel="noopener">U.S. Department of Energy &mdash; "Declaring a National Emergency to Secure the United States Bulk-Power System" Executive Order</a></li>
+    <li><a href="https://seia.org/research-resources/energy-storage-market-outlook-q4-2026/" target="_blank" rel="noopener">SEIA / Wood Mackenzie &mdash; Energy Storage Market Outlook, Q4 2026</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var canvas = document.getElementById('stack-canvas');
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width, H = canvas.height;
+
+    var BASE_COST = 75; // $/kWh delivered cell cost, illustrative trade-press estimate
+    var STAGES = [
+      {
+        key: 0,
+        tariffPct: 37.5,
+        cost: Math.round(BASE_COST * 1.375),
+        statusShort: 'Tariffed, legal to import',
+        restricted: false,
+        label: 'PRE-2026 TARIFFS',
+        note: 'Before January 1, 2026: combined Section 301 and existing duties put tariffs on Chinese lithium batteries and BESS products at roughly 37.5%, on top of an estimated $75/kWh delivered cell cost.'
+      },
+      {
+        key: 1,
+        tariffPct: 55,
+        cost: Math.round(BASE_COST * 1.55),
+        statusShort: 'Tariffed, legal to import',
+        restricted: false,
+        label: 'NOW: JAN. 2026 HIKE',
+        note: 'A scheduled Section 301 increase pushed total tariffs on Chinese-made batteries and BESS equipment to roughly 55% on January 1, 2026, raising the landed cost of that same cell past $115/kWh.'
+      },
+      {
+        key: 2,
+        tariffPct: 55,
+        cost: Math.round(BASE_COST * 1.55),
+        statusShort: 'Under national-security review',
+        restricted: true,
+        label: 'PENDING: DEC. 24 RULE',
+        note: 'A national-security executive order signed in August 2026 could restrict or disqualify Chinese-linked battery storage equipment on security grounds, <strong>regardless of tariff status</strong>. The implementing rule is due December 24, 2026, and hasn\'t been published yet, so its exact scope is still unknown.'
+      }
+    ];
+
+    var stageBtns = [
+      document.getElementById('stage-0'),
+      document.getElementById('stage-1'),
+      document.getElementById('stage-2')
+    ];
+    var prevBtn = document.getElementById('stage-prev');
+    var nextBtn = document.getElementById('stage-next');
+    var resetBtn = document.getElementById('stage-reset');
+    var statTariff = document.getElementById('stat-tariff');
+    var statCost = document.getElementById('stat-cost');
+    var statStatus = document.getElementById('stat-status');
+    var explain = document.getElementById('stack-explain');
+
+    var current = 0;
+    var MAX_COST_SCALE = 140; // top of chart, $/kWh
+
+    function cssVar(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || '#888888';
+    }
+    function hexToRgb(hex) {
+      hex = hex.replace('#', '');
+      if (hex.length === 3) hex = hex.split('').map(function (c) { return c + c; }).join('');
+      var num = parseInt(hex, 16);
+      return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+    }
+    function hexAlpha(hex, a) {
+      var c = hexToRgb(hex);
+      return 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + a + ')';
+    }
+    function roundRect(x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+    }
+
+    function draw(stageIdx) {
+      var s = STAGES[stageIdx];
+      ctx.clearRect(0, 0, W, H);
+
+      var chartX = 60, chartW = 420, chartBottom = 250, chartTop = 30;
+      var chartH = chartBottom - chartTop;
+
+      // axis labels
+      ctx.fillStyle = cssVar('--muted');
+      ctx.font = '10px ui-monospace, monospace';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillText('LANDED COST ($ / KWH, ILLUSTRATIVE)', chartX, 16);
+
+      // gridlines at 0/50/100/140
+      [0, 50, 100, 140].forEach(function (v) {
+        var y = chartBottom - (v / MAX_COST_SCALE) * chartH;
+        ctx.strokeStyle = hexAlpha(cssVar('--border'), 0.9);
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(chartX, y);
+        ctx.lineTo(chartX + chartW, y);
+        ctx.stroke();
+        ctx.fillStyle = cssVar('--muted');
+        ctx.font = '9px ui-monospace, monospace';
+        ctx.textAlign = 'right';
+        ctx.fillText('$' + v, chartX - 6, y + 3);
+      });
+
+      // bar: base cost segment + tariff segment
+      var barW = 120;
+      var barX = chartX + 70;
+      var baseH = (BASE_COST / MAX_COST_SCALE) * chartH;
+      var totalH = (s.cost / MAX_COST_SCALE) * chartH;
+      var tariffH = totalH - baseH;
+      var baseY = chartBottom - baseH;
+      var totalY = chartBottom - totalH;
+
+      ctx.globalAlpha = s.restricted ? 0.45 : 1;
+
+      ctx.fillStyle = cssVar('--accent-b');
+      roundRect(barX, baseY, barW, baseH, 4);
+      ctx.fill();
+
+      ctx.fillStyle = cssVar('--accent-a');
+      roundRect(barX, totalY, barW, tariffH, 4);
+      ctx.fill();
+
+      ctx.globalAlpha = 1;
+
+      // total cost label
+      ctx.fillStyle = cssVar('--ink');
+      ctx.font = 'bold 15px ui-monospace, monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('$' + s.cost, barX + barW / 2, totalY - 10);
+
+      // legend
+      var legendX = chartX + chartW - 150, legendY = 40;
+      ctx.font = '10px ui-monospace, monospace';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = cssVar('--accent-b');
+      ctx.fillRect(legendX, legendY - 5, 10, 10);
+      ctx.fillStyle = cssVar('--muted');
+      ctx.fillText('Base cell cost ($75)', legendX + 16, legendY);
+      ctx.fillStyle = cssVar('--accent-a');
+      ctx.fillRect(legendX, legendY + 16, 10, 10);
+      ctx.fillStyle = cssVar('--muted');
+      ctx.fillText('Tariff markup', legendX + 16, legendY + 21);
+
+      // restriction overlay
+      if (s.restricted) {
+        ctx.save();
+        ctx.strokeStyle = cssVar('--accent-a');
+        ctx.lineWidth = 2;
+        roundRect(barX - 10, totalY - 10, barW + 20, (chartBottom - totalY) + 10, 8);
+        ctx.stroke();
+
+        ctx.fillStyle = cssVar('--accent-a');
+        ctx.font = 'bold 20px ui-monospace, monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText('?', barX + barW / 2, totalY - 26);
+        ctx.restore();
+      }
+
+      // right-side status panel
+      var panelX = chartX + chartW + 20, panelW = W - panelX - 10;
+      ctx.fillStyle = hexAlpha(cssVar('--border'), 0.6);
+      roundRect(panelX, chartTop, panelW, 170, 8);
+      ctx.fill();
+
+      ctx.fillStyle = cssVar('--muted');
+      ctx.font = '9px ui-monospace, monospace';
+      ctx.textAlign = 'left';
+      ctx.fillText('STAGE', panelX + 12, chartTop + 20);
+      ctx.fillStyle = cssVar('--ink');
+      ctx.font = 'bold 11px ui-monospace, monospace';
+      wrapText(s.label, panelX + 12, chartTop + 38, panelW - 24, 13);
+
+      ctx.fillStyle = cssVar('--muted');
+      ctx.font = '9px ui-monospace, monospace';
+      ctx.fillText('TARIFF', panelX + 12, chartTop + 78);
+      ctx.fillStyle = cssVar('--accent-a');
+      ctx.font = 'bold 13px ui-monospace, monospace';
+      ctx.fillText(s.tariffPct + '%', panelX + 12, chartTop + 96);
+
+      ctx.fillStyle = cssVar('--muted');
+      ctx.font = '9px ui-monospace, monospace';
+      ctx.fillText('STATUS', panelX + 12, chartTop + 118);
+      ctx.fillStyle = s.restricted ? cssVar('--accent-a') : cssVar('--accent-b');
+      ctx.font = 'bold 10px ui-monospace, monospace';
+      wrapText(s.statusShort, panelX + 12, chartTop + 136, panelW - 24, 12);
+    }
+
+    function wrapText(text, x, y, maxWidth, lineHeight) {
+      var words = text.split(' ');
+      var line = '';
+      var cy = y;
+      for (var i = 0; i < words.length; i++) {
+        var test = line ? line + ' ' + words[i] : words[i];
+        if (ctx.measureText(test).width > maxWidth && line) {
+          ctx.fillText(line, x, cy);
+          line = words[i];
+          cy += lineHeight;
+        } else {
+          line = test;
+        }
+      }
+      if (line) ctx.fillText(line, x, cy);
+    }
+
+    function updateStageButtons() {
+      stageBtns.forEach(function (btn, i) {
+        btn.setAttribute('aria-pressed', String(i === current));
+      });
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === STAGES.length - 1;
+    }
+
+    function render() {
+      var s = STAGES[current];
+      statTariff.textContent = s.tariffPct + '%';
+      statCost.textContent = '$' + s.cost;
+      statStatus.textContent = s.statusShort;
+      statStatus.style.color = s.restricted ? cssVar('--accent-a') : '';
+      explain.innerHTML = s.note;
+      updateStageButtons();
+      draw(current);
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(STAGES.length - 1, idx));
+      render();
+    }
+
+    stageBtns.forEach(function (btn, i) {
+      btn.addEventListener('click', function () { goTo(i); });
+    });
+    prevBtn.addEventListener('click', function () { goTo(current - 1); });
+    nextBtn.addEventListener('click', function () { goTo(current + 1); });
+    resetBtn.addEventListener('click', function () { goTo(0); });
+
+    document.addEventListener('keydown', function (e) {
+      var tag = (e.target && e.target.tagName) || '';
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+      if (e.key === 'ArrowRight') goTo(current + 1);
+      if (e.key === 'ArrowLeft') goTo(current - 1);
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
