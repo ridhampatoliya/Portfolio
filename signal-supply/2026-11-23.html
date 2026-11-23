@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-23","category":"BATTERY RECYCLING","headline":"America Makes an Estimated 60,000 Tons of Battery-Recycling ‘Black Mass’ a Year. It Just Banned Exporting It — and Can Refine Well Under Half of That at Home","summary":"In August, Washington banned exporting black mass — the metal-rich powder left from shredding dead lithium-ion batteries — to keep critical minerals onshore. But domestic refiners can process only a fraction of what US recyclers produce each year, straining an industry already hit by bankruptcies.","whyItMatters":"A policy meant to keep critical minerals in America could instead strand them: recyclers feeding the next generation of EV and grid batteries just lost their main buyer, and domestic refiners aren't built out yet to replace it."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; America's Battery Recycling Bottleneck</title>
+<meta name="description" content="Washington just banned exporting black mass, the metal-rich powder left from shredding dead lithium-ion batteries, to keep critical minerals onshore. Domestic refiners can process only a fraction of what gets produced each year." />
+<style>
+  :root {
+    --bg: #f1efe9;
+    --surface: #ffffff;
+    --ink: #17150f;
+    --muted: #6a6356;
+    --border: #e2ddd1;
+    --accent-a: #a8541f;
+    --accent-a-tint: #f3e0d0;
+    --accent-b: #1f7a5c;
+    --accent-b-tint: #dcefe6;
+    --shadow: 0 1px 2px rgba(23, 21, 15, 0.04), 0 8px 24px rgba(23, 21, 15, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e0d0a;
+      --surface: #19170f;
+      --ink: #f2efe6;
+      --muted: #a39a89;
+      --border: #2c2819;
+      --accent-a: #e68c4e;
+      --accent-a-tint: #3a2512;
+      --accent-b: #4fc79a;
+      --accent-b-tint: #0f2a21;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e0d0a;
+    --surface: #19170f;
+    --ink: #f2efe6;
+    --muted: #a39a89;
+    --border: #2c2819;
+    --accent-a: #e68c4e;
+    --accent-a-tint: #3a2512;
+    --accent-b: #4fc79a;
+    --accent-b-tint: #0f2a21;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #f1efe9;
+    --surface: #ffffff;
+    --ink: #17150f;
+    --muted: #6a6356;
+    --border: #e2ddd1;
+    --accent-a: #a8541f;
+    --accent-a-tint: #f3e0d0;
+    --accent-b: #1f7a5c;
+    --accent-b-tint: #dcefe6;
+    --shadow: 0 1px 2px rgba(23, 21, 15, 0.04), 0 8px 24px rgba(23, 21, 15, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the stranded-backlog bathtub --- */
+  .ws-header { margin-bottom: 4px; }
+  .ws-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .ws-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .warp-visual-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+  }
+  #warp-canvas { display: block; width: 100%; height: auto; border-radius: 6px; }
+
+  .slider-row { margin-top: 16px; }
+  .slider-label {
+    display: flex;
+    justify-content: space-between;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  #month-slider { width: 100%; accent-color: var(--accent-b); }
+
+  .ws-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ws-btn {
+    border: 1px solid var(--accent-a);
+    background: transparent;
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .ws-btn.primary { background: var(--accent-a); color: #fff; border-color: var(--accent-a); }
+  .ws-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  .ws-stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .ws-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 10px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .ws-stat-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  .ws-stat-value {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .ws-stat-value.warn { color: var(--accent-a); }
+  .ws-stat-value.good { color: var(--accent-b); }
+
+  .ws-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 3.2em;
+  }
+  .ws-note strong { color: var(--accent-a); }
+
+  @media (max-width: 480px) {
+    .ws-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 23, 2026</span>
+    <span class="category-chip">BATTERY RECYCLING</span>
+  </div>
+  <h1>America Makes an Estimated 60,000 Tons of Battery-Recycling "Black Mass" a Year. It Just Banned Exporting It &mdash; and Can Refine Well Under Half of That at Home.</h1>
+  <p class="lede">Shred a dead EV or grid battery and you get a dark, metal-rich powder called black mass &mdash; the raw material for the next battery, if someone can refine it. In August, Washington banned shipping that powder overseas to keep its lithium, cobalt and nickel onshore. The catch: American refiners were never built to process anywhere near all of it.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    This isn't a story about running out of critical minerals &mdash; the US arguably has too much black mass, not too little. The ban removed the export market that used to clear the surplus. Until domestic refining capacity catches up, which could take years, the material has nowhere obvious to go.
+  </div>
+
+  <div class="card warp-visual-wrap-outer">
+    <div class="ws-header">
+      <h2 class="ws-title">Drag through the ban's first year. Watch the backlog build.</h2>
+      <p class="ws-caption mono">Illustrative model, not an official forecast: assumes black mass keeps accumulating at S&amp;P Global's estimated pace of about 60,000 metric tons a year, against its estimated domestic refining capacity of about 25,000 metric tons a year &mdash; both industry estimates, since no official figures are public. Other analysts peg domestic refining capacity far lower (the Union of Concerned Scientists estimates closer to 7,000 metric tons against 65,000 metric tons of feedstock). Before the ban, the gap above domestic refining capacity mostly went to Chinese and South Korean refiners.</p>
+    </div>
+
+    <div class="warp-visual-wrap">
+      <canvas id="warp-canvas" width="640" height="300" role="img" aria-label="A chart showing cumulative black mass produced in the US rising steadily over the 12 months after the August 2026 export ban, domestic refining absorbing only part of it, and a stranded backlog of unrefined material growing to roughly 35,000 metric tons by month 12."></canvas>
+    </div>
+
+    <div class="slider-row">
+      <div class="slider-label">
+        <span>MONTHS SINCE THE BAN (AUG. 27, 2026)</span>
+        <span id="month-readout" class="tabular">6 months</span>
+      </div>
+      <input type="range" id="month-slider" min="0" max="12" value="6" step="1" aria-label="Months since the August 2026 export ban" />
+    </div>
+
+    <div class="ws-controls">
+      <button type="button" class="ws-btn primary" id="warp-run">&#9654; Run</button>
+      <button type="button" class="ws-btn" id="warp-reset">&#8634; Reset</button>
+    </div>
+
+    <div class="ws-stats">
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">MONTHS</span>
+        <span class="ws-stat-value tabular" id="stat-month">6</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">PRODUCED (TONS)</span>
+        <span class="ws-stat-value tabular" id="stat-produced">30,000</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">REFINED (TONS)</span>
+        <span class="ws-stat-value tabular" id="stat-refined">12,500</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">STRANDED BACKLOG</span>
+        <span class="ws-stat-value warn tabular" id="stat-backlog">17,500 t</span>
+      </div>
+    </div>
+
+    <div class="ws-note" id="warp-explain" aria-live="polite">Six months into the ban, roughly 30,000 tons of black mass have been produced domestically. Refiners have processed less than half of it &mdash; the rest sits in a growing stockpile with no export outlet.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>When an EV or grid battery dies, recyclers don't throw it out &mdash; they shred it into a dark, dense powder called black mass, packed with the same lithium, cobalt, nickel and graphite that went into the battery in the first place. Turning that powder back into battery-grade material takes a specialized refinery, and the US simply hasn't built very many. For years, the practical answer was to ship surplus black mass overseas &mdash; mostly to refiners in China and South Korea &mdash; who had the furnaces and chemical plants to finish the job.</p>
+      <p>That pipeline just got cut. In August 2026, the Trump administration invoked the Defense Production Act and had the Commerce Department ban exports of black mass (and separately, tungsten scrap) for one year, through August 2027, with case-by-case exceptions. The goal is straightforward: stop critical minerals from leaving the country, and starve a Chinese refining industry the US has spent years trying to compete with.</p>
+      <p>The problem is capacity, not intent. By one widely cited estimate, the US produces roughly 60,000 tons of black mass a year but can only refine around 25,000 tons of it domestically &mdash; other analysts think the real gap is even wider. That mismatch lands on a sector already bruised: two of the most prominent US battery recyclers, Li-Cycle and Ascend Elements, both went bankrupt within the past year, and their plants have since changed hands. A ban meant to lock critical minerals inside US borders could, in the short run, mostly just strand them in a warehouse.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Black mass is the intermediate product of mechanically shredding end-of-life lithium-ion cells and battery-manufacturing scrap: a dark powder reported to make up roughly 40&ndash;50% of a cell's total weight, containing recoverable lithium (sample estimates run roughly 2&ndash;6% by weight), cobalt (5&ndash;20%), nickel (5&ndash;15%), manganese, copper, aluminum, and graphite from the anode (reported as high as ~40% by weight in at least one industrial sample). Composition varies substantially by cell chemistry and feedstock, and there's no single standardized assay. Shredding (pre-processing) is far less capital-intensive than the hydrometallurgical or pyrometallurgical refining that converts black mass into battery-grade lithium, nickel and cobalt salts &mdash; and the US has built out considerably more of the former than the latter, which is the structural root of this policy's bind.</p>
+      <p>The restriction moved through two steps: Presidential Determination No. 2026-19, signed July 30, 2026 under the Defense Production Act, authorized the Commerce Department to restrict exports of critical-mineral-bearing waste and scrap. Commerce's Bureau of Industry and Security then issued an implementing Temporary Final Rule on August 6, requiring an export license for black mass from lithium-ion battery recycling (and tungsten waste/scrap) effective August 27, 2026 through August 27, 2027, with case-by-case exceptions &mdash; including for black mass sent abroad for refining if the refined output is returned to the US.</p>
+      <p>Domestic capacity estimates diverge sharply because no comprehensive public inventory exists. S&amp;P Global Commodity Insights estimates roughly 60,000 metric tons of US black mass production a year against about 25,000 metric tons of domestic refining capacity. The Union of Concerned Scientists estimates a wider gap &mdash; around 7,000 metric tons of refining capacity against 65,000 metric tons of feedstock &mdash; and projects capacity won't close that gap until 2030. Fastmarkets separately estimates US shredding (pre-processing) capacity near 94,000 metric tons a year, with utilization below 50% at some facilities due to tight scrap supply, a sign the bottleneck sits downstream in refining, not in collection. Before the ban, Asian refiners bought the majority of surplus US black mass; without that outlet, analysts expect falling domestic black mass prices and further financial strain on a sector already weakened by the 2025&ndash;2026 bankruptcies of Li-Cycle (US assets since acquired by Glencore) and Ascend Elements (whose Covington, Georgia lithium-carbonate facility was taken over by R3 Lithium).</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> A policy meant to keep critical minerals in America could instead strand them &mdash; recyclers feeding the next generation of EV and grid batteries just lost their main buyer, and domestic refiners aren't built out yet to replace it.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> The ban bets that restricting exports forces refining capacity to materialize faster than market signals alone would &mdash; but Defense Production Act authority doesn't build plants, and a capacity gap estimated at anywhere from 2x to 9x means the policy could strand recyclable material for years before it secures it.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.usnews.com/news/top-news/articles/2026-08-06/trump-admin-blocks-tungsten-battery-waste-exports-to-boost-us-minerals-supply" target="_blank" rel="noopener">US News &amp; World Report &mdash; "Trump Admin Blocks Tungsten, Battery Waste Exports to Boost US Minerals Supply"</a></li>
+    <li><a href="https://www.pillsburylaw.com/en/news-and-insights/commerce-department-export-restrictions-black-mass-electrical-electronic-tungsten-waste-scrap.html" target="_blank" rel="noopener">Pillsbury Law &mdash; "Commerce Department Implements Export Restrictions on Black Mass ... and Tungsten Waste and Scrap"</a></li>
+    <li><a href="https://www.bdlaw.com/publications/new-u-s-restrictions-on-export-of-black-mass-from-recycling-lithium-ion-batteries-pose-major-challenges-for-battery-recycling/" target="_blank" rel="noopener">Beveridge &amp; Diamond &mdash; "New U.S. Restrictions on Export of Black Mass ... Pose Major Challenges for Battery Recycling"</a></li>
+    <li><a href="https://blog.ucs.org/jessica-dunn/an-export-ban-isnt-enough-to-increase-domestic-ev-battery-recycling/" target="_blank" rel="noopener">Union of Concerned Scientists &mdash; "An Export Ban Isn't Enough to Increase Domestic EV Battery Recycling"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var canvas = document.getElementById('warp-canvas');
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width, H = canvas.height;
+
+    var MIN_M = 0, MAX_M = 12;
+    var ANNUAL_PRODUCED = 60000;
+    var ANNUAL_REFINED = 25000;
+    var MONTHLY_PRODUCED = ANNUAL_PRODUCED / 12;
+    var MONTHLY_REFINED = ANNUAL_REFINED / 12;
+    var MAX_SCALE = 65000;
+
+    var slider = document.getElementById('month-slider');
+    var runBtn = document.getElementById('warp-run');
+    var resetBtn = document.getElementById('warp-reset');
+    var monthReadout = document.getElementById('month-readout');
+    var statMonth = document.getElementById('stat-month');
+    var statProduced = document.getElementById('stat-produced');
+    var statRefined = document.getElementById('stat-refined');
+    var statBacklog = document.getElementById('stat-backlog');
+    var explain = document.getElementById('warp-explain');
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var animHandle = null;
+
+    function cssVar(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || '#888888';
+    }
+    function hexToRgb(hex) {
+      hex = hex.replace('#', '');
+      if (hex.length === 3) hex = hex.split('').map(function (c) { return c + c; }).join('');
+      var num = parseInt(hex, 16);
+      return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+    }
+    function hexAlpha(hex, a) {
+      var c = hexToRgb(hex);
+      return 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + a + ')';
+    }
+    function fmt(n) {
+      return Math.round(n).toLocaleString('en-US');
+    }
+
+    function produced(m) { return MONTHLY_PRODUCED * m; }
+    function refined(m) { return MONTHLY_REFINED * m; }
+    function backlog(m) { return produced(m) - refined(m); }
+
+    function monthToX(m, chartX, chartW) {
+      return chartX + ((m - MIN_M) / (MAX_M - MIN_M)) * chartW;
+    }
+    function valToY(v, chartTop, chartBottom) {
+      var h = chartBottom - chartTop;
+      return chartBottom - (Math.min(v, MAX_SCALE) / MAX_SCALE) * h;
+    }
+
+    function drawCurve(fn, chartX, chartW, chartTop, chartBottom, color, lineWidth, dashed) {
+      ctx.beginPath();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = lineWidth;
+      if (dashed) ctx.setLineDash([5, 4]); else ctx.setLineDash([]);
+      for (var m = MIN_M; m <= MAX_M; m += 0.25) {
+        var x = monthToX(m, chartX, chartW);
+        var y = valToY(fn(m), chartTop, chartBottom);
+        if (m === MIN_M) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    function draw(m) {
+      ctx.clearRect(0, 0, W, H);
+      var chartX = 56, chartW = 484, chartBottom = 250, chartTop = 26;
+
+      ctx.fillStyle = cssVar('--muted');
+      ctx.font = '10px ui-monospace, monospace';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillText('CUMULATIVE BLACK MASS (METRIC TONS, ILLUSTRATIVE)', chartX, 14);
+
+      [0, 20000, 40000, 60000].forEach(function (v) {
+        var y = valToY(v, chartTop, chartBottom);
+        ctx.strokeStyle = hexAlpha(cssVar('--border'), 0.9);
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(chartX, y);
+        ctx.lineTo(chartX + chartW, y);
+        ctx.stroke();
+        ctx.fillStyle = cssVar('--muted');
+        ctx.font = '9px ui-monospace, monospace';
+        ctx.textAlign = 'right';
+        ctx.fillText((v / 1000) + 'k', chartX - 6, y + 3);
+      });
+
+      // produced line (accent-a), refined line (accent-b dashed), backlog fill between
+      ctx.save();
+      ctx.beginPath();
+      var firstX = monthToX(MIN_M, chartX, chartW);
+      ctx.moveTo(firstX, valToY(refined(MIN_M), chartTop, chartBottom));
+      for (var mm = MIN_M; mm <= m; mm += 0.25) {
+        ctx.lineTo(monthToX(mm, chartX, chartW), valToY(refined(mm), chartTop, chartBottom));
+      }
+      for (var mm2 = m; mm2 >= MIN_M; mm2 -= 0.25) {
+        ctx.lineTo(monthToX(mm2, chartX, chartW), valToY(produced(mm2), chartTop, chartBottom));
+      }
+      ctx.closePath();
+      ctx.fillStyle = hexAlpha(cssVar('--accent-a'), 0.18);
+      ctx.fill();
+      ctx.restore();
+
+      drawCurve(produced, chartX, chartW, chartTop, chartBottom, cssVar('--accent-a'), 2.5, false);
+      drawCurve(refined, chartX, chartW, chartTop, chartBottom, cssVar('--accent-b'), 2.5, true);
+
+      // current month marker
+      var x = monthToX(m, chartX, chartW);
+      var yProd = valToY(produced(m), chartTop, chartBottom);
+      var yRef = valToY(refined(m), chartTop, chartBottom);
+      ctx.strokeStyle = hexAlpha(cssVar('--ink'), 0.25);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(x, chartTop);
+      ctx.lineTo(x, chartBottom);
+      ctx.stroke();
+
+      ctx.fillStyle = cssVar('--accent-a');
+      ctx.beginPath();
+      ctx.arc(x, yProd, 5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = cssVar('--accent-b');
+      ctx.beginPath();
+      ctx.arc(x, yRef, 5, 0, Math.PI * 2);
+      ctx.fill();
+
+      // legend
+      var legendX = chartX + 10, legendY = 40;
+      ctx.font = '10px ui-monospace, monospace';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = cssVar('--accent-a');
+      ctx.fillRect(legendX, legendY - 5, 10, 10);
+      ctx.fillStyle = cssVar('--muted');
+      ctx.fillText('Produced (no export outlet)', legendX + 16, legendY);
+      ctx.fillStyle = cssVar('--accent-b');
+      ctx.fillRect(legendX, legendY + 16, 10, 10);
+      ctx.fillStyle = cssVar('--muted');
+      ctx.fillText('Refined domestically', legendX + 16, legendY + 21);
+      ctx.fillStyle = hexAlpha(cssVar('--accent-a'), 0.5);
+      ctx.fillRect(legendX, legendY + 32, 10, 10);
+      ctx.fillStyle = cssVar('--muted');
+      ctx.fillText('Stranded backlog', legendX + 16, legendY + 37);
+
+      // x-axis label
+      ctx.fillStyle = cssVar('--muted');
+      ctx.font = '10px ui-monospace, monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillText('MONTHS SINCE THE AUGUST 2026 BAN', chartX + chartW / 2, chartBottom + 22);
+    }
+
+    function noteFor(m) {
+      var p = produced(m), r = refined(m), b = backlog(m);
+      if (m === 0) {
+        return 'At the moment the ban took effect, the backlog starts at zero &mdash; but with the export outlet gone, every ton produced from here has to find a domestic refiner or wait.';
+      }
+      if (m < 12) {
+        return 'At month ' + m + ', roughly <strong>' + fmt(p) + '</strong> tons of black mass have been produced domestically. Refiners have processed about <strong>' + fmt(r) + '</strong> tons of it &mdash; the rest sits in a growing stockpile with no export outlet.';
+      }
+      return 'At the ban\'s one-year mark, the model shows roughly <strong>' + fmt(b) + '</strong> tons of black mass stranded domestically &mdash; the same gap S&amp;P Global\'s annual estimates imply (60,000 produced vs. 25,000 refined). Whether that eases by August 2027 depends entirely on how much new US refining capacity comes online.';
+    }
+
+    function render(m) {
+      monthReadout.textContent = m + ' months';
+      statMonth.textContent = String(m);
+      statProduced.textContent = fmt(produced(m));
+      statRefined.textContent = fmt(refined(m));
+      statBacklog.textContent = fmt(backlog(m)) + ' t';
+      explain.innerHTML = noteFor(m);
+      draw(m);
+    }
+
+    slider.addEventListener('input', function () {
+      stopAnim();
+      render(parseInt(slider.value, 10));
+    });
+
+    function stopAnim() {
+      if (animHandle) {
+        cancelAnimationFrame(animHandle);
+        animHandle = null;
+        runBtn.textContent = '▶ Run';
+      }
+    }
+
+    function runSweep() {
+      if (animHandle) { stopAnim(); return; }
+      if (prefersReducedMotion) {
+        slider.value = String(MAX_M);
+        render(MAX_M);
+        return;
+      }
+      var start = performance.now();
+      var duration = 3200;
+      var from = parseInt(slider.value, 10);
+      runBtn.textContent = '⏸ Pause';
+      function step(now) {
+        var t = Math.min(1, (now - start) / duration);
+        var m = Math.round(from + (MAX_M - from) * t);
+        slider.value = String(m);
+        render(m);
+        if (t < 1) {
+          animHandle = requestAnimationFrame(step);
+        } else {
+          animHandle = null;
+          runBtn.textContent = '▶ Run';
+        }
+      }
+      animHandle = requestAnimationFrame(step);
+    }
+
+    runBtn.addEventListener('click', runSweep);
+    resetBtn.addEventListener('click', function () {
+      stopAnim();
+      slider.value = '6';
+      render(6);
+    });
+
+    if (prefersReducedMotion) {
+      slider.value = String(MAX_M);
+      render(MAX_M);
+    } else {
+      render(parseInt(slider.value, 10));
+    }
+  })();
+</script>
+</body>
+</html>
