@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-24","category":"COPPER MARKETS","headline":"Copper's AI Boom Erased 16% of Its Value in Ten Weeks. The Physical Metal Got Scarcer the Whole Time","summary":"Copper hit an all-time high of $14,875 a ton in September on bets that AI data centers would need enormous amounts of wiring. By November 18 the price had crashed 16% as those bets soured — but the premium Chinese buyers pay for the actual physical metal hit a record the same week.","whyItMatters":"Copper is the literal wiring of the AI boom, so a 16% price swing driven by sentiment, running opposite to physical scarcity, is an early, measurable crack in how fragile AI-infrastructure pricing really is."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Copper's AI Price Bubble Just Cracked</title>
+<meta name="description" content="Copper hit an all-time high in September on AI-demand bets, then crashed 16% by mid-November. The premium buyers pay for the real physical metal in China hit a record the same week. Here's why the two prices split." />
+<style>
+  :root {
+    --bg: #f5f0ea;
+    --surface: #ffffff;
+    --ink: #1c1712;
+    --muted: #6b6155;
+    --border: #e4dcd0;
+    --accent-a: #b5551f;
+    --accent-a-tint: #f6e2d2;
+    --accent-b: #3a6ea5;
+    --accent-b-tint: #dce8f3;
+    --shadow: 0 1px 2px rgba(28, 23, 18, 0.04), 0 8px 24px rgba(28, 23, 18, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #100d09;
+      --surface: #1b1610;
+      --ink: #f3ede4;
+      --muted: #a89a89;
+      --border: #2e2619;
+      --accent-a: #e08a4c;
+      --accent-a-tint: #3a2615;
+      --accent-b: #6fa0d8;
+      --accent-b-tint: #14263a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #100d09;
+    --surface: #1b1610;
+    --ink: #f3ede4;
+    --muted: #a89a89;
+    --border: #2e2619;
+    --accent-a: #e08a4c;
+    --accent-a-tint: #3a2615;
+    --accent-b: #6fa0d8;
+    --accent-b-tint: #14263a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #f5f0ea;
+    --surface: #ffffff;
+    --ink: #1c1712;
+    --muted: #6b6155;
+    --border: #e4dcd0;
+    --accent-a: #b5551f;
+    --accent-a-tint: #f6e2d2;
+    --accent-b: #3a6ea5;
+    --accent-b-tint: #dce8f3;
+    --shadow: 0 1px 2px rgba(28, 23, 18, 0.04), 0 8px 24px rgba(28, 23, 18, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the paper-price vs physical-premium split --- */
+  .ws-header { margin-bottom: 4px; }
+  .ws-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .ws-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .warp-visual-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+  }
+  #copper-canvas { display: block; width: 100%; height: auto; border-radius: 6px; }
+
+  .slider-row { margin-top: 16px; }
+  .slider-label {
+    display: flex;
+    justify-content: space-between;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  #week-slider { width: 100%; accent-color: var(--accent-b); }
+
+  .ws-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ws-btn {
+    border: 1px solid var(--accent-a);
+    background: transparent;
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .ws-btn.primary { background: var(--accent-a); color: #fff; border-color: var(--accent-a); }
+  .ws-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  .ws-stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .ws-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 10px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .ws-stat-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  .ws-stat-value {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .ws-stat-value.warn { color: var(--accent-a); }
+  .ws-stat-value.good { color: var(--accent-b); }
+
+  .ws-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 3.2em;
+  }
+  .ws-note strong { color: var(--accent-a); }
+
+  @media (max-width: 480px) {
+    .ws-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 24, 2026</span>
+    <span class="category-chip">COPPER MARKETS</span>
+  </div>
+  <h1>Copper's AI Boom Erased 16% of Its Value in Ten Weeks. The Physical Metal Got Scarcer the Whole Time.</h1>
+  <p class="lede">In September, traders bid copper to an all-time high on the theory that AI data centers would need almost unlimited amounts of wiring. By mid-November that bet had unwound &mdash; the price fell 16%. But the premium Chinese buyers pay to actually get their hands on physical copper hit a record the very same week.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    The copper price crashed and the copper shortage got worse, in the same two weeks. That's not a contradiction &mdash; it's what happens when the market that prices copper (traders betting on the future) and the market that moves copper (factories that need it this month) stop agreeing with each other.
+  </div>
+
+  <div class="card warp-visual-wrap-outer">
+    <div class="ws-header">
+      <h2 class="ws-title">Drag through Sept&ndash;Nov 2026. Watch the paper price and the physical premium split apart.</h2>
+      <p class="ws-caption mono">Confirmed from reporting: the Sept. 10 peak ($14,875/ton), the Nov. 16 four-month low, the Nov. 17 premium ($350/ton), and the Nov. 18 close ($12,471/ton, premium $360/ton). Every point in between is a smoothed, illustrative estimate to show the trend &mdash; not a reported daily settlement. "Premium" is the Yangshan surcharge Chinese importers pay above the LME benchmark for physical delivery.</p>
+    </div>
+
+    <div class="warp-visual-wrap">
+      <canvas id="copper-canvas" width="640" height="300" role="img" aria-label="A dual-axis chart showing the LME copper futures price rising to a peak in mid-September 2026 then falling 16 percent by November 18, while the Yangshan physical copper premium rises steadily over the same period to a record on November 18."></canvas>
+    </div>
+
+    <div class="slider-row">
+      <div class="slider-label">
+        <span>TIMELINE: SEPT 1 &mdash; NOV 18, 2026</span>
+        <span id="week-readout" class="tabular">Sept 10</span>
+      </div>
+      <input type="range" id="week-slider" min="0" max="8" value="1" step="1" aria-label="Point in the Sept 1 to Nov 18, 2026 timeline" />
+    </div>
+
+    <div class="ws-controls">
+      <button type="button" class="ws-btn primary" id="copper-run">&#9654; Run</button>
+      <button type="button" class="ws-btn" id="copper-reset">&#8634; Reset</button>
+    </div>
+
+    <div class="ws-stats">
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">DATE</span>
+        <span class="ws-stat-value tabular" id="stat-date">Sept 10</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">LME PRICE ($/T)</span>
+        <span class="ws-stat-value tabular" id="stat-price">14,875</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">PHYSICAL PREMIUM ($/T)</span>
+        <span class="ws-stat-value tabular" id="stat-premium">80</span>
+      </div>
+      <div class="ws-stat">
+        <span class="ws-stat-label mono">VS SEPT. PEAK</span>
+        <span class="ws-stat-value tabular good" id="stat-vspeak">0%</span>
+      </div>
+    </div>
+
+    <div class="ws-note" id="copper-explain" aria-live="polite">Sept. 10 (confirmed): LME copper hits an all-time high of $14,875/ton on AI-data-center demand bets and tariff-driven stockpiling. The physical premium is still thin &mdash; buyers aren't struggling to get the metal yet.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Strip away the GPUs, and an AI data center is, structurally, an enormous amount of copper &mdash; busbars, power rails, cooling loops, grid hookups, the whole building wired twice over because redundancy is the point. Traders spent much of 2026 betting that the AI boom alone would drain the world's copper supply, and in September that bet paid off spectacularly: the price of copper on the London Metal Exchange hit an all-time high of $14,875 a ton.</p>
+      <p>Then it fell apart. By November 18, that same copper had dropped 16%, to $12,471 a ton, as investors decided AI's appetite for metal wasn't showing up on the schedule they'd priced in, and started unwinding the bet. Here's the strange part: while the price of a copper contract was crashing, the price of actually getting your hands on copper was doing the opposite. In China, the extra amount buyers pay above the benchmark price just to secure real, physical metal &mdash; not a futures contract, actual rolls of wire sitting in a warehouse &mdash; jumped to a record $360 a ton, more than four times what it cost in September.</p>
+      <p>Think of it like concert tickets: the official face-value price can crash because speculators stopped bidding it up, even while the people outside the venue who need a seat tonight are paying more than ever, because there still aren't enough seats. The paper market and the physical market just told two opposite stories about the same metal, in the same two weeks &mdash; and copper is wired into literally everything the AI boom is building.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Two separate markets price the same ton of copper, and in November 2026 they diverged hard. The LME 3-month futures contract &mdash; the "paper" benchmark that sets the global reference price &mdash; ran from an all-time high of $14,875/ton on September 10 (driven by AI-data-center demand bets and tariff-driven stockpiling) down to a $12,471/ton close on November 18, a roughly 16% retreat to a four-month low, as speculative long positions unwound on fading conviction that AI buildouts would absorb the metal on the timeline the rally had priced in.</p>
+      <p>Simultaneously, the Yangshan copper premium &mdash; the spot surcharge Chinese importers pay above the LME price to secure physical delivery into bonded warehouses near Shanghai &mdash; rose from under $100/ton in September to $350 on November 17 and $360 on November 18, roughly a 4x increase. Shanghai Futures Exchange warehouse inventories fell by an estimated 18% in a single week to their lowest level in nearly three years over the same window. Paper price and physical premium are supposed to move together; a divergence this sharp is the textbook signature of speculative positioning (driving the futures price) decoupling from physical tightness (driving the premium).</p>
+      <p>The supply picture underneath is genuinely unsettled, not just volatile sentiment. The International Copper Study Group forecast a 150,000-ton global deficit for 2026 as of October 2025, flipped to a roughly 96,000-ton surplus forecast by April 2026, then reported an actual 51,000-ton deficit in July &mdash; three contradictory readings inside one year. Chile's Codelco, the world's largest copper miner, shut its Andina concentrator on November 5 after a tailings spill reached the Blanco River, removing supply with no resolution date yet. And estimates of how much copper an AI data center actually needs span a wide range &mdash; roughly 27 to 50 tonnes per megawatt of capacity, per separate S&amp;P Global and Kpler analyses &mdash; a nearly 2x spread that underscores how much of the "AI needs copper" thesis still rests on modeling assumptions rather than settled measurement.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Copper is the literal wiring of the AI boom, so a 16% price swing driven by sentiment, running opposite to physical scarcity, is an early, measurable crack in how fragile AI-infrastructure pricing really is.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> When a benchmark futures price and the physical premium that's supposed to track it move in opposite directions this sharply, it signals the "AI demand" narrative priced into industrial commodities is running ahead of &mdash; or behind &mdash; what's actually moving through ports and warehouses, and either gap eventually has to close.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://nai500.com/blog/2026/11/tech-stock-rout-sends-copper-tumbling-to-over-four-month-low/" target="_blank" rel="noopener">nai500 &mdash; "Tech Stock Rout Sends Copper Tumbling to Over Four-Month Low"</a></li>
+    <li><a href="https://www.scmp.com/economy/global-economy/article/3366787/copper-rally-sets-record-price-lme-us-tariff-fears-fuel-scramble-stockpiles" target="_blank" rel="noopener">South China Morning Post &mdash; "Copper Rally Sets Record Price as LME, US Tariff Fears Fuel Scramble for Stockpiles"</a></li>
+    <li><a href="https://www.miningweekly.com/article/global-refined-copper-market-to-swing-to-surplus-in-2026-group-says-2026-04-23" target="_blank" rel="noopener">Mining Weekly &mdash; "Global Refined Copper Market to Swing to Surplus in 2026, Group Says"</a></li>
+    <li><a href="https://www.industrialinfo.com/news/article/codelco-shuts-down-andina-concentrator-on-nov-5-following-tailings-spill--364694" target="_blank" rel="noopener">IndustrialInfo &mdash; "Codelco Shuts Down Andina Concentrator on Nov. 5 Following Tailings Spill"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var canvas = document.getElementById('copper-canvas');
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width, H = canvas.height;
+
+    // Points: index 0..8 across Sept 1 - Nov 18, 2026.
+    // confirmed:true means the figure is reported; others are smoothed/illustrative for the trend.
+    var POINTS = [
+      { label: 'Sept 1',  price: 13700, premium: 75,  confirmed: false, note: 'Sept. 1 (illustrative baseline): before the rally, LME copper trades around <strong>$13,700/ton</strong> with a thin physical premium &mdash; buyers aren\'t struggling to get the metal.' },
+      { label: 'Sept 10', price: 14875, premium: 80,  confirmed: true,  note: 'Sept. 10 (confirmed): LME copper hits an all-time high of <strong>$14,875/ton</strong> on AI-data-center demand bets and tariff-driven stockpiling. The physical premium is still thin.' },
+      { label: 'Sept 24', price: 14300, premium: 120, confirmed: false, note: 'Late Sept. (illustrative): the futures price starts easing off its peak. The physical premium is quietly climbing &mdash; a early sign the two markets are starting to disagree.' },
+      { label: 'Oct 8',   price: 13850, premium: 165, confirmed: false, note: 'Early Oct. (illustrative): paper price keeps drifting down as AI-demand conviction softens, while the premium for actual metal keeps rising.' },
+      { label: 'Oct 22',  price: 13400, premium: 215, confirmed: false, note: 'Late Oct. (illustrative): the gap widens further. Traders are pricing in less urgency; buyers on the ground are paying more for the same ton.' },
+      { label: 'Nov 5',   price: 12950, premium: 270, confirmed: false, note: 'Nov. 5 (confirmed event, interpolated price): Codelco shuts its Andina concentrator in Chile after a tailings spill &mdash; a real supply hit landing right as the futures price keeps falling.' },
+      { label: 'Nov 16',  price: 12550, premium: 310, confirmed: true,  note: 'Nov. 16 (confirmed): LME copper touches a four-month low as a broader tech-stock selloff drags AI-linked commodities down with it.' },
+      { label: 'Nov 17',  price: 12500, premium: 350, confirmed: true,  note: 'Nov. 17 (confirmed): the Yangshan physical premium hits <strong>$350/ton</strong> &mdash; more than 4x its September level &mdash; even as the futures price sits near its lowest point since the summer.' },
+      { label: 'Nov 18',  price: 12471, premium: 360, confirmed: true,  note: 'Nov. 18 (confirmed): LME copper closes at <strong>$12,471/ton</strong> &mdash; 16% below the September peak &mdash; while the physical premium hits a record <strong>$360/ton</strong>. The paper price and the physical price are now moving in opposite directions.' }
+    ];
+    var N = POINTS.length - 1;
+    var PEAK_PRICE = POINTS[1].price;
+
+    var PRICE_MIN = 11500, PRICE_MAX = 15200;
+    var PREMIUM_MIN = 0, PREMIUM_MAX = 400;
+
+    var slider = document.getElementById('week-slider');
+    var runBtn = document.getElementById('copper-run');
+    var resetBtn = document.getElementById('copper-reset');
+    var weekReadout = document.getElementById('week-readout');
+    var statDate = document.getElementById('stat-date');
+    var statPrice = document.getElementById('stat-price');
+    var statPremium = document.getElementById('stat-premium');
+    var statVsPeak = document.getElementById('stat-vspeak');
+    var explain = document.getElementById('copper-explain');
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var animHandle = null;
+
+    function cssVar(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || '#888888';
+    }
+    function hexToRgb(hex) {
+      hex = hex.replace('#', '');
+      if (hex.length === 3) hex = hex.split('').map(function (c) { return c + c; }).join('');
+      var num = parseInt(hex, 16);
+      return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+    }
+    function hexAlpha(hex, a) {
+      var c = hexToRgb(hex);
+      return 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + a + ')';
+    }
+    function fmt(n) {
+      return Math.round(n).toLocaleString('en-US');
+    }
+
+    function valueAt(key, t) {
+      var i0 = Math.max(0, Math.min(N, Math.floor(t)));
+      var i1 = Math.max(0, Math.min(N, i0 + 1));
+      var frac = t - i0;
+      var a = POINTS[i0][key], b = POINTS[i1][key];
+      return a + (b - a) * frac;
+    }
+    function priceAt(t) { return valueAt('price', t); }
+    function premiumAt(t) { return valueAt('premium', t); }
+
+    function tToX(t, chartX, chartW) { return chartX + (t / N) * chartW; }
+    function priceToY(v, top, bottom) {
+      var h = bottom - top;
+      var clamped = Math.max(PRICE_MIN, Math.min(PRICE_MAX, v));
+      return bottom - ((clamped - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * h;
+    }
+    function premiumToY(v, top, bottom) {
+      var h = bottom - top;
+      var clamped = Math.max(PREMIUM_MIN, Math.min(PREMIUM_MAX, v));
+      return bottom - ((clamped - PREMIUM_MIN) / (PREMIUM_MAX - PREMIUM_MIN)) * h;
+    }
+
+    function draw(t) {
+      ctx.clearRect(0, 0, W, H);
+      var chartX = 58, chartW = 480, chartBottom = 248, chartTop = 30;
+
+      ctx.fillStyle = cssVar('--muted');
+      ctx.font = '10px ui-monospace, monospace';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillText('LME PRICE ($/T, LEFT) VS PHYSICAL PREMIUM ($/T, RIGHT)', chartX, 16);
+
+      // left axis (price) gridlines
+      [12000, 13000, 14000, 15000].forEach(function (v) {
+        var y = priceToY(v, chartTop, chartBottom);
+        ctx.strokeStyle = hexAlpha(cssVar('--border'), 0.9);
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(chartX, y);
+        ctx.lineTo(chartX + chartW, y);
+        ctx.stroke();
+        ctx.fillStyle = cssVar('--muted');
+        ctx.font = '9px ui-monospace, monospace';
+        ctx.textAlign = 'right';
+        ctx.fillText((v / 1000) + 'k', chartX - 6, y + 3);
+      });
+      // right axis (premium) labels
+      [0, 100, 200, 300, 400].forEach(function (v) {
+        var y = premiumToY(v, chartTop, chartBottom);
+        ctx.fillStyle = cssVar('--accent-b');
+        ctx.font = '9px ui-monospace, monospace';
+        ctx.textAlign = 'left';
+        ctx.fillText('$' + v, chartX + chartW + 6, y + 3);
+      });
+
+      // price curve (accent-a, solid)
+      ctx.beginPath();
+      ctx.strokeStyle = cssVar('--accent-a');
+      ctx.lineWidth = 2.5;
+      for (var i = 0; i <= 200; i++) {
+        var tt = (t * i) / 200;
+        var x = tToX(tt, chartX, chartW);
+        var y = priceToY(priceAt(tt), chartTop, chartBottom);
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // premium curve (accent-b, dashed)
+      ctx.beginPath();
+      ctx.strokeStyle = cssVar('--accent-b');
+      ctx.lineWidth = 2.5;
+      ctx.setLineDash([5, 4]);
+      for (var j = 0; j <= 200; j++) {
+        var tj = (t * j) / 200;
+        var xj = tToX(tj, chartX, chartW);
+        var yj = premiumToY(premiumAt(tj), chartTop, chartBottom);
+        if (j === 0) ctx.moveTo(xj, yj); else ctx.lineTo(xj, yj);
+      }
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // confirmed-point markers up to current t
+      POINTS.forEach(function (p, idx) {
+        if (idx > t + 0.001) return;
+        var x = tToX(idx, chartX, chartW);
+        var yP = priceToY(p.price, chartTop, chartBottom);
+        var yM = premiumToY(p.premium, chartTop, chartBottom);
+        ctx.fillStyle = cssVar('--accent-a');
+        ctx.beginPath();
+        ctx.arc(x, yP, p.confirmed ? 4.5 : 2.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = cssVar('--accent-b');
+        ctx.beginPath();
+        ctx.arc(x, yM, p.confirmed ? 4.5 : 2.5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // current marker vertical line
+      var xCur = tToX(t, chartX, chartW);
+      ctx.strokeStyle = hexAlpha(cssVar('--ink'), 0.2);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(xCur, chartTop);
+      ctx.lineTo(xCur, chartBottom);
+      ctx.stroke();
+
+      // legend
+      var legendX = chartX + 8, legendY = 46;
+      ctx.font = '10px ui-monospace, monospace';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = cssVar('--accent-a');
+      ctx.fillRect(legendX, legendY - 5, 10, 10);
+      ctx.fillStyle = cssVar('--muted');
+      ctx.fillText('LME futures price (paper)', legendX + 16, legendY);
+      ctx.fillStyle = cssVar('--accent-b');
+      ctx.fillRect(legendX, legendY + 16, 10, 10);
+      ctx.fillStyle = cssVar('--muted');
+      ctx.fillText('Yangshan premium (physical)', legendX + 16, legendY + 21);
+
+      ctx.fillStyle = cssVar('--muted');
+      ctx.font = '10px ui-monospace, monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillText('SEPT 1 → NOV 18, 2026', chartX + chartW / 2, chartBottom + 22);
+    }
+
+    function render(t) {
+      var idx = Math.round(t);
+      var idxClamped = Math.max(0, Math.min(N, idx));
+      var p = POINTS[idxClamped];
+      weekReadout.textContent = p.label;
+      statDate.textContent = p.label;
+      statPrice.textContent = fmt(priceAt(t));
+      statPremium.textContent = fmt(premiumAt(t));
+      var pct = ((priceAt(t) - PEAK_PRICE) / PEAK_PRICE) * 100;
+      statVsPeak.textContent = (pct > 0 ? '+' : '') + pct.toFixed(1) + '%';
+      statVsPeak.classList.toggle('warn', pct < -1);
+      statVsPeak.classList.toggle('good', pct >= -1);
+      explain.innerHTML = p.note;
+      draw(t);
+    }
+
+    slider.addEventListener('input', function () {
+      stopAnim();
+      render(parseInt(slider.value, 10));
+    });
+
+    function stopAnim() {
+      if (animHandle) {
+        cancelAnimationFrame(animHandle);
+        animHandle = null;
+        runBtn.textContent = '▶ Run';
+      }
+    }
+
+    function runSweep() {
+      if (animHandle) { stopAnim(); return; }
+      if (prefersReducedMotion) {
+        slider.value = String(N);
+        render(N);
+        return;
+      }
+      var start = performance.now();
+      var duration = 3600;
+      var from = parseInt(slider.value, 10);
+      runBtn.textContent = '⏸ Pause';
+      function step(now) {
+        var frac = Math.min(1, (now - start) / duration);
+        var t = from + (N - from) * frac;
+        slider.value = String(Math.round(t));
+        render(t);
+        if (frac < 1) {
+          animHandle = requestAnimationFrame(step);
+        } else {
+          animHandle = null;
+          runBtn.textContent = '▶ Run';
+        }
+      }
+      animHandle = requestAnimationFrame(step);
+    }
+
+    runBtn.addEventListener('click', runSweep);
+    resetBtn.addEventListener('click', function () {
+      stopAnim();
+      slider.value = '1';
+      render(1);
+    });
+
+    if (prefersReducedMotion) {
+      slider.value = String(N);
+      render(N);
+    } else {
+      render(parseInt(slider.value, 10));
+    }
+  })();
+</script>
+</body>
+</html>
