@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-25","category":"GOVERNANCE RISK","headline":"Nvidia Has Had Exactly One CEO Since It Was Founded in 1993. On November 12, He Resigned With Zero Notice","summary":"Nvidia's only CEO in its 33-year history resigned Nov. 12 with zero notice. The scandal made headlines, but the real story is governance: Huang personally built nearly every relationship — TSMC packaging, China export licenses, hyperscaler contracts — holding the AI chip supply chain together.","whyItMatters":"Nvidia sits at the center of the entire AI chip supply chain, and its board just discovered, in real time, how much of that position was never actually institutional."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; Nvidia's One-CEO Supply Chain</title>
+<meta name="description" content="Nvidia's only CEO in its 33-year history resigned Nov. 12 with zero notice. The real supply-chain story isn't the scandal &mdash; it's how many AI-chip chokepoints ran through one person's relationships." />
+<style>
+  :root {
+    --bg: #f2f1ee;
+    --surface: #ffffff;
+    --ink: #16181c;
+    --muted: #5d6470;
+    --border: #dfe1e6;
+    --accent-a: #c23b22;
+    --accent-a-tint: #fbe2db;
+    --accent-b: #2d5d7b;
+    --accent-b-tint: #dde8ee;
+    --shadow: 0 1px 2px rgba(20, 22, 26, 0.04), 0 8px 24px rgba(20, 22, 26, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d0f12;
+      --surface: #15181d;
+      --ink: #eef0f3;
+      --muted: #96a0ad;
+      --border: #262b33;
+      --accent-a: #ef6a4c;
+      --accent-a-tint: #3a1a12;
+      --accent-b: #6fa8c9;
+      --accent-b-tint: #142631;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d0f12;
+    --surface: #15181d;
+    --ink: #eef0f3;
+    --muted: #96a0ad;
+    --border: #262b33;
+    --accent-a: #ef6a4c;
+    --accent-a-tint: #3a1a12;
+    --accent-b: #6fa8c9;
+    --accent-b-tint: #142631;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #f2f1ee;
+    --surface: #ffffff;
+    --ink: #16181c;
+    --muted: #5d6470;
+    --border: #dfe1e6;
+    --accent-a: #c23b22;
+    --accent-a-tint: #fbe2db;
+    --accent-b: #2d5d7b;
+    --accent-b-tint: #dde8ee;
+    --shadow: 0 1px 2px rgba(20, 22, 26, 0.04), 0 8px 24px rgba(20, 22, 26, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the Nvidia hub-and-spoke key-person map --- */
+  .hv-header { margin-bottom: 4px; }
+  .hv-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .hv-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .hub-visual-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+  }
+  #hub-svg { display: block; width: 100%; height: auto; }
+
+  .node-group { cursor: pointer; }
+  .node-circle {
+    fill: var(--surface);
+    stroke: var(--border);
+    stroke-width: 2;
+    transition: fill 0.2s, stroke 0.2s, stroke-width 0.2s;
+  }
+  .node-group[aria-pressed="true"] .node-circle {
+    fill: var(--accent-a-tint);
+    stroke: var(--accent-a);
+    stroke-width: 3;
+  }
+  .node-group.visited .node-circle { stroke: var(--accent-b); }
+  .node-group:focus-visible .node-circle { stroke: var(--accent-b); stroke-width: 3; }
+  .node-label1 { font: 700 12px system-ui, sans-serif; fill: var(--ink); text-anchor: middle; }
+  .node-label2 { font: 400 8px ui-monospace, Menlo, monospace; fill: var(--muted); text-anchor: middle; }
+
+  .edge-line { stroke: var(--border); stroke-width: 2; transition: stroke 0.2s, stroke-width 0.2s; }
+  .edge-line.visited { stroke: var(--accent-b); }
+  .edge-line.active { stroke: var(--accent-a); stroke-width: 3; }
+
+  .hub-circle { fill: var(--ink); }
+  .hub-label { font: 800 15px system-ui, sans-serif; fill: var(--bg); text-anchor: middle; }
+  .pulse-dot { fill: var(--accent-a); opacity: 0; }
+
+  .hv-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .hv-btn {
+    border: 1px solid var(--accent-a);
+    background: transparent;
+    color: var(--accent-a);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .hv-btn.primary { background: var(--accent-a); color: #fff; border-color: var(--accent-a); }
+
+  .hv-stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .hv-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 10px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .hv-stat-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  .hv-stat-value {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .hv-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 3.2em;
+  }
+  .hv-note strong { color: var(--accent-a); }
+
+  .hv-synthesis {
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+    color: var(--ink);
+    font-size: 12.5px;
+    line-height: 1.6;
+    display: none;
+  }
+  .hv-synthesis strong { color: var(--accent-b); }
+
+  @media (max-width: 480px) {
+    .hv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 25, 2026</span>
+    <span class="category-chip">GOVERNANCE RISK</span>
+  </div>
+  <h1>Nvidia Has Had Exactly One CEO Since It Was Founded in 1993. On November 12, He Resigned With Zero Notice.</h1>
+  <p class="lede">For all 33 years of Nvidia's existence, Jensen Huang was its only CEO &mdash; the person who personally built the relationships now holding the AI chip supply chain together. On November 12 he resigned, effective immediately, with no permanent successor named. The scandal made headlines. The governance story is bigger.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    "Key person risk" is a supply-chain concept usually applied to a single mine or a single factory. This is the first time it has shown up, in full public view, at the top of the company that sits at the center of the entire AI chip supply chain &mdash; and the org chart didn't change at all. The relationships did.
+  </div>
+
+  <div class="card hub-visual-wrap-outer">
+    <div class="hv-header">
+      <h2 class="hv-title">Click or tab through each tie. Every one was personally built by one person, over 33 years.</h2>
+      <p class="hv-caption mono">Capacity and revenue figures below are reported estimates or company guidance, not audited totals &mdash; see sources. Positions shown are simplified to the five ties discussed in this edition, not Nvidia's full supplier/customer network.</p>
+    </div>
+
+    <div class="hub-visual-wrap">
+      <svg id="hub-svg" viewBox="0 0 640 390" role="group" aria-label="A diagram of Nvidia at the center of five relationships: TSMC packaging, HBM memory makers, hyperscaler compute contracts, the US Commerce Department, and Wall Street financing.">
+        <g id="edges">
+          <line class="edge-line" id="edge-0" x1="320" y1="195" x2="320" y2="45"></line>
+          <line class="edge-line" id="edge-1" x1="320" y1="195" x2="462.7" y2="148.7"></line>
+          <line class="edge-line" id="edge-2" x1="320" y1="195" x2="408.1" y2="316.3"></line>
+          <line class="edge-line" id="edge-3" x1="320" y1="195" x2="231.9" y2="316.3"></line>
+          <line class="edge-line" id="edge-4" x1="320" y1="195" x2="177.3" y2="148.7"></line>
+        </g>
+        <circle class="hub-circle" cx="320" cy="195" r="46"></circle>
+        <text class="hub-label" x="320" y="192">NVIDIA</text>
+        <text class="hub-label" x="320" y="208" style="font-size:9px; font-weight:600;">33 years, 1 CEO</text>
+
+        <g class="node-group" tabindex="0" role="button" aria-pressed="false" aria-label="TSMC: advanced packaging and wafer capacity" data-index="0">
+          <circle class="node-circle" cx="320" cy="45" r="34"></circle>
+          <text class="node-label1" x="320" y="42">TSMC</text>
+          <text class="node-label2" x="320" y="54">Packaging &amp; wafers</text>
+        </g>
+        <g class="node-group" tabindex="0" role="button" aria-pressed="false" aria-label="HBM memory makers: SK Hynix, Samsung, Micron" data-index="1">
+          <circle class="node-circle" cx="462.7" cy="148.7" r="34"></circle>
+          <text class="node-label1" x="462.7" y="145.7">HBM Memory</text>
+          <text class="node-label2" x="462.7" y="157.7">SK Hynix / Samsung</text>
+        </g>
+        <g class="node-group" tabindex="0" role="button" aria-pressed="false" aria-label="Hyperscaler compute contracts: OpenAI, Microsoft, Oracle, xAI" data-index="2">
+          <circle class="node-circle" cx="408.1" cy="316.3" r="34"></circle>
+          <text class="node-label1" x="408.1" y="313.3">Hyperscalers</text>
+          <text class="node-label2" x="408.1" y="325.3">Compute contracts</text>
+        </g>
+        <g class="node-group" tabindex="0" role="button" aria-pressed="false" aria-label="US Commerce Department: China export licenses" data-index="3">
+          <circle class="node-circle" cx="231.9" cy="316.3" r="34"></circle>
+          <text class="node-label1" x="231.9" y="313.3">US Commerce</text>
+          <text class="node-label2" x="231.9" y="325.3">China export rules</text>
+        </g>
+        <g class="node-group" tabindex="0" role="button" aria-pressed="false" aria-label="Wall Street: market cap and financing" data-index="4">
+          <circle class="node-circle" cx="177.3" cy="148.7" r="34"></circle>
+          <text class="node-label1" x="177.3" y="145.7">Wall Street</text>
+          <text class="node-label2" x="177.3" y="157.7">Financing</text>
+        </g>
+
+        <circle id="pulse-dot" class="pulse-dot" cx="320" cy="195" r="6"></circle>
+      </svg>
+    </div>
+
+    <div class="hv-controls">
+      <button type="button" class="hv-btn" id="hub-prev">&#8592; Prev</button>
+      <button type="button" class="hv-btn" id="hub-next">Next &#8594;</button>
+      <button type="button" class="hv-btn primary" id="hub-run">&#9654; Run all</button>
+      <button type="button" class="hv-btn" id="hub-reset">&#8634; Reset</button>
+    </div>
+
+    <div class="hv-stats">
+      <div class="hv-stat">
+        <span class="hv-stat-label mono">STOP</span>
+        <span class="hv-stat-value tabular" id="stat-stop">&mdash;</span>
+      </div>
+      <div class="hv-stat">
+        <span class="hv-stat-label mono">TIE</span>
+        <span class="hv-stat-value" id="stat-node">&mdash;</span>
+      </div>
+      <div class="hv-stat">
+        <span class="hv-stat-label mono">REPORTED FIGURE</span>
+        <span class="hv-stat-value tabular" id="stat-figure">&mdash;</span>
+      </div>
+      <div class="hv-stat">
+        <span class="hv-stat-label mono">TIES MAPPED</span>
+        <span class="hv-stat-value tabular" id="stat-mapped">0/5</span>
+      </div>
+    </div>
+
+    <div class="hv-note" id="hub-explain" aria-live="polite">Click a node, or press Next, to see how it ties to Nvidia.</div>
+    <div class="hv-synthesis" id="hub-synthesis"><strong>All five, mapped.</strong> None of these ties technically changed on November 12 &mdash; Nvidia's board says contracts, the product roadmap, and customer commitments continue without interruption. What changed is invisible on this diagram: the one person who personally built every one of these relationships over 33 years is gone, and no permanent successor has been named yet.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Nvidia makes the chips that power basically every major AI system on Earth, and for all 33 years of the company's existence, it has had exactly one CEO: Jensen Huang, the guy in the leather jacket who became the public face of the entire AI boom. On November 12, he resigned, effective immediately &mdash; no transition period, no retirement tour, just a filing naming the chief financial officer, Colette Kress, as interim CEO while the board searches for someone permanent.</p>
+      <p>The headlines focused on why. Multiple outlets reported Huang had told staff he'd been unfaithful to his wife, and that U.S. officials suspected the woman involved had ties to Chinese intelligence. Nvidia's board said it had no evidence that company secrets or national-security information had leaked. That's the scandal. The supply-chain story is different, and arguably bigger.</p>
+      <p>For a decade, Huang wasn't just running Nvidia &mdash; he was personally the handshake behind nearly every chokepoint in the AI chip supply chain. He's the one who convinced TSMC to triple its advanced chip-packaging lines years before most people believed the AI boom was real. He's the one who flew to Washington and Beijing, repeatedly, to negotiate which chips Nvidia could legally sell into China. He's the one whose name is on the eye-watering multi-year compute deals with OpenAI, Microsoft, and Oracle. None of that lives in a contract that automatically transfers to a new CEO &mdash; it lives in 33 years of relationships one person built. The board insists nothing changes. The honest answer is: nobody knows yet, because this has never happened before.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Nvidia filed an 8-K on November 12, 2026, disclosing that Jensen Huang had resigned as president, CEO, and director, effective immediately, after 33 years running the company he co-founded in 1993. CFO Colette Kress was named interim CEO while retaining her finance role, and the board appointed Harvey C. Jones &mdash; previously CEO and executive chairman of Synopsys &mdash; as the company's first-ever independent board chair. The filing gave no reason for the departure; separate reporting tied it to Huang's admission of an affair and unconfirmed allegations about the other party's intelligence ties, which the board said it found no evidence had compromised company or national-security information. Nvidia shares fell as much as roughly 12&ndash;14% intraday that day (reports differ on the exact figure), on top of weeks of AI-capex-bubble jitters already underway.</p>
+      <p>The governance-risk angle is what matters for supply chains specifically. Nvidia functions today as the central allocator of AI compute capacity: separate TrendForce- and UBS-based estimates reported by Wccftech and DigiTimes put Nvidia's claim on TSMC's CoWoS-L advanced packaging capacity at over 70% in recent years, with 2026 bookings cited anywhere from roughly 678,000 to 850,000 wafers &mdash; the two figures don't reconcile, but both show Nvidia's order alone dwarfing AMD's or Broadcom's. On Nvidia's most recent earnings call (November 2025), Kress &mdash; then CFO &mdash; told investors the company had "visibility" to roughly $500 billion in combined Blackwell-and-Rubin-architecture revenue running through the end of calendar 2026, a figure that depends on Nvidia's roadmap translating into HBM orders from SK Hynix, Samsung, and Micron, and foundry capacity reserved years in advance.</p>
+      <p>Each of those positions &mdash; the TSMC packaging allocation, the China export-license negotiations with Commerce, the multi-hundred-billion-dollar hyperscaler contracts &mdash; was built through Huang's direct, personal relationships over a decade, not through replicable institutional process. "Key person risk" is a standard supply-chain category normally applied to sole-source suppliers: a single mine, a single fab. This is the first time it has applied, in full view, to the governance of the company sitting at the center of the chokepoint itself. The board's public position is continuity. What it cannot assert is that relationships inherited by a not-yet-named permanent CEO perform identically to ones personally built over 33 years.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Nvidia sits at the center of the entire AI chip supply chain, and its board just discovered, in real time, how much of that position was never actually institutional.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> A chokepoint company losing the one person who personally held its supplier, customer, and regulatory relationships together is a live test of whether "key person risk" can be managed at the scale the AI boom now runs on.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm" target="_blank" rel="noopener">Nvidia 8-K filing, SEC EDGAR &mdash; "Nvidia Announces CEO Transition"</a></li>
+    <li><a href="https://sfstandard.com/2026/11/12/nvidia-ceo-jensen-huang-resigns/" target="_blank" rel="noopener">The San Francisco Standard &mdash; "Nvidia CEO Jensen Huang Resigns"</a></li>
+    <li><a href="https://wccftech.com/nvidia-alone-has-tsmc-advanced-packaging-lines-booked-for-several-years-ahead/" target="_blank" rel="noopener">Wccftech &mdash; "Nvidia Alone Has TSMC's Advanced Packaging Lines Booked for Several Years Ahead"</a></li>
+    <li><a href="https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2026/default.aspx" target="_blank" rel="noopener">Nvidia Investor Relations &mdash; Q3 Fiscal 2026 Financial Results</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var HUB = { x: 320, y: 195 };
+    var NODES = [
+      {
+        x: 320, y: 45, label1: 'TSMC',
+        stat: '70%+ CoWoS-L share*',
+        note: 'Huang personally pushed TSMC, years in advance, to triple its advanced chip-packaging lines for Nvidia. Separate estimates reported by Wccftech and DigiTimes put Nvidia\'s claim on TSMC\'s CoWoS-L packaging capacity at <strong>over 70%</strong>, with 2026 bookings cited anywhere from 678,000 to 850,000 wafers &mdash; leaving little room for AMD or Broadcom.'
+      },
+      {
+        x: 462.7, y: 148.7, label1: 'HBM Memory',
+        stat: 'Lead times run into 2027',
+        note: 'Nvidia\'s chip roadmap (Blackwell, the upcoming Rubin) sets the demand signal the entire high-bandwidth-memory industry plans multi-year fabs around &mdash; a signal Huang set in person, on earnings calls and site visits, not through a standing institutional process.'
+      },
+      {
+        x: 408.1, y: 316.3, label1: 'Hyperscalers',
+        stat: '"$500B" revenue visibility thru CY2026*',
+        note: 'Many of the largest AI-compute contracts of the past two years were personally announced, and reportedly negotiated, by Huang. Kress, then CFO, told investors in November 2025 that Nvidia had <strong>visibility to roughly $500 billion</strong> in combined Blackwell-and-Rubin revenue through the end of calendar 2026.'
+      },
+      {
+        x: 231.9, y: 316.3, label1: 'US Commerce',
+        stat: 'Repeated direct DC / Beijing talks',
+        note: 'Huang flew to Washington and Beijing repeatedly to negotiate which Nvidia chips could legally ship into China &mdash; a relationship built over a decade of direct, personal diplomacy, not a repeatable department process.'
+      },
+      {
+        x: 177.3, y: 148.7, label1: 'Wall Street',
+        stat: 'Shares fell ~12&ndash;14% intraday, Nov 12',
+        note: 'Huang\'s personal credibility had underwritten investor confidence in the entire AI-capex cycle. Nvidia shares fell as much as roughly <strong>12&ndash;14% intraday</strong> the morning the resignation was announced, on top of weeks of AI-bubble jitters.'
+      }
+    ];
+
+    var nodeGroups = Array.prototype.slice.call(document.querySelectorAll('.node-group'));
+    var edgeLines = Array.prototype.slice.call(document.querySelectorAll('.edge-line'));
+    var pulseDot = document.getElementById('pulse-dot');
+    var prevBtn = document.getElementById('hub-prev');
+    var nextBtn = document.getElementById('hub-next');
+    var runBtn = document.getElementById('hub-run');
+    var resetBtn = document.getElementById('hub-reset');
+    var statStop = document.getElementById('stat-stop');
+    var statNode = document.getElementById('stat-node');
+    var statFigure = document.getElementById('stat-figure');
+    var statMapped = document.getElementById('stat-mapped');
+    var explain = document.getElementById('hub-explain');
+    var synthesis = document.getElementById('hub-synthesis');
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var current = -1;
+    var visited = [false, false, false, false, false];
+    var runHandle = null;
+    var pulseAnim = null;
+
+    function tally() {
+      var n = 0;
+      for (var i = 0; i < visited.length; i++) if (visited[i]) n++;
+      return n;
+    }
+
+    function updateVisuals() {
+      nodeGroups.forEach(function (g, i) {
+        g.setAttribute('aria-pressed', String(i === current));
+        g.classList.toggle('visited', visited[i]);
+      });
+      edgeLines.forEach(function (line, i) {
+        line.classList.toggle('active', i === current);
+        line.classList.toggle('visited', visited[i]);
+      });
+    }
+
+    function renderStats() {
+      statMapped.textContent = tally() + '/5';
+      if (current >= 0) {
+        statStop.textContent = (current + 1) + '/5';
+        statNode.textContent = NODES[current].label1;
+        statFigure.innerHTML = NODES[current].stat;
+        explain.innerHTML = NODES[current].note;
+      } else {
+        statStop.textContent = '—';
+        statNode.textContent = '—';
+        statFigure.textContent = '—';
+        explain.textContent = 'Click a node, or press Next, to see how it ties to Nvidia.';
+      }
+      synthesis.style.display = tally() === 5 ? 'block' : 'none';
+    }
+
+    function animatePulse(tx, ty) {
+      if (pulseAnim) cancelAnimationFrame(pulseAnim);
+      var start = performance.now();
+      var duration = 450;
+      pulseDot.style.opacity = '1';
+      function step(now) {
+        var frac = Math.min(1, (now - start) / duration);
+        pulseDot.setAttribute('cx', HUB.x + (tx - HUB.x) * frac);
+        pulseDot.setAttribute('cy', HUB.y + (ty - HUB.y) * frac);
+        if (frac < 1) {
+          pulseAnim = requestAnimationFrame(step);
+        } else {
+          pulseAnim = null;
+          pulseDot.style.opacity = '0';
+          pulseDot.setAttribute('cx', HUB.x);
+          pulseDot.setAttribute('cy', HUB.y);
+        }
+      }
+      pulseAnim = requestAnimationFrame(step);
+    }
+
+    function selectNode(i) {
+      current = i;
+      visited[i] = true;
+      updateVisuals();
+      renderStats();
+      if (!prefersReducedMotion) {
+        animatePulse(NODES[i].x, NODES[i].y);
+      }
+    }
+
+    function stopRun() {
+      if (runHandle) {
+        clearInterval(runHandle);
+        runHandle = null;
+        runBtn.textContent = '▶ Run all';
+      }
+    }
+
+    nodeGroups.forEach(function (g, i) {
+      g.addEventListener('click', function () { stopRun(); selectNode(i); });
+      g.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); stopRun(); selectNode(i); }
+      });
+    });
+
+    prevBtn.addEventListener('click', function () {
+      stopRun();
+      selectNode(current <= 0 ? 4 : current - 1);
+    });
+    nextBtn.addEventListener('click', function () {
+      stopRun();
+      selectNode(current < 0 ? 0 : (current + 1) % 5);
+    });
+
+    function runAll() {
+      if (runHandle) { stopRun(); return; }
+      if (prefersReducedMotion) {
+        for (var k = 0; k < 5; k++) visited[k] = true;
+        current = 4;
+        updateVisuals();
+        renderStats();
+        return;
+      }
+      runBtn.textContent = '⏸ Pause';
+      var i = (current + 1) % 5;
+      selectNode(i);
+      runHandle = setInterval(function () {
+        i = (i + 1) % 5;
+        selectNode(i);
+        if (i === 4) stopRun();
+      }, 1200);
+    }
+    runBtn.addEventListener('click', runAll);
+
+    resetBtn.addEventListener('click', function () {
+      stopRun();
+      current = -1;
+      visited = [false, false, false, false, false];
+      pulseDot.style.opacity = '0';
+      pulseDot.setAttribute('cx', HUB.x);
+      pulseDot.setAttribute('cy', HUB.y);
+      updateVisuals();
+      renderStats();
+    });
+
+    if (prefersReducedMotion) {
+      for (var k0 = 0; k0 < 5; k0++) visited[k0] = true;
+      current = 0;
+    }
+    updateVisuals();
+    renderStats();
+  })();
+</script>
+</body>
+</html>
