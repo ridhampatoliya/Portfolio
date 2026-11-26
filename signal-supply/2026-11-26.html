@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-26","category":"CARGO SECURITY","headline":"AI Hardware Thefts Have Topped $150 Million This Year. 92% of the Heists Never Broke a Single Lock","summary":"Thieves stole more than $150M in AI servers and GPUs from U.S. freight this year — 92% of it through forged carrier identities and double-brokering, not break-ins. One ring even grabbed two Nvidia-branded trailers in October and found only sand.","whyItMatters":"The AI buildout's most exposed link isn't the fab, the export rule, or the GPU itself — it's the thirty seconds a freight broker spends checking a number in a database before handing cargo to whoever's holding it."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; The $150M AI Cargo Heist</title>
+<meta name="description" content="More than $150 million in AI servers and GPUs has been stolen from U.S. freight this year. 92% of it never involved a broken lock &mdash; just a forged carrier identity." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b8502f;
+    --accent-a-tint: #f7e4da;
+    --accent-b: #1f6e72;
+    --accent-b-tint: #dbeceb;
+    --shadow: 0 1px 2px rgba(20, 22, 26, 0.04), 0 8px 24px rgba(20, 22, 26, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #ef8a5c;
+      --accent-a-tint: #3a2013;
+      --accent-b: #5fb8bb;
+      --accent-b-tint: #122826;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #ef8a5c;
+    --accent-a-tint: #3a2013;
+    --accent-b: #5fb8bb;
+    --accent-b-tint: #122826;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b8502f;
+    --accent-a-tint: #f7e4da;
+    --accent-b: #1f6e72;
+    --accent-b-tint: #dbeceb;
+    --shadow: 0 1px 2px rgba(20, 22, 26, 0.04), 0 8px 24px rgba(20, 22, 26, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: anatomy of a double-brokered heist --- */
+  .pv-header { margin-bottom: 4px; }
+  .pv-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .pv-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .pv-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 10px;
+  }
+  #pv-svg { display: block; width: 100%; height: auto; }
+
+  .pv-track { stroke: var(--border); stroke-width: 3; }
+  .pv-track-fill { stroke: var(--accent-b); stroke-width: 3; stroke-linecap: round; transition: stroke-dashoffset 0.35s ease; }
+
+  .pv-node { cursor: pointer; }
+  .pv-circle {
+    fill: var(--surface);
+    stroke: var(--border);
+    stroke-width: 2;
+    transition: fill 0.2s, stroke 0.2s, stroke-width 0.2s;
+  }
+  .pv-node[aria-pressed="true"] .pv-circle {
+    fill: var(--accent-b-tint);
+    stroke: var(--accent-b);
+    stroke-width: 3;
+  }
+  .pv-node.visited .pv-circle { stroke: var(--accent-b); }
+  .pv-node:focus-visible .pv-circle { stroke: var(--accent-b); stroke-width: 3; }
+  .pv-node.weak .pv-circle { stroke: var(--accent-a); stroke-width: 2.5; stroke-dasharray: 4 3; }
+  .pv-node.weak[aria-pressed="true"] .pv-circle { fill: var(--accent-a-tint); stroke: var(--accent-a); stroke-dasharray: none; stroke-width: 3; }
+  .pv-num { font: 800 13px ui-monospace, Menlo, monospace; fill: var(--ink); text-anchor: middle; }
+  .pv-label1 { font: 700 12px system-ui, sans-serif; fill: var(--ink); text-anchor: middle; }
+  .pv-label2 { font: 400 8.5px ui-monospace, Menlo, monospace; fill: var(--muted); text-anchor: middle; }
+  .pv-node.weak .pv-label2 { fill: var(--accent-a); font-weight: 700; }
+
+  .pv-controls {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .pv-btn {
+    border: 1px solid var(--accent-b);
+    background: transparent;
+    color: var(--accent-b);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .pv-btn.primary { background: var(--accent-b); color: #fff; border-color: var(--accent-b); }
+
+  .pv-stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .pv-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 10px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .pv-stat-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  .pv-stat-value {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .pv-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 3.2em;
+  }
+  .pv-note strong { color: var(--accent-a); }
+
+  .pv-synthesis {
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--accent-a-tint);
+    color: var(--ink);
+    font-size: 12.5px;
+    line-height: 1.6;
+    display: none;
+  }
+  .pv-synthesis strong { color: var(--accent-a); }
+
+  @media (max-width: 480px) {
+    .pv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 26, 2026</span>
+    <span class="category-chip">CARGO SECURITY</span>
+  </div>
+  <h1>AI Hardware Thefts Have Topped $150 Million This Year. 92% of the Heists Never Broke a Single Lock.</h1>
+  <p class="lede">Cargo-security firm Overhaul has tracked more than $150 million in stolen AI servers, GPUs, and data-center gear in 2026 &mdash; and in 92% of the high-value cases it analyzed, nobody cut a fence or picked a lock. They forged a name on a piece of paper.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    The AI buildout's most exposed link isn't the fab, the export-control rule, or the GPU die itself &mdash; it's the thirty seconds a freight broker spends checking a registration number in a database before handing a $2 million trailer to whoever shows up holding the paperwork.
+  </div>
+
+  <div class="card pv-visual-wrap-outer">
+    <div class="pv-header">
+      <h2 class="pv-title">Step through how a double-brokered AI-cargo heist actually works.</h2>
+      <p class="pv-caption mono">Illustrative example load, not a specific reported case. Dollar figures and the fraud-share stat are reported by cargo-security firm Overhaul's AI Infrastructure Intel Report (Oct. 21, 2026) &mdash; see sources. Stage 3 is marked as the structural weak point: it's an identity check, not a physical one.</p>
+    </div>
+
+    <div class="pv-wrap">
+      <svg id="pv-svg" viewBox="0 0 680 220" role="group" aria-label="A five-stage pipeline showing how a double-brokered cargo theft of AI hardware unfolds, from posting a load to reselling the stolen gear.">
+        <line class="pv-track" x1="80" y1="110" x2="600" y2="110"></line>
+        <line class="pv-track-fill" id="pv-fill" x1="80" y1="110" x2="600" y2="110" stroke-dasharray="520" stroke-dashoffset="520"></line>
+
+        <g class="pv-node" tabindex="0" role="button" aria-pressed="false" aria-label="Stage 1: Post the load on a digital freight marketplace" data-index="0">
+          <circle class="pv-circle" cx="80" cy="110" r="32"></circle>
+          <text class="pv-num" x="80" y="104">1</text>
+          <text class="pv-label1" x="80" y="160">POST</text>
+          <text class="pv-label2" x="80" y="172">Load board</text>
+        </g>
+        <g class="pv-node" tabindex="0" role="button" aria-pressed="false" aria-label="Stage 2: Fraud ring impersonates a real carrier's registration" data-index="1">
+          <circle class="pv-circle" cx="210" cy="110" r="32"></circle>
+          <text class="pv-num" x="210" y="104">2</text>
+          <text class="pv-label1" x="210" y="160">IMPERSONATE</text>
+          <text class="pv-label2" x="210" y="172">Stolen MC #</text>
+        </g>
+        <g class="pv-node weak" tabindex="0" role="button" aria-pressed="false" aria-label="Stage 3: Broker assigns the load after an identity check that cannot confirm who actually shows up. This is the weak link." data-index="2">
+          <circle class="pv-circle" cx="340" cy="110" r="32"></circle>
+          <text class="pv-num" x="340" y="104">3</text>
+          <text class="pv-label1" x="340" y="160">ASSIGN</text>
+          <text class="pv-label2" x="340" y="172">&#9888; Weak link</text>
+        </g>
+        <g class="pv-node" tabindex="0" role="button" aria-pressed="false" aria-label="Stage 4: Load is picked up, then the truck goes dark" data-index="3">
+          <circle class="pv-circle" cx="470" cy="110" r="32"></circle>
+          <text class="pv-num" x="470" y="104">4</text>
+          <text class="pv-label1" x="470" y="160">VANISH</text>
+          <text class="pv-label2" x="470" y="172">Transponder off</text>
+        </g>
+        <g class="pv-node" tabindex="0" role="button" aria-pressed="false" aria-label="Stage 5: Hardware resurfaces on resale markets" data-index="4">
+          <circle class="pv-circle" cx="600" cy="110" r="32"></circle>
+          <text class="pv-num" x="600" y="104">5</text>
+          <text class="pv-label1" x="600" y="160">RESELL</text>
+          <text class="pv-label2" x="600" y="172">Gray market</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="pv-controls">
+      <button type="button" class="pv-btn" id="pv-prev">&#8592; Prev</button>
+      <button type="button" class="pv-btn" id="pv-next">Next &#8594;</button>
+      <button type="button" class="pv-btn primary" id="pv-run">&#9654; Run all</button>
+      <button type="button" class="pv-btn" id="pv-reset">&#8634; Reset</button>
+    </div>
+
+    <div class="pv-stats">
+      <div class="pv-stat">
+        <span class="pv-stat-label mono">STAGE</span>
+        <span class="pv-stat-value tabular" id="stat-stage">&mdash;</span>
+      </div>
+      <div class="pv-stat">
+        <span class="pv-stat-label mono">NAME</span>
+        <span class="pv-stat-value" id="stat-name">&mdash;</span>
+      </div>
+      <div class="pv-stat">
+        <span class="pv-stat-label mono">FIGURE</span>
+        <span class="pv-stat-value tabular" id="stat-figure">&mdash;</span>
+      </div>
+      <div class="pv-stat">
+        <span class="pv-stat-label mono">STAGES SEEN</span>
+        <span class="pv-stat-value tabular" id="stat-seen">0/5</span>
+      </div>
+    </div>
+
+    <div class="pv-note" id="pv-explain" aria-live="polite">Click stage 1, or press Next, to walk through the heist.</div>
+    <div class="pv-synthesis" id="pv-synthesis"><strong>All five stages, mapped.</strong> Only one of them &mdash; stage 3 &mdash; is a physical security problem that better locks or armed escorts would fix. The other four are a paperwork and verification problem, which is exactly why Overhaul found deception, not force, in 92% of the high-value tech-shipment thefts it analyzed this year.</div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Picture a moving scam, not a break-in. A company needs to ship a trailer full of AI servers from Dallas to Reno, worth a couple of million dollars, so it posts the job on a digital freight marketplace &mdash; basically a job board for trucking. A legitimate hauler bids the market rate and picks it up. But so can someone who isn't a hauler at all: a fraud ring that has "borrowed" a real, dormant trucking company's government registration number &mdash; the trucking world's version of a stolen ID &mdash; and uses it to underbid everyone else and grab the job fast.</p>
+      <p>The freight broker handing out the load checks that registration number against an online government database, confirms it's active and insured, and awards the job. What that quick check can't confirm is who actually shows up to drive. A driver working for the fraud ring arrives, loads the cargo, signs the paperwork, and then simply disappears: tracker switched off, truck never arrives where it's supposed to. The servers resurface later on resale markets, often overseas, selling for roughly double what they cost new.</p>
+      <p>It's called double-brokering, and in 2026 it's the single biggest reason AI hardware vanishes before it reaches a data center: more than $150 million worth so far, according to the freight-security firm Overhaul, with 92% of cases involving a forged identity rather than a broken lock. One group even stole two Nvidia-branded trailers in October, purely because of the logo on the side, and got away with 20,000 pounds of sand.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>The freight-brokerage system runs on a verification shortcut that scales well for honest shippers and terribly against fraud. A legitimate carrier registers for FMCSA operating authority &mdash; a Motor Carrier (MC) number &mdash; checkable for free in the public SAFER database for active status, insurance filings, and safety rating. Brokers treat a clean SAFER record as sufficient proof of identity. "Double brokering" exploits the gap between that record and physical reality: a fraud ring obtains or clones a real, often-dormant carrier's MC number and insurance paperwork, bids below market on a load posted to a digital load board, and gets it assigned by a broker who has verified the number but never the person standing in the lot. The Transportation Intermediaries Association has documented loads re-brokered through three or four intermediaries before the cargo reaches whoever actually moves it, and FMCSA has told Congress it still lacks the data and civil-penalty authority to police the practice systematically.</p>
+      <p>Overhaul's AI Infrastructure Intel Report, released October 21, 2026, quantifies how disproportionately AI hardware draws this treatment: over $150 million in data-center equipment, compute components, and chips stolen in cargo transit so far this year, up 34% since 2024, with deception &mdash; fraudulent carrier identities, double-brokering, spoofed dispatch communications, falsified bills of lading &mdash; present in 92% of the high-value technology-shipment thefts it analyzed. The company reports the largest single case topped $100 million, and that for every dollar of stolen hardware that lands on an insurance claim, roughly three more dollars are lost to costs that never appear on one: production schedule slips, compliance exposure, rush-ordered replacement freight. The incentive math is blunt &mdash; a single populated AI server rack can run close to $3 million, against the same unverified handoff and the same fraud effort a trailer of ordinary consumer electronics would take.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> The AI buildout's most exposed link isn't the fab, the export rule, or the GPU itself &mdash; it's the thirty seconds a broker spends checking a number in a database before handing cargo to whoever's holding it.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Identity-verification gaps in domestic freight brokerage, not export-control evasion or physical hijacking, are now the dominant loss vector for AI hardware in transit &mdash; a risk category most chip and server buyers aren't underwriting for.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.datacenterdynamics.com/en/news/theft-of-ai-equipment-hits-150m-in-2026-with-fraud-responsible-for-92-of-incidents-report/" target="_blank" rel="noopener">DataCenterDynamics &mdash; "Theft of AI equipment hits $150m in 2026, with fraud responsible for 92% of incidents"</a></li>
+    <li><a href="https://www.prnewswire.com/news-releases/more-than-150-million-in-ai-equipment-stolen-this-year-overhaul-report-finds-302915432.html" target="_blank" rel="noopener">PR Newswire / Overhaul &mdash; "More Than $150 Million in AI Equipment Stolen This Year, Overhaul Report Finds"</a></li>
+    <li><a href="https://fortune.com/2026/10/01/nvidia-branded-truck-20000-pounds-sand-stolen-ai-cargo-theft-plusai/" target="_blank" rel="noopener">Fortune &mdash; "Thieves stole an Nvidia-branded truck filled with just 20,000 pounds of sand"</a></li>
+    <li><a href="https://www.freightwaves.com/news/freight-fraud-burgeoning-double-brokering-scheme-like-game-of-whack-a-mole" target="_blank" rel="noopener">FreightWaves &mdash; "Freight fraud: Burgeoning double-brokering scheme like 'whack-a-mole'"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var STAGES = [
+      {
+        name: 'POST', figure: '$2.1M declared value*',
+        note: 'A shipper posts a load &mdash; say, 42 AI servers headed from Dallas to Reno &mdash; on a digital freight marketplace. Any registered carrier can see it and bid.'
+      },
+      {
+        name: 'IMPERSONATE', figure: 'Underbid 10&ndash;20%*',
+        note: 'A fraud ring obtains or clones a real, often-dormant carrier\'s Motor Carrier (MC) registration number, then underbids the market rate to win the load fast.'
+      },
+      {
+        name: 'ASSIGN', figure: 'Verified in minutes',
+        note: '<strong>The weak link.</strong> The broker checks the MC number in the public FMCSA SAFER database &mdash; valid, insured, clean safety record &mdash; and awards the load. That check confirms a registration number is real. It cannot confirm who is actually going to show up and drive.'
+      },
+      {
+        name: 'VANISH', figure: 'Load diverted',
+        note: 'A driver working for the fraud ring picks up the cargo and signs the bill of lading. Then the truck goes dark &mdash; tracking off, route diverted &mdash; and the AI hardware never reaches Reno.'
+      },
+      {
+        name: 'RESELL', figure: '~3x hidden loss*',
+        note: 'Hardware resurfaces on resale markets, sometimes overseas, often near double its original price. Insurance covers only the declared value; Overhaul estimates roughly $3 more is lost per $1 claimed, in schedule slips, compliance exposure, and rush replacement freight.'
+      }
+    ];
+
+    var nodes = Array.prototype.slice.call(document.querySelectorAll('.pv-node'));
+    var fill = document.getElementById('pv-fill');
+    var prevBtn = document.getElementById('pv-prev');
+    var nextBtn = document.getElementById('pv-next');
+    var runBtn = document.getElementById('pv-run');
+    var resetBtn = document.getElementById('pv-reset');
+    var statStage = document.getElementById('stat-stage');
+    var statName = document.getElementById('stat-name');
+    var statFigure = document.getElementById('stat-figure');
+    var statSeen = document.getElementById('stat-seen');
+    var explain = document.getElementById('pv-explain');
+    var synthesis = document.getElementById('pv-synthesis');
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var current = -1;
+    var visited = [false, false, false, false, false];
+    var runHandle = null;
+    var TRACK_LEN = 520;
+
+    function tally() {
+      var n = 0;
+      for (var i = 0; i < visited.length; i++) if (visited[i]) n++;
+      return n;
+    }
+
+    function updateVisuals() {
+      nodes.forEach(function (g, i) {
+        g.setAttribute('aria-pressed', String(i === current));
+        g.classList.toggle('visited', visited[i]);
+      });
+      var frac = current < 0 ? 0 : current / (nodes.length - 1);
+      fill.setAttribute('stroke-dashoffset', String(TRACK_LEN - TRACK_LEN * frac));
+    }
+
+    function renderStats() {
+      statSeen.textContent = tally() + '/5';
+      if (current >= 0) {
+        statStage.textContent = (current + 1) + '/5';
+        statName.textContent = STAGES[current].name;
+        statFigure.innerHTML = STAGES[current].figure;
+        explain.innerHTML = STAGES[current].note;
+      } else {
+        statStage.textContent = '—';
+        statName.textContent = '—';
+        statFigure.textContent = '—';
+        explain.textContent = 'Click stage 1, or press Next, to walk through the heist.';
+      }
+      synthesis.style.display = tally() === 5 ? 'block' : 'none';
+    }
+
+    function selectStage(i) {
+      current = i;
+      visited[i] = true;
+      updateVisuals();
+      renderStats();
+    }
+
+    function stopRun() {
+      if (runHandle) {
+        clearInterval(runHandle);
+        runHandle = null;
+        runBtn.textContent = '▶ Run all';
+      }
+    }
+
+    nodes.forEach(function (g, i) {
+      g.addEventListener('click', function () { stopRun(); selectStage(i); });
+      g.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); stopRun(); selectStage(i); }
+      });
+    });
+
+    prevBtn.addEventListener('click', function () {
+      stopRun();
+      selectStage(current <= 0 ? 4 : current - 1);
+    });
+    nextBtn.addEventListener('click', function () {
+      stopRun();
+      selectStage(current < 0 ? 0 : (current + 1) % 5);
+    });
+
+    function runAll() {
+      if (runHandle) { stopRun(); return; }
+      if (prefersReducedMotion) {
+        for (var k = 0; k < 5; k++) visited[k] = true;
+        current = 4;
+        updateVisuals();
+        renderStats();
+        return;
+      }
+      runBtn.textContent = '⏸ Pause';
+      var i = (current + 1) % 5;
+      selectStage(i);
+      runHandle = setInterval(function () {
+        i = (i + 1) % 5;
+        selectStage(i);
+        if (i === 4) stopRun();
+      }, 1400);
+    }
+    runBtn.addEventListener('click', runAll);
+
+    resetBtn.addEventListener('click', function () {
+      stopRun();
+      current = -1;
+      visited = [false, false, false, false, false];
+      updateVisuals();
+      renderStats();
+    });
+
+    if (prefersReducedMotion) {
+      for (var k0 = 0; k0 < 5; k0++) visited[k0] = true;
+      current = 0;
+    }
+    updateVisuals();
+    renderStats();
+  })();
+</script>
+</body>
+</html>
