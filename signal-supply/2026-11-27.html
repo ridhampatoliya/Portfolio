@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-27","category":"PARCEL LOGISTICS","headline":"Shipping a Package This Week Costs Up to 80 Cents More Than It Did in October. The Fee Is the Easy Fix — the Robots Are the Real One","summary":"Cyber Week parcel volume can run 74% above a normal week, and carriers are charging up to 80 cents more per package to help flatten it. The quieter fix: UPS now routes two-thirds of its U.S. volume through automated hubs built to survive this exact week without more trucks.","whyItMatters":"The parcel network's two scaling levers — surcharge pricing and automation capex — are the same tools AI data-center buildouts lean on; watching which one a carrier reaches for shows how close to real capacity it's running."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; The Cyber Week Capacity Gap</title>
+<meta name="description" content="Cyber Week parcel volume can run 74% above normal. Carriers are answering with an 80-cent surcharge and a quiet multi-year bet on warehouse robots." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b1480b;
+    --accent-a-tint: #f8e3d2;
+    --accent-b: #1f6f6a;
+    --accent-b-tint: #dcefec;
+    --shadow: 0 1px 2px rgba(20, 22, 26, 0.04), 0 8px 24px rgba(20, 22, 26, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #ff9a52;
+      --accent-a-tint: #3a2411;
+      --accent-b: #57c2ba;
+      --accent-b-tint: #0f2f2c;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #ff9a52;
+    --accent-a-tint: #3a2411;
+    --accent-b: #57c2ba;
+    --accent-b-tint: #0f2f2c;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b1480b;
+    --accent-a-tint: #f8e3d2;
+    --accent-b: #1f6f6a;
+    --accent-b-tint: #dcefec;
+    --shadow: 0 1px 2px rgba(20, 22, 26, 0.04), 0 8px 24px rgba(20, 22, 26, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the capacity gap --- */
+  .cg-header { margin-bottom: 4px; }
+  .cg-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .cg-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .cg-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 18px;
+  }
+  .cg-stage {
+    display: flex;
+    align-items: flex-end;
+    gap: 22px;
+  }
+  .cg-bar-col { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .cg-bar-track {
+    width: 56px;
+    height: 170px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    position: relative;
+    overflow: hidden;
+  }
+  .cg-bar-fill {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0%;
+    background: var(--accent-a);
+    transition: height 0.3s ease, background 0.3s ease;
+  }
+  .cg-bar-fill.calm { background: var(--accent-b); }
+  .cg-bar-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); text-align: center; }
+  .cg-hour { font-size: 13px; font-weight: 800; color: var(--ink); }
+
+  .cg-readouts {
+    flex: 1;
+    min-width: 180px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .cg-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 10px;
+    border-radius: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+  .cg-stat-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+  .cg-stat-value { font-size: 15px; font-weight: 800; color: var(--ink); }
+
+  .cg-controls {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .cg-slider-group { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 220px; }
+  .cg-slider-group label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; }
+  .cg-slider-group input[type="range"] { flex: 1; accent-color: var(--accent-a); }
+  .cg-slider-val { font-weight: 800; font-size: 13px; min-width: 42px; text-align: right; }
+  .cg-btn {
+    border: 1px solid var(--accent-b);
+    background: transparent;
+    color: var(--accent-b);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .cg-btn.primary { background: var(--accent-b); color: #fff; border-color: var(--accent-b); }
+  .cg-toggle {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .cg-toggle[aria-pressed="true"] { background: var(--accent-b-tint); color: var(--accent-b); border-color: var(--accent-b); }
+
+  .cg-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 2.4em;
+  }
+  .cg-note strong { color: var(--accent-a); }
+  .cg-synthesis {
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--accent-b-tint);
+    color: var(--ink);
+    font-size: 12.5px;
+    line-height: 1.6;
+    display: none;
+  }
+  .cg-synthesis strong { color: var(--accent-b); }
+
+  @media (max-width: 480px) {
+    .cg-stage { flex-direction: column; align-items: center; }
+    .cg-bar-track { width: 56px; height: 140px; }
+    .cg-readouts { grid-template-columns: repeat(2, 1fr); width: 100%; }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 27, 2026</span>
+    <span class="category-chip">PARCEL LOGISTICS</span>
+  </div>
+  <h1>Shipping a Package This Week Costs Up to 80 Cents More Than It Did in October. The Fee Is the Easy Fix &mdash; the Robots Are the Real One.</h1>
+  <p class="lede">Cyber Week &mdash; the stretch from Thanksgiving through Cyber Monday &mdash; is forecast to carry roughly 74% more parcels than an average week, with Cyber Monday the single busiest shipping day of the year. Carriers are meeting that surge with a temporary per-package surcharge and, less visibly, a years-long bet on warehouse robots.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    A parcel network can't build a bigger highway for four weeks a year, so it reaches for the two levers every capacity-constrained system has: charge more to flatten the surge, and automate the nodes that would otherwise need a seasonal army it can't efficiently hire. The fee on your box is the lever you can see. The robot is the one you can't.
+  </div>
+
+  <div class="card">
+    <div class="cg-header">
+      <h2 class="cg-title">Drag the demand surge. Toggle automation. Watch the backlog.</h2>
+      <p class="cg-caption mono">Simplified model, illustrative only: a network with a fixed baseline capacity of 100 packages/hour faces a steady demand surge for 12 simulated hours. "Automation ON" assumes a representative +35% throughput boost &mdash; a simplifying assumption, not an official per-robot figure (neither UPS nor FedEx publishes one). Real daily demand and capacity both vary by hour, region and facility.</p>
+    </div>
+
+    <div class="cg-wrap">
+      <div class="cg-stage">
+        <div class="cg-bar-col">
+          <div class="cg-bar-track" role="img" aria-label="Backlog level bar, fills as unprocessed packages pile up">
+            <div class="cg-bar-fill" id="cg-fill"></div>
+          </div>
+          <span class="cg-bar-label">BACKLOG</span>
+          <span class="cg-hour tabular" id="cg-hour">Hour 0/12</span>
+        </div>
+        <div class="cg-readouts">
+          <div class="cg-stat">
+            <span class="cg-stat-label mono">DEMAND/HR</span>
+            <span class="cg-stat-value tabular" id="cg-demand">&mdash;</span>
+          </div>
+          <div class="cg-stat">
+            <span class="cg-stat-label mono">CAPACITY/HR</span>
+            <span class="cg-stat-value tabular" id="cg-capacity">&mdash;</span>
+          </div>
+          <div class="cg-stat">
+            <span class="cg-stat-label mono">BACKLOG</span>
+            <span class="cg-stat-value tabular" id="cg-backlog">0</span>
+          </div>
+          <div class="cg-stat">
+            <span class="cg-stat-label mono">EXTRA WAIT</span>
+            <span class="cg-stat-value tabular" id="cg-wait">0.0 hr</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cg-controls">
+        <div class="cg-slider-group">
+          <label for="cg-slider" class="mono">DEMAND SURGE</label>
+          <input type="range" id="cg-slider" min="0" max="90" step="1" value="74" aria-label="Demand surge percentage above baseline" />
+          <span class="cg-slider-val tabular mono" id="cg-slider-val">+74%</span>
+        </div>
+        <button type="button" class="cg-toggle" id="cg-automation" aria-pressed="false">&#9881; Automation: OFF</button>
+        <button type="button" class="cg-btn primary" id="cg-run">&#9654; Run 12 hours</button>
+        <button type="button" class="cg-btn" id="cg-reset">&#8634; Reset</button>
+      </div>
+
+      <div class="cg-note mono" id="cg-note" aria-live="polite">Set a surge, pick automation on or off, then press Run to simulate 12 hours.</div>
+      <div class="cg-synthesis" id="cg-synthesis"><strong>Same surge, two outcomes.</strong> Run it again with automation flipped and compare the backlog. Neither surcharges nor robots eliminate the surge &mdash; they just decide whether it turns into a growing pile of unprocessed boxes or gets cleared within the day.</div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Think about what happens to a highway when an entire city decides to drive to the same mall on the same day. That's roughly what happens to America's package network between Thanksgiving and New Year's &mdash; and this exact week, Cyber Week, is forecast to carry around 74% more packages than a normal week, with Cyber Monday the single busiest shipping day of the year.</p>
+      <p>A delivery network has a fixed capacity, like a highway: so many sorting belts, so many loading docks, so many hours in a shift. When demand spikes that hard for just a few weeks a year, carriers have two basic levers to keep packages from piling up in a warehouse somewhere. One is pricing: temporary "peak season" or "demand" surcharges, stacked on top of normal rates, that both FedEx and the Postal Service are charging on top of your package this exact week &mdash; reportedly up to 80 cents extra per box at the high end, on top of a separate rate increase earlier in the year.</p>
+      <p>The other lever is quieter: building more capacity that only gets fully used a few weeks a year. UPS now routes more than two-thirds of its U.S. volume through buildings with heavy automation &mdash; conveyor sorting, scanning, and, increasingly, robotic arms that unload trucks without a person standing in the trailer. The company says an automated building runs meaningfully cheaper per package, and it opened several more of them and started deploying truck-unloading robots specifically ahead of this season. None of this makes the surge disappear. It just decides whether the surge becomes a longer wait for your package or an invisible cost absorbed by machines that don't need overtime pay.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>A parcel network's real constraint isn't trucks on the road; it's throughput at a small number of fixed-capacity nodes &mdash; induction belts, automated sortation machines, and trailer loading/unloading dock doors &mdash; plus the labor hours to staff them. Demand at those nodes is sharply seasonal: Cyber Week 2026 volumes are forecast around 74% above an average week, with Cyber Monday the single highest-volume day of the year, while headcount, fleet size, and building throughput are planned around the other 48 weeks, not the peak four.</p>
+      <p>Carriers manage that mismatch with two distinct levers, one on each side of the market. On demand: FedEx and UPS layer temporary "demand" or "peak season" surcharges on top of standard rates during defined windows &mdash; FedEx's 2026 window runs Sept. 28 through Jan. 17, 2027, with a "peak-of-peak" rate tier from Nov. 23 to Dec. 27 that is active for this exact mailing week. The U.S. Postal Service added a parallel holiday surcharge (Oct. 4, 2026&ndash;Jan. 17, 2027) stacked on an 8% rate increase from April. These surcharges act less like a cost pass-through and more like congestion pricing: raising the marginal price per package nudges large shippers to pull volume into slower weeks instead, flattening the peak the network actually has to clear.</p>
+      <p>On supply: carriers spent 2026 adding fixed sortation and dock throughput ahead of this week. UPS reports 68.5% of U.S. volume now moves through automated facilities, up from 64% a year earlier, with operating cost per piece running roughly 28% lower in those buildings; it opened four more automated facilities specifically ahead of peak season and began deploying robotic trailer-unloaders from Pickle Robot in the second half of 2026. FedEx is rolling out dual-armed robotic trailer-loading systems at hub facilities on a comparable timeline. Neither company publishes a single "extra throughput per robot" figure, so automation's capacity contribution is directionally real but not precisely quantified in public disclosures &mdash; which is why the simulation above states its +35% figure as an illustrative assumption, not a reported one.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> The AI data-center buildout gets the capacity-crunch headlines, but the humbler parcel network runs on the same two tools every capacity-constrained system reaches for: price the surge, or automate around it.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Surcharge structure and automation capex are both legible proxies for a carrier's real marginal capacity &mdash; useful signal for anyone forecasting freight costs or peak-season service reliability, AI-driven e-commerce logistics included.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.sendcloud.com/blog/black-friday-74-percent-parcel-surge-delivery-promises/" target="_blank" rel="noopener">Sendcloud &mdash; "Black Friday's 74% parcel surge puts Europe's delivery promises under pressure"</a></li>
+    <li><a href="https://supplychaindive.com/news/fedex-unveils-2026-peak-season-fees-higher-home-delivery-prices-loom/828936" target="_blank" rel="noopener">Supply Chain Dive &mdash; "FedEx unveils 2026 peak season fees; higher home delivery prices loom"</a></li>
+    <li><a href="https://www.supplychaindive.com/news/ups-over-two-thirds-of-us-volume-now-handled-by-automated-locations/826477/" target="_blank" rel="noopener">Supply Chain Dive &mdash; "UPS: Over two-thirds of US volume now handled by automated locations"</a></li>
+    <li><a href="https://www.freightwaves.com/news/usps-seeks-demand-surcharge-for-holiday-season-parcel-deliveries" target="_blank" rel="noopener">FreightWaves &mdash; "USPS seeks demand surcharge for holiday season parcel deliveries"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var HOURS = 12;
+    var BASE_CAPACITY = 100;
+    var AUTOMATION_BOOST = 0.35;
+    var WAIT_CAP_HOURS = 6;
+
+    var slider = document.getElementById('cg-slider');
+    var sliderVal = document.getElementById('cg-slider-val');
+    var automationBtn = document.getElementById('cg-automation');
+    var runBtn = document.getElementById('cg-run');
+    var resetBtn = document.getElementById('cg-reset');
+    var fill = document.getElementById('cg-fill');
+    var hourLabel = document.getElementById('cg-hour');
+    var statDemand = document.getElementById('cg-demand');
+    var statCapacity = document.getElementById('cg-capacity');
+    var statBacklog = document.getElementById('cg-backlog');
+    var statWait = document.getElementById('cg-wait');
+    var note = document.getElementById('cg-note');
+    var synthesis = document.getElementById('cg-synthesis');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var automationOn = false;
+    var timer = null;
+    var running = false;
+
+    function demandPerHour() { return Math.round(BASE_CAPACITY * (1 + parseInt(slider.value, 10) / 100)); }
+    function capacityPerHour() { return Math.round(BASE_CAPACITY * (automationOn ? 1 + AUTOMATION_BOOST : 1)); }
+    function updateSliderLabel() { sliderVal.textContent = '+' + slider.value + '%'; }
+
+    function paintBar(backlog, capacity) {
+      var waitHours = capacity > 0 ? backlog / capacity : 0;
+      var pct = Math.max(0, Math.min(100, (waitHours / WAIT_CAP_HOURS) * 100));
+      fill.style.height = pct + '%';
+      fill.classList.toggle('calm', waitHours < 1);
+      statBacklog.textContent = String(Math.round(backlog));
+      statWait.textContent = waitHours.toFixed(1) + ' hr';
+    }
+
+    function stopRun() {
+      if (timer) { clearTimeout(timer); timer = null; }
+      running = false;
+      runBtn.textContent = '▶ Run 12 hours';
+    }
+
+    function resetVisual() {
+      stopRun();
+      hourLabel.textContent = 'Hour 0/' + HOURS;
+      statDemand.textContent = demandPerHour() + '/hr';
+      statCapacity.textContent = capacityPerHour() + '/hr';
+      paintBar(0, capacityPerHour());
+      synthesis.style.display = 'none';
+      note.textContent = 'Set a surge, pick automation on or off, then press Run to simulate ' + HOURS + ' hours.';
+    }
+
+    function finish(finalBacklog, capacity) {
+      var waitHours = capacity > 0 ? finalBacklog / capacity : 0;
+      note.innerHTML = 'After ' + HOURS + ' simulated hours' + (automationOn ? ' with automation ON' : ' with automation OFF') + ', the backlog sits at <strong>' + Math.round(finalBacklog) + '</strong> packages &mdash; about <strong>' + waitHours.toFixed(1) + ' extra hours</strong> of processing behind.';
+      synthesis.style.display = 'block';
+      running = false;
+      runBtn.textContent = '▶ Run 12 hours';
+    }
+
+    function runSim() {
+      if (running) return;
+      running = true;
+      synthesis.style.display = 'none';
+      runBtn.textContent = '⏸ Running…';
+
+      var demand = demandPerHour();
+      var capacity = capacityPerHour();
+      statDemand.textContent = demand + '/hr';
+      statCapacity.textContent = capacity + '/hr';
+
+      if (reduced) {
+        var backlogFinal = 0;
+        for (var h = 1; h <= HOURS; h++) { backlogFinal = Math.max(0, backlogFinal + demand - capacity); }
+        hourLabel.textContent = 'Hour ' + HOURS + '/' + HOURS;
+        paintBar(backlogFinal, capacity);
+        finish(backlogFinal, capacity);
+        return;
+      }
+
+      var hour = 0;
+      var backlog = 0;
+      function step() {
+        hour++;
+        backlog = Math.max(0, backlog + demand - capacity);
+        hourLabel.textContent = 'Hour ' + hour + '/' + HOURS;
+        paintBar(backlog, capacity);
+        if (hour >= HOURS) { finish(backlog, capacity); return; }
+        timer = setTimeout(step, 220);
+      }
+      step();
+    }
+
+    runBtn.addEventListener('click', runSim);
+    resetBtn.addEventListener('click', resetVisual);
+
+    slider.addEventListener('input', function () {
+      updateSliderLabel();
+      if (reduced) { runSim(); } else { resetVisual(); }
+    });
+
+    automationBtn.addEventListener('click', function () {
+      automationOn = !automationOn;
+      automationBtn.setAttribute('aria-pressed', String(automationOn));
+      automationBtn.textContent = '⚙ Automation: ' + (automationOn ? 'ON' : 'OFF');
+      if (reduced) { runSim(); } else { resetVisual(); }
+    });
+
+    updateSliderLabel();
+    if (reduced) {
+      note.textContent = 'Motion is reduced on this device, showing a static outcome below. Press Run to compute a new one at any time.';
+      runSim();
+    } else {
+      resetVisual();
+    }
+  })();
+</script>
+</body>
+</html>
