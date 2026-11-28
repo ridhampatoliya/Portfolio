@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script type="application/json" id="ss-meta">{"date":"2026-11-28","category":"CHIP CHEMICALS","headline":"The Acid That Cleans Every Chip Wafer Rose About 160% in Price This Year. The War Behind It Was Nowhere Near a Chip Fab — and South Korea's Fix Opens This Quarter","summary":"A war near the Strait of Hormuz spiked sulfuric acid prices roughly 160% in 2026 and triggered a Chinese export ban, while South Korea's chipmakers kept buying a related etching chemical almost entirely from China. A domestic plant meant to ease that dependency opens this quarter.","whyItMatters":"Chip chokepoints aren't only rare earths and lithography machines — tanker-loads of ultra-pure acid got hit by a war-driven shortage and a single-country dependency in the same year."}</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal &amp; Supply &mdash; The Acid Behind Every Chip</title>
+<meta name="description" content="A war near the Strait of Hormuz sent chip-cleaning acid prices up about 160% in 2026, and South Korea still gets most of a related etching chemical from China. A domestic fix opens this quarter." />
+<style>
+  :root {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f7e6d1;
+    --accent-b: #1c6e8c;
+    --accent-b-tint: #dcedf2;
+    --shadow: 0 1px 2px rgba(20, 22, 26, 0.04), 0 8px 24px rgba(20, 22, 26, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0e13;
+      --surface: #141a22;
+      --ink: #eef2f7;
+      --muted: #97a2af;
+      --border: #232c38;
+      --accent-a: #f0a04b;
+      --accent-a-tint: #3a2712;
+      --accent-b: #5fc4e0;
+      --accent-b-tint: #0f2d35;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13;
+    --surface: #141a22;
+    --ink: #eef2f7;
+    --muted: #97a2af;
+    --border: #232c38;
+    --accent-a: #f0a04b;
+    --accent-a-tint: #3a2712;
+    --accent-b: #5fc4e0;
+    --accent-b-tint: #0f2d35;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f5;
+    --surface: #ffffff;
+    --ink: #131820;
+    --muted: #59636f;
+    --border: #dde3ea;
+    --accent-a: #b5651d;
+    --accent-a-tint: #f7e6d1;
+    --accent-b: #1c6e8c;
+    --accent-b-tint: #dcedf2;
+    --shadow: 0 1px 2px rgba(20, 22, 26, 0.04), 0 8px 24px rgba(20, 22, 26, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    body { scroll-behavior: smooth; }
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--accent-b);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .archive-link {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .archive-link:hover { color: var(--ink); }
+
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .toggle button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .category-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-b-tint);
+    color: var(--accent-b);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }
+
+  .callout {
+    background: var(--accent-a-tint);
+    border-left: 3px solid var(--accent-a);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 15px;
+  }
+  .callout .label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--accent-a);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin: 22px 0;
+  }
+
+  .snippet p { max-width: 66ch; margin: 0 0 16px; font-size: 16.5px; }
+  .snippet h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  [data-view="layman"] .sci-only { display: none; }
+  [data-view="sci"] .lay-only { display: none; }
+
+  footer { max-width: 720px; margin: 20px auto 0; padding: 0 20px 60px; }
+  footer .sources-title {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  footer ol { padding-left: 18px; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 14px; }
+  footer a { color: var(--accent-a); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fine-print {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .subscribe-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  /* --- signature visual: the 2026 acid-shock pipeline --- */
+  .cc-header { margin-bottom: 4px; }
+  .cc-title { font-size: 15px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .cc-caption { font-size: 11.5px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+
+  .cc-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 18px;
+  }
+  .cc-rail-wrap { width: 100%; }
+  .cc-rail-labels {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    text-align: center;
+    margin-top: 4px;
+  }
+  .cc-rail-labels span {
+    font-size: 9.5px;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    letter-spacing: 0.02em;
+  }
+  .cc-rail-labels span.active { color: var(--accent-b); font-weight: 700; }
+
+  .cc-stage {
+    margin-top: 18px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .cc-metric {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    min-width: 150px;
+  }
+  .cc-metric-label { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); display: block; margin-bottom: 6px; }
+  .cc-metric-value { font-size: 20px; font-weight: 800; color: var(--accent-b); }
+  .cc-metric-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  .cc-text { flex: 1; min-width: 220px; }
+  .cc-date { font-size: 12px; font-weight: 700; color: var(--accent-a); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: 0.02em; margin-bottom: 4px; }
+  .cc-caption-text { font-size: 14px; line-height: 1.6; color: var(--ink); margin: 0; }
+
+  .cc-controls {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .cc-btn {
+    border: 1px solid var(--accent-b);
+    background: transparent;
+    color: var(--accent-b);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .cc-btn.primary { background: var(--accent-b); color: #fff; border-color: var(--accent-b); }
+  .cc-btn[disabled] { opacity: 0.4; cursor: default; }
+  .cc-step-count { font-size: 11px; color: var(--muted); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; margin-left: auto; }
+
+  @media (max-width: 480px) {
+    .cc-rail-labels span { font-size: 8px; }
+    .cc-stage { flex-direction: column; }
+    .cc-step-count { margin-left: 0; }
+  }
+</style>
+</head>
+<body data-view="layman">
+<div class="topbar">
+  <a class="wordmark" href="/signal-supply/">Signal &amp; Supply</a>
+  <div class="topbar-right">
+    <a class="archive-link" href="/signal-supply/">&larr; Archive</a>
+    <div class="toggle" role="group" aria-label="Reading depth">
+      <button type="button" id="btn-layman" aria-pressed="true">&#x1FAD6; Layman</button>
+      <button type="button" id="btn-sci" aria-pressed="false">&#x1F52C; Scientific</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9680;</button>
+  </div>
+</div>
+
+<main>
+  <div class="eyebrow">
+    <span>November 28, 2026</span>
+    <span class="category-chip">CHIP CHEMICALS</span>
+  </div>
+  <h1>The Acid That Cleans Every Chip Wafer Rose About 160% in Price This Year. The War Behind It Was Nowhere Near a Chip Fab &mdash; and South Korea&rsquo;s Fix Opens This Quarter.</h1>
+  <p class="lede">Before a sliver of silicon becomes an AI chip, it's bathed over and over in acid pure enough that a few stray metal atoms per billion can ruin the wafer. In 2026, a war near the Strait of Hormuz and a single country's grip on a related chemical both squeezed that unglamorous supply chain at once.</p>
+
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    Chip chokepoints aren't only rare earths and lithography machines. They're also tanker-loads of ultra-pure acid, and 2026 showed that supply running through the same kinds of fragile single points &mdash; a war-torn sea lane, one dominant foreign supplier &mdash; that AI hardware already worries about elsewhere.
+  </div>
+
+  <div class="card">
+    <div class="cc-header">
+      <h2 class="cc-title">Step through 2026's acid-supply shock.</h2>
+      <p class="cc-caption mono">Six real, dated waypoints from this year's sulfuric-acid and hydrofluoric-acid supply chain. Prices shown are the specific benchmarks reported at that date (CFR US Gulf sulfuric acid; FOB US Gulf sulfur, the feedstock) &mdash; stages without a confirmed price point show the event only, not an invented number. Not every day in between is captured; this is a simplified timeline of confirmed data points, not a continuous price chart.</p>
+    </div>
+
+    <div class="cc-wrap">
+      <div class="cc-rail-wrap">
+        <svg viewBox="0 0 600 40" width="100%" height="40" role="img" aria-label="Six-stage timeline from February to November 2026">
+          <line x1="40" y1="20" x2="560" y2="20" stroke="var(--border)" stroke-width="2" id="cc-rail-line" />
+          <circle cx="40" cy="20" r="9" id="cc-dot-1" />
+          <circle cx="144" cy="20" r="9" id="cc-dot-2" />
+          <circle cx="248" cy="20" r="9" id="cc-dot-3" />
+          <circle cx="352" cy="20" r="9" id="cc-dot-4" />
+          <circle cx="456" cy="20" r="9" id="cc-dot-5" />
+          <circle cx="560" cy="20" r="9" id="cc-dot-6" />
+        </svg>
+        <div class="cc-rail-labels" id="cc-rail-labels">
+          <span>FEB</span><span>APR 2</span><span>APR 10</span><span>MAY 6</span><span>JUN</span><span>NOV</span>
+        </div>
+      </div>
+
+      <div class="cc-stage">
+        <div class="cc-metric">
+          <span class="cc-metric-label mono">METRIC</span>
+          <span class="cc-metric-value tabular" id="cc-metric-value">&mdash;</span>
+          <div class="cc-metric-sub" id="cc-metric-sub">&nbsp;</div>
+        </div>
+        <div class="cc-text">
+          <div class="cc-date mono" id="cc-date">&mdash;</div>
+          <p class="cc-caption-text" id="cc-caption-text">&nbsp;</p>
+        </div>
+      </div>
+
+      <div class="cc-controls">
+        <button type="button" class="cc-btn" id="cc-prev">&#8592; Prev</button>
+        <button type="button" class="cc-btn primary" id="cc-next">Next &#8594;</button>
+        <button type="button" class="cc-btn" id="cc-reset">&#8634; Reset</button>
+        <span class="cc-step-count mono" id="cc-step-count">1 / 6</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card snippet">
+    <div class="lay-only">
+      <h2>The plain version</h2>
+      <p>Before a sliver of silicon becomes a working AI chip, it gets bathed, over and over, in extremely strong, extremely pure acid. Two of the workhorses are sulfuric acid, which strips away leftover photographic "resist" and grime between manufacturing steps, and hydrofluoric acid, which etches away oxide layers with surgical precision. Neither acid is exotic on its own &mdash; your car battery has sulfuric acid in it &mdash; but the grade a chip fab needs is so pure that a handful of stray metal atoms per billion can ruin a wafer. Making that grade, and shipping it safely, is its own small, concentrated industry.</p>
+      <p>In 2026, that industry got hit from two directions at once. A military conflict around the Strait of Hormuz, a sea lane nowhere near a single chip fab, choked off a big share of the world's sulfur, the raw ingredient sulfuric acid is made from; the price of sulfuric acid landing on the U.S. Gulf Coast rose from about $155 a metric ton in February to roughly $400 by early May. China separately banned sulfuric acid exports for several months, squeezing supply further. At the same time, a different squeeze was building: South Korea's chipmakers, through the specialty chemical companies that refine industrial acid into chip-grade hydrofluoric acid, get the large majority of their raw material from China &mdash; and in May, they had to buy a lot of it at a roughly 40% markup.</p>
+      <p>None of this stopped chip production. It did add real, if usually invisible, cost to every wafer that went through a Samsung or SK hynix fab this year. South Korea's answer &mdash; a new domestic hydrofluoric acid plant in Ulsan &mdash; is scheduled to start mass production this quarter: a small, boring-sounding fix for a chokepoint most people never think about.</p>
+    </div>
+    <div class="sci-only">
+      <h2>The expert version</h2>
+      <p>Advanced-node fabrication is chemically intensive: a leading-edge logic wafer can pass through hundreds of wet-cleaning and etch steps, many using sulfuric acid (H&#8322;SO&#8324;, often as "piranha" mixtures with hydrogen peroxide) to strip photoresist and organic residue, and hydrofluoric acid (HF) to selectively etch silicon dioxide and native oxide layers. Both must be electronic-grade, with metallic-contamination limits down to parts-per-trillion, which restricts production to a small number of qualified specialty-chemical refiners &mdash; among them Formosa Plastics in Taiwan and several Korean and Japanese refiners that import feedstock and purify it to spec.</p>
+      <p>2026 exposed two independent fragilities in that supply chain. First, a military conflict centered on the Strait of Hormuz disrupted Gulf sulfur and sulfuric-acid trade: S&amp;P Global Platts tracked CFR US Gulf sulfuric acid rising from about $155/mt (Feb. 25) to roughly $400/mt (May 6) &mdash; a roughly 158% increase &mdash; while benchmark sulfur (FOB US Gulf) moved from about $650/mt at the war's early-April start past $1,000/mt by midyear. China's own April&ndash;August 2026 export ban on sulfuric acid compounded the shortage before a mid-June US-Iran ceasefire began easing it, though physical supply stayed tight well after prices peaked. Second, and more structurally, South Korean specialty-chemical refiners depend on China for the large majority of the raw anhydrous hydrofluoric acid (AHF) they import and purify into semiconductor-grade HF &mdash; Korean trade press puts the figure near 90% for some refiners, a legacy of Japan's 2019 export restrictions on Korea, which pushed Korean buyers toward Chinese AHF rather than rebuilding domestic capacity. TrendForce reports Korean buyers made large AHF purchases from China in May 2026 at prices roughly 40% above prior levels.</p>
+      <p>The fixes are capital-intensive and slow: Formosa Plastics raised Q3 2026 electronic-grade HF prices while its own capacity expansion isn't due until 2027, and BGF EcoMaterials' Fluorine Korea subsidiary is bringing a 50,000-ton/year AHF plant in Ulsan to mass production this quarter &mdash; the first real dent in Korea's China dependency for this specific input, arriving roughly six years after the vulnerability became visible.</p>
+    </div>
+    <p class="lay-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Chip chokepoints aren't only rare earths and lithography machines &mdash; they're also tanker-loads of acid, and 2026 showed both a war-driven shortage and a single-country dependency hitting the same unglamorous chemicals at once.</p>
+    <p class="sci-only" style="font-size:14px; color:var(--muted);"><strong>Why it matters for tech + supply chain:</strong> Electronic-grade wet-chemical supply is a legible, underwatched input-cost and geopolitical-exposure signal for memory and logic fabs, with direct read-through to Samsung/SK hynix margins and Taiwan's chemical-refining capacity.</p>
+  </div>
+
+  <div class="card subscribe-card">
+    <h2>Get it in your inbox every morning</h2>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/ridham" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/api/emails/embed-subscribe/ridham', 'popupwindow')" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font:inherit;" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit" style="padding:10px 18px;border-radius:8px;border:none;background:var(--accent-a);color:#fff;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="sources-title">Sources</div>
+  <ol>
+    <li><a href="https://www.crugroup.com/en/communities/thought-leadership/2026/middle-east-conflict-pushes-sulphur-and-acid-prices-to-new-heights/" target="_blank" rel="noopener">CRU Group &mdash; "Middle East conflict pushes sulphur and acid prices to new heights"</a></li>
+    <li><a href="https://www.spglobal.com/energy/en/news-research/latest-news/agriculture/050726-global-sulfur-prices-surge-on-middle-east-disruptions-china-export-ban" target="_blank" rel="noopener">S&amp;P Global Commodity Insights &mdash; "Global sulfur prices surge on Middle East disruptions, China export ban"</a></li>
+    <li><a href="https://www.trendforce.com/news/2026/05/19/news-anhydrous-hydrogen-fluoride-supply-tightens-raising-concerns-across-semiconductor-materials-chain/" target="_blank" rel="noopener">TrendForce &mdash; "Anhydrous Hydrogen Fluoride Supply Tightens, Raising Concerns Across Semiconductor Materials Chain"</a></li>
+    <li><a href="https://wccftech.com/hydrofluoric-acid-prices-climb-as-ai-chip-demand-outpaces-a-strained-semiconductor-materials-supply/" target="_blank" rel="noopener">Wccftech &mdash; "Hydrofluoric Acid Prices Climb as AI Chip Demand Outpaces a Strained Semiconductor Materials Supply"</a></li>
+  </ol>
+  <div class="fine-print">Signal &amp; Supply &middot; a daily tech + supply-chain brief &middot; press <span class="mono">v</span> to toggle reading depth</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    var btnLayman = document.getElementById('btn-layman');
+    var btnSci = document.getElementById('btn-sci');
+    var themeBtn = document.getElementById('theme-toggle');
+
+    function setView(view) {
+      root.setAttribute('data-view', view);
+      btnLayman.setAttribute('aria-pressed', String(view === 'layman'));
+      btnSci.setAttribute('aria-pressed', String(view === 'sci'));
+    }
+    function toggleView() {
+      setView(root.getAttribute('data-view') === 'layman' ? 'sci' : 'layman');
+    }
+    btnLayman.addEventListener('click', function () { setView('layman'); });
+    btnSci.addEventListener('click', function () { setView('sci'); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'v' || e.key === 'V') {
+        var tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        toggleView();
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('signal-supply-theme', theme); } catch (e) {}
+    }
+    var stored = null;
+    try { stored = localStorage.getItem('signal-supply-theme'); } catch (e) {}
+    if (stored === 'dark' || stored === 'light') applyTheme(stored);
+
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script>
+  (function () {
+    'use strict';
+
+    var STAGES = [
+      {
+        date: 'FEB 25, 2026 — BASELINE',
+        metricLabel: 'SULFURIC ACID (CFR US GULF)',
+        metricValue: '$155/mt',
+        metricSub: 'Pre-conflict benchmark',
+        text: 'Before the war, the acid Gulf-region chip fabs rely on for wafer cleaning traded near a typical, unremarkable level.'
+      },
+      {
+        date: 'APR 2, 2026 — HORMUZ CONFLICT BEGINS',
+        metricLabel: 'SULFUR (FOB US GULF, FEEDSTOCK)',
+        metricValue: '~$650/mt',
+        metricSub: 'Up from ~$650/mt baseline as fighting starts',
+        text: 'A military conflict near the Strait of Hormuz, a sea lane nowhere close to any chip fab, immediately spiked the price of sulfur — the raw feedstock sulfuric acid is refined from.'
+      },
+      {
+        date: 'APR 10, 2026 — CHINA BANS EXPORTS',
+        metricLabel: 'CHINA SULFURIC ACID EXPORTS',
+        metricValue: 'HALTED',
+        metricSub: 'Ban runs through August 2026',
+        text: 'Beijing halted its own sulfuric-acid exports for months, removing a major alternate source right as Gulf supply was already tightening.'
+      },
+      {
+        date: 'MAY 6, 2026 — PRICE PEAKS',
+        metricLabel: 'SULFURIC ACID (CFR US GULF)',
+        metricValue: '~$400/mt',
+        metricSub: '+158% vs. the Feb. 25 baseline',
+        text: 'Gulf sulfuric acid peaks at roughly 2.6x its pre-war price — a cost that ripples into every wafer-cleaning step at Samsung, SK hynix and TSMC fabs.'
+      },
+      {
+        date: 'MID-JUNE 2026 — CEASEFIRE',
+        metricLabel: 'SHIPPING RISK',
+        metricValue: 'EASING',
+        metricSub: 'Physical supply stays tight longer than prices',
+        text: 'A US-Iran ceasefire calms shipping risk, but analysts note physical acid and sulfur supply normalize only slowly after the price shock.'
+      },
+      {
+        date: 'Q4 2026 — TODAY',
+        metricLabel: 'NEW KOREAN AHF PLANT',
+        metricValue: '50,000 t/yr',
+        metricSub: 'Ulsan, South Korea — mass production targeted this quarter',
+        text: 'Separately, South Korea’s chip-chemical refiners have long bought most of their raw hydrofluoric-acid feedstock from China. A new domestic plant meant to loosen that grip is slated to start mass production this very quarter.'
+      }
+    ];
+
+    var dots = [1, 2, 3, 4, 5, 6].map(function (n) { return document.getElementById('cc-dot-' + n); });
+    var labelSpans = document.querySelectorAll('#cc-rail-labels span');
+    var metricValue = document.getElementById('cc-metric-value');
+    var metricLabel = document.querySelector('.cc-metric-label');
+    var metricSub = document.getElementById('cc-metric-sub');
+    var dateEl = document.getElementById('cc-date');
+    var captionEl = document.getElementById('cc-caption-text');
+    var prevBtn = document.getElementById('cc-prev');
+    var nextBtn = document.getElementById('cc-next');
+    var resetBtn = document.getElementById('cc-reset');
+    var stepCount = document.getElementById('cc-step-count');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var idx = reduced ? STAGES.length - 1 : 0;
+
+    function paintDots() {
+      dots.forEach(function (dot, i) {
+        if (i < idx) {
+          dot.setAttribute('fill', 'var(--accent-a)');
+          dot.setAttribute('r', '7');
+        } else if (i === idx) {
+          dot.setAttribute('fill', 'var(--accent-b)');
+          dot.setAttribute('r', '10');
+        } else {
+          dot.setAttribute('fill', 'var(--surface)');
+          dot.setAttribute('stroke', 'var(--border)');
+          dot.setAttribute('stroke-width', '2');
+          dot.setAttribute('r', '7');
+        }
+      });
+    }
+
+    function render() {
+      var stage = STAGES[idx];
+      metricLabel.textContent = stage.metricLabel;
+      metricValue.textContent = stage.metricValue;
+      metricSub.textContent = stage.metricSub;
+      dateEl.textContent = stage.date;
+      captionEl.textContent = stage.text;
+      stepCount.textContent = (idx + 1) + ' / ' + STAGES.length;
+      labelSpans.forEach(function (span, i) { span.classList.toggle('active', i === idx); });
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === STAGES.length - 1;
+      paintDots();
+    }
+
+    prevBtn.addEventListener('click', function () { if (idx > 0) { idx--; render(); } });
+    nextBtn.addEventListener('click', function () { if (idx < STAGES.length - 1) { idx++; render(); } });
+    resetBtn.addEventListener('click', function () { idx = reduced ? STAGES.length - 1 : 0; render(); });
+
+    render();
+  })();
+</script>
+</body>
+</html>
